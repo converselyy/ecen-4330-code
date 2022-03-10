@@ -1,0 +1,1546 @@
+ecen4330-lab1-code                                                                                                      PAGE 1
+                         1     ; Name          : Brandon Cline
+                         2     ; Class         : ECEN 4330-001
+                         3     ; Date          : 1st February 2022
+                         4     ; code to interface with a matrix keypad and 2x16 LCD display using various 8051 memory functions
+                         5
+                         6     ORG 0
+                         7
+                         8     ; declarations
+  00A0                   9     RS EQU P2.0                                     ; register select pin
+  00A1                  10     RW EQU P2.1                                     ; read/write pin
+  00A2                  11     E  EQU P2.2                                     ; enable pin
+                        12
+0000 758150             13             MOV SP, #50h                    ; set stack pointer
+                        14
+                        15             ; initialise ports
+0003 1135               16             ACALL PORT_INIT
+0005 113C               17             ACALL LCD_INIT
+                        18
+                        19     FIRST_OFF:
+                        20             ; print initial string with course number and name
+0007 1170               21             ACALL LCD_CLEAR
+0009 90016F             22             MOV DPTR, #FIRST
+000C 1162               23             ACALL LCD_STRING
+000E 1170               24             ACALL LCD_CLEAR
+                        25
+                        26             ; print menu
+                        27     FIRST_MENU:
+0010 1170               28             ACALL LCD_CLEAR
+0012 900180             29             MOV DPTR, #MENU1
+0015 1162               30             ACALL LCD_STRING
+0017 117D               31             ACALL LCD_CRLF
+0019 900190             32             MOV DPTR, #MENU2
+001C 1162               33             ACALL LCD_STRING
+001E 8010               34             SJMP MENU_POLL
+                        35
+                        36     SECOND_MENU:
+0020 1170               37             ACALL LCD_CLEAR
+0022 9001A1             38             MOV DPTR, #MENU3
+0025 1162               39             ACALL LCD_STRING
+0027 117D               40             ACALL LCD_CRLF
+0029 9001B0             41             MOV DPTR, #MENU4
+002C 1162               42             ACALL LCD_STRING
+002E 8000               43             SJMP MENU_POLL
+                        44
+                        45     MENU_POLL:
+                        46             ; check first input
+0030 11A2               47             ACALL READ_KP
+0032 020549             48             LJMP CHECK_FIRST
+                        49
+                 =1     50     $INCLUDE (LCD_lib.asm)
+                 =1     51     ; initialises I/O ports for LCD writing
+                 =1     52     PORT_INIT:
+                 =1     53             ;ACALL DELAY
+0035 75A000      =1     54             MOV P2, #00H                    ; LCD control lines as output
+0038 75B000      =1     55             MOV P3, #00H                    ; LCD data lines as output
+                 =1     56
+003B 22          =1     57             RET
+                 =1     58
+                 =1     59     ; initialise LCD
+                 =1     60     LCD_INIT:
+                 =1     61             ;ACALL DELAY
+                 =1     62
+                 =1     63             ; set initial values for read/write and enable pins
+003C C2A1        =1     64             CLR RW
+003E C2A2        =1     65             CLR E
+                 =1     66
+                 =1     67             ; write 38h to LCD 3 times, 2 lines at 5*7 font
+                 =1     68             ;ACALL DELAY
+0040 7438        =1     69             MOV A, #38h
+0042 1186        =1     70             ACALL LCD_CMD
+                 =1     71             ;ACALL DELAY
+0044 1186        =1     72             ACALL LCD_CMD
+                 =1     73             ;ACALL DELAY
+0046 1186        =1     74             ACALL LCD_CMD
+                 =1     75             ;ACALL DELAY
+                 =1     76
+                 =1     77             ; display and cursor on
+0048 740E        =1     78             MOV A, #0Eh
+004A 1186        =1     79             ACALL LCD_CMD
+                 =1     80
+                 =1     81             ; clears LCD
+004C 1170        =1     82             ACALL LCD_CLEAR
+                 =1     83
+                 =1     84             ; shifts cursor right
+004E 7406        =1     85             MOV A, #06h
+0050 1186        =1     86             ACALL LCD_CMD
+                 =1     87
+                 =1     88             ; cursor at line 1, position 0
+0052 7480        =1     89             MOV A, #80h
+0054 1186        =1     90             ACALL LCD_CMD
+                 =1     91
+                 =1     92             ;ACALL DELAY
+                 =1     93
+0056 22          =1     94             RET
+                 =1     95
+                 =1     96     ; writes character to LCD from register A
+                 =1     97     LCD_CHAR:
+0057 F5B0        =1     98             MOV P3, A
+0059 D2A0        =1     99             SETB RS                                 ; set RS for data
+005B C2A1        =1    100             CLR RW                                  ; clear for write
+005D D2A2        =1    101             SETB E                                  ; high enable pulse
+                 =1    102             ;ACALL DELAY
+005F C2A2        =1    103             CLR E                                   ; end high enable pulse
+                 =1    104             ;ACALL DELAY
+                 =1    105
+0061 22          =1    106             RET
+                 =1    107
+                 =1    108     ; writes string to LCD from address pointed to in DPTR
+                 =1    109     LCD_STRING:
+0062 C0E0        =1    110             PUSH 0E0H
+0064 E4          =1    111     S1:     CLR A
+0065 93          =1    112             MOVC A, @A+DPTR                         ; moves byte from code memory for LCD display
+0066 6005        =1    113             JZ EXIT
+0068 1157        =1    114             ACALL LCD_CHAR                          ; writes character to LCD
+006A A3          =1    115             INC DPTR
+006B 80F7        =1    116             SJMP S1
+                 =1    117
+                 =1    118     EXIT:
+006D D0E0        =1    119             POP 0E0H
+006F 22          =1    120             RET
+                 =1    121
+                 =1    122     ; clears LCD
+                 =1    123     LCD_CLEAR:
+0070 C0E0        =1    124             PUSH 0E0H
+0072 7401        =1    125             MOV A, #01h
+0074 1186        =1    126             ACALL LCD_CMD
+0076 7480        =1    127             MOV A, #80H
+0078 1186        =1    128             ACALL LCD_CMD
+007A D0E0        =1    129             POP 0E0H
+007C 22          =1    130             RET
+                 =1    131
+                 =1    132     ; procedure for carriage return/line feed
+                 =1    133     LCD_CRLF:
+                 =1    134             ; push A
+007D C0E0        =1    135             PUSH 0E0H
+007F 74C0        =1    136             MOV A, #0C0H
+0081 1186        =1    137             ACALL LCD_CMD
+                 =1    138
+                 =1    139             ; pop A
+0083 D0E0        =1    140             POP 0E0H
+0085 22          =1    141             RET
+                 =1    142
+                 =1    143     ; sends command to LCD from register A
+                 =1    144     LCD_CMD:
+0086 F5B0        =1    145             MOV P3, A                               ; moves A register into data pins
+0088 C2A0        =1    146             CLR RS                                  ; clears RS for command
+008A C2A1        =1    147             CLR RW                                  ; clear for write
+008C D2A2        =1    148             SETB E                                  ; high enable pulse
+                 =1    149             ;ACALL DELAY
+008E C2A2        =1    150             CLR E                                   ; end high enable pulse
+                 =1    151             ;ACALL DELAY
+                 =1    152
+0090 22          =1    153             RET
+                 =1    154
+                 =1    155     ; delay procedure
+                 =1    156     DELAY:
+0091 C006        =1    157             PUSH 6
+0093 C007        =1    158             PUSH 7
+                 =1    159
+0095 7E32        =1    160             MOV R6, #50
+                 =1    161
+                 =1    162     HERE1:
+0097 7FFF        =1    163             MOV R7, #255
+                 =1    164     HERE2:
+0099 DFFE        =1    165             DJNZ R7, HERE2
+009B DEFA        =1    166             DJNZ R6, HERE1
+009D D007        =1    167             POP 7
+009F D006        =1    168             POP 6
+                 =1    169
+00A1 22          =1    170             RET
+                 =1    171
+                 =1    172     $INCLUDE (read_kp.asm)
+                 =1    173     ; check keypad
+                 =1    174     READ_KP:
+                 =1    175
+                 =1    176             ; contents previously stored in A is now stored at 99H in memory
+00A2 F599        =1    177             MOV 99H, A
+00A4 C007        =1    178             PUSH 7
+00A6 C006        =1    179             PUSH 6
+                 =1    180     ;       PUSH 0
+00A8 C001        =1    181             PUSH 1
+                 =1    182
+00AA 7F04        =1    183             MOV R7, #4                              ; number of rows
+00AC E4          =1    184             CLR A
+                 =1    185
+                 =1    186                     ; index through rows to figure out which row the input is in
+00AD 7401        =1    187     SETUP1: MOV A, #1H
+                 =1    188     ROWS:
+00AF F590        =1    189                     MOV P1, A                       ; make lower nibble an output
+00B1 F50C        =1    190                     MOV 12, A                       ; latch value written to port
+00B3 E590        =1    191                     MOV A, P1                       ; intake row into A
+                 =1    192                     ; if a bit in A is a 0, then a button in that row has been pressed
+00B5 6007        =1    193                     JZ SETUP2
+                 =1    194
+                 =1    195                     ; if not then shift the A register left
+00B7 23          =1    196                     RL A
+                 =1    197
+                 =1    198                     ; and do it again
+00B8 DFF5        =1    199                     DJNZ R7, ROWS
+                 =1    200
+00BA EF          =1    201                     MOV A, R7
+00BB E4          =1    202                     CLR A
+00BC 80EF        =1    203                     JMP SETUP1
+                 =1    204
+00BE 7E04        =1    205     SETUP2: MOV R6, #4                      ; number of columns
+00C0 7410        =1    206                     MOV A, #10H
+                 =1    207                     COLS:
+                 =1    208                             ; index through the columns to figure out which column the input is in
+                 =1    209
+00C2 F590        =1    210                             MOV P1, A               ; make upper nibble an output
+00C4 F50B        =1    211                             MOV 11, A               ; latch value written to port
+00C6 E590        =1    212                             MOV A, P1               ; intake column into A
+00C8 6003        =1    213                             JZ DETERMINE
+                 =1    214
+00CA 23          =1    215                             RL A
+                 =1    216
+00CB DEF5        =1    217                             DJNZ R6, COLS
+                 =1    218                             ; determine what the value of the input is via a LUT
+                 =1    219                                     DETERMINE:
+00CD E50B        =1    220                                             MOV A, 11               ; column
+00CF 450C        =1    221                                             ORL A, 12               ; row
+00D1 F50D        =1    222                                             MOV 13, A
+                 =1    223
+00D3 D001        =1    224                                             POP 1
+                 =1    225     ;                                       POP R0
+00D5 D006        =1    226                                             POP 6
+00D7 D007        =1    227                                             POP 7
+00D9 E599        =1    228                                             MOV A, 99H
+                 =1    229
+00DB 11DE        =1    230                                             ACALL TRANSLATE
+00DD 22          =1    231             RET
+                 =1    232
+                 =1    233     ; procedure to translate the button pressed stored in the A register to a HEX value
+                 =1    234     TRANSLATE:
+00DE 750A00      =1    235             MOV 10, #0                              ; initialise counter
+00E1 90030C      =1    236             MOV DPTR, #KP_LUT
+                 =1    237
+                 =1    238             ; loop through the look up table and use R0 as the counter
+                 =1    239             TRANSLATE_LOOP:
+00E4 E4          =1    240                     CLR A                                   ; clear A reg
+00E5 93          =1    241                     MOVC A, @A+DPTR
+00E6 C3          =1    242                     CLR C                                   ; clear carry
+00E7 950D        =1    243                     SUBB A, 13                              ; check if the counter and pressed button are
+00E9 6005        =1    244                     JZ TRANSLATE_DONE
+                 =1    245
+                 =1    246                     ; later, add a way to prevent an infinite loop. loop back to the beginning and start
+                 =1    247
+00EB A3          =1    248                     INC DPTR
+00EC 050A        =1    249                     INC 10
+00EE 80F4        =1    250                     SJMP TRANSLATE_LOOP
+                 =1    251
+                 =1    252             TRANSLATE_DONE:
+                 =1    253
+00F0 22          =1    254             RET
+                 =1    255
+                 =1    256     $INCLUDE (get_procs.asm)
+                 =1    257     READ_ADDRESS:
+                 =1    258             ; upper nibble stored in R0
+00F1 11A2        =1    259             ACALL READ_KP
+00F3 E50A        =1    260             MOV A, 10
+00F5 C4          =1    261             SWAP A
+00F6 FD          =1    262             MOV R5, A
+00F7 11A2        =1    263             ACALL READ_KP
+00F9 ED          =1    264             MOV A, R5
+                 =1    265             ; starting address stored in R3
+00FA 450A        =1    266             ORL A, 10
+00FC FB          =1    267             MOV R3, A
+                 =1    268
+                 =1    269             ; check if the address is below 50H (SP)
+00FD 9581        =1    270             SUBB A, SP
+00FF 40F0        =1    271             JC READ_ADDRESS
+                 =1    272
+0101 22          =1    273             RET
+                 =1    274
+                 =1    275     LEN:
+                 =1    276             ; print length prompt
+0102 1170        =1    277             ACALL LCD_CLEAR
+0104 90020C      =1    278             MOV DPTR, #LEN_STRING1
+0107 1162        =1    279             ACALL LCD_STRING
+0109 117D        =1    280             ACALL LCD_CRLF
+010B 90021A      =1    281             MOV DPTR, #LEN_STRING2
+010E 1162        =1    282             ACALL LCD_STRING
+                 =1    283
+                 =1    284             ; get length of entries
+0110 11A2        =1    285             ACALL READ_KP
+0112 E50A        =1    286             MOV A, 10
+0114 C4          =1    287             SWAP A
+0115 C0E0        =1    288             PUSH 0E0H
+0117 11A2        =1    289             ACALL READ_KP
+0119 D0E0        =1    290             POP 0E0H
+011B 450A        =1    291             ORL A, 10
+                 =1    292     ;       MOV R0, A
+                 =1    293             ; number of entries stored in 9
+011D F509        =1    294             MOV 9, A
+011F 60E1        =1    295             JZ LEN
+                 =1    296
+0121 22          =1    297             RET
+                 =1    298
+                 =1    299     FIND_DATATYPE:
+                 =1    300             ; print prompt to select size
+0122 1170        =1    301             ACALL LCD_CLEAR
+0124 9001C0      =1    302             MOV DPTR, #DUMP_MENU1
+0127 1162        =1    303             ACALL LCD_STRING
+0129 117D        =1    304             ACALL LCD_CRLF
+012B 9001CE      =1    305             MOV DPTR, #DUMP_MENU2
+012E 1162        =1    306             ACALL LCD_STRING
+                 =1    307
+                 =1    308             ; clear LCD
+0130 1170        =1    309             ACALL LCD_CLEAR
+                 =1    310
+                 =1    311             ; print options for dump size
+0132 1170        =1    312             ACALL LCD_CLEAR
+0134 9001D3      =1    313             MOV DPTR, #DUMP1
+0137 1162        =1    314             ACALL LCD_STRING
+0139 117D        =1    315             ACALL LCD_CRLF
+013B 9001E4      =1    316             MOV DPTR, #DUMP2
+013E 1162        =1    317             ACALL LCD_STRING
+                 =1    318
+                 =1    319             ; read the matrix keypad to determine the user's input for data type
+0140 11A2        =1    320             ACALL READ_KP
+                 =1    321
+                 =1    322             ; user input stored in R0
+                 =1    323             ; if input is 0 - byte
+                 =1    324     ;       PUSH 7 ; why
+0142 C0E0        =1    325             PUSH 0E0H
+0144 E50A        =1    326             MOV A, 10
+0146 6012        =1    327             JZ BBYTE
+                 =1    328
+                 =1    329             ; if input is 1 - word
+0148 7F01        =1    330             MOV R7, #1
+014A E50A        =1    331             MOV A, 10
+014C C3          =1    332             CLR C
+014D 9F          =1    333             SUBB A, R7
+014E 6011        =1    334             JZ WORD
+                 =1    335
+                 =1    336             ; if input is 2 - double word
+0150 7F02        =1    337             MOV R7, #2
+0152 E50A        =1    338             MOV A, 10
+0154 C3          =1    339             CLR C
+0155 9F          =1    340             SUBB A, R7
+0156 6010        =1    341             JZ DOUBLE_WORD
+                 =1    342
+0158 80C8        =1    343     SJMP FIND_DATATYPE
+                 =1    344
+                 =1    345     ; set counter for data dump, register R6 holds the counter
+015A 7E01        =1    346     BBYTE: MOV R6, #1H
+015C 8E08        =1    347             MOV 8, R6
+015E D0E0        =1    348             POP 0E0H
+0160 22          =1    349             RET
+0161 7E02        =1    350     WORD: MOV R6, #2H
+0163 8E08        =1    351             MOV 8, R6
+0165 D0E0        =1    352             POP 0E0H
+0167 22          =1    353             RET
+0168 7E04        =1    354     DOUBLE_WORD: MOV R6, #4H
+016A 8E08        =1    355             MOV 8, R6
+016C D0E0        =1    356             POP 0E0H
+016E 22          =1    357             RET
+                 =1    358
+                 =1    359     $INCLUDE (defined_bytes.asm)
+                 =1    360     ; <---- defined strings ---->
+                 =1    361     ; initial display
+016F 4543454E34  =1    362     FIRST: DB               'ECEN4330 Brandon',0
+     3333302042
+     72616E646F
+     6E00
+                 =1    363
+                 =1    364     ; menu options
+0180 442D44756D  =1    365     MENU1: DB               'D-Dump, A-Check',0
+     702C20412D
+     436865636B
+     00
+0190 422D4D6F76  =1    366     MENU2: DB               'B-Move   <-0 1->',0
+     652020203C
+     2D3020312D
+     3E00
+                 =1    367
+01A1 452D456469  =1    368     MENU3: DB               'E-Edit, F-Find',0
+     742C20462D
+     46696E6400
+01B0 432D436F75  =1    369     MENU4: DB               'C-Count  <-0 1->'
+     6E7420203C
+     2D3020312D
+     3E
+                 =1    370
+                 =1    371     ; dump menu
+01C0 53656C6563  =1    372     DUMP_MENU1: DB  'Select output',0
+     74206F7574
+     70757400
+01CE 73697A6500  =1    373     DUMP_MENU2: DB  'size',0
+                 =1    374     ; dump options
+01D3 2830296279  =1    375     DUMP1: DB               '(0)byte, (1)word',0
+     74652C2028
+     3129776F72
+     6400
+01E4 283229646F  =1    376     DUMP2: DB               '(2)double word',0
+     75626C6520
+     776F726400
+                 =1    377     ; address prompt
+01F3 53656C6563  =1    378     ADD_PROMPT1: DB 'Select address',0
+     7420616464
+     7265737300
+0202 3530682D46  =1    379     ADD_PROMPT2: DB '50h-FFh: ',0
+     46683A2000
+                 =1    380     ; length prompt
+020C 53656C6563  =1    381     LEN_STRING1: DB 'Select number',0
+     74206E756D
+     62657200
+021A 6F6620656E  =1    382     LEN_STRING2: DB 'of entries',0
+     7472696573
+     00
+                 =1    383
+                 =1    384     ; ": "
+0225 3A2000      =1    385     DELIMITER: DB   ': ',0
+                 =1    386     ; arrows
+0228 3C2D462020  =1    387     ARROWS: DB              '<-F          D->',0
+     2020202020
+     202020442D
+     3E00
+                 =1    388     ; edit arrows
+0239 312D457869  =1    389     EARROWS: DB             '1-Exit 0-Cont.',0
+     7420302D43
+     6F6E742E00
+                 =1    390     ; edit prompt
+0248 4E65772062  =1    391     EDIT_PROMPT: DB 'New byte: ',0
+     7974653A20
+     00
+                 =1    392     ; find value prompt
+0253 5768617420  =1    393     FIND_PROMPT1:DB 'What do you want',0
+     646F20796F
+     752077616E
+     7400
+0264 746F206669  =1    394     FIND_PROMPT2:DB 'to find? ',0
+     6E643F2000
+                 =1    395     ; counter string
+026E 496E737461  =1    396     COUNTER: DB             'Instances: ',0
+     6E6365733A
+     2000
+                 =1    397     ; RAM checking
+027A 456E746572  =1    398     BYTE_SEL1: DB   'Enter byte to',0
+     2062797465
+     20746F00
+0288 636865636B  =1    399     BYTE_SEL2: DB   'check: ',0
+     3A2000
+0290 436865636B  =1    400     CHECKING: DB    'Checking RAM...',0
+     696E672052
+     414D2E2E2E
+     00
+02A0 436865636B  =1    401     FINISHCHECK: DB 'Check finished!',0
+     2066696E69
+     7368656421
+     00
+                 =1    402     ; memory check error
+02B0 4D656D6F72  =1    403     MEM_ERROR1: DB  'Memory error at',0
+     7920657272
+     6F72206174
+     00
+02C0 6164647265  =1    404     MEM_ERROR2: DB  'address: ',0
+     73733A2000
+                 =1    405     ; move address prompts
+02CA 53656C6563  =1    406     MOVE_ADD1: DB   'Select src. add.',0
+     7420737263
+     2E20616464
+     2E00
+02DB 53656C6563  =1    407     MOVE_ADD2: DB   'Select des. add.',0
+     7420646573
+     2E20616464
+     2E00
+02EC 4D6F76696E  =1    408     MOVING: DB              'Moving memory...',0
+     67206D656D
+     6F72792E2E
+     2E00
+02FD 4D6F766520  =1    409     MOVE_DONE: DB   'Move finished!',0
+     66696E6973
+     6865642100
+                 =1    410
+                 =1    411     ; look up table for buttons to HEX values
+                 =1    412     ; 0H - FH  0    1        2        3        4    5        6        7        8    9        A        B
+030C 2811214112  =1    413     KP_LUT: DB 28H, 11H, 21H, 41H, 12H, 22H, 42H, 14H, 24H, 44H, 81H, 82H, 84H, 88H, 48H, 18H
+     2242142444
+     8182848848
+     18
+                 =1    414
+                 =1    415     $INCLUDE (check.asm)
+                 =1    416     ; procedure to check RAM's ability to store data
+                 =1    417     CHECK:
+                 =1    418
+                 =1    419     ;       POP 0E0H
+                 =1    420     ;       POP 7
+                 =1    421
+                 =1    422             ; print initial strings
+031C 1170        =1    423             ACALL LCD_CLEAR
+031E 90027A      =1    424             MOV DPTR, #BYTE_SEL1
+0321 1162        =1    425             ACALL LCD_STRING
+0323 900288      =1    426             MOV DPTR, #BYTE_SEL2
+0326 117D        =1    427             ACALL LCD_CRLF
+0328 1162        =1    428             ACALL LCD_STRING
+                 =1    429
+                 =1    430             ; read keypad for upper nibble of HEX value to check
+032A 11A2        =1    431             ACALL READ_KP
+                 =1    432             ; get first nibble
+032C C0E0        =1    433             PUSH 0E0H
+032E E50A        =1    434             MOV A, 10
+0330 C4          =1    435             SWAP A
+0331 F50F        =1    436             MOV 15, A
+                 =1    437             ; read keypad for lower nibble of HEX value
+0333 11A2        =1    438             ACALL READ_KP
+0335 E50F        =1    439             MOV A, 15
+                 =1    440             ; get second nibble
+0337 850AF0      =1    441             MOV B, 10
+033A 45F0        =1    442             ORL A, B
+033C F50F        =1    443             MOV 15, A
+                 =1    444             ; print full byte
+033E D11A        =1    445             ACALL PRINT_BYTE
+0340 D0E0        =1    446             POP 0E0H
+                 =1    447
+                 =1    448             ; HEX byte to check stored in address 15
+                 =1    449
+                 =1    450             ; print waiting screen
+0342 900290      =1    451             MOV DPTR, #CHECKING
+0345 1170        =1    452             ACALL LCD_CLEAR
+0347 1162        =1    453             ACALL LCD_STRING
+                 =1    454
+                 =1    455     ; loop to check all RAM locations from 50h - FFh
+                 =1    456     C1:
+0349 C000        =1    457             PUSH 0
+034B 7850        =1    458             MOV R0, #50H
+                 =1    459
+034D 7161        =1    460             ACALL MEM_CHECK
+                 =1    461
+                 =1    462     INVERT:
+034F B20F        =1    463             CPL 15
+0351 7850        =1    464             MOV R0, #50H
+                 =1    465
+0353 7161        =1    466     C2:     ACALL MEM_CHECK
+                 =1    467
+0355 D000        =1    468             POP 0
+                 =1    469
+                 =1    470             ; display finished message
+0357 9002A0      =1    471             MOV DPTR, #FINISHCHECK
+035A 1170        =1    472             ACALL LCD_CLEAR
+035C 1162        =1    473             ACALL LCD_STRING
+                 =1    474
+035E 80FE        =1    475     L1: SJMP L1
+                 =1    476
+0360 22          =1    477             RET
+                 =1    478
+                 =1    479     MEM_CHECK:
+                 =1    480             ; check if R0 is at FFh
+0361 E8          =1    481             MOV A, R0
+0362 7510FF      =1    482             MOV 16, #0FFH
+0365 C3          =1    483             CLR C
+0366 9510        =1    484             SUBB A, 16
+0368 601C        =1    485             JZ CHECK_DONE
+                 =1    486
+                 =1    487             ; loop and check if the given RAM location can be written to using the HEX byte
+                 =1    488     ;       MOV A, @R0
+036A A60F        =1    489             MOV @R0, 15
+036C E6          =1    490             MOV A, @R0
+036D 08          =1    491             INC R0
+                 =1    492
+                 =1    493             ; check memory location against the HEX value stored at address 15
+                 =1    494     ;       CJNE A, 15, MEM_CHECK
+036E C3          =1    495             CLR C
+036F 950F        =1    496             SUBB A, 15
+0371 60EE        =1    497             JZ MEM_CHECK
+                 =1    498
+                 =1    499             ; if there's an error
+                 =1    500     ;       CJNE A, 15, CHECK_ERR
+                 =1    501
+                 =1    502     CHECK_ERR:
+                 =1    503             ; print error message
+0373 1170        =1    504             ACALL LCD_CLEAR
+0375 9002B0      =1    505             MOV DPTR, #MEM_ERROR1
+0378 1162        =1    506             ACALL LCD_STRING
+037A 117D        =1    507             ACALL LCD_CRLF
+037C 9002C0      =1    508             MOV DPTR, #MEM_ERROR2
+037F 1162        =1    509             ACALL LCD_STRING
+                 =1    510
+                 =1    511             ; print address of error
+0381 E8          =1    512             MOV A, R0
+0382 D11A        =1    513             ACALL PRINT_BYTE
+                 =1    514
+0384 80FE        =1    515     ERR_DONE: SJMP ERR_DONE
+                 =1    516
+                 =1    517     CHECK_DONE:
+0386 80FE        =1    518             SJMP CHECK_DONE
+                 =1    519     $INCLUDE (move.asm)
+                 =1    520     MOVE:
+0388 C000        =1    521             PUSH 0
+038A C001        =1    522             PUSH 1
+                 =1    523
+                 =1    524             ; print source address prompt
+038C 9002CA      =1    525             MOV DPTR, #MOVE_ADD1
+038F 1170        =1    526             ACALL LCD_CLEAR
+0391 1162        =1    527             ACALL LCD_STRING
+0393 900202      =1    528             MOV DPTR, #ADD_PROMPT2
+0396 117D        =1    529             ACALL LCD_CRLF
+0398 1162        =1    530             ACALL LCD_STRING
+                 =1    531
+                 =1    532             ; read source address stored in register 0
+039A 11F1        =1    533             ACALL READ_ADDRESS
+039C 8B00        =1    534             MOV 0, R3
+                 =1    535
+                 =1    536             ; print source address
+                 =1    537
+                 =1    538             ; print address prompt again for destination address
+039E 9002DB      =1    539             MOV DPTR, #MOVE_ADD2
+03A1 1170        =1    540             ACALL LCD_CLEAR
+03A3 1162        =1    541             ACALL LCD_STRING
+03A5 900202      =1    542             MOV DPTR, #ADD_PROMPT2
+03A8 117D        =1    543             ACALL LCD_CRLF
+03AA 1162        =1    544             ACALL LCD_STRING
+                 =1    545
+                 =1    546             ; read destination address stored in register 1
+03AC 11F1        =1    547             ACALL READ_ADDRESS
+03AE 8B01        =1    548             MOV 1, R3
+                 =1    549
+                 =1    550             ; print destination address
+                 =1    551
+                 =1    552             ; print length prompt and read length stored in address 9
+03B0 3102        =1    553             ACALL LEN
+                 =1    554
+                 =1    555             ; find datatype stored in R6 with reset counter stored at address 8
+03B2 3122        =1    556             ACALL FIND_DATATYPE
+                 =1    557
+                 =1    558             ; check for 0 length
+03B4 C0E0        =1    559             PUSH 0E0H
+03B6 E509        =1    560             MOV A, 9
+03B8 6026        =1    561             JZ MDONE
+                 =1    562
+                 =1    563             ; print length
+                 =1    564
+                 =1    565             ; print moving progress
+03BA 9002EC      =1    566             MOV DPTR, #MOVING
+03BD 1170        =1    567             ACALL LCD_CLEAR
+03BF 1162        =1    568             ACALL LCD_STRING
+                 =1    569
+                 =1    570     M0:
+03C1 850806      =1    571             MOV 6, 8
+                 =1    572             ; start move loop
+                 =1    573     M1:
+                 =1    574             ; store data from source at address 20 then transfer to destination
+03C4 8614        =1    575             MOV 20, @R0
+03C6 A714        =1    576             MOV @R1, 20
+                 =1    577
+                 =1    578             ; increment both addresses
+03C8 08          =1    579             INC R0
+03C9 09          =1    580             INC R1
+                 =1    581
+                 =1    582             ; check for overflow from both addresses
+03CA E9          =1    583             MOV A, R1
+03CB C3          =1    584             CLR C
+03CC 94FF        =1    585             SUBB A, #0FFH
+03CE 6010        =1    586             JZ MDONE
+03D0 E8          =1    587             MOV A, R0
+03D1 C3          =1    588             CLR C
+03D2 94FF        =1    589             SUBB A, #0FFH
+03D4 600A        =1    590             JZ MDONE
+                 =1    591
+                 =1    592             ; decrement counter and redo if not done
+03D6 1509        =1    593             DEC 9
+03D8 E509        =1    594             MOV A, 9
+03DA 6004        =1    595             JZ MDONE
+                 =1    596     ;       DJNZ 9, M1
+                 =1    597
+                 =1    598             ; check if the datatype is done
+                 =1    599     ;       DEC R6
+                 =1    600     ;       MOV A, R6
+                 =1    601     ;       JZ M0
+03DC DEE6        =1    602             DJNZ R6, M1
+                 =1    603
+03DE 80E1        =1    604             SJMP M0
+                 =1    605
+                 =1    606     MDONE:
+03E0 9002FD      =1    607             MOV DPTR, #MOVE_DONE
+03E3 1170        =1    608             ACALL LCD_CLEAR
+03E5 1162        =1    609             ACALL LCD_STRING
+03E7 D0E0        =1    610             POP 0E0H
+03E9 D001        =1    611             POP 1
+03EB D000        =1    612             POP 0
+                 =1    613
+                 =1    614             ;needs to eventually poll for an exit button
+03ED 80FE        =1    615     MOVE_FINISHED: SJMP MOVE_FINISHED
+                 =1    616
+                 =1    617     $INCLUDE (edit.asm)
+                 =1    618     EDIT:
+                 =1    619             ; print address prompt
+03EF 1170        =1    620             ACALL LCD_CLEAR
+03F1 9001F3      =1    621             MOV DPTR, #ADD_PROMPT1
+03F4 1162        =1    622             ACALL LCD_STRING
+03F6 117D        =1    623             ACALL LCD_CRLF
+03F8 900202      =1    624             MOV DPTR, #ADD_PROMPT2
+03FB 1162        =1    625             ACALL LCD_STRING
+                 =1    626
+                 =1    627             ; read address from keypad
+03FD 11F1        =1    628             ACALL READ_ADDRESS
+                 =1    629
+                 =1    630             ; put address into R0 for indirect addressing
+03FF A803        =1    631             MOV R0, 3
+                 =1    632
+                 =1    633             ; print address
+                 =1    634     EDIT_PRINT_ADD:
+0401 C0E0        =1    635             PUSH 0E0H
+                 =1    636
+0403 759969      =1    637             MOV 99H, #69H
+                 =1    638
+                 =1    639             ; print address and value
+0406 1170        =1    640             ACALL LCD_CLEAR
+0408 E8          =1    641             MOV A, R0
+0409 D11A        =1    642             ACALL PRINT_BYTE
+040B 900225      =1    643             MOV DPTR, #DELIMITER
+040E 1162        =1    644             ACALL LCD_STRING
+0410 E6          =1    645             MOV A, @R0
+0411 D11A        =1    646             ACALL PRINT_BYTE
+                 =1    647
+                 =1    648             ; print edit prompt
+0413 117D        =1    649             ACALL LCD_CRLF
+0415 900248      =1    650             MOV DPTR, #EDIT_PROMPT
+                 =1    651
+                 =1    652             ; wait for new value and then print the new value
+0418 11A2        =1    653             ACALL READ_KP
+041A E50A        =1    654             MOV A, 10
+041C D11A        =1    655             ACALL PRINT_BYTE
+                 =1    656
+                 =1    657             ; print new value with address and prompt to continue or exit
+041E 1170        =1    658             ACALL LCD_CLEAR
+0420 E8          =1    659             MOV A, R0
+0421 D11A        =1    660             ACALL PRINT_BYTE
+0423 900225      =1    661             MOV DPTR, #DELIMITER
+0426 1162        =1    662             ACALL LCD_STRING
+0428 E6          =1    663             MOV A, @R0
+0429 D11A        =1    664             ACALL PRINT_BYTE
+                 =1    665
+042B 117D        =1    666             ACALL LCD_CRLF
+042D 900239      =1    667             MOV DPTR, #EARROWS
+0430 1162        =1    668             ACALL LCD_STRING
+                 =1    669
+                 =1    670             ; poll for input
+0432 9134        =1    671             ACALL EDIT_POLL
+                 =1    672
+                 =1    673     EDIT_POLL:
+                 =1    674             ; poll keypad
+0434 11A2        =1    675             ACALL READ_KP
+                 =1    676
+                 =1    677             ; see if the user has clicked next or previous
+0436 7F01        =1    678             MOV R7, #01H
+0438 E50A        =1    679             MOV A, 10
+043A C3          =1    680             CLR C
+043B 9F          =1    681             SUBB A, R7
+043C 600F        =1    682             JZ E_NAV_FIRST
+                 =1    683
+043E 11A2        =1    684             ACALL READ_KP
+0440 7F00        =1    685             MOV R7, #00H
+0442 E50A        =1    686             MOV A, 10
+0444 C3          =1    687             CLR C
+0445 9F          =1    688             SUBB A, R7
+0446 6002        =1    689             JZ NEXT_BYTE
+                 =1    690
+0448 80EA        =1    691             SJMP EDIT_POLL
+                 =1    692
+                 =1    693     NEXT_BYTE:
+044A 08          =1    694             INC R0
+044B 80B4        =1    695             SJMP EDIT_PRINT_ADD
+                 =1    696
+044D 020007      =1    697     E_NAV_FIRST: LJMP FIRST_OFF
+                 =1    698
+                 =1    699     $INCLUDE (find.asm)
+                 =1    700     FIND:
+                 =1    701             ; print value prompt
+0450 1170        =1    702             ACALL LCD_CLEAR
+0452 900253      =1    703             MOV DPTR, #FIND_PROMPT1
+0455 1162        =1    704             ACALL LCD_STRING
+0457 117D        =1    705             ACALL LCD_CRLF
+0459 900264      =1    706             MOV DPTR, #FIND_PROMPT2
+045C 1162        =1    707             ACALL LCD_STRING
+                 =1    708
+                 =1    709             ; read value from keypad / address 10 and store it in R6
+045E 11A2        =1    710             ACALL READ_KP
+0460 E50A        =1    711             MOV A, 10
+0462 C4          =1    712             SWAP A
+0463 FD          =1    713             MOV R5, A
+0464 11A2        =1    714             ACALL READ_KP
+0466 ED          =1    715             MOV A, R5
+0467 450A        =1    716             ORL A, 10
+0469 FE          =1    717             MOV R6, A
+                 =1    718
+                 =1    719             ; print address prompt
+046A 1170        =1    720             ACALL LCD_CLEAR
+046C 9001F3      =1    721             MOV DPTR, #ADD_PROMPT1
+046F 1162        =1    722             ACALL LCD_STRING
+0471 117D        =1    723             ACALL LCD_CRLF
+0473 900202      =1    724             MOV DPTR, #ADD_PROMPT2
+0476 1162        =1    725             ACALL LCD_STRING
+                 =1    726
+                 =1    727             ; read address
+0478 11F1        =1    728             ACALL READ_ADDRESS
+                 =1    729
+                 =1    730             ; move address stored in R3 to R0 for indirect addressing
+047A A803        =1    731             MOV R0, 3
+                 =1    732
+                 =1    733             ; print length prompt and read length stored at address 9
+047C 3102        =1    734             ACALL LEN
+                 =1    735
+                 =1    736             ; clear LCD to print addresses and values
+047E 1170        =1    737             ACALL LCD_CLEAR
+                 =1    738
+                 =1    739     FIND_LOOP:
+                 =1    740             ; compare the contents of address stored in A with the value being searched for
+0480 E6          =1    741             MOV A, @R0
+0481 C3          =1    742             CLR C
+0482 9E          =1    743             SUBB A, R6
+0483 6006        =1    744             JZ PRINT_FIND
+                 =1    745
+                 =1    746             ; increment counter and R0 and loop back if the counter hasn't reached 0 yet
+0485 08          =1    747             INC R0
+0486 D509F7      =1    748             DJNZ 9, FIND_LOOP
+                 =1    749
+                 =1    750             ; if we're done, clear LCD and start displaying addresses/values
+0489 8015        =1    751             SJMP F_FINISHED
+                 =1    752
+                 =1    753     PRINT_FIND:
+048B C0E0        =1    754             PUSH 0E0H
+                 =1    755
+                 =1    756             ; print address and value at the address
+048D E8          =1    757             MOV A, R0
+048E D11A        =1    758             ACALL PRINT_BYTE
+0490 900225      =1    759             MOV DPTR, #DELIMITER
+0493 1162        =1    760             ACALL LCD_STRING
+0495 E6          =1    761             MOV A, @R0
+0496 1162        =1    762             ACALL LCD_STRING
+                 =1    763
+0498 D0E0        =1    764             POP 0E0H
+                 =1    765
+                 =1    766             ; push address for displaying later
+049A C000        =1    767             PUSH 0
+                 =1    768
+                 =1    769             ; increment counter and R0 and loop back if the counter hasn't reached 0 yet
+049C 08          =1    770             INC R0
+049D D509E0      =1    771             DJNZ 9, FIND_LOOP
+                 =1    772
+                 =1    773             ; if done, just move onto the navigation menu
+                 =1    774
+                 =1    775     F_FINISHED:
+                 =1    776             ; pop address into the A register and set indirect addressing register
+04A0 D0E0        =1    777             POP 0E0H
+04A2 F8          =1    778             MOV R0, A
+                 =1    779
+                 =1    780             ; clear LCD and print address stored in A
+04A3 1170        =1    781             ACALL LCD_CLEAR
+04A5 D11A        =1    782             ACALL PRINT_BYTE
+                 =1    783
+                 =1    784             ; print delimiter
+04A7 900225      =1    785             MOV DPTR, #DELIMITER
+04AA 1162        =1    786             ACALL LCD_STRING
+                 =1    787
+                 =1    788             ; print actual value at that address
+04AC E6          =1    789             MOV A, @R0
+04AD D11A        =1    790             ACALL PRINT_BYTE
+                 =1    791
+                 =1    792             ; print arrows
+04AF 117D        =1    793             ACALL LCD_CRLF
+04B1 900239      =1    794             MOV DPTR, #EARROWS
+04B4 1162        =1    795             ACALL LCD_STRING
+                 =1    796
+                 =1    797             ; poll for keypad response
+                 =1    798
+                 =1    799     F_POLL:
+                 =1    800             ; read keypad
+04B6 11A2        =1    801             ACALL READ_KP
+                 =1    802
+                 =1    803             ; check for 0 or 1; see if the user has clicked next or previous
+04B8 7F01        =1    804             MOV R7, #01H
+04BA E50A        =1    805             MOV A, 10
+04BC C3          =1    806             CLR C
+04BD 9F          =1    807             SUBB A, R7
+04BE 600F        =1    808             JZ F_EXIT
+                 =1    809
+04C0 11A2        =1    810             ACALL READ_KP
+04C2 7F00        =1    811             MOV R7, #00H
+04C4 E50A        =1    812             MOV A, 10
+04C6 C3          =1    813             CLR C
+04C7 9F          =1    814             SUBB A, R7
+04C8 6002        =1    815             JZ F_NEXT
+                 =1    816
+04CA 80EA        =1    817             SJMP F_POLL
+                 =1    818
+                 =1    819     F_NEXT:
+04CC 08          =1    820             INC R0
+04CD 80D1        =1    821             SJMP F_FINISHED
+                 =1    822
+                 =1    823     F_EXIT:
+04CF 020007      =1    824             LJMP FIRST_OFF
+                 =1    825
+                 =1    826     $INCLUDE (count.asm)
+                 =1    827     COUNT:
+                 =1    828             ; print value prompt
+04D2 1170        =1    829             ACALL LCD_CLEAR
+04D4 900253      =1    830             MOV DPTR, #FIND_PROMPT1
+04D7 1162        =1    831             ACALL LCD_STRING
+04D9 117D        =1    832             ACALL LCD_CRLF
+04DB 900264      =1    833             MOV DPTR, #FIND_PROMPT2
+04DE 1162        =1    834             ACALL LCD_STRING
+                 =1    835
+                 =1    836             ; read value from keypad / address 10 and store it in R6
+04E0 11A2        =1    837             ACALL READ_KP
+04E2 E50A        =1    838             MOV A, 10
+04E4 C4          =1    839             SWAP A
+04E5 FD          =1    840             MOV R5, A
+04E6 11A2        =1    841             ACALL READ_KP
+04E8 ED          =1    842             MOV A, R5
+04E9 450A        =1    843             ORL A, 10
+04EB FE          =1    844             MOV R6, A
+                 =1    845
+                 =1    846             ; print address prompt
+04EC 1170        =1    847             ACALL LCD_CLEAR
+04EE 9001F3      =1    848             MOV DPTR, #ADD_PROMPT1
+04F1 1162        =1    849             ACALL LCD_STRING
+04F3 117D        =1    850             ACALL LCD_CRLF
+04F5 900202      =1    851             MOV DPTR, #ADD_PROMPT2
+04F8 1162        =1    852             ACALL LCD_STRING
+                 =1    853
+                 =1    854             ; read address
+04FA 11F1        =1    855             ACALL READ_ADDRESS
+                 =1    856
+                 =1    857             ; move address stored in R3 to R0 for indirect addressing
+04FC A803        =1    858             MOV R0, 3
+                 =1    859
+                 =1    860             ; print length prompt and read length stored at address 9
+04FE 3102        =1    861             ACALL LEN
+                 =1    862
+                 =1    863             ; use address 20 for counter
+0500 C214        =1    864             CLR 20
+                 =1    865
+                 =1    866     C_LOOP:
+                 =1    867             ;
+0502 E6          =1    868             MOV A, @R0
+0503 C3          =1    869             CLR C
+0504 9E          =1    870             SUBB A, R6
+0505 6006        =1    871             JZ ADD_COUNT
+                 =1    872
+                 =1    873             ; increment counter and R0 and loop back if the counter hasn't reached 0 yet
+0507 08          =1    874             INC R0
+0508 D509F7      =1    875             DJNZ 9, C_LOOP
+                 =1    876
+                 =1    877             ; if we're done, clear LCD and start displaying addresses/values
+050B 8008        =1    878             SJMP C_FINISHED
+                 =1    879
+                 =1    880     ADD_COUNT:
+050D C000        =1    881             PUSH 0                                                  ; push the address
+050F 0514        =1    882             INC 20                                                  ; increment the counter
+0511 08          =1    883             INC R0                                                  ; increment indirect address
+0512 D509ED      =1    884             DJNZ 9, C_LOOP                                  ; check the other counter and see if we're do
+                 =1    885
+                 =1    886     C_FINISHED:
+                 =1    887             ; pop address into the A register and set indirect addressing register
+0515 D0E0        =1    888             POP 0E0H
+0517 F8          =1    889             MOV R0, A
+                 =1    890
+                 =1    891             ; clear LCD and print address stored in A
+0518 1170        =1    892             ACALL LCD_CLEAR
+051A D11A        =1    893             ACALL PRINT_BYTE
+                 =1    894
+                 =1    895             ; print delimiter
+051C 900225      =1    896             MOV DPTR, #DELIMITER
+051F 1162        =1    897             ACALL LCD_STRING
+                 =1    898
+                 =1    899             ; print actual value at that address
+0521 E6          =1    900             MOV A, @R0
+0522 D11A        =1    901             ACALL PRINT_BYTE
+                 =1    902
+                 =1    903             ; print arrows
+0524 117D        =1    904             ACALL LCD_CRLF
+0526 900239      =1    905             MOV DPTR, #EARROWS
+0529 1162        =1    906             ACALL LCD_STRING
+                 =1    907
+                 =1    908             ; poll for keypad response
+                 =1    909
+                 =1    910     C_POLL:
+                 =1    911             ; read keypad
+052B 11A2        =1    912             ACALL READ_KP
+                 =1    913
+                 =1    914             ; check for 0 or 1; see if the user has clicked next or previous
+052D 7F01        =1    915             MOV R7, #01H
+052F E50A        =1    916             MOV A, 10
+0531 C3          =1    917             CLR C
+0532 9F          =1    918             SUBB A, R7
+0533 600F        =1    919             JZ C_EXIT
+                 =1    920
+0535 11A2        =1    921             ACALL READ_KP
+0537 7F00        =1    922             MOV R7, #00H
+0539 E50A        =1    923             MOV A, 10
+053B C3          =1    924             CLR C
+053C 9F          =1    925             SUBB A, R7
+053D 6002        =1    926             JZ C_NEXT
+                 =1    927
+053F 80EA        =1    928             SJMP C_POLL
+                 =1    929
+                 =1    930     C_NEXT:
+0541 08          =1    931             INC R0
+0542 80D1        =1    932             SJMP C_FINISHED
+                 =1    933
+                 =1    934     C_EXIT:
+0544 020007      =1    935             LJMP FIRST_OFF
+                 =1    936
+                 =1    937
+                       938
+0547 80FE              939     FINISHED: SJMP FINISHED
+                       940
+                       941     CHECK_FIRST:
+                       942             ; dump
+0549 75800D            943             MOV 80H, #0DH
+054C E50A              944             MOV A, 10
+054E C3                945             CLR C
+054F 9580              946             SUBB A, 80H
+0551 605D              947             JZ DUMP
+                       948
+                       949             ; check
+0553 75800A            950             MOV 80H, #0AH
+0556 E50A              951             MOV A, 10
+0558 C3                952             CLR C
+0559 9580              953             SUBB A, 80H
+055B 603E              954             JZ NAV_CHECK
+                       955
+                       956             ; move
+055D 75800B            957             MOV 80H, #0BH
+0560 E50A              958             MOV A, 10
+0562 C3                959             CLR C
+0563 9580              960             SUBB A, 80H
+0565 6037              961             JZ NAV_MOVE
+                       962
+                       963             ; edit
+0567 75800E            964             MOV 80H, #0EH
+056A E50A              965             MOV A, 10
+056C C3                966             CLR C
+056D 9580              967             SUBB A, 80H
+056F 6030              968             JZ NAV_EDIT
+                       969
+                       970             ; find
+0571 75800F            971             MOV 80H, #0FH
+0574 E50A              972             MOV A, 10
+0576 C3                973             CLR C
+0577 9580              974             SUBB A, 80H
+0579 6029              975             JZ NAV_FIND
+                       976
+                       977             ; count
+057B 75800C            978             MOV 80H, #0CH
+057E E50A              979             MOV A, 10
+0580 C3                980             CLR C
+0581 9580              981             SUBB A, 80H
+0583 6022              982             JZ NAV_COUNT
+                       983
+                       984             ; next
+0585 758001            985             MOV 80H, #01H
+0588 E50A              986             MOV A, 10
+058A C3                987             CLR C
+058B 9580              988             SUBB A, 80H
+058D 601E              989             JZ NAV_2MENU
+                       990
+                       991             ; previous
+058F 758000            992             MOV 80H, #00H
+0592 E50A              993             MOV A, 10
+0594 C3                994             CLR C
+0595 9580              995             SUBB A, 80H
+0597 6011              996             JZ NAV_1MENU
+                       997
+0599 80AE              998             SJMP CHECK_FIRST
+                       999
+059B 02031C           1000     NAV_CHECK: LJMP CHECK
+059E 020388           1001     NAV_MOVE: LJMP MOVE
+05A1 0203EF           1002     NAV_EDIT: LJMP EDIT
+05A4 020450           1003     NAV_FIND: LJMP FIND
+05A7 0204D2           1004     NAV_COUNT: LJMP COUNT
+05AA 020010           1005     NAV_1MENU: LJMP FIRST_MENU
+05AD 020020           1006     NAV_2MENU: LJMP SECOND_MENU
+                      1007
+                      1008     DUMP:
+                      1009
+05B0 D0E0             1010             POP 0E0H
+05B2 D007             1011             POP 7
+                      1012
+                      1013             ; find datatype stored in R6 with the reset counter stored at address 8
+05B4 3122             1014             ACALL FIND_DATATYPE
+                      1015
+                      1016     ADD_READ:
+                      1017     ;       POP 7
+                      1018
+                      1019             ; print address prompt
+05B6 1170             1020             ACALL LCD_CLEAR
+05B8 9001F3           1021             MOV DPTR, #ADD_PROMPT1
+05BB 1162             1022             ACALL LCD_STRING
+05BD 117D             1023             ACALL LCD_CRLF
+05BF 900202           1024             MOV DPTR, #ADD_PROMPT2
+05C2 1162             1025             ACALL LCD_STRING
+                      1026
+                      1027             ; read starting address from keypad stored in R3
+05C4 11F1             1028             ACALL READ_ADDRESS
+                      1029
+                      1030             ; print address
+                      1031
+                      1032
+                      1033             ; move upper nibble to R1
+                      1034     ;       MOV R1, 0
+                      1035
+                      1036             ; display length prompt
+                      1037
+05C6 3102             1038             ACALL LEN
+                      1039
+                      1040             ; store current address in R0
+05C8 A803             1041             MOV R0, 3
+                      1042
+                      1043     DISPLAY_ADD:
+                      1044             ; display address
+05CA C0E0             1045             PUSH 0E0H
+05CC E8               1046             MOV A, R0
+05CD 1170             1047             ACALL LCD_CLEAR
+05CF D11A             1048             ACALL PRINT_BYTE
+05D1 D0E0             1049             POP 0E0H
+                      1050
+                      1051             ; display ": "
+05D3 900225           1052             MOV DPTR, #DELIMITER
+05D6 1162             1053             ACALL LCD_STRING
+05D8 AE08             1054             MOV R6, 8
+                      1055
+                      1056     DISPLAY_DATA:
+                      1057             ; display data
+05DA E6               1058             MOV A, @R0
+05DB D11A             1059             ACALL PRINT_BYTE
+                      1060
+05DD 08               1061             INC R0
+05DE 1509             1062             DEC 9
+                      1063
+                      1064             ; check if past FFh
+05E0 E8               1065             MOV A, R0
+05E1 94FF             1066             SUBB A, #0FFH
+05E3 6011             1067             JZ DONE
+                      1068
+                      1069             ; check if current address (R0) is lower than starting address (R3)
+05E5 E8               1070             MOV A, R0
+05E6 9B               1071             SUBB A, R3
+05E7 400F             1072             JC POLL_KP
+                      1073             ; check if the current address (R0) is higher than th- idk
+                      1074     ;       MOV A, R0
+                      1075     ;       JZ DONE
+                      1076
+                      1077             ; check if we're done (counter)
+05E9 E509             1078             MOV A, 9
+05EB 6009             1079             JZ DONE
+                      1080
+                      1081             ; check if the data type is done
+05ED DEEB             1082             DJNZ R6, DISPLAY_DATA
+                      1083
+                      1084             ; print arrows underneath
+05EF 900228           1085             MOV DPTR, #ARROWS
+05F2 117D             1086             ACALL LCD_CRLF
+05F4 1162             1087             ACALL LCD_STRING
+                      1088
+                      1089     DONE:
+05F6 8000             1090             SJMP POLL_KP
+                      1091
+                      1092     POLL_KP:
+                      1093             ; poll keypad
+05F8 11A2             1094             ACALL READ_KP
+                      1095
+                      1096             ; see if the user has clicked next or previous
+05FA 7F0F             1097             MOV R7, #0FH
+05FC E50A             1098             MOV A, 10
+05FE C3               1099             CLR C
+05FF 9F               1100             SUBB A, R7
+0600 600E             1101             JZ PREVIOUS
+                      1102
+0602 11A2             1103             ACALL READ_KP
+0604 7F0D             1104             MOV R7, #0DH
+0606 E50A             1105             MOV A, 10
+0608 C3               1106             CLR C
+0609 9F               1107             SUBB A, R7
+060A 6009             1108             JZ NEXT
+                      1109
+060C 80EA             1110             SJMP POLL_KP
+                      1111
+060E 80FE             1112             HERE0: SJMP HERE0
+                      1113
+                      1114     ; go to previous page
+                      1115     PREVIOUS:
+0610 1170             1116             ACALL LCD_CLEAR
+0612 18               1117             DEC R0
+0613 80B5             1118             SJMP DISPLAY_ADD
+                      1119
+                      1120     ; go to next page
+                      1121     NEXT:
+0615 1170             1122             ACALL LCD_CLEAR
+0617 08               1123             INC R0
+0618 80B0             1124             SJMP DISPLAY_ADD
+                      1125
+                      1126     ; print byte that's stored in the A register
+                      1127     PRINT_BYTE:
+                      1128             ; print upper nibble
+061A C007             1129             PUSH 7
+061C C0E0             1130             PUSH 0E0H
+061E FF               1131             MOV R7, A
+061F C4               1132             SWAP A
+0620 540F             1133             ANL A, #0FH
+0622 D12E             1134             ACALL CONVERT_NIBBLE
+                      1135
+                      1136             ; print lower nibble
+0624 EF               1137             MOV A, R7
+0625 540F             1138             ANL A, #0FH
+0627 D12E             1139             ACALL CONVERT_NIBBLE
+                      1140
+0629 D0E0             1141             POP 0E0H
+062B D007             1142             POP 7
+                      1143
+062D 22               1144             RET
+                      1145
+                      1146     ; procedure to convert a hex nibble stored in A to ASCII and write it to the LCD
+                      1147     CONVERT_NIBBLE:
+                      1148             ; push R7
+062E C007             1149             PUSH 7
+                      1150
+                      1151             ; check if the nibble is 0-9
+0630 FF               1152             MOV R7, A
+0631 940A             1153             SUBB A, #0AH
+0633 4005             1154             JC SUB_NINE
+0635 04               1155             INC A
+                      1156
+                      1157             ; if not, ASCII character stored in A
+0636 4440             1158             ORL A, #40H
+0638 8003             1159             SJMP DUMP_STEP
+                      1160
+                      1161     SUB_NINE:
+063A EF               1162             MOV A, R7
+                      1163             ; ASCII character stored in A
+063B 4430             1164             ORL A, #30H
+                      1165
+                      1166     ; print character of nibble
+                      1167     DUMP_STEP:
+063D 1157             1168             ACALL LCD_CHAR
+063F D007             1169             POP 7
+                      1170
+0641 22               1171             RET
+                      1172
+                      1173     END
+ASSEMBLY COMPLETE, NO ERRORS FOUND, NO WARNINGS
+
+
+SYMBOL TABLE:
+??MCU_8051_IDE . . . . . . . . . . .  N  NUMB  8051H  NOT USED
+??VERSION. . . . . . . . . . . . . .  N  NUMB  0149H  NOT USED
+AC . . . . . . . . . . . . . . . . .  B  ADDR  00D6H  NOT USED
+ACC. . . . . . . . . . . . . . . . .  D  ADDR  00E0H  NOT USED
+ACSR . . . . . . . . . . . . . . . .  D  ADDR  0097H  NOT USED
+ADCF . . . . . . . . . . . . . . . .  D  ADDR  00F6H  NOT USED
+ADCLK. . . . . . . . . . . . . . . .  D  ADDR  00F2H  NOT USED
+ADCON. . . . . . . . . . . . . . . .  D  ADDR  00F3H  NOT USED
+ADDH . . . . . . . . . . . . . . . .  D  ADDR  00F5H  NOT USED
+ADDL . . . . . . . . . . . . . . . .  D  ADDR  00F4H  NOT USED
+ADD_COUNT. . . . . . . . . . . . . .  C  ADDR  050DH
+ADD_PROMPT1. . . . . . . . . . . . .  C  ADDR  01F3H
+ADD_PROMPT2. . . . . . . . . . . . .  C  ADDR  0202H
+ADD_READ . . . . . . . . . . . . . .  C  ADDR  05B6H  NOT USED
+ARROWS . . . . . . . . . . . . . . .  C  ADDR  0228H
+AUXR . . . . . . . . . . . . . . . .  D  ADDR  008EH  NOT USED
+AUXR1. . . . . . . . . . . . . . . .  D  ADDR  00A2H  NOT USED
+B. . . . . . . . . . . . . . . . . .  D  ADDR  00F0H
+BBYTE. . . . . . . . . . . . . . . .  C  ADDR  015AH
+BDRCON . . . . . . . . . . . . . . .  D  ADDR  009BH  NOT USED
+BDRCON_1 . . . . . . . . . . . . . .  D  ADDR  009CH  NOT USED
+BRL. . . . . . . . . . . . . . . . .  D  ADDR  009AH  NOT USED
+BYTE_SEL1. . . . . . . . . . . . . .  C  ADDR  027AH
+BYTE_SEL2. . . . . . . . . . . . . .  C  ADDR  0288H
+C1 . . . . . . . . . . . . . . . . .  C  ADDR  0349H  NOT USED
+C2 . . . . . . . . . . . . . . . . .  C  ADDR  0353H  NOT USED
+CCAP0H . . . . . . . . . . . . . . .  D  ADDR  00FAH  NOT USED
+CCAP0L . . . . . . . . . . . . . . .  D  ADDR  00EAH  NOT USED
+CCAP1H . . . . . . . . . . . . . . .  D  ADDR  00FBH  NOT USED
+CCAP1L . . . . . . . . . . . . . . .  D  ADDR  00EBH  NOT USED
+CCAP2H . . . . . . . . . . . . . . .  D  ADDR  00FCH  NOT USED
+CCAP3H . . . . . . . . . . . . . . .  D  ADDR  00FDH  NOT USED
+CCAP4H . . . . . . . . . . . . . . .  D  ADDR  00FEH  NOT USED
+CCAPL2H. . . . . . . . . . . . . . .  D  ADDR  00FCH  NOT USED
+CCAPL2L. . . . . . . . . . . . . . .  D  ADDR  00ECH  NOT USED
+CCAPL3H. . . . . . . . . . . . . . .  D  ADDR  00FDH  NOT USED
+CCAPL3L. . . . . . . . . . . . . . .  D  ADDR  00EDH  NOT USED
+CCAPL4H. . . . . . . . . . . . . . .  D  ADDR  00FEH  NOT USED
+CCAPL4L. . . . . . . . . . . . . . .  D  ADDR  00EEH  NOT USED
+CCAPM0 . . . . . . . . . . . . . . .  D  ADDR  00DAH  NOT USED
+CCAPM1 . . . . . . . . . . . . . . .  D  ADDR  00DBH  NOT USED
+CCAPM2 . . . . . . . . . . . . . . .  D  ADDR  00DCH  NOT USED
+CCAPM3 . . . . . . . . . . . . . . .  D  ADDR  00DDH  NOT USED
+CCAPM4 . . . . . . . . . . . . . . .  D  ADDR  00DEH  NOT USED
+CCF0 . . . . . . . . . . . . . . . .  B  ADDR  00D8H  NOT USED
+CCF1 . . . . . . . . . . . . . . . .  B  ADDR  00D9H  NOT USED
+CCF2 . . . . . . . . . . . . . . . .  B  ADDR  00DAH  NOT USED
+CCF3 . . . . . . . . . . . . . . . .  B  ADDR  00DBH  NOT USED
+CCF4 . . . . . . . . . . . . . . . .  B  ADDR  00DCH  NOT USED
+CCON . . . . . . . . . . . . . . . .  D  ADDR  00D8H  NOT USED
+CFINT. . . . . . . . . . . . . . . .  C  ADDR  0033H  NOT USED
+CH . . . . . . . . . . . . . . . . .  D  ADDR  00F9H  NOT USED
+CHECK. . . . . . . . . . . . . . . .  C  ADDR  031CH
+CHECKING . . . . . . . . . . . . . .  C  ADDR  0290H
+CHECK_DONE . . . . . . . . . . . . .  C  ADDR  0386H
+CHECK_ERR. . . . . . . . . . . . . .  C  ADDR  0373H  NOT USED
+CHECK_FIRST. . . . . . . . . . . . .  C  ADDR  0549H
+CKCON. . . . . . . . . . . . . . . .  D  ADDR  008FH  NOT USED
+CKCON0 . . . . . . . . . . . . . . .  D  ADDR  008FH  NOT USED
+CKRL . . . . . . . . . . . . . . . .  D  ADDR  0097H  NOT USED
+CKSEL. . . . . . . . . . . . . . . .  D  ADDR  0085H  NOT USED
+CL . . . . . . . . . . . . . . . . .  D  ADDR  00E9H  NOT USED
+CLKREG . . . . . . . . . . . . . . .  D  ADDR  008FH  NOT USED
+CMOD . . . . . . . . . . . . . . . .  D  ADDR  00D9H  NOT USED
+COLS . . . . . . . . . . . . . . . .  C  ADDR  00C2H
+CONVERT_NIBBLE . . . . . . . . . . .  C  ADDR  062EH
+COUNT. . . . . . . . . . . . . . . .  C  ADDR  04D2H
+COUNTER. . . . . . . . . . . . . . .  C  ADDR  026EH  NOT USED
+CPRL2. . . . . . . . . . . . . . . .  B  ADDR  00C8H  NOT USED
+CR . . . . . . . . . . . . . . . . .  B  ADDR  00DEH  NOT USED
+CT2. . . . . . . . . . . . . . . . .  B  ADDR  00C9H  NOT USED
+CY . . . . . . . . . . . . . . . . .  B  ADDR  00D7H  NOT USED
+C_EXIT . . . . . . . . . . . . . . .  C  ADDR  0544H
+C_FINISHED . . . . . . . . . . . . .  C  ADDR  0515H
+C_LOOP . . . . . . . . . . . . . . .  C  ADDR  0502H
+C_NEXT . . . . . . . . . . . . . . .  C  ADDR  0541H
+C_POLL . . . . . . . . . . . . . . .  C  ADDR  052BH
+DELAY. . . . . . . . . . . . . . . .  C  ADDR  0091H  NOT USED
+DELIMITER. . . . . . . . . . . . . .  C  ADDR  0225H
+DETERMINE. . . . . . . . . . . . . .  C  ADDR  00CDH
+DISPLAY_ADD. . . . . . . . . . . . .  C  ADDR  05CAH
+DISPLAY_DATA . . . . . . . . . . . .  C  ADDR  05DAH
+DONE . . . . . . . . . . . . . . . .  C  ADDR  05F6H
+DOUBLE_WORD. . . . . . . . . . . . .  C  ADDR  0168H
+DP0H . . . . . . . . . . . . . . . .  D  ADDR  0083H  NOT USED
+DP0L . . . . . . . . . . . . . . . .  D  ADDR  0082H  NOT USED
+DP1H . . . . . . . . . . . . . . . .  D  ADDR  0085H  NOT USED
+DP1L . . . . . . . . . . . . . . . .  D  ADDR  0084H  NOT USED
+DPH. . . . . . . . . . . . . . . . .  D  ADDR  0083H  NOT USED
+DPL. . . . . . . . . . . . . . . . .  D  ADDR  0082H  NOT USED
+DUMP . . . . . . . . . . . . . . . .  C  ADDR  05B0H
+DUMP1. . . . . . . . . . . . . . . .  C  ADDR  01D3H
+DUMP2. . . . . . . . . . . . . . . .  C  ADDR  01E4H
+DUMP_MENU1 . . . . . . . . . . . . .  C  ADDR  01C0H
+DUMP_MENU2 . . . . . . . . . . . . .  C  ADDR  01CEH
+DUMP_STEP. . . . . . . . . . . . . .  C  ADDR  063DH
+E. . . . . . . . . . . . . . . . . .  N  NUMB  00A2H
+EA . . . . . . . . . . . . . . . . .  B  ADDR  00AFH  NOT USED
+EARROWS. . . . . . . . . . . . . . .  C  ADDR  0239H
+EC . . . . . . . . . . . . . . . . .  B  ADDR  00AEH  NOT USED
+EDIT . . . . . . . . . . . . . . . .  C  ADDR  03EFH
+EDIT_POLL. . . . . . . . . . . . . .  C  ADDR  0434H
+EDIT_PRINT_ADD . . . . . . . . . . .  C  ADDR  0401H
+EDIT_PROMPT. . . . . . . . . . . . .  C  ADDR  0248H
+EECON. . . . . . . . . . . . . . . .  D  ADDR  0096H  NOT USED
+ERR_DONE . . . . . . . . . . . . . .  C  ADDR  0384H
+ES . . . . . . . . . . . . . . . . .  B  ADDR  00ACH  NOT USED
+ET0. . . . . . . . . . . . . . . . .  B  ADDR  00A9H  NOT USED
+ET1. . . . . . . . . . . . . . . . .  B  ADDR  00ABH  NOT USED
+ET2. . . . . . . . . . . . . . . . .  B  ADDR  00ADH  NOT USED
+EX0. . . . . . . . . . . . . . . . .  B  ADDR  00A8H  NOT USED
+EX1. . . . . . . . . . . . . . . . .  B  ADDR  00AAH  NOT USED
+EXEN2. . . . . . . . . . . . . . . .  B  ADDR  00CBH  NOT USED
+EXF2 . . . . . . . . . . . . . . . .  B  ADDR  00CEH  NOT USED
+EXIT . . . . . . . . . . . . . . . .  C  ADDR  006DH
+EXTI0. . . . . . . . . . . . . . . .  C  ADDR  0003H  NOT USED
+EXTI1. . . . . . . . . . . . . . . .  C  ADDR  0013H  NOT USED
+E_NAV_FIRST. . . . . . . . . . . . .  C  ADDR  044DH
+F0 . . . . . . . . . . . . . . . . .  B  ADDR  00D5H  NOT USED
+FE . . . . . . . . . . . . . . . . .  B  ADDR  009FH  NOT USED
+FIND . . . . . . . . . . . . . . . .  C  ADDR  0450H
+FIND_DATATYPE. . . . . . . . . . . .  C  ADDR  0122H
+FIND_LOOP. . . . . . . . . . . . . .  C  ADDR  0480H
+FIND_PROMPT1 . . . . . . . . . . . .  C  ADDR  0253H
+FIND_PROMPT2 . . . . . . . . . . . .  C  ADDR  0264H
+FINISHCHECK. . . . . . . . . . . . .  C  ADDR  02A0H
+FINISHED . . . . . . . . . . . . . .  C  ADDR  0547H
+FIRST. . . . . . . . . . . . . . . .  C  ADDR  016FH
+FIRST_MENU . . . . . . . . . . . . .  C  ADDR  0010H
+FIRST_OFF. . . . . . . . . . . . . .  C  ADDR  0007H
+F_EXIT . . . . . . . . . . . . . . .  C  ADDR  04CFH
+F_FINISHED . . . . . . . . . . . . .  C  ADDR  04A0H
+F_NEXT . . . . . . . . . . . . . . .  C  ADDR  04CCH
+F_POLL . . . . . . . . . . . . . . .  C  ADDR  04B6H
+HERE0. . . . . . . . . . . . . . . .  C  ADDR  060EH
+HERE1. . . . . . . . . . . . . . . .  C  ADDR  0097H
+HERE2. . . . . . . . . . . . . . . .  C  ADDR  0099H
+IE . . . . . . . . . . . . . . . . .  D  ADDR  00A8H  NOT USED
+IE0. . . . . . . . . . . . . . . . .  B  ADDR  0089H  NOT USED
+IE1. . . . . . . . . . . . . . . . .  B  ADDR  008BH  NOT USED
+INT0 . . . . . . . . . . . . . . . .  B  ADDR  00B2H  NOT USED
+INT1 . . . . . . . . . . . . . . . .  B  ADDR  00B3H  NOT USED
+INVERT . . . . . . . . . . . . . . .  C  ADDR  034FH  NOT USED
+IP . . . . . . . . . . . . . . . . .  D  ADDR  00B8H  NOT USED
+IPH. . . . . . . . . . . . . . . . .  D  ADDR  00B7H  NOT USED
+IPH0 . . . . . . . . . . . . . . . .  D  ADDR  00B7H  NOT USED
+IPH1 . . . . . . . . . . . . . . . .  D  ADDR  00B3H  NOT USED
+IPL0 . . . . . . . . . . . . . . . .  D  ADDR  00B8H  NOT USED
+IPL1 . . . . . . . . . . . . . . . .  D  ADDR  00B2H  NOT USED
+IT0. . . . . . . . . . . . . . . . .  B  ADDR  0088H  NOT USED
+IT1. . . . . . . . . . . . . . . . .  B  ADDR  008AH  NOT USED
+KBE. . . . . . . . . . . . . . . . .  D  ADDR  009DH  NOT USED
+KBF. . . . . . . . . . . . . . . . .  D  ADDR  009EH  NOT USED
+KBLS . . . . . . . . . . . . . . . .  D  ADDR  009CH  NOT USED
+KP_LUT . . . . . . . . . . . . . . .  C  ADDR  030CH
+L1 . . . . . . . . . . . . . . . . .  C  ADDR  035EH
+LCD_CHAR . . . . . . . . . . . . . .  C  ADDR  0057H
+LCD_CLEAR. . . . . . . . . . . . . .  C  ADDR  0070H
+LCD_CMD. . . . . . . . . . . . . . .  C  ADDR  0086H
+LCD_CRLF . . . . . . . . . . . . . .  C  ADDR  007DH
+LCD_INIT . . . . . . . . . . . . . .  C  ADDR  003CH
+LCD_STRING . . . . . . . . . . . . .  C  ADDR  0062H
+LEN. . . . . . . . . . . . . . . . .  C  ADDR  0102H
+LEN_STRING1. . . . . . . . . . . . .  C  ADDR  020CH
+LEN_STRING2. . . . . . . . . . . . .  C  ADDR  021AH
+M0 . . . . . . . . . . . . . . . . .  C  ADDR  03C1H
+M1 . . . . . . . . . . . . . . . . .  C  ADDR  03C4H
+MDONE. . . . . . . . . . . . . . . .  C  ADDR  03E0H
+MEM_CHECK. . . . . . . . . . . . . .  C  ADDR  0361H
+MEM_ERROR1 . . . . . . . . . . . . .  C  ADDR  02B0H
+MEM_ERROR2 . . . . . . . . . . . . .  C  ADDR  02C0H
+MENU1. . . . . . . . . . . . . . . .  C  ADDR  0180H
+MENU2. . . . . . . . . . . . . . . .  C  ADDR  0190H
+MENU3. . . . . . . . . . . . . . . .  C  ADDR  01A1H
+MENU4. . . . . . . . . . . . . . . .  C  ADDR  01B0H
+MENU_POLL. . . . . . . . . . . . . .  C  ADDR  0030H
+MOVE . . . . . . . . . . . . . . . .  C  ADDR  0388H
+MOVE_ADD1. . . . . . . . . . . . . .  C  ADDR  02CAH
+MOVE_ADD2. . . . . . . . . . . . . .  C  ADDR  02DBH
+MOVE_DONE. . . . . . . . . . . . . .  C  ADDR  02FDH
+MOVE_FINISHED. . . . . . . . . . . .  C  ADDR  03EDH
+MOVING . . . . . . . . . . . . . . .  C  ADDR  02ECH
+NAV_1MENU. . . . . . . . . . . . . .  C  ADDR  05AAH
+NAV_2MENU. . . . . . . . . . . . . .  C  ADDR  05ADH
+NAV_CHECK. . . . . . . . . . . . . .  C  ADDR  059BH
+NAV_COUNT. . . . . . . . . . . . . .  C  ADDR  05A7H
+NAV_EDIT . . . . . . . . . . . . . .  C  ADDR  05A1H
+NAV_FIND . . . . . . . . . . . . . .  C  ADDR  05A4H
+NAV_MOVE . . . . . . . . . . . . . .  C  ADDR  059EH
+NEXT . . . . . . . . . . . . . . . .  C  ADDR  0615H
+NEXT_BYTE. . . . . . . . . . . . . .  C  ADDR  044AH
+OSCCON . . . . . . . . . . . . . . .  D  ADDR  0086H  NOT USED
+OV . . . . . . . . . . . . . . . . .  B  ADDR  00D2H  NOT USED
+P. . . . . . . . . . . . . . . . . .  B  ADDR  00D0H  NOT USED
+P0 . . . . . . . . . . . . . . . . .  D  ADDR  0080H  NOT USED
+P1 . . . . . . . . . . . . . . . . .  D  ADDR  0090H
+P1M1 . . . . . . . . . . . . . . . .  D  ADDR  00D4H  NOT USED
+P1M2 . . . . . . . . . . . . . . . .  D  ADDR  00E2H  NOT USED
+P2 . . . . . . . . . . . . . . . . .  D  ADDR  00A0H
+P3 . . . . . . . . . . . . . . . . .  D  ADDR  00B0H
+P3M1 . . . . . . . . . . . . . . . .  D  ADDR  00D5H  NOT USED
+P3M2 . . . . . . . . . . . . . . . .  D  ADDR  00E3H  NOT USED
+P4 . . . . . . . . . . . . . . . . .  D  ADDR  00C0H  NOT USED
+P4M1 . . . . . . . . . . . . . . . .  D  ADDR  00D6H  NOT USED
+P4M2 . . . . . . . . . . . . . . . .  D  ADDR  00E4H  NOT USED
+P5 . . . . . . . . . . . . . . . . .  D  ADDR  00E8H  NOT USED
+PC . . . . . . . . . . . . . . . . .  B  ADDR  00BEH  NOT USED
+PCON . . . . . . . . . . . . . . . .  D  ADDR  0087H  NOT USED
+POLL_KP. . . . . . . . . . . . . . .  C  ADDR  05F8H
+PORT_INIT. . . . . . . . . . . . . .  C  ADDR  0035H
+PPCL . . . . . . . . . . . . . . . .  B  ADDR  00BEH  NOT USED
+PREVIOUS . . . . . . . . . . . . . .  C  ADDR  0610H
+PRINT_BYTE . . . . . . . . . . . . .  C  ADDR  061AH
+PRINT_FIND . . . . . . . . . . . . .  C  ADDR  048BH
+PS . . . . . . . . . . . . . . . . .  B  ADDR  00BCH  NOT USED
+PSL. . . . . . . . . . . . . . . . .  B  ADDR  00BCH  NOT USED
+PSW. . . . . . . . . . . . . . . . .  D  ADDR  00D0H  NOT USED
+PT0. . . . . . . . . . . . . . . . .  B  ADDR  00B9H  NOT USED
+PT0L . . . . . . . . . . . . . . . .  B  ADDR  00B9H  NOT USED
+PT1. . . . . . . . . . . . . . . . .  B  ADDR  00BBH  NOT USED
+PT1L . . . . . . . . . . . . . . . .  B  ADDR  00BBH  NOT USED
+PT2. . . . . . . . . . . . . . . . .  B  ADDR  00BDH  NOT USED
+PT2L . . . . . . . . . . . . . . . .  B  ADDR  00BDH  NOT USED
+PX0. . . . . . . . . . . . . . . . .  B  ADDR  00B8H  NOT USED
+PX0L . . . . . . . . . . . . . . . .  B  ADDR  00B8H  NOT USED
+PX1. . . . . . . . . . . . . . . . .  B  ADDR  00BAH  NOT USED
+PX1L . . . . . . . . . . . . . . . .  B  ADDR  00BAH  NOT USED
+RB8. . . . . . . . . . . . . . . . .  B  ADDR  009AH  NOT USED
+RCAP2H . . . . . . . . . . . . . . .  D  ADDR  00CBH  NOT USED
+RCAP2L . . . . . . . . . . . . . . .  D  ADDR  00CAH  NOT USED
+RCLK . . . . . . . . . . . . . . . .  B  ADDR  00CDH  NOT USED
+RD . . . . . . . . . . . . . . . . .  B  ADDR  00B7H  NOT USED
+READ_ADDRESS . . . . . . . . . . . .  C  ADDR  00F1H
+READ_KP. . . . . . . . . . . . . . .  C  ADDR  00A2H
+REN. . . . . . . . . . . . . . . . .  B  ADDR  009CH  NOT USED
+RESET. . . . . . . . . . . . . . . .  C  ADDR  0000H  NOT USED
+RI . . . . . . . . . . . . . . . . .  B  ADDR  0098H  NOT USED
+ROWS . . . . . . . . . . . . . . . .  C  ADDR  00AFH
+RS . . . . . . . . . . . . . . . . .  N  NUMB  00A0H
+RS0. . . . . . . . . . . . . . . . .  B  ADDR  00D3H  NOT USED
+RS1. . . . . . . . . . . . . . . . .  B  ADDR  00D4H  NOT USED
+RW . . . . . . . . . . . . . . . . .  N  NUMB  00A1H
+RXD. . . . . . . . . . . . . . . . .  B  ADDR  00B0H  NOT USED
+S1 . . . . . . . . . . . . . . . . .  C  ADDR  0064H
+SADDR. . . . . . . . . . . . . . . .  D  ADDR  00A9H  NOT USED
+SADDR_0. . . . . . . . . . . . . . .  D  ADDR  00A9H  NOT USED
+SADDR_1. . . . . . . . . . . . . . .  D  ADDR  00AAH  NOT USED
+SADEN. . . . . . . . . . . . . . . .  D  ADDR  00B9H  NOT USED
+SADEN_0. . . . . . . . . . . . . . .  D  ADDR  00B9H  NOT USED
+SADEN_1. . . . . . . . . . . . . . .  D  ADDR  00BAH  NOT USED
+SBUF . . . . . . . . . . . . . . . .  D  ADDR  0099H  NOT USED
+SCON . . . . . . . . . . . . . . . .  D  ADDR  0098H  NOT USED
+SECOND_MENU. . . . . . . . . . . . .  C  ADDR  0020H
+SETUP1 . . . . . . . . . . . . . . .  C  ADDR  00ADH
+SETUP2 . . . . . . . . . . . . . . .  C  ADDR  00BEH
+SINT . . . . . . . . . . . . . . . .  C  ADDR  0023H  NOT USED
+SM0. . . . . . . . . . . . . . . . .  B  ADDR  009FH  NOT USED
+SM1. . . . . . . . . . . . . . . . .  B  ADDR  009EH  NOT USED
+SM2. . . . . . . . . . . . . . . . .  B  ADDR  009DH  NOT USED
+SP . . . . . . . . . . . . . . . . .  D  ADDR  0081H
+SPCON. . . . . . . . . . . . . . . .  D  ADDR  00C3H  NOT USED
+SPCR . . . . . . . . . . . . . . . .  D  ADDR  00D5H  NOT USED
+SPDAT. . . . . . . . . . . . . . . .  D  ADDR  00C5H  NOT USED
+SPDR . . . . . . . . . . . . . . . .  D  ADDR  0086H  NOT USED
+SPSR . . . . . . . . . . . . . . . .  D  ADDR  00AAH  NOT USED
+SPSTA. . . . . . . . . . . . . . . .  D  ADDR  00C4H  NOT USED
+SUB_NINE . . . . . . . . . . . . . .  C  ADDR  063AH
+T0 . . . . . . . . . . . . . . . . .  B  ADDR  00B4H  NOT USED
+T1 . . . . . . . . . . . . . . . . .  B  ADDR  00B5H  NOT USED
+T2CON. . . . . . . . . . . . . . . .  D  ADDR  00C8H  NOT USED
+T2MOD. . . . . . . . . . . . . . . .  D  ADDR  00C9H  NOT USED
+TB8. . . . . . . . . . . . . . . . .  B  ADDR  009BH  NOT USED
+TCLK . . . . . . . . . . . . . . . .  B  ADDR  00CCH  NOT USED
+TCON . . . . . . . . . . . . . . . .  D  ADDR  0088H  NOT USED
+TF0. . . . . . . . . . . . . . . . .  B  ADDR  008DH  NOT USED
+TF1. . . . . . . . . . . . . . . . .  B  ADDR  008FH  NOT USED
+TF2. . . . . . . . . . . . . . . . .  B  ADDR  00CFH  NOT USED
+TH0. . . . . . . . . . . . . . . . .  D  ADDR  008CH  NOT USED
+TH1. . . . . . . . . . . . . . . . .  D  ADDR  008DH  NOT USED
+TH2. . . . . . . . . . . . . . . . .  D  ADDR  00CDH  NOT USED
+TI . . . . . . . . . . . . . . . . .  B  ADDR  0099H  NOT USED
+TIMER0 . . . . . . . . . . . . . . .  C  ADDR  000BH  NOT USED
+TIMER1 . . . . . . . . . . . . . . .  C  ADDR  001BH  NOT USED
+TIMER2 . . . . . . . . . . . . . . .  C  ADDR  002BH  NOT USED
+TL0. . . . . . . . . . . . . . . . .  D  ADDR  008AH  NOT USED
+TL1. . . . . . . . . . . . . . . . .  D  ADDR  008BH  NOT USED
+TL2. . . . . . . . . . . . . . . . .  D  ADDR  00CCH  NOT USED
+TMOD . . . . . . . . . . . . . . . .  D  ADDR  0089H  NOT USED
+TR0. . . . . . . . . . . . . . . . .  B  ADDR  008CH  NOT USED
+TR1. . . . . . . . . . . . . . . . .  B  ADDR  008EH  NOT USED
+TR2. . . . . . . . . . . . . . . . .  B  ADDR  00CAH  NOT USED
+TRANSLATE. . . . . . . . . . . . . .  C  ADDR  00DEH
+TRANSLATE_DONE . . . . . . . . . . .  C  ADDR  00F0H
+TRANSLATE_LOOP . . . . . . . . . . .  C  ADDR  00E4H
+TXD. . . . . . . . . . . . . . . . .  B  ADDR  00B1H  NOT USED
+WDTCON . . . . . . . . . . . . . . .  D  ADDR  00A7H  NOT USED
+WDTPRG . . . . . . . . . . . . . . .  D  ADDR  00A7H  NOT USED
+WDTRST . . . . . . . . . . . . . . .  D  ADDR  00A6H  NOT USED
+WORD . . . . . . . . . . . . . . . .  C  ADDR  0161H
+WR . . . . . . . . . . . . . . . . .  B  ADDR  00B6H  NOT USED

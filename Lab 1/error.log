@@ -1,0 +1,19 @@
+Summary:
+Your program tried access to register at address 0x5555 in program mem
+ory. This register is not implemented on this processor (AT89C55WD) in
+ this configuration. You can continue in simulation but result of this
+
+Error details:
+	Target memory:		CODE
+	Target address: 	0x5555 (21845)
+	Line:			65
+	File:			read_kp.asm
+	Project:		ecen4330-lab1
+
+Processor details:
+	Type:			AT89C55WD
+	Ram size:		256 B
+	Program memory: 	20480 B
+	External memory:	0 B
+	Expanded memory:	256 B
+
