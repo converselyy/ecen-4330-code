@@ -7,7 +7,6 @@ CABS                                00000000    00000000 =           0. bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00000000  KP_LUT                          
 C:   00000000  l_BIT_BANK                      
 C:   00000000  l_BSEG                          
 C:   00000000  l_BSEG_BYTES                    
@@ -57,6 +56,7 @@ C:   00000009  s_GSINIT2
 C:   0000000A  l_GSINIT2                       
 C:   00000010  s_REG_BANK_2                    
 C:   00000013  s_GSINIT3                       
+C:   00000018  s_BIT_BANK                      
 ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
 Hexadecimal  [32-Bits]
 
@@ -66,7 +66,6 @@ CABS                                00000000    00000000 =           0. bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00000018  s_BIT_BANK                      
 C:   00000018  s_OSEG                          
 C:   00000018  s_REG_BANK_3                    
 C:   00000020  s_BSEG_BYTES                    
@@ -79,11 +78,11 @@ C:   0000005F  s_GSINIT
 C:   0000005F  s_GSINIT5                       
 C:   00000062  s_CSEG                          
 C:   00000080  l_DSEG                          
-C:   000000EF  l_CSEG                          
 C:   000000F8  l_SSEG                          
 C:   00000100  l_IRAM                          
-C:   00000151  s_CONST                         
-C:   00000151  s_XINIT                         
+C:   00000117  l_CSEG                          
+C:   00000179  s_CONST                         
+C:   00000179  s_XINIT                         
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
 Hexadecimal  [32-Bits]
@@ -416,13 +415,13 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000062    000000EF =         239. bytes (REL,CON,CODE)
+CSEG                                00000062    00000117 =         279. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
 C:   00000062  A$lab4$425                         lab4
-C:   00000062  C$lab4.c$10$1_0$3                  lab4
-C:   00000062  C$lab4.c$9$0_0$3                   lab4
+C:   00000062  C$lab4.c$7$0_0$3                   lab4
+C:   00000062  C$lab4.c$8$1_0$3                   lab4
 C:   00000062  G$lab4$0$0                         lab4
 C:   00000062  _lab4                              lab4
 C:   00000064  A$lab4$426                         lab4
@@ -440,145 +439,170 @@ C:   00000076  A$lab4$438                         lab4
 C:   00000078  A$lab4$439                         lab4
 C:   00000079  A$lab4$440                         lab4
 C:   0000009A  A$lab4$478                         lab4
-C:   0000009A  C$lab4.c$11$2_0$4                  lab4
+C:   0000009A  C$lab4.c$9$2_0$4                   lab4
 C:   0000009D  A$lab4$481                         lab4
-C:   0000009D  C$lab4.c$12$2_0$4                  lab4
+C:   0000009D  C$lab4.c$10$2_0$4                  lab4
 C:   0000009F  A$lab4$483                         lab4
 C:   000000A2  A$lab4$486                         lab4
-C:   000000A2  C$lab4.c$13$2_0$4                  lab4
+C:   000000A2  C$lab4.c$11$2_0$4                  lab4
 C:   000000A4  A$lab4$488                         lab4
 C:   000000A7  A$lab4$491                         lab4
-C:   000000A7  C$lab4.c$14$2_0$4                  lab4
+C:   000000A7  C$lab4.c$12$2_0$4                  lab4
 C:   000000A9  A$lab4$493                         lab4
 C:   000000AC  A$lab4$496                         lab4
-C:   000000AC  C$lab4.c$15$2_0$4                  lab4
+C:   000000AC  C$lab4.c$13$2_0$4                  lab4
 C:   000000AE  A$lab4$498                         lab4
 C:   000000B1  A$lab4$501                         lab4
-C:   000000B1  C$lab4.c$16$2_0$4                  lab4
+C:   000000B1  C$lab4.c$14$2_0$4                  lab4
 C:   000000B3  A$lab4$503                         lab4
 C:   000000B6  A$lab4$506                         lab4
-C:   000000B6  C$lab4.c$17$2_0$4                  lab4
+C:   000000B6  C$lab4.c$15$2_0$4                  lab4
 C:   000000B8  A$lab4$508                         lab4
 C:   000000BB  A$lab4$511                         lab4
-C:   000000BB  C$lab4.c$18$2_0$4                  lab4
+C:   000000BB  C$lab4.c$16$2_0$4                  lab4
 C:   000000BD  A$lab4$513                         lab4
 C:   000000C0  A$lab4$516                         lab4
-C:   000000C0  C$lab4.c$19$2_0$4                  lab4
+C:   000000C0  C$lab4.c$17$2_0$4                  lab4
 C:   000000C2  A$lab4$518                         lab4
 C:   000000C5  A$lab4$521                         lab4
-C:   000000C5  C$lab4.c$20$2_0$4                  lab4
+C:   000000C5  C$lab4.c$18$2_0$4                  lab4
 C:   000000C7  A$lab4$523                         lab4
 C:   000000CA  A$lab4$526                         lab4
-C:   000000CA  C$lab4.c$21$2_0$4                  lab4
+C:   000000CA  C$lab4.c$19$2_0$4                  lab4
 ASxxxx Linker V03.00 + NoICE + sdld,  page 17.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000062    000000EF =         239. bytes (REL,CON,CODE)
+CSEG                                00000062    00000117 =         279. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
 C:   000000CC  A$lab4$528                         lab4
 C:   000000CF  A$lab4$531                         lab4
-C:   000000CF  C$lab4.c$22$2_0$4                  lab4
+C:   000000CF  C$lab4.c$20$2_0$4                  lab4
 C:   000000D1  A$lab4$533                         lab4
 C:   000000D4  A$lab4$536                         lab4
-C:   000000D4  C$lab4.c$23$2_0$4                  lab4
+C:   000000D4  C$lab4.c$21$2_0$4                  lab4
 C:   000000D6  A$lab4$538                         lab4
 C:   000000D9  A$lab4$541                         lab4
-C:   000000D9  C$lab4.c$24$2_0$4                  lab4
+C:   000000D9  C$lab4.c$22$2_0$4                  lab4
 C:   000000DB  A$lab4$543                         lab4
 C:   000000DE  A$lab4$546                         lab4
-C:   000000DE  C$lab4.c$25$2_0$4                  lab4
+C:   000000DE  C$lab4.c$23$2_0$4                  lab4
 C:   000000E0  A$lab4$548                         lab4
 C:   000000E3  A$lab4$551                         lab4
-C:   000000E3  C$lab4.c$26$2_0$4                  lab4
+C:   000000E3  C$lab4.c$24$2_0$4                  lab4
 C:   000000E5  A$lab4$553                         lab4
 C:   000000E8  A$lab4$556                         lab4
-C:   000000E8  C$lab4.c$27$2_0$4                  lab4
+C:   000000E8  C$lab4.c$25$2_0$4                  lab4
 C:   000000EA  A$lab4$558                         lab4
 C:   000000ED  A$lab4$566                         lab4
-C:   000000ED  C$lab4.c$28$1_0$3                  lab4
-C:   000000ED  C$lab4.c$29$1_0$3                  lab4
+C:   000000ED  C$lab4.c$26$1_0$3                  lab4
+C:   000000ED  C$lab4.c$27$1_0$3                  lab4
 C:   000000ED  XG$lab4$0$0                        lab4
-C:   000000EE  A$lab4$591                         lab4
-C:   000000EE  C$lab4.c$130$1_0$5                 lab4
-C:   000000EE  C$lab4.c$31$1_0$5                  lab4
+C:   000000EE  C$lab4.c$129$1_0$5                 lab4
+C:   000000EE  C$lab4.c$29$1_0$5                  lab4
 C:   000000EE  G$getInput$0$0                     lab4
 C:   000000EE  _getInput                          lab4
-C:   000000F0  A$lab4$592                         lab4
-C:   000000F2  A$lab4$593                         lab4
-C:   000000F4  A$lab4$595                         lab4
-C:   000000F6  A$lab4$596                         lab4
-C:   000000F8  A$lab4$597                         lab4
-C:   000000F9  A$lab4$600                         lab4
-C:   000000FB  A$lab4$602                         lab4
-C:   000000FD  A$lab4$603                         lab4
-C:   000000FF  A$lab4$604                         lab4
-C:   00000101  A$lab4$606                         lab4
-C:   00000103  A$lab4$608                         lab4
-C:   00000104  A$lab4$610                         lab4
-C:   00000106  A$lab4$611                         lab4
-C:   00000107  A$lab4$612                         lab4
-C:   00000108  A$lab4$613                         lab4
-C:   0000010A  A$lab4$615                         lab4
-C:   0000010C  A$lab4$616                         lab4
-C:   0000010E  A$lab4$619                         lab4
-C:   00000110  A$lab4$620                         lab4
-C:   00000112  A$lab4$621                         lab4
-C:   00000114  A$lab4$622                         lab4
-C:   00000116  A$lab4$623                         lab4
-C:   00000117  A$lab4$624                         lab4
+C:   000000FE  A$lab4$593                         lab4
+C:   00000100  A$lab4$594                         lab4
+C:   00000102  A$lab4$595                         lab4
+C:   00000104  A$lab4$597                         lab4
+C:   00000106  A$lab4$598                         lab4
+C:   00000108  A$lab4$599                         lab4
+C:   00000109  A$lab4$602                         lab4
+C:   0000010B  A$lab4$604                         lab4
+C:   0000010D  A$lab4$605                         lab4
+C:   0000010F  A$lab4$606                         lab4
+C:   00000111  A$lab4$608                         lab4
+C:   00000113  A$lab4$610                         lab4
+C:   00000114  A$lab4$612                         lab4
+C:   00000116  A$lab4$613                         lab4
+C:   00000117  A$lab4$614                         lab4
+C:   00000118  A$lab4$615                         lab4
+C:   0000011A  A$lab4$617                         lab4
+C:   0000011C  A$lab4$618                         lab4
+C:   0000011E  A$lab4$621                         lab4
+C:   00000120  A$lab4$622                         lab4
+C:   00000122  A$lab4$623                         lab4
+C:   00000124  A$lab4$624                         lab4
+C:   00000126  A$lab4$625                         lab4
+C:   00000127  A$lab4$626                         lab4
 ASxxxx Linker V03.00 + NoICE + sdld,  page 18.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000062    000000EF =         239. bytes (REL,CON,CODE)
+CSEG                                00000062    00000117 =         279. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00000119  A$lab4$627                         lab4
-C:   0000011B  A$lab4$628                         lab4
-C:   0000011D  A$lab4$629                         lab4
-C:   0000011F  A$lab4$630                         lab4
-C:   00000121  A$lab4$632                         lab4
-C:   00000123  A$lab4$633                         lab4
-C:   00000125  A$lab4$634                         lab4
-C:   00000127  A$lab4$635                         lab4
-C:   00000129  A$lab4$636                         lab4
-C:   0000012A  A$lab4$639                         lab4
-C:   0000012D  A$lab4$640                         lab4
-C:   00000130  A$lab4$643                         lab4
-C:   00000131  A$lab4$644                         lab4
-C:   00000132  A$lab4$645                         lab4
-C:   00000133  A$lab4$646                         lab4
-C:   00000135  A$lab4$647                         lab4
-C:   00000137  A$lab4$649                         lab4
-C:   00000138  A$lab4$650                         lab4
-C:   0000013A  A$lab4$651                         lab4
-C:   0000013C  A$lab4$653                         lab4
-C:   0000013F  A$lab4$654                         lab4
-C:   00000140  A$lab4$657                         lab4
-C:   00000140  C$lab4.c$131$1_0$5                 lab4
-C:   00000143  A$lab4$662                         lab4
-C:   00000143  C$lab4.c$132$1_0$5                 lab4
-C:   00000143  XG$getInput$0$0                    lab4
-C:   00000144  A$lab4$678                         lab4
-C:   00000144  C$lab4.c$134$1_0$7                 lab4
-C:   00000144  C$lab4.c$135$1_0$7                 lab4
-C:   00000144  C$lab4.c$136$2_0$8                 lab4
-C:   00000144  G$main$0$0                         lab4
-C:   00000144  _main                              lab4
-C:   00000147  A$lab4$679                         lab4
-C:   0000014A  A$lab4$680                         lab4
-C:   0000014C  A$lab4$685                         lab4
-C:   0000014C  C$lab4.c$139$1_0$7                 lab4
-C:   0000014C  XG$main$0$0                        lab4
-C:   0000014D  __sdcc_external_startup            _startup
-
+C:   00000129  A$lab4$629                         lab4
+C:   0000012B  A$lab4$630                         lab4
+C:   0000012D  A$lab4$631                         lab4
+C:   0000012F  A$lab4$632                         lab4
+C:   00000131  A$lab4$634                         lab4
+C:   00000133  A$lab4$635                         lab4
+C:   00000135  A$lab4$636                         lab4
+C:   00000137  A$lab4$637                         lab4
+C:   00000139  A$lab4$638                         lab4
+C:   0000013A  A$lab4$641                         lab4
+C:   0000013D  A$lab4$642                         lab4
+C:   00000140  A$lab4$645                         lab4
+C:   00000141  A$lab4$646                         lab4
+C:   00000142  A$lab4$647                         lab4
+C:   00000143  A$lab4$648                         lab4
+C:   00000145  A$lab4$649                         lab4
+C:   00000147  A$lab4$651                         lab4
+C:   00000148  A$lab4$652                         lab4
+C:   0000014A  A$lab4$653                         lab4
+C:   0000014C  A$lab4$655                         lab4
+C:   0000014F  A$lab4$656                         lab4
+C:   00000150  A$lab4$659                         lab4
+C:   00000150  C$lab4.c$130$1_0$5                 lab4
+C:   00000153  A$lab4$664                         lab4
+C:   00000153  C$lab4.c$131$1_0$5                 lab4
+C:   00000153  XG$getInput$0$0                    lab4
+C:   00000154  A$lab4$681                         lab4
+C:   00000154  C$lab4.c$133$1_0$7                 lab4
+C:   00000154  C$lab4.c$135$2_0$7                 lab4
+C:   00000154  G$main$0$0                         lab4
+C:   00000154  _main                              lab4
+C:   00000156  A$lab4$687                         lab4
+C:   00000156  C$lab4.c$137$1_0$7                 lab4
+C:   00000156  C$lab4.c$138$2_0$8                 lab4
+C:   00000158  A$lab4$688                         lab4
+C:   0000015B  A$lab4$691                         lab4
+C:   0000015B  C$lab4.c$139$2_0$8                 lab4
+C:   0000015D  A$lab4$692                         lab4
+C:   0000015F  A$lab4$693                         lab4
+C:   00000162  A$lab4$694                         lab4
+C:   00000164  A$lab4$695                         lab4
+C:   00000166  A$lab4$696                         lab4
+C:   00000168  A$lab4$699                         lab4
+C:   00000168  C$lab4.c$140$2_0$8                 lab4
+C:   00000169  A$lab4$700                         lab4
+C:   0000016C  A$lab4$701                         lab4
+C:   0000016E  A$lab4$705                         lab4
+C:   0000016E  C$lab4.c$141$3_0$9                 lab4
+C:   00000170  A$lab4$709                         lab4
+C:   00000170  C$lab4.c$143$2_0$8                 lab4
+C:   00000172  A$lab4$710                         lab4
 ASxxxx Linker V03.00 + NoICE + sdld,  page 19.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                00000062    00000117 =         279. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000174  A$lab4$715                         lab4
+C:   00000174  C$lab4.c$146$1_0$7                 lab4
+C:   00000174  XG$main$0$0                        lab4
+C:   00000175  __sdcc_external_startup            _startup
+ASxxxx Linker V03.00 + NoICE + sdld,  page 20.
 
 Files Linked                              [ module(s) ]
 
@@ -600,7 +624,7 @@ C:\Program Files\SDCC\bin\..\lib\small/mcs51.lib
 C:\Program Files\SDCC\bin\..\lib\small/libsdcc.lib
                                           [ _startup.rel ]
 
-ASxxxx Linker V03.00 + NoICE + sdld,  page 20.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 21.
 
 User Base Address Definitions
 
@@ -611,4 +635,3 @@ ISEG = 0x0000
 BSEG = 0x0000
 
 
-?ASlink-Warning-Undefined Global 'KP_LUT' referenced by module 'lab4'

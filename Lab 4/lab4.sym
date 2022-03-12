@@ -65,64 +65,76 @@ Symbol Table
 
  17 A$lab4$558                                                     000088 GR
  17 A$lab4$566                                                     00008B GR
- 17 A$lab4$591                                                     00008C GR
- 17 A$lab4$592                                                     00008E GR
- 17 A$lab4$593                                                     000090 GR
- 17 A$lab4$595                                                     000092 GR
- 17 A$lab4$596                                                     000094 GR
- 17 A$lab4$597                                                     000096 GR
- 17 A$lab4$600                                                     000097 GR
- 17 A$lab4$602                                                     000099 GR
- 17 A$lab4$603                                                     00009B GR
- 17 A$lab4$604                                                     00009D GR
- 17 A$lab4$606                                                     00009F GR
- 17 A$lab4$608                                                     0000A1 GR
- 17 A$lab4$610                                                     0000A2 GR
- 17 A$lab4$611                                                     0000A4 GR
- 17 A$lab4$612                                                     0000A5 GR
- 17 A$lab4$613                                                     0000A6 GR
- 17 A$lab4$615                                                     0000A8 GR
- 17 A$lab4$616                                                     0000AA GR
- 17 A$lab4$619                                                     0000AC GR
- 17 A$lab4$620                                                     0000AE GR
- 17 A$lab4$621                                                     0000B0 GR
- 17 A$lab4$622                                                     0000B2 GR
- 17 A$lab4$623                                                     0000B4 GR
- 17 A$lab4$624                                                     0000B5 GR
- 17 A$lab4$627                                                     0000B7 GR
- 17 A$lab4$628                                                     0000B9 GR
- 17 A$lab4$629                                                     0000BB GR
- 17 A$lab4$630                                                     0000BD GR
- 17 A$lab4$632                                                     0000BF GR
- 17 A$lab4$633                                                     0000C1 GR
- 17 A$lab4$634                                                     0000C3 GR
- 17 A$lab4$635                                                     0000C5 GR
- 17 A$lab4$636                                                     0000C7 GR
- 17 A$lab4$639                                                     0000C8 GR
- 17 A$lab4$640                                                     0000CB GR
- 17 A$lab4$643                                                     0000CE GR
- 17 A$lab4$644                                                     0000CF GR
- 17 A$lab4$645                                                     0000D0 GR
- 17 A$lab4$646                                                     0000D1 GR
- 17 A$lab4$647                                                     0000D3 GR
- 17 A$lab4$649                                                     0000D5 GR
- 17 A$lab4$650                                                     0000D6 GR
- 17 A$lab4$651                                                     0000D8 GR
- 17 A$lab4$653                                                     0000DA GR
- 17 A$lab4$654                                                     0000DD GR
- 17 A$lab4$657                                                     0000DE GR
- 17 A$lab4$662                                                     0000E1 GR
- 17 A$lab4$678                                                     0000E2 GR
- 17 A$lab4$679                                                     0000E5 GR
- 17 A$lab4$680                                                     0000E8 GR
- 17 A$lab4$685                                                     0000EA GR
-    A.0                                                         =  0000E0 L
-    A.1                                                         =  0000E1 L
+ 17 A$lab4$593                                                     00009C GR
+ 17 A$lab4$594                                                     00009E GR
+ 17 A$lab4$595                                                     0000A0 GR
+ 17 A$lab4$597                                                     0000A2 GR
+ 17 A$lab4$598                                                     0000A4 GR
+ 17 A$lab4$599                                                     0000A6 GR
+ 17 A$lab4$602                                                     0000A7 GR
+ 17 A$lab4$604                                                     0000A9 GR
+ 17 A$lab4$605                                                     0000AB GR
+ 17 A$lab4$606                                                     0000AD GR
+ 17 A$lab4$608                                                     0000AF GR
+ 17 A$lab4$610                                                     0000B1 GR
+ 17 A$lab4$612                                                     0000B2 GR
+ 17 A$lab4$613                                                     0000B4 GR
+ 17 A$lab4$614                                                     0000B5 GR
+ 17 A$lab4$615                                                     0000B6 GR
+ 17 A$lab4$617                                                     0000B8 GR
+ 17 A$lab4$618                                                     0000BA GR
+ 17 A$lab4$621                                                     0000BC GR
+ 17 A$lab4$622                                                     0000BE GR
+ 17 A$lab4$623                                                     0000C0 GR
+ 17 A$lab4$624                                                     0000C2 GR
+ 17 A$lab4$625                                                     0000C4 GR
+ 17 A$lab4$626                                                     0000C5 GR
+ 17 A$lab4$629                                                     0000C7 GR
+ 17 A$lab4$630                                                     0000C9 GR
+ 17 A$lab4$631                                                     0000CB GR
+ 17 A$lab4$632                                                     0000CD GR
+ 17 A$lab4$634                                                     0000CF GR
+ 17 A$lab4$635                                                     0000D1 GR
+ 17 A$lab4$636                                                     0000D3 GR
+ 17 A$lab4$637                                                     0000D5 GR
+ 17 A$lab4$638                                                     0000D7 GR
+ 17 A$lab4$641                                                     0000D8 GR
+ 17 A$lab4$642                                                     0000DB GR
+ 17 A$lab4$645                                                     0000DE GR
+ 17 A$lab4$646                                                     0000DF GR
+ 17 A$lab4$647                                                     0000E0 GR
+ 17 A$lab4$648                                                     0000E1 GR
+ 17 A$lab4$649                                                     0000E3 GR
+ 17 A$lab4$651                                                     0000E5 GR
+ 17 A$lab4$652                                                     0000E6 GR
+ 17 A$lab4$653                                                     0000E8 GR
+ 17 A$lab4$655                                                     0000EA GR
+ 17 A$lab4$656                                                     0000ED GR
+ 17 A$lab4$659                                                     0000EE GR
+ 17 A$lab4$664                                                     0000F1 GR
+ 17 A$lab4$681                                                     0000F2 GR
+ 17 A$lab4$687                                                     0000F4 GR
+ 17 A$lab4$688                                                     0000F6 GR
+ 17 A$lab4$691                                                     0000F9 GR
+ 17 A$lab4$692                                                     0000FB GR
+ 17 A$lab4$693                                                     0000FD GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 3.
 Hexadecimal [24-Bits]
 
 Symbol Table
 
+ 17 A$lab4$694                                                     000100 GR
+ 17 A$lab4$695                                                     000102 GR
+ 17 A$lab4$696                                                     000104 GR
+ 17 A$lab4$699                                                     000106 GR
+ 17 A$lab4$700                                                     000107 GR
+ 17 A$lab4$701                                                     00010A GR
+ 17 A$lab4$705                                                     00010C GR
+ 17 A$lab4$709                                                     00010E GR
+ 17 A$lab4$710                                                     000110 GR
+ 17 A$lab4$715                                                     000112 GR
+    A.0                                                         =  0000E0 L
+    A.1                                                         =  0000E1 L
     A.2                                                         =  0000E2 L
     A.3                                                         =  0000E3 L
     A.4                                                         =  0000E4 L
@@ -148,41 +160,46 @@ Symbol Table
     B.5                                                         =  0000F5 L
     B.6                                                         =  0000F6 L
     B.7                                                         =  0000F7 L
- 17 C$lab4.c$10$1_0$3                                           =  000000 GR
- 17 C$lab4.c$11$2_0$4                                           =  000038 GR
- 17 C$lab4.c$12$2_0$4                                           =  00003B GR
- 17 C$lab4.c$13$2_0$4                                           =  000040 GR
- 17 C$lab4.c$130$1_0$5                                          =  00008C GR
- 17 C$lab4.c$131$1_0$5                                          =  0000DE GR
- 17 C$lab4.c$132$1_0$5                                          =  0000E1 GR
- 17 C$lab4.c$134$1_0$7                                          =  0000E2 GR
- 17 C$lab4.c$135$1_0$7                                          =  0000E2 GR
- 17 C$lab4.c$136$2_0$8                                          =  0000E2 GR
- 17 C$lab4.c$139$1_0$7                                          =  0000EA GR
- 17 C$lab4.c$14$2_0$4                                           =  000045 GR
- 17 C$lab4.c$15$2_0$4                                           =  00004A GR
- 17 C$lab4.c$16$2_0$4                                           =  00004F GR
- 17 C$lab4.c$17$2_0$4                                           =  000054 GR
- 17 C$lab4.c$18$2_0$4                                           =  000059 GR
- 17 C$lab4.c$19$2_0$4                                           =  00005E GR
- 17 C$lab4.c$20$2_0$4                                           =  000063 GR
- 17 C$lab4.c$21$2_0$4                                           =  000068 GR
- 17 C$lab4.c$22$2_0$4                                           =  00006D GR
- 17 C$lab4.c$23$2_0$4                                           =  000072 GR
- 17 C$lab4.c$24$2_0$4                                           =  000077 GR
- 17 C$lab4.c$25$2_0$4                                           =  00007C GR
- 17 C$lab4.c$26$2_0$4                                           =  000081 GR
- 17 C$lab4.c$27$2_0$4                                           =  000086 GR
- 17 C$lab4.c$28$1_0$3                                           =  00008B GR
- 17 C$lab4.c$29$1_0$3                                           =  00008B GR
- 17 C$lab4.c$31$1_0$5                                           =  00008C GR
- 17 C$lab4.c$9$0_0$3                                            =  000000 GR
-    CPRL2                                                       =  0000C8 L
+ 17 C$lab4.c$10$2_0$4                                           =  00003B GR
+ 17 C$lab4.c$11$2_0$4                                           =  000040 GR
+ 17 C$lab4.c$12$2_0$4                                           =  000045 GR
+ 17 C$lab4.c$129$1_0$5                                          =  00008C GR
+ 17 C$lab4.c$13$2_0$4                                           =  00004A GR
+ 17 C$lab4.c$130$1_0$5                                          =  0000EE GR
+ 17 C$lab4.c$131$1_0$5                                          =  0000F1 GR
+ 17 C$lab4.c$133$1_0$7                                          =  0000F2 GR
+ 17 C$lab4.c$135$2_0$7                                          =  0000F2 GR
+ 17 C$lab4.c$137$1_0$7                                          =  0000F4 GR
+ 17 C$lab4.c$138$2_0$8                                          =  0000F4 GR
+ 17 C$lab4.c$139$2_0$8                                          =  0000F9 GR
+ 17 C$lab4.c$14$2_0$4                                           =  00004F GR
+ 17 C$lab4.c$140$2_0$8                                          =  000106 GR
+ 17 C$lab4.c$141$3_0$9                                          =  00010C GR
+ 17 C$lab4.c$143$2_0$8                                          =  00010E GR
+ 17 C$lab4.c$146$1_0$7                                          =  000112 GR
+ 17 C$lab4.c$15$2_0$4                                           =  000054 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 4.
 Hexadecimal [24-Bits]
 
 Symbol Table
 
+ 17 C$lab4.c$16$2_0$4                                           =  000059 GR
+ 17 C$lab4.c$17$2_0$4                                           =  00005E GR
+ 17 C$lab4.c$18$2_0$4                                           =  000063 GR
+ 17 C$lab4.c$19$2_0$4                                           =  000068 GR
+ 17 C$lab4.c$20$2_0$4                                           =  00006D GR
+ 17 C$lab4.c$21$2_0$4                                           =  000072 GR
+ 17 C$lab4.c$22$2_0$4                                           =  000077 GR
+ 17 C$lab4.c$23$2_0$4                                           =  00007C GR
+ 17 C$lab4.c$24$2_0$4                                           =  000081 GR
+ 17 C$lab4.c$25$2_0$4                                           =  000086 GR
+ 17 C$lab4.c$26$1_0$3                                           =  00008B GR
+ 17 C$lab4.c$27$1_0$3                                           =  00008B GR
+ 17 C$lab4.c$29$1_0$5                                           =  00008C GR
+ 17 C$lab4.c$7$0_0$3                                            =  000000 GR
+ 17 C$lab4.c$8$1_0$3                                            =  000000 GR
+ 17 C$lab4.c$9$2_0$4                                            =  000038 GR
+    CPRL2                                                       =  0000C8 L
     CT2                                                         =  0000C9 L
     CY                                                          =  0000D7 L
     DPH                                                         =  000083 L
@@ -221,6 +238,11 @@ Symbol Table
     G$IT1$0_0$0                                                 =  00008A G
     G$OV$0_0$0                                                  =  0000D2 G
     G$P$0_0$0                                                   =  0000D0 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 5.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     G$P0$0_0$0                                                  =  000080 G
     G$P0_0$0_0$0                                                =  000080 G
     G$P0_1$0_0$0                                                =  000081 G
@@ -238,11 +260,6 @@ Symbol Table
     G$P1_4$0_0$0                                                =  000094 G
     G$P1_5$0_0$0                                                =  000095 G
     G$P1_6$0_0$0                                                =  000096 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 5.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     G$P1_7$0_0$0                                                =  000097 G
     G$P2$0_0$0                                                  =  0000A0 G
     G$P2_0$0_0$0                                                =  0000A0 G
@@ -281,6 +298,11 @@ Symbol Table
     G$SM0$0_0$0                                                 =  00009F G
     G$SM1$0_0$0                                                 =  00009E G
     G$SM2$0_0$0                                                 =  00009D G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 6.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     G$SP$0_0$0                                                  =  000081 G
     G$T0$0_0$0                                                  =  0000B4 G
     G$T1$0_0$0                                                  =  0000B5 G
@@ -298,14 +320,9 @@ Symbol Table
     G$TR1$0_0$0                                                 =  00008E G
     G$TXD$0_0$0                                                 =  0000B1 G
     G$WR$0_0$0                                                  =  0000B6 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 6.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
  17 G$getInput$0$0                                              =  00008C GR
  17 G$lab4$0$0                                                  =  000000 GR
- 17 G$main$0$0                                                  =  0000E2 GR
+ 17 G$main$0$0                                                  =  0000F2 GR
     IE                                                          =  0000A8 L
     IE.0                                                        =  0000A8 L
     IE.1                                                        =  0000A9 L
@@ -327,7 +344,6 @@ Symbol Table
     IP.5                                                        =  0000BD L
     IT0                                                         =  000088 L
     IT1                                                         =  00008A L
-    KP_LUT                                                         ****** GX
     OV                                                          =  0000D2 L
     P                                                           =  0000D0 L
     P0                                                          =  000080 L
@@ -342,6 +358,11 @@ Symbol Table
     P1                                                          =  000090 L
     P1.0                                                        =  000090 L
     P1.1                                                        =  000091 L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 7.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     P1.2                                                        =  000092 L
     P1.3                                                        =  000093 L
     P1.4                                                        =  000094 L
@@ -358,11 +379,6 @@ Symbol Table
     P2.6                                                        =  0000A6 L
     P2.7                                                        =  0000A7 L
     P3                                                          =  0000B0 L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 7.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     P3.0                                                        =  0000B0 L
     P3.1                                                        =  0000B1 L
     P3.2                                                        =  0000B2 L
@@ -402,6 +418,11 @@ Symbol Table
     SCON.1                                                      =  000099 L
     SCON.2                                                      =  00009A L
     SCON.3                                                      =  00009B L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 8.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     SCON.4                                                      =  00009C L
     SCON.5                                                      =  00009D L
     SCON.6                                                      =  00009E L
@@ -418,11 +439,6 @@ Symbol Table
     T2CON.4                                                     =  0000CC L
     T2CON.5                                                     =  0000CD L
     T2CON.6                                                     =  0000CE L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 8.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     T2CON.7                                                     =  0000CF L
     TB8                                                         =  00009B L
     TCLK                                                        =  0000CC L
@@ -450,9 +466,9 @@ Symbol Table
     TR1                                                         =  00008E L
     TR2                                                         =  0000CA L
     TXD                                                         =  0000B1 L
- 17 XG$getInput$0$0                                             =  0000E1 GR
+ 17 XG$getInput$0$0                                             =  0000F1 GR
  17 XG$lab4$0$0                                                 =  00008B GR
- 17 XG$main$0$0                                                 =  0000EA GR
+ 17 XG$main$0$0                                                 =  000112 GR
     _AC                                                         =  0000D6 G
     _ACC                                                        =  0000E0 G
     _B                                                          =  0000F0 G
@@ -462,6 +478,11 @@ Symbol Table
     _EA                                                         =  0000AF G
     _ES                                                         =  0000AC G
     _ET0                                                        =  0000A9 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 9.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     _ET1                                                        =  0000AB G
     _EX0                                                        =  0000A8 G
     _EX1                                                        =  0000AA G
@@ -478,11 +499,6 @@ Symbol Table
     _OV                                                         =  0000D2 G
     _P                                                          =  0000D0 G
     _P0                                                         =  000080 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 9.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     _P0_0                                                       =  000080 G
     _P0_1                                                       =  000081 G
     _P0_2                                                       =  000082 G
@@ -522,6 +538,11 @@ Symbol Table
     _PS                                                         =  0000BC G
     _PSW                                                        =  0000D0 G
     _PT0                                                        =  0000B9 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 10.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     _PT1                                                        =  0000BB G
     _PX0                                                        =  0000B8 G
     _PX1                                                        =  0000BA G
@@ -538,11 +559,6 @@ Symbol Table
     _SM1                                                        =  00009E G
     _SM2                                                        =  00009D G
     _SP                                                         =  000081 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 10.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     _T0                                                         =  0000B4 G
     _T1                                                         =  0000B5 G
     _TB8                                                        =  00009B G
@@ -568,7 +584,7 @@ Symbol Table
   6 __start__stack                                                 000000 GR
  17 _getInput                                                      00008C GR
  17 _lab4                                                          000000 GR
- 17 _main                                                          0000E2 GR
+ 17 _main                                                          0000F2 GR
     a                                                           =  0000E0 L
     a.0                                                         =  0000E0 L
     a.1                                                         =  0000E1 L
@@ -582,6 +598,11 @@ Symbol Table
     acc                                                         =  0000E0 L
     acc.0                                                       =  0000E0 L
     acc.1                                                       =  0000E1 L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 11.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     acc.2                                                       =  0000E2 L
     acc.3                                                       =  0000E3 L
     acc.4                                                       =  0000E4 L
@@ -598,11 +619,6 @@ Symbol Table
     ar7                                                         =  000007 
     b                                                           =  0000F0 L
     b.0                                                         =  0000F0 L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 11.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     b.1                                                         =  0000F1 L
     b.2                                                         =  0000F2 L
     b.3                                                         =  0000F3 L
@@ -642,6 +658,11 @@ Symbol Table
     ip.1                                                        =  0000B9 L
     ip.2                                                        =  0000BA L
     ip.3                                                        =  0000BB L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 12.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     ip.4                                                        =  0000BC L
     ip.5                                                        =  0000BD L
     it0                                                         =  000088 L
@@ -658,11 +679,6 @@ Symbol Table
     p0.6                                                        =  000086 L
     p0.7                                                        =  000087 L
     p1                                                          =  000090 L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 12.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     p1.0                                                        =  000090 L
     p1.1                                                        =  000091 L
     p1.2                                                        =  000092 L
@@ -702,6 +718,11 @@ Symbol Table
     psw.7                                                       =  0000D7 L
     pt0                                                         =  0000B9 L
     pt1                                                         =  0000BB L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 13.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     pt2                                                         =  0000BD L
     px0                                                         =  0000B8 L
     px1                                                         =  0000BA L
@@ -718,11 +739,6 @@ Symbol Table
     scon                                                        =  000098 L
     scon.0                                                      =  000098 L
     scon.1                                                      =  000099 L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 13.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     scon.2                                                      =  00009A L
     scon.3                                                      =  00009B L
     scon.4                                                      =  00009C L
@@ -762,6 +778,11 @@ Symbol Table
     ti                                                          =  000099 L
     tl0                                                         =  00008A L
     tl1                                                         =  00008B L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 14.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     tl2                                                         =  0000CC L
     tmod                                                        =  000089 L
     tr0                                                         =  00008C L
@@ -769,7 +790,8 @@ Symbol Table
     tr2                                                         =  0000CA L
     txd                                                         =  0000B1 L
 
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 14.
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 15.
 Hexadecimal [24-Bits]
 
 Area Table
@@ -797,7 +819,7 @@ Area Table
   14 GSINIT5                                    size      0   flags   20
   15 GSINIT                                     size      0   flags   20
   16 GSFINAL                                    size      3   flags   20
-  17 CSEG                                       size     EB   flags   20
+  17 CSEG                                       size    113   flags   20
   18 CONST                                      size      0   flags   20
   19 XINIT                                      size      0   flags   20
   1A CABS                                       size      0   flags   28

@@ -3,6 +3,9 @@ F:G$lab4$0_0$0({2}DF,SC:U),Z,0,0,0,0,0
 F:G$getInput$0_0$0({2}DF,SC:U),Z,0,0,0,0,0
 F:G$main$0_0$0({2}DF,SI:S),C,0,0,0,0,0
 S:Llab4.lab4$hex$1_0$2({1}SC:U),R,0,0,[r7]
+S:Llab4.main$keypad_input$1_0$7({1}SC:U),R,0,0,[r6]
+S:Llab4.main$prev_keypad$1_0$7({1}SC:U),R,0,0,[r7]
+S:Llab4.main$display_output$1_0$7({1}SC:U),R,0,0,[r5]
 S:G$P0$0_0$0({1}SC:U),I,0,0
 S:G$SP$0_0$0({1}SC:U),I,0,0
 S:G$DPL$0_0$0({1}SC:U),I,0,0

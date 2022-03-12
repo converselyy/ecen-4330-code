@@ -2,9 +2,7 @@
 
 #include <8051.h>
 #include <stdint.h>
-
-uint8_t lab4(uint8_t);
-uint8_t getInput();
+#include "prototypes.h"
 
 uint8_t lab4(uint8_t hex) {
 	switch (hex) {
@@ -43,6 +41,7 @@ uint8_t getInput() {
 	; 8050$ : translate loop
 	; 9000$ : translate done
 	
+	9999$: .DB 0x28, 0x11, 0x21, 0x41, 0x12, 0x22, 0x42, 0x14, 0x24, 0x44, 0x81, 0x82, 0x84, 0x88, 0x48, 0x18
 
 	; check keypad
 0000$:
@@ -107,7 +106,7 @@ uint8_t getInput() {
 ; procedure to translate the button pressed stored in the A register to a HEX value
 8000$:
 	MOV 10, #0				; initialise counter
-	MOV DPTR, #KP_LUT
+	MOV DPTR, #9999$
 	
 	; loop through the look up table and use R0 as the counter
 	8050$:
@@ -132,8 +131,14 @@ uint8_t getInput() {
 }
 
 int main(void) {
+	uint8_t keypad_input;
+	uint8_t prev_keypad = 0;
 	while (1) {
-		lab4(5);
+		keypad_input = getInput(); 
+		if (prev_keypad != keypad_input) {
+			P0 = lab4(keypad_input);
+		}
+		prev_keypad = keypad_input;
 	}
 
 }

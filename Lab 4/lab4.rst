@@ -394,7 +394,7 @@
                                     394 	.area HOME    (CODE)
                                     395 	.area HOME    (CODE)
       000003                        396 __sdcc_program_startup:
-      000003 02 01 44         [24]  397 	ljmp	_main
+      000003 02 01 54         [24]  397 	ljmp	_main
                                     398 ;	return from main will return to caller
                                     399 ;--------------------------------------------------------
                                     400 ; code
@@ -406,8 +406,8 @@
                                     406 ;hex                       Allocated to registers r7 
                                     407 ;------------------------------------------------------------
                            000000   408 	G$lab4$0$0 ==.
-                           000000   409 	C$lab4.c$9$0_0$3 ==.
-                                    410 ;	lab4.c:9: uint8_t lab4(uint8_t hex) {
+                           000000   409 	C$lab4.c$7$0_0$3 ==.
+                                    410 ;	lab4.c:7: uint8_t lab4(uint8_t hex) {
                                     411 ;	-----------------------------------------
                                     412 ;	 function lab4
                                     413 ;	-----------------------------------------
@@ -420,8 +420,8 @@
                            000002   420 	ar2 = 0x02
                            000001   421 	ar1 = 0x01
                            000000   422 	ar0 = 0x00
-                           000000   423 	C$lab4.c$10$1_0$3 ==.
-                                    424 ;	lab4.c:10: switch (hex) {
+                           000000   423 	C$lab4.c$8$1_0$3 ==.
+                                    424 ;	lab4.c:8: switch (hex) {
       000062 E5 82            [12]  425 	mov	a,dpl
       000064 FF               [12]  426 	mov	r7,a
       000065 24 F0            [12]  427 	add	a,#0xff - 0x0f
@@ -472,110 +472,110 @@
       000097 00                     472 	.db	00114$>>8
       000098 00                     473 	.db	00115$>>8
       000099 00                     474 	.db	00116$>>8
-                           000038   475 	C$lab4.c$11$2_0$4 ==.
-                                    476 ;	lab4.c:11: case 0x0: return 0xC0; break;
+                           000038   475 	C$lab4.c$9$2_0$4 ==.
+                                    476 ;	lab4.c:9: case 0x0: return 0xC0; break;
       00009A                        477 00101$:
       00009A 75 82 C0         [24]  478 	mov	dpl,#0xc0
-                           00003B   479 	C$lab4.c$12$2_0$4 ==.
-                                    480 ;	lab4.c:12: case 0x1: return 0xF9; break;
+                           00003B   479 	C$lab4.c$10$2_0$4 ==.
+                                    480 ;	lab4.c:10: case 0x1: return 0xF9; break;
       00009D 80 4E            [24]  481 	sjmp	00119$
       00009F                        482 00102$:
       00009F 75 82 F9         [24]  483 	mov	dpl,#0xf9
-                           000040   484 	C$lab4.c$13$2_0$4 ==.
-                                    485 ;	lab4.c:13: case 0x2: return 0xA4; break;
+                           000040   484 	C$lab4.c$11$2_0$4 ==.
+                                    485 ;	lab4.c:11: case 0x2: return 0xA4; break;
       0000A2 80 49            [24]  486 	sjmp	00119$
       0000A4                        487 00103$:
       0000A4 75 82 A4         [24]  488 	mov	dpl,#0xa4
-                           000045   489 	C$lab4.c$14$2_0$4 ==.
-                                    490 ;	lab4.c:14: case 0x3: return 0xB0; break;
+                           000045   489 	C$lab4.c$12$2_0$4 ==.
+                                    490 ;	lab4.c:12: case 0x3: return 0xB0; break;
       0000A7 80 44            [24]  491 	sjmp	00119$
       0000A9                        492 00104$:
       0000A9 75 82 B0         [24]  493 	mov	dpl,#0xb0
-                           00004A   494 	C$lab4.c$15$2_0$4 ==.
-                                    495 ;	lab4.c:15: case 0x4: return 0x99; break;
+                           00004A   494 	C$lab4.c$13$2_0$4 ==.
+                                    495 ;	lab4.c:13: case 0x4: return 0x99; break;
       0000AC 80 3F            [24]  496 	sjmp	00119$
       0000AE                        497 00105$:
       0000AE 75 82 99         [24]  498 	mov	dpl,#0x99
-                           00004F   499 	C$lab4.c$16$2_0$4 ==.
-                                    500 ;	lab4.c:16: case 0x5: return 0x92; break;
+                           00004F   499 	C$lab4.c$14$2_0$4 ==.
+                                    500 ;	lab4.c:14: case 0x5: return 0x92; break;
       0000B1 80 3A            [24]  501 	sjmp	00119$
       0000B3                        502 00106$:
       0000B3 75 82 92         [24]  503 	mov	dpl,#0x92
-                           000054   504 	C$lab4.c$17$2_0$4 ==.
-                                    505 ;	lab4.c:17: case 0x6: return 0x82; break;
+                           000054   504 	C$lab4.c$15$2_0$4 ==.
+                                    505 ;	lab4.c:15: case 0x6: return 0x82; break;
       0000B6 80 35            [24]  506 	sjmp	00119$
       0000B8                        507 00107$:
       0000B8 75 82 82         [24]  508 	mov	dpl,#0x82
-                           000059   509 	C$lab4.c$18$2_0$4 ==.
-                                    510 ;	lab4.c:18: case 0x7: return 0xF8; break;
+                           000059   509 	C$lab4.c$16$2_0$4 ==.
+                                    510 ;	lab4.c:16: case 0x7: return 0xF8; break;
       0000BB 80 30            [24]  511 	sjmp	00119$
       0000BD                        512 00108$:
       0000BD 75 82 F8         [24]  513 	mov	dpl,#0xf8
-                           00005E   514 	C$lab4.c$19$2_0$4 ==.
-                                    515 ;	lab4.c:19: case 0x8: return 0x80; break;
+                           00005E   514 	C$lab4.c$17$2_0$4 ==.
+                                    515 ;	lab4.c:17: case 0x8: return 0x80; break;
       0000C0 80 2B            [24]  516 	sjmp	00119$
       0000C2                        517 00109$:
       0000C2 75 82 80         [24]  518 	mov	dpl,#0x80
-                           000063   519 	C$lab4.c$20$2_0$4 ==.
-                                    520 ;	lab4.c:20: case 0x9: return 0x90; break;
+                           000063   519 	C$lab4.c$18$2_0$4 ==.
+                                    520 ;	lab4.c:18: case 0x9: return 0x90; break;
       0000C5 80 26            [24]  521 	sjmp	00119$
       0000C7                        522 00110$:
       0000C7 75 82 90         [24]  523 	mov	dpl,#0x90
-                           000068   524 	C$lab4.c$21$2_0$4 ==.
-                                    525 ;	lab4.c:21: case 0xA: return 0x88; break;
+                           000068   524 	C$lab4.c$19$2_0$4 ==.
+                                    525 ;	lab4.c:19: case 0xA: return 0x88; break;
       0000CA 80 21            [24]  526 	sjmp	00119$
       0000CC                        527 00111$:
       0000CC 75 82 88         [24]  528 	mov	dpl,#0x88
-                           00006D   529 	C$lab4.c$22$2_0$4 ==.
-                                    530 ;	lab4.c:22: case 0xB: return 0x83; break;
+                           00006D   529 	C$lab4.c$20$2_0$4 ==.
+                                    530 ;	lab4.c:20: case 0xB: return 0x83; break;
       0000CF 80 1C            [24]  531 	sjmp	00119$
       0000D1                        532 00112$:
       0000D1 75 82 83         [24]  533 	mov	dpl,#0x83
-                           000072   534 	C$lab4.c$23$2_0$4 ==.
-                                    535 ;	lab4.c:23: case 0xC: return 0xC6; break;
+                           000072   534 	C$lab4.c$21$2_0$4 ==.
+                                    535 ;	lab4.c:21: case 0xC: return 0xC6; break;
       0000D4 80 17            [24]  536 	sjmp	00119$
       0000D6                        537 00113$:
       0000D6 75 82 C6         [24]  538 	mov	dpl,#0xc6
-                           000077   539 	C$lab4.c$24$2_0$4 ==.
-                                    540 ;	lab4.c:24: case 0xD: return 0xA1; break;
+                           000077   539 	C$lab4.c$22$2_0$4 ==.
+                                    540 ;	lab4.c:22: case 0xD: return 0xA1; break;
       0000D9 80 12            [24]  541 	sjmp	00119$
       0000DB                        542 00114$:
       0000DB 75 82 A1         [24]  543 	mov	dpl,#0xa1
-                           00007C   544 	C$lab4.c$25$2_0$4 ==.
-                                    545 ;	lab4.c:25: case 0xE: return 0x86; break;
+                           00007C   544 	C$lab4.c$23$2_0$4 ==.
+                                    545 ;	lab4.c:23: case 0xE: return 0x86; break;
       0000DE 80 0D            [24]  546 	sjmp	00119$
       0000E0                        547 00115$:
       0000E0 75 82 86         [24]  548 	mov	dpl,#0x86
-                           000081   549 	C$lab4.c$26$2_0$4 ==.
-                                    550 ;	lab4.c:26: case 0xF: return 0x8E; break;
+                           000081   549 	C$lab4.c$24$2_0$4 ==.
+                                    550 ;	lab4.c:24: case 0xF: return 0x8E; break;
       0000E3 80 08            [24]  551 	sjmp	00119$
       0000E5                        552 00116$:
       0000E5 75 82 8E         [24]  553 	mov	dpl,#0x8e
-                           000086   554 	C$lab4.c$27$2_0$4 ==.
-                                    555 ;	lab4.c:27: default : return 0x00; break;
+                           000086   554 	C$lab4.c$25$2_0$4 ==.
+                                    555 ;	lab4.c:25: default : return 0x00; break;
       0000E8 80 03            [24]  556 	sjmp	00119$
       0000EA                        557 00117$:
       0000EA 75 82 00         [24]  558 	mov	dpl,#0x00
-                           00008B   559 	C$lab4.c$28$1_0$3 ==.
-                                    560 ;	lab4.c:28: }
+                           00008B   559 	C$lab4.c$26$1_0$3 ==.
+                                    560 ;	lab4.c:26: }
       0000ED                        561 00119$:
-                           00008B   562 	C$lab4.c$29$1_0$3 ==.
-                                    563 ;	lab4.c:29: }
-                           00008B   564 	C$lab4.c$29$1_0$3 ==.
+                           00008B   562 	C$lab4.c$27$1_0$3 ==.
+                                    563 ;	lab4.c:27: }
+                           00008B   564 	C$lab4.c$27$1_0$3 ==.
                            00008B   565 	XG$lab4$0$0 ==.
       0000ED 22               [24]  566 	ret
                                     567 ;------------------------------------------------------------
                                     568 ;Allocation info for local variables in function 'getInput'
                                     569 ;------------------------------------------------------------
                            00008C   570 	G$getInput$0$0 ==.
-                           00008C   571 	C$lab4.c$31$1_0$5 ==.
-                                    572 ;	lab4.c:31: uint8_t getInput() {
+                           00008C   571 	C$lab4.c$29$1_0$5 ==.
+                                    572 ;	lab4.c:29: uint8_t getInput() {
                                     573 ;	-----------------------------------------
                                     574 ;	 function getInput
                                     575 ;	-----------------------------------------
       0000EE                        576 _getInput:
-                           00008C   577 	C$lab4.c$130$1_0$5 ==.
-                                    578 ;	lab4.c:130: __endasm;
+                           00008C   577 	C$lab4.c$129$1_0$5 ==.
+                                    578 ;	lab4.c:129: __endasm;
                                     579 ;	0000$ : start
                                     580 ;	0001$ : setup 1
                                     581 ;	2000$ : rows
@@ -585,105 +585,137 @@
                                     585 ;	8000$ : translate
                                     586 ;	8050$ : translate loop
                                     587 ;	9000$ : translate done
-                                    588 ;	check keypad
-      0000EE                        589 	0000$:
-                                    590 ;	contents previously stored in A is now stored at 99H in memory
-      0000EE F5 99            [12]  591 	MOV	0x99, A
-      0000F0 C0 07            [24]  592 	PUSH	7
-      0000F2 C0 06            [24]  593 	PUSH	6
-                                    594 ;	PUSH 0
-      0000F4 C0 01            [24]  595 	PUSH	1
-      0000F6 7F 04            [12]  596 	MOV	R7, #4 ; number of rows
-      0000F8 E4               [12]  597 	CLR	A
-                                    598 ;	index through rows to figure out which row the input is in
-      0000F9                        599 	0001$:
-      0000F9 74 01            [12]  600 	MOV A, #0x1
-      0000FB                        601 	2000$:
-      0000FB F5 90            [12]  602 	MOV	P1, A ; make lower nibble an output
-      0000FD F5 0C            [12]  603 	MOV	12, A ; latch value written to port
-      0000FF E5 90            [12]  604 	MOV	A, P1 ; intake row into A
-                                    605 ;	if a bit in A is a 0, then a button in that row has been pressed
-      000101 60 07            [24]  606 	JZ	0002$
-                                    607 ;	if not then shift the A register left
-      000103 23               [12]  608 	RL	A
-                                    609 ;	and do it again
-      000104 DF F5            [24]  610 	DJNZ	R7, 2000$
-      000106 EF               [12]  611 	MOV	A, R7
-      000107 E4               [12]  612 	CLR	A
-      000108 80 EF            [24]  613 	SJMP	0001$
-      00010A                        614 	0002$:
-      00010A 7E 04            [12]  615 	MOV R6, #4 ; number of columns
-      00010C 74 10            [12]  616 	MOV	A, #0x10
-      00010E                        617 	  3000$:
-                                    618 ;	index through the columns to figure out which column the input is in
-      00010E F5 90            [12]  619 	MOV	P1, A ; make upper nibble an output
-      000110 F5 0B            [12]  620 	MOV	11, A ; latch value written to port
-      000112 E5 90            [12]  621 	MOV	A, P1 ; intake column into A
-      000114 60 03            [24]  622 	JZ	5000$
-      000116 23               [12]  623 	RL	A
-      000117 DE F5            [24]  624 	DJNZ	R6, 3000$
-                                    625 ;	determine what the value of the input is via a LUT
-      000119                        626 	    5000$:
-      000119 E5 0B            [12]  627 	MOV	A, 11 ; column
-      00011B 45 0C            [12]  628 	ORL	A, 12 ; row
-      00011D F5 0D            [12]  629 	MOV	13, A
-      00011F D0 01            [24]  630 	POP	1
-                                    631 ;	POP R0
-      000121 D0 06            [24]  632 	POP	6
-      000123 D0 07            [24]  633 	POP	7
-      000125 E5 99            [12]  634 	MOV	A, 0x99
-      000127 31 2A            [12]  635 	ACALL	8000$
-      000129 22               [24]  636 	RET
-                                    637 ;	procedure to translate the button pressed stored in the A register to a HEX value
-      00012A                        638 	8000$:
-      00012A 75 0A 00         [24]  639 	MOV	10, #0 ; initialise counter
-      00012D 90 00 00         [24]  640 	MOV	DPTR, #KP_LUT
-                                    641 ;	loop through the look up table and use R0 as the counter
-      000130                        642 	 8050$:
-      000130 E4               [12]  643 	CLR	A ; clear A reg
-      000131 93               [24]  644 	MOVC	A, @A+DPTR
-      000132 C3               [12]  645 	CLR	C ; clear carry
-      000133 95 0D            [12]  646 	SUBB	A, 13 ; check if the counter and pressed button are the same
-      000135 60 05            [24]  647 	JZ	9000$
-                                    648 ;	later, add a way to prevent an infinite loop. loop back to the beginning and start comparing again
-      000137 A3               [24]  649 	INC	DPTR
-      000138 05 0A            [12]  650 	INC	10
-      00013A 80 F4            [24]  651 	SJMP	8050$
-      00013C                        652 	 9000$:
-      00013C 85 0A 82         [24]  653 	MOV	DPL, 10
-      00013F 22               [24]  654 	RET
-                           0000DE   655 	C$lab4.c$131$1_0$5 ==.
-                                    656 ;	lab4.c:131: return DPL;
-      000140 85 82 82         [24]  657 	mov	dpl,_DPL
-                           0000E1   658 	C$lab4.c$132$1_0$5 ==.
-                                    659 ;	lab4.c:132: }
-                           0000E1   660 	C$lab4.c$132$1_0$5 ==.
-                           0000E1   661 	XG$getInput$0$0 ==.
-      000143 22               [24]  662 	ret
-                                    663 ;------------------------------------------------------------
-                                    664 ;Allocation info for local variables in function 'main'
+      0000EE                        588 	 9999$:
+      0000EE 28 11 21 41 12 22 42   589 	.DB 0x28, 0x11, 0x21, 0x41, 0x12, 0x22, 0x42, 0x14, 0x24, 0x44, 0x81, 0x82, 0x84, 0x88, 0x48, 0x18
+             14 24 44 81 82 84 88
+             48 18
+                                    590 ;	check keypad
+      0000FE                        591 	0000$:
+                                    592 ;	contents previously stored in A is now stored at 99H in memory
+      0000FE F5 99            [12]  593 	MOV	0x99, A
+      000100 C0 07            [24]  594 	PUSH	7
+      000102 C0 06            [24]  595 	PUSH	6
+                                    596 ;	PUSH 0
+      000104 C0 01            [24]  597 	PUSH	1
+      000106 7F 04            [12]  598 	MOV	R7, #4 ; number of rows
+      000108 E4               [12]  599 	CLR	A
+                                    600 ;	index through rows to figure out which row the input is in
+      000109                        601 	0001$:
+      000109 74 01            [12]  602 	MOV A, #0x1
+      00010B                        603 	2000$:
+      00010B F5 90            [12]  604 	MOV	P1, A ; make lower nibble an output
+      00010D F5 0C            [12]  605 	MOV	12, A ; latch value written to port
+      00010F E5 90            [12]  606 	MOV	A, P1 ; intake row into A
+                                    607 ;	if a bit in A is a 0, then a button in that row has been pressed
+      000111 60 07            [24]  608 	JZ	0002$
+                                    609 ;	if not then shift the A register left
+      000113 23               [12]  610 	RL	A
+                                    611 ;	and do it again
+      000114 DF F5            [24]  612 	DJNZ	R7, 2000$
+      000116 EF               [12]  613 	MOV	A, R7
+      000117 E4               [12]  614 	CLR	A
+      000118 80 EF            [24]  615 	SJMP	0001$
+      00011A                        616 	0002$:
+      00011A 7E 04            [12]  617 	MOV R6, #4 ; number of columns
+      00011C 74 10            [12]  618 	MOV	A, #0x10
+      00011E                        619 	  3000$:
+                                    620 ;	index through the columns to figure out which column the input is in
+      00011E F5 90            [12]  621 	MOV	P1, A ; make upper nibble an output
+      000120 F5 0B            [12]  622 	MOV	11, A ; latch value written to port
+      000122 E5 90            [12]  623 	MOV	A, P1 ; intake column into A
+      000124 60 03            [24]  624 	JZ	5000$
+      000126 23               [12]  625 	RL	A
+      000127 DE F5            [24]  626 	DJNZ	R6, 3000$
+                                    627 ;	determine what the value of the input is via a LUT
+      000129                        628 	    5000$:
+      000129 E5 0B            [12]  629 	MOV	A, 11 ; column
+      00012B 45 0C            [12]  630 	ORL	A, 12 ; row
+      00012D F5 0D            [12]  631 	MOV	13, A
+      00012F D0 01            [24]  632 	POP	1
+                                    633 ;	POP R0
+      000131 D0 06            [24]  634 	POP	6
+      000133 D0 07            [24]  635 	POP	7
+      000135 E5 99            [12]  636 	MOV	A, 0x99
+      000137 31 3A            [12]  637 	ACALL	8000$
+      000139 22               [24]  638 	RET
+                                    639 ;	procedure to translate the button pressed stored in the A register to a HEX value
+      00013A                        640 	8000$:
+      00013A 75 0A 00         [24]  641 	MOV	10, #0 ; initialise counter
+      00013D 90 00 EE         [24]  642 	MOV	DPTR, #9999$
+                                    643 ;	loop through the look up table and use R0 as the counter
+      000140                        644 	 8050$:
+      000140 E4               [12]  645 	CLR	A ; clear A reg
+      000141 93               [24]  646 	MOVC	A, @A+DPTR
+      000142 C3               [12]  647 	CLR	C ; clear carry
+      000143 95 0D            [12]  648 	SUBB	A, 13 ; check if the counter and pressed button are the same
+      000145 60 05            [24]  649 	JZ	9000$
+                                    650 ;	later, add a way to prevent an infinite loop. loop back to the beginning and start comparing again
+      000147 A3               [24]  651 	INC	DPTR
+      000148 05 0A            [12]  652 	INC	10
+      00014A 80 F4            [24]  653 	SJMP	8050$
+      00014C                        654 	 9000$:
+      00014C 85 0A 82         [24]  655 	MOV	DPL, 10
+      00014F 22               [24]  656 	RET
+                           0000EE   657 	C$lab4.c$130$1_0$5 ==.
+                                    658 ;	lab4.c:130: return DPL;
+      000150 85 82 82         [24]  659 	mov	dpl,_DPL
+                           0000F1   660 	C$lab4.c$131$1_0$5 ==.
+                                    661 ;	lab4.c:131: }
+                           0000F1   662 	C$lab4.c$131$1_0$5 ==.
+                           0000F1   663 	XG$getInput$0$0 ==.
+      000153 22               [24]  664 	ret
                                     665 ;------------------------------------------------------------
-                           0000E2   666 	G$main$0$0 ==.
-                           0000E2   667 	C$lab4.c$134$1_0$7 ==.
-                                    668 ;	lab4.c:134: int main(void) {
-                                    669 ;	-----------------------------------------
-                                    670 ;	 function main
-                                    671 ;	-----------------------------------------
-      000144                        672 _main:
-                           0000E2   673 	C$lab4.c$135$1_0$7 ==.
-                                    674 ;	lab4.c:135: while (1) {
-      000144                        675 00102$:
-                           0000E2   676 	C$lab4.c$136$2_0$8 ==.
-                                    677 ;	lab4.c:136: lab4(5);
-      000144 75 82 05         [24]  678 	mov	dpl,#0x05
-      000147 12 00 62         [24]  679 	lcall	_lab4
-      00014A 80 F8            [24]  680 	sjmp	00102$
-                           0000EA   681 	C$lab4.c$139$1_0$7 ==.
-                                    682 ;	lab4.c:139: }
-                           0000EA   683 	C$lab4.c$139$1_0$7 ==.
-                           0000EA   684 	XG$main$0$0 ==.
-      00014C 22               [24]  685 	ret
-                                    686 	.area CSEG    (CODE)
-                                    687 	.area CONST   (CODE)
-                                    688 	.area XINIT   (CODE)
-                                    689 	.area CABS    (ABS,CODE)
+                                    666 ;Allocation info for local variables in function 'main'
+                                    667 ;------------------------------------------------------------
+                                    668 ;keypad_input              Allocated to registers r6 
+                                    669 ;prev_keypad               Allocated to registers r7 
+                                    670 ;display_output            Allocated to registers r5 
+                                    671 ;------------------------------------------------------------
+                           0000F2   672 	G$main$0$0 ==.
+                           0000F2   673 	C$lab4.c$133$1_0$7 ==.
+                                    674 ;	lab4.c:133: int main(void) {
+                                    675 ;	-----------------------------------------
+                                    676 ;	 function main
+                                    677 ;	-----------------------------------------
+      000154                        678 _main:
+                           0000F2   679 	C$lab4.c$135$2_0$7 ==.
+                                    680 ;	lab4.c:135: uint8_t prev_keypad = 0;
+      000154 7F 00            [12]  681 	mov	r7,#0x00
+                           0000F4   682 	C$lab4.c$137$1_0$7 ==.
+                                    683 ;	lab4.c:137: while (1) {
+      000156                        684 00104$:
+                           0000F4   685 	C$lab4.c$138$2_0$8 ==.
+                                    686 ;	lab4.c:138: keypad_input = getInput();
+      000156 C0 07            [24]  687 	push	ar7
+      000158 12 00 EE         [24]  688 	lcall	_getInput
+                           0000F9   689 	C$lab4.c$139$2_0$8 ==.
+                                    690 ;	lab4.c:139: display_output = lab4(keypad_input);
+      00015B AE 82            [24]  691 	mov  r6,dpl
+      00015D C0 06            [24]  692 	push	ar6
+      00015F 12 00 62         [24]  693 	lcall	_lab4
+      000162 AD 82            [24]  694 	mov	r5,dpl
+      000164 D0 06            [24]  695 	pop	ar6
+      000166 D0 07            [24]  696 	pop	ar7
+                           000106   697 	C$lab4.c$140$2_0$8 ==.
+                                    698 ;	lab4.c:140: if (prev_keypad != keypad_input) {
+      000168 EF               [12]  699 	mov	a,r7
+      000169 B5 06 02         [24]  700 	cjne	a,ar6,00116$
+      00016C 80 02            [24]  701 	sjmp	00102$
+      00016E                        702 00116$:
+                           00010C   703 	C$lab4.c$141$3_0$9 ==.
+                                    704 ;	lab4.c:141: P0 = display_output;
+      00016E 8D 80            [24]  705 	mov	_P0,r5
+      000170                        706 00102$:
+                           00010E   707 	C$lab4.c$143$2_0$8 ==.
+                                    708 ;	lab4.c:143: prev_keypad = keypad_input;
+      000170 8E 07            [24]  709 	mov	ar7,r6
+      000172 80 E2            [24]  710 	sjmp	00104$
+                           000112   711 	C$lab4.c$146$1_0$7 ==.
+                                    712 ;	lab4.c:146: }
+                           000112   713 	C$lab4.c$146$1_0$7 ==.
+                           000112   714 	XG$main$0$0 ==.
+      000174 22               [24]  715 	ret
+                                    716 	.area CSEG    (CODE)
+                                    717 	.area CONST   (CODE)
+                                    718 	.area XINIT   (CODE)
+                                    719 	.area CABS    (ABS,CODE)

@@ -667,7 +667,6 @@ _getInput:
 ;------------------------------------------------------------
 ;keypad_input              Allocated to registers r6 
 ;prev_keypad               Allocated to registers r7 
-;display_output            Allocated to registers r5 
 ;------------------------------------------------------------
 	G$main$0$0 ==.
 	C$lab4.c$133$1_0$7 ==.
@@ -679,38 +678,36 @@ _main:
 	C$lab4.c$135$2_0$7 ==.
 ;	lab4.c:135: uint8_t prev_keypad = 0;
 	mov	r7,#0x00
-	C$lab4.c$137$1_0$7 ==.
-;	lab4.c:137: while (1) {
+	C$lab4.c$136$1_0$7 ==.
+;	lab4.c:136: while (1) {
 00104$:
-	C$lab4.c$138$2_0$8 ==.
-;	lab4.c:138: keypad_input = getInput();
+	C$lab4.c$137$2_0$8 ==.
+;	lab4.c:137: keypad_input = getInput();
 	push	ar7
 	lcall	_getInput
-	C$lab4.c$139$2_0$8 ==.
-;	lab4.c:139: display_output = lab4(keypad_input);
-	mov  r6,dpl
-	push	ar6
-	lcall	_lab4
-	mov	r5,dpl
-	pop	ar6
+	mov	r6,dpl
 	pop	ar7
-	C$lab4.c$140$2_0$8 ==.
-;	lab4.c:140: if (prev_keypad != keypad_input) {
+	C$lab4.c$138$2_0$8 ==.
+;	lab4.c:138: if (prev_keypad != keypad_input) {
 	mov	a,r7
 	cjne	a,ar6,00116$
 	sjmp	00102$
 00116$:
-	C$lab4.c$141$3_0$9 ==.
-;	lab4.c:141: P0 = display_output;
-	mov	_P0,r5
+	C$lab4.c$139$3_0$9 ==.
+;	lab4.c:139: P2 = lab4(keypad_input);
+	mov	dpl,r6
+	push	ar6
+	lcall	_lab4
+	mov	_P2,dpl
+	pop	ar6
 00102$:
-	C$lab4.c$143$2_0$8 ==.
-;	lab4.c:143: prev_keypad = keypad_input;
+	C$lab4.c$141$2_0$8 ==.
+;	lab4.c:141: prev_keypad = keypad_input;
 	mov	ar7,r6
 	sjmp	00104$
-	C$lab4.c$146$1_0$7 ==.
-;	lab4.c:146: }
-	C$lab4.c$146$1_0$7 ==.
+	C$lab4.c$144$1_0$7 ==.
+;	lab4.c:144: }
+	C$lab4.c$144$1_0$7 ==.
 	XG$main$0$0 ==.
 	ret
 	.area CSEG    (CODE)
