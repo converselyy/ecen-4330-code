@@ -1,4 +1,8 @@
+// Name		: Brandon Cline
+// Class	: ECEN 4330-001
 
+// Keypad	: Port 1
+// 7-Seg	: Port 0
 
 #include <8051.h>
 #include <stdint.h>

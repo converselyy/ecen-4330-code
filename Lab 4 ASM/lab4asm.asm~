@@ -2,13 +2,18 @@
 ; Class		: ECEN 4330-001
 ; Lab		: 4
 
+; 7-Seg		: Port 0
+; Keypad	: Port 1
+
+MOV 0C1H, #02
+
 MAIN:
-	ACALL READ_KP
-	MOV A, 10
-	MOV DPTR, #SS_LUT
-	MOVC A, @A+DPTR
-	MOV P0, A
-	SJMP MAIN
+	ACALL READ_KP			; read from keypad and place the result at address 0
+	MOV A, 10				; move the result into A for indexing addressing
+	MOV DPTR, #SS_LUT		; move the 7-segment display lut into the DPTR
+	MOVC A, @A+DPTR			; move the correct output to A
+	MOV P0, A				; output the output to Port 0
+	SJMP MAIN				; do it again
 
 $INCLUDE (read_kp.asm)
 
@@ -18,6 +23,6 @@ KP_LUT: DB 28H, 11H, 21H, 41H, 12H, 22H, 42H, 14H, 24H, 44H, 81H, 82H, 84H, 88H,
 
 ; look up table for 7 segment display
 ;		   0	 1	   2	 3	   4	 5	   6	 7	   8	 9	   A	 B	   C	 D	   E	 F
-SS_LUT: DB 0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90, 0x88, 0x83, 0xC6, 0xA1, 0x86, 0x8E
+SS_LUT: DB 0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F, 0x77, 0x7C, 0x39, 0x5E, 0x79, 0x71
 
 END

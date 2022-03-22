@@ -43,28 +43,20 @@ SETUP2:	MOV R6, #4			; number of columns
 			RL A
 
 			DJNZ R6, COLS
-					
 			; determine what the value of the input is via a LUT
 				DETERMINE:
 					MOV A, 11		; column
 					ORL A, 12		; row
 					MOV 13, A
 
-;					DEBOUNCE:
-;;						MOV P1, 13
-;;						NOP
-;						MOV A, P1
-;						CJNE A, 13, DEBOUNCE
-
-				DEBOUNCED:
 					POP 1
 ;					POP R0
 					POP 6
 					POP 7
 					MOV A, 99H
 					
-					SJMP TRANSLATE
-;TRANSLATE_DONE:	RET
+					ACALL TRANSLATE
+	RET
 
 ; procedure to translate the button pressed stored in the A register to a HEX value
 TRANSLATE:
