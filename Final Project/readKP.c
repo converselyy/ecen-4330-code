@@ -1,6 +1,8 @@
 uint8_t getInput() {
 	__asm
 
+	IOM .EQU P3.4
+
 	; 0000$ : start
 	; 0001$ : setup 1
 	; 2000$ : rows
@@ -19,10 +21,11 @@ uint8_t getInput() {
 0000$:
 
 	; contents previously stored in A is now stored at 99H in memory
-	MOV 0x99, A
+	MOV DPTR, #0x99
+	MOVX @DPTR, A
 	PUSH 7
 	PUSH 6
-;	PUSH 0
+	PUSH 0
 	PUSH 1
 
 	MOV R7, #4				; number of rows
@@ -32,7 +35,10 @@ uint8_t getInput() {
 0001$:	MOV A, #0x1
 2000$:
 		MOV P1, A			; make lower nibble an output
-		MOV 12, A			; latch value written to port
+		MOV DPTR, #12
+		CLR IOM
+		MOVX @DPTR, A			; latch value written to port
+		SETB IOM
 		MOV A, P1			; intake row into A
 		; if a bit in A is a 0, then a button in that row has been pressed
 		JZ 0002$
@@ -53,7 +59,10 @@ uint8_t getInput() {
 			; index through the columns to figure out which column the input is in
 			
 			MOV P1, A		; make upper nibble an output
-			MOV 11, A		; latch value written to port
+			MOV DPTR, #11
+			CLR IOM
+			MOVX @DPTR, A		; latch value written to port
+			SETB IOM
 			MOV A, P1		; intake column into A
 			JZ 5000$
 
@@ -62,40 +71,63 @@ uint8_t getInput() {
 			DJNZ R6, 3000$
 			; determine what the value of the input is via a LUT
 				5000$:
-					MOV A, 11		; column
-					ORL A, 12		; row
-					MOV 13, A
+					MOV DPTR, #11
+					CLR IOM
+					MOVX A, @DPTR	; column
+					SETB IOM
+					MOV R0, A
+
+					MOV DPTR, #12
+					CLR IOM
+					MOVX A, @DPTR
+					SETB IOM
+					ORL A, R0		; row
+
+					MOV DPTR, #13
+					CLR IOM
+					MOVX @DPTR, A
+					CLR IOM
 
 					POP 1
-;					POP R0
+					POP 0
 					POP 6
 					POP 7
-					MOV A, 0x99
+
+					MOV DPTR, #0x99
+					CLR IOM
+					MOVX A, @DPTR
+					SETB IOM
 					
 					ACALL 8000$
 	RET
 
 ; procedure to translate the button pressed stored in the A register to a HEX value
 8000$:
-	MOV 10, #0				; initialise counter
+	PUSH 0
+	
+	MOV R0, #0				; initialise counter
 	MOV DPTR, #9999$
 	
 	; loop through the look up table and use R0 as the counter
 	8050$:
 		CLR A					; clear A reg
+		CLR IOM
 		MOVC A, @A+DPTR
+		SETB IOM
 		CLR C					; clear carry
-		SUBB A, 13				; check if the counter and pressed button are the same
+		SUBB A, R0				; check if the counter and pressed button are the same
 		JZ 9000$
 
 		; later, add a way to prevent an infinite loop. loop back to the beginning and start comparing again
 	
-		INC DPTR
-		INC 10
+		INC DPTR				; increment data pointer
+		INC R0					; increment counter
 		SJMP 8050$
 		
 	9000$:
-		MOV DPL, 10
+		MOV DPL, R0
+		POP 0
+		
 		RET
 
 	__endasm;

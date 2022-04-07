@@ -50,11 +50,11 @@ SETUP2:	MOV R6, #4			; number of columns
 					ORL A, 12		; row
 					MOV 13, A
 
-;					DEBOUNCE:
-;;						MOV P1, 13
-;;						NOP
-;						MOV A, P1
-;						CJNE A, 13, DEBOUNCE
+					DEBOUNCE:
+;						MOV P1, 13
+;						NOP
+						MOV A, P1
+						CJNE A, 13, DEBOUNCE
 
 				DEBOUNCED:
 					POP 1
