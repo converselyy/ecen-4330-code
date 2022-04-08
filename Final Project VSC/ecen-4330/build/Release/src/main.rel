@@ -1,6 +1,6 @@
 XH3
 H 1C areas B1 global symbols
-M ecen4330_lcd_v3
+M main
 O -mmcs51 --model-small
 S __divuint Ref000000
 S _SP Def000081

@@ -596,3 +596,4 @@ void main (void) {
 		freeType();
 	}
 }
+

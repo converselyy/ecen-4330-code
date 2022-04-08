@@ -1,8 +1,8 @@
                                       1 ;--------------------------------------------------------
                                       2 ; File Created by SDCC : free open source ANSI-C Compiler
-                                      3 ; Version 4.2.0 #13081 (MINGW64)
+                                      3 ; Version 4.1.0 #12072 (MINGW64)
                                       4 ;--------------------------------------------------------
-                                      5 	.module ecen4330_lcd_v3
+                                      5 	.module main
                                       6 	.optsdcc -mmcs51 --model-small
                                       7 	
                                       8 ;--------------------------------------------------------
@@ -371,7 +371,7 @@
       00007C                        371 _asciiToHex_store_65536_200:
       00007C                        372 	.ds 2
                                     373 ;--------------------------------------------------------
-                                    374 ; overlayable items in internal ram
+                                    374 ; overlayable items in internal ram 
                                     375 ;--------------------------------------------------------
                                     376 	.area	OSEG    (OVR,DATA)
       000008                        377 _iowrite8_PARM_2:
@@ -399,7 +399,7 @@
       00000C                        399 	.ds 2
                                     400 	.area	OSEG    (OVR,DATA)
                                     401 ;--------------------------------------------------------
-                                    402 ; Stack segment in internal ram
+                                    402 ; Stack segment in internal ram 
                                     403 ;--------------------------------------------------------
                                     404 	.area	SSEG
       00007E                        405 __start__stack:
@@ -447,7 +447,7 @@
                                     447 	.area GSFINAL (CODE)
                                     448 	.area CSEG    (CODE)
                                     449 ;--------------------------------------------------------
-                                    450 ; interrupt vector
+                                    450 ; interrupt vector 
                                     451 ;--------------------------------------------------------
                                     452 	.area HOME    (CODE)
       000000                        453 __interrupt_vect:
@@ -465,7 +465,7 @@
                                     465 	.globl __mcs51_genXINIT
                                     466 	.globl __mcs51_genXRAMCLEAR
                                     467 	.globl __mcs51_genRAMCLEAR
-                                    468 ;	ecen4330_lcd_v3.c:4: uint8_t keypad[4][4] =	{{'1','4','7','E'},
+                                    468 ;	.\src\main.c:4: uint8_t keypad[4][4] =	{{'1','4','7','E'},
       00005F 75 21 31         [24]  469 	mov	_keypad,#0x31
       000062 75 22 34         [24]  470 	mov	(_keypad + 0x0001),#0x34
       000065 75 23 37         [24]  471 	mov	(_keypad + 0x0002),#0x37
@@ -482,10 +482,10 @@
       000086 75 2E 42         [24]  482 	mov	(_keypad + 0x000d),#0x42
       000089 75 2F 43         [24]  483 	mov	(_keypad + 0x000e),#0x43
       00008C 75 30 44         [24]  484 	mov	(_keypad + 0x000f),#0x44
-                                    485 ;	ecen4330_lcd_v3.c:9: __xdata uint8_t* lcd_address = (uint8_t __xdata*) __LCD_ADDRESS__;
+                                    485 ;	.\src\main.c:9: __xdata uint8_t* lcd_address = (uint8_t __xdata*) __LCD_ADDRESS__;
       00008F 75 33 00         [24]  486 	mov	_lcd_address,#0x00
       000092 75 34 40         [24]  487 	mov	(_lcd_address + 1),#0x40
-                                    488 ;	ecen4330_lcd_v3.c:10: __xdata uint8_t* seg7_address = (uint8_t __xdata*) __SEG_7_ADDRESS__;
+                                    488 ;	.\src\main.c:10: __xdata uint8_t* seg7_address = (uint8_t __xdata*) __SEG_7_ADDRESS__;
       000095 75 35 00         [24]  489 	mov	_seg7_address,#0x00
       000098 75 36 80         [24]  490 	mov	(_seg7_address + 1),#0x80
                                     491 	.area GSFINAL (CODE)
@@ -508,7 +508,7 @@
                                     508 ;d                         Allocated with name '_iowrite8_PARM_2'
                                     509 ;map_address               Allocated to registers r6 r7 
                                     510 ;------------------------------------------------------------
-                                    511 ;	ecen4330_lcd_v3.c:48: void iowrite8 (uint8_t __xdata* map_address, uint8_t d) {
+                                    511 ;	.\src\main.c:48: void iowrite8 (uint8_t __xdata* map_address, uint8_t d) {
                                     512 ;	-----------------------------------------
                                     513 ;	 function iowrite8
                                     514 ;	-----------------------------------------
@@ -523,18 +523,18 @@
                            000000   523 	ar0 = 0x00
       00009E AE 82            [24]  524 	mov	r6,dpl
       0000A0 AF 83            [24]  525 	mov	r7,dph
-                                    526 ;	ecen4330_lcd_v3.c:49: IOM = 1;
+                                    526 ;	.\src\main.c:49: IOM = 1;
                                     527 ;	assignBit
       0000A2 D2 B4            [12]  528 	setb	_P3_4
-                                    529 ;	ecen4330_lcd_v3.c:50: *map_address = d;
+                                    529 ;	.\src\main.c:50: *map_address = d;
       0000A4 8E 82            [24]  530 	mov	dpl,r6
       0000A6 8F 83            [24]  531 	mov	dph,r7
       0000A8 E5 08            [12]  532 	mov	a,_iowrite8_PARM_2
       0000AA F0               [24]  533 	movx	@dptr,a
-                                    534 ;	ecen4330_lcd_v3.c:51: IOM = 0;
+                                    534 ;	.\src\main.c:51: IOM = 0;
                                     535 ;	assignBit
       0000AB C2 B4            [12]  536 	clr	_P3_4
-                                    537 ;	ecen4330_lcd_v3.c:52: }
+                                    537 ;	.\src\main.c:52: }
       0000AD 22               [24]  538 	ret
                                     539 ;------------------------------------------------------------
                                     540 ;Allocation info for local variables in function 'delay'
@@ -543,14 +543,14 @@
                                     543 ;i                         Allocated to registers r4 r5 
                                     544 ;j                         Allocated to registers r2 r3 
                                     545 ;------------------------------------------------------------
-                                    546 ;	ecen4330_lcd_v3.c:56: void delay (int16_t d)
+                                    546 ;	.\src\main.c:56: void delay (int16_t d)
                                     547 ;	-----------------------------------------
                                     548 ;	 function delay
                                     549 ;	-----------------------------------------
       0000AE                        550 _delay:
       0000AE AE 82            [24]  551 	mov	r6,dpl
       0000B0 AF 83            [24]  552 	mov	r7,dph
-                                    553 ;	ecen4330_lcd_v3.c:59: for (i=0;i<d;i++)
+                                    553 ;	.\src\main.c:59: for (i=0;i<d;i++)
       0000B2 7C 00            [12]  554 	mov	r4,#0x00
       0000B4 7D 00            [12]  555 	mov	r5,#0x00
       0000B6                        556 00107$:
@@ -565,7 +565,7 @@
       0000C2 63 F0 80         [24]  565 	xrl	b,#0x80
       0000C5 95 F0            [12]  566 	subb	a,b
       0000C7 50 14            [24]  567 	jnc	00109$
-                                    568 ;	ecen4330_lcd_v3.c:61: for (j=0;j<1000;j++);
+                                    568 ;	.\src\main.c:61: for (j=0;j<1000;j++);
       0000C9 7A E8            [12]  569 	mov	r2,#0xe8
       0000CB 7B 03            [12]  570 	mov	r3,#0x03
       0000CD                        571 00105$:
@@ -576,13 +576,13 @@
       0000D2 EA               [12]  576 	mov	a,r2
       0000D3 4B               [12]  577 	orl	a,r3
       0000D4 70 F7            [24]  578 	jnz	00105$
-                                    579 ;	ecen4330_lcd_v3.c:59: for (i=0;i<d;i++)
+                                    579 ;	.\src\main.c:59: for (i=0;i<d;i++)
       0000D6 0C               [12]  580 	inc	r4
       0000D7 BC 00 DC         [24]  581 	cjne	r4,#0x00,00107$
       0000DA 0D               [12]  582 	inc	r5
       0000DB 80 D9            [24]  583 	sjmp	00107$
       0000DD                        584 00109$:
-                                    585 ;	ecen4330_lcd_v3.c:63: }
+                                    585 ;	.\src\main.c:63: }
       0000DD 22               [24]  586 	ret
                                     587 ;------------------------------------------------------------
                                     588 ;Allocation info for local variables in function 'writeRegister8'
@@ -590,16 +590,16 @@
                                     590 ;d                         Allocated with name '_writeRegister8_PARM_2'
                                     591 ;a                         Allocated to registers r7 
                                     592 ;------------------------------------------------------------
-                                    593 ;	ecen4330_lcd_v3.c:68: void writeRegister8 (uint8_t a, uint8_t d) {
+                                    593 ;	.\src\main.c:68: void writeRegister8 (uint8_t a, uint8_t d) {
                                     594 ;	-----------------------------------------
                                     595 ;	 function writeRegister8
                                     596 ;	-----------------------------------------
       0000DE                        597 _writeRegister8:
       0000DE AF 82            [24]  598 	mov	r7,dpl
-                                    599 ;	ecen4330_lcd_v3.c:69: CD = __CMD__;
+                                    599 ;	.\src\main.c:69: CD = __CMD__;
                                     600 ;	assignBit
       0000E0 C2 B5            [12]  601 	clr	_P3_5
-                                    602 ;	ecen4330_lcd_v3.c:70: write8(a);
+                                    602 ;	.\src\main.c:70: write8(a);
                                     603 ;	assignBit
       0000E2 D2 B4            [12]  604 	setb	_P3_4
       0000E4 85 33 82         [24]  605 	mov	dpl,_lcd_address
@@ -608,10 +608,10 @@
       0000EB F0               [24]  608 	movx	@dptr,a
                                     609 ;	assignBit
       0000EC C2 B4            [12]  610 	clr	_P3_4
-                                    611 ;	ecen4330_lcd_v3.c:71: CD = __DATA__;
+                                    611 ;	.\src\main.c:71: CD = __DATA__;
                                     612 ;	assignBit
       0000EE D2 B5            [12]  613 	setb	_P3_5
-                                    614 ;	ecen4330_lcd_v3.c:72: write8(d);
+                                    614 ;	.\src\main.c:72: write8(d);
                                     615 ;	assignBit
       0000F0 D2 B4            [12]  616 	setb	_P3_4
       0000F2 85 33 82         [24]  617 	mov	dpl,_lcd_address
@@ -620,7 +620,7 @@
       0000FA F0               [24]  620 	movx	@dptr,a
                                     621 ;	assignBit
       0000FB C2 B4            [12]  622 	clr	_P3_4
-                                    623 ;	ecen4330_lcd_v3.c:73: }
+                                    623 ;	.\src\main.c:73: }
       0000FD 22               [24]  624 	ret
                                     625 ;------------------------------------------------------------
                                     626 ;Allocation info for local variables in function 'writeRegister16'
@@ -630,17 +630,17 @@
                                     630 ;hi                        Allocated to registers r7 
                                     631 ;lo                        Allocated to registers r6 
                                     632 ;------------------------------------------------------------
-                                    633 ;	ecen4330_lcd_v3.c:77: void writeRegister16 (uint16_t a, uint16_t d) {
+                                    633 ;	.\src\main.c:77: void writeRegister16 (uint16_t a, uint16_t d) {
                                     634 ;	-----------------------------------------
                                     635 ;	 function writeRegister16
                                     636 ;	-----------------------------------------
       0000FE                        637 _writeRegister16:
       0000FE AE 82            [24]  638 	mov	r6,dpl
       000100 AF 83            [24]  639 	mov	r7,dph
-                                    640 ;	ecen4330_lcd_v3.c:79: hi = (a) >> 8;
+                                    640 ;	.\src\main.c:79: hi = (a) >> 8;
       000102 8F 05            [24]  641 	mov	ar5,r7
-                                    642 ;	ecen4330_lcd_v3.c:80: lo = (a);
-                                    643 ;	ecen4330_lcd_v3.c:81: write8Reg(hi);
+                                    642 ;	.\src\main.c:80: lo = (a);
+                                    643 ;	.\src\main.c:81: write8Reg(hi);
                                     644 ;	assignBit
       000104 C2 B5            [12]  645 	clr	_P3_5
                                     646 ;	assignBit
@@ -651,7 +651,7 @@
       00010F F0               [24]  651 	movx	@dptr,a
                                     652 ;	assignBit
       000110 C2 B4            [12]  653 	clr	_P3_4
-                                    654 ;	ecen4330_lcd_v3.c:82: write8Reg(lo);
+                                    654 ;	.\src\main.c:82: write8Reg(lo);
                                     655 ;	assignBit
       000112 C2 B5            [12]  656 	clr	_P3_5
                                     657 ;	assignBit
@@ -662,14 +662,14 @@
       00011D F0               [24]  662 	movx	@dptr,a
                                     663 ;	assignBit
       00011E C2 B4            [12]  664 	clr	_P3_4
-                                    665 ;	ecen4330_lcd_v3.c:83: hi = (d) >> 8;
+                                    665 ;	.\src\main.c:83: hi = (d) >> 8;
       000120 AF 09            [24]  666 	mov	r7,(_writeRegister16_PARM_2 + 1)
-                                    667 ;	ecen4330_lcd_v3.c:84: lo = (d);
+                                    667 ;	.\src\main.c:84: lo = (d);
       000122 AE 08            [24]  668 	mov	r6,_writeRegister16_PARM_2
-                                    669 ;	ecen4330_lcd_v3.c:85: CD = 1 ;
+                                    669 ;	.\src\main.c:85: CD = 1 ;
                                     670 ;	assignBit
       000124 D2 B5            [12]  671 	setb	_P3_5
-                                    672 ;	ecen4330_lcd_v3.c:86: write8Data(hi);
+                                    672 ;	.\src\main.c:86: write8Data(hi);
                                     673 ;	assignBit
       000126 D2 B5            [12]  674 	setb	_P3_5
                                     675 ;	assignBit
@@ -680,7 +680,7 @@
       000131 F0               [24]  680 	movx	@dptr,a
                                     681 ;	assignBit
       000132 C2 B4            [12]  682 	clr	_P3_4
-                                    683 ;	ecen4330_lcd_v3.c:87: write8Data(lo);
+                                    683 ;	.\src\main.c:87: write8Data(lo);
                                     684 ;	assignBit
       000134 D2 B5            [12]  685 	setb	_P3_5
                                     686 ;	assignBit
@@ -691,7 +691,7 @@
       00013F F0               [24]  691 	movx	@dptr,a
                                     692 ;	assignBit
       000140 C2 B4            [12]  693 	clr	_P3_4
-                                    694 ;	ecen4330_lcd_v3.c:88: }
+                                    694 ;	.\src\main.c:88: }
       000142 22               [24]  695 	ret
                                     696 ;------------------------------------------------------------
                                     697 ;Allocation info for local variables in function 'setCursor'
@@ -699,17 +699,17 @@
                                     699 ;y                         Allocated with name '_setCursor_PARM_2'
                                     700 ;x                         Allocated to registers 
                                     701 ;------------------------------------------------------------
-                                    702 ;	ecen4330_lcd_v3.c:91: void setCursor (uint16_t x, uint16_t y) {
+                                    702 ;	.\src\main.c:91: void setCursor (uint16_t x, uint16_t y) {
                                     703 ;	-----------------------------------------
                                     704 ;	 function setCursor
                                     705 ;	-----------------------------------------
       000143                        706 _setCursor:
       000143 85 82 39         [24]  707 	mov	_cursor_x,dpl
       000146 85 83 3A         [24]  708 	mov	(_cursor_x + 1),dph
-                                    709 ;	ecen4330_lcd_v3.c:93: cursor_y = y;
+                                    709 ;	.\src\main.c:93: cursor_y = y;
       000149 85 08 3B         [24]  710 	mov	_cursor_y,_setCursor_PARM_2
       00014C 85 09 3C         [24]  711 	mov	(_cursor_y + 1),(_setCursor_PARM_2 + 1)
-                                    712 ;	ecen4330_lcd_v3.c:94: }
+                                    712 ;	.\src\main.c:94: }
       00014F 22               [24]  713 	ret
                                     714 ;------------------------------------------------------------
                                     715 ;Allocation info for local variables in function 'setTextColor'
@@ -717,36 +717,36 @@
                                     717 ;y                         Allocated with name '_setTextColor_PARM_2'
                                     718 ;x                         Allocated to registers 
                                     719 ;------------------------------------------------------------
-                                    720 ;	ecen4330_lcd_v3.c:95: void setTextColor (uint16_t x, uint16_t y) {
+                                    720 ;	.\src\main.c:95: void setTextColor (uint16_t x, uint16_t y) {
                                     721 ;	-----------------------------------------
                                     722 ;	 function setTextColor
                                     723 ;	-----------------------------------------
       000150                        724 _setTextColor:
       000150 85 82 3F         [24]  725 	mov	_textcolor,dpl
       000153 85 83 40         [24]  726 	mov	(_textcolor + 1),dph
-                                    727 ;	ecen4330_lcd_v3.c:97: textbgcolor = y;
+                                    727 ;	.\src\main.c:97: textbgcolor = y;
       000156 85 08 41         [24]  728 	mov	_textbgcolor,_setTextColor_PARM_2
       000159 85 09 42         [24]  729 	mov	(_textbgcolor + 1),(_setTextColor_PARM_2 + 1)
-                                    730 ;	ecen4330_lcd_v3.c:98: }
+                                    730 ;	.\src\main.c:98: }
       00015C 22               [24]  731 	ret
                                     732 ;------------------------------------------------------------
                                     733 ;Allocation info for local variables in function 'setTextSize'
                                     734 ;------------------------------------------------------------
                                     735 ;s                         Allocated to registers r7 
                                     736 ;------------------------------------------------------------
-                                    737 ;	ecen4330_lcd_v3.c:100: void setTextSize (uint8_t s) {
+                                    737 ;	.\src\main.c:100: void setTextSize (uint8_t s) {
                                     738 ;	-----------------------------------------
                                     739 ;	 function setTextSize
                                     740 ;	-----------------------------------------
       00015D                        741 _setTextSize:
-                                    742 ;	ecen4330_lcd_v3.c:101: if (s > 8) return;
+                                    742 ;	.\src\main.c:101: if (s > 8) return;
       00015D E5 82            [12]  743 	mov	a,dpl
       00015F FF               [12]  744 	mov	r7,a
       000160 24 F7            [12]  745 	add	a,#0xff - 0x08
       000162 50 01            [24]  746 	jnc	00102$
       000164 22               [24]  747 	ret
       000165                        748 00102$:
-                                    749 ;	ecen4330_lcd_v3.c:102: textsize = (s>0) ? s : 1 ;
+                                    749 ;	.\src\main.c:102: textsize = (s>0) ? s : 1 ;
       000165 EF               [12]  750 	mov	a,r7
       000166 60 06            [24]  751 	jz	00105$
       000168 8F 06            [24]  752 	mov	ar6,r7
@@ -757,26 +757,26 @@
       000170 7F 00            [12]  757 	mov	r7,#0x00
       000172                        758 00106$:
       000172 8E 3D            [24]  759 	mov	_textsize,r6
-                                    760 ;	ecen4330_lcd_v3.c:103: }
+                                    760 ;	.\src\main.c:103: }
       000174 22               [24]  761 	ret
                                     762 ;------------------------------------------------------------
                                     763 ;Allocation info for local variables in function 'setRotation'
                                     764 ;------------------------------------------------------------
                                     765 ;flag                      Allocated to registers r7 
                                     766 ;------------------------------------------------------------
-                                    767 ;	ecen4330_lcd_v3.c:105: void setRotation (uint8_t flag) {
+                                    767 ;	.\src\main.c:105: void setRotation (uint8_t flag) {
                                     768 ;	-----------------------------------------
                                     769 ;	 function setRotation
                                     770 ;	-----------------------------------------
       000175                        771 _setRotation:
-                                    772 ;	ecen4330_lcd_v3.c:106: switch(flag) {
+                                    772 ;	.\src\main.c:106: switch(flag) {
       000175 E5 82            [12]  773 	mov	a,dpl
       000177 FF               [12]  774 	mov	r7,a
       000178 24 FC            [12]  775 	add	a,#0xff - 0x03
       00017A 40 4E            [24]  776 	jc	00105$
       00017C EF               [12]  777 	mov	a,r7
       00017D 2F               [12]  778 	add	a,r7
-                                    779 ;	ecen4330_lcd_v3.c:107: case 0:
+                                    779 ;	.\src\main.c:107: case 0:
       00017E 90 01 82         [24]  780 	mov	dptr,#00115$
       000181 73               [24]  781 	jmp	@a+dptr
       000182                        782 00115$:
@@ -785,68 +785,68 @@
       000186 80 22            [24]  785 	sjmp	00103$
       000188 80 30            [24]  786 	sjmp	00104$
       00018A                        787 00101$:
-                                    788 ;	ecen4330_lcd_v3.c:108: flag = (ILI9341_MADCTL_MX | ILI9341_MADCTL_BGR);
+                                    788 ;	.\src\main.c:108: flag = (ILI9341_MADCTL_MX | ILI9341_MADCTL_BGR);
       00018A 7F 48            [12]  789 	mov	r7,#0x48
-                                    790 ;	ecen4330_lcd_v3.c:109: _width = TFTWIDTH;
+                                    790 ;	.\src\main.c:109: _width = TFTWIDTH;
       00018C 75 43 F0         [24]  791 	mov	__width,#0xf0
       00018F 75 44 00         [24]  792 	mov	(__width + 1),#0x00
-                                    793 ;	ecen4330_lcd_v3.c:110: _height = TFTHEIGHT;
+                                    793 ;	.\src\main.c:110: _height = TFTHEIGHT;
       000192 75 45 40         [24]  794 	mov	__height,#0x40
       000195 75 46 01         [24]  795 	mov	(__height + 1),#0x01
-                                    796 ;	ecen4330_lcd_v3.c:111: break;
-                                    797 ;	ecen4330_lcd_v3.c:112: case 1:
+                                    796 ;	.\src\main.c:111: break;
+                                    797 ;	.\src\main.c:112: case 1:
       000198 80 3E            [24]  798 	sjmp	00106$
       00019A                        799 00102$:
-                                    800 ;	ecen4330_lcd_v3.c:113: flag = (ILI9341_MADCTL_MV | ILI9341_MADCTL_BGR);
+                                    800 ;	.\src\main.c:113: flag = (ILI9341_MADCTL_MV | ILI9341_MADCTL_BGR);
       00019A 7F 28            [12]  801 	mov	r7,#0x28
-                                    802 ;	ecen4330_lcd_v3.c:114: _width = TFTHEIGHT;
+                                    802 ;	.\src\main.c:114: _width = TFTHEIGHT;
       00019C 75 43 40         [24]  803 	mov	__width,#0x40
       00019F 75 44 01         [24]  804 	mov	(__width + 1),#0x01
-                                    805 ;	ecen4330_lcd_v3.c:115: _height = TFTWIDTH;
+                                    805 ;	.\src\main.c:115: _height = TFTWIDTH;
       0001A2 75 45 F0         [24]  806 	mov	__height,#0xf0
       0001A5 75 46 00         [24]  807 	mov	(__height + 1),#0x00
-                                    808 ;	ecen4330_lcd_v3.c:116: break;
-                                    809 ;	ecen4330_lcd_v3.c:117: case 2:
+                                    808 ;	.\src\main.c:116: break;
+                                    809 ;	.\src\main.c:117: case 2:
       0001A8 80 2E            [24]  810 	sjmp	00106$
       0001AA                        811 00103$:
-                                    812 ;	ecen4330_lcd_v3.c:118: flag = (ILI9341_MADCTL_MY | ILI9341_MADCTL_BGR);
+                                    812 ;	.\src\main.c:118: flag = (ILI9341_MADCTL_MY | ILI9341_MADCTL_BGR);
       0001AA 7F 88            [12]  813 	mov	r7,#0x88
-                                    814 ;	ecen4330_lcd_v3.c:119: _width = TFTWIDTH;
+                                    814 ;	.\src\main.c:119: _width = TFTWIDTH;
       0001AC 75 43 F0         [24]  815 	mov	__width,#0xf0
       0001AF 75 44 00         [24]  816 	mov	(__width + 1),#0x00
-                                    817 ;	ecen4330_lcd_v3.c:120: _height = TFTHEIGHT;
+                                    817 ;	.\src\main.c:120: _height = TFTHEIGHT;
       0001B2 75 45 40         [24]  818 	mov	__height,#0x40
       0001B5 75 46 01         [24]  819 	mov	(__height + 1),#0x01
-                                    820 ;	ecen4330_lcd_v3.c:121: break;
-                                    821 ;	ecen4330_lcd_v3.c:122: case 3:
+                                    820 ;	.\src\main.c:121: break;
+                                    821 ;	.\src\main.c:122: case 3:
       0001B8 80 1E            [24]  822 	sjmp	00106$
       0001BA                        823 00104$:
-                                    824 ;	ecen4330_lcd_v3.c:123: flag = (ILI9341_MADCTL_MX | ILI9341_MADCTL_MY | ILI9341_MADCTL_MV | ILI9341_MADCTL_BGR);
+                                    824 ;	.\src\main.c:123: flag = (ILI9341_MADCTL_MX | ILI9341_MADCTL_MY | ILI9341_MADCTL_MV | ILI9341_MADCTL_BGR);
       0001BA 7F E8            [12]  825 	mov	r7,#0xe8
-                                    826 ;	ecen4330_lcd_v3.c:124: _width = TFTHEIGHT;
+                                    826 ;	.\src\main.c:124: _width = TFTHEIGHT;
       0001BC 75 43 40         [24]  827 	mov	__width,#0x40
       0001BF 75 44 01         [24]  828 	mov	(__width + 1),#0x01
-                                    829 ;	ecen4330_lcd_v3.c:125: _height = TFTWIDTH;
+                                    829 ;	.\src\main.c:125: _height = TFTWIDTH;
       0001C2 75 45 F0         [24]  830 	mov	__height,#0xf0
       0001C5 75 46 00         [24]  831 	mov	(__height + 1),#0x00
-                                    832 ;	ecen4330_lcd_v3.c:126: break;
-                                    833 ;	ecen4330_lcd_v3.c:127: default:
+                                    832 ;	.\src\main.c:126: break;
+                                    833 ;	.\src\main.c:127: default:
       0001C8 80 0E            [24]  834 	sjmp	00106$
       0001CA                        835 00105$:
-                                    836 ;	ecen4330_lcd_v3.c:128: flag = (ILI9341_MADCTL_MX | ILI9341_MADCTL_BGR);
+                                    836 ;	.\src\main.c:128: flag = (ILI9341_MADCTL_MX | ILI9341_MADCTL_BGR);
       0001CA 7F 48            [12]  837 	mov	r7,#0x48
-                                    838 ;	ecen4330_lcd_v3.c:129: _width = TFTWIDTH;
+                                    838 ;	.\src\main.c:129: _width = TFTWIDTH;
       0001CC 75 43 F0         [24]  839 	mov	__width,#0xf0
       0001CF 75 44 00         [24]  840 	mov	(__width + 1),#0x00
-                                    841 ;	ecen4330_lcd_v3.c:130: _height = TFTHEIGHT;
+                                    841 ;	.\src\main.c:130: _height = TFTHEIGHT;
       0001D2 75 45 40         [24]  842 	mov	__height,#0x40
       0001D5 75 46 01         [24]  843 	mov	(__height + 1),#0x01
-                                    844 ;	ecen4330_lcd_v3.c:132: }
+                                    844 ;	.\src\main.c:132: }
       0001D8                        845 00106$:
-                                    846 ;	ecen4330_lcd_v3.c:133: writeRegister8(ILI9341_MEMCONTROL, flag);
+                                    846 ;	.\src\main.c:133: writeRegister8(ILI9341_MEMCONTROL, flag);
       0001D8 8F 08            [24]  847 	mov	_writeRegister8_PARM_2,r7
       0001DA 75 82 36         [24]  848 	mov	dpl,#0x36
-                                    849 ;	ecen4330_lcd_v3.c:134: }
+                                    849 ;	.\src\main.c:134: }
       0001DD 02 00 DE         [24]  850 	ljmp	_writeRegister8
                                     851 ;------------------------------------------------------------
                                     852 ;Allocation info for local variables in function 'setAddress'
@@ -856,14 +856,14 @@
                                     856 ;y2                        Allocated with name '_setAddress_PARM_4'
                                     857 ;x1                        Allocated to registers r6 r7 
                                     858 ;------------------------------------------------------------
-                                    859 ;	ecen4330_lcd_v3.c:136: void setAddress (uint16_t x1,uint16_t y1,uint16_t x2,uint16_t y2) {
+                                    859 ;	.\src\main.c:136: void setAddress (uint16_t x1,uint16_t y1,uint16_t x2,uint16_t y2) {
                                     860 ;	-----------------------------------------
                                     861 ;	 function setAddress
                                     862 ;	-----------------------------------------
       0001E0                        863 _setAddress:
       0001E0 AE 82            [24]  864 	mov	r6,dpl
       0001E2 AF 83            [24]  865 	mov	r7,dph
-                                    866 ;	ecen4330_lcd_v3.c:137: write8Reg(0x2A);
+                                    866 ;	.\src\main.c:137: write8Reg(0x2A);
                                     867 ;	assignBit
       0001E4 C2 B5            [12]  868 	clr	_P3_5
                                     869 ;	assignBit
@@ -874,7 +874,7 @@
       0001F0 F0               [24]  874 	movx	@dptr,a
                                     875 ;	assignBit
       0001F1 C2 B4            [12]  876 	clr	_P3_4
-                                    877 ;	ecen4330_lcd_v3.c:138: write8Data(x1 >> 8);
+                                    877 ;	.\src\main.c:138: write8Data(x1 >> 8);
                                     878 ;	assignBit
       0001F3 D2 B5            [12]  879 	setb	_P3_5
                                     880 ;	assignBit
@@ -886,7 +886,7 @@
       000200 F0               [24]  886 	movx	@dptr,a
                                     887 ;	assignBit
       000201 C2 B4            [12]  888 	clr	_P3_4
-                                    889 ;	ecen4330_lcd_v3.c:139: write8Data(x1);
+                                    889 ;	.\src\main.c:139: write8Data(x1);
                                     890 ;	assignBit
       000203 D2 B5            [12]  891 	setb	_P3_5
                                     892 ;	assignBit
@@ -897,7 +897,7 @@
       00020E F0               [24]  897 	movx	@dptr,a
                                     898 ;	assignBit
       00020F C2 B4            [12]  899 	clr	_P3_4
-                                    900 ;	ecen4330_lcd_v3.c:140: write8Data(x2 >> 8);
+                                    900 ;	.\src\main.c:140: write8Data(x2 >> 8);
                                     901 ;	assignBit
       000211 D2 B5            [12]  902 	setb	_P3_5
                                     903 ;	assignBit
@@ -908,7 +908,7 @@
       00021D F0               [24]  908 	movx	@dptr,a
                                     909 ;	assignBit
       00021E C2 B4            [12]  910 	clr	_P3_4
-                                    911 ;	ecen4330_lcd_v3.c:141: write8Data(x2);
+                                    911 ;	.\src\main.c:141: write8Data(x2);
                                     912 ;	assignBit
       000220 D2 B5            [12]  913 	setb	_P3_5
                                     914 ;	assignBit
@@ -919,7 +919,7 @@
       00022C F0               [24]  919 	movx	@dptr,a
                                     920 ;	assignBit
       00022D C2 B4            [12]  921 	clr	_P3_4
-                                    922 ;	ecen4330_lcd_v3.c:143: write8Reg(0x2B);
+                                    922 ;	.\src\main.c:143: write8Reg(0x2B);
                                     923 ;	assignBit
       00022F C2 B5            [12]  924 	clr	_P3_5
                                     925 ;	assignBit
@@ -930,7 +930,7 @@
       00023B F0               [24]  930 	movx	@dptr,a
                                     931 ;	assignBit
       00023C C2 B4            [12]  932 	clr	_P3_4
-                                    933 ;	ecen4330_lcd_v3.c:144: write8Data(y1 >> 8);
+                                    933 ;	.\src\main.c:144: write8Data(y1 >> 8);
                                     934 ;	assignBit
       00023E D2 B5            [12]  935 	setb	_P3_5
                                     936 ;	assignBit
@@ -941,7 +941,7 @@
       00024A F0               [24]  941 	movx	@dptr,a
                                     942 ;	assignBit
       00024B C2 B4            [12]  943 	clr	_P3_4
-                                    944 ;	ecen4330_lcd_v3.c:145: write8Data(y1);
+                                    944 ;	.\src\main.c:145: write8Data(y1);
                                     945 ;	assignBit
       00024D D2 B5            [12]  946 	setb	_P3_5
                                     947 ;	assignBit
@@ -952,7 +952,7 @@
       000259 F0               [24]  952 	movx	@dptr,a
                                     953 ;	assignBit
       00025A C2 B4            [12]  954 	clr	_P3_4
-                                    955 ;	ecen4330_lcd_v3.c:146: write8Data(y2 >> 8);
+                                    955 ;	.\src\main.c:146: write8Data(y2 >> 8);
                                     956 ;	assignBit
       00025C D2 B5            [12]  957 	setb	_P3_5
                                     958 ;	assignBit
@@ -963,7 +963,7 @@
       000268 F0               [24]  963 	movx	@dptr,a
                                     964 ;	assignBit
       000269 C2 B4            [12]  965 	clr	_P3_4
-                                    966 ;	ecen4330_lcd_v3.c:147: write8Data(y2);
+                                    966 ;	.\src\main.c:147: write8Data(y2);
                                     967 ;	assignBit
       00026B D2 B5            [12]  968 	setb	_P3_5
                                     969 ;	assignBit
@@ -974,29 +974,29 @@
       000277 F0               [24]  974 	movx	@dptr,a
                                     975 ;	assignBit
       000278 C2 B4            [12]  976 	clr	_P3_4
-                                    977 ;	ecen4330_lcd_v3.c:148: }
+                                    977 ;	.\src\main.c:148: }
       00027A 22               [24]  978 	ret
                                     979 ;------------------------------------------------------------
                                     980 ;Allocation info for local variables in function 'TFT_LCD_INIT'
                                     981 ;------------------------------------------------------------
-                                    982 ;	ecen4330_lcd_v3.c:150: void TFT_LCD_INIT (void) {
+                                    982 ;	.\src\main.c:150: void TFT_LCD_INIT (void) {
                                     983 ;	-----------------------------------------
                                     984 ;	 function TFT_LCD_INIT
                                     985 ;	-----------------------------------------
       00027B                        986 _TFT_LCD_INIT:
-                                    987 ;	ecen4330_lcd_v3.c:151: _width = TFTWIDTH;
+                                    987 ;	.\src\main.c:151: _width = TFTWIDTH;
       00027B 75 43 F0         [24]  988 	mov	__width,#0xf0
       00027E 75 44 00         [24]  989 	mov	(__width + 1),#0x00
-                                    990 ;	ecen4330_lcd_v3.c:152: _height = TFTHEIGHT;
+                                    990 ;	.\src\main.c:152: _height = TFTHEIGHT;
       000281 75 45 40         [24]  991 	mov	__height,#0x40
       000284 75 46 01         [24]  992 	mov	(__height + 1),#0x01
-                                    993 ;	ecen4330_lcd_v3.c:154: IOM = 0;
+                                    993 ;	.\src\main.c:154: IOM = 0;
                                     994 ;	assignBit
       000287 C2 B4            [12]  995 	clr	_P3_4
-                                    996 ;	ecen4330_lcd_v3.c:155: CD = 1;
+                                    996 ;	.\src\main.c:155: CD = 1;
                                     997 ;	assignBit
       000289 D2 B5            [12]  998 	setb	_P3_5
-                                    999 ;	ecen4330_lcd_v3.c:157: write8Reg(0x00);
+                                    999 ;	.\src\main.c:157: write8Reg(0x00);
                                    1000 ;	assignBit
       00028B C2 B5            [12] 1001 	clr	_P3_5
                                    1002 ;	assignBit
@@ -1007,7 +1007,7 @@
       000296 F0               [24] 1007 	movx	@dptr,a
                                    1008 ;	assignBit
       000297 C2 B4            [12] 1009 	clr	_P3_4
-                                   1010 ;	ecen4330_lcd_v3.c:158: write8Data(0x00);
+                                   1010 ;	.\src\main.c:158: write8Data(0x00);
                                    1011 ;	assignBit
       000299 D2 B5            [12] 1012 	setb	_P3_5
                                    1013 ;	assignBit
@@ -1018,7 +1018,7 @@
       0002A4 F0               [24] 1018 	movx	@dptr,a
                                    1019 ;	assignBit
       0002A5 C2 B4            [12] 1020 	clr	_P3_4
-                                   1021 ;	ecen4330_lcd_v3.c:159: write8Data(0x00);
+                                   1021 ;	.\src\main.c:159: write8Data(0x00);
                                    1022 ;	assignBit
       0002A7 D2 B5            [12] 1023 	setb	_P3_5
                                    1024 ;	assignBit
@@ -1029,7 +1029,7 @@
       0002B2 F0               [24] 1029 	movx	@dptr,a
                                    1030 ;	assignBit
       0002B3 C2 B4            [12] 1031 	clr	_P3_4
-                                   1032 ;	ecen4330_lcd_v3.c:160: write8Data(0x00);
+                                   1032 ;	.\src\main.c:160: write8Data(0x00);
                                    1033 ;	assignBit
       0002B5 D2 B5            [12] 1034 	setb	_P3_5
                                    1035 ;	assignBit
@@ -1040,32 +1040,32 @@
       0002C0 F0               [24] 1040 	movx	@dptr,a
                                    1041 ;	assignBit
       0002C1 C2 B4            [12] 1042 	clr	_P3_4
-                                   1043 ;	ecen4330_lcd_v3.c:161: delay(200);
+                                   1043 ;	.\src\main.c:161: delay(200);
       0002C3 90 00 C8         [24] 1044 	mov	dptr,#0x00c8
       0002C6 12 00 AE         [24] 1045 	lcall	_delay
-                                   1046 ;	ecen4330_lcd_v3.c:163: writeRegister8(ILI9341_SOFTRESET, 0);
+                                   1046 ;	.\src\main.c:163: writeRegister8(ILI9341_SOFTRESET, 0);
       0002C9 75 08 00         [24] 1047 	mov	_writeRegister8_PARM_2,#0x00
       0002CC 75 82 01         [24] 1048 	mov	dpl,#0x01
       0002CF 12 00 DE         [24] 1049 	lcall	_writeRegister8
-                                   1050 ;	ecen4330_lcd_v3.c:164: delay(50);
+                                   1050 ;	.\src\main.c:164: delay(50);
       0002D2 90 00 32         [24] 1051 	mov	dptr,#0x0032
       0002D5 12 00 AE         [24] 1052 	lcall	_delay
-                                   1053 ;	ecen4330_lcd_v3.c:165: writeRegister8(ILI9341_DISPLAYOFF, 0);
+                                   1053 ;	.\src\main.c:165: writeRegister8(ILI9341_DISPLAYOFF, 0);
       0002D8 75 08 00         [24] 1054 	mov	_writeRegister8_PARM_2,#0x00
       0002DB 75 82 28         [24] 1055 	mov	dpl,#0x28
       0002DE 12 00 DE         [24] 1056 	lcall	_writeRegister8
-                                   1057 ;	ecen4330_lcd_v3.c:166: delay(10);
+                                   1057 ;	.\src\main.c:166: delay(10);
       0002E1 90 00 0A         [24] 1058 	mov	dptr,#0x000a
       0002E4 12 00 AE         [24] 1059 	lcall	_delay
-                                   1060 ;	ecen4330_lcd_v3.c:168: writeRegister8(ILI9341_POWERCONTROL1, 0x23);
+                                   1060 ;	.\src\main.c:168: writeRegister8(ILI9341_POWERCONTROL1, 0x23);
       0002E7 75 08 23         [24] 1061 	mov	_writeRegister8_PARM_2,#0x23
       0002EA 75 82 C0         [24] 1062 	mov	dpl,#0xc0
       0002ED 12 00 DE         [24] 1063 	lcall	_writeRegister8
-                                   1064 ;	ecen4330_lcd_v3.c:169: writeRegister8(ILI9341_POWERCONTROL2, 0x11);
+                                   1064 ;	.\src\main.c:169: writeRegister8(ILI9341_POWERCONTROL2, 0x11);
       0002F0 75 08 11         [24] 1065 	mov	_writeRegister8_PARM_2,#0x11
       0002F3 75 82 C1         [24] 1066 	mov	dpl,#0xc1
       0002F6 12 00 DE         [24] 1067 	lcall	_writeRegister8
-                                   1068 ;	ecen4330_lcd_v3.c:170: write8Reg(ILI9341_VCOMCONTROL1);
+                                   1068 ;	.\src\main.c:170: write8Reg(ILI9341_VCOMCONTROL1);
                                    1069 ;	assignBit
       0002F9 C2 B5            [12] 1070 	clr	_P3_5
                                    1071 ;	assignBit
@@ -1076,7 +1076,7 @@
       000305 F0               [24] 1076 	movx	@dptr,a
                                    1077 ;	assignBit
       000306 C2 B4            [12] 1078 	clr	_P3_4
-                                   1079 ;	ecen4330_lcd_v3.c:171: write8Data(0x3d);
+                                   1079 ;	.\src\main.c:171: write8Data(0x3d);
                                    1080 ;	assignBit
       000308 D2 B5            [12] 1081 	setb	_P3_5
                                    1082 ;	assignBit
@@ -1087,7 +1087,7 @@
       000314 F0               [24] 1087 	movx	@dptr,a
                                    1088 ;	assignBit
       000315 C2 B4            [12] 1089 	clr	_P3_4
-                                   1090 ;	ecen4330_lcd_v3.c:172: write8Data(0x30);
+                                   1090 ;	.\src\main.c:172: write8Data(0x30);
                                    1091 ;	assignBit
       000317 D2 B5            [12] 1092 	setb	_P3_5
                                    1093 ;	assignBit
@@ -1098,15 +1098,15 @@
       000323 F0               [24] 1098 	movx	@dptr,a
                                    1099 ;	assignBit
       000324 C2 B4            [12] 1100 	clr	_P3_4
-                                   1101 ;	ecen4330_lcd_v3.c:173: writeRegister8(ILI9341_VCOMCONTROL2, 0xaa);
+                                   1101 ;	.\src\main.c:173: writeRegister8(ILI9341_VCOMCONTROL2, 0xaa);
       000326 75 08 AA         [24] 1102 	mov	_writeRegister8_PARM_2,#0xaa
       000329 75 82 C7         [24] 1103 	mov	dpl,#0xc7
       00032C 12 00 DE         [24] 1104 	lcall	_writeRegister8
-                                   1105 ;	ecen4330_lcd_v3.c:174: writeRegister8(ILI9341_MEMCONTROL, ILI9341_MADCTL_MY | ILI9341_MADCTL_BGR);
+                                   1105 ;	.\src\main.c:174: writeRegister8(ILI9341_MEMCONTROL, ILI9341_MADCTL_MY | ILI9341_MADCTL_BGR);
       00032F 75 08 88         [24] 1106 	mov	_writeRegister8_PARM_2,#0x88
       000332 75 82 36         [24] 1107 	mov	dpl,#0x36
       000335 12 00 DE         [24] 1108 	lcall	_writeRegister8
-                                   1109 ;	ecen4330_lcd_v3.c:175: write8Reg(ILI9341_PIXELFORMAT);
+                                   1109 ;	.\src\main.c:175: write8Reg(ILI9341_PIXELFORMAT);
                                    1110 ;	assignBit
       000338 C2 B5            [12] 1111 	clr	_P3_5
                                    1112 ;	assignBit
@@ -1117,7 +1117,7 @@
       000344 F0               [24] 1117 	movx	@dptr,a
                                    1118 ;	assignBit
       000345 C2 B4            [12] 1119 	clr	_P3_4
-                                   1120 ;	ecen4330_lcd_v3.c:176: write8Data(0x55);write8Data(0x00);
+                                   1120 ;	.\src\main.c:176: write8Data(0x55);write8Data(0x00);
                                    1121 ;	assignBit
       000347 D2 B5            [12] 1122 	setb	_P3_5
                                    1123 ;	assignBit
@@ -1138,30 +1138,30 @@
       000361 F0               [24] 1138 	movx	@dptr,a
                                    1139 ;	assignBit
       000362 C2 B4            [12] 1140 	clr	_P3_4
-                                   1141 ;	ecen4330_lcd_v3.c:177: writeRegister16(ILI9341_FRAMECONTROL, 0x001B);
+                                   1141 ;	.\src\main.c:177: writeRegister16(ILI9341_FRAMECONTROL, 0x001B);
       000364 75 08 1B         [24] 1142 	mov	_writeRegister16_PARM_2,#0x1b
       000367 75 09 00         [24] 1143 	mov	(_writeRegister16_PARM_2 + 1),#0x00
       00036A 90 00 B1         [24] 1144 	mov	dptr,#0x00b1
       00036D 12 00 FE         [24] 1145 	lcall	_writeRegister16
-                                   1146 ;	ecen4330_lcd_v3.c:179: writeRegister8(ILI9341_ENTRYMODE, 0x07);
+                                   1146 ;	.\src\main.c:179: writeRegister8(ILI9341_ENTRYMODE, 0x07);
       000370 75 08 07         [24] 1147 	mov	_writeRegister8_PARM_2,#0x07
       000373 75 82 B7         [24] 1148 	mov	dpl,#0xb7
       000376 12 00 DE         [24] 1149 	lcall	_writeRegister8
-                                   1150 ;	ecen4330_lcd_v3.c:181: writeRegister8(ILI9341_SLEEPOUT, 0);
+                                   1150 ;	.\src\main.c:181: writeRegister8(ILI9341_SLEEPOUT, 0);
       000379 75 08 00         [24] 1151 	mov	_writeRegister8_PARM_2,#0x00
       00037C 75 82 11         [24] 1152 	mov	dpl,#0x11
       00037F 12 00 DE         [24] 1153 	lcall	_writeRegister8
-                                   1154 ;	ecen4330_lcd_v3.c:182: delay(150);
+                                   1154 ;	.\src\main.c:182: delay(150);
       000382 90 00 96         [24] 1155 	mov	dptr,#0x0096
       000385 12 00 AE         [24] 1156 	lcall	_delay
-                                   1157 ;	ecen4330_lcd_v3.c:183: writeRegister8(ILI9341_DISPLAYON, 0);
+                                   1157 ;	.\src\main.c:183: writeRegister8(ILI9341_DISPLAYON, 0);
       000388 75 08 00         [24] 1158 	mov	_writeRegister8_PARM_2,#0x00
       00038B 75 82 29         [24] 1159 	mov	dpl,#0x29
       00038E 12 00 DE         [24] 1160 	lcall	_writeRegister8
-                                   1161 ;	ecen4330_lcd_v3.c:184: delay(500);
+                                   1161 ;	.\src\main.c:184: delay(500);
       000391 90 01 F4         [24] 1162 	mov	dptr,#0x01f4
       000394 12 00 AE         [24] 1163 	lcall	_delay
-                                   1164 ;	ecen4330_lcd_v3.c:185: setAddress(0,0,_width-1,_height-1);
+                                   1164 ;	.\src\main.c:185: setAddress(0,0,_width-1,_height-1);
       000397 AE 43            [24] 1165 	mov	r6,__width
       000399 AF 44            [24] 1166 	mov	r7,(__width + 1)
       00039B 1E               [12] 1167 	dec	r6
@@ -1182,7 +1182,7 @@
       0003B2 F5 08            [12] 1182 	mov	_setAddress_PARM_2,a
       0003B4 F5 09            [12] 1183 	mov	(_setAddress_PARM_2 + 1),a
       0003B6 90 00 00         [24] 1184 	mov	dptr,#0x0000
-                                   1185 ;	ecen4330_lcd_v3.c:186: }
+                                   1185 ;	.\src\main.c:186: }
       0003B9 02 01 E0         [24] 1186 	ljmp	_setAddress
                                    1187 ;------------------------------------------------------------
                                    1188 ;Allocation info for local variables in function 'drawPixel'
@@ -1191,14 +1191,14 @@
                                    1191 ;color1                    Allocated with name '_drawPixel_PARM_3'
                                    1192 ;x3                        Allocated to registers r6 r7 
                                    1193 ;------------------------------------------------------------
-                                   1194 ;	ecen4330_lcd_v3.c:188: void drawPixel(uint16_t x3,uint16_t y3,uint16_t color1)
+                                   1194 ;	.\src\main.c:188: void drawPixel(uint16_t x3,uint16_t y3,uint16_t color1)
                                    1195 ;	-----------------------------------------
                                    1196 ;	 function drawPixel
                                    1197 ;	-----------------------------------------
       0003BC                       1198 _drawPixel:
       0003BC AE 82            [24] 1199 	mov	r6,dpl
       0003BE AF 83            [24] 1200 	mov	r7,dph
-                                   1201 ;	ecen4330_lcd_v3.c:190: setAddress(x3,y3,x3+1,y3+1);
+                                   1201 ;	.\src\main.c:190: setAddress(x3,y3,x3+1,y3+1);
       0003C0 8E 04            [24] 1202 	mov	ar4,r6
       0003C2 8F 05            [24] 1203 	mov	ar5,r7
       0003C4 0C               [12] 1204 	inc	r4
@@ -1220,7 +1220,7 @@
       0003E0 8E 82            [24] 1220 	mov	dpl,r6
       0003E2 8F 83            [24] 1221 	mov	dph,r7
       0003E4 12 01 E0         [24] 1222 	lcall	_setAddress
-                                   1223 ;	ecen4330_lcd_v3.c:192: CD=0; write8(0x2C);
+                                   1223 ;	.\src\main.c:192: CD=0; write8(0x2C);
                                    1224 ;	assignBit
       0003E7 C2 B5            [12] 1225 	clr	_P3_5
                                    1226 ;	assignBit
@@ -1231,10 +1231,10 @@
       0003F3 F0               [24] 1231 	movx	@dptr,a
                                    1232 ;	assignBit
       0003F4 C2 B4            [12] 1233 	clr	_P3_4
-                                   1234 ;	ecen4330_lcd_v3.c:194: CD = 1;
+                                   1234 ;	.\src\main.c:194: CD = 1;
                                    1235 ;	assignBit
       0003F6 D2 B5            [12] 1236 	setb	_P3_5
-                                   1237 ;	ecen4330_lcd_v3.c:195: write8(color1>>8);write8(color1);
+                                   1237 ;	.\src\main.c:195: write8(color1>>8);write8(color1);
                                    1238 ;	assignBit
       0003F8 D2 B4            [12] 1239 	setb	_P3_4
       0003FA 85 33 82         [24] 1240 	mov	dpl,_lcd_address
@@ -1251,7 +1251,7 @@
       00040F F0               [24] 1251 	movx	@dptr,a
                                    1252 ;	assignBit
       000410 C2 B4            [12] 1253 	clr	_P3_4
-                                   1254 ;	ecen4330_lcd_v3.c:196: }
+                                   1254 ;	.\src\main.c:196: }
       000412 22               [24] 1255 	ret
                                    1256 ;------------------------------------------------------------
                                    1257 ;Allocation info for local variables in function 'drawCircle'
@@ -1269,14 +1269,14 @@
                                    1269 ;sloc1                     Allocated with name '_drawCircle_sloc1_1_0'
                                    1270 ;sloc2                     Allocated with name '_drawCircle_sloc2_1_0'
                                    1271 ;------------------------------------------------------------
-                                   1272 ;	ecen4330_lcd_v3.c:198: void drawCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color){
+                                   1272 ;	.\src\main.c:198: void drawCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color){
                                    1273 ;	-----------------------------------------
                                    1274 ;	 function drawCircle
                                    1275 ;	-----------------------------------------
       000413                       1276 _drawCircle:
       000413 85 82 51         [24] 1277 	mov	_drawCircle_x0_65536_103,dpl
       000416 85 83 52         [24] 1278 	mov	(_drawCircle_x0_65536_103 + 1),dph
-                                   1279 ;	ecen4330_lcd_v3.c:199: int f = 1 - r;
+                                   1279 ;	.\src\main.c:199: int f = 1 - r;
       000419 74 01            [12] 1280 	mov	a,#0x01
       00041B C3               [12] 1281 	clr	c
       00041C 95 4D            [12] 1282 	subb	a,_drawCircle_PARM_3
@@ -1286,17 +1286,17 @@
       000422 FD               [12] 1286 	mov	r5,a
       000423 8C 53            [24] 1287 	mov	_drawCircle_f_65536_104,r4
       000425 8D 54            [24] 1288 	mov	(_drawCircle_f_65536_104 + 1),r5
-                                   1289 ;	ecen4330_lcd_v3.c:201: int ddF_y = -2 * r;
+                                   1289 ;	.\src\main.c:201: int ddF_y = -2 * r;
       000427 85 4D 08         [24] 1290 	mov	__mulint_PARM_2,_drawCircle_PARM_3
       00042A 85 4E 09         [24] 1291 	mov	(__mulint_PARM_2 + 1),(_drawCircle_PARM_3 + 1)
       00042D 90 FF FE         [24] 1292 	mov	dptr,#0xfffe
       000430 12 10 21         [24] 1293 	lcall	__mulint
       000433 AA 82            [24] 1294 	mov	r2,dpl
       000435 AB 83            [24] 1295 	mov	r3,dph
-                                   1296 ;	ecen4330_lcd_v3.c:203: int y = r;
+                                   1296 ;	.\src\main.c:203: int y = r;
       000437 A8 4D            [24] 1297 	mov	r0,_drawCircle_PARM_3
       000439 A9 4E            [24] 1298 	mov	r1,(_drawCircle_PARM_3 + 1)
-                                   1299 ;	ecen4330_lcd_v3.c:205: drawPixel(x0  , y0+r, color);
+                                   1299 ;	.\src\main.c:205: drawPixel(x0  , y0+r, color);
       00043B E5 4D            [12] 1300 	mov	a,_drawCircle_PARM_3
       00043D 25 4B            [12] 1301 	add	a,_drawCircle_PARM_2
       00043F F5 47            [12] 1302 	mov	_drawPixel_PARM_2,a
@@ -1312,7 +1312,7 @@
       000457 C0 01            [24] 1312 	push	ar1
       000459 C0 00            [24] 1313 	push	ar0
       00045B 12 03 BC         [24] 1314 	lcall	_drawPixel
-                                   1315 ;	ecen4330_lcd_v3.c:206: drawPixel(x0  , y0-r, color);
+                                   1315 ;	.\src\main.c:206: drawPixel(x0  , y0-r, color);
       00045E E5 4B            [12] 1316 	mov	a,_drawCircle_PARM_2
       000460 C3               [12] 1317 	clr	c
       000461 95 4D            [12] 1318 	subb	a,_drawCircle_PARM_3
@@ -1325,7 +1325,7 @@
       000471 85 51 82         [24] 1325 	mov	dpl,_drawCircle_x0_65536_103
       000474 85 52 83         [24] 1326 	mov	dph,(_drawCircle_x0_65536_103 + 1)
       000477 12 03 BC         [24] 1327 	lcall	_drawPixel
-                                   1328 ;	ecen4330_lcd_v3.c:207: drawPixel(x0+r, y0  , color);
+                                   1328 ;	.\src\main.c:207: drawPixel(x0+r, y0  , color);
       00047A E5 4D            [12] 1329 	mov	a,_drawCircle_PARM_3
       00047C 25 51            [12] 1330 	add	a,_drawCircle_x0_65536_103
       00047E F5 82            [12] 1331 	mov	dpl,a
@@ -1337,7 +1337,7 @@
       00048C 85 4F 49         [24] 1337 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
       00048F 85 50 4A         [24] 1338 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
       000492 12 03 BC         [24] 1339 	lcall	_drawPixel
-                                   1340 ;	ecen4330_lcd_v3.c:208: drawPixel(x0-r, y0  , color);
+                                   1340 ;	.\src\main.c:208: drawPixel(x0-r, y0  , color);
       000495 E5 51            [12] 1341 	mov	a,_drawCircle_x0_65536_103
       000497 C3               [12] 1342 	clr	c
       000498 95 4D            [12] 1343 	subb	a,_drawCircle_PARM_3
@@ -1354,7 +1354,7 @@
       0004B3 D0 01            [24] 1354 	pop	ar1
       0004B5 D0 02            [24] 1355 	pop	ar2
       0004B7 D0 03            [24] 1356 	pop	ar3
-                                   1357 ;	ecen4330_lcd_v3.c:210: while (x<y) {
+                                   1357 ;	.\src\main.c:210: while (x<y) {
       0004B9 E4               [12] 1358 	clr	a
       0004BA F5 57            [12] 1359 	mov	_drawCircle_x_65536_104,a
       0004BC F5 58            [12] 1360 	mov	(_drawCircle_x_65536_104 + 1),a
@@ -1373,22 +1373,22 @@
       0004D2 40 01            [24] 1373 	jc	00121$
       0004D4 22               [24] 1374 	ret
       0004D5                       1375 00121$:
-                                   1376 ;	ecen4330_lcd_v3.c:211: if (f >= 0) {
+                                   1376 ;	.\src\main.c:211: if (f >= 0) {
       0004D5 E5 54            [12] 1377 	mov	a,(_drawCircle_f_65536_104 + 1)
       0004D7 20 E7 16         [24] 1378 	jb	acc.7,00102$
-                                   1379 ;	ecen4330_lcd_v3.c:212: y--;
+                                   1379 ;	.\src\main.c:212: y--;
       0004DA 18               [12] 1380 	dec	r0
       0004DB B8 FF 01         [24] 1381 	cjne	r0,#0xff,00123$
       0004DE 19               [12] 1382 	dec	r1
       0004DF                       1383 00123$:
-                                   1384 ;	ecen4330_lcd_v3.c:213: ddF_y += 2;
+                                   1384 ;	.\src\main.c:213: ddF_y += 2;
       0004DF 74 02            [12] 1385 	mov	a,#0x02
       0004E1 2A               [12] 1386 	add	a,r2
       0004E2 FA               [12] 1387 	mov	r2,a
       0004E3 E4               [12] 1388 	clr	a
       0004E4 3B               [12] 1389 	addc	a,r3
       0004E5 FB               [12] 1390 	mov	r3,a
-                                   1391 ;	ecen4330_lcd_v3.c:214: f += ddF_y;
+                                   1391 ;	.\src\main.c:214: f += ddF_y;
       0004E6 EA               [12] 1392 	mov	a,r2
       0004E7 25 53            [12] 1393 	add	a,_drawCircle_f_65536_104
       0004E9 F5 53            [12] 1394 	mov	_drawCircle_f_65536_104,a
@@ -1396,7 +1396,7 @@
       0004EC 35 54            [12] 1396 	addc	a,(_drawCircle_f_65536_104 + 1)
       0004EE F5 54            [12] 1397 	mov	(_drawCircle_f_65536_104 + 1),a
       0004F0                       1398 00102$:
-                                   1399 ;	ecen4330_lcd_v3.c:216: x++;
+                                   1399 ;	.\src\main.c:216: x++;
       0004F0 C0 02            [24] 1400 	push	ar2
       0004F2 C0 03            [24] 1401 	push	ar3
       0004F4 05 57            [12] 1402 	inc	_drawCircle_x_65536_104
@@ -1404,21 +1404,21 @@
       0004F7 B5 57 02         [24] 1404 	cjne	a,_drawCircle_x_65536_104,00124$
       0004FA 05 58            [12] 1405 	inc	(_drawCircle_x_65536_104 + 1)
       0004FC                       1406 00124$:
-                                   1407 ;	ecen4330_lcd_v3.c:217: ddF_x += 2;
+                                   1407 ;	.\src\main.c:217: ddF_x += 2;
       0004FC 74 02            [12] 1408 	mov	a,#0x02
       0004FE 25 55            [12] 1409 	add	a,_drawCircle_ddF_x_65536_104
       000500 F5 55            [12] 1410 	mov	_drawCircle_ddF_x_65536_104,a
       000502 E4               [12] 1411 	clr	a
       000503 35 56            [12] 1412 	addc	a,(_drawCircle_ddF_x_65536_104 + 1)
       000505 F5 56            [12] 1413 	mov	(_drawCircle_ddF_x_65536_104 + 1),a
-                                   1414 ;	ecen4330_lcd_v3.c:218: f += ddF_x;
+                                   1414 ;	.\src\main.c:218: f += ddF_x;
       000507 E5 55            [12] 1415 	mov	a,_drawCircle_ddF_x_65536_104
       000509 25 53            [12] 1416 	add	a,_drawCircle_f_65536_104
       00050B F5 53            [12] 1417 	mov	_drawCircle_f_65536_104,a
       00050D E5 56            [12] 1418 	mov	a,(_drawCircle_ddF_x_65536_104 + 1)
       00050F 35 54            [12] 1419 	addc	a,(_drawCircle_f_65536_104 + 1)
       000511 F5 54            [12] 1420 	mov	(_drawCircle_f_65536_104 + 1),a
-                                   1421 ;	ecen4330_lcd_v3.c:220: drawPixel(x0 + x, y0 + y, color);
+                                   1421 ;	.\src\main.c:220: drawPixel(x0 + x, y0 + y, color);
       000513 AC 51            [24] 1422 	mov	r4,_drawCircle_x0_65536_103
       000515 AD 52            [24] 1423 	mov	r5,(_drawCircle_x0_65536_103 + 1)
       000517 E5 57            [12] 1424 	mov	a,_drawCircle_x_65536_104
@@ -1458,7 +1458,7 @@
       000558 D0 03            [24] 1458 	pop	ar3
       00055A D0 04            [24] 1459 	pop	ar4
       00055C D0 05            [24] 1460 	pop	ar5
-                                   1461 ;	ecen4330_lcd_v3.c:221: drawPixel(x0 - x, y0 + y, color);
+                                   1461 ;	.\src\main.c:221: drawPixel(x0 - x, y0 + y, color);
       00055E EC               [12] 1462 	mov	a,r4
       00055F C3               [12] 1463 	clr	c
       000560 95 57            [12] 1464 	subb	a,_drawCircle_x_65536_104
@@ -1487,7 +1487,7 @@
       000592 D0 03            [24] 1487 	pop	ar3
       000594 D0 04            [24] 1488 	pop	ar4
       000596 D0 05            [24] 1489 	pop	ar5
-                                   1490 ;	ecen4330_lcd_v3.c:222: drawPixel(x0 + x, y0 - y, color);
+                                   1490 ;	.\src\main.c:222: drawPixel(x0 + x, y0 - y, color);
       000598 EA               [12] 1491 	mov	a,r2
       000599 C3               [12] 1492 	clr	c
       00059A 98               [12] 1493 	subb	a,r0
@@ -1518,7 +1518,7 @@
       0005CC D0 05            [24] 1518 	pop	ar5
       0005CE D0 06            [24] 1519 	pop	ar6
       0005D0 D0 07            [24] 1520 	pop	ar7
-                                   1521 ;	ecen4330_lcd_v3.c:223: drawPixel(x0 - x, y0 - y, color);
+                                   1521 ;	.\src\main.c:223: drawPixel(x0 - x, y0 - y, color);
       0005D2 8E 47            [24] 1522 	mov	_drawPixel_PARM_2,r6
       0005D4 8F 48            [24] 1523 	mov	(_drawPixel_PARM_2 + 1),r7
       0005D6 85 4F 49         [24] 1524 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
@@ -1538,7 +1538,7 @@
       0005F7 D0 03            [24] 1538 	pop	ar3
       0005F9 D0 04            [24] 1539 	pop	ar4
       0005FB D0 05            [24] 1540 	pop	ar5
-                                   1541 ;	ecen4330_lcd_v3.c:224: drawPixel(x0 + y, y0 + x, color);
+                                   1541 ;	.\src\main.c:224: drawPixel(x0 + y, y0 + x, color);
       0005FD E8               [12] 1542 	mov	a,r0
       0005FE 2C               [12] 1543 	add	a,r4
       0005FF FE               [12] 1544 	mov	r6,a
@@ -1576,7 +1576,7 @@
       00063C D0 05            [24] 1576 	pop	ar5
       00063E D0 06            [24] 1577 	pop	ar6
       000640 D0 07            [24] 1578 	pop	ar7
-                                   1579 ;	ecen4330_lcd_v3.c:225: drawPixel(x0 - y, y0 + x, color);
+                                   1579 ;	.\src\main.c:225: drawPixel(x0 - y, y0 + x, color);
       000642 EC               [12] 1580 	mov	a,r4
       000643 C3               [12] 1581 	clr	c
       000644 98               [12] 1582 	subb	a,r0
@@ -1601,7 +1601,7 @@
       000668 D0 01            [24] 1601 	pop	ar1
       00066A D0 02            [24] 1602 	pop	ar2
       00066C D0 03            [24] 1603 	pop	ar3
-                                   1604 ;	ecen4330_lcd_v3.c:226: drawPixel(x0 + y, y0 - x, color);
+                                   1604 ;	.\src\main.c:226: drawPixel(x0 + y, y0 - x, color);
       00066E EA               [12] 1605 	mov	a,r2
       00066F C3               [12] 1606 	clr	c
       000670 95 57            [12] 1607 	subb	a,_drawCircle_x_65536_104
@@ -1626,7 +1626,7 @@
       000698 D0 03            [24] 1626 	pop	ar3
       00069A D0 04            [24] 1627 	pop	ar4
       00069C D0 05            [24] 1628 	pop	ar5
-                                   1629 ;	ecen4330_lcd_v3.c:227: drawPixel(x0 - y, y0 - x, color);
+                                   1629 ;	.\src\main.c:227: drawPixel(x0 - y, y0 - x, color);
       00069E 8A 47            [24] 1630 	mov	_drawPixel_PARM_2,r2
       0006A0 8B 48            [24] 1631 	mov	(_drawPixel_PARM_2 + 1),r3
       0006A2 85 4F 49         [24] 1632 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
@@ -1644,7 +1644,7 @@
       0006BD D0 03            [24] 1644 	pop	ar3
       0006BF D0 03            [24] 1645 	pop	ar3
       0006C1 D0 02            [24] 1646 	pop	ar2
-                                   1647 ;	ecen4330_lcd_v3.c:229: }
+                                   1647 ;	.\src\main.c:229: }
       0006C3 02 04 C3         [24] 1648 	ljmp	00103$
                                    1649 ;------------------------------------------------------------
                                    1650 ;Allocation info for local variables in function 'testCircles'
@@ -1657,13 +1657,13 @@
                                    1657 ;w                         Allocated with name '_testCircles_w_65536_108'
                                    1658 ;h                         Allocated with name '_testCircles_h_65536_108'
                                    1659 ;------------------------------------------------------------
-                                   1660 ;	ecen4330_lcd_v3.c:231: void testCircles (uint8_t radius, uint16_t color) {
+                                   1660 ;	.\src\main.c:231: void testCircles (uint8_t radius, uint16_t color) {
                                    1661 ;	-----------------------------------------
                                    1662 ;	 function testCircles
                                    1663 ;	-----------------------------------------
       0006C6                       1664 _testCircles:
       0006C6 AF 82            [24] 1665 	mov	r7,dpl
-                                   1666 ;	ecen4330_lcd_v3.c:232: int  x, y, r2 = radius * 2, w = _width  + radius, h = _height + radius;
+                                   1666 ;	.\src\main.c:232: int  x, y, r2 = radius * 2, w = _width  + radius, h = _height + radius;
       0006C8 8F 05            [24] 1667 	mov	ar5,r7
       0006CA 7E 00            [12] 1668 	mov	r6,#0x00
       0006CC ED               [12] 1669 	mov	a,r5
@@ -1688,7 +1688,7 @@
       0006E6 EE               [12] 1688 	mov	a,r6
       0006E7 3A               [12] 1689 	addc	a,r2
       0006E8 F5 64            [12] 1690 	mov	(_testCircles_h_65536_108 + 1),a
-                                   1691 ;	ecen4330_lcd_v3.c:234: for(x=0; x<w; x+=r2) {
+                                   1691 ;	.\src\main.c:234: for(x=0; x<w; x+=r2) {
       0006EA 79 00            [12] 1692 	mov	r1,#0x00
       0006EC 7A 00            [12] 1693 	mov	r2,#0x00
       0006EE                       1694 00107$:
@@ -1701,7 +1701,7 @@
       0006F8 63 F0 80         [24] 1701 	xrl	b,#0x80
       0006FB 95 F0            [12] 1702 	subb	a,b
       0006FD 50 57            [24] 1703 	jnc	00109$
-                                   1704 ;	ecen4330_lcd_v3.c:235: for(y=0; y<h; y+=r2) {
+                                   1704 ;	.\src\main.c:235: for(y=0; y<h; y+=r2) {
       0006FF 78 00            [12] 1705 	mov	r0,#0x00
       000701 7E 00            [12] 1706 	mov	r6,#0x00
       000703                       1707 00104$:
@@ -1714,7 +1714,7 @@
       00070D 63 F0 80         [24] 1714 	xrl	b,#0x80
       000710 95 F0            [12] 1715 	subb	a,b
       000712 50 3A            [24] 1716 	jnc	00108$
-                                   1717 ;	ecen4330_lcd_v3.c:236: drawCircle(x, y, radius, color);
+                                   1717 ;	.\src\main.c:236: drawCircle(x, y, radius, color);
       000714 89 82            [24] 1718 	mov	dpl,r1
       000716 8A 83            [24] 1719 	mov	dph,r2
       000718 88 4B            [24] 1720 	mov	_drawCircle_PARM_2,r0
@@ -1738,7 +1738,7 @@
       000740 D0 04            [24] 1738 	pop	ar4
       000742 D0 06            [24] 1739 	pop	ar6
       000744 D0 07            [24] 1740 	pop	ar7
-                                   1741 ;	ecen4330_lcd_v3.c:235: for(y=0; y<h; y+=r2) {
+                                   1741 ;	.\src\main.c:235: for(y=0; y<h; y+=r2) {
       000746 EB               [12] 1742 	mov	a,r3
       000747 28               [12] 1743 	add	a,r0
       000748 F8               [12] 1744 	mov	r0,a
@@ -1747,7 +1747,7 @@
       00074B FE               [12] 1747 	mov	r6,a
       00074C 80 B5            [24] 1748 	sjmp	00104$
       00074E                       1749 00108$:
-                                   1750 ;	ecen4330_lcd_v3.c:234: for(x=0; x<w; x+=r2) {
+                                   1750 ;	.\src\main.c:234: for(x=0; x<w; x+=r2) {
       00074E EB               [12] 1751 	mov	a,r3
       00074F 29               [12] 1752 	add	a,r1
       000750 F9               [12] 1753 	mov	r1,a
@@ -1756,7 +1756,7 @@
       000753 FA               [12] 1756 	mov	r2,a
       000754 80 98            [24] 1757 	sjmp	00107$
       000756                       1758 00109$:
-                                   1759 ;	ecen4330_lcd_v3.c:239: }
+                                   1759 ;	.\src\main.c:239: }
       000756 22               [24] 1760 	ret
                                    1761 ;------------------------------------------------------------
                                    1762 ;Allocation info for local variables in function 'fillRect'
@@ -1767,14 +1767,14 @@
                                    1767 ;color                     Allocated with name '_fillRect_PARM_5'
                                    1768 ;x                         Allocated to registers 
                                    1769 ;------------------------------------------------------------
-                                   1770 ;	ecen4330_lcd_v3.c:241: void fillRect (uint16_t x,uint16_t y,uint16_t w,uint16_t h,uint16_t color) {
+                                   1770 ;	.\src\main.c:241: void fillRect (uint16_t x,uint16_t y,uint16_t w,uint16_t h,uint16_t color) {
                                    1771 ;	-----------------------------------------
                                    1772 ;	 function fillRect
                                    1773 ;	-----------------------------------------
       000757                       1774 _fillRect:
       000757 AE 82            [24] 1775 	mov	r6,dpl
       000759 AF 83            [24] 1776 	mov	r7,dph
-                                   1777 ;	ecen4330_lcd_v3.c:242: if ((x >= TFTWIDTH) || (y >= TFTHEIGHT))
+                                   1777 ;	.\src\main.c:242: if ((x >= TFTWIDTH) || (y >= TFTHEIGHT))
       00075B 8E 04            [24] 1778 	mov	ar4,r6
       00075D 8F 05            [24] 1779 	mov	ar5,r7
       00075F C3               [12] 1780 	clr	c
@@ -1792,10 +1792,10 @@
       000771 94 01            [12] 1792 	subb	a,#0x01
       000773 40 01            [24] 1793 	jc	00102$
       000775                       1794 00101$:
-                                   1795 ;	ecen4330_lcd_v3.c:244: return;
+                                   1795 ;	.\src\main.c:244: return;
       000775 22               [24] 1796 	ret
       000776                       1797 00102$:
-                                   1798 ;	ecen4330_lcd_v3.c:247: if ((x+w-1) >= TFTWIDTH)
+                                   1798 ;	.\src\main.c:247: if ((x+w-1) >= TFTWIDTH)
       000776 E5 67            [12] 1799 	mov	a,_fillRect_PARM_3
       000778 2E               [12] 1800 	add	a,r6
       000779 FC               [12] 1801 	mov	r4,a
@@ -1812,7 +1812,7 @@
       000787 ED               [12] 1812 	mov	a,r5
       000788 94 00            [12] 1813 	subb	a,#0x00
       00078A 40 0A            [24] 1814 	jc	00105$
-                                   1815 ;	ecen4330_lcd_v3.c:249: w = TFTWIDTH-x;
+                                   1815 ;	.\src\main.c:249: w = TFTWIDTH-x;
       00078C 74 F0            [12] 1816 	mov	a,#0xf0
       00078E C3               [12] 1817 	clr	c
       00078F 9E               [12] 1818 	subb	a,r6
@@ -1821,7 +1821,7 @@
       000793 9F               [12] 1821 	subb	a,r7
       000794 F5 68            [12] 1822 	mov	(_fillRect_PARM_3 + 1),a
       000796                       1823 00105$:
-                                   1824 ;	ecen4330_lcd_v3.c:252: if ((y+h-1) >= TFTHEIGHT)
+                                   1824 ;	.\src\main.c:252: if ((y+h-1) >= TFTHEIGHT)
       000796 E5 69            [12] 1825 	mov	a,_fillRect_PARM_4
       000798 25 65            [12] 1826 	add	a,_fillRect_PARM_2
       00079A FC               [12] 1827 	mov	r4,a
@@ -1838,7 +1838,7 @@
       0007A9 ED               [12] 1838 	mov	a,r5
       0007AA 94 01            [12] 1839 	subb	a,#0x01
       0007AC 40 0D            [24] 1840 	jc	00107$
-                                   1841 ;	ecen4330_lcd_v3.c:254: h = TFTHEIGHT-y;
+                                   1841 ;	.\src\main.c:254: h = TFTHEIGHT-y;
       0007AE 74 40            [12] 1842 	mov	a,#0x40
       0007B0 C3               [12] 1843 	clr	c
       0007B1 95 65            [12] 1844 	subb	a,_fillRect_PARM_2
@@ -1847,7 +1847,7 @@
       0007B7 95 66            [12] 1847 	subb	a,(_fillRect_PARM_2 + 1)
       0007B9 F5 6A            [12] 1848 	mov	(_fillRect_PARM_4 + 1),a
       0007BB                       1849 00107$:
-                                   1850 ;	ecen4330_lcd_v3.c:257: setAddress(x, y, x+w-1, y+h-1);
+                                   1850 ;	.\src\main.c:257: setAddress(x, y, x+w-1, y+h-1);
       0007BB E5 67            [12] 1851 	mov	a,_fillRect_PARM_3
       0007BD 2E               [12] 1852 	add	a,r6
       0007BE FC               [12] 1853 	mov	r4,a
@@ -1877,7 +1877,7 @@
       0007E5 8E 82            [24] 1877 	mov	dpl,r6
       0007E7 8F 83            [24] 1878 	mov	dph,r7
       0007E9 12 01 E0         [24] 1879 	lcall	_setAddress
-                                   1880 ;	ecen4330_lcd_v3.c:260: write8Reg(0x2C);
+                                   1880 ;	.\src\main.c:260: write8Reg(0x2C);
                                    1881 ;	assignBit
       0007EC C2 B5            [12] 1882 	clr	_P3_5
                                    1883 ;	assignBit
@@ -1888,10 +1888,10 @@
       0007F8 F0               [24] 1888 	movx	@dptr,a
                                    1889 ;	assignBit
       0007F9 C2 B4            [12] 1890 	clr	_P3_4
-                                   1891 ;	ecen4330_lcd_v3.c:261: CD = 1;
+                                   1891 ;	.\src\main.c:261: CD = 1;
                                    1892 ;	assignBit
       0007FB D2 B5            [12] 1893 	setb	_P3_5
-                                   1894 ;	ecen4330_lcd_v3.c:262: for(y=h; y>0; y--)
+                                   1894 ;	.\src\main.c:262: for(y=h; y>0; y--)
       0007FD AF 6C            [24] 1895 	mov	r7,(_fillRect_PARM_5 + 1)
       0007FF AD 69            [24] 1896 	mov	r5,_fillRect_PARM_4
       000801 AE 6A            [24] 1897 	mov	r6,(_fillRect_PARM_4 + 1)
@@ -1899,14 +1899,14 @@
       000803 ED               [12] 1899 	mov	a,r5
       000804 4E               [12] 1900 	orl	a,r6
       000805 60 30            [24] 1901 	jz	00116$
-                                   1902 ;	ecen4330_lcd_v3.c:264: for(x=w; x>0; x--)
+                                   1902 ;	.\src\main.c:264: for(x=w; x>0; x--)
       000807 AB 67            [24] 1903 	mov	r3,_fillRect_PARM_3
       000809 AC 68            [24] 1904 	mov	r4,(_fillRect_PARM_3 + 1)
       00080B                       1905 00111$:
       00080B EB               [12] 1906 	mov	a,r3
       00080C 4C               [12] 1907 	orl	a,r4
       00080D 60 21            [24] 1908 	jz	00115$
-                                   1909 ;	ecen4330_lcd_v3.c:267: write8(color>>8); write8(color);
+                                   1909 ;	.\src\main.c:267: write8(color>>8); write8(color);
                                    1910 ;	assignBit
       00080F D2 B4            [12] 1911 	setb	_P3_4
       000811 85 33 82         [24] 1912 	mov	dpl,_lcd_address
@@ -1924,21 +1924,21 @@
       000826 F0               [24] 1924 	movx	@dptr,a
                                    1925 ;	assignBit
       000827 C2 B4            [12] 1926 	clr	_P3_4
-                                   1927 ;	ecen4330_lcd_v3.c:264: for(x=w; x>0; x--)
+                                   1927 ;	.\src\main.c:264: for(x=w; x>0; x--)
       000829 1B               [12] 1928 	dec	r3
       00082A BB FF 01         [24] 1929 	cjne	r3,#0xff,00169$
       00082D 1C               [12] 1930 	dec	r4
       00082E                       1931 00169$:
       00082E 80 DB            [24] 1932 	sjmp	00111$
       000830                       1933 00115$:
-                                   1934 ;	ecen4330_lcd_v3.c:262: for(y=h; y>0; y--)
+                                   1934 ;	.\src\main.c:262: for(y=h; y>0; y--)
       000830 1D               [12] 1935 	dec	r5
       000831 BD FF 01         [24] 1936 	cjne	r5,#0xff,00170$
       000834 1E               [12] 1937 	dec	r6
       000835                       1938 00170$:
       000835 80 CC            [24] 1939 	sjmp	00114$
       000837                       1940 00116$:
-                                   1941 ;	ecen4330_lcd_v3.c:271: }
+                                   1941 ;	.\src\main.c:271: }
       000837 22               [24] 1942 	ret
                                    1943 ;------------------------------------------------------------
                                    1944 ;Allocation info for local variables in function 'fillScreen'
@@ -1950,17 +1950,17 @@
                                    1950 ;hi                        Allocated to registers r5 
                                    1951 ;lo                        Allocated to registers r6 
                                    1952 ;------------------------------------------------------------
-                                   1953 ;	ecen4330_lcd_v3.c:273: void fillScreen (uint16_t Color) {
+                                   1953 ;	.\src\main.c:273: void fillScreen (uint16_t Color) {
                                    1954 ;	-----------------------------------------
                                    1955 ;	 function fillScreen
                                    1956 ;	-----------------------------------------
       000838                       1957 _fillScreen:
       000838 AE 82            [24] 1958 	mov	r6,dpl
       00083A AF 83            [24] 1959 	mov	r7,dph
-                                   1960 ;	ecen4330_lcd_v3.c:278: uint8_t  i, hi = Color >> 8,
+                                   1960 ;	.\src\main.c:278: uint8_t  i, hi = Color >> 8,
       00083C 8F 05            [24] 1961 	mov	ar5,r7
-                                   1962 ;	ecen4330_lcd_v3.c:279: lo = Color;
-                                   1963 ;	ecen4330_lcd_v3.c:282: setAddress(0,0,TFTWIDTH-1,TFTHEIGHT-1);
+                                   1962 ;	.\src\main.c:279: lo = Color;
+                                   1963 ;	.\src\main.c:282: setAddress(0,0,TFTWIDTH-1,TFTHEIGHT-1);
       00083E E4               [12] 1964 	clr	a
       00083F F5 08            [12] 1965 	mov	_setAddress_PARM_2,a
       000841 F5 09            [12] 1966 	mov	(_setAddress_PARM_2 + 1),a
@@ -1975,7 +1975,7 @@
       000855 12 01 E0         [24] 1975 	lcall	_setAddress
       000858 D0 05            [24] 1976 	pop	ar5
       00085A D0 06            [24] 1977 	pop	ar6
-                                   1978 ;	ecen4330_lcd_v3.c:284: write8Reg(0x2C);
+                                   1978 ;	.\src\main.c:284: write8Reg(0x2C);
                                    1979 ;	assignBit
       00085C C2 B5            [12] 1980 	clr	_P3_5
                                    1981 ;	assignBit
@@ -1986,10 +1986,10 @@
       000868 F0               [24] 1986 	movx	@dptr,a
                                    1987 ;	assignBit
       000869 C2 B4            [12] 1988 	clr	_P3_4
-                                   1989 ;	ecen4330_lcd_v3.c:285: CD = 1;
+                                   1989 ;	.\src\main.c:285: CD = 1;
                                    1990 ;	assignBit
       00086B D2 B5            [12] 1991 	setb	_P3_5
-                                   1992 ;	ecen4330_lcd_v3.c:286: write8(hi); write8(lo);
+                                   1992 ;	.\src\main.c:286: write8(hi); write8(lo);
                                    1993 ;	assignBit
       00086D D2 B4            [12] 1994 	setb	_P3_4
       00086F 85 33 82         [24] 1995 	mov	dpl,_lcd_address
@@ -2006,7 +2006,7 @@
       000882 F0               [24] 2006 	movx	@dptr,a
                                    2007 ;	assignBit
       000883 C2 B4            [12] 2008 	clr	_P3_4
-                                   2009 ;	ecen4330_lcd_v3.c:289: while (blocks--) {
+                                   2009 ;	.\src\main.c:289: while (blocks--) {
       000885 7C B0            [12] 2010 	mov	r4,#0xb0
       000887 7F 04            [12] 2011 	mov	r7,#0x04
       000889                       2012 00104$:
@@ -2019,10 +2019,10 @@
       000892 EA               [12] 2019 	mov	a,r2
       000893 4B               [12] 2020 	orl	a,r3
       000894 60 66            [24] 2021 	jz	00106$
-                                   2022 ;	ecen4330_lcd_v3.c:291: do {
+                                   2022 ;	.\src\main.c:291: do {
       000896 7B 10            [12] 2023 	mov	r3,#0x10
       000898                       2024 00101$:
-                                   2025 ;	ecen4330_lcd_v3.c:293: write8(hi); write8(lo);write8(hi); write8(lo);
+                                   2025 ;	.\src\main.c:293: write8(hi); write8(lo);write8(hi); write8(lo);
                                    2026 ;	assignBit
       000898 D2 B4            [12] 2027 	setb	_P3_4
       00089A 85 33 82         [24] 2028 	mov	dpl,_lcd_address
@@ -2055,7 +2055,7 @@
       0008C5 F0               [24] 2055 	movx	@dptr,a
                                    2056 ;	assignBit
       0008C6 C2 B4            [12] 2057 	clr	_P3_4
-                                   2058 ;	ecen4330_lcd_v3.c:294: write8(hi); write8(lo);write8(hi); write8(lo);
+                                   2058 ;	.\src\main.c:294: write8(hi); write8(lo);write8(hi); write8(lo);
                                    2059 ;	assignBit
       0008C8 D2 B4            [12] 2060 	setb	_P3_4
       0008CA 85 33 82         [24] 2061 	mov	dpl,_lcd_address
@@ -2088,18 +2088,18 @@
       0008F5 F0               [24] 2088 	movx	@dptr,a
                                    2089 ;	assignBit
       0008F6 C2 B4            [12] 2090 	clr	_P3_4
-                                   2091 ;	ecen4330_lcd_v3.c:295: } while(--i);
+                                   2091 ;	.\src\main.c:295: } while(--i);
       0008F8 DB 9E            [24] 2092 	djnz	r3,00101$
       0008FA 80 8D            [24] 2093 	sjmp	00104$
       0008FC                       2094 00106$:
-                                   2095 ;	ecen4330_lcd_v3.c:297: for (i = (char)len & 63; i--; ) {
+                                   2095 ;	.\src\main.c:297: for (i = (char)len & 63; i--; ) {
       0008FC 7F 3F            [12] 2096 	mov	r7,#0x3f
       0008FE                       2097 00109$:
       0008FE 8F 04            [24] 2098 	mov	ar4,r7
       000900 1F               [12] 2099 	dec	r7
       000901 EC               [12] 2100 	mov	a,r4
       000902 60 1A            [24] 2101 	jz	00111$
-                                   2102 ;	ecen4330_lcd_v3.c:299: write8(hi); write8(lo);
+                                   2102 ;	.\src\main.c:299: write8(hi); write8(lo);
                                    2103 ;	assignBit
       000904 D2 B4            [12] 2104 	setb	_P3_4
       000906 85 33 82         [24] 2105 	mov	dpl,_lcd_address
@@ -2118,7 +2118,7 @@
       00091A C2 B4            [12] 2118 	clr	_P3_4
       00091C 80 E0            [24] 2119 	sjmp	00109$
       00091E                       2120 00111$:
-                                   2121 ;	ecen4330_lcd_v3.c:302: }
+                                   2121 ;	.\src\main.c:302: }
       00091E 22               [24] 2122 	ret
                                    2123 ;------------------------------------------------------------
                                    2124 ;Allocation info for local variables in function 'drawChar'
@@ -2135,14 +2135,14 @@
                                    2135 ;sloc1                     Allocated with name '_drawChar_sloc1_1_0'
                                    2136 ;sloc2                     Allocated with name '_drawChar_sloc2_1_0'
                                    2137 ;------------------------------------------------------------
-                                   2138 ;	ecen4330_lcd_v3.c:303: void drawChar (int16_t x, int16_t y, uint8_t c,uint16_t color, uint16_t bg, uint8_t size) {
+                                   2138 ;	.\src\main.c:303: void drawChar (int16_t x, int16_t y, uint8_t c,uint16_t color, uint16_t bg, uint8_t size) {
                                    2139 ;	-----------------------------------------
                                    2140 ;	 function drawChar
                                    2141 ;	-----------------------------------------
       00091F                       2142 _drawChar:
       00091F AE 82            [24] 2143 	mov	r6,dpl
       000921 AF 83            [24] 2144 	mov	r7,dph
-                                   2145 ;	ecen4330_lcd_v3.c:304: if ((x >=TFTWIDTH) ||
+                                   2145 ;	.\src\main.c:304: if ((x >=TFTWIDTH) ||
       000923 C3               [12] 2146 	clr	c
       000924 EE               [12] 2147 	mov	a,r6
       000925 94 F0            [12] 2148 	subb	a,#0xf0
@@ -2150,7 +2150,7 @@
       000928 64 80            [12] 2150 	xrl	a,#0x80
       00092A 94 80            [12] 2151 	subb	a,#0x80
       00092C 50 67            [24] 2152 	jnc	00101$
-                                   2153 ;	ecen4330_lcd_v3.c:305: (y >=TFTHEIGHT)           ||
+                                   2153 ;	.\src\main.c:305: (y >=TFTHEIGHT)           ||
       00092E AC 6D            [24] 2154 	mov	r4,_drawChar_PARM_2
       000930 AD 6E            [24] 2155 	mov	r5,(_drawChar_PARM_2 + 1)
       000932 C3               [12] 2156 	clr	c
@@ -2160,7 +2160,7 @@
       000937 64 80            [12] 2160 	xrl	a,#0x80
       000939 94 81            [12] 2161 	subb	a,#0x81
       00093B 50 58            [24] 2162 	jnc	00101$
-                                   2163 ;	ecen4330_lcd_v3.c:306: ((x + 6 * size - 1) < 0) ||
+                                   2163 ;	.\src\main.c:306: ((x + 6 * size - 1) < 0) ||
       00093D AA 74            [24] 2164 	mov	r2,_drawChar_PARM_6
       00093F 7B 00            [12] 2165 	mov	r3,#0x00
       000941 8A 08            [24] 2166 	mov	__mulint_PARM_2,r2
@@ -2193,7 +2193,7 @@
       000972                       2193 00176$:
       000972 E9               [12] 2194 	mov	a,r1
       000973 20 E7 1F         [24] 2195 	jb	acc.7,00101$
-                                   2196 ;	ecen4330_lcd_v3.c:307: ((y + 8 * size - 1) < 0))
+                                   2196 ;	.\src\main.c:307: ((y + 8 * size - 1) < 0))
       000976 EB               [12] 2197 	mov	a,r3
       000977 C4               [12] 2198 	swap	a
       000978 03               [12] 2199 	rr	a
@@ -2221,9 +2221,9 @@
       000991 EB               [12] 2221 	mov	a,r3
       000992 30 E7 01         [24] 2222 	jnb	acc.7,00138$
       000995                       2223 00101$:
-                                   2224 ;	ecen4330_lcd_v3.c:309: return;
+                                   2224 ;	.\src\main.c:309: return;
       000995 22               [24] 2225 	ret
-                                   2226 ;	ecen4330_lcd_v3.c:314: for (i=0; i<6; i++ )
+                                   2226 ;	.\src\main.c:314: for (i=0; i<6; i++ )
       000996                       2227 00138$:
       000996 74 01            [12] 2228 	mov	a,#0x01
       000998 B5 74 04         [24] 2229 	cjne	a,_drawChar_PARM_6,00180$
@@ -2246,14 +2246,14 @@
       0009B0 92 00            [24] 2246 	mov	_drawChar_sloc0_1_0,c
       0009B2 75 75 00         [24] 2247 	mov	_drawChar_i_65537_149,#0x00
       0009B5                       2248 00124$:
-                                   2249 ;	ecen4330_lcd_v3.c:318: if (i == 5)
+                                   2249 ;	.\src\main.c:318: if (i == 5)
       0009B5 74 05            [12] 2250 	mov	a,#0x05
       0009B7 B5 75 05         [24] 2251 	cjne	a,_drawChar_i_65537_149,00107$
-                                   2252 ;	ecen4330_lcd_v3.c:320: line = 0x0;
+                                   2252 ;	.\src\main.c:320: line = 0x0;
       0009BA 75 76 00         [24] 2253 	mov	_drawChar_line_196609_151,#0x00
       0009BD 80 47            [24] 2254 	sjmp	00136$
       0009BF                       2255 00107$:
-                                   2256 ;	ecen4330_lcd_v3.c:324: line = pgm_read_byte(font+(c*5)+i);
+                                   2256 ;	.\src\main.c:324: line = pgm_read_byte(font+(c*5)+i);
       0009BF C0 02            [24] 2257 	push	ar2
       0009C1 85 6F 08         [24] 2258 	mov	__mulint_PARM_2,_drawChar_PARM_3
       0009C4 75 09 00         [24] 2259 	mov	(__mulint_PARM_2 + 1),#0x00
@@ -2291,9 +2291,9 @@
       000A00 E4               [12] 2291 	clr	a
       000A01 93               [24] 2292 	movc	a,@a+dptr
       000A02 F5 76            [12] 2293 	mov	_drawChar_line_196609_151,a
-                                   2294 ;	ecen4330_lcd_v3.c:314: for (i=0; i<6; i++ )
+                                   2294 ;	.\src\main.c:314: for (i=0; i<6; i++ )
       000A04 D0 02            [24] 2295 	pop	ar2
-                                   2296 ;	ecen4330_lcd_v3.c:329: for (j = 0; j<8; j++)
+                                   2296 ;	.\src\main.c:329: for (j = 0; j<8; j++)
       000A06                       2297 00136$:
       000A06 C2 D5            [12] 2298 	clr	F0
       000A08 85 74 F0         [24] 2299 	mov	b,_drawChar_PARM_6
@@ -2321,15 +2321,15 @@
       000A2D 85 79 7B         [24] 2321 	mov	(_drawChar_sloc2_1_0 + 1),(_drawChar_sloc1_1_0 + 1)
       000A30 75 77 00         [24] 2322 	mov	_drawChar_j_196610_154,#0x00
       000A33                       2323 00122$:
-                                   2324 ;	ecen4330_lcd_v3.c:331: if (line & 0x1)
+                                   2324 ;	.\src\main.c:331: if (line & 0x1)
       000A33 E5 76            [12] 2325 	mov	a,_drawChar_line_196609_151
       000A35 20 E0 03         [24] 2326 	jb	acc.0,00188$
       000A38 02 0A E0         [24] 2327 	ljmp	00118$
       000A3B                       2328 00188$:
-                                   2329 ;	ecen4330_lcd_v3.c:333: if (size == 1)
+                                   2329 ;	.\src\main.c:333: if (size == 1)
       000A3B EB               [12] 2330 	mov	a,r3
       000A3C 60 46            [24] 2331 	jz	00110$
-                                   2332 ;	ecen4330_lcd_v3.c:335: drawPixel(x+i, y+j, color);
+                                   2332 ;	.\src\main.c:335: drawPixel(x+i, y+j, color);
       000A3E E5 75            [12] 2333 	mov	a,_drawChar_i_65537_149
       000A40 F8               [12] 2334 	mov	r0,a
       000A41 33               [12] 2335 	rlc	a
@@ -2373,7 +2373,7 @@
       000A7F D0 07            [24] 2373 	pop	ar7
       000A81 02 0B 87         [24] 2374 	ljmp	00119$
       000A84                       2375 00110$:
-                                   2376 ;	ecen4330_lcd_v3.c:338: fillRect(x+(i*size), y+(j*size), size, size, color);
+                                   2376 ;	.\src\main.c:338: fillRect(x+(i*size), y+(j*size), size, size, color);
       000A84 85 7A 82         [24] 2377 	mov	dpl,_drawChar_sloc2_1_0
       000A87 85 7B 83         [24] 2378 	mov	dph,(_drawChar_sloc2_1_0 + 1)
       000A8A C2 D5            [12] 2379 	clr	F0
@@ -2423,14 +2423,14 @@
       000ADB D0 07            [24] 2423 	pop	ar7
       000ADD 02 0B 87         [24] 2424 	ljmp	00119$
       000AE0                       2425 00118$:
-                                   2426 ;	ecen4330_lcd_v3.c:340: } else if (bg != color)
+                                   2426 ;	.\src\main.c:340: } else if (bg != color)
       000AE0 30 00 03         [24] 2427 	jnb	_drawChar_sloc0_1_0,00192$
       000AE3 02 0B 87         [24] 2428 	ljmp	00119$
       000AE6                       2429 00192$:
-                                   2430 ;	ecen4330_lcd_v3.c:342: if (size == 1)
+                                   2430 ;	.\src\main.c:342: if (size == 1)
       000AE6 EA               [12] 2431 	mov	a,r2
       000AE7 60 45            [24] 2432 	jz	00113$
-                                   2433 ;	ecen4330_lcd_v3.c:344: drawPixel(x+i, y+j, bg);
+                                   2433 ;	.\src\main.c:344: drawPixel(x+i, y+j, bg);
       000AE9 E5 75            [12] 2434 	mov	a,_drawChar_i_65537_149
       000AEB F8               [12] 2435 	mov	r0,a
       000AEC 33               [12] 2436 	rlc	a
@@ -2474,7 +2474,7 @@
       000B2A D0 07            [24] 2474 	pop	ar7
       000B2C 80 59            [24] 2475 	sjmp	00119$
       000B2E                       2476 00113$:
-                                   2477 ;	ecen4330_lcd_v3.c:348: fillRect(x+i*size, y+j*size, size, size, bg);
+                                   2477 ;	.\src\main.c:348: fillRect(x+i*size, y+j*size, size, size, bg);
       000B2E 85 78 82         [24] 2478 	mov	dpl,_drawChar_sloc1_1_0
       000B31 85 79 83         [24] 2479 	mov	dph,(_drawChar_sloc1_1_0 + 1)
       000B34 C2 D5            [12] 2480 	clr	F0
@@ -2523,12 +2523,12 @@
       000B83 D0 06            [24] 2523 	pop	ar6
       000B85 D0 07            [24] 2524 	pop	ar7
       000B87                       2525 00119$:
-                                   2526 ;	ecen4330_lcd_v3.c:352: line >>= 1;
+                                   2526 ;	.\src\main.c:352: line >>= 1;
       000B87 E5 76            [12] 2527 	mov	a,_drawChar_line_196609_151
       000B89 C3               [12] 2528 	clr	c
       000B8A 13               [12] 2529 	rrc	a
       000B8B F5 76            [12] 2530 	mov	_drawChar_line_196609_151,a
-                                   2531 ;	ecen4330_lcd_v3.c:329: for (j = 0; j<8; j++)
+                                   2531 ;	.\src\main.c:329: for (j = 0; j<8; j++)
       000B8D 05 77            [12] 2532 	inc	_drawChar_j_196610_154
       000B8F C3               [12] 2533 	clr	c
       000B90 E5 77            [12] 2534 	mov	a,_drawChar_j_196610_154
@@ -2537,7 +2537,7 @@
       000B96 50 03            [24] 2537 	jnc	00196$
       000B98 02 0A 33         [24] 2538 	ljmp	00122$
       000B9B                       2539 00196$:
-                                   2540 ;	ecen4330_lcd_v3.c:314: for (i=0; i<6; i++ )
+                                   2540 ;	.\src\main.c:314: for (i=0; i<6; i++ )
       000B9B 05 75            [12] 2541 	inc	_drawChar_i_65537_149
       000B9D C3               [12] 2542 	clr	c
       000B9E E5 75            [12] 2543 	mov	a,_drawChar_i_65537_149
@@ -2546,22 +2546,22 @@
       000BA4 50 03            [24] 2546 	jnc	00197$
       000BA6 02 09 B5         [24] 2547 	ljmp	00124$
       000BA9                       2548 00197$:
-                                   2549 ;	ecen4330_lcd_v3.c:356: }
+                                   2549 ;	.\src\main.c:356: }
       000BA9 22               [24] 2550 	ret
                                    2551 ;------------------------------------------------------------
                                    2552 ;Allocation info for local variables in function 'write'
                                    2553 ;------------------------------------------------------------
                                    2554 ;c                         Allocated to registers r7 
                                    2555 ;------------------------------------------------------------
-                                   2556 ;	ecen4330_lcd_v3.c:358: void write (uint8_t c)
+                                   2556 ;	.\src\main.c:358: void write (uint8_t c)
                                    2557 ;	-----------------------------------------
                                    2558 ;	 function write
                                    2559 ;	-----------------------------------------
       000BAA                       2560 _write:
       000BAA AF 82            [24] 2561 	mov	r7,dpl
-                                   2562 ;	ecen4330_lcd_v3.c:360: if (c == '\n')
+                                   2562 ;	.\src\main.c:360: if (c == '\n')
       000BAC BF 0A 26         [24] 2563 	cjne	r7,#0x0a,00105$
-                                   2564 ;	ecen4330_lcd_v3.c:362: cursor_y += textsize*8;
+                                   2564 ;	.\src\main.c:362: cursor_y += textsize*8;
       000BAF AD 3D            [24] 2565 	mov	r5,_textsize
       000BB1 E4               [12] 2566 	clr	a
       000BB2 C4               [12] 2567 	swap	a
@@ -2587,17 +2587,17 @@
       000BCA FC               [12] 2587 	mov	r4,a
       000BCB 8B 3B            [24] 2588 	mov	_cursor_y,r3
       000BCD 8C 3C            [24] 2589 	mov	(_cursor_y + 1),r4
-                                   2590 ;	ecen4330_lcd_v3.c:363: cursor_x  = 0;
+                                   2590 ;	.\src\main.c:363: cursor_x  = 0;
       000BCF E4               [12] 2591 	clr	a
       000BD0 F5 39            [12] 2592 	mov	_cursor_x,a
       000BD2 F5 3A            [12] 2593 	mov	(_cursor_x + 1),a
       000BD4 22               [24] 2594 	ret
       000BD5                       2595 00105$:
-                                   2596 ;	ecen4330_lcd_v3.c:365: else if (c == '\r')
+                                   2596 ;	.\src\main.c:365: else if (c == '\r')
       000BD5 BF 0D 01         [24] 2597 	cjne	r7,#0x0d,00119$
       000BD8 22               [24] 2598 	ret
       000BD9                       2599 00119$:
-                                   2600 ;	ecen4330_lcd_v3.c:370: drawChar(cursor_x, cursor_y, c, textcolor, textbgcolor, textsize);
+                                   2600 ;	.\src\main.c:370: drawChar(cursor_x, cursor_y, c, textcolor, textbgcolor, textsize);
       000BD9 85 3B 6D         [24] 2601 	mov	_drawChar_PARM_2,_cursor_y
       000BDC 85 3C 6E         [24] 2602 	mov	(_drawChar_PARM_2 + 1),(_cursor_y + 1)
       000BDF 8F 6F            [24] 2603 	mov	_drawChar_PARM_3,r7
@@ -2609,7 +2609,7 @@
       000BF0 85 39 82         [24] 2609 	mov	dpl,_cursor_x
       000BF3 85 3A 83         [24] 2610 	mov	dph,(_cursor_x + 1)
       000BF6 12 09 1F         [24] 2611 	lcall	_drawChar
-                                   2612 ;	ecen4330_lcd_v3.c:371: cursor_x += textsize*6;
+                                   2612 ;	.\src\main.c:371: cursor_x += textsize*6;
       000BF9 85 3D 08         [24] 2613 	mov	__mulint_PARM_2,_textsize
       000BFC 75 09 00         [24] 2614 	mov	(__mulint_PARM_2 + 1),#0x00
       000BFF 90 00 06         [24] 2615 	mov	dptr,#0x0006
@@ -2626,7 +2626,7 @@
       000C12 FD               [12] 2626 	mov	r5,a
       000C13 8C 39            [24] 2627 	mov	_cursor_x,r4
       000C15 8D 3A            [24] 2628 	mov	(_cursor_x + 1),r5
-                                   2629 ;	ecen4330_lcd_v3.c:373: }
+                                   2629 ;	.\src\main.c:373: }
       000C17 22               [24] 2630 	ret
                                    2631 ;------------------------------------------------------------
                                    2632 ;Allocation info for local variables in function 'LCD_string_write'
@@ -2634,7 +2634,7 @@
                                    2634 ;str                       Allocated to registers r5 r6 r7 
                                    2635 ;i                         Allocated to registers r3 r4 
                                    2636 ;------------------------------------------------------------
-                                   2637 ;	ecen4330_lcd_v3.c:375: void LCD_string_write (int8_t *str)
+                                   2637 ;	.\src\main.c:375: void LCD_string_write (int8_t *str)
                                    2638 ;	-----------------------------------------
                                    2639 ;	 function LCD_string_write
                                    2640 ;	-----------------------------------------
@@ -2642,7 +2642,7 @@
       000C18 AD 82            [24] 2642 	mov	r5,dpl
       000C1A AE 83            [24] 2643 	mov	r6,dph
       000C1C AF F0            [24] 2644 	mov	r7,b
-                                   2645 ;	ecen4330_lcd_v3.c:378: for (i=0;str[i]!=0;i++)
+                                   2645 ;	.\src\main.c:378: for (i=0;str[i]!=0;i++)
       000C1E 7B 00            [12] 2646 	mov	r3,#0x00
       000C20 7C 00            [12] 2647 	mov	r4,#0x00
       000C22                       2648 00103$:
@@ -2659,7 +2659,7 @@
       000C30 12 10 8B         [24] 2659 	lcall	__gptrget
       000C33 FA               [12] 2660 	mov	r2,a
       000C34 60 20            [24] 2661 	jz	00105$
-                                   2662 ;	ecen4330_lcd_v3.c:380: write(str[i]);
+                                   2662 ;	.\src\main.c:380: write(str[i]);
       000C36 8A 82            [24] 2663 	mov	dpl,r2
       000C38 C0 07            [24] 2664 	push	ar7
       000C3A C0 06            [24] 2665 	push	ar6
@@ -2672,13 +2672,13 @@
       000C49 D0 05            [24] 2672 	pop	ar5
       000C4B D0 06            [24] 2673 	pop	ar6
       000C4D D0 07            [24] 2674 	pop	ar7
-                                   2675 ;	ecen4330_lcd_v3.c:378: for (i=0;str[i]!=0;i++)
+                                   2675 ;	.\src\main.c:378: for (i=0;str[i]!=0;i++)
       000C4F 0B               [12] 2676 	inc	r3
       000C50 BB 00 CF         [24] 2677 	cjne	r3,#0x00,00103$
       000C53 0C               [12] 2678 	inc	r4
       000C54 80 CC            [24] 2679 	sjmp	00103$
       000C56                       2680 00105$:
-                                   2681 ;	ecen4330_lcd_v3.c:382: }
+                                   2681 ;	.\src\main.c:382: }
       000C56 22               [24] 2682 	ret
                                    2683 ;------------------------------------------------------------
                                    2684 ;Allocation info for local variables in function 'testRAM'
@@ -2687,31 +2687,31 @@
                                    2687 ;i                         Allocated to registers r3 r4 r5 r6 
                                    2688 ;ram_address               Allocated to registers 
                                    2689 ;------------------------------------------------------------
-                                   2690 ;	ecen4330_lcd_v3.c:384: void testRAM (uint8_t d) {
+                                   2690 ;	.\src\main.c:384: void testRAM (uint8_t d) {
                                    2691 ;	-----------------------------------------
                                    2692 ;	 function testRAM
                                    2693 ;	-----------------------------------------
       000C57                       2694 _testRAM:
       000C57 AF 82            [24] 2695 	mov	r7,dpl
-                                   2696 ;	ecen4330_lcd_v3.c:388: for (i = __START_RAM__; i < __END_RAM__; i++) {
+                                   2696 ;	.\src\main.c:388: for (i = __START_RAM__; i < __END_RAM__; i++) {
       000C59 7B 00            [12] 2697 	mov	r3,#0x00
       000C5B 7C 00            [12] 2698 	mov	r4,#0x00
       000C5D 7D 00            [12] 2699 	mov	r5,#0x00
       000C5F 7E 00            [12] 2700 	mov	r6,#0x00
       000C61                       2701 00102$:
-                                   2702 ;	ecen4330_lcd_v3.c:389: IOM = 0;
+                                   2702 ;	.\src\main.c:389: IOM = 0;
                                    2703 ;	assignBit
       000C61 C2 B4            [12] 2704 	clr	_P3_4
-                                   2705 ;	ecen4330_lcd_v3.c:390: ram_address = (uint8_t __xdata*)(i);
+                                   2705 ;	.\src\main.c:390: ram_address = (uint8_t __xdata*)(i);
       000C63 8B 82            [24] 2706 	mov	dpl,r3
       000C65 8C 83            [24] 2707 	mov	dph,r4
-                                   2708 ;	ecen4330_lcd_v3.c:391: *ram_address = d;
+                                   2708 ;	.\src\main.c:391: *ram_address = d;
       000C67 EF               [12] 2709 	mov	a,r7
       000C68 F0               [24] 2710 	movx	@dptr,a
-                                   2711 ;	ecen4330_lcd_v3.c:392: IOM = 1;
+                                   2711 ;	.\src\main.c:392: IOM = 1;
                                    2712 ;	assignBit
       000C69 D2 B4            [12] 2713 	setb	_P3_4
-                                   2714 ;	ecen4330_lcd_v3.c:388: for (i = __START_RAM__; i < __END_RAM__; i++) {
+                                   2714 ;	.\src\main.c:388: for (i = __START_RAM__; i < __END_RAM__; i++) {
       000C6B 0B               [12] 2715 	inc	r3
       000C6C BB 00 09         [24] 2716 	cjne	r3,#0x00,00111$
       000C6F 0C               [12] 2717 	inc	r4
@@ -2730,7 +2730,7 @@
       000C82 EE               [12] 2730 	mov	a,r6
       000C83 94 00            [12] 2731 	subb	a,#0x00
       000C85 40 DA            [24] 2732 	jc	00102$
-                                   2733 ;	ecen4330_lcd_v3.c:395: }
+                                   2733 ;	.\src\main.c:395: }
       000C87 22               [24] 2734 	ret
                                    2735 ;------------------------------------------------------------
                                    2736 ;Allocation info for local variables in function 'freeType'
@@ -2738,153 +2738,153 @@
                                    2738 ;count                     Allocated to registers r7 
                                    2739 ;d                         Allocated to registers 
                                    2740 ;------------------------------------------------------------
-                                   2741 ;	ecen4330_lcd_v3.c:397: void freeType () {
+                                   2741 ;	.\src\main.c:397: void freeType () {
                                    2742 ;	-----------------------------------------
                                    2743 ;	 function freeType
                                    2744 ;	-----------------------------------------
       000C88                       2745 _freeType:
-                                   2746 ;	ecen4330_lcd_v3.c:398: uint8_t count = 0;
+                                   2746 ;	.\src\main.c:398: uint8_t count = 0;
       000C88 7F 00            [12] 2747 	mov	r7,#0x00
-                                   2748 ;	ecen4330_lcd_v3.c:400: while (1) {
+                                   2748 ;	.\src\main.c:400: while (1) {
       000C8A                       2749 00105$:
-                                   2750 ;	ecen4330_lcd_v3.c:403: if (count == 8) {
+                                   2750 ;	.\src\main.c:403: if (count == 8) {
       000C8A BF 08 0E         [24] 2751 	cjne	r7,#0x08,00102$
-                                   2752 ;	ecen4330_lcd_v3.c:405: count = 0;
+                                   2752 ;	.\src\main.c:405: count = 0;
       000C8D 7F 00            [12] 2753 	mov	r7,#0x00
-                                   2754 ;	ecen4330_lcd_v3.c:406: write(d);
+                                   2754 ;	.\src\main.c:406: write(d);
       000C8F 75 82 0A         [24] 2755 	mov	dpl,#0x0a
       000C92 C0 07            [24] 2756 	push	ar7
       000C94 12 0B AA         [24] 2757 	lcall	_write
       000C97 D0 07            [24] 2758 	pop	ar7
       000C99 80 0A            [24] 2759 	sjmp	00103$
       000C9B                       2760 00102$:
-                                   2761 ;	ecen4330_lcd_v3.c:409: d = keyDetect();
+                                   2761 ;	.\src\main.c:409: d = keyDetect();
       000C9B C0 07            [24] 2762 	push	ar7
       000C9D 12 0C A8         [24] 2763 	lcall	_keyDetect
-                                   2764 ;	ecen4330_lcd_v3.c:410: write(d);
+                                   2764 ;	.\src\main.c:410: write(d);
       000CA0 12 0B AA         [24] 2765 	lcall	_write
       000CA3 D0 07            [24] 2766 	pop	ar7
       000CA5                       2767 00103$:
-                                   2768 ;	ecen4330_lcd_v3.c:413: count++;
+                                   2768 ;	.\src\main.c:413: count++;
       000CA5 0F               [12] 2769 	inc	r7
-                                   2770 ;	ecen4330_lcd_v3.c:415: }
+                                   2770 ;	.\src\main.c:415: }
       000CA6 80 E2            [24] 2771 	sjmp	00105$
                                    2772 ;------------------------------------------------------------
                                    2773 ;Allocation info for local variables in function 'keyDetect'
                                    2774 ;------------------------------------------------------------
-                                   2775 ;	ecen4330_lcd_v3.c:417: uint8_t keyDetect () {
+                                   2775 ;	.\src\main.c:417: uint8_t keyDetect () {
                                    2776 ;	-----------------------------------------
                                    2777 ;	 function keyDetect
                                    2778 ;	-----------------------------------------
       000CA8                       2779 _keyDetect:
-                                   2780 ;	ecen4330_lcd_v3.c:418: __KEYPAD_PORT__ = 0xF0;
+                                   2780 ;	.\src\main.c:418: __KEYPAD_PORT__ = 0xF0;
       000CA8 75 90 F0         [24] 2781 	mov	_P1,#0xf0
-                                   2782 ;	ecen4330_lcd_v3.c:419: do
+                                   2782 ;	.\src\main.c:419: do
       000CAB                       2783 00101$:
-                                   2784 ;	ecen4330_lcd_v3.c:421: __KEYPAD_PORT__ = 0xF0;
+                                   2784 ;	.\src\main.c:421: __KEYPAD_PORT__ = 0xF0;
       000CAB 75 90 F0         [24] 2785 	mov	_P1,#0xf0
-                                   2786 ;	ecen4330_lcd_v3.c:422: colloc = __KEYPAD_PORT__;
+                                   2786 ;	.\src\main.c:422: colloc = __KEYPAD_PORT__;
       000CAE 85 90 31         [24] 2787 	mov	_colloc,_P1
-                                   2788 ;	ecen4330_lcd_v3.c:423: colloc&= 0xF0;
+                                   2788 ;	.\src\main.c:423: colloc&= 0xF0;
       000CB1 53 31 F0         [24] 2789 	anl	_colloc,#0xf0
-                                   2790 ;	ecen4330_lcd_v3.c:424: } while (colloc != 0xF0);
+                                   2790 ;	.\src\main.c:424: } while (colloc != 0xF0);
       000CB4 74 F0            [12] 2791 	mov	a,#0xf0
       000CB6 B5 31 F2         [24] 2792 	cjne	a,_colloc,00101$
-                                   2793 ;	ecen4330_lcd_v3.c:428: do
+                                   2793 ;	.\src\main.c:428: do
       000CB9                       2794 00104$:
-                                   2795 ;	ecen4330_lcd_v3.c:430: delay(20);
+                                   2795 ;	.\src\main.c:430: delay(20);
       000CB9 90 00 14         [24] 2796 	mov	dptr,#0x0014
       000CBC 12 00 AE         [24] 2797 	lcall	_delay
-                                   2798 ;	ecen4330_lcd_v3.c:431: colloc = (__KEYPAD_PORT__ & 0xF0);
+                                   2798 ;	.\src\main.c:431: colloc = (__KEYPAD_PORT__ & 0xF0);
       000CBF E5 90            [12] 2799 	mov	a,_P1
       000CC1 54 F0            [12] 2800 	anl	a,#0xf0
       000CC3 F5 31            [12] 2801 	mov	_colloc,a
-                                   2802 ;	ecen4330_lcd_v3.c:432: } while (colloc == 0xF0);
+                                   2802 ;	.\src\main.c:432: } while (colloc == 0xF0);
       000CC5 74 F0            [12] 2803 	mov	a,#0xf0
       000CC7 B5 31 02         [24] 2804 	cjne	a,_colloc,00178$
       000CCA 80 ED            [24] 2805 	sjmp	00104$
       000CCC                       2806 00178$:
-                                   2807 ;	ecen4330_lcd_v3.c:434: delay(1);
+                                   2807 ;	.\src\main.c:434: delay(1);
       000CCC 90 00 01         [24] 2808 	mov	dptr,#0x0001
       000CCF 12 00 AE         [24] 2809 	lcall	_delay
-                                   2810 ;	ecen4330_lcd_v3.c:435: colloc = (__KEYPAD_PORT__ & 0xF0);
+                                   2810 ;	.\src\main.c:435: colloc = (__KEYPAD_PORT__ & 0xF0);
       000CD2 E5 90            [12] 2811 	mov	a,_P1
       000CD4 54 F0            [12] 2812 	anl	a,#0xf0
       000CD6 F5 31            [12] 2813 	mov	_colloc,a
-                                   2814 ;	ecen4330_lcd_v3.c:436: } while (colloc == 0xF0);
+                                   2814 ;	.\src\main.c:436: } while (colloc == 0xF0);
       000CD8 74 F0            [12] 2815 	mov	a,#0xf0
       000CDA B5 31 02         [24] 2816 	cjne	a,_colloc,00179$
       000CDD 80 DA            [24] 2817 	sjmp	00104$
       000CDF                       2818 00179$:
-                                   2819 ;	ecen4330_lcd_v3.c:438: while (1)
+                                   2819 ;	.\src\main.c:438: while (1)
       000CDF                       2820 00119$:
-                                   2821 ;	ecen4330_lcd_v3.c:440: __KEYPAD_PORT__= 0xFE;
+                                   2821 ;	.\src\main.c:440: __KEYPAD_PORT__= 0xFE;
       000CDF 75 90 FE         [24] 2822 	mov	_P1,#0xfe
-                                   2823 ;	ecen4330_lcd_v3.c:441: colloc = (__KEYPAD_PORT__ & 0xF0);
+                                   2823 ;	.\src\main.c:441: colloc = (__KEYPAD_PORT__ & 0xF0);
       000CE2 E5 90            [12] 2824 	mov	a,_P1
       000CE4 54 F0            [12] 2825 	anl	a,#0xf0
       000CE6 F5 31            [12] 2826 	mov	_colloc,a
-                                   2827 ;	ecen4330_lcd_v3.c:442: if (colloc != 0xF0)
+                                   2827 ;	.\src\main.c:442: if (colloc != 0xF0)
       000CE8 74 F0            [12] 2828 	mov	a,#0xf0
       000CEA B5 31 02         [24] 2829 	cjne	a,_colloc,00180$
       000CED 80 05            [24] 2830 	sjmp	00111$
       000CEF                       2831 00180$:
-                                   2832 ;	ecen4330_lcd_v3.c:444: rowloc = 0;
+                                   2832 ;	.\src\main.c:444: rowloc = 0;
       000CEF 75 32 00         [24] 2833 	mov	_rowloc,#0x00
-                                   2834 ;	ecen4330_lcd_v3.c:445: break;
+                                   2834 ;	.\src\main.c:445: break;
       000CF2 80 3D            [24] 2835 	sjmp	00120$
       000CF4                       2836 00111$:
-                                   2837 ;	ecen4330_lcd_v3.c:448: __KEYPAD_PORT__ = 0xFD;
+                                   2837 ;	.\src\main.c:448: __KEYPAD_PORT__ = 0xFD;
       000CF4 75 90 FD         [24] 2838 	mov	_P1,#0xfd
-                                   2839 ;	ecen4330_lcd_v3.c:449: colloc = (__KEYPAD_PORT__ & 0xF0);
+                                   2839 ;	.\src\main.c:449: colloc = (__KEYPAD_PORT__ & 0xF0);
       000CF7 E5 90            [12] 2840 	mov	a,_P1
       000CF9 54 F0            [12] 2841 	anl	a,#0xf0
       000CFB F5 31            [12] 2842 	mov	_colloc,a
-                                   2843 ;	ecen4330_lcd_v3.c:450: if (colloc != 0xF0)
+                                   2843 ;	.\src\main.c:450: if (colloc != 0xF0)
       000CFD 74 F0            [12] 2844 	mov	a,#0xf0
       000CFF B5 31 02         [24] 2845 	cjne	a,_colloc,00181$
       000D02 80 05            [24] 2846 	sjmp	00113$
       000D04                       2847 00181$:
-                                   2848 ;	ecen4330_lcd_v3.c:452: rowloc = 1;
+                                   2848 ;	.\src\main.c:452: rowloc = 1;
       000D04 75 32 01         [24] 2849 	mov	_rowloc,#0x01
-                                   2850 ;	ecen4330_lcd_v3.c:453: break;
+                                   2850 ;	.\src\main.c:453: break;
       000D07 80 28            [24] 2851 	sjmp	00120$
       000D09                       2852 00113$:
-                                   2853 ;	ecen4330_lcd_v3.c:456: __KEYPAD_PORT__ = 0xFB;
+                                   2853 ;	.\src\main.c:456: __KEYPAD_PORT__ = 0xFB;
       000D09 75 90 FB         [24] 2854 	mov	_P1,#0xfb
-                                   2855 ;	ecen4330_lcd_v3.c:457: colloc = (__KEYPAD_PORT__ & 0xF0);
+                                   2855 ;	.\src\main.c:457: colloc = (__KEYPAD_PORT__ & 0xF0);
       000D0C E5 90            [12] 2856 	mov	a,_P1
       000D0E 54 F0            [12] 2857 	anl	a,#0xf0
       000D10 F5 31            [12] 2858 	mov	_colloc,a
-                                   2859 ;	ecen4330_lcd_v3.c:458: if (colloc != 0xF0)
+                                   2859 ;	.\src\main.c:458: if (colloc != 0xF0)
       000D12 74 F0            [12] 2860 	mov	a,#0xf0
       000D14 B5 31 02         [24] 2861 	cjne	a,_colloc,00182$
       000D17 80 05            [24] 2862 	sjmp	00115$
       000D19                       2863 00182$:
-                                   2864 ;	ecen4330_lcd_v3.c:460: rowloc = 2;
+                                   2864 ;	.\src\main.c:460: rowloc = 2;
       000D19 75 32 02         [24] 2865 	mov	_rowloc,#0x02
-                                   2866 ;	ecen4330_lcd_v3.c:461: break;
+                                   2866 ;	.\src\main.c:461: break;
       000D1C 80 13            [24] 2867 	sjmp	00120$
       000D1E                       2868 00115$:
-                                   2869 ;	ecen4330_lcd_v3.c:464: __KEYPAD_PORT__ = 0xF7;
+                                   2869 ;	.\src\main.c:464: __KEYPAD_PORT__ = 0xF7;
       000D1E 75 90 F7         [24] 2870 	mov	_P1,#0xf7
-                                   2871 ;	ecen4330_lcd_v3.c:465: colloc = (__KEYPAD_PORT__ & 0xF0);
+                                   2871 ;	.\src\main.c:465: colloc = (__KEYPAD_PORT__ & 0xF0);
       000D21 E5 90            [12] 2872 	mov	a,_P1
       000D23 54 F0            [12] 2873 	anl	a,#0xf0
       000D25 F5 31            [12] 2874 	mov	_colloc,a
-                                   2875 ;	ecen4330_lcd_v3.c:466: if (colloc != 0xF0)
+                                   2875 ;	.\src\main.c:466: if (colloc != 0xF0)
       000D27 74 F0            [12] 2876 	mov	a,#0xf0
       000D29 B5 31 02         [24] 2877 	cjne	a,_colloc,00183$
       000D2C 80 B1            [24] 2878 	sjmp	00119$
       000D2E                       2879 00183$:
-                                   2880 ;	ecen4330_lcd_v3.c:468: rowloc = 3;
+                                   2880 ;	.\src\main.c:468: rowloc = 3;
       000D2E 75 32 03         [24] 2881 	mov	_rowloc,#0x03
-                                   2882 ;	ecen4330_lcd_v3.c:469: break;
+                                   2882 ;	.\src\main.c:469: break;
       000D31                       2883 00120$:
-                                   2884 ;	ecen4330_lcd_v3.c:473: if (colloc == 0xE0)
+                                   2884 ;	.\src\main.c:473: if (colloc == 0xE0)
       000D31 74 E0            [12] 2885 	mov	a,#0xe0
       000D33 B5 31 0C         [24] 2886 	cjne	a,_colloc,00128$
-                                   2887 ;	ecen4330_lcd_v3.c:475: return (keypad[rowloc][0]);
+                                   2887 ;	.\src\main.c:475: return (keypad[rowloc][0]);
       000D36 E5 32            [12] 2888 	mov	a,_rowloc
       000D38 25 32            [12] 2889 	add	a,_rowloc
       000D3A 25 E0            [12] 2890 	add	a,acc
@@ -2893,10 +2893,10 @@
       000D3F 87 82            [24] 2893 	mov	dpl,@r1
       000D41 22               [24] 2894 	ret
       000D42                       2895 00128$:
-                                   2896 ;	ecen4330_lcd_v3.c:477: else if (colloc == 0xD0)
+                                   2896 ;	.\src\main.c:477: else if (colloc == 0xD0)
       000D42 74 D0            [12] 2897 	mov	a,#0xd0
       000D44 B5 31 0D         [24] 2898 	cjne	a,_colloc,00125$
-                                   2899 ;	ecen4330_lcd_v3.c:479: return (keypad[rowloc][1]);
+                                   2899 ;	.\src\main.c:479: return (keypad[rowloc][1]);
       000D47 E5 32            [12] 2900 	mov	a,_rowloc
       000D49 25 32            [12] 2901 	add	a,_rowloc
       000D4B 25 E0            [12] 2902 	add	a,acc
@@ -2906,10 +2906,10 @@
       000D51 87 82            [24] 2906 	mov	dpl,@r1
       000D53 22               [24] 2907 	ret
       000D54                       2908 00125$:
-                                   2909 ;	ecen4330_lcd_v3.c:481: else if (colloc == 0xB0)
+                                   2909 ;	.\src\main.c:481: else if (colloc == 0xB0)
       000D54 74 B0            [12] 2910 	mov	a,#0xb0
       000D56 B5 31 0E         [24] 2911 	cjne	a,_colloc,00122$
-                                   2912 ;	ecen4330_lcd_v3.c:483: return (keypad[rowloc][2]);
+                                   2912 ;	.\src\main.c:483: return (keypad[rowloc][2]);
       000D59 E5 32            [12] 2913 	mov	a,_rowloc
       000D5B 25 32            [12] 2914 	add	a,_rowloc
       000D5D 25 E0            [12] 2915 	add	a,acc
@@ -2919,7 +2919,7 @@
       000D64 87 82            [24] 2919 	mov	dpl,@r1
       000D66 22               [24] 2920 	ret
       000D67                       2921 00122$:
-                                   2922 ;	ecen4330_lcd_v3.c:487: return (keypad[rowloc][3]);
+                                   2922 ;	.\src\main.c:487: return (keypad[rowloc][3]);
       000D67 E5 32            [12] 2923 	mov	a,_rowloc
       000D69 25 32            [12] 2924 	add	a,_rowloc
       000D6B 25 E0            [12] 2925 	add	a,acc
@@ -2927,7 +2927,7 @@
       000D6F 24 03            [12] 2927 	add	a,#0x03
       000D71 F9               [12] 2928 	mov	r1,a
       000D72 87 82            [24] 2929 	mov	dpl,@r1
-                                   2930 ;	ecen4330_lcd_v3.c:489: }
+                                   2930 ;	.\src\main.c:489: }
       000D74 22               [24] 2931 	ret
                                    2932 ;------------------------------------------------------------
                                    2933 ;Allocation info for local variables in function 'reverse'
@@ -2936,21 +2936,21 @@
                                    2936 ;rev                       Allocated to registers r5 r6 
                                    2937 ;val                       Allocated to registers r1 r2 
                                    2938 ;------------------------------------------------------------
-                                   2939 ;	ecen4330_lcd_v3.c:491: uint16_t reverse (uint8_t d) {
+                                   2939 ;	.\src\main.c:491: uint16_t reverse (uint8_t d) {
                                    2940 ;	-----------------------------------------
                                    2941 ;	 function reverse
                                    2942 ;	-----------------------------------------
       000D75                       2943 _reverse:
       000D75 AF 82            [24] 2944 	mov	r7,dpl
-                                   2945 ;	ecen4330_lcd_v3.c:492: uint16_t rev = 0;
+                                   2945 ;	.\src\main.c:492: uint16_t rev = 0;
       000D77 7D 00            [12] 2946 	mov	r5,#0x00
       000D79 7E 00            [12] 2947 	mov	r6,#0x00
-                                   2948 ;	ecen4330_lcd_v3.c:494: while (d >= 1) {
+                                   2948 ;	.\src\main.c:494: while (d >= 1) {
       000D7B                       2949 00101$:
       000D7B BF 01 00         [24] 2950 	cjne	r7,#0x01,00114$
       000D7E                       2951 00114$:
       000D7E 40 5F            [24] 2952 	jc	00103$
-                                   2953 ;	ecen4330_lcd_v3.c:496: val = d%10;
+                                   2953 ;	.\src\main.c:496: val = d%10;
       000D80 8F 03            [24] 2954 	mov	ar3,r7
       000D82 7C 00            [12] 2955 	mov	r4,#0x00
       000D84 75 08 0A         [24] 2956 	mov	__modsint_PARM_2,#0x0a
@@ -2967,7 +2967,7 @@
       000D9A AA 83            [24] 2967 	mov	r2,dph
       000D9C D0 03            [24] 2968 	pop	ar3
       000D9E D0 04            [24] 2969 	pop	ar4
-                                   2970 ;	ecen4330_lcd_v3.c:497: d = d/10;
+                                   2970 ;	.\src\main.c:497: d = d/10;
       000DA0 75 08 0A         [24] 2971 	mov	__divsint_PARM_2,#0x0a
       000DA3 75 09 00         [24] 2972 	mov	(__divsint_PARM_2 + 1),#0x00
       000DA6 8B 82            [24] 2973 	mov	dpl,r3
@@ -2981,7 +2981,7 @@
       000DB7 D0 05            [24] 2981 	pop	ar5
       000DB9 D0 06            [24] 2982 	pop	ar6
       000DBB 8B 07            [24] 2983 	mov	ar7,r3
-                                   2984 ;	ecen4330_lcd_v3.c:498: rev = rev * 10 + val;
+                                   2984 ;	.\src\main.c:498: rev = rev * 10 + val;
       000DBD 8D 08            [24] 2985 	mov	__mulint_PARM_2,r5
       000DBF 8E 09            [24] 2986 	mov	(__mulint_PARM_2 + 1),r6
       000DC1 90 00 0A         [24] 2987 	mov	dptr,#0x000a
@@ -3002,10 +3002,10 @@
       000DDC FE               [12] 3002 	mov	r6,a
       000DDD 80 9C            [24] 3003 	sjmp	00101$
       000DDF                       3004 00103$:
-                                   3005 ;	ecen4330_lcd_v3.c:500: return rev;
+                                   3005 ;	.\src\main.c:500: return rev;
       000DDF 8D 82            [24] 3006 	mov	dpl,r5
       000DE1 8E 83            [24] 3007 	mov	dph,r6
-                                   3008 ;	ecen4330_lcd_v3.c:501: }
+                                   3008 ;	.\src\main.c:501: }
       000DE3 22               [24] 3009 	ret
                                    3010 ;------------------------------------------------------------
                                    3011 ;Allocation info for local variables in function 'asciiToDec'
@@ -3014,16 +3014,16 @@
                                    3014 ;val                       Allocated to registers r2 
                                    3015 ;id                        Allocated to registers r6 r7 
                                    3016 ;------------------------------------------------------------
-                                   3017 ;	ecen4330_lcd_v3.c:503: void asciiToDec (uint8_t d) {
+                                   3017 ;	.\src\main.c:503: void asciiToDec (uint8_t d) {
                                    3018 ;	-----------------------------------------
                                    3019 ;	 function asciiToDec
                                    3020 ;	-----------------------------------------
       000DE4                       3021 _asciiToDec:
-                                   3022 ;	ecen4330_lcd_v3.c:506: id = reverse(d);
+                                   3022 ;	.\src\main.c:506: id = reverse(d);
       000DE4 12 0D 75         [24] 3023 	lcall	_reverse
       000DE7 AE 82            [24] 3024 	mov	r6,dpl
       000DE9 AF 83            [24] 3025 	mov	r7,dph
-                                   3026 ;	ecen4330_lcd_v3.c:507: while (id >= 1){
+                                   3026 ;	.\src\main.c:507: while (id >= 1){
       000DEB                       3027 00101$:
       000DEB 8E 04            [24] 3028 	mov	ar4,r6
       000DED 8F 05            [24] 3029 	mov	ar5,r7
@@ -3033,7 +3033,7 @@
       000DF3 ED               [12] 3033 	mov	a,r5
       000DF4 94 00            [12] 3034 	subb	a,#0x00
       000DF6 40 42            [24] 3035 	jc	00103$
-                                   3036 ;	ecen4330_lcd_v3.c:509: val = id % 10;
+                                   3036 ;	.\src\main.c:509: val = id % 10;
       000DF8 75 08 0A         [24] 3037 	mov	__moduint_PARM_2,#0x0a
       000DFB 75 09 00         [24] 3038 	mov	(__moduint_PARM_2 + 1),#0x00
       000DFE 8C 82            [24] 3039 	mov	dpl,r4
@@ -3044,7 +3044,7 @@
       000E09 AA 82            [24] 3044 	mov	r2,dpl
       000E0B D0 04            [24] 3045 	pop	ar4
       000E0D D0 05            [24] 3046 	pop	ar5
-                                   3047 ;	ecen4330_lcd_v3.c:510: id = id/10;
+                                   3047 ;	.\src\main.c:510: id = id/10;
       000E0F 75 08 0A         [24] 3048 	mov	__divuint_PARM_2,#0x0a
       000E12 75 09 00         [24] 3049 	mov	(__divuint_PARM_2 + 1),#0x00
       000E15 8C 82            [24] 3050 	mov	dpl,r4
@@ -3056,7 +3056,7 @@
       000E22 D0 02            [24] 3056 	pop	ar2
       000E24 8C 06            [24] 3057 	mov	ar6,r4
       000E26 8D 07            [24] 3058 	mov	ar7,r5
-                                   3059 ;	ecen4330_lcd_v3.c:511: write(val + '0');
+                                   3059 ;	.\src\main.c:511: write(val + '0');
       000E28 74 30            [12] 3060 	mov	a,#0x30
       000E2A 2A               [12] 3061 	add	a,r2
       000E2B F5 82            [12] 3062 	mov	dpl,a
@@ -3067,9 +3067,9 @@
       000E36 D0 07            [24] 3067 	pop	ar7
       000E38 80 B1            [24] 3068 	sjmp	00101$
       000E3A                       3069 00103$:
-                                   3070 ;	ecen4330_lcd_v3.c:513: write('\n');
+                                   3070 ;	.\src\main.c:513: write('\n');
       000E3A 75 82 0A         [24] 3071 	mov	dpl,#0x0a
-                                   3072 ;	ecen4330_lcd_v3.c:514: }
+                                   3072 ;	.\src\main.c:514: }
       000E3D 02 0B AA         [24] 3073 	ljmp	_write
                                    3074 ;------------------------------------------------------------
                                    3075 ;Allocation info for local variables in function 'asciiToHex'
@@ -3079,29 +3079,29 @@
                                    3079 ;store                     Allocated with name '_asciiToHex_store_65536_200'
                                    3080 ;i                         Allocated to registers r6 
                                    3081 ;------------------------------------------------------------
-                                   3082 ;	ecen4330_lcd_v3.c:516: void asciiToHex (uint8_t d) {
+                                   3082 ;	.\src\main.c:516: void asciiToHex (uint8_t d) {
                                    3083 ;	-----------------------------------------
                                    3084 ;	 function asciiToHex
                                    3085 ;	-----------------------------------------
       000E40                       3086 _asciiToHex:
       000E40 AF 82            [24] 3087 	mov	r7,dpl
-                                   3088 ;	ecen4330_lcd_v3.c:520: store[0] = 0;
+                                   3088 ;	.\src\main.c:520: store[0] = 0;
       000E42 75 7C 00         [24] 3089 	mov	_asciiToHex_store_65536_200,#0x00
-                                   3090 ;	ecen4330_lcd_v3.c:521: store[1] = 0;
+                                   3090 ;	.\src\main.c:521: store[1] = 0;
       000E45 75 7D 00         [24] 3091 	mov	(_asciiToHex_store_65536_200 + 0x0001),#0x00
-                                   3092 ;	ecen4330_lcd_v3.c:522: while (d >= 1){
+                                   3092 ;	.\src\main.c:522: while (d >= 1){
       000E48 7E 00            [12] 3093 	mov	r6,#0x00
       000E4A                       3094 00104$:
       000E4A BF 01 00         [24] 3095 	cjne	r7,#0x01,00122$
       000E4D                       3096 00122$:
       000E4D 40 5A            [24] 3097 	jc	00106$
-                                   3098 ;	ecen4330_lcd_v3.c:524: val = d % 16;
+                                   3098 ;	.\src\main.c:524: val = d % 16;
       000E4F 8F 04            [24] 3099 	mov	ar4,r7
       000E51 7D 00            [12] 3100 	mov	r5,#0x00
       000E53 74 0F            [12] 3101 	mov	a,#0x0f
       000E55 5C               [12] 3102 	anl	a,r4
       000E56 FA               [12] 3103 	mov	r2,a
-                                   3104 ;	ecen4330_lcd_v3.c:525: d = d/16;
+                                   3104 ;	.\src\main.c:525: d = d/16;
       000E57 75 08 10         [24] 3105 	mov	__divsint_PARM_2,#0x10
                                    3106 ;	1-genFromRTrack replaced	mov	(__divsint_PARM_2 + 1),#0x00
       000E5A 8D 09            [24] 3107 	mov	(__divsint_PARM_2 + 1),r5
@@ -3114,11 +3114,11 @@
       000E69 D0 02            [24] 3114 	pop	ar2
       000E6B D0 06            [24] 3115 	pop	ar6
       000E6D 8C 07            [24] 3116 	mov	ar7,r4
-                                   3117 ;	ecen4330_lcd_v3.c:526: if (val <= 9) {
+                                   3117 ;	.\src\main.c:526: if (val <= 9) {
       000E6F EA               [12] 3118 	mov	a,r2
       000E70 24 F6            [12] 3119 	add	a,#0xff - 0x09
       000E72 40 0C            [24] 3120 	jc	00102$
-                                   3121 ;	ecen4330_lcd_v3.c:528: store[i] = val + '0';
+                                   3121 ;	.\src\main.c:528: store[i] = val + '0';
       000E74 EE               [12] 3122 	mov	a,r6
       000E75 24 7C            [12] 3123 	add	a,#_asciiToHex_store_65536_200
       000E77 F9               [12] 3124 	mov	r1,a
@@ -3128,7 +3128,7 @@
       000E7D F7               [12] 3128 	mov	@r1,a
       000E7E 80 26            [24] 3129 	sjmp	00103$
       000E80                       3130 00102$:
-                                   3131 ;	ecen4330_lcd_v3.c:531: store[i] = (val%10) + 'A';
+                                   3131 ;	.\src\main.c:531: store[i] = (val%10) + 'A';
       000E80 EE               [12] 3132 	mov	a,r6
       000E81 24 7C            [12] 3133 	add	a,#_asciiToHex_store_65536_200
       000E83 F9               [12] 3134 	mov	r1,a
@@ -3151,202 +3151,202 @@
       000EA4 2C               [12] 3151 	add	a,r4
       000EA5 F7               [12] 3152 	mov	@r1,a
       000EA6                       3153 00103$:
-                                   3154 ;	ecen4330_lcd_v3.c:533: i++;
+                                   3154 ;	.\src\main.c:533: i++;
       000EA6 0E               [12] 3155 	inc	r6
       000EA7 80 A1            [24] 3156 	sjmp	00104$
       000EA9                       3157 00106$:
-                                   3158 ;	ecen4330_lcd_v3.c:535: write(store[1]);
+                                   3158 ;	.\src\main.c:535: write(store[1]);
       000EA9 85 7D 82         [24] 3159 	mov	dpl,(_asciiToHex_store_65536_200 + 0x0001)
       000EAC 12 0B AA         [24] 3160 	lcall	_write
-                                   3161 ;	ecen4330_lcd_v3.c:536: write(store[0]);
+                                   3161 ;	.\src\main.c:536: write(store[0]);
       000EAF 85 7C 82         [24] 3162 	mov	dpl,_asciiToHex_store_65536_200
-                                   3163 ;	ecen4330_lcd_v3.c:537: }
+                                   3163 ;	.\src\main.c:537: }
       000EB2 02 0B AA         [24] 3164 	ljmp	_write
                                    3165 ;------------------------------------------------------------
                                    3166 ;Allocation info for local variables in function 'writeSomeLines'
                                    3167 ;------------------------------------------------------------
-                                   3168 ;	ecen4330_lcd_v3.c:539: void writeSomeLines () {
+                                   3168 ;	.\src\main.c:539: void writeSomeLines () {
                                    3169 ;	-----------------------------------------
                                    3170 ;	 function writeSomeLines
                                    3171 ;	-----------------------------------------
       000EB5                       3172 _writeSomeLines:
-                                   3173 ;	ecen4330_lcd_v3.c:540: fillScreen(RED);
+                                   3173 ;	.\src\main.c:540: fillScreen(RED);
       000EB5 90 F8 00         [24] 3174 	mov	dptr,#0xf800
       000EB8 12 08 38         [24] 3175 	lcall	_fillScreen
-                                   3176 ;	ecen4330_lcd_v3.c:542: delay(20);
+                                   3176 ;	.\src\main.c:542: delay(20);
       000EBB 90 00 14         [24] 3177 	mov	dptr,#0x0014
       000EBE 12 00 AE         [24] 3178 	lcall	_delay
-                                   3179 ;	ecen4330_lcd_v3.c:543: fillScreen(GREEN);
+                                   3179 ;	.\src\main.c:543: fillScreen(GREEN);
       000EC1 90 07 E0         [24] 3180 	mov	dptr,#0x07e0
       000EC4 12 08 38         [24] 3181 	lcall	_fillScreen
-                                   3182 ;	ecen4330_lcd_v3.c:545: delay(20);
+                                   3182 ;	.\src\main.c:545: delay(20);
       000EC7 90 00 14         [24] 3183 	mov	dptr,#0x0014
       000ECA 12 00 AE         [24] 3184 	lcall	_delay
-                                   3185 ;	ecen4330_lcd_v3.c:547: setRotation(0);
+                                   3185 ;	.\src\main.c:547: setRotation(0);
       000ECD 75 82 00         [24] 3186 	mov	dpl,#0x00
       000ED0 12 01 75         [24] 3187 	lcall	_setRotation
-                                   3188 ;	ecen4330_lcd_v3.c:548: fillScreen(BLACK);
+                                   3188 ;	.\src\main.c:548: fillScreen(BLACK);
       000ED3 90 00 00         [24] 3189 	mov	dptr,#0x0000
       000ED6 12 08 38         [24] 3190 	lcall	_fillScreen
-                                   3191 ;	ecen4330_lcd_v3.c:549: testCircles(20, RED);
+                                   3191 ;	.\src\main.c:549: testCircles(20, RED);
       000ED9 75 5F 00         [24] 3192 	mov	_testCircles_PARM_2,#0x00
       000EDC 75 60 F8         [24] 3193 	mov	(_testCircles_PARM_2 + 1),#0xf8
       000EDF 75 82 14         [24] 3194 	mov	dpl,#0x14
       000EE2 12 06 C6         [24] 3195 	lcall	_testCircles
-                                   3196 ;	ecen4330_lcd_v3.c:550: delay(100);
+                                   3196 ;	.\src\main.c:550: delay(100);
       000EE5 90 00 64         [24] 3197 	mov	dptr,#0x0064
       000EE8 12 00 AE         [24] 3198 	lcall	_delay
-                                   3199 ;	ecen4330_lcd_v3.c:551: fillScreen(BLACK);
+                                   3199 ;	.\src\main.c:551: fillScreen(BLACK);
       000EEB 90 00 00         [24] 3200 	mov	dptr,#0x0000
       000EEE 12 08 38         [24] 3201 	lcall	_fillScreen
-                                   3202 ;	ecen4330_lcd_v3.c:552: setTextSize(5);
+                                   3202 ;	.\src\main.c:552: setTextSize(5);
       000EF1 75 82 05         [24] 3203 	mov	dpl,#0x05
       000EF4 12 01 5D         [24] 3204 	lcall	_setTextSize
-                                   3205 ;	ecen4330_lcd_v3.c:553: setTextColor(CYAN, BLACK);
+                                   3205 ;	.\src\main.c:553: setTextColor(CYAN, BLACK);
       000EF7 E4               [12] 3206 	clr	a
       000EF8 F5 08            [12] 3207 	mov	_setTextColor_PARM_2,a
       000EFA F5 09            [12] 3208 	mov	(_setTextColor_PARM_2 + 1),a
       000EFC 90 07 FF         [24] 3209 	mov	dptr,#0x07ff
       000EFF 12 01 50         [24] 3210 	lcall	_setTextColor
-                                   3211 ;	ecen4330_lcd_v3.c:554: LCD_string_write("Welcome\n");
+                                   3211 ;	.\src\main.c:554: LCD_string_write("Welcome\n");
       000F02 90 16 14         [24] 3212 	mov	dptr,#___str_0
       000F05 75 F0 80         [24] 3213 	mov	b,#0x80
       000F08 12 0C 18         [24] 3214 	lcall	_LCD_string_write
-                                   3215 ;	ecen4330_lcd_v3.c:555: setTextSize(3);
+                                   3215 ;	.\src\main.c:555: setTextSize(3);
       000F0B 75 82 03         [24] 3216 	mov	dpl,#0x03
       000F0E 12 01 5D         [24] 3217 	lcall	_setTextSize
-                                   3218 ;	ecen4330_lcd_v3.c:556: LCD_string_write("ECEN-4330\n");
+                                   3218 ;	.\src\main.c:556: LCD_string_write("ECEN-4330\n");
       000F11 90 16 1D         [24] 3219 	mov	dptr,#___str_1
       000F14 75 F0 80         [24] 3220 	mov	b,#0x80
       000F17 12 0C 18         [24] 3221 	lcall	_LCD_string_write
-                                   3222 ;	ecen4330_lcd_v3.c:557: LCD_string_write("Rotation 0");
+                                   3222 ;	.\src\main.c:557: LCD_string_write("Rotation 0");
       000F1A 90 16 28         [24] 3223 	mov	dptr,#___str_2
       000F1D 75 F0 80         [24] 3224 	mov	b,#0x80
       000F20 12 0C 18         [24] 3225 	lcall	_LCD_string_write
-                                   3226 ;	ecen4330_lcd_v3.c:558: delay(200);
+                                   3226 ;	.\src\main.c:558: delay(200);
       000F23 90 00 C8         [24] 3227 	mov	dptr,#0x00c8
       000F26 12 00 AE         [24] 3228 	lcall	_delay
-                                   3229 ;	ecen4330_lcd_v3.c:559: fillScreen(BLACK);
+                                   3229 ;	.\src\main.c:559: fillScreen(BLACK);
       000F29 90 00 00         [24] 3230 	mov	dptr,#0x0000
       000F2C 12 08 38         [24] 3231 	lcall	_fillScreen
-                                   3232 ;	ecen4330_lcd_v3.c:560: setRotation(1);
+                                   3232 ;	.\src\main.c:560: setRotation(1);
       000F2F 75 82 01         [24] 3233 	mov	dpl,#0x01
       000F32 12 01 75         [24] 3234 	lcall	_setRotation
-                                   3235 ;	ecen4330_lcd_v3.c:561: setCursor(0,0);
+                                   3235 ;	.\src\main.c:561: setCursor(0,0);
       000F35 E4               [12] 3236 	clr	a
       000F36 F5 08            [12] 3237 	mov	_setCursor_PARM_2,a
       000F38 F5 09            [12] 3238 	mov	(_setCursor_PARM_2 + 1),a
       000F3A 90 00 00         [24] 3239 	mov	dptr,#0x0000
       000F3D 12 01 43         [24] 3240 	lcall	_setCursor
-                                   3241 ;	ecen4330_lcd_v3.c:562: LCD_string_write("Rotation 1");
+                                   3241 ;	.\src\main.c:562: LCD_string_write("Rotation 1");
       000F40 90 16 33         [24] 3242 	mov	dptr,#___str_3
       000F43 75 F0 80         [24] 3243 	mov	b,#0x80
       000F46 12 0C 18         [24] 3244 	lcall	_LCD_string_write
-                                   3245 ;	ecen4330_lcd_v3.c:563: delay(500);
+                                   3245 ;	.\src\main.c:563: delay(500);
       000F49 90 01 F4         [24] 3246 	mov	dptr,#0x01f4
       000F4C 12 00 AE         [24] 3247 	lcall	_delay
-                                   3248 ;	ecen4330_lcd_v3.c:564: fillScreen(BLACK);
+                                   3248 ;	.\src\main.c:564: fillScreen(BLACK);
       000F4F 90 00 00         [24] 3249 	mov	dptr,#0x0000
       000F52 12 08 38         [24] 3250 	lcall	_fillScreen
-                                   3251 ;	ecen4330_lcd_v3.c:565: setRotation(2);
+                                   3251 ;	.\src\main.c:565: setRotation(2);
       000F55 75 82 02         [24] 3252 	mov	dpl,#0x02
       000F58 12 01 75         [24] 3253 	lcall	_setRotation
-                                   3254 ;	ecen4330_lcd_v3.c:566: setCursor(0,0);
+                                   3254 ;	.\src\main.c:566: setCursor(0,0);
       000F5B E4               [12] 3255 	clr	a
       000F5C F5 08            [12] 3256 	mov	_setCursor_PARM_2,a
       000F5E F5 09            [12] 3257 	mov	(_setCursor_PARM_2 + 1),a
       000F60 90 00 00         [24] 3258 	mov	dptr,#0x0000
       000F63 12 01 43         [24] 3259 	lcall	_setCursor
-                                   3260 ;	ecen4330_lcd_v3.c:567: LCD_string_write("Rotation 2");
+                                   3260 ;	.\src\main.c:567: LCD_string_write("Rotation 2");
       000F66 90 16 3E         [24] 3261 	mov	dptr,#___str_4
       000F69 75 F0 80         [24] 3262 	mov	b,#0x80
       000F6C 12 0C 18         [24] 3263 	lcall	_LCD_string_write
-                                   3264 ;	ecen4330_lcd_v3.c:568: delay(500);
+                                   3264 ;	.\src\main.c:568: delay(500);
       000F6F 90 01 F4         [24] 3265 	mov	dptr,#0x01f4
       000F72 12 00 AE         [24] 3266 	lcall	_delay
-                                   3267 ;	ecen4330_lcd_v3.c:569: fillScreen(BLACK);
+                                   3267 ;	.\src\main.c:569: fillScreen(BLACK);
       000F75 90 00 00         [24] 3268 	mov	dptr,#0x0000
       000F78 12 08 38         [24] 3269 	lcall	_fillScreen
-                                   3270 ;	ecen4330_lcd_v3.c:570: setRotation(3);
+                                   3270 ;	.\src\main.c:570: setRotation(3);
       000F7B 75 82 03         [24] 3271 	mov	dpl,#0x03
       000F7E 12 01 75         [24] 3272 	lcall	_setRotation
-                                   3273 ;	ecen4330_lcd_v3.c:571: setCursor(0,0);
+                                   3273 ;	.\src\main.c:571: setCursor(0,0);
       000F81 E4               [12] 3274 	clr	a
       000F82 F5 08            [12] 3275 	mov	_setCursor_PARM_2,a
       000F84 F5 09            [12] 3276 	mov	(_setCursor_PARM_2 + 1),a
       000F86 90 00 00         [24] 3277 	mov	dptr,#0x0000
       000F89 12 01 43         [24] 3278 	lcall	_setCursor
-                                   3279 ;	ecen4330_lcd_v3.c:572: delay(200);
+                                   3279 ;	.\src\main.c:572: delay(200);
       000F8C 90 00 C8         [24] 3280 	mov	dptr,#0x00c8
       000F8F 12 00 AE         [24] 3281 	lcall	_delay
-                                   3282 ;	ecen4330_lcd_v3.c:573: LCD_string_write("Rotation 3");
+                                   3282 ;	.\src\main.c:573: LCD_string_write("Rotation 3");
       000F92 90 16 49         [24] 3283 	mov	dptr,#___str_5
       000F95 75 F0 80         [24] 3284 	mov	b,#0x80
       000F98 12 0C 18         [24] 3285 	lcall	_LCD_string_write
-                                   3286 ;	ecen4330_lcd_v3.c:574: delay(200);
+                                   3286 ;	.\src\main.c:574: delay(200);
       000F9B 90 00 C8         [24] 3287 	mov	dptr,#0x00c8
-                                   3288 ;	ecen4330_lcd_v3.c:575: }
+                                   3288 ;	.\src\main.c:575: }
       000F9E 02 00 AE         [24] 3289 	ljmp	_delay
                                    3290 ;------------------------------------------------------------
                                    3291 ;Allocation info for local variables in function 'main'
                                    3292 ;------------------------------------------------------------
-                                   3293 ;	ecen4330_lcd_v3.c:578: void main (void) {
+                                   3293 ;	.\src\main.c:578: void main (void) {
                                    3294 ;	-----------------------------------------
                                    3295 ;	 function main
                                    3296 ;	-----------------------------------------
       000FA1                       3297 _main:
-                                   3298 ;	ecen4330_lcd_v3.c:579: CD = 0;
+                                   3298 ;	.\src\main.c:579: CD = 0;
                                    3299 ;	assignBit
       000FA1 C2 B5            [12] 3300 	clr	_P3_5
-                                   3301 ;	ecen4330_lcd_v3.c:580: IOM = 0;
+                                   3301 ;	.\src\main.c:580: IOM = 0;
                                    3302 ;	assignBit
       000FA3 C2 B4            [12] 3303 	clr	_P3_4
-                                   3304 ;	ecen4330_lcd_v3.c:582: iowrite8(seg7_address, 0xC0);
+                                   3304 ;	.\src\main.c:582: iowrite8(seg7_address, 0xC0);
       000FA5 75 08 C0         [24] 3305 	mov	_iowrite8_PARM_2,#0xc0
       000FA8 85 35 82         [24] 3306 	mov	dpl,_seg7_address
       000FAB 85 36 83         [24] 3307 	mov	dph,(_seg7_address + 1)
       000FAE 12 00 9E         [24] 3308 	lcall	_iowrite8
-                                   3309 ;	ecen4330_lcd_v3.c:583: IOM = 0;
+                                   3309 ;	.\src\main.c:583: IOM = 0;
                                    3310 ;	assignBit
       000FB1 C2 B4            [12] 3311 	clr	_P3_4
-                                   3312 ;	ecen4330_lcd_v3.c:584: CD = 1;
+                                   3312 ;	.\src\main.c:584: CD = 1;
                                    3313 ;	assignBit
       000FB3 D2 B5            [12] 3314 	setb	_P3_5
-                                   3315 ;	ecen4330_lcd_v3.c:586: TFT_LCD_INIT();
+                                   3315 ;	.\src\main.c:586: TFT_LCD_INIT();
       000FB5 12 02 7B         [24] 3316 	lcall	_TFT_LCD_INIT
-                                   3317 ;	ecen4330_lcd_v3.c:587: iowrite8(seg7_address, 0xF9);
+                                   3317 ;	.\src\main.c:587: iowrite8(seg7_address, 0xF9);
       000FB8 75 08 F9         [24] 3318 	mov	_iowrite8_PARM_2,#0xf9
       000FBB 85 35 82         [24] 3319 	mov	dpl,_seg7_address
       000FBE 85 36 83         [24] 3320 	mov	dph,(_seg7_address + 1)
       000FC1 12 00 9E         [24] 3321 	lcall	_iowrite8
-                                   3322 ;	ecen4330_lcd_v3.c:588: writeSomeLines();
+                                   3322 ;	.\src\main.c:588: writeSomeLines();
       000FC4 12 0E B5         [24] 3323 	lcall	_writeSomeLines
-                                   3324 ;	ecen4330_lcd_v3.c:589: setRotation(2);
+                                   3324 ;	.\src\main.c:589: setRotation(2);
       000FC7 75 82 02         [24] 3325 	mov	dpl,#0x02
       000FCA 12 01 75         [24] 3326 	lcall	_setRotation
-                                   3327 ;	ecen4330_lcd_v3.c:590: fillScreen(GRAY);
+                                   3327 ;	.\src\main.c:590: fillScreen(GRAY);
       000FCD 90 D6 BA         [24] 3328 	mov	dptr,#0xd6ba
       000FD0 12 08 38         [24] 3329 	lcall	_fillScreen
-                                   3330 ;	ecen4330_lcd_v3.c:591: setTextColor(BLACK, GRAY);
+                                   3330 ;	.\src\main.c:591: setTextColor(BLACK, GRAY);
       000FD3 75 08 BA         [24] 3331 	mov	_setTextColor_PARM_2,#0xba
       000FD6 75 09 D6         [24] 3332 	mov	(_setTextColor_PARM_2 + 1),#0xd6
       000FD9 90 00 00         [24] 3333 	mov	dptr,#0x0000
       000FDC 12 01 50         [24] 3334 	lcall	_setTextColor
-                                   3335 ;	ecen4330_lcd_v3.c:592: setCursor(0,0);
+                                   3335 ;	.\src\main.c:592: setCursor(0,0);
       000FDF E4               [12] 3336 	clr	a
       000FE0 F5 08            [12] 3337 	mov	_setCursor_PARM_2,a
       000FE2 F5 09            [12] 3338 	mov	(_setCursor_PARM_2 + 1),a
       000FE4 90 00 00         [24] 3339 	mov	dptr,#0x0000
       000FE7 12 01 43         [24] 3340 	lcall	_setCursor
-                                   3341 ;	ecen4330_lcd_v3.c:593: LCD_string_write("Free Type: \n");
+                                   3341 ;	.\src\main.c:593: LCD_string_write("Free Type: \n");
       000FEA 90 16 54         [24] 3342 	mov	dptr,#___str_6
       000FED 75 F0 80         [24] 3343 	mov	b,#0x80
       000FF0 12 0C 18         [24] 3344 	lcall	_LCD_string_write
-                                   3345 ;	ecen4330_lcd_v3.c:595: while(1) {
+                                   3345 ;	.\src\main.c:595: while(1) {
       000FF3                       3346 00102$:
-                                   3347 ;	ecen4330_lcd_v3.c:596: freeType();
+                                   3347 ;	.\src\main.c:596: freeType();
       000FF3 12 0C 88         [24] 3348 	lcall	_freeType
-                                   3349 ;	ecen4330_lcd_v3.c:598: }
+                                   3349 ;	.\src\main.c:598: }
       000FF6 80 FB            [24] 3350 	sjmp	00102$
                                    3351 	.area CSEG    (CODE)
                                    3352 	.area CONST   (CODE)
