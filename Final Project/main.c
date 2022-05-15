@@ -44,20 +44,23 @@ void menu(void) {
 	/******* print menu options *******/
 	// 1: Basic check
 	LCD_string_write("1: Basic check\n");
-	// D: Dump
+	// 2: Dump
 	LCD_string_write("2: Dump\n");
-	// A: Check
+	// 3: Check
 	LCD_string_write("3: Check\n");
-	// B: Move
+	// A: Move
 	LCD_string_write("A: Move\n");
-	// E: Edit
+	// 4: Edit
 	LCD_string_write("4: Edit\n");
-	// F: Find
+	// 5: Find
 	LCD_string_write("5: Find\n");
-	// C: Count
+	// 6: Count
 	LCD_string_write("6: Count\n");
 
-	// then add something for the temp sensor and light sensor
+	// B: Temperature
+	LCD_string_write("B: Temperature");
+	// 7: Light
+	LCD_string_write("7: Light");
 }
 
 void main(void) {
@@ -89,6 +92,8 @@ void main(void) {
 			// case '4': edit(); break;
 			// case '5': find(); break;
 			// case '6': count(); break;
+			// case 'B': temperature(); break;
+			// case '7': light(); break;
 			default: break;
 		}
 	}
