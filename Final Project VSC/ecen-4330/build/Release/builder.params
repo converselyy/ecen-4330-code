@@ -13,6 +13,7 @@
     "libDirs": [],
     "defines": [],
     "sourceList": [
+        "src/main.asm",
         "src/main.c"
     ],
     "sourceParams": {},

@@ -579,12 +579,12 @@ void main (void) {
 	CD = 0;
 	IOM = 0;
 
-	iowrite8(seg7_address, 0xC0);
+	iowrite8(seg7_address, ~0xC0);
 	IOM = 0;
 	CD = 1;
 
 	TFT_LCD_INIT();
-	iowrite8(seg7_address, 0xF9);
+	iowrite8(seg7_address, ~0xF9);
   writeSomeLines();
   setRotation(2);
 	fillScreen(GRAY);

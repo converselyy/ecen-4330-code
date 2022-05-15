@@ -12,6 +12,7 @@ MAIN:
 	MOV A, 10				; move the result into A for indexing addressing
 	MOV DPTR, #SS_LUT		; move the 7-segment display lut into the DPTR
 	MOVC A, @A+DPTR			; move the correct output to A
+	MOV P0, #0H				; make P0 an output again
 	MOV P0, A				; output the output to Port 0
 	SJMP MAIN				; do it again
 

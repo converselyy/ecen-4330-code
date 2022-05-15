@@ -36,11 +36,11 @@ C:   00000000  s_RSEG
 C:   00000000  s_RSEG0                         
 C:   00000000  s_RSEG1                         
 C:   00000000  s_XABS                          
-C:   00000001  l_BSEG                          
 C:   00000001  l_BSEG_BYTES                    
 C:   00000001  s_PSEG                          
 C:   00000001  s_XISEG                         
 C:   00000001  s_XSEG                          
+C:   00000002  l_BSEG                          
 C:   00000003  l_GSFINAL                       
 C:   00000003  l_GSINIT0                       
 C:   00000006  l_HOME                          
@@ -80,9 +80,9 @@ C:   0000009B  s_GSFINAL
 C:   0000009E  s_CSEG                          
 C:   00000100  l_IRAM                          
 C:   00000548  l_CONST                         
-C:   0000107B  l_CSEG                          
-C:   00001119  s_CONST                         
-C:   00001661  s_XINIT                         
+C:   00001093  l_CSEG                          
+C:   00001131  s_CONST                         
+C:   00001679  s_XINIT                         
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
 Hexadecimal  [32-Bits]
@@ -372,7 +372,7 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                0000009E    0000107B =        4219. bytes (REL,CON,CODE)
+CSEG                                0000009E    00001093 =        4243. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -400,23 +400,24 @@ C:   00000CA8  _keyDetect                         ecen4330_lcd_v3
 C:   00000D75  _reverse                           ecen4330_lcd_v3
 C:   00000DE4  _asciiToDec                        ecen4330_lcd_v3
 C:   00000E40  _asciiToHex                        ecen4330_lcd_v3
-C:   00000EB5  _writeSomeLines                    ecen4330_lcd_v3
-C:   00000FA1  _main                              ecen4330_lcd_v3
-C:   00000FF8  __divuint                          _divuint
-C:   00001021  __mulint                           _mulint
-C:   00001021  __mulint_dummy                     _mulint
-C:   0000103E  __moduint                          _moduint
-C:   0000108B  __gptrget                          _gptrget
-C:   000010A7  __modsint                          _modsint
-C:   000010DD  __divsint                          _divsint
-C:   00001115  __sdcc_external_startup            _startup
+C:   00000EB5  _convertAsciiHex                   ecen4330_lcd_v3
+C:   00000ECD  _writeSomeLines                    ecen4330_lcd_v3
+C:   00000FB9  _main                              ecen4330_lcd_v3
+C:   00001010  __divuint                          _divuint
+C:   00001039  __mulint                           _mulint
+C:   00001039  __mulint_dummy                     _mulint
+C:   00001056  __moduint                          _moduint
+C:   000010A3  __gptrget                          _gptrget
+C:   000010BF  __modsint                          _modsint
+C:   000010F5  __divsint                          _divsint
+C:   0000112D  __sdcc_external_startup            _startup
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 18.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CONST                               00001119    00000548 =        1352. bytes (REL,CON,CODE)
+CONST                               00001131    00000548 =        1352. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------

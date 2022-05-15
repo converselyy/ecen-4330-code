@@ -12,10 +12,10 @@ __xdata uint8_t* seg7_address = (uint8_t __xdata*) __SEG_7_ADDRESS__;
 __xdata uint8_t* read_ram_address;
 
 
- #define write8inline(d) {			\
- 	IOM = 1;							\
-	*lcd_address = d; 						\
-	IOM = 0;							\
+ #define write8inline(d) {		\
+ 	IOM = 1;					\
+	*lcd_address = d; 			\
+	IOM = 0;					\
 }
 
 
@@ -64,7 +64,12 @@ void delay (int16_t d)
 
 
 
-
+/**
+ * @brief writes to the command and data registers of the LCD
+ * 
+ * @param a command
+ * @param d data
+ */
 void writeRegister8 (uint8_t a, uint8_t d) {
 	CD = __CMD__;
 	write8(a);
@@ -87,21 +92,47 @@ void writeRegister16 (uint16_t a, uint16_t d) {
   	write8Data(lo);
 }
 
-
+/**
+ * @brief set the cursor for the LCD
+ * 
+ * @param x x-coordinate
+ * @param y y-coordinate
+ */
 void setCursor (uint16_t x, uint16_t y) {
 	cursor_x = x;
 	cursor_y = y;
 }
+/**
+ * @brief set the font color for the LCD
+ * 
+ * @param x text color
+ * @param y background color
+ */
 void setTextColor (uint16_t x, uint16_t y) {
 	textcolor =  x;
 	textbgcolor = y;
 }
 
+/**
+ * @brief set font size
+ * 
+ * @param s desired size of font
+ */
 void setTextSize (uint8_t s) {
 	if (s > 8) return;
 	textsize = (s>0) ? s : 1 ;
 }
 
+/**
+ * @brief set orientation of the LCD screen
+ * 
+ * @param flag 0-3, different orientations of the screen
+ * Text on nth side:
+ * 0 - right
+ * 1 - bottom
+ * 2 - left
+ * 3 - top
+ */
 void setRotation (uint8_t flag) {
 	switch(flag) {
 		case 0:
@@ -147,6 +178,10 @@ void setAddress (uint16_t x1,uint16_t y1,uint16_t x2,uint16_t y2) {
 	write8Data(y2);
 }
 
+/**
+ * @brief initialize the LCD
+ * 
+ */
 void TFT_LCD_INIT (void) {
 	_width = TFTWIDTH;
 	_height = TFTHEIGHT;
@@ -185,6 +220,13 @@ void TFT_LCD_INIT (void) {
 	setAddress(0,0,_width-1,_height-1);
 }
 
+/**
+ * @brief draw a pixel
+ * 
+ * @param x3 x-coordinate
+ * @param y3 y-coordinate
+ * @param color1 color of pixel
+ */
 void drawPixel(uint16_t x3,uint16_t y3,uint16_t color1)
 {
 	setAddress(x3,y3,x3+1,y3+1);
@@ -195,6 +237,14 @@ void drawPixel(uint16_t x3,uint16_t y3,uint16_t color1)
 	write8(color1>>8);write8(color1);
 }
 
+/**
+ * @brief draw a circle at the given coordinates with r radius
+ * 
+ * @param x0 x-coordinate
+ * @param y0 y-coordinate
+ * @param r radius of circle
+ * @param color color of circle
+ */
 void drawCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color){
 	int f = 1 - r;
     int ddF_x = 1;
@@ -228,6 +278,12 @@ void drawCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color){
     }
 }
 
+/**
+ * @brief draw an array of red circles to test the screen upon initialization
+ * 
+ * @param radius radius of the circles
+ * @param color color of the circles
+ */
 void testCircles (uint8_t radius, uint16_t color) {
 	int  x, y, r2 = radius * 2, w = _width  + radius, h = _height + radius;
 
@@ -270,12 +326,17 @@ void fillRect (uint16_t x,uint16_t y,uint16_t w,uint16_t h,uint16_t color) {
 	}
 }
 
+/**
+ * @brief fill the screen with a specified color
+ * 
+ * @param Color desired color of screen in rgb format (?)
+ */
 void fillScreen (uint16_t Color) {
 	long len = (long)TFTWIDTH * (long)TFTHEIGHT;
 
-	 int blocks;
+	int blocks;
 
-   uint8_t  i, hi = Color >> 8,
+	uint8_t  i, hi = Color >> 8,
               lo = Color;
 
     blocks = (uint16_t)(len / 64);
@@ -300,6 +361,16 @@ void fillScreen (uint16_t Color) {
 
     }
 }
+/**
+ * @brief draw a single character on the screen where x and y coordinates are
+ * 
+ * @param x x-coordinate
+ * @param y y-coordinate
+ * @param c character to be written
+ * @param color color of the character
+ * @param bg background color of the character
+ * @param size font size of the character
+ */
 void drawChar (int16_t x, int16_t y, uint8_t c,uint16_t color, uint16_t bg, uint8_t size) {
 	if ((x >=TFTWIDTH) ||
 	    (y >=TFTHEIGHT)           ||
@@ -355,6 +426,11 @@ void drawChar (int16_t x, int16_t y, uint8_t c,uint16_t color, uint16_t bg, uint
 
 }
 
+/**
+ * @brief write a single character where the cursor on the LCD is
+ * 
+ * @param c character to be written
+ */
 void write (uint8_t c)
 {
 	if (c == '\n')
@@ -372,6 +448,11 @@ void write (uint8_t c)
 	}
 }
 
+/**
+ * @brief write a string to the LCD where the cursor on the LCD is
+ * 
+ * @param str string to be written
+ */
 void LCD_string_write (int8_t *str)
 {
 	int16_t i;
@@ -381,6 +462,11 @@ void LCD_string_write (int8_t *str)
 	}
 }
 
+/**
+ * @brief 
+ * 
+ * @param d 
+ */
 void testRAM (uint8_t d) {
 	uint32_t i;
 	__xdata uint8_t* ram_address;
@@ -391,9 +477,12 @@ void testRAM (uint8_t d) {
 		*ram_address = d;
 		IOM = 1;
 	}
-
 }
 
+/**
+ * @brief allow the user to freely type characters on the screen
+ * 
+ */
 void freeType () {
 	uint8_t count = 0;
 	uint8_t d;
@@ -414,6 +503,11 @@ void freeType () {
 	}
 }
 
+/**
+ * @brief poll and then detect a key being pressed
+ * 
+ * @return uint8_t the ASCII of the key being pressed
+ */
 uint8_t keyDetect () {
 	__KEYPAD_PORT__ = 0xF0;
 	do
@@ -500,6 +594,11 @@ uint16_t reverse (uint8_t d) {
 	return rev;
 }
 
+/**
+ * @brief converts an ASCII character to its corresponding decimal number
+ * 
+ * @param d the character to be converted
+ */
 void asciiToDec (uint8_t d) {
 	uint8_t val;
 	uint16_t id;
@@ -513,10 +612,15 @@ void asciiToDec (uint8_t d) {
 	write('\n');
 }
 
+/**
+ * @brief converts an ASCII character to its corresponding hex number
+ * 
+ * @param d the hex number to be converted
+ */
 void asciiToHex (uint8_t d) {
 	uint8_t val;
 	uint8_t store[2];
-	uint8_t i =0;
+	uint8_t i = 0;
 	store[0] = 0;
 	store[1] = 0;
 	while (d >= 1){
@@ -536,6 +640,20 @@ void asciiToHex (uint8_t d) {
 	write(store[0]);
 }
 
+/**
+ * @brief returns a converted ASCII to hex value
+ * 
+ * @param d character to be converted
+ * @return uint8_t converted hex value
+ */
+uint8_t convertAsciiHex(uint8_t d) {
+	return (d <= '9') ? (d - '0') : (d - 'A' + 10);
+}
+
+/**
+ * @brief test code to test the screen's orientation, text writing functionality, and fill capability
+ * 
+ */
 void writeSomeLines () {
 	fillScreen(RED);
 
@@ -574,17 +692,20 @@ void writeSomeLines () {
 	delay(200);
 }
 
-
-void main (void) {
+/**
+ * @brief main code
+ * 
+ */
+/*void main (void) {
 	CD = 0;
 	IOM = 0;
 
-	iowrite8(seg7_address, 0xC0);
+	iowrite8(seg7_address, ~0xC0);
 	IOM = 0;
 	CD = 1;
 
 	TFT_LCD_INIT();
-	iowrite8(seg7_address, 0xF9);
+	iowrite8(seg7_address, ~0xF9);
   writeSomeLines();
   setRotation(2);
 	fillScreen(GRAY);
@@ -595,4 +716,4 @@ void main (void) {
 	while(1) {
 		freeType();
 	}
-}
+}*/

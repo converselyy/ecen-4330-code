@@ -272,8 +272,8 @@
 		pwin_orient="horizontal">
 
 		<file name="lab4asm.asm" active="yes" o_bookmark="0" p_bookmark="0" file_index="0" read_only="0" highlight="0">
-			<actual_line value="10"/>
-			<md5_hash value="F68D14D5B5984E5E7AEC7F3DB4C9BF53"/>
+			<actual_line value="7"/>
+			<md5_hash value="F8ED41ED4A2EA73F235278A38427B3FE"/>
 			<path><![CDATA[]]></path>
 			<bookmarks>
 				0
@@ -287,14 +287,14 @@
 		</file>
 
 		<file name="read_kp.asm" active="yes" o_bookmark="0" p_bookmark="0" file_index="1" read_only="0" highlight="0">
-			<actual_line value="52"/>
-			<md5_hash value="7C9B68B8CBCD95BC16D9E317B8CD23EF"/>
+			<actual_line value="88"/>
+			<md5_hash value="655321AA40D0CAC2233E8E41F8D016CE"/>
 			<path><![CDATA[]]></path>
 			<bookmarks>
 				0
 			</bookmarks>
 			<breakpoints>
-				49
+				0
 			</breakpoints>
 			<eol value="lf"/>
 			<encoding value="utf-8"/>

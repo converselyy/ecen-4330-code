@@ -80,6 +80,12 @@ TRANSLATE:
 		JZ TRANSLATE_DONE
 
 		; later, add a way to prevent an infinite loop. loop back to the beginning and start comparing again
+
+		CLR A					; clear A reg
+		MOVC A, @A+DPTR
+		CLR C					; clear carry
+		SUBB A, 13				; check if the counter and pressed button are the same
+		JZ TRANSLATE_DONE
 	
 		INC DPTR
 		INC 10

@@ -4,3 +4,159 @@
 [2022-04-07 16:52:41]	[done]
 	build successfully !
 
+[2022-04-09 19:58:46]	compilation failed at : "c:\Users\jcline\OneDrive - University of Nebraska at Omaha\Documents\22SP\ECEN 4330\Lab\Code\Final Project VSC\ecen-4330\src\main.asm", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x018f4] in <5ad0758a213a4017a4a43a71c811e836>:0 
+---
+removing .\build\Release\src\main_1.rel
+.\src\main.asm:1290: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:1291: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:1293: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2166: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2167: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2175: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2258: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2259: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2266: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2613: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2614: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2616: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2659: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2956: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2958: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2965: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2971: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2972: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2977: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2985: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2986: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2991: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3037: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3038: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3043: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3048: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3049: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3053: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3105: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3107: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3112: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3136: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3138: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3144: Error: <u> undefined symbol encountered during assembly
+
+[2022-04-09 19:59:15]	compilation failed at : "c:\Users\jcline\OneDrive - University of Nebraska at Omaha\Documents\22SP\ECEN 4330\Lab\Code\Final Project VSC\ecen-4330\src\main.asm", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x018f4] in <5ad0758a213a4017a4a43a71c811e836>:0 
+---
+removing .\build\Release\src\main_1.rel
+.\src\main.asm:1290: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:1291: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:1293: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2166: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2167: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2175: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2258: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2259: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2266: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2613: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2614: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2616: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2659: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2956: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2958: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2965: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2971: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2972: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2977: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2985: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2986: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2991: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3037: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3038: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3043: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3048: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3049: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3053: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3105: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3107: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3112: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3136: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3138: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3144: Error: <u> undefined symbol encountered during assembly
+
+[2022-04-09 20:00:49]	compilation failed at : "c:\Users\jcline\OneDrive - University of Nebraska at Omaha\Documents\22SP\ECEN 4330\Lab\Code\Final Project VSC\ecen-4330\src\main.asm", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x018f4] in <5ad0758a213a4017a4a43a71c811e836>:0 
+---
+removing .\build\Release\src\main_1.rel
+.\src\main.asm:1290: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:1291: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:1293: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2166: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2167: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2175: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2258: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2259: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2266: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2613: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2614: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2616: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2659: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2956: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2958: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2965: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2971: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2972: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2977: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2985: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2986: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2991: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3037: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3038: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3043: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3048: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3049: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3053: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3105: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3107: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3112: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3136: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3138: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3144: Error: <u> undefined symbol encountered during assembly
+
+[2022-04-09 20:01:07]	compilation failed at : "c:\Users\jcline\OneDrive - University of Nebraska at Omaha\Documents\22SP\ECEN 4330\Lab\Code\Final Project VSC\ecen-4330\src\main.asm", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x018f4] in <5ad0758a213a4017a4a43a71c811e836>:0 
+---
+removing .\build\Release\src\main_1.rel
+.\src\main.asm:1290: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:1291: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:1293: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2166: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2167: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2175: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2258: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2259: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2266: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2613: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2614: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2616: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2659: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2956: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2958: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2965: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2971: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2972: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2977: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2985: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2986: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:2991: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3037: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3038: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3043: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3048: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3049: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3053: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3105: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3107: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3112: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3136: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3138: Error: <u> undefined symbol encountered during assembly
+.\src\main.asm:3144: Error: <u> undefined symbol encountered during assembly
+

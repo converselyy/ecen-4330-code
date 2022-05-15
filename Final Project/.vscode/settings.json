@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"registers.h": "c",
+		"ecen4330lcdh.h": "c",
+		"stdbool.h": "c"
+	}
+}

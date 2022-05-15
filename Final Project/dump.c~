@@ -1,3 +1,14 @@
+// function to dump a given amount of data stored in external RAM given a starting address, data type, and a block size
 void dump() {
-	
+	// get input for starting address
+
+	// get input for data type
+
+	// get input for block size
+
+	// loop through the memory and display each piece of data on the LCD
+	// a for loop
+
+	// wait for a button to be pressed for next, back, or menu
+	// probably a switch case
 }
