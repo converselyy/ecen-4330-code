@@ -3983,7 +3983,7 @@ _move:
 _editByte:
 	mov	r6,dpl
 	mov	r7,dph
-;	edit.c:19: asciiToHex(HIGHBYTE(add));
+;	edit.c:13: asciiToHex(HIGHBYTE(add));
 	mov	ar5,r7
 	mov	ar4,r5
 	mov	dpl,r4
@@ -3993,14 +3993,14 @@ _editByte:
 	lcall	_asciiToHex
 	pop	ar4
 	pop	ar6
-;	edit.c:20: asciiToHex(LOWBYTE(add));
+;	edit.c:14: asciiToHex(LOWBYTE(add));
 	mov	ar5,r6
 	mov	dpl,r5
 	push	ar6
 	push	ar5
 	push	ar4
 	lcall	_asciiToHex
-;	edit.c:21: LCD_string_write(": ");
+;	edit.c:15: LCD_string_write(": ");
 	mov	dptr,#___str_22
 	mov	b,#0x80
 	lcall	_LCD_string_write
@@ -4008,36 +4008,36 @@ _editByte:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	edit.c:24: IOM = 0;
+;	edit.c:18: IOM = 0;
 ;	assignBit
 	clr	_P3_4
-;	edit.c:25: ramAddress = (uint16_t __xdata*)(add);
-;	edit.c:26: val = *ramAddress;
+;	edit.c:19: ramAddress = (uint16_t __xdata*)(add);
+;	edit.c:20: val = *ramAddress;
 	mov	dpl,r6
 	mov	dph,r7
 	movx	a,@dptr
 	mov	r3,a
-;	edit.c:27: IOM = 1;
+;	edit.c:21: IOM = 1;
 ;	assignBit
 	setb	_P3_4
-;	edit.c:30: asciiToHex(val);
+;	edit.c:24: asciiToHex(val);
 	mov	dpl,r3
 	push	ar7
 	push	ar6
 	push	ar5
 	push	ar4
 	lcall	_asciiToHex
-;	edit.c:33: write('\n');
+;	edit.c:27: write('\n');
 	mov	dpl,#0x0a
 	lcall	_write
-;	edit.c:34: LCD_string_write("Enter new byte:\n");
+;	edit.c:28: LCD_string_write("Enter new byte:\n");
 	mov	dptr,#___str_23
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	edit.c:35: new = getByte();
+;	edit.c:29: new = getByte();
 	lcall	_getByte
 	mov	r3,dpl
-;	edit.c:36: write('\n');
+;	edit.c:30: write('\n');
 	mov	dpl,#0x0a
 	push	ar3
 	lcall	_write
@@ -4046,10 +4046,10 @@ _editByte:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	edit.c:39: IOM = 0;
+;	edit.c:33: IOM = 0;
 ;	assignBit
 	clr	_P3_4
-;	edit.c:40: *ramAddress = new;
+;	edit.c:34: *ramAddress = new;
 	mov	r2,#0x00
 	mov	dpl,r6
 	mov	dph,r7
@@ -4058,32 +4058,32 @@ _editByte:
 	mov	a,r2
 	inc	dptr
 	movx	@dptr,a
-;	edit.c:41: val = *ramAddress;
-;	edit.c:42: IOM = 1;
+;	edit.c:35: val = *ramAddress;
+;	edit.c:36: IOM = 1;
 ;	assignBit
 	setb	_P3_4
-;	edit.c:45: asciiToHex(HIGHBYTE(add));
+;	edit.c:39: asciiToHex(HIGHBYTE(add));
 	mov	dpl,r4
 	push	ar5
 	push	ar3
 	lcall	_asciiToHex
 	pop	ar3
 	pop	ar5
-;	edit.c:46: asciiToHex(LOWBYTE(add));
+;	edit.c:40: asciiToHex(LOWBYTE(add));
 	mov	dpl,r5
 	push	ar3
 	lcall	_asciiToHex
-;	edit.c:47: LCD_string_write(": ");
+;	edit.c:41: LCD_string_write(": ");
 	mov	dptr,#___str_22
 	mov	b,#0x80
 	lcall	_LCD_string_write
 	pop	ar3
-;	edit.c:48: asciiToHex(val);
+;	edit.c:42: asciiToHex(val);
 	mov	dpl,r3
 	lcall	_asciiToHex
-;	edit.c:49: write('\n');
+;	edit.c:43: write('\n');
 	mov	dpl,#0x0a
-;	edit.c:51: }
+;	edit.c:45: }
 	ljmp	_write
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'edit'
@@ -4091,39 +4091,39 @@ _editByte:
 ;input                     Allocated with name '_edit_input_65537_250'
 ;add                       Allocated with name '_edit_add_65537_250'
 ;------------------------------------------------------------
-;	edit.c:57: void edit() {
+;	edit.c:51: void edit() {
 ;	-----------------------------------------
 ;	 function edit
 ;	-----------------------------------------
 _edit:
-;	edit.c:59: fillScreen(GRAY);
+;	edit.c:53: fillScreen(GRAY);
 	mov	dptr,#0xd6ba
 	lcall	_fillScreen
-;	edit.c:60: setCursor(0, 0);
+;	edit.c:54: setCursor(0, 0);
 	clr	a
 	mov	_setCursor_PARM_2,a
 	mov	(_setCursor_PARM_2 + 1),a
 	mov	dptr,#0x0000
 	lcall	_setCursor
-;	edit.c:61: setTextSize(2);
+;	edit.c:55: setTextSize(2);
 	mov	dpl,#0x02
 	lcall	_setTextSize
-;	edit.c:71: LCD_string_write("Enter address:\n");
+;	edit.c:62: LCD_string_write("Enter address:\n");
 	mov	dptr,#___str_24
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	edit.c:72: add = getAddress();
+;	edit.c:63: add = getAddress();
 	lcall	_getAddress
 	mov	r6,dpl
 	mov	r7,dph
-;	edit.c:73: write('\n');
+;	edit.c:64: write('\n');
 	mov	dpl,#0x0a
 	push	ar7
 	push	ar6
 	lcall	_write
 	pop	ar6
 	pop	ar7
-;	edit.c:75: editByte(add);
+;	edit.c:67: editByte(add);
 	mov	dpl,r6
 	mov	dph,r7
 	push	ar7
@@ -4131,23 +4131,23 @@ _edit:
 	lcall	_editByte
 	pop	ar6
 	pop	ar7
-;	edit.c:114: do {
+;	edit.c:70: do {
 00110$:
-;	edit.c:115: LCD_string_write("Press 1 for menu\n");
+;	edit.c:71: LCD_string_write("Press 1 for menu\n");
 	mov	dptr,#___str_16
 	mov	b,#0x80
 	push	ar7
 	push	ar6
 	lcall	_LCD_string_write
-;	edit.c:116: LCD_string_write("Press 2 to edit again\n");
+;	edit.c:72: LCD_string_write("Press 2 to edit again\n");
 	mov	dptr,#___str_25
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	edit.c:117: LCD_string_write("Press 3 to edit next address\n");
+;	edit.c:73: LCD_string_write("Press 3 to edit next address\n");
 	mov	dptr,#___str_26
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	edit.c:118: input = keyDetect();
+;	edit.c:74: input = keyDetect();
 	lcall	_keyDetect
 	mov	r5,dpl
 	pop	ar6
@@ -4155,41 +4155,38 @@ _edit:
 	mov	dptr,#_edit_input_65537_250
 	mov	a,r5
 	movx	@dptr,a
-;	edit.c:120: if (input == '1') {
+;	edit.c:76: if (input == '1') {
 	cjne	r5,#0x31,00136$
 	ret
 00136$:
-;	edit.c:122: } else if (input =='2') {
+;	edit.c:78: } else if (input =='2') {
 	cjne	r5,#0x32,00104$
-;	edit.c:123: editByte(add);
+;	edit.c:79: editByte(add);
 	mov	dpl,r6
 	mov	dph,r7
 	push	ar7
 	push	ar6
 	lcall	_editByte
-;	edit.c:125: fillScreen(GRAY);
+;	edit.c:81: fillScreen(GRAY);
 	mov	dptr,#0xd6ba
 	lcall	_fillScreen
-;	edit.c:126: setCursor(0, 0);
+;	edit.c:82: setCursor(0, 0);
 	clr	a
 	mov	_setCursor_PARM_2,a
 	mov	(_setCursor_PARM_2 + 1),a
 	mov	dptr,#0x0000
 	lcall	_setCursor
-;	edit.c:128: setTextSize(2);
-	mov	dpl,#0x02
-	lcall	_setTextSize
 	pop	ar6
 	pop	ar7
-;	edit.c:129: input = 0;
+;	edit.c:84: input = 0;
 	mov	dptr,#_edit_input_65537_250
 	clr	a
 	movx	@dptr,a
 	sjmp	00111$
 00104$:
-;	edit.c:130: } else if (input == '3') {
+;	edit.c:85: } else if (input == '3') {
 	cjne	r5,#0x33,00111$
-;	edit.c:131: editByte(++add);
+;	edit.c:86: editByte(++add);
 	inc	r6
 	cjne	r6,#0x00,00141$
 	inc	r7
@@ -4199,26 +4196,23 @@ _edit:
 	push	ar7
 	push	ar6
 	lcall	_editByte
-;	edit.c:133: fillScreen(GRAY);
+;	edit.c:88: fillScreen(GRAY);
 	mov	dptr,#0xd6ba
 	lcall	_fillScreen
-;	edit.c:134: setCursor(0, 0);
+;	edit.c:89: setCursor(0, 0);
 	clr	a
 	mov	_setCursor_PARM_2,a
 	mov	(_setCursor_PARM_2 + 1),a
 	mov	dptr,#0x0000
 	lcall	_setCursor
-;	edit.c:135: setTextSize(2);
-	mov	dpl,#0x02
-	lcall	_setTextSize
 	pop	ar6
 	pop	ar7
-;	edit.c:137: input = 0;
+;	edit.c:91: input = 0;
 	mov	dptr,#_edit_input_65537_250
 	clr	a
 	movx	@dptr,a
 00111$:
-;	edit.c:139: } while (input != '1' && input != '2');
+;	edit.c:93: } while (input != '1' && input != '2');
 	mov	dptr,#_edit_input_65537_250
 	movx	a,@dptr
 	mov	r5,a
@@ -4229,7 +4223,7 @@ _edit:
 	ret
 00143$:
 	ljmp	00110$
-;	edit.c:141: }
+;	edit.c:95: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'count'

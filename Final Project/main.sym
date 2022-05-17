@@ -384,12 +384,12 @@ Symbol Table
   5 _colloc                                                        000000 GR
  18 _convertAsciiHex                                               000E42 GR
   A _convertAsciiHex_sloc0_1_0                                     000001 R
- 18 _count                                                         001405 GR
+ 18 _count                                                         0013F9 GR
   5 _cursor_x                                                      00000C GR
   5 _cursor_y                                                      00000E GR
  18 _delay                                                         000010 GR
- 18 _displayLight                                                  0014C1 GR
- 18 _displayTemp                                                   001487 GR
+ 18 _displayLight                                                  0014B5 GR
+ 18 _displayTemp                                                   00147B GR
  18 _drawChar                                                      000881 GR
   5 _drawChar_PARM_2                                               000040 GR
   5 _drawChar_PARM_3                                               000042 GR
@@ -439,14 +439,14 @@ Symbol Table
  18 _keyDetect                                                     000C0A GR
  19 _keypad                                                        0004FB GR
   5 _lcd_address                                                   000002 GR
- 18 _light                                                         001547 GR
+ 18 _light                                                         00153B GR
   5 _light_address                                                 000008 GR
- 18 _main                                                          00161F GR
- 18 _menu                                                          001593 GR
+ 18 _main                                                          001613 GR
+ 18 _menu                                                          001587 GR
  18 _move                                                          00119A GR
   5 _move_target_65537_243                                         000051 R
- 18 _readLight                                                     001478 GR
- 18 _readTemp                                                      001469 GR
+ 18 _readLight                                                     00146C GR
+ 18 _readTemp                                                      00145D GR
   5 _read_ram_address                                              00000A GR
  18 _reverse                                                       000D02 GR
   5 _rotation                                                      000011 GR
@@ -463,7 +463,7 @@ Symbol Table
   6 _setTextColor_PARM_2                                           000000 GR
  18 _setTextSize                                                   0000BF GR
   5 _temp_address                                                  000006 GR
- 18 _temperature                                                   0014FB GR
+ 18 _temperature                                                   0014EF GR
  18 _testCircles                                                   000628 GR
   5 _testCircles_PARM_2                                            000032 GR
   5 _testCircles_h_65536_108                                       000036 R
@@ -712,7 +712,7 @@ Area Table
   15 GSINIT5                                    size      0   flags   20
   16 GSINIT                                     size     17   flags   20
   17 GSFINAL                                    size      3   flags   20
-  18 CSEG                                       size   169B   flags   20
+  18 CSEG                                       size   168F   flags   20
   19 CONST                                      size    775   flags   20
   1A XINIT                                      size      0   flags   20
   1B CABS                                       size      0   flags   28

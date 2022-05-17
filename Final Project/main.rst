@@ -517,7 +517,7 @@
                                     517 	.area HOME    (CODE)
                                     518 	.area HOME    (CODE)
       000003                        519 __sdcc_program_startup:
-      000003 02 16 98         [24]  520 	ljmp	_main
+      000003 02 16 8C         [24]  520 	ljmp	_main
                                     521 ;	return from main will return to caller
                                     522 ;--------------------------------------------------------
                                     523 ; code
@@ -1311,7 +1311,7 @@
       000402 85 41 08         [24] 1311 	mov	__mulint_PARM_2,_drawCircle_PARM_3
       000405 85 42 09         [24] 1312 	mov	(__mulint_PARM_2 + 1),(_drawCircle_PARM_3 + 1)
       000408 90 FF FE         [24] 1313 	mov	dptr,#0xfffe
-      00040B 12 17 3D         [24] 1314 	lcall	__mulint
+      00040B 12 17 31         [24] 1314 	lcall	__mulint
       00040E AA 82            [24] 1315 	mov	r2,dpl
       000410 AB 83            [24] 1316 	mov	r3,dph
                                    1317 ;	ecen4330_lcd_v3.c:255: int y = r;
@@ -2193,7 +2193,7 @@
       000929 C0 04            [24] 2193 	push	ar4
       00092B C0 03            [24] 2194 	push	ar3
       00092D C0 02            [24] 2195 	push	ar2
-      00092F 12 17 3D         [24] 2196 	lcall	__mulint
+      00092F 12 17 31         [24] 2196 	lcall	__mulint
       000932 A8 82            [24] 2197 	mov	r0,dpl
       000934 A9 83            [24] 2198 	mov	r1,dph
       000936 D0 02            [24] 2199 	pop	ar2
@@ -2284,7 +2284,7 @@
       0009A9 C0 05            [24] 2284 	push	ar5
       0009AB C0 04            [24] 2285 	push	ar4
       0009AD C0 03            [24] 2286 	push	ar3
-      0009AF 12 17 3D         [24] 2287 	lcall	__mulint
+      0009AF 12 17 31         [24] 2287 	lcall	__mulint
       0009B2 A9 82            [24] 2288 	mov	r1,dpl
       0009B4 AA 83            [24] 2289 	mov	r2,dph
       0009B6 D0 03            [24] 2290 	pop	ar3
@@ -2293,7 +2293,7 @@
       0009BC D0 06            [24] 2293 	pop	ar6
       0009BE D0 07            [24] 2294 	pop	ar7
       0009C0 E9               [12] 2295 	mov	a,r1
-      0009C1 24 35            [12] 2296 	add	a,#_font
+      0009C1 24 29            [12] 2296 	add	a,#_font
       0009C3 F5 6C            [12] 2297 	mov	_drawChar_sloc1_1_0,a
       0009C5 EA               [12] 2298 	mov	a,r2
       0009C6 34 18            [12] 2299 	addc	a,#(_font >> 8)
@@ -2634,7 +2634,7 @@
       000BD4 85 31 08         [24] 2634 	mov	__mulint_PARM_2,_textsize
       000BD7 75 09 00         [24] 2635 	mov	(__mulint_PARM_2 + 1),#0x00
       000BDA 90 00 06         [24] 2636 	mov	dptr,#0x0006
-      000BDD 12 17 3D         [24] 2637 	lcall	__mulint
+      000BDD 12 17 31         [24] 2637 	lcall	__mulint
       000BE0 AE 82            [24] 2638 	mov	r6,dpl
       000BE2 AF 83            [24] 2639 	mov	r7,dph
       000BE4 AC 2D            [24] 2640 	mov	r4,_cursor_x
@@ -2677,7 +2677,7 @@
       000C05 88 82            [24] 2677 	mov	dpl,r0
       000C07 89 83            [24] 2678 	mov	dph,r1
       000C09 8A F0            [24] 2679 	mov	b,r2
-      000C0B 12 17 A7         [24] 2680 	lcall	__gptrget
+      000C0B 12 17 9B         [24] 2680 	lcall	__gptrget
       000C0E FA               [12] 2681 	mov	r2,a
       000C0F 60 20            [24] 2682 	jz	00105$
                                    2683 ;	ecen4330_lcd_v3.c:463: write(str[i]);
@@ -2909,7 +2909,7 @@
       000D11 E5 22            [12] 2909 	mov	a,_rowloc
       000D13 75 F0 04         [24] 2910 	mov	b,#0x04
       000D16 A4               [48] 2911 	mul	ab
-      000D17 24 30            [12] 2912 	add	a,#_keypad
+      000D17 24 24            [12] 2912 	add	a,#_keypad
       000D19 F5 82            [12] 2913 	mov	dpl,a
       000D1B 74 1D            [12] 2914 	mov	a,#(_keypad >> 8)
       000D1D 35 F0            [12] 2915 	addc	a,b
@@ -2926,7 +2926,7 @@
       000D2B E5 22            [12] 2926 	mov	a,_rowloc
       000D2D 75 F0 04         [24] 2927 	mov	b,#0x04
       000D30 A4               [48] 2928 	mul	ab
-      000D31 24 30            [12] 2929 	add	a,#_keypad
+      000D31 24 24            [12] 2929 	add	a,#_keypad
       000D33 FE               [12] 2930 	mov	r6,a
       000D34 74 1D            [12] 2931 	mov	a,#(_keypad >> 8)
       000D36 35 F0            [12] 2932 	addc	a,b
@@ -2946,7 +2946,7 @@
       000D48 E5 22            [12] 2946 	mov	a,_rowloc
       000D4A 75 F0 04         [24] 2947 	mov	b,#0x04
       000D4D A4               [48] 2948 	mul	ab
-      000D4E 24 30            [12] 2949 	add	a,#_keypad
+      000D4E 24 24            [12] 2949 	add	a,#_keypad
       000D50 FE               [12] 2950 	mov	r6,a
       000D51 74 1D            [12] 2951 	mov	a,#(_keypad >> 8)
       000D53 35 F0            [12] 2952 	addc	a,b
@@ -2964,7 +2964,7 @@
       000D61 E5 22            [12] 2964 	mov	a,_rowloc
       000D63 75 F0 04         [24] 2965 	mov	b,#0x04
       000D66 A4               [48] 2966 	mul	ab
-      000D67 24 30            [12] 2967 	add	a,#_keypad
+      000D67 24 24            [12] 2967 	add	a,#_keypad
       000D69 FE               [12] 2968 	mov	r6,a
       000D6A 74 1D            [12] 2969 	mov	a,#(_keypad >> 8)
       000D6C 35 F0            [12] 2970 	addc	a,b
@@ -3012,7 +3012,7 @@
       000D95 C0 05            [24] 3012 	push	ar5
       000D97 C0 04            [24] 3013 	push	ar4
       000D99 C0 03            [24] 3014 	push	ar3
-      000D9B 12 17 C3         [24] 3015 	lcall	__modsint
+      000D9B 12 17 B7         [24] 3015 	lcall	__modsint
       000D9E A9 82            [24] 3016 	mov	r1,dpl
       000DA0 AA 83            [24] 3017 	mov	r2,dph
       000DA2 D0 03            [24] 3018 	pop	ar3
@@ -3024,7 +3024,7 @@
       000DAE 8C 83            [24] 3024 	mov	dph,r4
       000DB0 C0 02            [24] 3025 	push	ar2
       000DB2 C0 01            [24] 3026 	push	ar1
-      000DB4 12 17 F9         [24] 3027 	lcall	__divsint
+      000DB4 12 17 ED         [24] 3027 	lcall	__divsint
       000DB7 AB 82            [24] 3028 	mov	r3,dpl
       000DB9 D0 01            [24] 3029 	pop	ar1
       000DBB D0 02            [24] 3030 	pop	ar2
@@ -3038,7 +3038,7 @@
       000DCA C0 07            [24] 3038 	push	ar7
       000DCC C0 02            [24] 3039 	push	ar2
       000DCE C0 01            [24] 3040 	push	ar1
-      000DD0 12 17 3D         [24] 3041 	lcall	__mulint
+      000DD0 12 17 31         [24] 3041 	lcall	__mulint
       000DD3 AB 82            [24] 3042 	mov	r3,dpl
       000DD5 AC 83            [24] 3043 	mov	r4,dph
       000DD7 D0 01            [24] 3044 	pop	ar1
@@ -3090,7 +3090,7 @@
       000E06 8D 83            [24] 3090 	mov	dph,r5
       000E08 C0 05            [24] 3091 	push	ar5
       000E0A C0 04            [24] 3092 	push	ar4
-      000E0C 12 17 5A         [24] 3093 	lcall	__moduint
+      000E0C 12 17 4E         [24] 3093 	lcall	__moduint
       000E0F AA 82            [24] 3094 	mov	r2,dpl
       000E11 D0 04            [24] 3095 	pop	ar4
       000E13 D0 05            [24] 3096 	pop	ar5
@@ -3100,7 +3100,7 @@
       000E1B 8C 82            [24] 3100 	mov	dpl,r4
       000E1D 8D 83            [24] 3101 	mov	dph,r5
       000E1F C0 02            [24] 3102 	push	ar2
-      000E21 12 17 14         [24] 3103 	lcall	__divuint
+      000E21 12 17 08         [24] 3103 	lcall	__divuint
       000E24 AC 82            [24] 3104 	mov	r4,dpl
       000E26 AD 83            [24] 3105 	mov	r5,dph
       000E28 D0 02            [24] 3106 	pop	ar2
@@ -3159,7 +3159,7 @@
       000E64 8D 83            [24] 3159 	mov	dph,r5
       000E66 C0 06            [24] 3160 	push	ar6
       000E68 C0 02            [24] 3161 	push	ar2
-      000E6A 12 17 F9         [24] 3162 	lcall	__divsint
+      000E6A 12 17 ED         [24] 3162 	lcall	__divsint
       000E6D AC 82            [24] 3163 	mov	r4,dpl
       000E6F D0 02            [24] 3164 	pop	ar2
       000E71 D0 06            [24] 3165 	pop	ar6
@@ -3191,7 +3191,7 @@
       000E95 C0 07            [24] 3191 	push	ar7
       000E97 C0 06            [24] 3192 	push	ar6
       000E99 C0 01            [24] 3193 	push	ar1
-      000E9B 12 17 C3         [24] 3194 	lcall	__modsint
+      000E9B 12 17 B7         [24] 3194 	lcall	__modsint
       000E9E AC 82            [24] 3195 	mov	r4,dpl
       000EA0 AD 83            [24] 3196 	mov	r5,dph
       000EA2 D0 01            [24] 3197 	pop	ar1
@@ -3288,18 +3288,18 @@
       000F1A 90 07 FF         [24] 3288 	mov	dptr,#0x07ff
       000F1D 12 01 2B         [24] 3289 	lcall	_setTextColor
                                    3290 ;	ecen4330_lcd_v3.c:674: LCD_string_write("Welcome\n");
-      000F20 90 1D 40         [24] 3291 	mov	dptr,#___str_0
+      000F20 90 1D 34         [24] 3291 	mov	dptr,#___str_0
       000F23 75 F0 80         [24] 3292 	mov	b,#0x80
       000F26 12 0B F3         [24] 3293 	lcall	_LCD_string_write
                                    3294 ;	ecen4330_lcd_v3.c:675: setTextSize(3);
       000F29 75 82 03         [24] 3295 	mov	dpl,#0x03
       000F2C 12 01 38         [24] 3296 	lcall	_setTextSize
                                    3297 ;	ecen4330_lcd_v3.c:676: LCD_string_write("ECEN-4330\n");
-      000F2F 90 1D 49         [24] 3298 	mov	dptr,#___str_1
+      000F2F 90 1D 3D         [24] 3298 	mov	dptr,#___str_1
       000F32 75 F0 80         [24] 3299 	mov	b,#0x80
       000F35 12 0B F3         [24] 3300 	lcall	_LCD_string_write
                                    3301 ;	ecen4330_lcd_v3.c:677: LCD_string_write("Rotation 0");
-      000F38 90 1D 54         [24] 3302 	mov	dptr,#___str_2
+      000F38 90 1D 48         [24] 3302 	mov	dptr,#___str_2
       000F3B 75 F0 80         [24] 3303 	mov	b,#0x80
       000F3E 12 0B F3         [24] 3304 	lcall	_LCD_string_write
                                    3305 ;	ecen4330_lcd_v3.c:678: delay(200);
@@ -3318,7 +3318,7 @@
       000F58 90 00 00         [24] 3318 	mov	dptr,#0x0000
       000F5B 12 01 1E         [24] 3319 	lcall	_setCursor
                                    3320 ;	ecen4330_lcd_v3.c:682: LCD_string_write("Rotation 1");
-      000F5E 90 1D 5F         [24] 3321 	mov	dptr,#___str_3
+      000F5E 90 1D 53         [24] 3321 	mov	dptr,#___str_3
       000F61 75 F0 80         [24] 3322 	mov	b,#0x80
       000F64 12 0B F3         [24] 3323 	lcall	_LCD_string_write
                                    3324 ;	ecen4330_lcd_v3.c:683: delay(500);
@@ -3337,7 +3337,7 @@
       000F7E 90 00 00         [24] 3337 	mov	dptr,#0x0000
       000F81 12 01 1E         [24] 3338 	lcall	_setCursor
                                    3339 ;	ecen4330_lcd_v3.c:687: LCD_string_write("Rotation 2");
-      000F84 90 1D 6A         [24] 3340 	mov	dptr,#___str_4
+      000F84 90 1D 5E         [24] 3340 	mov	dptr,#___str_4
       000F87 75 F0 80         [24] 3341 	mov	b,#0x80
       000F8A 12 0B F3         [24] 3342 	lcall	_LCD_string_write
                                    3343 ;	ecen4330_lcd_v3.c:688: delay(500);
@@ -3359,7 +3359,7 @@
       000FAA 90 00 C8         [24] 3359 	mov	dptr,#0x00c8
       000FAD 12 00 89         [24] 3360 	lcall	_delay
                                    3361 ;	ecen4330_lcd_v3.c:693: LCD_string_write("Rotation 3");
-      000FB0 90 1D 75         [24] 3362 	mov	dptr,#___str_5
+      000FB0 90 1D 69         [24] 3362 	mov	dptr,#___str_5
       000FB3 75 F0 80         [24] 3363 	mov	b,#0x80
       000FB6 12 0B F3         [24] 3364 	lcall	_LCD_string_write
                                    3365 ;	ecen4330_lcd_v3.c:694: delay(200);
@@ -3522,7 +3522,7 @@
       00105B E4               [12] 3522 	clr	a
       00105C F0               [24] 3523 	movx	@dptr,a
                                    3524 ;	check.c:21: LCD_string_write("Enter byte to check\n");
-      00105D 90 1D 80         [24] 3525 	mov	dptr,#___str_6
+      00105D 90 1D 74         [24] 3525 	mov	dptr,#___str_6
       001060 75 F0 80         [24] 3526 	mov	b,#0x80
       001063 12 0B F3         [24] 3527 	lcall	_LCD_string_write
                                    3528 ;	check.c:22: checker = getByte();
@@ -3534,7 +3534,7 @@
       00106F 75 82 0A         [24] 3534 	mov	dpl,#0x0a
       001072 12 0B 85         [24] 3535 	lcall	_write
                                    3536 ;	check.c:24: LCD_string_write("In progress...\n");
-      001075 90 1D 95         [24] 3537 	mov	dptr,#___str_7
+      001075 90 1D 89         [24] 3537 	mov	dptr,#___str_7
       001078 75 F0 80         [24] 3538 	mov	b,#0x80
       00107B 12 0B F3         [24] 3539 	lcall	_LCD_string_write
                                    3540 ;	check.c:29: for (i = __START_RAM__; i < __END_RAM__; i++) {
@@ -3597,7 +3597,7 @@
       0010CD 75 82 0A         [24] 3597 	mov	dpl,#0x0a
       0010D0 12 0B 85         [24] 3598 	lcall	_write
                                    3599 ;	check.c:42: LCD_string_write("Memory check failed\n");
-      0010D3 90 1D A5         [24] 3600 	mov	dptr,#___str_8
+      0010D3 90 1D 99         [24] 3600 	mov	dptr,#___str_8
       0010D6 75 F0 80         [24] 3601 	mov	b,#0x80
       0010D9 12 0B F3         [24] 3602 	lcall	_LCD_string_write
                                    3603 ;	check.c:43: error = true;
@@ -3666,7 +3666,7 @@
       001130 75 82 0A         [24] 3666 	mov	dpl,#0x0a
       001133 12 0B 85         [24] 3667 	lcall	_write
                                    3668 ;	check.c:58: LCD_string_write("Memory check failed\n");
-      001136 90 1D A5         [24] 3669 	mov	dptr,#___str_8
+      001136 90 1D 99         [24] 3669 	mov	dptr,#___str_8
       001139 75 F0 80         [24] 3670 	mov	b,#0x80
       00113C 12 0B F3         [24] 3671 	lcall	_LCD_string_write
                                    3672 ;	check.c:59: error = true;
@@ -3697,12 +3697,12 @@
       00115F E0               [24] 3697 	movx	a,@dptr
       001160 60 09            [24] 3698 	jz	00108$
                                    3699 ;	check.c:69: LCD_string_write("Success!\n");
-      001162 90 1D BA         [24] 3700 	mov	dptr,#___str_9
+      001162 90 1D AE         [24] 3700 	mov	dptr,#___str_9
       001165 75 F0 80         [24] 3701 	mov	b,#0x80
       001168 12 0B F3         [24] 3702 	lcall	_LCD_string_write
       00116B                       3703 00108$:
                                    3704 ;	check.c:73: LCD_string_write("Press 1 for menu");
-      00116B 90 1D C4         [24] 3705 	mov	dptr,#___str_10
+      00116B 90 1D B8         [24] 3705 	mov	dptr,#___str_10
       00116E 75 F0 80         [24] 3706 	mov	b,#0x80
       001171 12 0B F3         [24] 3707 	lcall	_LCD_string_write
                                    3708 ;	check.c:75: do {
@@ -3740,7 +3740,7 @@
       00118E 75 82 02         [24] 3740 	mov	dpl,#0x02
       001191 12 01 38         [24] 3741 	lcall	_setTextSize
                                    3742 ;	check.c:97: LCD_string_write("Enter byte\n");
-      001194 90 1D D5         [24] 3743 	mov	dptr,#___str_11
+      001194 90 1D C9         [24] 3743 	mov	dptr,#___str_11
       001197 75 F0 80         [24] 3744 	mov	b,#0x80
       00119A 12 0B F3         [24] 3745 	lcall	_LCD_string_write
                                    3746 ;	check.c:98: val = getByte();
@@ -3751,7 +3751,7 @@
       0011A5 C0 07            [24] 3751 	push	ar7
       0011A7 12 0B 85         [24] 3752 	lcall	_write
                                    3753 ;	check.c:102: LCD_string_write("Enter address\n");
-      0011AA 90 1D E1         [24] 3754 	mov	dptr,#___str_12
+      0011AA 90 1D D5         [24] 3754 	mov	dptr,#___str_12
       0011AD 75 F0 80         [24] 3755 	mov	b,#0x80
       0011B0 12 0B F3         [24] 3756 	lcall	_LCD_string_write
                                    3757 ;	check.c:103: add = getAddress();
@@ -3764,7 +3764,7 @@
       0011BF C0 05            [24] 3764 	push	ar5
       0011C1 12 0B 85         [24] 3765 	lcall	_write
                                    3766 ;	check.c:105: LCD_string_write("In progress\n");
-      0011C4 90 1D F0         [24] 3767 	mov	dptr,#___str_13
+      0011C4 90 1D E4         [24] 3767 	mov	dptr,#___str_13
       0011C7 75 F0 80         [24] 3768 	mov	b,#0x80
       0011CA 12 0B F3         [24] 3769 	lcall	_LCD_string_write
       0011CD D0 05            [24] 3770 	pop	ar5
@@ -3795,18 +3795,18 @@
       0011E8 8D 82            [24] 3795 	mov	dpl,r5
       0011EA 12 0E 46         [24] 3796 	lcall	_asciiToHex
                                    3797 ;	check.c:121: LCD_string_write(" fetched!\nSuccess!\n");
-      0011ED 90 1D FD         [24] 3798 	mov	dptr,#___str_14
+      0011ED 90 1D F1         [24] 3798 	mov	dptr,#___str_14
       0011F0 75 F0 80         [24] 3799 	mov	b,#0x80
       0011F3 12 0B F3         [24] 3800 	lcall	_LCD_string_write
       0011F6 80 09            [24] 3801 	sjmp	00103$
       0011F8                       3802 00102$:
                                    3803 ;	check.c:123: LCD_string_write("Check failed\n");
-      0011F8 90 1E 11         [24] 3804 	mov	dptr,#___str_15
+      0011F8 90 1E 05         [24] 3804 	mov	dptr,#___str_15
       0011FB 75 F0 80         [24] 3805 	mov	b,#0x80
       0011FE 12 0B F3         [24] 3806 	lcall	_LCD_string_write
       001201                       3807 00103$:
                                    3808 ;	check.c:126: LCD_string_write("Press 1 for menu\n");
-      001201 90 1E 1F         [24] 3809 	mov	dptr,#___str_16
+      001201 90 1E 13         [24] 3809 	mov	dptr,#___str_16
       001204 75 F0 80         [24] 3810 	mov	b,#0x80
       001207 12 0B F3         [24] 3811 	lcall	_LCD_string_write
                                    3812 ;	check.c:128: do {
@@ -3846,7 +3846,7 @@
       001224 75 82 02         [24] 3846 	mov	dpl,#0x02
       001227 12 01 38         [24] 3847 	lcall	_setTextSize
                                    3848 ;	move.c:20: LCD_string_write("Enter start add.\n");
-      00122A 90 1E 31         [24] 3849 	mov	dptr,#___str_17
+      00122A 90 1E 25         [24] 3849 	mov	dptr,#___str_17
       00122D 75 F0 80         [24] 3850 	mov	b,#0x80
       001230 12 0B F3         [24] 3851 	lcall	_LCD_string_write
                                    3852 ;	move.c:21: startAdd = getAddress();
@@ -3859,7 +3859,7 @@
       00123F C0 06            [24] 3859 	push	ar6
       001241 12 0B 85         [24] 3860 	lcall	_write
                                    3861 ;	move.c:25: LCD_string_write("Enter size\n");
-      001244 90 1E 43         [24] 3862 	mov	dptr,#___str_18
+      001244 90 1E 37         [24] 3862 	mov	dptr,#___str_18
       001247 75 F0 80         [24] 3863 	mov	b,#0x80
       00124A 12 0B F3         [24] 3864 	lcall	_LCD_string_write
                                    3865 ;	move.c:26: size = getByte();
@@ -3870,7 +3870,7 @@
       001255 C0 05            [24] 3870 	push	ar5
       001257 12 0B 85         [24] 3871 	lcall	_write
                                    3872 ;	move.c:30: LCD_string_write("Enter target add.\n");
-      00125A 90 1E 4F         [24] 3873 	mov	dptr,#___str_19
+      00125A 90 1E 43         [24] 3873 	mov	dptr,#___str_19
       00125D 75 F0 80         [24] 3874 	mov	b,#0x80
       001260 12 0B F3         [24] 3875 	lcall	_LCD_string_write
                                    3876 ;	move.c:31: targetAdd = getAddress();
@@ -3883,7 +3883,7 @@
       00126F C0 03            [24] 3883 	push	ar3
       001271 12 0B 85         [24] 3884 	lcall	_write
                                    3885 ;	move.c:35: LCD_string_write("Move in progress...\n");
-      001274 90 1E 62         [24] 3886 	mov	dptr,#___str_20
+      001274 90 1E 56         [24] 3886 	mov	dptr,#___str_20
       001277 75 F0 80         [24] 3887 	mov	b,#0x80
       00127A 12 0B F3         [24] 3888 	lcall	_LCD_string_write
       00127D D0 03            [24] 3889 	pop	ar3
@@ -3952,11 +3952,11 @@
       0012CD 80 BC            [24] 3952 	sjmp	00106$
       0012CF                       3953 00101$:
                                    3954 ;	move.c:53: LCD_string_write("Done!\n");
-      0012CF 90 1E 77         [24] 3955 	mov	dptr,#___str_21
+      0012CF 90 1E 6B         [24] 3955 	mov	dptr,#___str_21
       0012D2 75 F0 80         [24] 3956 	mov	b,#0x80
       0012D5 12 0B F3         [24] 3957 	lcall	_LCD_string_write
                                    3958 ;	move.c:54: LCD_string_write("Press 1 for menu\n");
-      0012D8 90 1E 1F         [24] 3959 	mov	dptr,#___str_16
+      0012D8 90 1E 13         [24] 3959 	mov	dptr,#___str_16
       0012DB 75 F0 80         [24] 3960 	mov	b,#0x80
       0012DE 12 0B F3         [24] 3961 	lcall	_LCD_string_write
                                    3962 ;	move.c:56: do {
@@ -3983,7 +3983,7 @@
       0012EA                       3983 _editByte:
       0012EA AE 82            [24] 3984 	mov	r6,dpl
       0012EC AF 83            [24] 3985 	mov	r7,dph
-                                   3986 ;	edit.c:19: asciiToHex(HIGHBYTE(add));
+                                   3986 ;	edit.c:13: asciiToHex(HIGHBYTE(add));
       0012EE 8F 05            [24] 3987 	mov	ar5,r7
       0012F0 8D 04            [24] 3988 	mov	ar4,r5
       0012F2 8C 82            [24] 3989 	mov	dpl,r4
@@ -3993,51 +3993,51 @@
       0012FA 12 0E 46         [24] 3993 	lcall	_asciiToHex
       0012FD D0 04            [24] 3994 	pop	ar4
       0012FF D0 06            [24] 3995 	pop	ar6
-                                   3996 ;	edit.c:20: asciiToHex(LOWBYTE(add));
+                                   3996 ;	edit.c:14: asciiToHex(LOWBYTE(add));
       001301 8E 05            [24] 3997 	mov	ar5,r6
       001303 8D 82            [24] 3998 	mov	dpl,r5
       001305 C0 06            [24] 3999 	push	ar6
       001307 C0 05            [24] 4000 	push	ar5
       001309 C0 04            [24] 4001 	push	ar4
       00130B 12 0E 46         [24] 4002 	lcall	_asciiToHex
-                                   4003 ;	edit.c:21: LCD_string_write(": ");
-      00130E 90 1E 7E         [24] 4004 	mov	dptr,#___str_22
+                                   4003 ;	edit.c:15: LCD_string_write(": ");
+      00130E 90 1E 72         [24] 4004 	mov	dptr,#___str_22
       001311 75 F0 80         [24] 4005 	mov	b,#0x80
       001314 12 0B F3         [24] 4006 	lcall	_LCD_string_write
       001317 D0 04            [24] 4007 	pop	ar4
       001319 D0 05            [24] 4008 	pop	ar5
       00131B D0 06            [24] 4009 	pop	ar6
       00131D D0 07            [24] 4010 	pop	ar7
-                                   4011 ;	edit.c:24: IOM = 0;
+                                   4011 ;	edit.c:18: IOM = 0;
                                    4012 ;	assignBit
       00131F C2 B4            [12] 4013 	clr	_P3_4
-                                   4014 ;	edit.c:25: ramAddress = (uint16_t __xdata*)(add);
-                                   4015 ;	edit.c:26: val = *ramAddress;
+                                   4014 ;	edit.c:19: ramAddress = (uint16_t __xdata*)(add);
+                                   4015 ;	edit.c:20: val = *ramAddress;
       001321 8E 82            [24] 4016 	mov	dpl,r6
       001323 8F 83            [24] 4017 	mov	dph,r7
       001325 E0               [24] 4018 	movx	a,@dptr
       001326 FB               [12] 4019 	mov	r3,a
-                                   4020 ;	edit.c:27: IOM = 1;
+                                   4020 ;	edit.c:21: IOM = 1;
                                    4021 ;	assignBit
       001327 D2 B4            [12] 4022 	setb	_P3_4
-                                   4023 ;	edit.c:30: asciiToHex(val);
+                                   4023 ;	edit.c:24: asciiToHex(val);
       001329 8B 82            [24] 4024 	mov	dpl,r3
       00132B C0 07            [24] 4025 	push	ar7
       00132D C0 06            [24] 4026 	push	ar6
       00132F C0 05            [24] 4027 	push	ar5
       001331 C0 04            [24] 4028 	push	ar4
       001333 12 0E 46         [24] 4029 	lcall	_asciiToHex
-                                   4030 ;	edit.c:33: write('\n');
+                                   4030 ;	edit.c:27: write('\n');
       001336 75 82 0A         [24] 4031 	mov	dpl,#0x0a
       001339 12 0B 85         [24] 4032 	lcall	_write
-                                   4033 ;	edit.c:34: LCD_string_write("Enter new byte:\n");
-      00133C 90 1E 81         [24] 4034 	mov	dptr,#___str_23
+                                   4033 ;	edit.c:28: LCD_string_write("Enter new byte:\n");
+      00133C 90 1E 75         [24] 4034 	mov	dptr,#___str_23
       00133F 75 F0 80         [24] 4035 	mov	b,#0x80
       001342 12 0B F3         [24] 4036 	lcall	_LCD_string_write
-                                   4037 ;	edit.c:35: new = getByte();
+                                   4037 ;	edit.c:29: new = getByte();
       001345 12 10 0A         [24] 4038 	lcall	_getByte
       001348 AB 82            [24] 4039 	mov	r3,dpl
-                                   4040 ;	edit.c:36: write('\n');
+                                   4040 ;	edit.c:30: write('\n');
       00134A 75 82 0A         [24] 4041 	mov	dpl,#0x0a
       00134D C0 03            [24] 4042 	push	ar3
       00134F 12 0B 85         [24] 4043 	lcall	_write
@@ -4046,10 +4046,10 @@
       001356 D0 05            [24] 4046 	pop	ar5
       001358 D0 06            [24] 4047 	pop	ar6
       00135A D0 07            [24] 4048 	pop	ar7
-                                   4049 ;	edit.c:39: IOM = 0;
+                                   4049 ;	edit.c:33: IOM = 0;
                                    4050 ;	assignBit
       00135C C2 B4            [12] 4051 	clr	_P3_4
-                                   4052 ;	edit.c:40: *ramAddress = new;
+                                   4052 ;	edit.c:34: *ramAddress = new;
       00135E 7A 00            [12] 4053 	mov	r2,#0x00
       001360 8E 82            [24] 4054 	mov	dpl,r6
       001362 8F 83            [24] 4055 	mov	dph,r7
@@ -4058,32 +4058,32 @@
       001366 EA               [12] 4058 	mov	a,r2
       001367 A3               [24] 4059 	inc	dptr
       001368 F0               [24] 4060 	movx	@dptr,a
-                                   4061 ;	edit.c:41: val = *ramAddress;
-                                   4062 ;	edit.c:42: IOM = 1;
+                                   4061 ;	edit.c:35: val = *ramAddress;
+                                   4062 ;	edit.c:36: IOM = 1;
                                    4063 ;	assignBit
       001369 D2 B4            [12] 4064 	setb	_P3_4
-                                   4065 ;	edit.c:45: asciiToHex(HIGHBYTE(add));
+                                   4065 ;	edit.c:39: asciiToHex(HIGHBYTE(add));
       00136B 8C 82            [24] 4066 	mov	dpl,r4
       00136D C0 05            [24] 4067 	push	ar5
       00136F C0 03            [24] 4068 	push	ar3
       001371 12 0E 46         [24] 4069 	lcall	_asciiToHex
       001374 D0 03            [24] 4070 	pop	ar3
       001376 D0 05            [24] 4071 	pop	ar5
-                                   4072 ;	edit.c:46: asciiToHex(LOWBYTE(add));
+                                   4072 ;	edit.c:40: asciiToHex(LOWBYTE(add));
       001378 8D 82            [24] 4073 	mov	dpl,r5
       00137A C0 03            [24] 4074 	push	ar3
       00137C 12 0E 46         [24] 4075 	lcall	_asciiToHex
-                                   4076 ;	edit.c:47: LCD_string_write(": ");
-      00137F 90 1E 7E         [24] 4077 	mov	dptr,#___str_22
+                                   4076 ;	edit.c:41: LCD_string_write(": ");
+      00137F 90 1E 72         [24] 4077 	mov	dptr,#___str_22
       001382 75 F0 80         [24] 4078 	mov	b,#0x80
       001385 12 0B F3         [24] 4079 	lcall	_LCD_string_write
       001388 D0 03            [24] 4080 	pop	ar3
-                                   4081 ;	edit.c:48: asciiToHex(val);
+                                   4081 ;	edit.c:42: asciiToHex(val);
       00138A 8B 82            [24] 4082 	mov	dpl,r3
       00138C 12 0E 46         [24] 4083 	lcall	_asciiToHex
-                                   4084 ;	edit.c:49: write('\n');
+                                   4084 ;	edit.c:43: write('\n');
       00138F 75 82 0A         [24] 4085 	mov	dpl,#0x0a
-                                   4086 ;	edit.c:51: }
+                                   4086 ;	edit.c:45: }
       001392 02 0B 85         [24] 4087 	ljmp	_write
                                    4088 ;------------------------------------------------------------
                                    4089 ;Allocation info for local variables in function 'edit'
@@ -4091,39 +4091,39 @@
                                    4091 ;input                     Allocated with name '_edit_input_65537_250'
                                    4092 ;add                       Allocated with name '_edit_add_65537_250'
                                    4093 ;------------------------------------------------------------
-                                   4094 ;	edit.c:57: void edit() {
+                                   4094 ;	edit.c:51: void edit() {
                                    4095 ;	-----------------------------------------
                                    4096 ;	 function edit
                                    4097 ;	-----------------------------------------
       001395                       4098 _edit:
-                                   4099 ;	edit.c:59: fillScreen(GRAY);
+                                   4099 ;	edit.c:53: fillScreen(GRAY);
       001395 90 D6 BA         [24] 4100 	mov	dptr,#0xd6ba
       001398 12 08 13         [24] 4101 	lcall	_fillScreen
-                                   4102 ;	edit.c:60: setCursor(0, 0);
+                                   4102 ;	edit.c:54: setCursor(0, 0);
       00139B E4               [12] 4103 	clr	a
       00139C F5 08            [12] 4104 	mov	_setCursor_PARM_2,a
       00139E F5 09            [12] 4105 	mov	(_setCursor_PARM_2 + 1),a
       0013A0 90 00 00         [24] 4106 	mov	dptr,#0x0000
       0013A3 12 01 1E         [24] 4107 	lcall	_setCursor
-                                   4108 ;	edit.c:61: setTextSize(2);
+                                   4108 ;	edit.c:55: setTextSize(2);
       0013A6 75 82 02         [24] 4109 	mov	dpl,#0x02
       0013A9 12 01 38         [24] 4110 	lcall	_setTextSize
-                                   4111 ;	edit.c:71: LCD_string_write("Enter address:\n");
-      0013AC 90 1E 92         [24] 4112 	mov	dptr,#___str_24
+                                   4111 ;	edit.c:62: LCD_string_write("Enter address:\n");
+      0013AC 90 1E 86         [24] 4112 	mov	dptr,#___str_24
       0013AF 75 F0 80         [24] 4113 	mov	b,#0x80
       0013B2 12 0B F3         [24] 4114 	lcall	_LCD_string_write
-                                   4115 ;	edit.c:72: add = getAddress();
+                                   4115 ;	edit.c:63: add = getAddress();
       0013B5 12 0F BF         [24] 4116 	lcall	_getAddress
       0013B8 AE 82            [24] 4117 	mov	r6,dpl
       0013BA AF 83            [24] 4118 	mov	r7,dph
-                                   4119 ;	edit.c:73: write('\n');
+                                   4119 ;	edit.c:64: write('\n');
       0013BC 75 82 0A         [24] 4120 	mov	dpl,#0x0a
       0013BF C0 07            [24] 4121 	push	ar7
       0013C1 C0 06            [24] 4122 	push	ar6
       0013C3 12 0B 85         [24] 4123 	lcall	_write
       0013C6 D0 06            [24] 4124 	pop	ar6
       0013C8 D0 07            [24] 4125 	pop	ar7
-                                   4126 ;	edit.c:75: editByte(add);
+                                   4126 ;	edit.c:67: editByte(add);
       0013CA 8E 82            [24] 4127 	mov	dpl,r6
       0013CC 8F 83            [24] 4128 	mov	dph,r7
       0013CE C0 07            [24] 4129 	push	ar7
@@ -4131,23 +4131,23 @@
       0013D2 12 12 EA         [24] 4131 	lcall	_editByte
       0013D5 D0 06            [24] 4132 	pop	ar6
       0013D7 D0 07            [24] 4133 	pop	ar7
-                                   4134 ;	edit.c:114: do {
+                                   4134 ;	edit.c:70: do {
       0013D9                       4135 00110$:
-                                   4136 ;	edit.c:115: LCD_string_write("Press 1 for menu\n");
-      0013D9 90 1E 1F         [24] 4137 	mov	dptr,#___str_16
+                                   4136 ;	edit.c:71: LCD_string_write("Press 1 for menu\n");
+      0013D9 90 1E 13         [24] 4137 	mov	dptr,#___str_16
       0013DC 75 F0 80         [24] 4138 	mov	b,#0x80
       0013DF C0 07            [24] 4139 	push	ar7
       0013E1 C0 06            [24] 4140 	push	ar6
       0013E3 12 0B F3         [24] 4141 	lcall	_LCD_string_write
-                                   4142 ;	edit.c:116: LCD_string_write("Press 2 to edit again\n");
-      0013E6 90 1E A2         [24] 4143 	mov	dptr,#___str_25
+                                   4142 ;	edit.c:72: LCD_string_write("Press 2 to edit again\n");
+      0013E6 90 1E 96         [24] 4143 	mov	dptr,#___str_25
       0013E9 75 F0 80         [24] 4144 	mov	b,#0x80
       0013EC 12 0B F3         [24] 4145 	lcall	_LCD_string_write
-                                   4146 ;	edit.c:117: LCD_string_write("Press 3 to edit next address\n");
-      0013EF 90 1E B9         [24] 4147 	mov	dptr,#___str_26
+                                   4146 ;	edit.c:73: LCD_string_write("Press 3 to edit next address\n");
+      0013EF 90 1E AD         [24] 4147 	mov	dptr,#___str_26
       0013F2 75 F0 80         [24] 4148 	mov	b,#0x80
       0013F5 12 0B F3         [24] 4149 	lcall	_LCD_string_write
-                                   4150 ;	edit.c:118: input = keyDetect();
+                                   4150 ;	edit.c:74: input = keyDetect();
       0013F8 12 0C 83         [24] 4151 	lcall	_keyDetect
       0013FB AD 82            [24] 4152 	mov	r5,dpl
       0013FD D0 06            [24] 4153 	pop	ar6
@@ -4155,2156 +4155,2150 @@
       001401 90 00 03         [24] 4155 	mov	dptr,#_edit_input_65537_250
       001404 ED               [12] 4156 	mov	a,r5
       001405 F0               [24] 4157 	movx	@dptr,a
-                                   4158 ;	edit.c:120: if (input == '1') {
+                                   4158 ;	edit.c:76: if (input == '1') {
       001406 BD 31 01         [24] 4159 	cjne	r5,#0x31,00136$
       001409 22               [24] 4160 	ret
       00140A                       4161 00136$:
-                                   4162 ;	edit.c:122: } else if (input =='2') {
-      00140A BD 32 2D         [24] 4163 	cjne	r5,#0x32,00104$
-                                   4164 ;	edit.c:123: editByte(add);
+                                   4162 ;	edit.c:78: } else if (input =='2') {
+      00140A BD 32 27         [24] 4163 	cjne	r5,#0x32,00104$
+                                   4164 ;	edit.c:79: editByte(add);
       00140D 8E 82            [24] 4165 	mov	dpl,r6
       00140F 8F 83            [24] 4166 	mov	dph,r7
       001411 C0 07            [24] 4167 	push	ar7
       001413 C0 06            [24] 4168 	push	ar6
       001415 12 12 EA         [24] 4169 	lcall	_editByte
-                                   4170 ;	edit.c:125: fillScreen(GRAY);
+                                   4170 ;	edit.c:81: fillScreen(GRAY);
       001418 90 D6 BA         [24] 4171 	mov	dptr,#0xd6ba
       00141B 12 08 13         [24] 4172 	lcall	_fillScreen
-                                   4173 ;	edit.c:126: setCursor(0, 0);
+                                   4173 ;	edit.c:82: setCursor(0, 0);
       00141E E4               [12] 4174 	clr	a
       00141F F5 08            [12] 4175 	mov	_setCursor_PARM_2,a
       001421 F5 09            [12] 4176 	mov	(_setCursor_PARM_2 + 1),a
       001423 90 00 00         [24] 4177 	mov	dptr,#0x0000
       001426 12 01 1E         [24] 4178 	lcall	_setCursor
-                                   4179 ;	edit.c:128: setTextSize(2);
-      001429 75 82 02         [24] 4180 	mov	dpl,#0x02
-      00142C 12 01 38         [24] 4181 	lcall	_setTextSize
-      00142F D0 06            [24] 4182 	pop	ar6
-      001431 D0 07            [24] 4183 	pop	ar7
-                                   4184 ;	edit.c:129: input = 0;
-      001433 90 00 03         [24] 4185 	mov	dptr,#_edit_input_65537_250
-      001436 E4               [12] 4186 	clr	a
-      001437 F0               [24] 4187 	movx	@dptr,a
-      001438 80 33            [24] 4188 	sjmp	00111$
-      00143A                       4189 00104$:
-                                   4190 ;	edit.c:130: } else if (input == '3') {
-      00143A BD 33 30         [24] 4191 	cjne	r5,#0x33,00111$
-                                   4192 ;	edit.c:131: editByte(++add);
-      00143D 0E               [12] 4193 	inc	r6
-      00143E BE 00 01         [24] 4194 	cjne	r6,#0x00,00141$
-      001441 0F               [12] 4195 	inc	r7
-      001442                       4196 00141$:
-      001442 8E 82            [24] 4197 	mov	dpl,r6
-      001444 8F 83            [24] 4198 	mov	dph,r7
-      001446 C0 07            [24] 4199 	push	ar7
-      001448 C0 06            [24] 4200 	push	ar6
-      00144A 12 12 EA         [24] 4201 	lcall	_editByte
-                                   4202 ;	edit.c:133: fillScreen(GRAY);
-      00144D 90 D6 BA         [24] 4203 	mov	dptr,#0xd6ba
-      001450 12 08 13         [24] 4204 	lcall	_fillScreen
-                                   4205 ;	edit.c:134: setCursor(0, 0);
-      001453 E4               [12] 4206 	clr	a
-      001454 F5 08            [12] 4207 	mov	_setCursor_PARM_2,a
-      001456 F5 09            [12] 4208 	mov	(_setCursor_PARM_2 + 1),a
-      001458 90 00 00         [24] 4209 	mov	dptr,#0x0000
-      00145B 12 01 1E         [24] 4210 	lcall	_setCursor
-                                   4211 ;	edit.c:135: setTextSize(2);
-      00145E 75 82 02         [24] 4212 	mov	dpl,#0x02
-      001461 12 01 38         [24] 4213 	lcall	_setTextSize
-      001464 D0 06            [24] 4214 	pop	ar6
-      001466 D0 07            [24] 4215 	pop	ar7
-                                   4216 ;	edit.c:137: input = 0;
-      001468 90 00 03         [24] 4217 	mov	dptr,#_edit_input_65537_250
-      00146B E4               [12] 4218 	clr	a
-      00146C F0               [24] 4219 	movx	@dptr,a
-      00146D                       4220 00111$:
-                                   4221 ;	edit.c:139: } while (input != '1' && input != '2');
-      00146D 90 00 03         [24] 4222 	mov	dptr,#_edit_input_65537_250
-      001470 E0               [24] 4223 	movx	a,@dptr
-      001471 FD               [12] 4224 	mov	r5,a
-      001472 BD 31 01         [24] 4225 	cjne	r5,#0x31,00142$
-      001475 22               [24] 4226 	ret
-      001476                       4227 00142$:
-      001476 BD 32 01         [24] 4228 	cjne	r5,#0x32,00143$
-      001479 22               [24] 4229 	ret
-      00147A                       4230 00143$:
-      00147A 02 13 D9         [24] 4231 	ljmp	00110$
-                                   4232 ;	edit.c:141: }
-      00147D 22               [24] 4233 	ret
-                                   4234 ;------------------------------------------------------------
-                                   4235 ;Allocation info for local variables in function 'count'
+      001429 D0 06            [24] 4179 	pop	ar6
+      00142B D0 07            [24] 4180 	pop	ar7
+                                   4181 ;	edit.c:84: input = 0;
+      00142D 90 00 03         [24] 4182 	mov	dptr,#_edit_input_65537_250
+      001430 E4               [12] 4183 	clr	a
+      001431 F0               [24] 4184 	movx	@dptr,a
+      001432 80 2D            [24] 4185 	sjmp	00111$
+      001434                       4186 00104$:
+                                   4187 ;	edit.c:85: } else if (input == '3') {
+      001434 BD 33 2A         [24] 4188 	cjne	r5,#0x33,00111$
+                                   4189 ;	edit.c:86: editByte(++add);
+      001437 0E               [12] 4190 	inc	r6
+      001438 BE 00 01         [24] 4191 	cjne	r6,#0x00,00141$
+      00143B 0F               [12] 4192 	inc	r7
+      00143C                       4193 00141$:
+      00143C 8E 82            [24] 4194 	mov	dpl,r6
+      00143E 8F 83            [24] 4195 	mov	dph,r7
+      001440 C0 07            [24] 4196 	push	ar7
+      001442 C0 06            [24] 4197 	push	ar6
+      001444 12 12 EA         [24] 4198 	lcall	_editByte
+                                   4199 ;	edit.c:88: fillScreen(GRAY);
+      001447 90 D6 BA         [24] 4200 	mov	dptr,#0xd6ba
+      00144A 12 08 13         [24] 4201 	lcall	_fillScreen
+                                   4202 ;	edit.c:89: setCursor(0, 0);
+      00144D E4               [12] 4203 	clr	a
+      00144E F5 08            [12] 4204 	mov	_setCursor_PARM_2,a
+      001450 F5 09            [12] 4205 	mov	(_setCursor_PARM_2 + 1),a
+      001452 90 00 00         [24] 4206 	mov	dptr,#0x0000
+      001455 12 01 1E         [24] 4207 	lcall	_setCursor
+      001458 D0 06            [24] 4208 	pop	ar6
+      00145A D0 07            [24] 4209 	pop	ar7
+                                   4210 ;	edit.c:91: input = 0;
+      00145C 90 00 03         [24] 4211 	mov	dptr,#_edit_input_65537_250
+      00145F E4               [12] 4212 	clr	a
+      001460 F0               [24] 4213 	movx	@dptr,a
+      001461                       4214 00111$:
+                                   4215 ;	edit.c:93: } while (input != '1' && input != '2');
+      001461 90 00 03         [24] 4216 	mov	dptr,#_edit_input_65537_250
+      001464 E0               [24] 4217 	movx	a,@dptr
+      001465 FD               [12] 4218 	mov	r5,a
+      001466 BD 31 01         [24] 4219 	cjne	r5,#0x31,00142$
+      001469 22               [24] 4220 	ret
+      00146A                       4221 00142$:
+      00146A BD 32 01         [24] 4222 	cjne	r5,#0x32,00143$
+      00146D 22               [24] 4223 	ret
+      00146E                       4224 00143$:
+      00146E 02 13 D9         [24] 4225 	ljmp	00110$
+                                   4226 ;	edit.c:95: }
+      001471 22               [24] 4227 	ret
+                                   4228 ;------------------------------------------------------------
+                                   4229 ;Allocation info for local variables in function 'count'
+                                   4230 ;------------------------------------------------------------
+                                   4231 ;add                       Allocated with name '_count_add_65537_256'
+                                   4232 ;i                         Allocated with name '_count_i_65537_256'
+                                   4233 ;size                      Allocated with name '_count_size_65537_256'
+                                   4234 ;key                       Allocated with name '_count_key_65537_256'
+                                   4235 ;count                     Allocated with name '_count_count_65537_256'
                                    4236 ;------------------------------------------------------------
-                                   4237 ;add                       Allocated with name '_count_add_65537_256'
-                                   4238 ;i                         Allocated with name '_count_i_65537_256'
-                                   4239 ;size                      Allocated with name '_count_size_65537_256'
-                                   4240 ;key                       Allocated with name '_count_key_65537_256'
-                                   4241 ;count                     Allocated with name '_count_count_65537_256'
-                                   4242 ;------------------------------------------------------------
-                                   4243 ;	count.c:5: void count() {
-                                   4244 ;	-----------------------------------------
-                                   4245 ;	 function count
-                                   4246 ;	-----------------------------------------
-      00147E                       4247 _count:
-                                   4248 ;	count.c:7: fillScreen(GRAY);
-      00147E 90 D6 BA         [24] 4249 	mov	dptr,#0xd6ba
-      001481 12 08 13         [24] 4250 	lcall	_fillScreen
-                                   4251 ;	count.c:8: setCursor(0, 0);
-      001484 E4               [12] 4252 	clr	a
-      001485 F5 08            [12] 4253 	mov	_setCursor_PARM_2,a
-      001487 F5 09            [12] 4254 	mov	(_setCursor_PARM_2 + 1),a
-      001489 90 00 00         [24] 4255 	mov	dptr,#0x0000
-      00148C 12 01 1E         [24] 4256 	lcall	_setCursor
-                                   4257 ;	count.c:9: setTextSize(2);
-      00148F 75 82 02         [24] 4258 	mov	dpl,#0x02
-      001492 12 01 38         [24] 4259 	lcall	_setTextSize
-                                   4260 ;	count.c:19: LCD_string_write("Enter address:\n");
-      001495 90 1E 92         [24] 4261 	mov	dptr,#___str_24
-      001498 75 F0 80         [24] 4262 	mov	b,#0x80
-      00149B 12 0B F3         [24] 4263 	lcall	_LCD_string_write
-                                   4264 ;	count.c:20: add = getAddress();
-      00149E 12 0F BF         [24] 4265 	lcall	_getAddress
-                                   4266 ;	count.c:21: write('\n');
-      0014A1 75 82 0A         [24] 4267 	mov	dpl,#0x0a
-      0014A4 12 0B 85         [24] 4268 	lcall	_write
-                                   4269 ;	count.c:24: LCD_string_write("Enter block size:\n");
-      0014A7 90 1E D7         [24] 4270 	mov	dptr,#___str_27
-      0014AA 75 F0 80         [24] 4271 	mov	b,#0x80
-      0014AD 12 0B F3         [24] 4272 	lcall	_LCD_string_write
-                                   4273 ;	count.c:25: size = getByte();
-      0014B0 12 10 0A         [24] 4274 	lcall	_getByte
-      0014B3 AF 82            [24] 4275 	mov	r7,dpl
-                                   4276 ;	count.c:26: write('\n');
-      0014B5 75 82 0A         [24] 4277 	mov	dpl,#0x0a
-      0014B8 C0 07            [24] 4278 	push	ar7
-      0014BA 12 0B 85         [24] 4279 	lcall	_write
-                                   4280 ;	count.c:29: LCD_string_write("Enter byte to count:\n");
-      0014BD 90 1E EA         [24] 4281 	mov	dptr,#___str_28
-      0014C0 75 F0 80         [24] 4282 	mov	b,#0x80
-      0014C3 12 0B F3         [24] 4283 	lcall	_LCD_string_write
-                                   4284 ;	count.c:30: key = getByte();
-      0014C6 12 10 0A         [24] 4285 	lcall	_getByte
-      0014C9 D0 07            [24] 4286 	pop	ar7
-                                   4287 ;	count.c:33: for (i = 0; i < size; i++) {
-      0014CB 7D 00            [12] 4288 	mov	r5,#0x00
-      0014CD 7E 00            [12] 4289 	mov	r6,#0x00
-      0014CF                       4290 00103$:
-      0014CF 8F 03            [24] 4291 	mov	ar3,r7
-      0014D1 7C 00            [12] 4292 	mov	r4,#0x00
-      0014D3 C3               [12] 4293 	clr	c
-      0014D4 ED               [12] 4294 	mov	a,r5
-      0014D5 9B               [12] 4295 	subb	a,r3
-      0014D6 EE               [12] 4296 	mov	a,r6
-      0014D7 9C               [12] 4297 	subb	a,r4
-      0014D8 50 07            [24] 4298 	jnc	00105$
-      0014DA 0D               [12] 4299 	inc	r5
-      0014DB BD 00 F1         [24] 4300 	cjne	r5,#0x00,00103$
-      0014DE 0E               [12] 4301 	inc	r6
-      0014DF 80 EE            [24] 4302 	sjmp	00103$
-      0014E1                       4303 00105$:
-                                   4304 ;	count.c:41: }
-      0014E1 22               [24] 4305 	ret
-                                   4306 ;------------------------------------------------------------
-                                   4307 ;Allocation info for local variables in function 'readTemp'
-                                   4308 ;------------------------------------------------------------
-                                   4309 ;val                       Allocated with name '_readTemp_val_65537_260'
-                                   4310 ;------------------------------------------------------------
-                                   4311 ;	analog.c:6: uint8_t readTemp() {
-                                   4312 ;	-----------------------------------------
-                                   4313 ;	 function readTemp
-                                   4314 ;	-----------------------------------------
-      0014E2                       4315 _readTemp:
-                                   4316 ;	analog.c:7: IOM = 1;
-                                   4317 ;	assignBit
-      0014E2 D2 B4            [12] 4318 	setb	_P3_4
-                                   4319 ;	analog.c:9: val = *temp_address;
-      0014E4 85 27 82         [24] 4320 	mov	dpl,_temp_address
-      0014E7 85 28 83         [24] 4321 	mov	dph,(_temp_address + 1)
-      0014EA E0               [24] 4322 	movx	a,@dptr
-      0014EB FF               [12] 4323 	mov	r7,a
-                                   4324 ;	analog.c:10: IOM = 0;
-                                   4325 ;	assignBit
-      0014EC C2 B4            [12] 4326 	clr	_P3_4
-                                   4327 ;	analog.c:11: return val;
-      0014EE 8F 82            [24] 4328 	mov	dpl,r7
-                                   4329 ;	analog.c:12: }
-      0014F0 22               [24] 4330 	ret
-                                   4331 ;------------------------------------------------------------
-                                   4332 ;Allocation info for local variables in function 'readLight'
-                                   4333 ;------------------------------------------------------------
-                                   4334 ;val                       Allocated with name '_readLight_val_65537_262'
-                                   4335 ;------------------------------------------------------------
-                                   4336 ;	analog.c:19: uint8_t readLight() {
-                                   4337 ;	-----------------------------------------
-                                   4338 ;	 function readLight
-                                   4339 ;	-----------------------------------------
-      0014F1                       4340 _readLight:
-                                   4341 ;	analog.c:20: IOM = 1;
-                                   4342 ;	assignBit
-      0014F1 D2 B4            [12] 4343 	setb	_P3_4
-                                   4344 ;	analog.c:22: val = *light_address;
-      0014F3 85 29 82         [24] 4345 	mov	dpl,_light_address
-      0014F6 85 2A 83         [24] 4346 	mov	dph,(_light_address + 1)
-      0014F9 E0               [24] 4347 	movx	a,@dptr
-      0014FA FF               [12] 4348 	mov	r7,a
-                                   4349 ;	analog.c:23: IOM = 0;
-                                   4350 ;	assignBit
-      0014FB C2 B4            [12] 4351 	clr	_P3_4
-                                   4352 ;	analog.c:24: return val;
-      0014FD 8F 82            [24] 4353 	mov	dpl,r7
-                                   4354 ;	analog.c:25: }
-      0014FF 22               [24] 4355 	ret
-                                   4356 ;------------------------------------------------------------
-                                   4357 ;Allocation info for local variables in function 'displayTemp'
-                                   4358 ;------------------------------------------------------------
-                                   4359 ;t                         Allocated to registers r7 
-                                   4360 ;------------------------------------------------------------
-                                   4361 ;	analog.c:32: void displayTemp(uint8_t t) {
-                                   4362 ;	-----------------------------------------
-                                   4363 ;	 function displayTemp
-                                   4364 ;	-----------------------------------------
-      001500                       4365 _displayTemp:
-      001500 AF 82            [24] 4366 	mov	r7,dpl
-                                   4367 ;	analog.c:34: fillScreen(GRAY);
-      001502 90 D6 BA         [24] 4368 	mov	dptr,#0xd6ba
-      001505 C0 07            [24] 4369 	push	ar7
-      001507 12 08 13         [24] 4370 	lcall	_fillScreen
-                                   4371 ;	analog.c:35: setCursor(0, 0);
-      00150A E4               [12] 4372 	clr	a
-      00150B F5 08            [12] 4373 	mov	_setCursor_PARM_2,a
-      00150D F5 09            [12] 4374 	mov	(_setCursor_PARM_2 + 1),a
-      00150F 90 00 00         [24] 4375 	mov	dptr,#0x0000
-      001512 12 01 1E         [24] 4376 	lcall	_setCursor
-                                   4377 ;	analog.c:36: setTextSize(2);
-      001515 75 82 02         [24] 4378 	mov	dpl,#0x02
-      001518 12 01 38         [24] 4379 	lcall	_setTextSize
-                                   4380 ;	analog.c:38: LCD_string_write("Temperature: ");
-      00151B 90 1F 00         [24] 4381 	mov	dptr,#___str_29
-      00151E 75 F0 80         [24] 4382 	mov	b,#0x80
-      001521 12 0B F3         [24] 4383 	lcall	_LCD_string_write
-      001524 D0 07            [24] 4384 	pop	ar7
-                                   4385 ;	analog.c:40: asciiToHex(t);
-      001526 8F 82            [24] 4386 	mov	dpl,r7
-      001528 12 0E 46         [24] 4387 	lcall	_asciiToHex
-                                   4388 ;	analog.c:42: write('\n');
-      00152B 75 82 0A         [24] 4389 	mov	dpl,#0x0a
-      00152E 12 0B 85         [24] 4390 	lcall	_write
-                                   4391 ;	analog.c:43: LCD_string_write("Press 0 for menu\n");
-      001531 90 1F 0E         [24] 4392 	mov	dptr,#___str_30
-      001534 75 F0 80         [24] 4393 	mov	b,#0x80
-                                   4394 ;	analog.c:44: }
-      001537 02 0B F3         [24] 4395 	ljmp	_LCD_string_write
-                                   4396 ;------------------------------------------------------------
-                                   4397 ;Allocation info for local variables in function 'displayLight'
-                                   4398 ;------------------------------------------------------------
-                                   4399 ;l                         Allocated to registers r7 
-                                   4400 ;------------------------------------------------------------
-                                   4401 ;	analog.c:51: void displayLight(uint8_t l) {
-                                   4402 ;	-----------------------------------------
-                                   4403 ;	 function displayLight
-                                   4404 ;	-----------------------------------------
-      00153A                       4405 _displayLight:
-      00153A AF 82            [24] 4406 	mov	r7,dpl
-                                   4407 ;	analog.c:53: fillScreen(GRAY);
-      00153C 90 D6 BA         [24] 4408 	mov	dptr,#0xd6ba
-      00153F C0 07            [24] 4409 	push	ar7
-      001541 12 08 13         [24] 4410 	lcall	_fillScreen
-                                   4411 ;	analog.c:54: setCursor(0, 0);
-      001544 E4               [12] 4412 	clr	a
-      001545 F5 08            [12] 4413 	mov	_setCursor_PARM_2,a
-      001547 F5 09            [12] 4414 	mov	(_setCursor_PARM_2 + 1),a
-      001549 90 00 00         [24] 4415 	mov	dptr,#0x0000
-      00154C 12 01 1E         [24] 4416 	lcall	_setCursor
-                                   4417 ;	analog.c:55: setTextSize(2);
-      00154F 75 82 02         [24] 4418 	mov	dpl,#0x02
-      001552 12 01 38         [24] 4419 	lcall	_setTextSize
-                                   4420 ;	analog.c:57: LCD_string_write("Light level: ");
-      001555 90 1F 20         [24] 4421 	mov	dptr,#___str_31
-      001558 75 F0 80         [24] 4422 	mov	b,#0x80
-      00155B 12 0B F3         [24] 4423 	lcall	_LCD_string_write
-      00155E D0 07            [24] 4424 	pop	ar7
-                                   4425 ;	analog.c:59: asciiToHex(l);
-      001560 8F 82            [24] 4426 	mov	dpl,r7
-      001562 12 0E 46         [24] 4427 	lcall	_asciiToHex
-                                   4428 ;	analog.c:61: write('\n');
-      001565 75 82 0A         [24] 4429 	mov	dpl,#0x0a
-      001568 12 0B 85         [24] 4430 	lcall	_write
-                                   4431 ;	analog.c:62: LCD_string_write("Press 0 for menu\n");
-      00156B 90 1F 0E         [24] 4432 	mov	dptr,#___str_30
-      00156E 75 F0 80         [24] 4433 	mov	b,#0x80
-                                   4434 ;	analog.c:63: }
-      001571 02 0B F3         [24] 4435 	ljmp	_LCD_string_write
-                                   4436 ;------------------------------------------------------------
-                                   4437 ;Allocation info for local variables in function 'temperature'
-                                   4438 ;------------------------------------------------------------
-                                   4439 ;temp                      Allocated with name '_temperature_temp_65537_268'
-                                   4440 ;input                     Allocated with name '_temperature_input_65537_268'
-                                   4441 ;------------------------------------------------------------
-                                   4442 ;	analog.c:70: void temperature() {
-                                   4443 ;	-----------------------------------------
-                                   4444 ;	 function temperature
-                                   4445 ;	-----------------------------------------
-      001574                       4446 _temperature:
-                                   4447 ;	analog.c:72: fillScreen(GRAY);
-      001574 90 D6 BA         [24] 4448 	mov	dptr,#0xd6ba
-      001577 12 08 13         [24] 4449 	lcall	_fillScreen
-                                   4450 ;	analog.c:73: setCursor(0, 0);
-      00157A E4               [12] 4451 	clr	a
-      00157B F5 08            [12] 4452 	mov	_setCursor_PARM_2,a
-      00157D F5 09            [12] 4453 	mov	(_setCursor_PARM_2 + 1),a
-      00157F 90 00 00         [24] 4454 	mov	dptr,#0x0000
-      001582 12 01 1E         [24] 4455 	lcall	_setCursor
-                                   4456 ;	analog.c:74: setTextSize(2);
-      001585 75 82 02         [24] 4457 	mov	dpl,#0x02
-      001588 12 01 38         [24] 4458 	lcall	_setTextSize
-                                   4459 ;	analog.c:76: LCD_string_write("Temperature: ");
-      00158B 90 1F 00         [24] 4460 	mov	dptr,#___str_29
-      00158E 75 F0 80         [24] 4461 	mov	b,#0x80
-      001591 12 0B F3         [24] 4462 	lcall	_LCD_string_write
-                                   4463 ;	analog.c:82: temp = readTemp();
-      001594 12 14 E2         [24] 4464 	lcall	_readTemp
-                                   4465 ;	analog.c:85: asciiToHex(temp);
-      001597 12 0E 46         [24] 4466 	lcall	_asciiToHex
-                                   4467 ;	analog.c:88: write('\n');
-      00159A 75 82 0A         [24] 4468 	mov	dpl,#0x0a
-      00159D 12 0B 85         [24] 4469 	lcall	_write
-                                   4470 ;	analog.c:89: LCD_string_write("Press 0 for menu\n");
-      0015A0 90 1F 0E         [24] 4471 	mov	dptr,#___str_30
-      0015A3 75 F0 80         [24] 4472 	mov	b,#0x80
-      0015A6 12 0B F3         [24] 4473 	lcall	_LCD_string_write
-                                   4474 ;	analog.c:93: while (1) {
-      0015A9                       4475 00104$:
-                                   4476 ;	analog.c:94: input = keyDetect();
-      0015A9 12 0C 83         [24] 4477 	lcall	_keyDetect
-      0015AC AF 82            [24] 4478 	mov	r7,dpl
-                                   4479 ;	analog.c:96: if (input == '0') break;
-      0015AE BF 30 01         [24] 4480 	cjne	r7,#0x30,00116$
-      0015B1 22               [24] 4481 	ret
-      0015B2                       4482 00116$:
-                                   4483 ;	analog.c:98: delay(500);
-      0015B2 90 01 F4         [24] 4484 	mov	dptr,#0x01f4
-      0015B5 12 00 89         [24] 4485 	lcall	_delay
-                                   4486 ;	analog.c:99: temp = readTemp();
-      0015B8 12 14 E2         [24] 4487 	lcall	_readTemp
-                                   4488 ;	analog.c:100: displayTemp(temp);
-      0015BB 12 15 00         [24] 4489 	lcall	_displayTemp
-                                   4490 ;	analog.c:102: }
-      0015BE 80 E9            [24] 4491 	sjmp	00104$
-                                   4492 ;------------------------------------------------------------
-                                   4493 ;Allocation info for local variables in function 'light'
-                                   4494 ;------------------------------------------------------------
-                                   4495 ;light                     Allocated with name '_light_light_65537_271'
-                                   4496 ;input                     Allocated with name '_light_input_65537_271'
-                                   4497 ;------------------------------------------------------------
-                                   4498 ;	analog.c:109: void light() {
-                                   4499 ;	-----------------------------------------
-                                   4500 ;	 function light
-                                   4501 ;	-----------------------------------------
-      0015C0                       4502 _light:
-                                   4503 ;	analog.c:111: fillScreen(GRAY);
-      0015C0 90 D6 BA         [24] 4504 	mov	dptr,#0xd6ba
-      0015C3 12 08 13         [24] 4505 	lcall	_fillScreen
-                                   4506 ;	analog.c:112: setCursor(0, 0);
-      0015C6 E4               [12] 4507 	clr	a
-      0015C7 F5 08            [12] 4508 	mov	_setCursor_PARM_2,a
-      0015C9 F5 09            [12] 4509 	mov	(_setCursor_PARM_2 + 1),a
-      0015CB 90 00 00         [24] 4510 	mov	dptr,#0x0000
-      0015CE 12 01 1E         [24] 4511 	lcall	_setCursor
-                                   4512 ;	analog.c:113: setTextSize(2);
-      0015D1 75 82 02         [24] 4513 	mov	dpl,#0x02
-      0015D4 12 01 38         [24] 4514 	lcall	_setTextSize
-                                   4515 ;	analog.c:115: LCD_string_write("Light level: ");
-      0015D7 90 1F 20         [24] 4516 	mov	dptr,#___str_31
-      0015DA 75 F0 80         [24] 4517 	mov	b,#0x80
-      0015DD 12 0B F3         [24] 4518 	lcall	_LCD_string_write
-                                   4519 ;	analog.c:121: light = readLight();
-      0015E0 12 14 F1         [24] 4520 	lcall	_readLight
-                                   4521 ;	analog.c:124: asciiToHex(light);
-      0015E3 12 0E 46         [24] 4522 	lcall	_asciiToHex
-                                   4523 ;	analog.c:127: write('\n');
-      0015E6 75 82 0A         [24] 4524 	mov	dpl,#0x0a
-      0015E9 12 0B 85         [24] 4525 	lcall	_write
-                                   4526 ;	analog.c:128: LCD_string_write("Press 0 for menu\n");
-      0015EC 90 1F 0E         [24] 4527 	mov	dptr,#___str_30
-      0015EF 75 F0 80         [24] 4528 	mov	b,#0x80
-      0015F2 12 0B F3         [24] 4529 	lcall	_LCD_string_write
-                                   4530 ;	analog.c:131: while (1) {
-      0015F5                       4531 00104$:
-                                   4532 ;	analog.c:132: input = keyDetect();
-      0015F5 12 0C 83         [24] 4533 	lcall	_keyDetect
-      0015F8 AF 82            [24] 4534 	mov	r7,dpl
-                                   4535 ;	analog.c:134: if (input == '0') break;
-      0015FA BF 30 01         [24] 4536 	cjne	r7,#0x30,00116$
-      0015FD 22               [24] 4537 	ret
-      0015FE                       4538 00116$:
-                                   4539 ;	analog.c:136: delay(500);
-      0015FE 90 01 F4         [24] 4540 	mov	dptr,#0x01f4
-      001601 12 00 89         [24] 4541 	lcall	_delay
-                                   4542 ;	analog.c:137: light = readLight();
-      001604 12 14 F1         [24] 4543 	lcall	_readLight
-                                   4544 ;	analog.c:138: displayLight(light);
-      001607 12 15 3A         [24] 4545 	lcall	_displayLight
-                                   4546 ;	analog.c:140: }
-      00160A 80 E9            [24] 4547 	sjmp	00104$
-                                   4548 ;------------------------------------------------------------
-                                   4549 ;Allocation info for local variables in function 'menu'
-                                   4550 ;------------------------------------------------------------
-                                   4551 ;	main.c:29: void menu(void) {
-                                   4552 ;	-----------------------------------------
-                                   4553 ;	 function menu
-                                   4554 ;	-----------------------------------------
-      00160C                       4555 _menu:
-                                   4556 ;	main.c:31: setRotation(2);
-      00160C 75 82 02         [24] 4557 	mov	dpl,#0x02
-      00160F 12 01 50         [24] 4558 	lcall	_setRotation
-                                   4559 ;	main.c:32: setTextSize(3);
-      001612 75 82 03         [24] 4560 	mov	dpl,#0x03
-      001615 12 01 38         [24] 4561 	lcall	_setTextSize
-                                   4562 ;	main.c:33: fillScreen(GRAY);
-      001618 90 D6 BA         [24] 4563 	mov	dptr,#0xd6ba
-      00161B 12 08 13         [24] 4564 	lcall	_fillScreen
-                                   4565 ;	main.c:34: setTextColor(BLACK, GRAY);
-      00161E 75 08 BA         [24] 4566 	mov	_setTextColor_PARM_2,#0xba
-      001621 75 09 D6         [24] 4567 	mov	(_setTextColor_PARM_2 + 1),#0xd6
-      001624 90 00 00         [24] 4568 	mov	dptr,#0x0000
-      001627 12 01 2B         [24] 4569 	lcall	_setTextColor
-                                   4570 ;	main.c:35: setCursor(0, 0);
-      00162A E4               [12] 4571 	clr	a
-      00162B F5 08            [12] 4572 	mov	_setCursor_PARM_2,a
-      00162D F5 09            [12] 4573 	mov	(_setCursor_PARM_2 + 1),a
-      00162F 90 00 00         [24] 4574 	mov	dptr,#0x0000
-      001632 12 01 1E         [24] 4575 	lcall	_setCursor
-                                   4576 ;	main.c:38: LCD_string_write("Brandon Cline\n");
-      001635 90 1F 2E         [24] 4577 	mov	dptr,#___str_32
-      001638 75 F0 80         [24] 4578 	mov	b,#0x80
-      00163B 12 0B F3         [24] 4579 	lcall	_LCD_string_write
-                                   4580 ;	main.c:39: LCD_string_write("ECEN 4330\n");
-      00163E 90 1F 3D         [24] 4581 	mov	dptr,#___str_33
-      001641 75 F0 80         [24] 4582 	mov	b,#0x80
-      001644 12 0B F3         [24] 4583 	lcall	_LCD_string_write
-                                   4584 ;	main.c:43: LCD_string_write("1: Basic check\n");
-      001647 90 1F 48         [24] 4585 	mov	dptr,#___str_34
-      00164A 75 F0 80         [24] 4586 	mov	b,#0x80
-      00164D 12 0B F3         [24] 4587 	lcall	_LCD_string_write
-                                   4588 ;	main.c:45: LCD_string_write("2: Dump\n");
-      001650 90 1F 58         [24] 4589 	mov	dptr,#___str_35
-      001653 75 F0 80         [24] 4590 	mov	b,#0x80
-      001656 12 0B F3         [24] 4591 	lcall	_LCD_string_write
-                                   4592 ;	main.c:47: LCD_string_write("3: Check\n");
-      001659 90 1F 61         [24] 4593 	mov	dptr,#___str_36
-      00165C 75 F0 80         [24] 4594 	mov	b,#0x80
-      00165F 12 0B F3         [24] 4595 	lcall	_LCD_string_write
-                                   4596 ;	main.c:49: LCD_string_write("A: Move\n");
-      001662 90 1F 6B         [24] 4597 	mov	dptr,#___str_37
-      001665 75 F0 80         [24] 4598 	mov	b,#0x80
-      001668 12 0B F3         [24] 4599 	lcall	_LCD_string_write
-                                   4600 ;	main.c:51: LCD_string_write("4: Edit\n");
-      00166B 90 1F 74         [24] 4601 	mov	dptr,#___str_38
-      00166E 75 F0 80         [24] 4602 	mov	b,#0x80
-      001671 12 0B F3         [24] 4603 	lcall	_LCD_string_write
-                                   4604 ;	main.c:53: LCD_string_write("5: Find\n");
-      001674 90 1F 7D         [24] 4605 	mov	dptr,#___str_39
-      001677 75 F0 80         [24] 4606 	mov	b,#0x80
-      00167A 12 0B F3         [24] 4607 	lcall	_LCD_string_write
-                                   4608 ;	main.c:55: LCD_string_write("6: Count\n");
-      00167D 90 1F 86         [24] 4609 	mov	dptr,#___str_40
-      001680 75 F0 80         [24] 4610 	mov	b,#0x80
-      001683 12 0B F3         [24] 4611 	lcall	_LCD_string_write
-                                   4612 ;	main.c:58: LCD_string_write("B: Temperature\n");
-      001686 90 1F 90         [24] 4613 	mov	dptr,#___str_41
-      001689 75 F0 80         [24] 4614 	mov	b,#0x80
-      00168C 12 0B F3         [24] 4615 	lcall	_LCD_string_write
-                                   4616 ;	main.c:60: LCD_string_write("7: Light\n");
-      00168F 90 1F A0         [24] 4617 	mov	dptr,#___str_42
-      001692 75 F0 80         [24] 4618 	mov	b,#0x80
-                                   4619 ;	main.c:61: }
-      001695 02 0B F3         [24] 4620 	ljmp	_LCD_string_write
-                                   4621 ;------------------------------------------------------------
-                                   4622 ;Allocation info for local variables in function 'main'
-                                   4623 ;------------------------------------------------------------
-                                   4624 ;input                     Allocated with name '_main_input_65536_276'
-                                   4625 ;------------------------------------------------------------
-                                   4626 ;	main.c:63: void main(void) {
-                                   4627 ;	-----------------------------------------
-                                   4628 ;	 function main
-                                   4629 ;	-----------------------------------------
-      001698                       4630 _main:
-                                   4631 ;	main.c:68: iowrite8(seg7_address, 0x00);
-      001698 75 08 00         [24] 4632 	mov	_iowrite8_PARM_2,#0x00
-      00169B 85 25 82         [24] 4633 	mov	dpl,_seg7_address
-      00169E 85 26 83         [24] 4634 	mov	dph,(_seg7_address + 1)
-      0016A1 12 00 79         [24] 4635 	lcall	_iowrite8
-                                   4636 ;	main.c:71: TFT_LCD_INIT();
-      0016A4 12 02 56         [24] 4637 	lcall	_TFT_LCD_INIT
-                                   4638 ;	main.c:73: fillScreen(BLACK);
-      0016A7 90 00 00         [24] 4639 	mov	dptr,#0x0000
-      0016AA 12 08 13         [24] 4640 	lcall	_fillScreen
-                                   4641 ;	main.c:74: setRotation(0);
-      0016AD 75 82 00         [24] 4642 	mov	dpl,#0x00
-      0016B0 12 01 50         [24] 4643 	lcall	_setRotation
-                                   4644 ;	main.c:75: testCircles(20, BLUE);
-      0016B3 75 53 1F         [24] 4645 	mov	_testCircles_PARM_2,#0x1f
-      0016B6 75 54 00         [24] 4646 	mov	(_testCircles_PARM_2 + 1),#0x00
-      0016B9 75 82 14         [24] 4647 	mov	dpl,#0x14
-      0016BC 12 06 A1         [24] 4648 	lcall	_testCircles
-                                   4649 ;	main.c:79: while (1) {
-      0016BF                       4650 00111$:
-                                   4651 ;	main.c:81: menu();
-      0016BF 12 16 0C         [24] 4652 	lcall	_menu
-                                   4653 ;	main.c:84: input = keyDetect();
-      0016C2 12 0C 83         [24] 4654 	lcall	_keyDetect
-                                   4655 ;	main.c:85: asciiToHex(input);
-      0016C5 AF 82            [24] 4656 	mov  r7,dpl
-      0016C7 C0 07            [24] 4657 	push	ar7
-      0016C9 12 0E 46         [24] 4658 	lcall	_asciiToHex
-      0016CC D0 07            [24] 4659 	pop	ar7
-                                   4660 ;	main.c:88: switch(input) {
-      0016CE BF 31 02         [24] 4661 	cjne	r7,#0x31,00147$
-      0016D1 80 1E            [24] 4662 	sjmp	00101$
-      0016D3                       4663 00147$:
-      0016D3 BF 33 02         [24] 4664 	cjne	r7,#0x33,00148$
-      0016D6 80 1E            [24] 4665 	sjmp	00102$
-      0016D8                       4666 00148$:
-      0016D8 BF 34 02         [24] 4667 	cjne	r7,#0x34,00149$
-      0016DB 80 23            [24] 4668 	sjmp	00104$
-      0016DD                       4669 00149$:
-      0016DD BF 36 02         [24] 4670 	cjne	r7,#0x36,00150$
-      0016E0 80 23            [24] 4671 	sjmp	00105$
-      0016E2                       4672 00150$:
-      0016E2 BF 37 02         [24] 4673 	cjne	r7,#0x37,00151$
-      0016E5 80 28            [24] 4674 	sjmp	00107$
-      0016E7                       4675 00151$:
-      0016E7 BF 41 02         [24] 4676 	cjne	r7,#0x41,00152$
-      0016EA 80 0F            [24] 4677 	sjmp	00103$
-      0016EC                       4678 00152$:
-                                   4679 ;	main.c:89: case '1': basic(); break;
-      0016EC BF 42 D0         [24] 4680 	cjne	r7,#0x42,00111$
-      0016EF 80 19            [24] 4681 	sjmp	00106$
-      0016F1                       4682 00101$:
-      0016F1 12 11 7D         [24] 4683 	lcall	_basic
-                                   4684 ;	main.c:91: case '3': check(); break;
-      0016F4 80 C9            [24] 4685 	sjmp	00111$
-      0016F6                       4686 00102$:
-      0016F6 12 10 41         [24] 4687 	lcall	_check
-                                   4688 ;	main.c:92: case 'A': move(); break;
-      0016F9 80 C4            [24] 4689 	sjmp	00111$
-      0016FB                       4690 00103$:
-      0016FB 12 12 13         [24] 4691 	lcall	_move
-                                   4692 ;	main.c:93: case '4': edit(); break;
-      0016FE 80 BF            [24] 4693 	sjmp	00111$
-      001700                       4694 00104$:
-      001700 12 13 95         [24] 4695 	lcall	_edit
-                                   4696 ;	main.c:95: case '6': count(); break;
-      001703 80 BA            [24] 4697 	sjmp	00111$
-      001705                       4698 00105$:
-      001705 12 14 7E         [24] 4699 	lcall	_count
-                                   4700 ;	main.c:96: case 'B': temperature(); break;
-      001708 80 B5            [24] 4701 	sjmp	00111$
-      00170A                       4702 00106$:
-      00170A 12 15 74         [24] 4703 	lcall	_temperature
-                                   4704 ;	main.c:97: case '7': light(); break;
-      00170D 80 B0            [24] 4705 	sjmp	00111$
-      00170F                       4706 00107$:
-      00170F 12 15 C0         [24] 4707 	lcall	_light
-                                   4708 ;	main.c:99: }
-                                   4709 ;	main.c:101: }
-      001712 80 AB            [24] 4710 	sjmp	00111$
-                                   4711 	.area CSEG    (CODE)
-                                   4712 	.area CONST   (CODE)
-      001835                       4713 _font:
-      001835 00                    4714 	.db #0x00	; 0
-      001836 00                    4715 	.db #0x00	; 0
-      001837 00                    4716 	.db #0x00	; 0
-      001838 00                    4717 	.db #0x00	; 0
-      001839 00                    4718 	.db #0x00	; 0
-      00183A 3E                    4719 	.db #0x3e	; 62
-      00183B 5B                    4720 	.db #0x5b	; 91
-      00183C 4F                    4721 	.db #0x4f	; 79	'O'
-      00183D 5B                    4722 	.db #0x5b	; 91
-      00183E 3E                    4723 	.db #0x3e	; 62
-      00183F 3E                    4724 	.db #0x3e	; 62
-      001840 6B                    4725 	.db #0x6b	; 107	'k'
-      001841 4F                    4726 	.db #0x4f	; 79	'O'
-      001842 6B                    4727 	.db #0x6b	; 107	'k'
-      001843 3E                    4728 	.db #0x3e	; 62
-      001844 1C                    4729 	.db #0x1c	; 28
-      001845 3E                    4730 	.db #0x3e	; 62
-      001846 7C                    4731 	.db #0x7c	; 124
-      001847 3E                    4732 	.db #0x3e	; 62
-      001848 1C                    4733 	.db #0x1c	; 28
-      001849 18                    4734 	.db #0x18	; 24
-      00184A 3C                    4735 	.db #0x3c	; 60
-      00184B 7E                    4736 	.db #0x7e	; 126
-      00184C 3C                    4737 	.db #0x3c	; 60
-      00184D 18                    4738 	.db #0x18	; 24
-      00184E 1C                    4739 	.db #0x1c	; 28
-      00184F 57                    4740 	.db #0x57	; 87	'W'
-      001850 7D                    4741 	.db #0x7d	; 125
-      001851 57                    4742 	.db #0x57	; 87	'W'
-      001852 1C                    4743 	.db #0x1c	; 28
-      001853 1C                    4744 	.db #0x1c	; 28
-      001854 5E                    4745 	.db #0x5e	; 94
-      001855 7F                    4746 	.db #0x7f	; 127
-      001856 5E                    4747 	.db #0x5e	; 94
-      001857 1C                    4748 	.db #0x1c	; 28
-      001858 00                    4749 	.db #0x00	; 0
-      001859 18                    4750 	.db #0x18	; 24
-      00185A 3C                    4751 	.db #0x3c	; 60
-      00185B 18                    4752 	.db #0x18	; 24
-      00185C 00                    4753 	.db #0x00	; 0
-      00185D FF                    4754 	.db #0xff	; 255
-      00185E E7                    4755 	.db #0xe7	; 231
-      00185F C3                    4756 	.db #0xc3	; 195
-      001860 E7                    4757 	.db #0xe7	; 231
-      001861 FF                    4758 	.db #0xff	; 255
-      001862 00                    4759 	.db #0x00	; 0
-      001863 18                    4760 	.db #0x18	; 24
-      001864 24                    4761 	.db #0x24	; 36
-      001865 18                    4762 	.db #0x18	; 24
-      001866 00                    4763 	.db #0x00	; 0
-      001867 FF                    4764 	.db #0xff	; 255
-      001868 E7                    4765 	.db #0xe7	; 231
-      001869 DB                    4766 	.db #0xdb	; 219
-      00186A E7                    4767 	.db #0xe7	; 231
-      00186B FF                    4768 	.db #0xff	; 255
-      00186C 30                    4769 	.db #0x30	; 48	'0'
-      00186D 48                    4770 	.db #0x48	; 72	'H'
-      00186E 3A                    4771 	.db #0x3a	; 58
-      00186F 06                    4772 	.db #0x06	; 6
-      001870 0E                    4773 	.db #0x0e	; 14
-      001871 26                    4774 	.db #0x26	; 38
-      001872 29                    4775 	.db #0x29	; 41
-      001873 79                    4776 	.db #0x79	; 121	'y'
-      001874 29                    4777 	.db #0x29	; 41
-      001875 26                    4778 	.db #0x26	; 38
-      001876 40                    4779 	.db #0x40	; 64
-      001877 7F                    4780 	.db #0x7f	; 127
-      001878 05                    4781 	.db #0x05	; 5
-      001879 05                    4782 	.db #0x05	; 5
-      00187A 07                    4783 	.db #0x07	; 7
-      00187B 40                    4784 	.db #0x40	; 64
-      00187C 7F                    4785 	.db #0x7f	; 127
-      00187D 05                    4786 	.db #0x05	; 5
-      00187E 25                    4787 	.db #0x25	; 37
-      00187F 3F                    4788 	.db #0x3f	; 63
-      001880 5A                    4789 	.db #0x5a	; 90	'Z'
-      001881 3C                    4790 	.db #0x3c	; 60
-      001882 E7                    4791 	.db #0xe7	; 231
-      001883 3C                    4792 	.db #0x3c	; 60
-      001884 5A                    4793 	.db #0x5a	; 90	'Z'
-      001885 7F                    4794 	.db #0x7f	; 127
-      001886 3E                    4795 	.db #0x3e	; 62
-      001887 1C                    4796 	.db #0x1c	; 28
-      001888 1C                    4797 	.db #0x1c	; 28
-      001889 08                    4798 	.db #0x08	; 8
-      00188A 08                    4799 	.db #0x08	; 8
-      00188B 1C                    4800 	.db #0x1c	; 28
-      00188C 1C                    4801 	.db #0x1c	; 28
-      00188D 3E                    4802 	.db #0x3e	; 62
-      00188E 7F                    4803 	.db #0x7f	; 127
-      00188F 14                    4804 	.db #0x14	; 20
-      001890 22                    4805 	.db #0x22	; 34
-      001891 7F                    4806 	.db #0x7f	; 127
-      001892 22                    4807 	.db #0x22	; 34
-      001893 14                    4808 	.db #0x14	; 20
-      001894 5F                    4809 	.db #0x5f	; 95
-      001895 5F                    4810 	.db #0x5f	; 95
-      001896 00                    4811 	.db #0x00	; 0
-      001897 5F                    4812 	.db #0x5f	; 95
-      001898 5F                    4813 	.db #0x5f	; 95
-      001899 06                    4814 	.db #0x06	; 6
-      00189A 09                    4815 	.db #0x09	; 9
-      00189B 7F                    4816 	.db #0x7f	; 127
-      00189C 01                    4817 	.db #0x01	; 1
-      00189D 7F                    4818 	.db #0x7f	; 127
-      00189E 00                    4819 	.db #0x00	; 0
-      00189F 66                    4820 	.db #0x66	; 102	'f'
-      0018A0 89                    4821 	.db #0x89	; 137
-      0018A1 95                    4822 	.db #0x95	; 149
-      0018A2 6A                    4823 	.db #0x6a	; 106	'j'
-      0018A3 60                    4824 	.db #0x60	; 96
-      0018A4 60                    4825 	.db #0x60	; 96
-      0018A5 60                    4826 	.db #0x60	; 96
-      0018A6 60                    4827 	.db #0x60	; 96
-      0018A7 60                    4828 	.db #0x60	; 96
-      0018A8 94                    4829 	.db #0x94	; 148
-      0018A9 A2                    4830 	.db #0xa2	; 162
-      0018AA FF                    4831 	.db #0xff	; 255
-      0018AB A2                    4832 	.db #0xa2	; 162
-      0018AC 94                    4833 	.db #0x94	; 148
-      0018AD 08                    4834 	.db #0x08	; 8
-      0018AE 04                    4835 	.db #0x04	; 4
-      0018AF 7E                    4836 	.db #0x7e	; 126
-      0018B0 04                    4837 	.db #0x04	; 4
-      0018B1 08                    4838 	.db #0x08	; 8
-      0018B2 10                    4839 	.db #0x10	; 16
-      0018B3 20                    4840 	.db #0x20	; 32
-      0018B4 7E                    4841 	.db #0x7e	; 126
-      0018B5 20                    4842 	.db #0x20	; 32
-      0018B6 10                    4843 	.db #0x10	; 16
-      0018B7 08                    4844 	.db #0x08	; 8
-      0018B8 08                    4845 	.db #0x08	; 8
-      0018B9 2A                    4846 	.db #0x2a	; 42
-      0018BA 1C                    4847 	.db #0x1c	; 28
-      0018BB 08                    4848 	.db #0x08	; 8
-      0018BC 08                    4849 	.db #0x08	; 8
-      0018BD 1C                    4850 	.db #0x1c	; 28
-      0018BE 2A                    4851 	.db #0x2a	; 42
-      0018BF 08                    4852 	.db #0x08	; 8
-      0018C0 08                    4853 	.db #0x08	; 8
-      0018C1 1E                    4854 	.db #0x1e	; 30
-      0018C2 10                    4855 	.db #0x10	; 16
-      0018C3 10                    4856 	.db #0x10	; 16
-      0018C4 10                    4857 	.db #0x10	; 16
-      0018C5 10                    4858 	.db #0x10	; 16
-      0018C6 0C                    4859 	.db #0x0c	; 12
-      0018C7 1E                    4860 	.db #0x1e	; 30
-      0018C8 0C                    4861 	.db #0x0c	; 12
-      0018C9 1E                    4862 	.db #0x1e	; 30
-      0018CA 0C                    4863 	.db #0x0c	; 12
-      0018CB 30                    4864 	.db #0x30	; 48	'0'
-      0018CC 38                    4865 	.db #0x38	; 56	'8'
-      0018CD 3E                    4866 	.db #0x3e	; 62
-      0018CE 38                    4867 	.db #0x38	; 56	'8'
-      0018CF 30                    4868 	.db #0x30	; 48	'0'
-      0018D0 06                    4869 	.db #0x06	; 6
-      0018D1 0E                    4870 	.db #0x0e	; 14
-      0018D2 3E                    4871 	.db #0x3e	; 62
-      0018D3 0E                    4872 	.db #0x0e	; 14
-      0018D4 06                    4873 	.db #0x06	; 6
-      0018D5 00                    4874 	.db #0x00	; 0
-      0018D6 00                    4875 	.db #0x00	; 0
-      0018D7 00                    4876 	.db #0x00	; 0
-      0018D8 00                    4877 	.db #0x00	; 0
-      0018D9 00                    4878 	.db #0x00	; 0
-      0018DA 00                    4879 	.db #0x00	; 0
-      0018DB 00                    4880 	.db #0x00	; 0
-      0018DC 5F                    4881 	.db #0x5f	; 95
-      0018DD 00                    4882 	.db #0x00	; 0
-      0018DE 00                    4883 	.db #0x00	; 0
-      0018DF 00                    4884 	.db #0x00	; 0
-      0018E0 07                    4885 	.db #0x07	; 7
-      0018E1 00                    4886 	.db #0x00	; 0
-      0018E2 07                    4887 	.db #0x07	; 7
-      0018E3 00                    4888 	.db #0x00	; 0
-      0018E4 14                    4889 	.db #0x14	; 20
-      0018E5 7F                    4890 	.db #0x7f	; 127
-      0018E6 14                    4891 	.db #0x14	; 20
-      0018E7 7F                    4892 	.db #0x7f	; 127
-      0018E8 14                    4893 	.db #0x14	; 20
-      0018E9 24                    4894 	.db #0x24	; 36
-      0018EA 2A                    4895 	.db #0x2a	; 42
-      0018EB 7F                    4896 	.db #0x7f	; 127
-      0018EC 2A                    4897 	.db #0x2a	; 42
-      0018ED 12                    4898 	.db #0x12	; 18
-      0018EE 23                    4899 	.db #0x23	; 35
-      0018EF 13                    4900 	.db #0x13	; 19
-      0018F0 08                    4901 	.db #0x08	; 8
-      0018F1 64                    4902 	.db #0x64	; 100	'd'
-      0018F2 62                    4903 	.db #0x62	; 98	'b'
-      0018F3 36                    4904 	.db #0x36	; 54	'6'
-      0018F4 49                    4905 	.db #0x49	; 73	'I'
-      0018F5 56                    4906 	.db #0x56	; 86	'V'
-      0018F6 20                    4907 	.db #0x20	; 32
-      0018F7 50                    4908 	.db #0x50	; 80	'P'
-      0018F8 00                    4909 	.db #0x00	; 0
-      0018F9 08                    4910 	.db #0x08	; 8
-      0018FA 07                    4911 	.db #0x07	; 7
-      0018FB 03                    4912 	.db #0x03	; 3
-      0018FC 00                    4913 	.db #0x00	; 0
-      0018FD 00                    4914 	.db #0x00	; 0
-      0018FE 1C                    4915 	.db #0x1c	; 28
-      0018FF 22                    4916 	.db #0x22	; 34
-      001900 41                    4917 	.db #0x41	; 65	'A'
-      001901 00                    4918 	.db #0x00	; 0
-      001902 00                    4919 	.db #0x00	; 0
-      001903 41                    4920 	.db #0x41	; 65	'A'
-      001904 22                    4921 	.db #0x22	; 34
-      001905 1C                    4922 	.db #0x1c	; 28
-      001906 00                    4923 	.db #0x00	; 0
-      001907 2A                    4924 	.db #0x2a	; 42
-      001908 1C                    4925 	.db #0x1c	; 28
-      001909 7F                    4926 	.db #0x7f	; 127
-      00190A 1C                    4927 	.db #0x1c	; 28
-      00190B 2A                    4928 	.db #0x2a	; 42
-      00190C 08                    4929 	.db #0x08	; 8
-      00190D 08                    4930 	.db #0x08	; 8
-      00190E 3E                    4931 	.db #0x3e	; 62
-      00190F 08                    4932 	.db #0x08	; 8
-      001910 08                    4933 	.db #0x08	; 8
-      001911 00                    4934 	.db #0x00	; 0
-      001912 80                    4935 	.db #0x80	; 128
-      001913 70                    4936 	.db #0x70	; 112	'p'
-      001914 30                    4937 	.db #0x30	; 48	'0'
-      001915 00                    4938 	.db #0x00	; 0
-      001916 08                    4939 	.db #0x08	; 8
-      001917 08                    4940 	.db #0x08	; 8
-      001918 08                    4941 	.db #0x08	; 8
-      001919 08                    4942 	.db #0x08	; 8
-      00191A 08                    4943 	.db #0x08	; 8
-      00191B 00                    4944 	.db #0x00	; 0
-      00191C 00                    4945 	.db #0x00	; 0
-      00191D 60                    4946 	.db #0x60	; 96
-      00191E 60                    4947 	.db #0x60	; 96
-      00191F 00                    4948 	.db #0x00	; 0
-      001920 20                    4949 	.db #0x20	; 32
-      001921 10                    4950 	.db #0x10	; 16
-      001922 08                    4951 	.db #0x08	; 8
-      001923 04                    4952 	.db #0x04	; 4
-      001924 02                    4953 	.db #0x02	; 2
-      001925 3E                    4954 	.db #0x3e	; 62
-      001926 51                    4955 	.db #0x51	; 81	'Q'
-      001927 49                    4956 	.db #0x49	; 73	'I'
-      001928 45                    4957 	.db #0x45	; 69	'E'
-      001929 3E                    4958 	.db #0x3e	; 62
-      00192A 00                    4959 	.db #0x00	; 0
-      00192B 42                    4960 	.db #0x42	; 66	'B'
-      00192C 7F                    4961 	.db #0x7f	; 127
-      00192D 40                    4962 	.db #0x40	; 64
-      00192E 00                    4963 	.db #0x00	; 0
-      00192F 72                    4964 	.db #0x72	; 114	'r'
-      001930 49                    4965 	.db #0x49	; 73	'I'
-      001931 49                    4966 	.db #0x49	; 73	'I'
-      001932 49                    4967 	.db #0x49	; 73	'I'
-      001933 46                    4968 	.db #0x46	; 70	'F'
-      001934 21                    4969 	.db #0x21	; 33
-      001935 41                    4970 	.db #0x41	; 65	'A'
-      001936 49                    4971 	.db #0x49	; 73	'I'
-      001937 4D                    4972 	.db #0x4d	; 77	'M'
-      001938 33                    4973 	.db #0x33	; 51	'3'
-      001939 18                    4974 	.db #0x18	; 24
-      00193A 14                    4975 	.db #0x14	; 20
-      00193B 12                    4976 	.db #0x12	; 18
-      00193C 7F                    4977 	.db #0x7f	; 127
-      00193D 10                    4978 	.db #0x10	; 16
-      00193E 27                    4979 	.db #0x27	; 39
-      00193F 45                    4980 	.db #0x45	; 69	'E'
-      001940 45                    4981 	.db #0x45	; 69	'E'
-      001941 45                    4982 	.db #0x45	; 69	'E'
-      001942 39                    4983 	.db #0x39	; 57	'9'
-      001943 3C                    4984 	.db #0x3c	; 60
-      001944 4A                    4985 	.db #0x4a	; 74	'J'
-      001945 49                    4986 	.db #0x49	; 73	'I'
-      001946 49                    4987 	.db #0x49	; 73	'I'
-      001947 31                    4988 	.db #0x31	; 49	'1'
-      001948 41                    4989 	.db #0x41	; 65	'A'
-      001949 21                    4990 	.db #0x21	; 33
-      00194A 11                    4991 	.db #0x11	; 17
-      00194B 09                    4992 	.db #0x09	; 9
-      00194C 07                    4993 	.db #0x07	; 7
-      00194D 36                    4994 	.db #0x36	; 54	'6'
-      00194E 49                    4995 	.db #0x49	; 73	'I'
-      00194F 49                    4996 	.db #0x49	; 73	'I'
-      001950 49                    4997 	.db #0x49	; 73	'I'
-      001951 36                    4998 	.db #0x36	; 54	'6'
-      001952 46                    4999 	.db #0x46	; 70	'F'
-      001953 49                    5000 	.db #0x49	; 73	'I'
-      001954 49                    5001 	.db #0x49	; 73	'I'
-      001955 29                    5002 	.db #0x29	; 41
-      001956 1E                    5003 	.db #0x1e	; 30
-      001957 00                    5004 	.db #0x00	; 0
-      001958 00                    5005 	.db #0x00	; 0
-      001959 14                    5006 	.db #0x14	; 20
-      00195A 00                    5007 	.db #0x00	; 0
-      00195B 00                    5008 	.db #0x00	; 0
-      00195C 00                    5009 	.db #0x00	; 0
-      00195D 40                    5010 	.db #0x40	; 64
-      00195E 34                    5011 	.db #0x34	; 52	'4'
-      00195F 00                    5012 	.db #0x00	; 0
-      001960 00                    5013 	.db #0x00	; 0
-      001961 00                    5014 	.db #0x00	; 0
-      001962 08                    5015 	.db #0x08	; 8
-      001963 14                    5016 	.db #0x14	; 20
-      001964 22                    5017 	.db #0x22	; 34
-      001965 41                    5018 	.db #0x41	; 65	'A'
-      001966 14                    5019 	.db #0x14	; 20
-      001967 14                    5020 	.db #0x14	; 20
-      001968 14                    5021 	.db #0x14	; 20
-      001969 14                    5022 	.db #0x14	; 20
-      00196A 14                    5023 	.db #0x14	; 20
-      00196B 00                    5024 	.db #0x00	; 0
-      00196C 41                    5025 	.db #0x41	; 65	'A'
-      00196D 22                    5026 	.db #0x22	; 34
-      00196E 14                    5027 	.db #0x14	; 20
-      00196F 08                    5028 	.db #0x08	; 8
-      001970 02                    5029 	.db #0x02	; 2
-      001971 01                    5030 	.db #0x01	; 1
-      001972 59                    5031 	.db #0x59	; 89	'Y'
-      001973 09                    5032 	.db #0x09	; 9
-      001974 06                    5033 	.db #0x06	; 6
-      001975 3E                    5034 	.db #0x3e	; 62
-      001976 41                    5035 	.db #0x41	; 65	'A'
-      001977 5D                    5036 	.db #0x5d	; 93
-      001978 59                    5037 	.db #0x59	; 89	'Y'
-      001979 4E                    5038 	.db #0x4e	; 78	'N'
-      00197A 7C                    5039 	.db #0x7c	; 124
-      00197B 12                    5040 	.db #0x12	; 18
-      00197C 11                    5041 	.db #0x11	; 17
-      00197D 12                    5042 	.db #0x12	; 18
-      00197E 7C                    5043 	.db #0x7c	; 124
-      00197F 7F                    5044 	.db #0x7f	; 127
-      001980 49                    5045 	.db #0x49	; 73	'I'
-      001981 49                    5046 	.db #0x49	; 73	'I'
-      001982 49                    5047 	.db #0x49	; 73	'I'
-      001983 36                    5048 	.db #0x36	; 54	'6'
-      001984 3E                    5049 	.db #0x3e	; 62
-      001985 41                    5050 	.db #0x41	; 65	'A'
-      001986 41                    5051 	.db #0x41	; 65	'A'
-      001987 41                    5052 	.db #0x41	; 65	'A'
-      001988 22                    5053 	.db #0x22	; 34
-      001989 7F                    5054 	.db #0x7f	; 127
-      00198A 41                    5055 	.db #0x41	; 65	'A'
-      00198B 41                    5056 	.db #0x41	; 65	'A'
-      00198C 41                    5057 	.db #0x41	; 65	'A'
-      00198D 3E                    5058 	.db #0x3e	; 62
-      00198E 7F                    5059 	.db #0x7f	; 127
-      00198F 49                    5060 	.db #0x49	; 73	'I'
-      001990 49                    5061 	.db #0x49	; 73	'I'
-      001991 49                    5062 	.db #0x49	; 73	'I'
-      001992 41                    5063 	.db #0x41	; 65	'A'
-      001993 7F                    5064 	.db #0x7f	; 127
-      001994 09                    5065 	.db #0x09	; 9
-      001995 09                    5066 	.db #0x09	; 9
-      001996 09                    5067 	.db #0x09	; 9
-      001997 01                    5068 	.db #0x01	; 1
-      001998 3E                    5069 	.db #0x3e	; 62
-      001999 41                    5070 	.db #0x41	; 65	'A'
-      00199A 41                    5071 	.db #0x41	; 65	'A'
-      00199B 51                    5072 	.db #0x51	; 81	'Q'
-      00199C 73                    5073 	.db #0x73	; 115	's'
-      00199D 7F                    5074 	.db #0x7f	; 127
-      00199E 08                    5075 	.db #0x08	; 8
-      00199F 08                    5076 	.db #0x08	; 8
-      0019A0 08                    5077 	.db #0x08	; 8
-      0019A1 7F                    5078 	.db #0x7f	; 127
-      0019A2 00                    5079 	.db #0x00	; 0
-      0019A3 41                    5080 	.db #0x41	; 65	'A'
-      0019A4 7F                    5081 	.db #0x7f	; 127
-      0019A5 41                    5082 	.db #0x41	; 65	'A'
-      0019A6 00                    5083 	.db #0x00	; 0
-      0019A7 20                    5084 	.db #0x20	; 32
-      0019A8 40                    5085 	.db #0x40	; 64
-      0019A9 41                    5086 	.db #0x41	; 65	'A'
-      0019AA 3F                    5087 	.db #0x3f	; 63
-      0019AB 01                    5088 	.db #0x01	; 1
-      0019AC 7F                    5089 	.db #0x7f	; 127
-      0019AD 08                    5090 	.db #0x08	; 8
-      0019AE 14                    5091 	.db #0x14	; 20
-      0019AF 22                    5092 	.db #0x22	; 34
-      0019B0 41                    5093 	.db #0x41	; 65	'A'
-      0019B1 7F                    5094 	.db #0x7f	; 127
-      0019B2 40                    5095 	.db #0x40	; 64
-      0019B3 40                    5096 	.db #0x40	; 64
-      0019B4 40                    5097 	.db #0x40	; 64
-      0019B5 40                    5098 	.db #0x40	; 64
-      0019B6 7F                    5099 	.db #0x7f	; 127
-      0019B7 02                    5100 	.db #0x02	; 2
-      0019B8 1C                    5101 	.db #0x1c	; 28
-      0019B9 02                    5102 	.db #0x02	; 2
-      0019BA 7F                    5103 	.db #0x7f	; 127
-      0019BB 7F                    5104 	.db #0x7f	; 127
-      0019BC 04                    5105 	.db #0x04	; 4
-      0019BD 08                    5106 	.db #0x08	; 8
-      0019BE 10                    5107 	.db #0x10	; 16
-      0019BF 7F                    5108 	.db #0x7f	; 127
-      0019C0 3E                    5109 	.db #0x3e	; 62
-      0019C1 41                    5110 	.db #0x41	; 65	'A'
-      0019C2 41                    5111 	.db #0x41	; 65	'A'
-      0019C3 41                    5112 	.db #0x41	; 65	'A'
-      0019C4 3E                    5113 	.db #0x3e	; 62
-      0019C5 7F                    5114 	.db #0x7f	; 127
-      0019C6 09                    5115 	.db #0x09	; 9
-      0019C7 09                    5116 	.db #0x09	; 9
-      0019C8 09                    5117 	.db #0x09	; 9
-      0019C9 06                    5118 	.db #0x06	; 6
-      0019CA 3E                    5119 	.db #0x3e	; 62
-      0019CB 41                    5120 	.db #0x41	; 65	'A'
-      0019CC 51                    5121 	.db #0x51	; 81	'Q'
-      0019CD 21                    5122 	.db #0x21	; 33
-      0019CE 5E                    5123 	.db #0x5e	; 94
-      0019CF 7F                    5124 	.db #0x7f	; 127
-      0019D0 09                    5125 	.db #0x09	; 9
-      0019D1 19                    5126 	.db #0x19	; 25
-      0019D2 29                    5127 	.db #0x29	; 41
-      0019D3 46                    5128 	.db #0x46	; 70	'F'
-      0019D4 26                    5129 	.db #0x26	; 38
-      0019D5 49                    5130 	.db #0x49	; 73	'I'
-      0019D6 49                    5131 	.db #0x49	; 73	'I'
-      0019D7 49                    5132 	.db #0x49	; 73	'I'
-      0019D8 32                    5133 	.db #0x32	; 50	'2'
-      0019D9 03                    5134 	.db #0x03	; 3
-      0019DA 01                    5135 	.db #0x01	; 1
-      0019DB 7F                    5136 	.db #0x7f	; 127
-      0019DC 01                    5137 	.db #0x01	; 1
-      0019DD 03                    5138 	.db #0x03	; 3
-      0019DE 3F                    5139 	.db #0x3f	; 63
-      0019DF 40                    5140 	.db #0x40	; 64
-      0019E0 40                    5141 	.db #0x40	; 64
-      0019E1 40                    5142 	.db #0x40	; 64
-      0019E2 3F                    5143 	.db #0x3f	; 63
-      0019E3 1F                    5144 	.db #0x1f	; 31
-      0019E4 20                    5145 	.db #0x20	; 32
-      0019E5 40                    5146 	.db #0x40	; 64
-      0019E6 20                    5147 	.db #0x20	; 32
-      0019E7 1F                    5148 	.db #0x1f	; 31
-      0019E8 3F                    5149 	.db #0x3f	; 63
-      0019E9 40                    5150 	.db #0x40	; 64
-      0019EA 38                    5151 	.db #0x38	; 56	'8'
-      0019EB 40                    5152 	.db #0x40	; 64
-      0019EC 3F                    5153 	.db #0x3f	; 63
-      0019ED 63                    5154 	.db #0x63	; 99	'c'
-      0019EE 14                    5155 	.db #0x14	; 20
-      0019EF 08                    5156 	.db #0x08	; 8
-      0019F0 14                    5157 	.db #0x14	; 20
-      0019F1 63                    5158 	.db #0x63	; 99	'c'
-      0019F2 03                    5159 	.db #0x03	; 3
-      0019F3 04                    5160 	.db #0x04	; 4
-      0019F4 78                    5161 	.db #0x78	; 120	'x'
-      0019F5 04                    5162 	.db #0x04	; 4
-      0019F6 03                    5163 	.db #0x03	; 3
-      0019F7 61                    5164 	.db #0x61	; 97	'a'
-      0019F8 59                    5165 	.db #0x59	; 89	'Y'
-      0019F9 49                    5166 	.db #0x49	; 73	'I'
-      0019FA 4D                    5167 	.db #0x4d	; 77	'M'
-      0019FB 43                    5168 	.db #0x43	; 67	'C'
-      0019FC 00                    5169 	.db #0x00	; 0
-      0019FD 7F                    5170 	.db #0x7f	; 127
-      0019FE 41                    5171 	.db #0x41	; 65	'A'
-      0019FF 41                    5172 	.db #0x41	; 65	'A'
-      001A00 41                    5173 	.db #0x41	; 65	'A'
-      001A01 02                    5174 	.db #0x02	; 2
-      001A02 04                    5175 	.db #0x04	; 4
-      001A03 08                    5176 	.db #0x08	; 8
-      001A04 10                    5177 	.db #0x10	; 16
-      001A05 20                    5178 	.db #0x20	; 32
-      001A06 00                    5179 	.db #0x00	; 0
-      001A07 41                    5180 	.db #0x41	; 65	'A'
-      001A08 41                    5181 	.db #0x41	; 65	'A'
-      001A09 41                    5182 	.db #0x41	; 65	'A'
-      001A0A 7F                    5183 	.db #0x7f	; 127
-      001A0B 04                    5184 	.db #0x04	; 4
-      001A0C 02                    5185 	.db #0x02	; 2
-      001A0D 01                    5186 	.db #0x01	; 1
-      001A0E 02                    5187 	.db #0x02	; 2
-      001A0F 04                    5188 	.db #0x04	; 4
-      001A10 40                    5189 	.db #0x40	; 64
-      001A11 40                    5190 	.db #0x40	; 64
-      001A12 40                    5191 	.db #0x40	; 64
-      001A13 40                    5192 	.db #0x40	; 64
-      001A14 40                    5193 	.db #0x40	; 64
-      001A15 00                    5194 	.db #0x00	; 0
-      001A16 03                    5195 	.db #0x03	; 3
-      001A17 07                    5196 	.db #0x07	; 7
-      001A18 08                    5197 	.db #0x08	; 8
-      001A19 00                    5198 	.db #0x00	; 0
-      001A1A 20                    5199 	.db #0x20	; 32
-      001A1B 54                    5200 	.db #0x54	; 84	'T'
-      001A1C 54                    5201 	.db #0x54	; 84	'T'
-      001A1D 78                    5202 	.db #0x78	; 120	'x'
-      001A1E 40                    5203 	.db #0x40	; 64
-      001A1F 7F                    5204 	.db #0x7f	; 127
-      001A20 28                    5205 	.db #0x28	; 40
-      001A21 44                    5206 	.db #0x44	; 68	'D'
-      001A22 44                    5207 	.db #0x44	; 68	'D'
-      001A23 38                    5208 	.db #0x38	; 56	'8'
-      001A24 38                    5209 	.db #0x38	; 56	'8'
-      001A25 44                    5210 	.db #0x44	; 68	'D'
-      001A26 44                    5211 	.db #0x44	; 68	'D'
-      001A27 44                    5212 	.db #0x44	; 68	'D'
-      001A28 28                    5213 	.db #0x28	; 40
-      001A29 38                    5214 	.db #0x38	; 56	'8'
-      001A2A 44                    5215 	.db #0x44	; 68	'D'
-      001A2B 44                    5216 	.db #0x44	; 68	'D'
-      001A2C 28                    5217 	.db #0x28	; 40
-      001A2D 7F                    5218 	.db #0x7f	; 127
-      001A2E 38                    5219 	.db #0x38	; 56	'8'
-      001A2F 54                    5220 	.db #0x54	; 84	'T'
-      001A30 54                    5221 	.db #0x54	; 84	'T'
-      001A31 54                    5222 	.db #0x54	; 84	'T'
-      001A32 18                    5223 	.db #0x18	; 24
-      001A33 00                    5224 	.db #0x00	; 0
-      001A34 08                    5225 	.db #0x08	; 8
-      001A35 7E                    5226 	.db #0x7e	; 126
-      001A36 09                    5227 	.db #0x09	; 9
-      001A37 02                    5228 	.db #0x02	; 2
-      001A38 18                    5229 	.db #0x18	; 24
-      001A39 A4                    5230 	.db #0xa4	; 164
-      001A3A A4                    5231 	.db #0xa4	; 164
-      001A3B 9C                    5232 	.db #0x9c	; 156
-      001A3C 78                    5233 	.db #0x78	; 120	'x'
-      001A3D 7F                    5234 	.db #0x7f	; 127
-      001A3E 08                    5235 	.db #0x08	; 8
-      001A3F 04                    5236 	.db #0x04	; 4
-      001A40 04                    5237 	.db #0x04	; 4
-      001A41 78                    5238 	.db #0x78	; 120	'x'
-      001A42 00                    5239 	.db #0x00	; 0
-      001A43 44                    5240 	.db #0x44	; 68	'D'
-      001A44 7D                    5241 	.db #0x7d	; 125
-      001A45 40                    5242 	.db #0x40	; 64
-      001A46 00                    5243 	.db #0x00	; 0
-      001A47 20                    5244 	.db #0x20	; 32
-      001A48 40                    5245 	.db #0x40	; 64
-      001A49 40                    5246 	.db #0x40	; 64
-      001A4A 3D                    5247 	.db #0x3d	; 61
-      001A4B 00                    5248 	.db #0x00	; 0
-      001A4C 7F                    5249 	.db #0x7f	; 127
-      001A4D 10                    5250 	.db #0x10	; 16
-      001A4E 28                    5251 	.db #0x28	; 40
-      001A4F 44                    5252 	.db #0x44	; 68	'D'
-      001A50 00                    5253 	.db #0x00	; 0
-      001A51 00                    5254 	.db #0x00	; 0
-      001A52 41                    5255 	.db #0x41	; 65	'A'
-      001A53 7F                    5256 	.db #0x7f	; 127
-      001A54 40                    5257 	.db #0x40	; 64
-      001A55 00                    5258 	.db #0x00	; 0
-      001A56 7C                    5259 	.db #0x7c	; 124
-      001A57 04                    5260 	.db #0x04	; 4
-      001A58 78                    5261 	.db #0x78	; 120	'x'
-      001A59 04                    5262 	.db #0x04	; 4
-      001A5A 78                    5263 	.db #0x78	; 120	'x'
-      001A5B 7C                    5264 	.db #0x7c	; 124
-      001A5C 08                    5265 	.db #0x08	; 8
-      001A5D 04                    5266 	.db #0x04	; 4
-      001A5E 04                    5267 	.db #0x04	; 4
-      001A5F 78                    5268 	.db #0x78	; 120	'x'
-      001A60 38                    5269 	.db #0x38	; 56	'8'
-      001A61 44                    5270 	.db #0x44	; 68	'D'
-      001A62 44                    5271 	.db #0x44	; 68	'D'
-      001A63 44                    5272 	.db #0x44	; 68	'D'
-      001A64 38                    5273 	.db #0x38	; 56	'8'
-      001A65 FC                    5274 	.db #0xfc	; 252
-      001A66 18                    5275 	.db #0x18	; 24
-      001A67 24                    5276 	.db #0x24	; 36
-      001A68 24                    5277 	.db #0x24	; 36
-      001A69 18                    5278 	.db #0x18	; 24
-      001A6A 18                    5279 	.db #0x18	; 24
-      001A6B 24                    5280 	.db #0x24	; 36
-      001A6C 24                    5281 	.db #0x24	; 36
-      001A6D 18                    5282 	.db #0x18	; 24
-      001A6E FC                    5283 	.db #0xfc	; 252
-      001A6F 7C                    5284 	.db #0x7c	; 124
-      001A70 08                    5285 	.db #0x08	; 8
-      001A71 04                    5286 	.db #0x04	; 4
-      001A72 04                    5287 	.db #0x04	; 4
-      001A73 08                    5288 	.db #0x08	; 8
-      001A74 48                    5289 	.db #0x48	; 72	'H'
-      001A75 54                    5290 	.db #0x54	; 84	'T'
-      001A76 54                    5291 	.db #0x54	; 84	'T'
-      001A77 54                    5292 	.db #0x54	; 84	'T'
-      001A78 24                    5293 	.db #0x24	; 36
-      001A79 04                    5294 	.db #0x04	; 4
-      001A7A 04                    5295 	.db #0x04	; 4
-      001A7B 3F                    5296 	.db #0x3f	; 63
-      001A7C 44                    5297 	.db #0x44	; 68	'D'
-      001A7D 24                    5298 	.db #0x24	; 36
-      001A7E 3C                    5299 	.db #0x3c	; 60
-      001A7F 40                    5300 	.db #0x40	; 64
-      001A80 40                    5301 	.db #0x40	; 64
-      001A81 20                    5302 	.db #0x20	; 32
-      001A82 7C                    5303 	.db #0x7c	; 124
-      001A83 1C                    5304 	.db #0x1c	; 28
-      001A84 20                    5305 	.db #0x20	; 32
-      001A85 40                    5306 	.db #0x40	; 64
-      001A86 20                    5307 	.db #0x20	; 32
-      001A87 1C                    5308 	.db #0x1c	; 28
-      001A88 3C                    5309 	.db #0x3c	; 60
-      001A89 40                    5310 	.db #0x40	; 64
-      001A8A 30                    5311 	.db #0x30	; 48	'0'
-      001A8B 40                    5312 	.db #0x40	; 64
-      001A8C 3C                    5313 	.db #0x3c	; 60
-      001A8D 44                    5314 	.db #0x44	; 68	'D'
-      001A8E 28                    5315 	.db #0x28	; 40
-      001A8F 10                    5316 	.db #0x10	; 16
-      001A90 28                    5317 	.db #0x28	; 40
-      001A91 44                    5318 	.db #0x44	; 68	'D'
-      001A92 4C                    5319 	.db #0x4c	; 76	'L'
-      001A93 90                    5320 	.db #0x90	; 144
-      001A94 90                    5321 	.db #0x90	; 144
-      001A95 90                    5322 	.db #0x90	; 144
-      001A96 7C                    5323 	.db #0x7c	; 124
-      001A97 44                    5324 	.db #0x44	; 68	'D'
-      001A98 64                    5325 	.db #0x64	; 100	'd'
-      001A99 54                    5326 	.db #0x54	; 84	'T'
-      001A9A 4C                    5327 	.db #0x4c	; 76	'L'
-      001A9B 44                    5328 	.db #0x44	; 68	'D'
-      001A9C 00                    5329 	.db #0x00	; 0
-      001A9D 08                    5330 	.db #0x08	; 8
-      001A9E 36                    5331 	.db #0x36	; 54	'6'
-      001A9F 41                    5332 	.db #0x41	; 65	'A'
-      001AA0 00                    5333 	.db #0x00	; 0
-      001AA1 00                    5334 	.db #0x00	; 0
-      001AA2 00                    5335 	.db #0x00	; 0
-      001AA3 77                    5336 	.db #0x77	; 119	'w'
-      001AA4 00                    5337 	.db #0x00	; 0
-      001AA5 00                    5338 	.db #0x00	; 0
-      001AA6 00                    5339 	.db #0x00	; 0
-      001AA7 41                    5340 	.db #0x41	; 65	'A'
-      001AA8 36                    5341 	.db #0x36	; 54	'6'
-      001AA9 08                    5342 	.db #0x08	; 8
-      001AAA 00                    5343 	.db #0x00	; 0
-      001AAB 02                    5344 	.db #0x02	; 2
-      001AAC 01                    5345 	.db #0x01	; 1
-      001AAD 02                    5346 	.db #0x02	; 2
-      001AAE 04                    5347 	.db #0x04	; 4
-      001AAF 02                    5348 	.db #0x02	; 2
-      001AB0 3C                    5349 	.db #0x3c	; 60
-      001AB1 26                    5350 	.db #0x26	; 38
-      001AB2 23                    5351 	.db #0x23	; 35
-      001AB3 26                    5352 	.db #0x26	; 38
-      001AB4 3C                    5353 	.db #0x3c	; 60
-      001AB5 1E                    5354 	.db #0x1e	; 30
-      001AB6 A1                    5355 	.db #0xa1	; 161
-      001AB7 A1                    5356 	.db #0xa1	; 161
-      001AB8 61                    5357 	.db #0x61	; 97	'a'
-      001AB9 12                    5358 	.db #0x12	; 18
-      001ABA 3A                    5359 	.db #0x3a	; 58
-      001ABB 40                    5360 	.db #0x40	; 64
-      001ABC 40                    5361 	.db #0x40	; 64
-      001ABD 20                    5362 	.db #0x20	; 32
-      001ABE 7A                    5363 	.db #0x7a	; 122	'z'
-      001ABF 38                    5364 	.db #0x38	; 56	'8'
-      001AC0 54                    5365 	.db #0x54	; 84	'T'
-      001AC1 54                    5366 	.db #0x54	; 84	'T'
-      001AC2 55                    5367 	.db #0x55	; 85	'U'
-      001AC3 59                    5368 	.db #0x59	; 89	'Y'
-      001AC4 21                    5369 	.db #0x21	; 33
-      001AC5 55                    5370 	.db #0x55	; 85	'U'
-      001AC6 55                    5371 	.db #0x55	; 85	'U'
-      001AC7 79                    5372 	.db #0x79	; 121	'y'
-      001AC8 41                    5373 	.db #0x41	; 65	'A'
-      001AC9 22                    5374 	.db #0x22	; 34
-      001ACA 54                    5375 	.db #0x54	; 84	'T'
-      001ACB 54                    5376 	.db #0x54	; 84	'T'
-      001ACC 78                    5377 	.db #0x78	; 120	'x'
-      001ACD 42                    5378 	.db #0x42	; 66	'B'
-      001ACE 21                    5379 	.db #0x21	; 33
-      001ACF 55                    5380 	.db #0x55	; 85	'U'
-      001AD0 54                    5381 	.db #0x54	; 84	'T'
-      001AD1 78                    5382 	.db #0x78	; 120	'x'
-      001AD2 40                    5383 	.db #0x40	; 64
-      001AD3 20                    5384 	.db #0x20	; 32
-      001AD4 54                    5385 	.db #0x54	; 84	'T'
-      001AD5 55                    5386 	.db #0x55	; 85	'U'
-      001AD6 79                    5387 	.db #0x79	; 121	'y'
-      001AD7 40                    5388 	.db #0x40	; 64
-      001AD8 0C                    5389 	.db #0x0c	; 12
-      001AD9 1E                    5390 	.db #0x1e	; 30
-      001ADA 52                    5391 	.db #0x52	; 82	'R'
-      001ADB 72                    5392 	.db #0x72	; 114	'r'
-      001ADC 12                    5393 	.db #0x12	; 18
-      001ADD 39                    5394 	.db #0x39	; 57	'9'
-      001ADE 55                    5395 	.db #0x55	; 85	'U'
-      001ADF 55                    5396 	.db #0x55	; 85	'U'
-      001AE0 55                    5397 	.db #0x55	; 85	'U'
-      001AE1 59                    5398 	.db #0x59	; 89	'Y'
-      001AE2 39                    5399 	.db #0x39	; 57	'9'
-      001AE3 54                    5400 	.db #0x54	; 84	'T'
-      001AE4 54                    5401 	.db #0x54	; 84	'T'
-      001AE5 54                    5402 	.db #0x54	; 84	'T'
-      001AE6 59                    5403 	.db #0x59	; 89	'Y'
-      001AE7 39                    5404 	.db #0x39	; 57	'9'
-      001AE8 55                    5405 	.db #0x55	; 85	'U'
-      001AE9 54                    5406 	.db #0x54	; 84	'T'
-      001AEA 54                    5407 	.db #0x54	; 84	'T'
-      001AEB 58                    5408 	.db #0x58	; 88	'X'
-      001AEC 00                    5409 	.db #0x00	; 0
-      001AED 00                    5410 	.db #0x00	; 0
-      001AEE 45                    5411 	.db #0x45	; 69	'E'
-      001AEF 7C                    5412 	.db #0x7c	; 124
-      001AF0 41                    5413 	.db #0x41	; 65	'A'
-      001AF1 00                    5414 	.db #0x00	; 0
-      001AF2 02                    5415 	.db #0x02	; 2
-      001AF3 45                    5416 	.db #0x45	; 69	'E'
-      001AF4 7D                    5417 	.db #0x7d	; 125
-      001AF5 42                    5418 	.db #0x42	; 66	'B'
-      001AF6 00                    5419 	.db #0x00	; 0
-      001AF7 01                    5420 	.db #0x01	; 1
-      001AF8 45                    5421 	.db #0x45	; 69	'E'
-      001AF9 7C                    5422 	.db #0x7c	; 124
-      001AFA 40                    5423 	.db #0x40	; 64
-      001AFB 7D                    5424 	.db #0x7d	; 125
-      001AFC 12                    5425 	.db #0x12	; 18
-      001AFD 11                    5426 	.db #0x11	; 17
-      001AFE 12                    5427 	.db #0x12	; 18
-      001AFF 7D                    5428 	.db #0x7d	; 125
-      001B00 F0                    5429 	.db #0xf0	; 240
-      001B01 28                    5430 	.db #0x28	; 40
-      001B02 25                    5431 	.db #0x25	; 37
-      001B03 28                    5432 	.db #0x28	; 40
-      001B04 F0                    5433 	.db #0xf0	; 240
-      001B05 7C                    5434 	.db #0x7c	; 124
-      001B06 54                    5435 	.db #0x54	; 84	'T'
-      001B07 55                    5436 	.db #0x55	; 85	'U'
-      001B08 45                    5437 	.db #0x45	; 69	'E'
-      001B09 00                    5438 	.db #0x00	; 0
-      001B0A 20                    5439 	.db #0x20	; 32
-      001B0B 54                    5440 	.db #0x54	; 84	'T'
-      001B0C 54                    5441 	.db #0x54	; 84	'T'
-      001B0D 7C                    5442 	.db #0x7c	; 124
-      001B0E 54                    5443 	.db #0x54	; 84	'T'
-      001B0F 7C                    5444 	.db #0x7c	; 124
-      001B10 0A                    5445 	.db #0x0a	; 10
-      001B11 09                    5446 	.db #0x09	; 9
-      001B12 7F                    5447 	.db #0x7f	; 127
-      001B13 49                    5448 	.db #0x49	; 73	'I'
-      001B14 32                    5449 	.db #0x32	; 50	'2'
-      001B15 49                    5450 	.db #0x49	; 73	'I'
-      001B16 49                    5451 	.db #0x49	; 73	'I'
-      001B17 49                    5452 	.db #0x49	; 73	'I'
-      001B18 32                    5453 	.db #0x32	; 50	'2'
-      001B19 3A                    5454 	.db #0x3a	; 58
-      001B1A 44                    5455 	.db #0x44	; 68	'D'
-      001B1B 44                    5456 	.db #0x44	; 68	'D'
-      001B1C 44                    5457 	.db #0x44	; 68	'D'
-      001B1D 3A                    5458 	.db #0x3a	; 58
-      001B1E 32                    5459 	.db #0x32	; 50	'2'
-      001B1F 4A                    5460 	.db #0x4a	; 74	'J'
-      001B20 48                    5461 	.db #0x48	; 72	'H'
-      001B21 48                    5462 	.db #0x48	; 72	'H'
-      001B22 30                    5463 	.db #0x30	; 48	'0'
-      001B23 3A                    5464 	.db #0x3a	; 58
-      001B24 41                    5465 	.db #0x41	; 65	'A'
-      001B25 41                    5466 	.db #0x41	; 65	'A'
-      001B26 21                    5467 	.db #0x21	; 33
-      001B27 7A                    5468 	.db #0x7a	; 122	'z'
-      001B28 3A                    5469 	.db #0x3a	; 58
-      001B29 42                    5470 	.db #0x42	; 66	'B'
-      001B2A 40                    5471 	.db #0x40	; 64
-      001B2B 20                    5472 	.db #0x20	; 32
-      001B2C 78                    5473 	.db #0x78	; 120	'x'
-      001B2D 00                    5474 	.db #0x00	; 0
-      001B2E 9D                    5475 	.db #0x9d	; 157
-      001B2F A0                    5476 	.db #0xa0	; 160
-      001B30 A0                    5477 	.db #0xa0	; 160
-      001B31 7D                    5478 	.db #0x7d	; 125
-      001B32 3D                    5479 	.db #0x3d	; 61
-      001B33 42                    5480 	.db #0x42	; 66	'B'
-      001B34 42                    5481 	.db #0x42	; 66	'B'
-      001B35 42                    5482 	.db #0x42	; 66	'B'
-      001B36 3D                    5483 	.db #0x3d	; 61
-      001B37 3D                    5484 	.db #0x3d	; 61
-      001B38 40                    5485 	.db #0x40	; 64
-      001B39 40                    5486 	.db #0x40	; 64
-      001B3A 40                    5487 	.db #0x40	; 64
-      001B3B 3D                    5488 	.db #0x3d	; 61
-      001B3C 3C                    5489 	.db #0x3c	; 60
-      001B3D 24                    5490 	.db #0x24	; 36
-      001B3E FF                    5491 	.db #0xff	; 255
-      001B3F 24                    5492 	.db #0x24	; 36
-      001B40 24                    5493 	.db #0x24	; 36
-      001B41 48                    5494 	.db #0x48	; 72	'H'
-      001B42 7E                    5495 	.db #0x7e	; 126
-      001B43 49                    5496 	.db #0x49	; 73	'I'
-      001B44 43                    5497 	.db #0x43	; 67	'C'
-      001B45 66                    5498 	.db #0x66	; 102	'f'
-      001B46 2B                    5499 	.db #0x2b	; 43
-      001B47 2F                    5500 	.db #0x2f	; 47
-      001B48 FC                    5501 	.db #0xfc	; 252
-      001B49 2F                    5502 	.db #0x2f	; 47
-      001B4A 2B                    5503 	.db #0x2b	; 43
-      001B4B FF                    5504 	.db #0xff	; 255
-      001B4C 09                    5505 	.db #0x09	; 9
-      001B4D 29                    5506 	.db #0x29	; 41
-      001B4E F6                    5507 	.db #0xf6	; 246
-      001B4F 20                    5508 	.db #0x20	; 32
-      001B50 C0                    5509 	.db #0xc0	; 192
-      001B51 88                    5510 	.db #0x88	; 136
-      001B52 7E                    5511 	.db #0x7e	; 126
-      001B53 09                    5512 	.db #0x09	; 9
-      001B54 03                    5513 	.db #0x03	; 3
-      001B55 20                    5514 	.db #0x20	; 32
-      001B56 54                    5515 	.db #0x54	; 84	'T'
-      001B57 54                    5516 	.db #0x54	; 84	'T'
-      001B58 79                    5517 	.db #0x79	; 121	'y'
-      001B59 41                    5518 	.db #0x41	; 65	'A'
-      001B5A 00                    5519 	.db #0x00	; 0
-      001B5B 00                    5520 	.db #0x00	; 0
-      001B5C 44                    5521 	.db #0x44	; 68	'D'
-      001B5D 7D                    5522 	.db #0x7d	; 125
-      001B5E 41                    5523 	.db #0x41	; 65	'A'
-      001B5F 30                    5524 	.db #0x30	; 48	'0'
-      001B60 48                    5525 	.db #0x48	; 72	'H'
-      001B61 48                    5526 	.db #0x48	; 72	'H'
-      001B62 4A                    5527 	.db #0x4a	; 74	'J'
-      001B63 32                    5528 	.db #0x32	; 50	'2'
-      001B64 38                    5529 	.db #0x38	; 56	'8'
-      001B65 40                    5530 	.db #0x40	; 64
-      001B66 40                    5531 	.db #0x40	; 64
-      001B67 22                    5532 	.db #0x22	; 34
-      001B68 7A                    5533 	.db #0x7a	; 122	'z'
-      001B69 00                    5534 	.db #0x00	; 0
-      001B6A 7A                    5535 	.db #0x7a	; 122	'z'
-      001B6B 0A                    5536 	.db #0x0a	; 10
-      001B6C 0A                    5537 	.db #0x0a	; 10
-      001B6D 72                    5538 	.db #0x72	; 114	'r'
-      001B6E 7D                    5539 	.db #0x7d	; 125
-      001B6F 0D                    5540 	.db #0x0d	; 13
-      001B70 19                    5541 	.db #0x19	; 25
-      001B71 31                    5542 	.db #0x31	; 49	'1'
-      001B72 7D                    5543 	.db #0x7d	; 125
-      001B73 26                    5544 	.db #0x26	; 38
-      001B74 29                    5545 	.db #0x29	; 41
-      001B75 29                    5546 	.db #0x29	; 41
-      001B76 2F                    5547 	.db #0x2f	; 47
-      001B77 28                    5548 	.db #0x28	; 40
-      001B78 26                    5549 	.db #0x26	; 38
-      001B79 29                    5550 	.db #0x29	; 41
-      001B7A 29                    5551 	.db #0x29	; 41
-      001B7B 29                    5552 	.db #0x29	; 41
-      001B7C 26                    5553 	.db #0x26	; 38
-      001B7D 30                    5554 	.db #0x30	; 48	'0'
-      001B7E 48                    5555 	.db #0x48	; 72	'H'
-      001B7F 4D                    5556 	.db #0x4d	; 77	'M'
-      001B80 40                    5557 	.db #0x40	; 64
-      001B81 20                    5558 	.db #0x20	; 32
-      001B82 38                    5559 	.db #0x38	; 56	'8'
-      001B83 08                    5560 	.db #0x08	; 8
-      001B84 08                    5561 	.db #0x08	; 8
-      001B85 08                    5562 	.db #0x08	; 8
-      001B86 08                    5563 	.db #0x08	; 8
-      001B87 08                    5564 	.db #0x08	; 8
-      001B88 08                    5565 	.db #0x08	; 8
-      001B89 08                    5566 	.db #0x08	; 8
-      001B8A 08                    5567 	.db #0x08	; 8
-      001B8B 38                    5568 	.db #0x38	; 56	'8'
-      001B8C 2F                    5569 	.db #0x2f	; 47
-      001B8D 10                    5570 	.db #0x10	; 16
-      001B8E C8                    5571 	.db #0xc8	; 200
-      001B8F AC                    5572 	.db #0xac	; 172
-      001B90 BA                    5573 	.db #0xba	; 186
-      001B91 2F                    5574 	.db #0x2f	; 47
-      001B92 10                    5575 	.db #0x10	; 16
-      001B93 28                    5576 	.db #0x28	; 40
-      001B94 34                    5577 	.db #0x34	; 52	'4'
-      001B95 FA                    5578 	.db #0xfa	; 250
-      001B96 00                    5579 	.db #0x00	; 0
-      001B97 00                    5580 	.db #0x00	; 0
-      001B98 7B                    5581 	.db #0x7b	; 123
-      001B99 00                    5582 	.db #0x00	; 0
-      001B9A 00                    5583 	.db #0x00	; 0
-      001B9B 08                    5584 	.db #0x08	; 8
-      001B9C 14                    5585 	.db #0x14	; 20
-      001B9D 2A                    5586 	.db #0x2a	; 42
-      001B9E 14                    5587 	.db #0x14	; 20
-      001B9F 22                    5588 	.db #0x22	; 34
-      001BA0 22                    5589 	.db #0x22	; 34
-      001BA1 14                    5590 	.db #0x14	; 20
-      001BA2 2A                    5591 	.db #0x2a	; 42
-      001BA3 14                    5592 	.db #0x14	; 20
-      001BA4 08                    5593 	.db #0x08	; 8
-      001BA5 AA                    5594 	.db #0xaa	; 170
-      001BA6 00                    5595 	.db #0x00	; 0
-      001BA7 55                    5596 	.db #0x55	; 85	'U'
-      001BA8 00                    5597 	.db #0x00	; 0
-      001BA9 AA                    5598 	.db #0xaa	; 170
-      001BAA AA                    5599 	.db #0xaa	; 170
-      001BAB 55                    5600 	.db #0x55	; 85	'U'
-      001BAC AA                    5601 	.db #0xaa	; 170
-      001BAD 55                    5602 	.db #0x55	; 85	'U'
-      001BAE AA                    5603 	.db #0xaa	; 170
-      001BAF 00                    5604 	.db #0x00	; 0
-      001BB0 00                    5605 	.db #0x00	; 0
-      001BB1 00                    5606 	.db #0x00	; 0
-      001BB2 FF                    5607 	.db #0xff	; 255
-      001BB3 00                    5608 	.db #0x00	; 0
-      001BB4 10                    5609 	.db #0x10	; 16
-      001BB5 10                    5610 	.db #0x10	; 16
-      001BB6 10                    5611 	.db #0x10	; 16
-      001BB7 FF                    5612 	.db #0xff	; 255
-      001BB8 00                    5613 	.db #0x00	; 0
-      001BB9 14                    5614 	.db #0x14	; 20
-      001BBA 14                    5615 	.db #0x14	; 20
-      001BBB 14                    5616 	.db #0x14	; 20
-      001BBC FF                    5617 	.db #0xff	; 255
-      001BBD 00                    5618 	.db #0x00	; 0
-      001BBE 10                    5619 	.db #0x10	; 16
-      001BBF 10                    5620 	.db #0x10	; 16
-      001BC0 FF                    5621 	.db #0xff	; 255
-      001BC1 00                    5622 	.db #0x00	; 0
-      001BC2 FF                    5623 	.db #0xff	; 255
-      001BC3 10                    5624 	.db #0x10	; 16
-      001BC4 10                    5625 	.db #0x10	; 16
-      001BC5 F0                    5626 	.db #0xf0	; 240
-      001BC6 10                    5627 	.db #0x10	; 16
-      001BC7 F0                    5628 	.db #0xf0	; 240
-      001BC8 14                    5629 	.db #0x14	; 20
-      001BC9 14                    5630 	.db #0x14	; 20
-      001BCA 14                    5631 	.db #0x14	; 20
-      001BCB FC                    5632 	.db #0xfc	; 252
-      001BCC 00                    5633 	.db #0x00	; 0
-      001BCD 14                    5634 	.db #0x14	; 20
-      001BCE 14                    5635 	.db #0x14	; 20
-      001BCF F7                    5636 	.db #0xf7	; 247
-      001BD0 00                    5637 	.db #0x00	; 0
-      001BD1 FF                    5638 	.db #0xff	; 255
-      001BD2 00                    5639 	.db #0x00	; 0
-      001BD3 00                    5640 	.db #0x00	; 0
-      001BD4 FF                    5641 	.db #0xff	; 255
-      001BD5 00                    5642 	.db #0x00	; 0
-      001BD6 FF                    5643 	.db #0xff	; 255
-      001BD7 14                    5644 	.db #0x14	; 20
-      001BD8 14                    5645 	.db #0x14	; 20
-      001BD9 F4                    5646 	.db #0xf4	; 244
-      001BDA 04                    5647 	.db #0x04	; 4
-      001BDB FC                    5648 	.db #0xfc	; 252
-      001BDC 14                    5649 	.db #0x14	; 20
-      001BDD 14                    5650 	.db #0x14	; 20
-      001BDE 17                    5651 	.db #0x17	; 23
-      001BDF 10                    5652 	.db #0x10	; 16
-      001BE0 1F                    5653 	.db #0x1f	; 31
-      001BE1 10                    5654 	.db #0x10	; 16
-      001BE2 10                    5655 	.db #0x10	; 16
-      001BE3 1F                    5656 	.db #0x1f	; 31
-      001BE4 10                    5657 	.db #0x10	; 16
-      001BE5 1F                    5658 	.db #0x1f	; 31
-      001BE6 14                    5659 	.db #0x14	; 20
-      001BE7 14                    5660 	.db #0x14	; 20
-      001BE8 14                    5661 	.db #0x14	; 20
-      001BE9 1F                    5662 	.db #0x1f	; 31
-      001BEA 00                    5663 	.db #0x00	; 0
-      001BEB 10                    5664 	.db #0x10	; 16
-      001BEC 10                    5665 	.db #0x10	; 16
-      001BED 10                    5666 	.db #0x10	; 16
-      001BEE F0                    5667 	.db #0xf0	; 240
-      001BEF 00                    5668 	.db #0x00	; 0
-      001BF0 00                    5669 	.db #0x00	; 0
-      001BF1 00                    5670 	.db #0x00	; 0
-      001BF2 00                    5671 	.db #0x00	; 0
-      001BF3 1F                    5672 	.db #0x1f	; 31
-      001BF4 10                    5673 	.db #0x10	; 16
-      001BF5 10                    5674 	.db #0x10	; 16
-      001BF6 10                    5675 	.db #0x10	; 16
-      001BF7 10                    5676 	.db #0x10	; 16
-      001BF8 1F                    5677 	.db #0x1f	; 31
-      001BF9 10                    5678 	.db #0x10	; 16
-      001BFA 10                    5679 	.db #0x10	; 16
-      001BFB 10                    5680 	.db #0x10	; 16
-      001BFC 10                    5681 	.db #0x10	; 16
-      001BFD F0                    5682 	.db #0xf0	; 240
-      001BFE 10                    5683 	.db #0x10	; 16
-      001BFF 00                    5684 	.db #0x00	; 0
-      001C00 00                    5685 	.db #0x00	; 0
-      001C01 00                    5686 	.db #0x00	; 0
-      001C02 FF                    5687 	.db #0xff	; 255
-      001C03 10                    5688 	.db #0x10	; 16
-      001C04 10                    5689 	.db #0x10	; 16
-      001C05 10                    5690 	.db #0x10	; 16
-      001C06 10                    5691 	.db #0x10	; 16
-      001C07 10                    5692 	.db #0x10	; 16
-      001C08 10                    5693 	.db #0x10	; 16
-      001C09 10                    5694 	.db #0x10	; 16
-      001C0A 10                    5695 	.db #0x10	; 16
-      001C0B 10                    5696 	.db #0x10	; 16
-      001C0C FF                    5697 	.db #0xff	; 255
-      001C0D 10                    5698 	.db #0x10	; 16
-      001C0E 00                    5699 	.db #0x00	; 0
-      001C0F 00                    5700 	.db #0x00	; 0
-      001C10 00                    5701 	.db #0x00	; 0
-      001C11 FF                    5702 	.db #0xff	; 255
-      001C12 14                    5703 	.db #0x14	; 20
-      001C13 00                    5704 	.db #0x00	; 0
-      001C14 00                    5705 	.db #0x00	; 0
-      001C15 FF                    5706 	.db #0xff	; 255
-      001C16 00                    5707 	.db #0x00	; 0
-      001C17 FF                    5708 	.db #0xff	; 255
-      001C18 00                    5709 	.db #0x00	; 0
-      001C19 00                    5710 	.db #0x00	; 0
-      001C1A 1F                    5711 	.db #0x1f	; 31
-      001C1B 10                    5712 	.db #0x10	; 16
-      001C1C 17                    5713 	.db #0x17	; 23
-      001C1D 00                    5714 	.db #0x00	; 0
-      001C1E 00                    5715 	.db #0x00	; 0
-      001C1F FC                    5716 	.db #0xfc	; 252
-      001C20 04                    5717 	.db #0x04	; 4
-      001C21 F4                    5718 	.db #0xf4	; 244
-      001C22 14                    5719 	.db #0x14	; 20
-      001C23 14                    5720 	.db #0x14	; 20
-      001C24 17                    5721 	.db #0x17	; 23
-      001C25 10                    5722 	.db #0x10	; 16
-      001C26 17                    5723 	.db #0x17	; 23
-      001C27 14                    5724 	.db #0x14	; 20
-      001C28 14                    5725 	.db #0x14	; 20
-      001C29 F4                    5726 	.db #0xf4	; 244
-      001C2A 04                    5727 	.db #0x04	; 4
-      001C2B F4                    5728 	.db #0xf4	; 244
-      001C2C 00                    5729 	.db #0x00	; 0
-      001C2D 00                    5730 	.db #0x00	; 0
-      001C2E FF                    5731 	.db #0xff	; 255
-      001C2F 00                    5732 	.db #0x00	; 0
-      001C30 F7                    5733 	.db #0xf7	; 247
-      001C31 14                    5734 	.db #0x14	; 20
-      001C32 14                    5735 	.db #0x14	; 20
-      001C33 14                    5736 	.db #0x14	; 20
-      001C34 14                    5737 	.db #0x14	; 20
-      001C35 14                    5738 	.db #0x14	; 20
-      001C36 14                    5739 	.db #0x14	; 20
-      001C37 14                    5740 	.db #0x14	; 20
-      001C38 F7                    5741 	.db #0xf7	; 247
-      001C39 00                    5742 	.db #0x00	; 0
-      001C3A F7                    5743 	.db #0xf7	; 247
-      001C3B 14                    5744 	.db #0x14	; 20
-      001C3C 14                    5745 	.db #0x14	; 20
-      001C3D 14                    5746 	.db #0x14	; 20
-      001C3E 17                    5747 	.db #0x17	; 23
-      001C3F 14                    5748 	.db #0x14	; 20
-      001C40 10                    5749 	.db #0x10	; 16
-      001C41 10                    5750 	.db #0x10	; 16
-      001C42 1F                    5751 	.db #0x1f	; 31
-      001C43 10                    5752 	.db #0x10	; 16
-      001C44 1F                    5753 	.db #0x1f	; 31
-      001C45 14                    5754 	.db #0x14	; 20
-      001C46 14                    5755 	.db #0x14	; 20
-      001C47 14                    5756 	.db #0x14	; 20
-      001C48 F4                    5757 	.db #0xf4	; 244
-      001C49 14                    5758 	.db #0x14	; 20
-      001C4A 10                    5759 	.db #0x10	; 16
-      001C4B 10                    5760 	.db #0x10	; 16
-      001C4C F0                    5761 	.db #0xf0	; 240
-      001C4D 10                    5762 	.db #0x10	; 16
-      001C4E F0                    5763 	.db #0xf0	; 240
-      001C4F 00                    5764 	.db #0x00	; 0
-      001C50 00                    5765 	.db #0x00	; 0
-      001C51 1F                    5766 	.db #0x1f	; 31
-      001C52 10                    5767 	.db #0x10	; 16
-      001C53 1F                    5768 	.db #0x1f	; 31
-      001C54 00                    5769 	.db #0x00	; 0
-      001C55 00                    5770 	.db #0x00	; 0
-      001C56 00                    5771 	.db #0x00	; 0
-      001C57 1F                    5772 	.db #0x1f	; 31
-      001C58 14                    5773 	.db #0x14	; 20
-      001C59 00                    5774 	.db #0x00	; 0
-      001C5A 00                    5775 	.db #0x00	; 0
-      001C5B 00                    5776 	.db #0x00	; 0
-      001C5C FC                    5777 	.db #0xfc	; 252
-      001C5D 14                    5778 	.db #0x14	; 20
-      001C5E 00                    5779 	.db #0x00	; 0
-      001C5F 00                    5780 	.db #0x00	; 0
-      001C60 F0                    5781 	.db #0xf0	; 240
-      001C61 10                    5782 	.db #0x10	; 16
-      001C62 F0                    5783 	.db #0xf0	; 240
-      001C63 10                    5784 	.db #0x10	; 16
-      001C64 10                    5785 	.db #0x10	; 16
-      001C65 FF                    5786 	.db #0xff	; 255
-      001C66 10                    5787 	.db #0x10	; 16
-      001C67 FF                    5788 	.db #0xff	; 255
-      001C68 14                    5789 	.db #0x14	; 20
-      001C69 14                    5790 	.db #0x14	; 20
-      001C6A 14                    5791 	.db #0x14	; 20
-      001C6B FF                    5792 	.db #0xff	; 255
-      001C6C 14                    5793 	.db #0x14	; 20
-      001C6D 10                    5794 	.db #0x10	; 16
-      001C6E 10                    5795 	.db #0x10	; 16
-      001C6F 10                    5796 	.db #0x10	; 16
-      001C70 1F                    5797 	.db #0x1f	; 31
-      001C71 00                    5798 	.db #0x00	; 0
-      001C72 00                    5799 	.db #0x00	; 0
-      001C73 00                    5800 	.db #0x00	; 0
-      001C74 00                    5801 	.db #0x00	; 0
-      001C75 F0                    5802 	.db #0xf0	; 240
-      001C76 10                    5803 	.db #0x10	; 16
-      001C77 FF                    5804 	.db #0xff	; 255
-      001C78 FF                    5805 	.db #0xff	; 255
-      001C79 FF                    5806 	.db #0xff	; 255
-      001C7A FF                    5807 	.db #0xff	; 255
-      001C7B FF                    5808 	.db #0xff	; 255
-      001C7C F0                    5809 	.db #0xf0	; 240
-      001C7D F0                    5810 	.db #0xf0	; 240
-      001C7E F0                    5811 	.db #0xf0	; 240
-      001C7F F0                    5812 	.db #0xf0	; 240
-      001C80 F0                    5813 	.db #0xf0	; 240
-      001C81 FF                    5814 	.db #0xff	; 255
-      001C82 FF                    5815 	.db #0xff	; 255
-      001C83 FF                    5816 	.db #0xff	; 255
-      001C84 00                    5817 	.db #0x00	; 0
-      001C85 00                    5818 	.db #0x00	; 0
-      001C86 00                    5819 	.db #0x00	; 0
-      001C87 00                    5820 	.db #0x00	; 0
-      001C88 00                    5821 	.db #0x00	; 0
-      001C89 FF                    5822 	.db #0xff	; 255
-      001C8A FF                    5823 	.db #0xff	; 255
-      001C8B 0F                    5824 	.db #0x0f	; 15
-      001C8C 0F                    5825 	.db #0x0f	; 15
-      001C8D 0F                    5826 	.db #0x0f	; 15
-      001C8E 0F                    5827 	.db #0x0f	; 15
-      001C8F 0F                    5828 	.db #0x0f	; 15
-      001C90 38                    5829 	.db #0x38	; 56	'8'
-      001C91 44                    5830 	.db #0x44	; 68	'D'
-      001C92 44                    5831 	.db #0x44	; 68	'D'
-      001C93 38                    5832 	.db #0x38	; 56	'8'
-      001C94 44                    5833 	.db #0x44	; 68	'D'
-      001C95 FC                    5834 	.db #0xfc	; 252
-      001C96 4A                    5835 	.db #0x4a	; 74	'J'
-      001C97 4A                    5836 	.db #0x4a	; 74	'J'
-      001C98 4A                    5837 	.db #0x4a	; 74	'J'
-      001C99 34                    5838 	.db #0x34	; 52	'4'
-      001C9A 7E                    5839 	.db #0x7e	; 126
-      001C9B 02                    5840 	.db #0x02	; 2
-      001C9C 02                    5841 	.db #0x02	; 2
-      001C9D 06                    5842 	.db #0x06	; 6
-      001C9E 06                    5843 	.db #0x06	; 6
-      001C9F 02                    5844 	.db #0x02	; 2
-      001CA0 7E                    5845 	.db #0x7e	; 126
-      001CA1 02                    5846 	.db #0x02	; 2
-      001CA2 7E                    5847 	.db #0x7e	; 126
-      001CA3 02                    5848 	.db #0x02	; 2
-      001CA4 63                    5849 	.db #0x63	; 99	'c'
-      001CA5 55                    5850 	.db #0x55	; 85	'U'
-      001CA6 49                    5851 	.db #0x49	; 73	'I'
-      001CA7 41                    5852 	.db #0x41	; 65	'A'
-      001CA8 63                    5853 	.db #0x63	; 99	'c'
-      001CA9 38                    5854 	.db #0x38	; 56	'8'
-      001CAA 44                    5855 	.db #0x44	; 68	'D'
-      001CAB 44                    5856 	.db #0x44	; 68	'D'
-      001CAC 3C                    5857 	.db #0x3c	; 60
-      001CAD 04                    5858 	.db #0x04	; 4
-      001CAE 40                    5859 	.db #0x40	; 64
-      001CAF 7E                    5860 	.db #0x7e	; 126
-      001CB0 20                    5861 	.db #0x20	; 32
-      001CB1 1E                    5862 	.db #0x1e	; 30
-      001CB2 20                    5863 	.db #0x20	; 32
-      001CB3 06                    5864 	.db #0x06	; 6
-      001CB4 02                    5865 	.db #0x02	; 2
-      001CB5 7E                    5866 	.db #0x7e	; 126
-      001CB6 02                    5867 	.db #0x02	; 2
-      001CB7 02                    5868 	.db #0x02	; 2
-      001CB8 99                    5869 	.db #0x99	; 153
-      001CB9 A5                    5870 	.db #0xa5	; 165
-      001CBA E7                    5871 	.db #0xe7	; 231
-      001CBB A5                    5872 	.db #0xa5	; 165
-      001CBC 99                    5873 	.db #0x99	; 153
-      001CBD 1C                    5874 	.db #0x1c	; 28
-      001CBE 2A                    5875 	.db #0x2a	; 42
-      001CBF 49                    5876 	.db #0x49	; 73	'I'
-      001CC0 2A                    5877 	.db #0x2a	; 42
-      001CC1 1C                    5878 	.db #0x1c	; 28
-      001CC2 4C                    5879 	.db #0x4c	; 76	'L'
-      001CC3 72                    5880 	.db #0x72	; 114	'r'
-      001CC4 01                    5881 	.db #0x01	; 1
-      001CC5 72                    5882 	.db #0x72	; 114	'r'
-      001CC6 4C                    5883 	.db #0x4c	; 76	'L'
-      001CC7 30                    5884 	.db #0x30	; 48	'0'
-      001CC8 4A                    5885 	.db #0x4a	; 74	'J'
-      001CC9 4D                    5886 	.db #0x4d	; 77	'M'
-      001CCA 4D                    5887 	.db #0x4d	; 77	'M'
-      001CCB 30                    5888 	.db #0x30	; 48	'0'
-      001CCC 30                    5889 	.db #0x30	; 48	'0'
-      001CCD 48                    5890 	.db #0x48	; 72	'H'
-      001CCE 78                    5891 	.db #0x78	; 120	'x'
-      001CCF 48                    5892 	.db #0x48	; 72	'H'
-      001CD0 30                    5893 	.db #0x30	; 48	'0'
-      001CD1 BC                    5894 	.db #0xbc	; 188
-      001CD2 62                    5895 	.db #0x62	; 98	'b'
-      001CD3 5A                    5896 	.db #0x5a	; 90	'Z'
-      001CD4 46                    5897 	.db #0x46	; 70	'F'
-      001CD5 3D                    5898 	.db #0x3d	; 61
-      001CD6 3E                    5899 	.db #0x3e	; 62
-      001CD7 49                    5900 	.db #0x49	; 73	'I'
-      001CD8 49                    5901 	.db #0x49	; 73	'I'
-      001CD9 49                    5902 	.db #0x49	; 73	'I'
-      001CDA 00                    5903 	.db #0x00	; 0
-      001CDB 7E                    5904 	.db #0x7e	; 126
-      001CDC 01                    5905 	.db #0x01	; 1
-      001CDD 01                    5906 	.db #0x01	; 1
-      001CDE 01                    5907 	.db #0x01	; 1
-      001CDF 7E                    5908 	.db #0x7e	; 126
-      001CE0 2A                    5909 	.db #0x2a	; 42
-      001CE1 2A                    5910 	.db #0x2a	; 42
-      001CE2 2A                    5911 	.db #0x2a	; 42
-      001CE3 2A                    5912 	.db #0x2a	; 42
-      001CE4 2A                    5913 	.db #0x2a	; 42
-      001CE5 44                    5914 	.db #0x44	; 68	'D'
-      001CE6 44                    5915 	.db #0x44	; 68	'D'
-      001CE7 5F                    5916 	.db #0x5f	; 95
-      001CE8 44                    5917 	.db #0x44	; 68	'D'
-      001CE9 44                    5918 	.db #0x44	; 68	'D'
-      001CEA 40                    5919 	.db #0x40	; 64
-      001CEB 51                    5920 	.db #0x51	; 81	'Q'
-      001CEC 4A                    5921 	.db #0x4a	; 74	'J'
-      001CED 44                    5922 	.db #0x44	; 68	'D'
-      001CEE 40                    5923 	.db #0x40	; 64
-      001CEF 40                    5924 	.db #0x40	; 64
-      001CF0 44                    5925 	.db #0x44	; 68	'D'
-      001CF1 4A                    5926 	.db #0x4a	; 74	'J'
-      001CF2 51                    5927 	.db #0x51	; 81	'Q'
-      001CF3 40                    5928 	.db #0x40	; 64
-      001CF4 00                    5929 	.db #0x00	; 0
-      001CF5 00                    5930 	.db #0x00	; 0
-      001CF6 FF                    5931 	.db #0xff	; 255
-      001CF7 01                    5932 	.db #0x01	; 1
-      001CF8 03                    5933 	.db #0x03	; 3
-      001CF9 E0                    5934 	.db #0xe0	; 224
-      001CFA 80                    5935 	.db #0x80	; 128
-      001CFB FF                    5936 	.db #0xff	; 255
-      001CFC 00                    5937 	.db #0x00	; 0
-      001CFD 00                    5938 	.db #0x00	; 0
-      001CFE 08                    5939 	.db #0x08	; 8
-      001CFF 08                    5940 	.db #0x08	; 8
-      001D00 6B                    5941 	.db #0x6b	; 107	'k'
-      001D01 6B                    5942 	.db #0x6b	; 107	'k'
-      001D02 08                    5943 	.db #0x08	; 8
-      001D03 36                    5944 	.db #0x36	; 54	'6'
-      001D04 12                    5945 	.db #0x12	; 18
-      001D05 36                    5946 	.db #0x36	; 54	'6'
-      001D06 24                    5947 	.db #0x24	; 36
-      001D07 36                    5948 	.db #0x36	; 54	'6'
-      001D08 06                    5949 	.db #0x06	; 6
-      001D09 0F                    5950 	.db #0x0f	; 15
-      001D0A 09                    5951 	.db #0x09	; 9
-      001D0B 0F                    5952 	.db #0x0f	; 15
-      001D0C 06                    5953 	.db #0x06	; 6
-      001D0D 00                    5954 	.db #0x00	; 0
-      001D0E 00                    5955 	.db #0x00	; 0
-      001D0F 18                    5956 	.db #0x18	; 24
-      001D10 18                    5957 	.db #0x18	; 24
-      001D11 00                    5958 	.db #0x00	; 0
-      001D12 00                    5959 	.db #0x00	; 0
-      001D13 00                    5960 	.db #0x00	; 0
-      001D14 10                    5961 	.db #0x10	; 16
-      001D15 10                    5962 	.db #0x10	; 16
-      001D16 00                    5963 	.db #0x00	; 0
-      001D17 30                    5964 	.db #0x30	; 48	'0'
-      001D18 40                    5965 	.db #0x40	; 64
-      001D19 FF                    5966 	.db #0xff	; 255
-      001D1A 01                    5967 	.db #0x01	; 1
-      001D1B 01                    5968 	.db #0x01	; 1
-      001D1C 00                    5969 	.db #0x00	; 0
-      001D1D 1F                    5970 	.db #0x1f	; 31
-      001D1E 01                    5971 	.db #0x01	; 1
-      001D1F 01                    5972 	.db #0x01	; 1
-      001D20 1E                    5973 	.db #0x1e	; 30
-      001D21 00                    5974 	.db #0x00	; 0
-      001D22 19                    5975 	.db #0x19	; 25
-      001D23 1D                    5976 	.db #0x1d	; 29
-      001D24 17                    5977 	.db #0x17	; 23
-      001D25 12                    5978 	.db #0x12	; 18
-      001D26 00                    5979 	.db #0x00	; 0
-      001D27 3C                    5980 	.db #0x3c	; 60
-      001D28 3C                    5981 	.db #0x3c	; 60
-      001D29 3C                    5982 	.db #0x3c	; 60
-      001D2A 3C                    5983 	.db #0x3c	; 60
-      001D2B 00                    5984 	.db #0x00	; 0
-      001D2C 00                    5985 	.db #0x00	; 0
-      001D2D 00                    5986 	.db #0x00	; 0
-      001D2E 00                    5987 	.db #0x00	; 0
-      001D2F 00                    5988 	.db #0x00	; 0
-      001D30                       5989 _keypad:
-      001D30 31                    5990 	.db #0x31	; 49	'1'
-      001D31 34                    5991 	.db #0x34	; 52	'4'
-      001D32 37                    5992 	.db #0x37	; 55	'7'
-      001D33 45                    5993 	.db #0x45	; 69	'E'
-      001D34 32                    5994 	.db #0x32	; 50	'2'
-      001D35 35                    5995 	.db #0x35	; 53	'5'
-      001D36 38                    5996 	.db #0x38	; 56	'8'
-      001D37 30                    5997 	.db #0x30	; 48	'0'
-      001D38 33                    5998 	.db #0x33	; 51	'3'
-      001D39 36                    5999 	.db #0x36	; 54	'6'
-      001D3A 39                    6000 	.db #0x39	; 57	'9'
-      001D3B 46                    6001 	.db #0x46	; 70	'F'
-      001D3C 41                    6002 	.db #0x41	; 65	'A'
-      001D3D 42                    6003 	.db #0x42	; 66	'B'
-      001D3E 43                    6004 	.db #0x43	; 67	'C'
-      001D3F 44                    6005 	.db #0x44	; 68	'D'
+                                   4237 ;	count.c:5: void count() {
+                                   4238 ;	-----------------------------------------
+                                   4239 ;	 function count
+                                   4240 ;	-----------------------------------------
+      001472                       4241 _count:
+                                   4242 ;	count.c:7: fillScreen(GRAY);
+      001472 90 D6 BA         [24] 4243 	mov	dptr,#0xd6ba
+      001475 12 08 13         [24] 4244 	lcall	_fillScreen
+                                   4245 ;	count.c:8: setCursor(0, 0);
+      001478 E4               [12] 4246 	clr	a
+      001479 F5 08            [12] 4247 	mov	_setCursor_PARM_2,a
+      00147B F5 09            [12] 4248 	mov	(_setCursor_PARM_2 + 1),a
+      00147D 90 00 00         [24] 4249 	mov	dptr,#0x0000
+      001480 12 01 1E         [24] 4250 	lcall	_setCursor
+                                   4251 ;	count.c:9: setTextSize(2);
+      001483 75 82 02         [24] 4252 	mov	dpl,#0x02
+      001486 12 01 38         [24] 4253 	lcall	_setTextSize
+                                   4254 ;	count.c:19: LCD_string_write("Enter address:\n");
+      001489 90 1E 86         [24] 4255 	mov	dptr,#___str_24
+      00148C 75 F0 80         [24] 4256 	mov	b,#0x80
+      00148F 12 0B F3         [24] 4257 	lcall	_LCD_string_write
+                                   4258 ;	count.c:20: add = getAddress();
+      001492 12 0F BF         [24] 4259 	lcall	_getAddress
+                                   4260 ;	count.c:21: write('\n');
+      001495 75 82 0A         [24] 4261 	mov	dpl,#0x0a
+      001498 12 0B 85         [24] 4262 	lcall	_write
+                                   4263 ;	count.c:24: LCD_string_write("Enter block size:\n");
+      00149B 90 1E CB         [24] 4264 	mov	dptr,#___str_27
+      00149E 75 F0 80         [24] 4265 	mov	b,#0x80
+      0014A1 12 0B F3         [24] 4266 	lcall	_LCD_string_write
+                                   4267 ;	count.c:25: size = getByte();
+      0014A4 12 10 0A         [24] 4268 	lcall	_getByte
+      0014A7 AF 82            [24] 4269 	mov	r7,dpl
+                                   4270 ;	count.c:26: write('\n');
+      0014A9 75 82 0A         [24] 4271 	mov	dpl,#0x0a
+      0014AC C0 07            [24] 4272 	push	ar7
+      0014AE 12 0B 85         [24] 4273 	lcall	_write
+                                   4274 ;	count.c:29: LCD_string_write("Enter byte to count:\n");
+      0014B1 90 1E DE         [24] 4275 	mov	dptr,#___str_28
+      0014B4 75 F0 80         [24] 4276 	mov	b,#0x80
+      0014B7 12 0B F3         [24] 4277 	lcall	_LCD_string_write
+                                   4278 ;	count.c:30: key = getByte();
+      0014BA 12 10 0A         [24] 4279 	lcall	_getByte
+      0014BD D0 07            [24] 4280 	pop	ar7
+                                   4281 ;	count.c:33: for (i = 0; i < size; i++) {
+      0014BF 7D 00            [12] 4282 	mov	r5,#0x00
+      0014C1 7E 00            [12] 4283 	mov	r6,#0x00
+      0014C3                       4284 00103$:
+      0014C3 8F 03            [24] 4285 	mov	ar3,r7
+      0014C5 7C 00            [12] 4286 	mov	r4,#0x00
+      0014C7 C3               [12] 4287 	clr	c
+      0014C8 ED               [12] 4288 	mov	a,r5
+      0014C9 9B               [12] 4289 	subb	a,r3
+      0014CA EE               [12] 4290 	mov	a,r6
+      0014CB 9C               [12] 4291 	subb	a,r4
+      0014CC 50 07            [24] 4292 	jnc	00105$
+      0014CE 0D               [12] 4293 	inc	r5
+      0014CF BD 00 F1         [24] 4294 	cjne	r5,#0x00,00103$
+      0014D2 0E               [12] 4295 	inc	r6
+      0014D3 80 EE            [24] 4296 	sjmp	00103$
+      0014D5                       4297 00105$:
+                                   4298 ;	count.c:41: }
+      0014D5 22               [24] 4299 	ret
+                                   4300 ;------------------------------------------------------------
+                                   4301 ;Allocation info for local variables in function 'readTemp'
+                                   4302 ;------------------------------------------------------------
+                                   4303 ;val                       Allocated with name '_readTemp_val_65537_260'
+                                   4304 ;------------------------------------------------------------
+                                   4305 ;	analog.c:6: uint8_t readTemp() {
+                                   4306 ;	-----------------------------------------
+                                   4307 ;	 function readTemp
+                                   4308 ;	-----------------------------------------
+      0014D6                       4309 _readTemp:
+                                   4310 ;	analog.c:7: IOM = 1;
+                                   4311 ;	assignBit
+      0014D6 D2 B4            [12] 4312 	setb	_P3_4
+                                   4313 ;	analog.c:9: val = *temp_address;
+      0014D8 85 27 82         [24] 4314 	mov	dpl,_temp_address
+      0014DB 85 28 83         [24] 4315 	mov	dph,(_temp_address + 1)
+      0014DE E0               [24] 4316 	movx	a,@dptr
+      0014DF FF               [12] 4317 	mov	r7,a
+                                   4318 ;	analog.c:10: IOM = 0;
+                                   4319 ;	assignBit
+      0014E0 C2 B4            [12] 4320 	clr	_P3_4
+                                   4321 ;	analog.c:11: return val;
+      0014E2 8F 82            [24] 4322 	mov	dpl,r7
+                                   4323 ;	analog.c:12: }
+      0014E4 22               [24] 4324 	ret
+                                   4325 ;------------------------------------------------------------
+                                   4326 ;Allocation info for local variables in function 'readLight'
+                                   4327 ;------------------------------------------------------------
+                                   4328 ;val                       Allocated with name '_readLight_val_65537_262'
+                                   4329 ;------------------------------------------------------------
+                                   4330 ;	analog.c:19: uint8_t readLight() {
+                                   4331 ;	-----------------------------------------
+                                   4332 ;	 function readLight
+                                   4333 ;	-----------------------------------------
+      0014E5                       4334 _readLight:
+                                   4335 ;	analog.c:20: IOM = 1;
+                                   4336 ;	assignBit
+      0014E5 D2 B4            [12] 4337 	setb	_P3_4
+                                   4338 ;	analog.c:22: val = *light_address;
+      0014E7 85 29 82         [24] 4339 	mov	dpl,_light_address
+      0014EA 85 2A 83         [24] 4340 	mov	dph,(_light_address + 1)
+      0014ED E0               [24] 4341 	movx	a,@dptr
+      0014EE FF               [12] 4342 	mov	r7,a
+                                   4343 ;	analog.c:23: IOM = 0;
+                                   4344 ;	assignBit
+      0014EF C2 B4            [12] 4345 	clr	_P3_4
+                                   4346 ;	analog.c:24: return val;
+      0014F1 8F 82            [24] 4347 	mov	dpl,r7
+                                   4348 ;	analog.c:25: }
+      0014F3 22               [24] 4349 	ret
+                                   4350 ;------------------------------------------------------------
+                                   4351 ;Allocation info for local variables in function 'displayTemp'
+                                   4352 ;------------------------------------------------------------
+                                   4353 ;t                         Allocated to registers r7 
+                                   4354 ;------------------------------------------------------------
+                                   4355 ;	analog.c:32: void displayTemp(uint8_t t) {
+                                   4356 ;	-----------------------------------------
+                                   4357 ;	 function displayTemp
+                                   4358 ;	-----------------------------------------
+      0014F4                       4359 _displayTemp:
+      0014F4 AF 82            [24] 4360 	mov	r7,dpl
+                                   4361 ;	analog.c:34: fillScreen(GRAY);
+      0014F6 90 D6 BA         [24] 4362 	mov	dptr,#0xd6ba
+      0014F9 C0 07            [24] 4363 	push	ar7
+      0014FB 12 08 13         [24] 4364 	lcall	_fillScreen
+                                   4365 ;	analog.c:35: setCursor(0, 0);
+      0014FE E4               [12] 4366 	clr	a
+      0014FF F5 08            [12] 4367 	mov	_setCursor_PARM_2,a
+      001501 F5 09            [12] 4368 	mov	(_setCursor_PARM_2 + 1),a
+      001503 90 00 00         [24] 4369 	mov	dptr,#0x0000
+      001506 12 01 1E         [24] 4370 	lcall	_setCursor
+                                   4371 ;	analog.c:36: setTextSize(2);
+      001509 75 82 02         [24] 4372 	mov	dpl,#0x02
+      00150C 12 01 38         [24] 4373 	lcall	_setTextSize
+                                   4374 ;	analog.c:38: LCD_string_write("Temperature: ");
+      00150F 90 1E F4         [24] 4375 	mov	dptr,#___str_29
+      001512 75 F0 80         [24] 4376 	mov	b,#0x80
+      001515 12 0B F3         [24] 4377 	lcall	_LCD_string_write
+      001518 D0 07            [24] 4378 	pop	ar7
+                                   4379 ;	analog.c:40: asciiToHex(t);
+      00151A 8F 82            [24] 4380 	mov	dpl,r7
+      00151C 12 0E 46         [24] 4381 	lcall	_asciiToHex
+                                   4382 ;	analog.c:42: write('\n');
+      00151F 75 82 0A         [24] 4383 	mov	dpl,#0x0a
+      001522 12 0B 85         [24] 4384 	lcall	_write
+                                   4385 ;	analog.c:43: LCD_string_write("Press 0 for menu\n");
+      001525 90 1F 02         [24] 4386 	mov	dptr,#___str_30
+      001528 75 F0 80         [24] 4387 	mov	b,#0x80
+                                   4388 ;	analog.c:44: }
+      00152B 02 0B F3         [24] 4389 	ljmp	_LCD_string_write
+                                   4390 ;------------------------------------------------------------
+                                   4391 ;Allocation info for local variables in function 'displayLight'
+                                   4392 ;------------------------------------------------------------
+                                   4393 ;l                         Allocated to registers r7 
+                                   4394 ;------------------------------------------------------------
+                                   4395 ;	analog.c:51: void displayLight(uint8_t l) {
+                                   4396 ;	-----------------------------------------
+                                   4397 ;	 function displayLight
+                                   4398 ;	-----------------------------------------
+      00152E                       4399 _displayLight:
+      00152E AF 82            [24] 4400 	mov	r7,dpl
+                                   4401 ;	analog.c:53: fillScreen(GRAY);
+      001530 90 D6 BA         [24] 4402 	mov	dptr,#0xd6ba
+      001533 C0 07            [24] 4403 	push	ar7
+      001535 12 08 13         [24] 4404 	lcall	_fillScreen
+                                   4405 ;	analog.c:54: setCursor(0, 0);
+      001538 E4               [12] 4406 	clr	a
+      001539 F5 08            [12] 4407 	mov	_setCursor_PARM_2,a
+      00153B F5 09            [12] 4408 	mov	(_setCursor_PARM_2 + 1),a
+      00153D 90 00 00         [24] 4409 	mov	dptr,#0x0000
+      001540 12 01 1E         [24] 4410 	lcall	_setCursor
+                                   4411 ;	analog.c:55: setTextSize(2);
+      001543 75 82 02         [24] 4412 	mov	dpl,#0x02
+      001546 12 01 38         [24] 4413 	lcall	_setTextSize
+                                   4414 ;	analog.c:57: LCD_string_write("Light level: ");
+      001549 90 1F 14         [24] 4415 	mov	dptr,#___str_31
+      00154C 75 F0 80         [24] 4416 	mov	b,#0x80
+      00154F 12 0B F3         [24] 4417 	lcall	_LCD_string_write
+      001552 D0 07            [24] 4418 	pop	ar7
+                                   4419 ;	analog.c:59: asciiToHex(l);
+      001554 8F 82            [24] 4420 	mov	dpl,r7
+      001556 12 0E 46         [24] 4421 	lcall	_asciiToHex
+                                   4422 ;	analog.c:61: write('\n');
+      001559 75 82 0A         [24] 4423 	mov	dpl,#0x0a
+      00155C 12 0B 85         [24] 4424 	lcall	_write
+                                   4425 ;	analog.c:62: LCD_string_write("Press 0 for menu\n");
+      00155F 90 1F 02         [24] 4426 	mov	dptr,#___str_30
+      001562 75 F0 80         [24] 4427 	mov	b,#0x80
+                                   4428 ;	analog.c:63: }
+      001565 02 0B F3         [24] 4429 	ljmp	_LCD_string_write
+                                   4430 ;------------------------------------------------------------
+                                   4431 ;Allocation info for local variables in function 'temperature'
+                                   4432 ;------------------------------------------------------------
+                                   4433 ;temp                      Allocated with name '_temperature_temp_65537_268'
+                                   4434 ;input                     Allocated with name '_temperature_input_65537_268'
+                                   4435 ;------------------------------------------------------------
+                                   4436 ;	analog.c:70: void temperature() {
+                                   4437 ;	-----------------------------------------
+                                   4438 ;	 function temperature
+                                   4439 ;	-----------------------------------------
+      001568                       4440 _temperature:
+                                   4441 ;	analog.c:72: fillScreen(GRAY);
+      001568 90 D6 BA         [24] 4442 	mov	dptr,#0xd6ba
+      00156B 12 08 13         [24] 4443 	lcall	_fillScreen
+                                   4444 ;	analog.c:73: setCursor(0, 0);
+      00156E E4               [12] 4445 	clr	a
+      00156F F5 08            [12] 4446 	mov	_setCursor_PARM_2,a
+      001571 F5 09            [12] 4447 	mov	(_setCursor_PARM_2 + 1),a
+      001573 90 00 00         [24] 4448 	mov	dptr,#0x0000
+      001576 12 01 1E         [24] 4449 	lcall	_setCursor
+                                   4450 ;	analog.c:74: setTextSize(2);
+      001579 75 82 02         [24] 4451 	mov	dpl,#0x02
+      00157C 12 01 38         [24] 4452 	lcall	_setTextSize
+                                   4453 ;	analog.c:76: LCD_string_write("Temperature: ");
+      00157F 90 1E F4         [24] 4454 	mov	dptr,#___str_29
+      001582 75 F0 80         [24] 4455 	mov	b,#0x80
+      001585 12 0B F3         [24] 4456 	lcall	_LCD_string_write
+                                   4457 ;	analog.c:82: temp = readTemp();
+      001588 12 14 D6         [24] 4458 	lcall	_readTemp
+                                   4459 ;	analog.c:85: asciiToHex(temp);
+      00158B 12 0E 46         [24] 4460 	lcall	_asciiToHex
+                                   4461 ;	analog.c:88: write('\n');
+      00158E 75 82 0A         [24] 4462 	mov	dpl,#0x0a
+      001591 12 0B 85         [24] 4463 	lcall	_write
+                                   4464 ;	analog.c:89: LCD_string_write("Press 0 for menu\n");
+      001594 90 1F 02         [24] 4465 	mov	dptr,#___str_30
+      001597 75 F0 80         [24] 4466 	mov	b,#0x80
+      00159A 12 0B F3         [24] 4467 	lcall	_LCD_string_write
+                                   4468 ;	analog.c:93: while (1) {
+      00159D                       4469 00104$:
+                                   4470 ;	analog.c:94: input = keyDetect();
+      00159D 12 0C 83         [24] 4471 	lcall	_keyDetect
+      0015A0 AF 82            [24] 4472 	mov	r7,dpl
+                                   4473 ;	analog.c:96: if (input == '0') break;
+      0015A2 BF 30 01         [24] 4474 	cjne	r7,#0x30,00116$
+      0015A5 22               [24] 4475 	ret
+      0015A6                       4476 00116$:
+                                   4477 ;	analog.c:98: delay(500);
+      0015A6 90 01 F4         [24] 4478 	mov	dptr,#0x01f4
+      0015A9 12 00 89         [24] 4479 	lcall	_delay
+                                   4480 ;	analog.c:99: temp = readTemp();
+      0015AC 12 14 D6         [24] 4481 	lcall	_readTemp
+                                   4482 ;	analog.c:100: displayTemp(temp);
+      0015AF 12 14 F4         [24] 4483 	lcall	_displayTemp
+                                   4484 ;	analog.c:102: }
+      0015B2 80 E9            [24] 4485 	sjmp	00104$
+                                   4486 ;------------------------------------------------------------
+                                   4487 ;Allocation info for local variables in function 'light'
+                                   4488 ;------------------------------------------------------------
+                                   4489 ;light                     Allocated with name '_light_light_65537_271'
+                                   4490 ;input                     Allocated with name '_light_input_65537_271'
+                                   4491 ;------------------------------------------------------------
+                                   4492 ;	analog.c:109: void light() {
+                                   4493 ;	-----------------------------------------
+                                   4494 ;	 function light
+                                   4495 ;	-----------------------------------------
+      0015B4                       4496 _light:
+                                   4497 ;	analog.c:111: fillScreen(GRAY);
+      0015B4 90 D6 BA         [24] 4498 	mov	dptr,#0xd6ba
+      0015B7 12 08 13         [24] 4499 	lcall	_fillScreen
+                                   4500 ;	analog.c:112: setCursor(0, 0);
+      0015BA E4               [12] 4501 	clr	a
+      0015BB F5 08            [12] 4502 	mov	_setCursor_PARM_2,a
+      0015BD F5 09            [12] 4503 	mov	(_setCursor_PARM_2 + 1),a
+      0015BF 90 00 00         [24] 4504 	mov	dptr,#0x0000
+      0015C2 12 01 1E         [24] 4505 	lcall	_setCursor
+                                   4506 ;	analog.c:113: setTextSize(2);
+      0015C5 75 82 02         [24] 4507 	mov	dpl,#0x02
+      0015C8 12 01 38         [24] 4508 	lcall	_setTextSize
+                                   4509 ;	analog.c:115: LCD_string_write("Light level: ");
+      0015CB 90 1F 14         [24] 4510 	mov	dptr,#___str_31
+      0015CE 75 F0 80         [24] 4511 	mov	b,#0x80
+      0015D1 12 0B F3         [24] 4512 	lcall	_LCD_string_write
+                                   4513 ;	analog.c:121: light = readLight();
+      0015D4 12 14 E5         [24] 4514 	lcall	_readLight
+                                   4515 ;	analog.c:124: asciiToHex(light);
+      0015D7 12 0E 46         [24] 4516 	lcall	_asciiToHex
+                                   4517 ;	analog.c:127: write('\n');
+      0015DA 75 82 0A         [24] 4518 	mov	dpl,#0x0a
+      0015DD 12 0B 85         [24] 4519 	lcall	_write
+                                   4520 ;	analog.c:128: LCD_string_write("Press 0 for menu\n");
+      0015E0 90 1F 02         [24] 4521 	mov	dptr,#___str_30
+      0015E3 75 F0 80         [24] 4522 	mov	b,#0x80
+      0015E6 12 0B F3         [24] 4523 	lcall	_LCD_string_write
+                                   4524 ;	analog.c:131: while (1) {
+      0015E9                       4525 00104$:
+                                   4526 ;	analog.c:132: input = keyDetect();
+      0015E9 12 0C 83         [24] 4527 	lcall	_keyDetect
+      0015EC AF 82            [24] 4528 	mov	r7,dpl
+                                   4529 ;	analog.c:134: if (input == '0') break;
+      0015EE BF 30 01         [24] 4530 	cjne	r7,#0x30,00116$
+      0015F1 22               [24] 4531 	ret
+      0015F2                       4532 00116$:
+                                   4533 ;	analog.c:136: delay(500);
+      0015F2 90 01 F4         [24] 4534 	mov	dptr,#0x01f4
+      0015F5 12 00 89         [24] 4535 	lcall	_delay
+                                   4536 ;	analog.c:137: light = readLight();
+      0015F8 12 14 E5         [24] 4537 	lcall	_readLight
+                                   4538 ;	analog.c:138: displayLight(light);
+      0015FB 12 15 2E         [24] 4539 	lcall	_displayLight
+                                   4540 ;	analog.c:140: }
+      0015FE 80 E9            [24] 4541 	sjmp	00104$
+                                   4542 ;------------------------------------------------------------
+                                   4543 ;Allocation info for local variables in function 'menu'
+                                   4544 ;------------------------------------------------------------
+                                   4545 ;	main.c:29: void menu(void) {
+                                   4546 ;	-----------------------------------------
+                                   4547 ;	 function menu
+                                   4548 ;	-----------------------------------------
+      001600                       4549 _menu:
+                                   4550 ;	main.c:31: setRotation(2);
+      001600 75 82 02         [24] 4551 	mov	dpl,#0x02
+      001603 12 01 50         [24] 4552 	lcall	_setRotation
+                                   4553 ;	main.c:32: setTextSize(3);
+      001606 75 82 03         [24] 4554 	mov	dpl,#0x03
+      001609 12 01 38         [24] 4555 	lcall	_setTextSize
+                                   4556 ;	main.c:33: fillScreen(GRAY);
+      00160C 90 D6 BA         [24] 4557 	mov	dptr,#0xd6ba
+      00160F 12 08 13         [24] 4558 	lcall	_fillScreen
+                                   4559 ;	main.c:34: setTextColor(BLACK, GRAY);
+      001612 75 08 BA         [24] 4560 	mov	_setTextColor_PARM_2,#0xba
+      001615 75 09 D6         [24] 4561 	mov	(_setTextColor_PARM_2 + 1),#0xd6
+      001618 90 00 00         [24] 4562 	mov	dptr,#0x0000
+      00161B 12 01 2B         [24] 4563 	lcall	_setTextColor
+                                   4564 ;	main.c:35: setCursor(0, 0);
+      00161E E4               [12] 4565 	clr	a
+      00161F F5 08            [12] 4566 	mov	_setCursor_PARM_2,a
+      001621 F5 09            [12] 4567 	mov	(_setCursor_PARM_2 + 1),a
+      001623 90 00 00         [24] 4568 	mov	dptr,#0x0000
+      001626 12 01 1E         [24] 4569 	lcall	_setCursor
+                                   4570 ;	main.c:38: LCD_string_write("Brandon Cline\n");
+      001629 90 1F 22         [24] 4571 	mov	dptr,#___str_32
+      00162C 75 F0 80         [24] 4572 	mov	b,#0x80
+      00162F 12 0B F3         [24] 4573 	lcall	_LCD_string_write
+                                   4574 ;	main.c:39: LCD_string_write("ECEN 4330\n");
+      001632 90 1F 31         [24] 4575 	mov	dptr,#___str_33
+      001635 75 F0 80         [24] 4576 	mov	b,#0x80
+      001638 12 0B F3         [24] 4577 	lcall	_LCD_string_write
+                                   4578 ;	main.c:43: LCD_string_write("1: Basic check\n");
+      00163B 90 1F 3C         [24] 4579 	mov	dptr,#___str_34
+      00163E 75 F0 80         [24] 4580 	mov	b,#0x80
+      001641 12 0B F3         [24] 4581 	lcall	_LCD_string_write
+                                   4582 ;	main.c:45: LCD_string_write("2: Dump\n");
+      001644 90 1F 4C         [24] 4583 	mov	dptr,#___str_35
+      001647 75 F0 80         [24] 4584 	mov	b,#0x80
+      00164A 12 0B F3         [24] 4585 	lcall	_LCD_string_write
+                                   4586 ;	main.c:47: LCD_string_write("3: Check\n");
+      00164D 90 1F 55         [24] 4587 	mov	dptr,#___str_36
+      001650 75 F0 80         [24] 4588 	mov	b,#0x80
+      001653 12 0B F3         [24] 4589 	lcall	_LCD_string_write
+                                   4590 ;	main.c:49: LCD_string_write("A: Move\n");
+      001656 90 1F 5F         [24] 4591 	mov	dptr,#___str_37
+      001659 75 F0 80         [24] 4592 	mov	b,#0x80
+      00165C 12 0B F3         [24] 4593 	lcall	_LCD_string_write
+                                   4594 ;	main.c:51: LCD_string_write("4: Edit\n");
+      00165F 90 1F 68         [24] 4595 	mov	dptr,#___str_38
+      001662 75 F0 80         [24] 4596 	mov	b,#0x80
+      001665 12 0B F3         [24] 4597 	lcall	_LCD_string_write
+                                   4598 ;	main.c:53: LCD_string_write("5: Find\n");
+      001668 90 1F 71         [24] 4599 	mov	dptr,#___str_39
+      00166B 75 F0 80         [24] 4600 	mov	b,#0x80
+      00166E 12 0B F3         [24] 4601 	lcall	_LCD_string_write
+                                   4602 ;	main.c:55: LCD_string_write("6: Count\n");
+      001671 90 1F 7A         [24] 4603 	mov	dptr,#___str_40
+      001674 75 F0 80         [24] 4604 	mov	b,#0x80
+      001677 12 0B F3         [24] 4605 	lcall	_LCD_string_write
+                                   4606 ;	main.c:58: LCD_string_write("B: Temperature\n");
+      00167A 90 1F 84         [24] 4607 	mov	dptr,#___str_41
+      00167D 75 F0 80         [24] 4608 	mov	b,#0x80
+      001680 12 0B F3         [24] 4609 	lcall	_LCD_string_write
+                                   4610 ;	main.c:60: LCD_string_write("7: Light\n");
+      001683 90 1F 94         [24] 4611 	mov	dptr,#___str_42
+      001686 75 F0 80         [24] 4612 	mov	b,#0x80
+                                   4613 ;	main.c:61: }
+      001689 02 0B F3         [24] 4614 	ljmp	_LCD_string_write
+                                   4615 ;------------------------------------------------------------
+                                   4616 ;Allocation info for local variables in function 'main'
+                                   4617 ;------------------------------------------------------------
+                                   4618 ;input                     Allocated with name '_main_input_65536_276'
+                                   4619 ;------------------------------------------------------------
+                                   4620 ;	main.c:63: void main(void) {
+                                   4621 ;	-----------------------------------------
+                                   4622 ;	 function main
+                                   4623 ;	-----------------------------------------
+      00168C                       4624 _main:
+                                   4625 ;	main.c:68: iowrite8(seg7_address, 0x00);
+      00168C 75 08 00         [24] 4626 	mov	_iowrite8_PARM_2,#0x00
+      00168F 85 25 82         [24] 4627 	mov	dpl,_seg7_address
+      001692 85 26 83         [24] 4628 	mov	dph,(_seg7_address + 1)
+      001695 12 00 79         [24] 4629 	lcall	_iowrite8
+                                   4630 ;	main.c:71: TFT_LCD_INIT();
+      001698 12 02 56         [24] 4631 	lcall	_TFT_LCD_INIT
+                                   4632 ;	main.c:73: fillScreen(BLACK);
+      00169B 90 00 00         [24] 4633 	mov	dptr,#0x0000
+      00169E 12 08 13         [24] 4634 	lcall	_fillScreen
+                                   4635 ;	main.c:74: setRotation(0);
+      0016A1 75 82 00         [24] 4636 	mov	dpl,#0x00
+      0016A4 12 01 50         [24] 4637 	lcall	_setRotation
+                                   4638 ;	main.c:75: testCircles(20, BLUE);
+      0016A7 75 53 1F         [24] 4639 	mov	_testCircles_PARM_2,#0x1f
+      0016AA 75 54 00         [24] 4640 	mov	(_testCircles_PARM_2 + 1),#0x00
+      0016AD 75 82 14         [24] 4641 	mov	dpl,#0x14
+      0016B0 12 06 A1         [24] 4642 	lcall	_testCircles
+                                   4643 ;	main.c:79: while (1) {
+      0016B3                       4644 00111$:
+                                   4645 ;	main.c:81: menu();
+      0016B3 12 16 00         [24] 4646 	lcall	_menu
+                                   4647 ;	main.c:84: input = keyDetect();
+      0016B6 12 0C 83         [24] 4648 	lcall	_keyDetect
+                                   4649 ;	main.c:85: asciiToHex(input);
+      0016B9 AF 82            [24] 4650 	mov  r7,dpl
+      0016BB C0 07            [24] 4651 	push	ar7
+      0016BD 12 0E 46         [24] 4652 	lcall	_asciiToHex
+      0016C0 D0 07            [24] 4653 	pop	ar7
+                                   4654 ;	main.c:88: switch(input) {
+      0016C2 BF 31 02         [24] 4655 	cjne	r7,#0x31,00147$
+      0016C5 80 1E            [24] 4656 	sjmp	00101$
+      0016C7                       4657 00147$:
+      0016C7 BF 33 02         [24] 4658 	cjne	r7,#0x33,00148$
+      0016CA 80 1E            [24] 4659 	sjmp	00102$
+      0016CC                       4660 00148$:
+      0016CC BF 34 02         [24] 4661 	cjne	r7,#0x34,00149$
+      0016CF 80 23            [24] 4662 	sjmp	00104$
+      0016D1                       4663 00149$:
+      0016D1 BF 36 02         [24] 4664 	cjne	r7,#0x36,00150$
+      0016D4 80 23            [24] 4665 	sjmp	00105$
+      0016D6                       4666 00150$:
+      0016D6 BF 37 02         [24] 4667 	cjne	r7,#0x37,00151$
+      0016D9 80 28            [24] 4668 	sjmp	00107$
+      0016DB                       4669 00151$:
+      0016DB BF 41 02         [24] 4670 	cjne	r7,#0x41,00152$
+      0016DE 80 0F            [24] 4671 	sjmp	00103$
+      0016E0                       4672 00152$:
+                                   4673 ;	main.c:89: case '1': basic(); break;
+      0016E0 BF 42 D0         [24] 4674 	cjne	r7,#0x42,00111$
+      0016E3 80 19            [24] 4675 	sjmp	00106$
+      0016E5                       4676 00101$:
+      0016E5 12 11 7D         [24] 4677 	lcall	_basic
+                                   4678 ;	main.c:91: case '3': check(); break;
+      0016E8 80 C9            [24] 4679 	sjmp	00111$
+      0016EA                       4680 00102$:
+      0016EA 12 10 41         [24] 4681 	lcall	_check
+                                   4682 ;	main.c:92: case 'A': move(); break;
+      0016ED 80 C4            [24] 4683 	sjmp	00111$
+      0016EF                       4684 00103$:
+      0016EF 12 12 13         [24] 4685 	lcall	_move
+                                   4686 ;	main.c:93: case '4': edit(); break;
+      0016F2 80 BF            [24] 4687 	sjmp	00111$
+      0016F4                       4688 00104$:
+      0016F4 12 13 95         [24] 4689 	lcall	_edit
+                                   4690 ;	main.c:95: case '6': count(); break;
+      0016F7 80 BA            [24] 4691 	sjmp	00111$
+      0016F9                       4692 00105$:
+      0016F9 12 14 72         [24] 4693 	lcall	_count
+                                   4694 ;	main.c:96: case 'B': temperature(); break;
+      0016FC 80 B5            [24] 4695 	sjmp	00111$
+      0016FE                       4696 00106$:
+      0016FE 12 15 68         [24] 4697 	lcall	_temperature
+                                   4698 ;	main.c:97: case '7': light(); break;
+      001701 80 B0            [24] 4699 	sjmp	00111$
+      001703                       4700 00107$:
+      001703 12 15 B4         [24] 4701 	lcall	_light
+                                   4702 ;	main.c:99: }
+                                   4703 ;	main.c:101: }
+      001706 80 AB            [24] 4704 	sjmp	00111$
+                                   4705 	.area CSEG    (CODE)
+                                   4706 	.area CONST   (CODE)
+      001829                       4707 _font:
+      001829 00                    4708 	.db #0x00	; 0
+      00182A 00                    4709 	.db #0x00	; 0
+      00182B 00                    4710 	.db #0x00	; 0
+      00182C 00                    4711 	.db #0x00	; 0
+      00182D 00                    4712 	.db #0x00	; 0
+      00182E 3E                    4713 	.db #0x3e	; 62
+      00182F 5B                    4714 	.db #0x5b	; 91
+      001830 4F                    4715 	.db #0x4f	; 79	'O'
+      001831 5B                    4716 	.db #0x5b	; 91
+      001832 3E                    4717 	.db #0x3e	; 62
+      001833 3E                    4718 	.db #0x3e	; 62
+      001834 6B                    4719 	.db #0x6b	; 107	'k'
+      001835 4F                    4720 	.db #0x4f	; 79	'O'
+      001836 6B                    4721 	.db #0x6b	; 107	'k'
+      001837 3E                    4722 	.db #0x3e	; 62
+      001838 1C                    4723 	.db #0x1c	; 28
+      001839 3E                    4724 	.db #0x3e	; 62
+      00183A 7C                    4725 	.db #0x7c	; 124
+      00183B 3E                    4726 	.db #0x3e	; 62
+      00183C 1C                    4727 	.db #0x1c	; 28
+      00183D 18                    4728 	.db #0x18	; 24
+      00183E 3C                    4729 	.db #0x3c	; 60
+      00183F 7E                    4730 	.db #0x7e	; 126
+      001840 3C                    4731 	.db #0x3c	; 60
+      001841 18                    4732 	.db #0x18	; 24
+      001842 1C                    4733 	.db #0x1c	; 28
+      001843 57                    4734 	.db #0x57	; 87	'W'
+      001844 7D                    4735 	.db #0x7d	; 125
+      001845 57                    4736 	.db #0x57	; 87	'W'
+      001846 1C                    4737 	.db #0x1c	; 28
+      001847 1C                    4738 	.db #0x1c	; 28
+      001848 5E                    4739 	.db #0x5e	; 94
+      001849 7F                    4740 	.db #0x7f	; 127
+      00184A 5E                    4741 	.db #0x5e	; 94
+      00184B 1C                    4742 	.db #0x1c	; 28
+      00184C 00                    4743 	.db #0x00	; 0
+      00184D 18                    4744 	.db #0x18	; 24
+      00184E 3C                    4745 	.db #0x3c	; 60
+      00184F 18                    4746 	.db #0x18	; 24
+      001850 00                    4747 	.db #0x00	; 0
+      001851 FF                    4748 	.db #0xff	; 255
+      001852 E7                    4749 	.db #0xe7	; 231
+      001853 C3                    4750 	.db #0xc3	; 195
+      001854 E7                    4751 	.db #0xe7	; 231
+      001855 FF                    4752 	.db #0xff	; 255
+      001856 00                    4753 	.db #0x00	; 0
+      001857 18                    4754 	.db #0x18	; 24
+      001858 24                    4755 	.db #0x24	; 36
+      001859 18                    4756 	.db #0x18	; 24
+      00185A 00                    4757 	.db #0x00	; 0
+      00185B FF                    4758 	.db #0xff	; 255
+      00185C E7                    4759 	.db #0xe7	; 231
+      00185D DB                    4760 	.db #0xdb	; 219
+      00185E E7                    4761 	.db #0xe7	; 231
+      00185F FF                    4762 	.db #0xff	; 255
+      001860 30                    4763 	.db #0x30	; 48	'0'
+      001861 48                    4764 	.db #0x48	; 72	'H'
+      001862 3A                    4765 	.db #0x3a	; 58
+      001863 06                    4766 	.db #0x06	; 6
+      001864 0E                    4767 	.db #0x0e	; 14
+      001865 26                    4768 	.db #0x26	; 38
+      001866 29                    4769 	.db #0x29	; 41
+      001867 79                    4770 	.db #0x79	; 121	'y'
+      001868 29                    4771 	.db #0x29	; 41
+      001869 26                    4772 	.db #0x26	; 38
+      00186A 40                    4773 	.db #0x40	; 64
+      00186B 7F                    4774 	.db #0x7f	; 127
+      00186C 05                    4775 	.db #0x05	; 5
+      00186D 05                    4776 	.db #0x05	; 5
+      00186E 07                    4777 	.db #0x07	; 7
+      00186F 40                    4778 	.db #0x40	; 64
+      001870 7F                    4779 	.db #0x7f	; 127
+      001871 05                    4780 	.db #0x05	; 5
+      001872 25                    4781 	.db #0x25	; 37
+      001873 3F                    4782 	.db #0x3f	; 63
+      001874 5A                    4783 	.db #0x5a	; 90	'Z'
+      001875 3C                    4784 	.db #0x3c	; 60
+      001876 E7                    4785 	.db #0xe7	; 231
+      001877 3C                    4786 	.db #0x3c	; 60
+      001878 5A                    4787 	.db #0x5a	; 90	'Z'
+      001879 7F                    4788 	.db #0x7f	; 127
+      00187A 3E                    4789 	.db #0x3e	; 62
+      00187B 1C                    4790 	.db #0x1c	; 28
+      00187C 1C                    4791 	.db #0x1c	; 28
+      00187D 08                    4792 	.db #0x08	; 8
+      00187E 08                    4793 	.db #0x08	; 8
+      00187F 1C                    4794 	.db #0x1c	; 28
+      001880 1C                    4795 	.db #0x1c	; 28
+      001881 3E                    4796 	.db #0x3e	; 62
+      001882 7F                    4797 	.db #0x7f	; 127
+      001883 14                    4798 	.db #0x14	; 20
+      001884 22                    4799 	.db #0x22	; 34
+      001885 7F                    4800 	.db #0x7f	; 127
+      001886 22                    4801 	.db #0x22	; 34
+      001887 14                    4802 	.db #0x14	; 20
+      001888 5F                    4803 	.db #0x5f	; 95
+      001889 5F                    4804 	.db #0x5f	; 95
+      00188A 00                    4805 	.db #0x00	; 0
+      00188B 5F                    4806 	.db #0x5f	; 95
+      00188C 5F                    4807 	.db #0x5f	; 95
+      00188D 06                    4808 	.db #0x06	; 6
+      00188E 09                    4809 	.db #0x09	; 9
+      00188F 7F                    4810 	.db #0x7f	; 127
+      001890 01                    4811 	.db #0x01	; 1
+      001891 7F                    4812 	.db #0x7f	; 127
+      001892 00                    4813 	.db #0x00	; 0
+      001893 66                    4814 	.db #0x66	; 102	'f'
+      001894 89                    4815 	.db #0x89	; 137
+      001895 95                    4816 	.db #0x95	; 149
+      001896 6A                    4817 	.db #0x6a	; 106	'j'
+      001897 60                    4818 	.db #0x60	; 96
+      001898 60                    4819 	.db #0x60	; 96
+      001899 60                    4820 	.db #0x60	; 96
+      00189A 60                    4821 	.db #0x60	; 96
+      00189B 60                    4822 	.db #0x60	; 96
+      00189C 94                    4823 	.db #0x94	; 148
+      00189D A2                    4824 	.db #0xa2	; 162
+      00189E FF                    4825 	.db #0xff	; 255
+      00189F A2                    4826 	.db #0xa2	; 162
+      0018A0 94                    4827 	.db #0x94	; 148
+      0018A1 08                    4828 	.db #0x08	; 8
+      0018A2 04                    4829 	.db #0x04	; 4
+      0018A3 7E                    4830 	.db #0x7e	; 126
+      0018A4 04                    4831 	.db #0x04	; 4
+      0018A5 08                    4832 	.db #0x08	; 8
+      0018A6 10                    4833 	.db #0x10	; 16
+      0018A7 20                    4834 	.db #0x20	; 32
+      0018A8 7E                    4835 	.db #0x7e	; 126
+      0018A9 20                    4836 	.db #0x20	; 32
+      0018AA 10                    4837 	.db #0x10	; 16
+      0018AB 08                    4838 	.db #0x08	; 8
+      0018AC 08                    4839 	.db #0x08	; 8
+      0018AD 2A                    4840 	.db #0x2a	; 42
+      0018AE 1C                    4841 	.db #0x1c	; 28
+      0018AF 08                    4842 	.db #0x08	; 8
+      0018B0 08                    4843 	.db #0x08	; 8
+      0018B1 1C                    4844 	.db #0x1c	; 28
+      0018B2 2A                    4845 	.db #0x2a	; 42
+      0018B3 08                    4846 	.db #0x08	; 8
+      0018B4 08                    4847 	.db #0x08	; 8
+      0018B5 1E                    4848 	.db #0x1e	; 30
+      0018B6 10                    4849 	.db #0x10	; 16
+      0018B7 10                    4850 	.db #0x10	; 16
+      0018B8 10                    4851 	.db #0x10	; 16
+      0018B9 10                    4852 	.db #0x10	; 16
+      0018BA 0C                    4853 	.db #0x0c	; 12
+      0018BB 1E                    4854 	.db #0x1e	; 30
+      0018BC 0C                    4855 	.db #0x0c	; 12
+      0018BD 1E                    4856 	.db #0x1e	; 30
+      0018BE 0C                    4857 	.db #0x0c	; 12
+      0018BF 30                    4858 	.db #0x30	; 48	'0'
+      0018C0 38                    4859 	.db #0x38	; 56	'8'
+      0018C1 3E                    4860 	.db #0x3e	; 62
+      0018C2 38                    4861 	.db #0x38	; 56	'8'
+      0018C3 30                    4862 	.db #0x30	; 48	'0'
+      0018C4 06                    4863 	.db #0x06	; 6
+      0018C5 0E                    4864 	.db #0x0e	; 14
+      0018C6 3E                    4865 	.db #0x3e	; 62
+      0018C7 0E                    4866 	.db #0x0e	; 14
+      0018C8 06                    4867 	.db #0x06	; 6
+      0018C9 00                    4868 	.db #0x00	; 0
+      0018CA 00                    4869 	.db #0x00	; 0
+      0018CB 00                    4870 	.db #0x00	; 0
+      0018CC 00                    4871 	.db #0x00	; 0
+      0018CD 00                    4872 	.db #0x00	; 0
+      0018CE 00                    4873 	.db #0x00	; 0
+      0018CF 00                    4874 	.db #0x00	; 0
+      0018D0 5F                    4875 	.db #0x5f	; 95
+      0018D1 00                    4876 	.db #0x00	; 0
+      0018D2 00                    4877 	.db #0x00	; 0
+      0018D3 00                    4878 	.db #0x00	; 0
+      0018D4 07                    4879 	.db #0x07	; 7
+      0018D5 00                    4880 	.db #0x00	; 0
+      0018D6 07                    4881 	.db #0x07	; 7
+      0018D7 00                    4882 	.db #0x00	; 0
+      0018D8 14                    4883 	.db #0x14	; 20
+      0018D9 7F                    4884 	.db #0x7f	; 127
+      0018DA 14                    4885 	.db #0x14	; 20
+      0018DB 7F                    4886 	.db #0x7f	; 127
+      0018DC 14                    4887 	.db #0x14	; 20
+      0018DD 24                    4888 	.db #0x24	; 36
+      0018DE 2A                    4889 	.db #0x2a	; 42
+      0018DF 7F                    4890 	.db #0x7f	; 127
+      0018E0 2A                    4891 	.db #0x2a	; 42
+      0018E1 12                    4892 	.db #0x12	; 18
+      0018E2 23                    4893 	.db #0x23	; 35
+      0018E3 13                    4894 	.db #0x13	; 19
+      0018E4 08                    4895 	.db #0x08	; 8
+      0018E5 64                    4896 	.db #0x64	; 100	'd'
+      0018E6 62                    4897 	.db #0x62	; 98	'b'
+      0018E7 36                    4898 	.db #0x36	; 54	'6'
+      0018E8 49                    4899 	.db #0x49	; 73	'I'
+      0018E9 56                    4900 	.db #0x56	; 86	'V'
+      0018EA 20                    4901 	.db #0x20	; 32
+      0018EB 50                    4902 	.db #0x50	; 80	'P'
+      0018EC 00                    4903 	.db #0x00	; 0
+      0018ED 08                    4904 	.db #0x08	; 8
+      0018EE 07                    4905 	.db #0x07	; 7
+      0018EF 03                    4906 	.db #0x03	; 3
+      0018F0 00                    4907 	.db #0x00	; 0
+      0018F1 00                    4908 	.db #0x00	; 0
+      0018F2 1C                    4909 	.db #0x1c	; 28
+      0018F3 22                    4910 	.db #0x22	; 34
+      0018F4 41                    4911 	.db #0x41	; 65	'A'
+      0018F5 00                    4912 	.db #0x00	; 0
+      0018F6 00                    4913 	.db #0x00	; 0
+      0018F7 41                    4914 	.db #0x41	; 65	'A'
+      0018F8 22                    4915 	.db #0x22	; 34
+      0018F9 1C                    4916 	.db #0x1c	; 28
+      0018FA 00                    4917 	.db #0x00	; 0
+      0018FB 2A                    4918 	.db #0x2a	; 42
+      0018FC 1C                    4919 	.db #0x1c	; 28
+      0018FD 7F                    4920 	.db #0x7f	; 127
+      0018FE 1C                    4921 	.db #0x1c	; 28
+      0018FF 2A                    4922 	.db #0x2a	; 42
+      001900 08                    4923 	.db #0x08	; 8
+      001901 08                    4924 	.db #0x08	; 8
+      001902 3E                    4925 	.db #0x3e	; 62
+      001903 08                    4926 	.db #0x08	; 8
+      001904 08                    4927 	.db #0x08	; 8
+      001905 00                    4928 	.db #0x00	; 0
+      001906 80                    4929 	.db #0x80	; 128
+      001907 70                    4930 	.db #0x70	; 112	'p'
+      001908 30                    4931 	.db #0x30	; 48	'0'
+      001909 00                    4932 	.db #0x00	; 0
+      00190A 08                    4933 	.db #0x08	; 8
+      00190B 08                    4934 	.db #0x08	; 8
+      00190C 08                    4935 	.db #0x08	; 8
+      00190D 08                    4936 	.db #0x08	; 8
+      00190E 08                    4937 	.db #0x08	; 8
+      00190F 00                    4938 	.db #0x00	; 0
+      001910 00                    4939 	.db #0x00	; 0
+      001911 60                    4940 	.db #0x60	; 96
+      001912 60                    4941 	.db #0x60	; 96
+      001913 00                    4942 	.db #0x00	; 0
+      001914 20                    4943 	.db #0x20	; 32
+      001915 10                    4944 	.db #0x10	; 16
+      001916 08                    4945 	.db #0x08	; 8
+      001917 04                    4946 	.db #0x04	; 4
+      001918 02                    4947 	.db #0x02	; 2
+      001919 3E                    4948 	.db #0x3e	; 62
+      00191A 51                    4949 	.db #0x51	; 81	'Q'
+      00191B 49                    4950 	.db #0x49	; 73	'I'
+      00191C 45                    4951 	.db #0x45	; 69	'E'
+      00191D 3E                    4952 	.db #0x3e	; 62
+      00191E 00                    4953 	.db #0x00	; 0
+      00191F 42                    4954 	.db #0x42	; 66	'B'
+      001920 7F                    4955 	.db #0x7f	; 127
+      001921 40                    4956 	.db #0x40	; 64
+      001922 00                    4957 	.db #0x00	; 0
+      001923 72                    4958 	.db #0x72	; 114	'r'
+      001924 49                    4959 	.db #0x49	; 73	'I'
+      001925 49                    4960 	.db #0x49	; 73	'I'
+      001926 49                    4961 	.db #0x49	; 73	'I'
+      001927 46                    4962 	.db #0x46	; 70	'F'
+      001928 21                    4963 	.db #0x21	; 33
+      001929 41                    4964 	.db #0x41	; 65	'A'
+      00192A 49                    4965 	.db #0x49	; 73	'I'
+      00192B 4D                    4966 	.db #0x4d	; 77	'M'
+      00192C 33                    4967 	.db #0x33	; 51	'3'
+      00192D 18                    4968 	.db #0x18	; 24
+      00192E 14                    4969 	.db #0x14	; 20
+      00192F 12                    4970 	.db #0x12	; 18
+      001930 7F                    4971 	.db #0x7f	; 127
+      001931 10                    4972 	.db #0x10	; 16
+      001932 27                    4973 	.db #0x27	; 39
+      001933 45                    4974 	.db #0x45	; 69	'E'
+      001934 45                    4975 	.db #0x45	; 69	'E'
+      001935 45                    4976 	.db #0x45	; 69	'E'
+      001936 39                    4977 	.db #0x39	; 57	'9'
+      001937 3C                    4978 	.db #0x3c	; 60
+      001938 4A                    4979 	.db #0x4a	; 74	'J'
+      001939 49                    4980 	.db #0x49	; 73	'I'
+      00193A 49                    4981 	.db #0x49	; 73	'I'
+      00193B 31                    4982 	.db #0x31	; 49	'1'
+      00193C 41                    4983 	.db #0x41	; 65	'A'
+      00193D 21                    4984 	.db #0x21	; 33
+      00193E 11                    4985 	.db #0x11	; 17
+      00193F 09                    4986 	.db #0x09	; 9
+      001940 07                    4987 	.db #0x07	; 7
+      001941 36                    4988 	.db #0x36	; 54	'6'
+      001942 49                    4989 	.db #0x49	; 73	'I'
+      001943 49                    4990 	.db #0x49	; 73	'I'
+      001944 49                    4991 	.db #0x49	; 73	'I'
+      001945 36                    4992 	.db #0x36	; 54	'6'
+      001946 46                    4993 	.db #0x46	; 70	'F'
+      001947 49                    4994 	.db #0x49	; 73	'I'
+      001948 49                    4995 	.db #0x49	; 73	'I'
+      001949 29                    4996 	.db #0x29	; 41
+      00194A 1E                    4997 	.db #0x1e	; 30
+      00194B 00                    4998 	.db #0x00	; 0
+      00194C 00                    4999 	.db #0x00	; 0
+      00194D 14                    5000 	.db #0x14	; 20
+      00194E 00                    5001 	.db #0x00	; 0
+      00194F 00                    5002 	.db #0x00	; 0
+      001950 00                    5003 	.db #0x00	; 0
+      001951 40                    5004 	.db #0x40	; 64
+      001952 34                    5005 	.db #0x34	; 52	'4'
+      001953 00                    5006 	.db #0x00	; 0
+      001954 00                    5007 	.db #0x00	; 0
+      001955 00                    5008 	.db #0x00	; 0
+      001956 08                    5009 	.db #0x08	; 8
+      001957 14                    5010 	.db #0x14	; 20
+      001958 22                    5011 	.db #0x22	; 34
+      001959 41                    5012 	.db #0x41	; 65	'A'
+      00195A 14                    5013 	.db #0x14	; 20
+      00195B 14                    5014 	.db #0x14	; 20
+      00195C 14                    5015 	.db #0x14	; 20
+      00195D 14                    5016 	.db #0x14	; 20
+      00195E 14                    5017 	.db #0x14	; 20
+      00195F 00                    5018 	.db #0x00	; 0
+      001960 41                    5019 	.db #0x41	; 65	'A'
+      001961 22                    5020 	.db #0x22	; 34
+      001962 14                    5021 	.db #0x14	; 20
+      001963 08                    5022 	.db #0x08	; 8
+      001964 02                    5023 	.db #0x02	; 2
+      001965 01                    5024 	.db #0x01	; 1
+      001966 59                    5025 	.db #0x59	; 89	'Y'
+      001967 09                    5026 	.db #0x09	; 9
+      001968 06                    5027 	.db #0x06	; 6
+      001969 3E                    5028 	.db #0x3e	; 62
+      00196A 41                    5029 	.db #0x41	; 65	'A'
+      00196B 5D                    5030 	.db #0x5d	; 93
+      00196C 59                    5031 	.db #0x59	; 89	'Y'
+      00196D 4E                    5032 	.db #0x4e	; 78	'N'
+      00196E 7C                    5033 	.db #0x7c	; 124
+      00196F 12                    5034 	.db #0x12	; 18
+      001970 11                    5035 	.db #0x11	; 17
+      001971 12                    5036 	.db #0x12	; 18
+      001972 7C                    5037 	.db #0x7c	; 124
+      001973 7F                    5038 	.db #0x7f	; 127
+      001974 49                    5039 	.db #0x49	; 73	'I'
+      001975 49                    5040 	.db #0x49	; 73	'I'
+      001976 49                    5041 	.db #0x49	; 73	'I'
+      001977 36                    5042 	.db #0x36	; 54	'6'
+      001978 3E                    5043 	.db #0x3e	; 62
+      001979 41                    5044 	.db #0x41	; 65	'A'
+      00197A 41                    5045 	.db #0x41	; 65	'A'
+      00197B 41                    5046 	.db #0x41	; 65	'A'
+      00197C 22                    5047 	.db #0x22	; 34
+      00197D 7F                    5048 	.db #0x7f	; 127
+      00197E 41                    5049 	.db #0x41	; 65	'A'
+      00197F 41                    5050 	.db #0x41	; 65	'A'
+      001980 41                    5051 	.db #0x41	; 65	'A'
+      001981 3E                    5052 	.db #0x3e	; 62
+      001982 7F                    5053 	.db #0x7f	; 127
+      001983 49                    5054 	.db #0x49	; 73	'I'
+      001984 49                    5055 	.db #0x49	; 73	'I'
+      001985 49                    5056 	.db #0x49	; 73	'I'
+      001986 41                    5057 	.db #0x41	; 65	'A'
+      001987 7F                    5058 	.db #0x7f	; 127
+      001988 09                    5059 	.db #0x09	; 9
+      001989 09                    5060 	.db #0x09	; 9
+      00198A 09                    5061 	.db #0x09	; 9
+      00198B 01                    5062 	.db #0x01	; 1
+      00198C 3E                    5063 	.db #0x3e	; 62
+      00198D 41                    5064 	.db #0x41	; 65	'A'
+      00198E 41                    5065 	.db #0x41	; 65	'A'
+      00198F 51                    5066 	.db #0x51	; 81	'Q'
+      001990 73                    5067 	.db #0x73	; 115	's'
+      001991 7F                    5068 	.db #0x7f	; 127
+      001992 08                    5069 	.db #0x08	; 8
+      001993 08                    5070 	.db #0x08	; 8
+      001994 08                    5071 	.db #0x08	; 8
+      001995 7F                    5072 	.db #0x7f	; 127
+      001996 00                    5073 	.db #0x00	; 0
+      001997 41                    5074 	.db #0x41	; 65	'A'
+      001998 7F                    5075 	.db #0x7f	; 127
+      001999 41                    5076 	.db #0x41	; 65	'A'
+      00199A 00                    5077 	.db #0x00	; 0
+      00199B 20                    5078 	.db #0x20	; 32
+      00199C 40                    5079 	.db #0x40	; 64
+      00199D 41                    5080 	.db #0x41	; 65	'A'
+      00199E 3F                    5081 	.db #0x3f	; 63
+      00199F 01                    5082 	.db #0x01	; 1
+      0019A0 7F                    5083 	.db #0x7f	; 127
+      0019A1 08                    5084 	.db #0x08	; 8
+      0019A2 14                    5085 	.db #0x14	; 20
+      0019A3 22                    5086 	.db #0x22	; 34
+      0019A4 41                    5087 	.db #0x41	; 65	'A'
+      0019A5 7F                    5088 	.db #0x7f	; 127
+      0019A6 40                    5089 	.db #0x40	; 64
+      0019A7 40                    5090 	.db #0x40	; 64
+      0019A8 40                    5091 	.db #0x40	; 64
+      0019A9 40                    5092 	.db #0x40	; 64
+      0019AA 7F                    5093 	.db #0x7f	; 127
+      0019AB 02                    5094 	.db #0x02	; 2
+      0019AC 1C                    5095 	.db #0x1c	; 28
+      0019AD 02                    5096 	.db #0x02	; 2
+      0019AE 7F                    5097 	.db #0x7f	; 127
+      0019AF 7F                    5098 	.db #0x7f	; 127
+      0019B0 04                    5099 	.db #0x04	; 4
+      0019B1 08                    5100 	.db #0x08	; 8
+      0019B2 10                    5101 	.db #0x10	; 16
+      0019B3 7F                    5102 	.db #0x7f	; 127
+      0019B4 3E                    5103 	.db #0x3e	; 62
+      0019B5 41                    5104 	.db #0x41	; 65	'A'
+      0019B6 41                    5105 	.db #0x41	; 65	'A'
+      0019B7 41                    5106 	.db #0x41	; 65	'A'
+      0019B8 3E                    5107 	.db #0x3e	; 62
+      0019B9 7F                    5108 	.db #0x7f	; 127
+      0019BA 09                    5109 	.db #0x09	; 9
+      0019BB 09                    5110 	.db #0x09	; 9
+      0019BC 09                    5111 	.db #0x09	; 9
+      0019BD 06                    5112 	.db #0x06	; 6
+      0019BE 3E                    5113 	.db #0x3e	; 62
+      0019BF 41                    5114 	.db #0x41	; 65	'A'
+      0019C0 51                    5115 	.db #0x51	; 81	'Q'
+      0019C1 21                    5116 	.db #0x21	; 33
+      0019C2 5E                    5117 	.db #0x5e	; 94
+      0019C3 7F                    5118 	.db #0x7f	; 127
+      0019C4 09                    5119 	.db #0x09	; 9
+      0019C5 19                    5120 	.db #0x19	; 25
+      0019C6 29                    5121 	.db #0x29	; 41
+      0019C7 46                    5122 	.db #0x46	; 70	'F'
+      0019C8 26                    5123 	.db #0x26	; 38
+      0019C9 49                    5124 	.db #0x49	; 73	'I'
+      0019CA 49                    5125 	.db #0x49	; 73	'I'
+      0019CB 49                    5126 	.db #0x49	; 73	'I'
+      0019CC 32                    5127 	.db #0x32	; 50	'2'
+      0019CD 03                    5128 	.db #0x03	; 3
+      0019CE 01                    5129 	.db #0x01	; 1
+      0019CF 7F                    5130 	.db #0x7f	; 127
+      0019D0 01                    5131 	.db #0x01	; 1
+      0019D1 03                    5132 	.db #0x03	; 3
+      0019D2 3F                    5133 	.db #0x3f	; 63
+      0019D3 40                    5134 	.db #0x40	; 64
+      0019D4 40                    5135 	.db #0x40	; 64
+      0019D5 40                    5136 	.db #0x40	; 64
+      0019D6 3F                    5137 	.db #0x3f	; 63
+      0019D7 1F                    5138 	.db #0x1f	; 31
+      0019D8 20                    5139 	.db #0x20	; 32
+      0019D9 40                    5140 	.db #0x40	; 64
+      0019DA 20                    5141 	.db #0x20	; 32
+      0019DB 1F                    5142 	.db #0x1f	; 31
+      0019DC 3F                    5143 	.db #0x3f	; 63
+      0019DD 40                    5144 	.db #0x40	; 64
+      0019DE 38                    5145 	.db #0x38	; 56	'8'
+      0019DF 40                    5146 	.db #0x40	; 64
+      0019E0 3F                    5147 	.db #0x3f	; 63
+      0019E1 63                    5148 	.db #0x63	; 99	'c'
+      0019E2 14                    5149 	.db #0x14	; 20
+      0019E3 08                    5150 	.db #0x08	; 8
+      0019E4 14                    5151 	.db #0x14	; 20
+      0019E5 63                    5152 	.db #0x63	; 99	'c'
+      0019E6 03                    5153 	.db #0x03	; 3
+      0019E7 04                    5154 	.db #0x04	; 4
+      0019E8 78                    5155 	.db #0x78	; 120	'x'
+      0019E9 04                    5156 	.db #0x04	; 4
+      0019EA 03                    5157 	.db #0x03	; 3
+      0019EB 61                    5158 	.db #0x61	; 97	'a'
+      0019EC 59                    5159 	.db #0x59	; 89	'Y'
+      0019ED 49                    5160 	.db #0x49	; 73	'I'
+      0019EE 4D                    5161 	.db #0x4d	; 77	'M'
+      0019EF 43                    5162 	.db #0x43	; 67	'C'
+      0019F0 00                    5163 	.db #0x00	; 0
+      0019F1 7F                    5164 	.db #0x7f	; 127
+      0019F2 41                    5165 	.db #0x41	; 65	'A'
+      0019F3 41                    5166 	.db #0x41	; 65	'A'
+      0019F4 41                    5167 	.db #0x41	; 65	'A'
+      0019F5 02                    5168 	.db #0x02	; 2
+      0019F6 04                    5169 	.db #0x04	; 4
+      0019F7 08                    5170 	.db #0x08	; 8
+      0019F8 10                    5171 	.db #0x10	; 16
+      0019F9 20                    5172 	.db #0x20	; 32
+      0019FA 00                    5173 	.db #0x00	; 0
+      0019FB 41                    5174 	.db #0x41	; 65	'A'
+      0019FC 41                    5175 	.db #0x41	; 65	'A'
+      0019FD 41                    5176 	.db #0x41	; 65	'A'
+      0019FE 7F                    5177 	.db #0x7f	; 127
+      0019FF 04                    5178 	.db #0x04	; 4
+      001A00 02                    5179 	.db #0x02	; 2
+      001A01 01                    5180 	.db #0x01	; 1
+      001A02 02                    5181 	.db #0x02	; 2
+      001A03 04                    5182 	.db #0x04	; 4
+      001A04 40                    5183 	.db #0x40	; 64
+      001A05 40                    5184 	.db #0x40	; 64
+      001A06 40                    5185 	.db #0x40	; 64
+      001A07 40                    5186 	.db #0x40	; 64
+      001A08 40                    5187 	.db #0x40	; 64
+      001A09 00                    5188 	.db #0x00	; 0
+      001A0A 03                    5189 	.db #0x03	; 3
+      001A0B 07                    5190 	.db #0x07	; 7
+      001A0C 08                    5191 	.db #0x08	; 8
+      001A0D 00                    5192 	.db #0x00	; 0
+      001A0E 20                    5193 	.db #0x20	; 32
+      001A0F 54                    5194 	.db #0x54	; 84	'T'
+      001A10 54                    5195 	.db #0x54	; 84	'T'
+      001A11 78                    5196 	.db #0x78	; 120	'x'
+      001A12 40                    5197 	.db #0x40	; 64
+      001A13 7F                    5198 	.db #0x7f	; 127
+      001A14 28                    5199 	.db #0x28	; 40
+      001A15 44                    5200 	.db #0x44	; 68	'D'
+      001A16 44                    5201 	.db #0x44	; 68	'D'
+      001A17 38                    5202 	.db #0x38	; 56	'8'
+      001A18 38                    5203 	.db #0x38	; 56	'8'
+      001A19 44                    5204 	.db #0x44	; 68	'D'
+      001A1A 44                    5205 	.db #0x44	; 68	'D'
+      001A1B 44                    5206 	.db #0x44	; 68	'D'
+      001A1C 28                    5207 	.db #0x28	; 40
+      001A1D 38                    5208 	.db #0x38	; 56	'8'
+      001A1E 44                    5209 	.db #0x44	; 68	'D'
+      001A1F 44                    5210 	.db #0x44	; 68	'D'
+      001A20 28                    5211 	.db #0x28	; 40
+      001A21 7F                    5212 	.db #0x7f	; 127
+      001A22 38                    5213 	.db #0x38	; 56	'8'
+      001A23 54                    5214 	.db #0x54	; 84	'T'
+      001A24 54                    5215 	.db #0x54	; 84	'T'
+      001A25 54                    5216 	.db #0x54	; 84	'T'
+      001A26 18                    5217 	.db #0x18	; 24
+      001A27 00                    5218 	.db #0x00	; 0
+      001A28 08                    5219 	.db #0x08	; 8
+      001A29 7E                    5220 	.db #0x7e	; 126
+      001A2A 09                    5221 	.db #0x09	; 9
+      001A2B 02                    5222 	.db #0x02	; 2
+      001A2C 18                    5223 	.db #0x18	; 24
+      001A2D A4                    5224 	.db #0xa4	; 164
+      001A2E A4                    5225 	.db #0xa4	; 164
+      001A2F 9C                    5226 	.db #0x9c	; 156
+      001A30 78                    5227 	.db #0x78	; 120	'x'
+      001A31 7F                    5228 	.db #0x7f	; 127
+      001A32 08                    5229 	.db #0x08	; 8
+      001A33 04                    5230 	.db #0x04	; 4
+      001A34 04                    5231 	.db #0x04	; 4
+      001A35 78                    5232 	.db #0x78	; 120	'x'
+      001A36 00                    5233 	.db #0x00	; 0
+      001A37 44                    5234 	.db #0x44	; 68	'D'
+      001A38 7D                    5235 	.db #0x7d	; 125
+      001A39 40                    5236 	.db #0x40	; 64
+      001A3A 00                    5237 	.db #0x00	; 0
+      001A3B 20                    5238 	.db #0x20	; 32
+      001A3C 40                    5239 	.db #0x40	; 64
+      001A3D 40                    5240 	.db #0x40	; 64
+      001A3E 3D                    5241 	.db #0x3d	; 61
+      001A3F 00                    5242 	.db #0x00	; 0
+      001A40 7F                    5243 	.db #0x7f	; 127
+      001A41 10                    5244 	.db #0x10	; 16
+      001A42 28                    5245 	.db #0x28	; 40
+      001A43 44                    5246 	.db #0x44	; 68	'D'
+      001A44 00                    5247 	.db #0x00	; 0
+      001A45 00                    5248 	.db #0x00	; 0
+      001A46 41                    5249 	.db #0x41	; 65	'A'
+      001A47 7F                    5250 	.db #0x7f	; 127
+      001A48 40                    5251 	.db #0x40	; 64
+      001A49 00                    5252 	.db #0x00	; 0
+      001A4A 7C                    5253 	.db #0x7c	; 124
+      001A4B 04                    5254 	.db #0x04	; 4
+      001A4C 78                    5255 	.db #0x78	; 120	'x'
+      001A4D 04                    5256 	.db #0x04	; 4
+      001A4E 78                    5257 	.db #0x78	; 120	'x'
+      001A4F 7C                    5258 	.db #0x7c	; 124
+      001A50 08                    5259 	.db #0x08	; 8
+      001A51 04                    5260 	.db #0x04	; 4
+      001A52 04                    5261 	.db #0x04	; 4
+      001A53 78                    5262 	.db #0x78	; 120	'x'
+      001A54 38                    5263 	.db #0x38	; 56	'8'
+      001A55 44                    5264 	.db #0x44	; 68	'D'
+      001A56 44                    5265 	.db #0x44	; 68	'D'
+      001A57 44                    5266 	.db #0x44	; 68	'D'
+      001A58 38                    5267 	.db #0x38	; 56	'8'
+      001A59 FC                    5268 	.db #0xfc	; 252
+      001A5A 18                    5269 	.db #0x18	; 24
+      001A5B 24                    5270 	.db #0x24	; 36
+      001A5C 24                    5271 	.db #0x24	; 36
+      001A5D 18                    5272 	.db #0x18	; 24
+      001A5E 18                    5273 	.db #0x18	; 24
+      001A5F 24                    5274 	.db #0x24	; 36
+      001A60 24                    5275 	.db #0x24	; 36
+      001A61 18                    5276 	.db #0x18	; 24
+      001A62 FC                    5277 	.db #0xfc	; 252
+      001A63 7C                    5278 	.db #0x7c	; 124
+      001A64 08                    5279 	.db #0x08	; 8
+      001A65 04                    5280 	.db #0x04	; 4
+      001A66 04                    5281 	.db #0x04	; 4
+      001A67 08                    5282 	.db #0x08	; 8
+      001A68 48                    5283 	.db #0x48	; 72	'H'
+      001A69 54                    5284 	.db #0x54	; 84	'T'
+      001A6A 54                    5285 	.db #0x54	; 84	'T'
+      001A6B 54                    5286 	.db #0x54	; 84	'T'
+      001A6C 24                    5287 	.db #0x24	; 36
+      001A6D 04                    5288 	.db #0x04	; 4
+      001A6E 04                    5289 	.db #0x04	; 4
+      001A6F 3F                    5290 	.db #0x3f	; 63
+      001A70 44                    5291 	.db #0x44	; 68	'D'
+      001A71 24                    5292 	.db #0x24	; 36
+      001A72 3C                    5293 	.db #0x3c	; 60
+      001A73 40                    5294 	.db #0x40	; 64
+      001A74 40                    5295 	.db #0x40	; 64
+      001A75 20                    5296 	.db #0x20	; 32
+      001A76 7C                    5297 	.db #0x7c	; 124
+      001A77 1C                    5298 	.db #0x1c	; 28
+      001A78 20                    5299 	.db #0x20	; 32
+      001A79 40                    5300 	.db #0x40	; 64
+      001A7A 20                    5301 	.db #0x20	; 32
+      001A7B 1C                    5302 	.db #0x1c	; 28
+      001A7C 3C                    5303 	.db #0x3c	; 60
+      001A7D 40                    5304 	.db #0x40	; 64
+      001A7E 30                    5305 	.db #0x30	; 48	'0'
+      001A7F 40                    5306 	.db #0x40	; 64
+      001A80 3C                    5307 	.db #0x3c	; 60
+      001A81 44                    5308 	.db #0x44	; 68	'D'
+      001A82 28                    5309 	.db #0x28	; 40
+      001A83 10                    5310 	.db #0x10	; 16
+      001A84 28                    5311 	.db #0x28	; 40
+      001A85 44                    5312 	.db #0x44	; 68	'D'
+      001A86 4C                    5313 	.db #0x4c	; 76	'L'
+      001A87 90                    5314 	.db #0x90	; 144
+      001A88 90                    5315 	.db #0x90	; 144
+      001A89 90                    5316 	.db #0x90	; 144
+      001A8A 7C                    5317 	.db #0x7c	; 124
+      001A8B 44                    5318 	.db #0x44	; 68	'D'
+      001A8C 64                    5319 	.db #0x64	; 100	'd'
+      001A8D 54                    5320 	.db #0x54	; 84	'T'
+      001A8E 4C                    5321 	.db #0x4c	; 76	'L'
+      001A8F 44                    5322 	.db #0x44	; 68	'D'
+      001A90 00                    5323 	.db #0x00	; 0
+      001A91 08                    5324 	.db #0x08	; 8
+      001A92 36                    5325 	.db #0x36	; 54	'6'
+      001A93 41                    5326 	.db #0x41	; 65	'A'
+      001A94 00                    5327 	.db #0x00	; 0
+      001A95 00                    5328 	.db #0x00	; 0
+      001A96 00                    5329 	.db #0x00	; 0
+      001A97 77                    5330 	.db #0x77	; 119	'w'
+      001A98 00                    5331 	.db #0x00	; 0
+      001A99 00                    5332 	.db #0x00	; 0
+      001A9A 00                    5333 	.db #0x00	; 0
+      001A9B 41                    5334 	.db #0x41	; 65	'A'
+      001A9C 36                    5335 	.db #0x36	; 54	'6'
+      001A9D 08                    5336 	.db #0x08	; 8
+      001A9E 00                    5337 	.db #0x00	; 0
+      001A9F 02                    5338 	.db #0x02	; 2
+      001AA0 01                    5339 	.db #0x01	; 1
+      001AA1 02                    5340 	.db #0x02	; 2
+      001AA2 04                    5341 	.db #0x04	; 4
+      001AA3 02                    5342 	.db #0x02	; 2
+      001AA4 3C                    5343 	.db #0x3c	; 60
+      001AA5 26                    5344 	.db #0x26	; 38
+      001AA6 23                    5345 	.db #0x23	; 35
+      001AA7 26                    5346 	.db #0x26	; 38
+      001AA8 3C                    5347 	.db #0x3c	; 60
+      001AA9 1E                    5348 	.db #0x1e	; 30
+      001AAA A1                    5349 	.db #0xa1	; 161
+      001AAB A1                    5350 	.db #0xa1	; 161
+      001AAC 61                    5351 	.db #0x61	; 97	'a'
+      001AAD 12                    5352 	.db #0x12	; 18
+      001AAE 3A                    5353 	.db #0x3a	; 58
+      001AAF 40                    5354 	.db #0x40	; 64
+      001AB0 40                    5355 	.db #0x40	; 64
+      001AB1 20                    5356 	.db #0x20	; 32
+      001AB2 7A                    5357 	.db #0x7a	; 122	'z'
+      001AB3 38                    5358 	.db #0x38	; 56	'8'
+      001AB4 54                    5359 	.db #0x54	; 84	'T'
+      001AB5 54                    5360 	.db #0x54	; 84	'T'
+      001AB6 55                    5361 	.db #0x55	; 85	'U'
+      001AB7 59                    5362 	.db #0x59	; 89	'Y'
+      001AB8 21                    5363 	.db #0x21	; 33
+      001AB9 55                    5364 	.db #0x55	; 85	'U'
+      001ABA 55                    5365 	.db #0x55	; 85	'U'
+      001ABB 79                    5366 	.db #0x79	; 121	'y'
+      001ABC 41                    5367 	.db #0x41	; 65	'A'
+      001ABD 22                    5368 	.db #0x22	; 34
+      001ABE 54                    5369 	.db #0x54	; 84	'T'
+      001ABF 54                    5370 	.db #0x54	; 84	'T'
+      001AC0 78                    5371 	.db #0x78	; 120	'x'
+      001AC1 42                    5372 	.db #0x42	; 66	'B'
+      001AC2 21                    5373 	.db #0x21	; 33
+      001AC3 55                    5374 	.db #0x55	; 85	'U'
+      001AC4 54                    5375 	.db #0x54	; 84	'T'
+      001AC5 78                    5376 	.db #0x78	; 120	'x'
+      001AC6 40                    5377 	.db #0x40	; 64
+      001AC7 20                    5378 	.db #0x20	; 32
+      001AC8 54                    5379 	.db #0x54	; 84	'T'
+      001AC9 55                    5380 	.db #0x55	; 85	'U'
+      001ACA 79                    5381 	.db #0x79	; 121	'y'
+      001ACB 40                    5382 	.db #0x40	; 64
+      001ACC 0C                    5383 	.db #0x0c	; 12
+      001ACD 1E                    5384 	.db #0x1e	; 30
+      001ACE 52                    5385 	.db #0x52	; 82	'R'
+      001ACF 72                    5386 	.db #0x72	; 114	'r'
+      001AD0 12                    5387 	.db #0x12	; 18
+      001AD1 39                    5388 	.db #0x39	; 57	'9'
+      001AD2 55                    5389 	.db #0x55	; 85	'U'
+      001AD3 55                    5390 	.db #0x55	; 85	'U'
+      001AD4 55                    5391 	.db #0x55	; 85	'U'
+      001AD5 59                    5392 	.db #0x59	; 89	'Y'
+      001AD6 39                    5393 	.db #0x39	; 57	'9'
+      001AD7 54                    5394 	.db #0x54	; 84	'T'
+      001AD8 54                    5395 	.db #0x54	; 84	'T'
+      001AD9 54                    5396 	.db #0x54	; 84	'T'
+      001ADA 59                    5397 	.db #0x59	; 89	'Y'
+      001ADB 39                    5398 	.db #0x39	; 57	'9'
+      001ADC 55                    5399 	.db #0x55	; 85	'U'
+      001ADD 54                    5400 	.db #0x54	; 84	'T'
+      001ADE 54                    5401 	.db #0x54	; 84	'T'
+      001ADF 58                    5402 	.db #0x58	; 88	'X'
+      001AE0 00                    5403 	.db #0x00	; 0
+      001AE1 00                    5404 	.db #0x00	; 0
+      001AE2 45                    5405 	.db #0x45	; 69	'E'
+      001AE3 7C                    5406 	.db #0x7c	; 124
+      001AE4 41                    5407 	.db #0x41	; 65	'A'
+      001AE5 00                    5408 	.db #0x00	; 0
+      001AE6 02                    5409 	.db #0x02	; 2
+      001AE7 45                    5410 	.db #0x45	; 69	'E'
+      001AE8 7D                    5411 	.db #0x7d	; 125
+      001AE9 42                    5412 	.db #0x42	; 66	'B'
+      001AEA 00                    5413 	.db #0x00	; 0
+      001AEB 01                    5414 	.db #0x01	; 1
+      001AEC 45                    5415 	.db #0x45	; 69	'E'
+      001AED 7C                    5416 	.db #0x7c	; 124
+      001AEE 40                    5417 	.db #0x40	; 64
+      001AEF 7D                    5418 	.db #0x7d	; 125
+      001AF0 12                    5419 	.db #0x12	; 18
+      001AF1 11                    5420 	.db #0x11	; 17
+      001AF2 12                    5421 	.db #0x12	; 18
+      001AF3 7D                    5422 	.db #0x7d	; 125
+      001AF4 F0                    5423 	.db #0xf0	; 240
+      001AF5 28                    5424 	.db #0x28	; 40
+      001AF6 25                    5425 	.db #0x25	; 37
+      001AF7 28                    5426 	.db #0x28	; 40
+      001AF8 F0                    5427 	.db #0xf0	; 240
+      001AF9 7C                    5428 	.db #0x7c	; 124
+      001AFA 54                    5429 	.db #0x54	; 84	'T'
+      001AFB 55                    5430 	.db #0x55	; 85	'U'
+      001AFC 45                    5431 	.db #0x45	; 69	'E'
+      001AFD 00                    5432 	.db #0x00	; 0
+      001AFE 20                    5433 	.db #0x20	; 32
+      001AFF 54                    5434 	.db #0x54	; 84	'T'
+      001B00 54                    5435 	.db #0x54	; 84	'T'
+      001B01 7C                    5436 	.db #0x7c	; 124
+      001B02 54                    5437 	.db #0x54	; 84	'T'
+      001B03 7C                    5438 	.db #0x7c	; 124
+      001B04 0A                    5439 	.db #0x0a	; 10
+      001B05 09                    5440 	.db #0x09	; 9
+      001B06 7F                    5441 	.db #0x7f	; 127
+      001B07 49                    5442 	.db #0x49	; 73	'I'
+      001B08 32                    5443 	.db #0x32	; 50	'2'
+      001B09 49                    5444 	.db #0x49	; 73	'I'
+      001B0A 49                    5445 	.db #0x49	; 73	'I'
+      001B0B 49                    5446 	.db #0x49	; 73	'I'
+      001B0C 32                    5447 	.db #0x32	; 50	'2'
+      001B0D 3A                    5448 	.db #0x3a	; 58
+      001B0E 44                    5449 	.db #0x44	; 68	'D'
+      001B0F 44                    5450 	.db #0x44	; 68	'D'
+      001B10 44                    5451 	.db #0x44	; 68	'D'
+      001B11 3A                    5452 	.db #0x3a	; 58
+      001B12 32                    5453 	.db #0x32	; 50	'2'
+      001B13 4A                    5454 	.db #0x4a	; 74	'J'
+      001B14 48                    5455 	.db #0x48	; 72	'H'
+      001B15 48                    5456 	.db #0x48	; 72	'H'
+      001B16 30                    5457 	.db #0x30	; 48	'0'
+      001B17 3A                    5458 	.db #0x3a	; 58
+      001B18 41                    5459 	.db #0x41	; 65	'A'
+      001B19 41                    5460 	.db #0x41	; 65	'A'
+      001B1A 21                    5461 	.db #0x21	; 33
+      001B1B 7A                    5462 	.db #0x7a	; 122	'z'
+      001B1C 3A                    5463 	.db #0x3a	; 58
+      001B1D 42                    5464 	.db #0x42	; 66	'B'
+      001B1E 40                    5465 	.db #0x40	; 64
+      001B1F 20                    5466 	.db #0x20	; 32
+      001B20 78                    5467 	.db #0x78	; 120	'x'
+      001B21 00                    5468 	.db #0x00	; 0
+      001B22 9D                    5469 	.db #0x9d	; 157
+      001B23 A0                    5470 	.db #0xa0	; 160
+      001B24 A0                    5471 	.db #0xa0	; 160
+      001B25 7D                    5472 	.db #0x7d	; 125
+      001B26 3D                    5473 	.db #0x3d	; 61
+      001B27 42                    5474 	.db #0x42	; 66	'B'
+      001B28 42                    5475 	.db #0x42	; 66	'B'
+      001B29 42                    5476 	.db #0x42	; 66	'B'
+      001B2A 3D                    5477 	.db #0x3d	; 61
+      001B2B 3D                    5478 	.db #0x3d	; 61
+      001B2C 40                    5479 	.db #0x40	; 64
+      001B2D 40                    5480 	.db #0x40	; 64
+      001B2E 40                    5481 	.db #0x40	; 64
+      001B2F 3D                    5482 	.db #0x3d	; 61
+      001B30 3C                    5483 	.db #0x3c	; 60
+      001B31 24                    5484 	.db #0x24	; 36
+      001B32 FF                    5485 	.db #0xff	; 255
+      001B33 24                    5486 	.db #0x24	; 36
+      001B34 24                    5487 	.db #0x24	; 36
+      001B35 48                    5488 	.db #0x48	; 72	'H'
+      001B36 7E                    5489 	.db #0x7e	; 126
+      001B37 49                    5490 	.db #0x49	; 73	'I'
+      001B38 43                    5491 	.db #0x43	; 67	'C'
+      001B39 66                    5492 	.db #0x66	; 102	'f'
+      001B3A 2B                    5493 	.db #0x2b	; 43
+      001B3B 2F                    5494 	.db #0x2f	; 47
+      001B3C FC                    5495 	.db #0xfc	; 252
+      001B3D 2F                    5496 	.db #0x2f	; 47
+      001B3E 2B                    5497 	.db #0x2b	; 43
+      001B3F FF                    5498 	.db #0xff	; 255
+      001B40 09                    5499 	.db #0x09	; 9
+      001B41 29                    5500 	.db #0x29	; 41
+      001B42 F6                    5501 	.db #0xf6	; 246
+      001B43 20                    5502 	.db #0x20	; 32
+      001B44 C0                    5503 	.db #0xc0	; 192
+      001B45 88                    5504 	.db #0x88	; 136
+      001B46 7E                    5505 	.db #0x7e	; 126
+      001B47 09                    5506 	.db #0x09	; 9
+      001B48 03                    5507 	.db #0x03	; 3
+      001B49 20                    5508 	.db #0x20	; 32
+      001B4A 54                    5509 	.db #0x54	; 84	'T'
+      001B4B 54                    5510 	.db #0x54	; 84	'T'
+      001B4C 79                    5511 	.db #0x79	; 121	'y'
+      001B4D 41                    5512 	.db #0x41	; 65	'A'
+      001B4E 00                    5513 	.db #0x00	; 0
+      001B4F 00                    5514 	.db #0x00	; 0
+      001B50 44                    5515 	.db #0x44	; 68	'D'
+      001B51 7D                    5516 	.db #0x7d	; 125
+      001B52 41                    5517 	.db #0x41	; 65	'A'
+      001B53 30                    5518 	.db #0x30	; 48	'0'
+      001B54 48                    5519 	.db #0x48	; 72	'H'
+      001B55 48                    5520 	.db #0x48	; 72	'H'
+      001B56 4A                    5521 	.db #0x4a	; 74	'J'
+      001B57 32                    5522 	.db #0x32	; 50	'2'
+      001B58 38                    5523 	.db #0x38	; 56	'8'
+      001B59 40                    5524 	.db #0x40	; 64
+      001B5A 40                    5525 	.db #0x40	; 64
+      001B5B 22                    5526 	.db #0x22	; 34
+      001B5C 7A                    5527 	.db #0x7a	; 122	'z'
+      001B5D 00                    5528 	.db #0x00	; 0
+      001B5E 7A                    5529 	.db #0x7a	; 122	'z'
+      001B5F 0A                    5530 	.db #0x0a	; 10
+      001B60 0A                    5531 	.db #0x0a	; 10
+      001B61 72                    5532 	.db #0x72	; 114	'r'
+      001B62 7D                    5533 	.db #0x7d	; 125
+      001B63 0D                    5534 	.db #0x0d	; 13
+      001B64 19                    5535 	.db #0x19	; 25
+      001B65 31                    5536 	.db #0x31	; 49	'1'
+      001B66 7D                    5537 	.db #0x7d	; 125
+      001B67 26                    5538 	.db #0x26	; 38
+      001B68 29                    5539 	.db #0x29	; 41
+      001B69 29                    5540 	.db #0x29	; 41
+      001B6A 2F                    5541 	.db #0x2f	; 47
+      001B6B 28                    5542 	.db #0x28	; 40
+      001B6C 26                    5543 	.db #0x26	; 38
+      001B6D 29                    5544 	.db #0x29	; 41
+      001B6E 29                    5545 	.db #0x29	; 41
+      001B6F 29                    5546 	.db #0x29	; 41
+      001B70 26                    5547 	.db #0x26	; 38
+      001B71 30                    5548 	.db #0x30	; 48	'0'
+      001B72 48                    5549 	.db #0x48	; 72	'H'
+      001B73 4D                    5550 	.db #0x4d	; 77	'M'
+      001B74 40                    5551 	.db #0x40	; 64
+      001B75 20                    5552 	.db #0x20	; 32
+      001B76 38                    5553 	.db #0x38	; 56	'8'
+      001B77 08                    5554 	.db #0x08	; 8
+      001B78 08                    5555 	.db #0x08	; 8
+      001B79 08                    5556 	.db #0x08	; 8
+      001B7A 08                    5557 	.db #0x08	; 8
+      001B7B 08                    5558 	.db #0x08	; 8
+      001B7C 08                    5559 	.db #0x08	; 8
+      001B7D 08                    5560 	.db #0x08	; 8
+      001B7E 08                    5561 	.db #0x08	; 8
+      001B7F 38                    5562 	.db #0x38	; 56	'8'
+      001B80 2F                    5563 	.db #0x2f	; 47
+      001B81 10                    5564 	.db #0x10	; 16
+      001B82 C8                    5565 	.db #0xc8	; 200
+      001B83 AC                    5566 	.db #0xac	; 172
+      001B84 BA                    5567 	.db #0xba	; 186
+      001B85 2F                    5568 	.db #0x2f	; 47
+      001B86 10                    5569 	.db #0x10	; 16
+      001B87 28                    5570 	.db #0x28	; 40
+      001B88 34                    5571 	.db #0x34	; 52	'4'
+      001B89 FA                    5572 	.db #0xfa	; 250
+      001B8A 00                    5573 	.db #0x00	; 0
+      001B8B 00                    5574 	.db #0x00	; 0
+      001B8C 7B                    5575 	.db #0x7b	; 123
+      001B8D 00                    5576 	.db #0x00	; 0
+      001B8E 00                    5577 	.db #0x00	; 0
+      001B8F 08                    5578 	.db #0x08	; 8
+      001B90 14                    5579 	.db #0x14	; 20
+      001B91 2A                    5580 	.db #0x2a	; 42
+      001B92 14                    5581 	.db #0x14	; 20
+      001B93 22                    5582 	.db #0x22	; 34
+      001B94 22                    5583 	.db #0x22	; 34
+      001B95 14                    5584 	.db #0x14	; 20
+      001B96 2A                    5585 	.db #0x2a	; 42
+      001B97 14                    5586 	.db #0x14	; 20
+      001B98 08                    5587 	.db #0x08	; 8
+      001B99 AA                    5588 	.db #0xaa	; 170
+      001B9A 00                    5589 	.db #0x00	; 0
+      001B9B 55                    5590 	.db #0x55	; 85	'U'
+      001B9C 00                    5591 	.db #0x00	; 0
+      001B9D AA                    5592 	.db #0xaa	; 170
+      001B9E AA                    5593 	.db #0xaa	; 170
+      001B9F 55                    5594 	.db #0x55	; 85	'U'
+      001BA0 AA                    5595 	.db #0xaa	; 170
+      001BA1 55                    5596 	.db #0x55	; 85	'U'
+      001BA2 AA                    5597 	.db #0xaa	; 170
+      001BA3 00                    5598 	.db #0x00	; 0
+      001BA4 00                    5599 	.db #0x00	; 0
+      001BA5 00                    5600 	.db #0x00	; 0
+      001BA6 FF                    5601 	.db #0xff	; 255
+      001BA7 00                    5602 	.db #0x00	; 0
+      001BA8 10                    5603 	.db #0x10	; 16
+      001BA9 10                    5604 	.db #0x10	; 16
+      001BAA 10                    5605 	.db #0x10	; 16
+      001BAB FF                    5606 	.db #0xff	; 255
+      001BAC 00                    5607 	.db #0x00	; 0
+      001BAD 14                    5608 	.db #0x14	; 20
+      001BAE 14                    5609 	.db #0x14	; 20
+      001BAF 14                    5610 	.db #0x14	; 20
+      001BB0 FF                    5611 	.db #0xff	; 255
+      001BB1 00                    5612 	.db #0x00	; 0
+      001BB2 10                    5613 	.db #0x10	; 16
+      001BB3 10                    5614 	.db #0x10	; 16
+      001BB4 FF                    5615 	.db #0xff	; 255
+      001BB5 00                    5616 	.db #0x00	; 0
+      001BB6 FF                    5617 	.db #0xff	; 255
+      001BB7 10                    5618 	.db #0x10	; 16
+      001BB8 10                    5619 	.db #0x10	; 16
+      001BB9 F0                    5620 	.db #0xf0	; 240
+      001BBA 10                    5621 	.db #0x10	; 16
+      001BBB F0                    5622 	.db #0xf0	; 240
+      001BBC 14                    5623 	.db #0x14	; 20
+      001BBD 14                    5624 	.db #0x14	; 20
+      001BBE 14                    5625 	.db #0x14	; 20
+      001BBF FC                    5626 	.db #0xfc	; 252
+      001BC0 00                    5627 	.db #0x00	; 0
+      001BC1 14                    5628 	.db #0x14	; 20
+      001BC2 14                    5629 	.db #0x14	; 20
+      001BC3 F7                    5630 	.db #0xf7	; 247
+      001BC4 00                    5631 	.db #0x00	; 0
+      001BC5 FF                    5632 	.db #0xff	; 255
+      001BC6 00                    5633 	.db #0x00	; 0
+      001BC7 00                    5634 	.db #0x00	; 0
+      001BC8 FF                    5635 	.db #0xff	; 255
+      001BC9 00                    5636 	.db #0x00	; 0
+      001BCA FF                    5637 	.db #0xff	; 255
+      001BCB 14                    5638 	.db #0x14	; 20
+      001BCC 14                    5639 	.db #0x14	; 20
+      001BCD F4                    5640 	.db #0xf4	; 244
+      001BCE 04                    5641 	.db #0x04	; 4
+      001BCF FC                    5642 	.db #0xfc	; 252
+      001BD0 14                    5643 	.db #0x14	; 20
+      001BD1 14                    5644 	.db #0x14	; 20
+      001BD2 17                    5645 	.db #0x17	; 23
+      001BD3 10                    5646 	.db #0x10	; 16
+      001BD4 1F                    5647 	.db #0x1f	; 31
+      001BD5 10                    5648 	.db #0x10	; 16
+      001BD6 10                    5649 	.db #0x10	; 16
+      001BD7 1F                    5650 	.db #0x1f	; 31
+      001BD8 10                    5651 	.db #0x10	; 16
+      001BD9 1F                    5652 	.db #0x1f	; 31
+      001BDA 14                    5653 	.db #0x14	; 20
+      001BDB 14                    5654 	.db #0x14	; 20
+      001BDC 14                    5655 	.db #0x14	; 20
+      001BDD 1F                    5656 	.db #0x1f	; 31
+      001BDE 00                    5657 	.db #0x00	; 0
+      001BDF 10                    5658 	.db #0x10	; 16
+      001BE0 10                    5659 	.db #0x10	; 16
+      001BE1 10                    5660 	.db #0x10	; 16
+      001BE2 F0                    5661 	.db #0xf0	; 240
+      001BE3 00                    5662 	.db #0x00	; 0
+      001BE4 00                    5663 	.db #0x00	; 0
+      001BE5 00                    5664 	.db #0x00	; 0
+      001BE6 00                    5665 	.db #0x00	; 0
+      001BE7 1F                    5666 	.db #0x1f	; 31
+      001BE8 10                    5667 	.db #0x10	; 16
+      001BE9 10                    5668 	.db #0x10	; 16
+      001BEA 10                    5669 	.db #0x10	; 16
+      001BEB 10                    5670 	.db #0x10	; 16
+      001BEC 1F                    5671 	.db #0x1f	; 31
+      001BED 10                    5672 	.db #0x10	; 16
+      001BEE 10                    5673 	.db #0x10	; 16
+      001BEF 10                    5674 	.db #0x10	; 16
+      001BF0 10                    5675 	.db #0x10	; 16
+      001BF1 F0                    5676 	.db #0xf0	; 240
+      001BF2 10                    5677 	.db #0x10	; 16
+      001BF3 00                    5678 	.db #0x00	; 0
+      001BF4 00                    5679 	.db #0x00	; 0
+      001BF5 00                    5680 	.db #0x00	; 0
+      001BF6 FF                    5681 	.db #0xff	; 255
+      001BF7 10                    5682 	.db #0x10	; 16
+      001BF8 10                    5683 	.db #0x10	; 16
+      001BF9 10                    5684 	.db #0x10	; 16
+      001BFA 10                    5685 	.db #0x10	; 16
+      001BFB 10                    5686 	.db #0x10	; 16
+      001BFC 10                    5687 	.db #0x10	; 16
+      001BFD 10                    5688 	.db #0x10	; 16
+      001BFE 10                    5689 	.db #0x10	; 16
+      001BFF 10                    5690 	.db #0x10	; 16
+      001C00 FF                    5691 	.db #0xff	; 255
+      001C01 10                    5692 	.db #0x10	; 16
+      001C02 00                    5693 	.db #0x00	; 0
+      001C03 00                    5694 	.db #0x00	; 0
+      001C04 00                    5695 	.db #0x00	; 0
+      001C05 FF                    5696 	.db #0xff	; 255
+      001C06 14                    5697 	.db #0x14	; 20
+      001C07 00                    5698 	.db #0x00	; 0
+      001C08 00                    5699 	.db #0x00	; 0
+      001C09 FF                    5700 	.db #0xff	; 255
+      001C0A 00                    5701 	.db #0x00	; 0
+      001C0B FF                    5702 	.db #0xff	; 255
+      001C0C 00                    5703 	.db #0x00	; 0
+      001C0D 00                    5704 	.db #0x00	; 0
+      001C0E 1F                    5705 	.db #0x1f	; 31
+      001C0F 10                    5706 	.db #0x10	; 16
+      001C10 17                    5707 	.db #0x17	; 23
+      001C11 00                    5708 	.db #0x00	; 0
+      001C12 00                    5709 	.db #0x00	; 0
+      001C13 FC                    5710 	.db #0xfc	; 252
+      001C14 04                    5711 	.db #0x04	; 4
+      001C15 F4                    5712 	.db #0xf4	; 244
+      001C16 14                    5713 	.db #0x14	; 20
+      001C17 14                    5714 	.db #0x14	; 20
+      001C18 17                    5715 	.db #0x17	; 23
+      001C19 10                    5716 	.db #0x10	; 16
+      001C1A 17                    5717 	.db #0x17	; 23
+      001C1B 14                    5718 	.db #0x14	; 20
+      001C1C 14                    5719 	.db #0x14	; 20
+      001C1D F4                    5720 	.db #0xf4	; 244
+      001C1E 04                    5721 	.db #0x04	; 4
+      001C1F F4                    5722 	.db #0xf4	; 244
+      001C20 00                    5723 	.db #0x00	; 0
+      001C21 00                    5724 	.db #0x00	; 0
+      001C22 FF                    5725 	.db #0xff	; 255
+      001C23 00                    5726 	.db #0x00	; 0
+      001C24 F7                    5727 	.db #0xf7	; 247
+      001C25 14                    5728 	.db #0x14	; 20
+      001C26 14                    5729 	.db #0x14	; 20
+      001C27 14                    5730 	.db #0x14	; 20
+      001C28 14                    5731 	.db #0x14	; 20
+      001C29 14                    5732 	.db #0x14	; 20
+      001C2A 14                    5733 	.db #0x14	; 20
+      001C2B 14                    5734 	.db #0x14	; 20
+      001C2C F7                    5735 	.db #0xf7	; 247
+      001C2D 00                    5736 	.db #0x00	; 0
+      001C2E F7                    5737 	.db #0xf7	; 247
+      001C2F 14                    5738 	.db #0x14	; 20
+      001C30 14                    5739 	.db #0x14	; 20
+      001C31 14                    5740 	.db #0x14	; 20
+      001C32 17                    5741 	.db #0x17	; 23
+      001C33 14                    5742 	.db #0x14	; 20
+      001C34 10                    5743 	.db #0x10	; 16
+      001C35 10                    5744 	.db #0x10	; 16
+      001C36 1F                    5745 	.db #0x1f	; 31
+      001C37 10                    5746 	.db #0x10	; 16
+      001C38 1F                    5747 	.db #0x1f	; 31
+      001C39 14                    5748 	.db #0x14	; 20
+      001C3A 14                    5749 	.db #0x14	; 20
+      001C3B 14                    5750 	.db #0x14	; 20
+      001C3C F4                    5751 	.db #0xf4	; 244
+      001C3D 14                    5752 	.db #0x14	; 20
+      001C3E 10                    5753 	.db #0x10	; 16
+      001C3F 10                    5754 	.db #0x10	; 16
+      001C40 F0                    5755 	.db #0xf0	; 240
+      001C41 10                    5756 	.db #0x10	; 16
+      001C42 F0                    5757 	.db #0xf0	; 240
+      001C43 00                    5758 	.db #0x00	; 0
+      001C44 00                    5759 	.db #0x00	; 0
+      001C45 1F                    5760 	.db #0x1f	; 31
+      001C46 10                    5761 	.db #0x10	; 16
+      001C47 1F                    5762 	.db #0x1f	; 31
+      001C48 00                    5763 	.db #0x00	; 0
+      001C49 00                    5764 	.db #0x00	; 0
+      001C4A 00                    5765 	.db #0x00	; 0
+      001C4B 1F                    5766 	.db #0x1f	; 31
+      001C4C 14                    5767 	.db #0x14	; 20
+      001C4D 00                    5768 	.db #0x00	; 0
+      001C4E 00                    5769 	.db #0x00	; 0
+      001C4F 00                    5770 	.db #0x00	; 0
+      001C50 FC                    5771 	.db #0xfc	; 252
+      001C51 14                    5772 	.db #0x14	; 20
+      001C52 00                    5773 	.db #0x00	; 0
+      001C53 00                    5774 	.db #0x00	; 0
+      001C54 F0                    5775 	.db #0xf0	; 240
+      001C55 10                    5776 	.db #0x10	; 16
+      001C56 F0                    5777 	.db #0xf0	; 240
+      001C57 10                    5778 	.db #0x10	; 16
+      001C58 10                    5779 	.db #0x10	; 16
+      001C59 FF                    5780 	.db #0xff	; 255
+      001C5A 10                    5781 	.db #0x10	; 16
+      001C5B FF                    5782 	.db #0xff	; 255
+      001C5C 14                    5783 	.db #0x14	; 20
+      001C5D 14                    5784 	.db #0x14	; 20
+      001C5E 14                    5785 	.db #0x14	; 20
+      001C5F FF                    5786 	.db #0xff	; 255
+      001C60 14                    5787 	.db #0x14	; 20
+      001C61 10                    5788 	.db #0x10	; 16
+      001C62 10                    5789 	.db #0x10	; 16
+      001C63 10                    5790 	.db #0x10	; 16
+      001C64 1F                    5791 	.db #0x1f	; 31
+      001C65 00                    5792 	.db #0x00	; 0
+      001C66 00                    5793 	.db #0x00	; 0
+      001C67 00                    5794 	.db #0x00	; 0
+      001C68 00                    5795 	.db #0x00	; 0
+      001C69 F0                    5796 	.db #0xf0	; 240
+      001C6A 10                    5797 	.db #0x10	; 16
+      001C6B FF                    5798 	.db #0xff	; 255
+      001C6C FF                    5799 	.db #0xff	; 255
+      001C6D FF                    5800 	.db #0xff	; 255
+      001C6E FF                    5801 	.db #0xff	; 255
+      001C6F FF                    5802 	.db #0xff	; 255
+      001C70 F0                    5803 	.db #0xf0	; 240
+      001C71 F0                    5804 	.db #0xf0	; 240
+      001C72 F0                    5805 	.db #0xf0	; 240
+      001C73 F0                    5806 	.db #0xf0	; 240
+      001C74 F0                    5807 	.db #0xf0	; 240
+      001C75 FF                    5808 	.db #0xff	; 255
+      001C76 FF                    5809 	.db #0xff	; 255
+      001C77 FF                    5810 	.db #0xff	; 255
+      001C78 00                    5811 	.db #0x00	; 0
+      001C79 00                    5812 	.db #0x00	; 0
+      001C7A 00                    5813 	.db #0x00	; 0
+      001C7B 00                    5814 	.db #0x00	; 0
+      001C7C 00                    5815 	.db #0x00	; 0
+      001C7D FF                    5816 	.db #0xff	; 255
+      001C7E FF                    5817 	.db #0xff	; 255
+      001C7F 0F                    5818 	.db #0x0f	; 15
+      001C80 0F                    5819 	.db #0x0f	; 15
+      001C81 0F                    5820 	.db #0x0f	; 15
+      001C82 0F                    5821 	.db #0x0f	; 15
+      001C83 0F                    5822 	.db #0x0f	; 15
+      001C84 38                    5823 	.db #0x38	; 56	'8'
+      001C85 44                    5824 	.db #0x44	; 68	'D'
+      001C86 44                    5825 	.db #0x44	; 68	'D'
+      001C87 38                    5826 	.db #0x38	; 56	'8'
+      001C88 44                    5827 	.db #0x44	; 68	'D'
+      001C89 FC                    5828 	.db #0xfc	; 252
+      001C8A 4A                    5829 	.db #0x4a	; 74	'J'
+      001C8B 4A                    5830 	.db #0x4a	; 74	'J'
+      001C8C 4A                    5831 	.db #0x4a	; 74	'J'
+      001C8D 34                    5832 	.db #0x34	; 52	'4'
+      001C8E 7E                    5833 	.db #0x7e	; 126
+      001C8F 02                    5834 	.db #0x02	; 2
+      001C90 02                    5835 	.db #0x02	; 2
+      001C91 06                    5836 	.db #0x06	; 6
+      001C92 06                    5837 	.db #0x06	; 6
+      001C93 02                    5838 	.db #0x02	; 2
+      001C94 7E                    5839 	.db #0x7e	; 126
+      001C95 02                    5840 	.db #0x02	; 2
+      001C96 7E                    5841 	.db #0x7e	; 126
+      001C97 02                    5842 	.db #0x02	; 2
+      001C98 63                    5843 	.db #0x63	; 99	'c'
+      001C99 55                    5844 	.db #0x55	; 85	'U'
+      001C9A 49                    5845 	.db #0x49	; 73	'I'
+      001C9B 41                    5846 	.db #0x41	; 65	'A'
+      001C9C 63                    5847 	.db #0x63	; 99	'c'
+      001C9D 38                    5848 	.db #0x38	; 56	'8'
+      001C9E 44                    5849 	.db #0x44	; 68	'D'
+      001C9F 44                    5850 	.db #0x44	; 68	'D'
+      001CA0 3C                    5851 	.db #0x3c	; 60
+      001CA1 04                    5852 	.db #0x04	; 4
+      001CA2 40                    5853 	.db #0x40	; 64
+      001CA3 7E                    5854 	.db #0x7e	; 126
+      001CA4 20                    5855 	.db #0x20	; 32
+      001CA5 1E                    5856 	.db #0x1e	; 30
+      001CA6 20                    5857 	.db #0x20	; 32
+      001CA7 06                    5858 	.db #0x06	; 6
+      001CA8 02                    5859 	.db #0x02	; 2
+      001CA9 7E                    5860 	.db #0x7e	; 126
+      001CAA 02                    5861 	.db #0x02	; 2
+      001CAB 02                    5862 	.db #0x02	; 2
+      001CAC 99                    5863 	.db #0x99	; 153
+      001CAD A5                    5864 	.db #0xa5	; 165
+      001CAE E7                    5865 	.db #0xe7	; 231
+      001CAF A5                    5866 	.db #0xa5	; 165
+      001CB0 99                    5867 	.db #0x99	; 153
+      001CB1 1C                    5868 	.db #0x1c	; 28
+      001CB2 2A                    5869 	.db #0x2a	; 42
+      001CB3 49                    5870 	.db #0x49	; 73	'I'
+      001CB4 2A                    5871 	.db #0x2a	; 42
+      001CB5 1C                    5872 	.db #0x1c	; 28
+      001CB6 4C                    5873 	.db #0x4c	; 76	'L'
+      001CB7 72                    5874 	.db #0x72	; 114	'r'
+      001CB8 01                    5875 	.db #0x01	; 1
+      001CB9 72                    5876 	.db #0x72	; 114	'r'
+      001CBA 4C                    5877 	.db #0x4c	; 76	'L'
+      001CBB 30                    5878 	.db #0x30	; 48	'0'
+      001CBC 4A                    5879 	.db #0x4a	; 74	'J'
+      001CBD 4D                    5880 	.db #0x4d	; 77	'M'
+      001CBE 4D                    5881 	.db #0x4d	; 77	'M'
+      001CBF 30                    5882 	.db #0x30	; 48	'0'
+      001CC0 30                    5883 	.db #0x30	; 48	'0'
+      001CC1 48                    5884 	.db #0x48	; 72	'H'
+      001CC2 78                    5885 	.db #0x78	; 120	'x'
+      001CC3 48                    5886 	.db #0x48	; 72	'H'
+      001CC4 30                    5887 	.db #0x30	; 48	'0'
+      001CC5 BC                    5888 	.db #0xbc	; 188
+      001CC6 62                    5889 	.db #0x62	; 98	'b'
+      001CC7 5A                    5890 	.db #0x5a	; 90	'Z'
+      001CC8 46                    5891 	.db #0x46	; 70	'F'
+      001CC9 3D                    5892 	.db #0x3d	; 61
+      001CCA 3E                    5893 	.db #0x3e	; 62
+      001CCB 49                    5894 	.db #0x49	; 73	'I'
+      001CCC 49                    5895 	.db #0x49	; 73	'I'
+      001CCD 49                    5896 	.db #0x49	; 73	'I'
+      001CCE 00                    5897 	.db #0x00	; 0
+      001CCF 7E                    5898 	.db #0x7e	; 126
+      001CD0 01                    5899 	.db #0x01	; 1
+      001CD1 01                    5900 	.db #0x01	; 1
+      001CD2 01                    5901 	.db #0x01	; 1
+      001CD3 7E                    5902 	.db #0x7e	; 126
+      001CD4 2A                    5903 	.db #0x2a	; 42
+      001CD5 2A                    5904 	.db #0x2a	; 42
+      001CD6 2A                    5905 	.db #0x2a	; 42
+      001CD7 2A                    5906 	.db #0x2a	; 42
+      001CD8 2A                    5907 	.db #0x2a	; 42
+      001CD9 44                    5908 	.db #0x44	; 68	'D'
+      001CDA 44                    5909 	.db #0x44	; 68	'D'
+      001CDB 5F                    5910 	.db #0x5f	; 95
+      001CDC 44                    5911 	.db #0x44	; 68	'D'
+      001CDD 44                    5912 	.db #0x44	; 68	'D'
+      001CDE 40                    5913 	.db #0x40	; 64
+      001CDF 51                    5914 	.db #0x51	; 81	'Q'
+      001CE0 4A                    5915 	.db #0x4a	; 74	'J'
+      001CE1 44                    5916 	.db #0x44	; 68	'D'
+      001CE2 40                    5917 	.db #0x40	; 64
+      001CE3 40                    5918 	.db #0x40	; 64
+      001CE4 44                    5919 	.db #0x44	; 68	'D'
+      001CE5 4A                    5920 	.db #0x4a	; 74	'J'
+      001CE6 51                    5921 	.db #0x51	; 81	'Q'
+      001CE7 40                    5922 	.db #0x40	; 64
+      001CE8 00                    5923 	.db #0x00	; 0
+      001CE9 00                    5924 	.db #0x00	; 0
+      001CEA FF                    5925 	.db #0xff	; 255
+      001CEB 01                    5926 	.db #0x01	; 1
+      001CEC 03                    5927 	.db #0x03	; 3
+      001CED E0                    5928 	.db #0xe0	; 224
+      001CEE 80                    5929 	.db #0x80	; 128
+      001CEF FF                    5930 	.db #0xff	; 255
+      001CF0 00                    5931 	.db #0x00	; 0
+      001CF1 00                    5932 	.db #0x00	; 0
+      001CF2 08                    5933 	.db #0x08	; 8
+      001CF3 08                    5934 	.db #0x08	; 8
+      001CF4 6B                    5935 	.db #0x6b	; 107	'k'
+      001CF5 6B                    5936 	.db #0x6b	; 107	'k'
+      001CF6 08                    5937 	.db #0x08	; 8
+      001CF7 36                    5938 	.db #0x36	; 54	'6'
+      001CF8 12                    5939 	.db #0x12	; 18
+      001CF9 36                    5940 	.db #0x36	; 54	'6'
+      001CFA 24                    5941 	.db #0x24	; 36
+      001CFB 36                    5942 	.db #0x36	; 54	'6'
+      001CFC 06                    5943 	.db #0x06	; 6
+      001CFD 0F                    5944 	.db #0x0f	; 15
+      001CFE 09                    5945 	.db #0x09	; 9
+      001CFF 0F                    5946 	.db #0x0f	; 15
+      001D00 06                    5947 	.db #0x06	; 6
+      001D01 00                    5948 	.db #0x00	; 0
+      001D02 00                    5949 	.db #0x00	; 0
+      001D03 18                    5950 	.db #0x18	; 24
+      001D04 18                    5951 	.db #0x18	; 24
+      001D05 00                    5952 	.db #0x00	; 0
+      001D06 00                    5953 	.db #0x00	; 0
+      001D07 00                    5954 	.db #0x00	; 0
+      001D08 10                    5955 	.db #0x10	; 16
+      001D09 10                    5956 	.db #0x10	; 16
+      001D0A 00                    5957 	.db #0x00	; 0
+      001D0B 30                    5958 	.db #0x30	; 48	'0'
+      001D0C 40                    5959 	.db #0x40	; 64
+      001D0D FF                    5960 	.db #0xff	; 255
+      001D0E 01                    5961 	.db #0x01	; 1
+      001D0F 01                    5962 	.db #0x01	; 1
+      001D10 00                    5963 	.db #0x00	; 0
+      001D11 1F                    5964 	.db #0x1f	; 31
+      001D12 01                    5965 	.db #0x01	; 1
+      001D13 01                    5966 	.db #0x01	; 1
+      001D14 1E                    5967 	.db #0x1e	; 30
+      001D15 00                    5968 	.db #0x00	; 0
+      001D16 19                    5969 	.db #0x19	; 25
+      001D17 1D                    5970 	.db #0x1d	; 29
+      001D18 17                    5971 	.db #0x17	; 23
+      001D19 12                    5972 	.db #0x12	; 18
+      001D1A 00                    5973 	.db #0x00	; 0
+      001D1B 3C                    5974 	.db #0x3c	; 60
+      001D1C 3C                    5975 	.db #0x3c	; 60
+      001D1D 3C                    5976 	.db #0x3c	; 60
+      001D1E 3C                    5977 	.db #0x3c	; 60
+      001D1F 00                    5978 	.db #0x00	; 0
+      001D20 00                    5979 	.db #0x00	; 0
+      001D21 00                    5980 	.db #0x00	; 0
+      001D22 00                    5981 	.db #0x00	; 0
+      001D23 00                    5982 	.db #0x00	; 0
+      001D24                       5983 _keypad:
+      001D24 31                    5984 	.db #0x31	; 49	'1'
+      001D25 34                    5985 	.db #0x34	; 52	'4'
+      001D26 37                    5986 	.db #0x37	; 55	'7'
+      001D27 45                    5987 	.db #0x45	; 69	'E'
+      001D28 32                    5988 	.db #0x32	; 50	'2'
+      001D29 35                    5989 	.db #0x35	; 53	'5'
+      001D2A 38                    5990 	.db #0x38	; 56	'8'
+      001D2B 30                    5991 	.db #0x30	; 48	'0'
+      001D2C 33                    5992 	.db #0x33	; 51	'3'
+      001D2D 36                    5993 	.db #0x36	; 54	'6'
+      001D2E 39                    5994 	.db #0x39	; 57	'9'
+      001D2F 46                    5995 	.db #0x46	; 70	'F'
+      001D30 41                    5996 	.db #0x41	; 65	'A'
+      001D31 42                    5997 	.db #0x42	; 66	'B'
+      001D32 43                    5998 	.db #0x43	; 67	'C'
+      001D33 44                    5999 	.db #0x44	; 68	'D'
+                                   6000 	.area CONST   (CODE)
+      001D34                       6001 ___str_0:
+      001D34 57 65 6C 63 6F 6D 65  6002 	.ascii "Welcome"
+      001D3B 0A                    6003 	.db 0x0a
+      001D3C 00                    6004 	.db 0x00
+                                   6005 	.area CSEG    (CODE)
                                    6006 	.area CONST   (CODE)
-      001D40                       6007 ___str_0:
-      001D40 57 65 6C 63 6F 6D 65  6008 	.ascii "Welcome"
-      001D47 0A                    6009 	.db 0x0a
-      001D48 00                    6010 	.db 0x00
+      001D3D                       6007 ___str_1:
+      001D3D 45 43 45 4E 2D 34 33  6008 	.ascii "ECEN-4330"
+             33 30
+      001D46 0A                    6009 	.db 0x0a
+      001D47 00                    6010 	.db 0x00
                                    6011 	.area CSEG    (CODE)
                                    6012 	.area CONST   (CODE)
-      001D49                       6013 ___str_1:
-      001D49 45 43 45 4E 2D 34 33  6014 	.ascii "ECEN-4330"
-             33 30
-      001D52 0A                    6015 	.db 0x0a
-      001D53 00                    6016 	.db 0x00
-                                   6017 	.area CSEG    (CODE)
-                                   6018 	.area CONST   (CODE)
-      001D54                       6019 ___str_2:
-      001D54 52 6F 74 61 74 69 6F  6020 	.ascii "Rotation 0"
+      001D48                       6013 ___str_2:
+      001D48 52 6F 74 61 74 69 6F  6014 	.ascii "Rotation 0"
              6E 20 30
-      001D5E 00                    6021 	.db 0x00
-                                   6022 	.area CSEG    (CODE)
-                                   6023 	.area CONST   (CODE)
-      001D5F                       6024 ___str_3:
-      001D5F 52 6F 74 61 74 69 6F  6025 	.ascii "Rotation 1"
+      001D52 00                    6015 	.db 0x00
+                                   6016 	.area CSEG    (CODE)
+                                   6017 	.area CONST   (CODE)
+      001D53                       6018 ___str_3:
+      001D53 52 6F 74 61 74 69 6F  6019 	.ascii "Rotation 1"
              6E 20 31
-      001D69 00                    6026 	.db 0x00
-                                   6027 	.area CSEG    (CODE)
-                                   6028 	.area CONST   (CODE)
-      001D6A                       6029 ___str_4:
-      001D6A 52 6F 74 61 74 69 6F  6030 	.ascii "Rotation 2"
+      001D5D 00                    6020 	.db 0x00
+                                   6021 	.area CSEG    (CODE)
+                                   6022 	.area CONST   (CODE)
+      001D5E                       6023 ___str_4:
+      001D5E 52 6F 74 61 74 69 6F  6024 	.ascii "Rotation 2"
              6E 20 32
-      001D74 00                    6031 	.db 0x00
-                                   6032 	.area CSEG    (CODE)
-                                   6033 	.area CONST   (CODE)
-      001D75                       6034 ___str_5:
-      001D75 52 6F 74 61 74 69 6F  6035 	.ascii "Rotation 3"
+      001D68 00                    6025 	.db 0x00
+                                   6026 	.area CSEG    (CODE)
+                                   6027 	.area CONST   (CODE)
+      001D69                       6028 ___str_5:
+      001D69 52 6F 74 61 74 69 6F  6029 	.ascii "Rotation 3"
              6E 20 33
-      001D7F 00                    6036 	.db 0x00
-                                   6037 	.area CSEG    (CODE)
-                                   6038 	.area CONST   (CODE)
-      001D80                       6039 ___str_6:
-      001D80 45 6E 74 65 72 20 62  6040 	.ascii "Enter byte to check"
+      001D73 00                    6030 	.db 0x00
+                                   6031 	.area CSEG    (CODE)
+                                   6032 	.area CONST   (CODE)
+      001D74                       6033 ___str_6:
+      001D74 45 6E 74 65 72 20 62  6034 	.ascii "Enter byte to check"
              79 74 65 20 74 6F 20
              63 68 65 63 6B
-      001D93 0A                    6041 	.db 0x0a
-      001D94 00                    6042 	.db 0x00
+      001D87 0A                    6035 	.db 0x0a
+      001D88 00                    6036 	.db 0x00
+                                   6037 	.area CSEG    (CODE)
+                                   6038 	.area CONST   (CODE)
+      001D89                       6039 ___str_7:
+      001D89 49 6E 20 70 72 6F 67  6040 	.ascii "In progress..."
+             72 65 73 73 2E 2E 2E
+      001D97 0A                    6041 	.db 0x0a
+      001D98 00                    6042 	.db 0x00
                                    6043 	.area CSEG    (CODE)
                                    6044 	.area CONST   (CODE)
-      001D95                       6045 ___str_7:
-      001D95 49 6E 20 70 72 6F 67  6046 	.ascii "In progress..."
-             72 65 73 73 2E 2E 2E
-      001DA3 0A                    6047 	.db 0x0a
-      001DA4 00                    6048 	.db 0x00
-                                   6049 	.area CSEG    (CODE)
-                                   6050 	.area CONST   (CODE)
-      001DA5                       6051 ___str_8:
-      001DA5 4D 65 6D 6F 72 79 20  6052 	.ascii "Memory check failed"
+      001D99                       6045 ___str_8:
+      001D99 4D 65 6D 6F 72 79 20  6046 	.ascii "Memory check failed"
              63 68 65 63 6B 20 66
              61 69 6C 65 64
-      001DB8 0A                    6053 	.db 0x0a
-      001DB9 00                    6054 	.db 0x00
+      001DAC 0A                    6047 	.db 0x0a
+      001DAD 00                    6048 	.db 0x00
+                                   6049 	.area CSEG    (CODE)
+                                   6050 	.area CONST   (CODE)
+      001DAE                       6051 ___str_9:
+      001DAE 53 75 63 63 65 73 73  6052 	.ascii "Success!"
+             21
+      001DB6 0A                    6053 	.db 0x0a
+      001DB7 00                    6054 	.db 0x00
                                    6055 	.area CSEG    (CODE)
                                    6056 	.area CONST   (CODE)
-      001DBA                       6057 ___str_9:
-      001DBA 53 75 63 63 65 73 73  6058 	.ascii "Success!"
-             21
-      001DC2 0A                    6059 	.db 0x0a
-      001DC3 00                    6060 	.db 0x00
-                                   6061 	.area CSEG    (CODE)
-                                   6062 	.area CONST   (CODE)
-      001DC4                       6063 ___str_10:
-      001DC4 50 72 65 73 73 20 31  6064 	.ascii "Press 1 for menu"
+      001DB8                       6057 ___str_10:
+      001DB8 50 72 65 73 73 20 31  6058 	.ascii "Press 1 for menu"
              20 66 6F 72 20 6D 65
              6E 75
+      001DC8 00                    6059 	.db 0x00
+                                   6060 	.area CSEG    (CODE)
+                                   6061 	.area CONST   (CODE)
+      001DC9                       6062 ___str_11:
+      001DC9 45 6E 74 65 72 20 62  6063 	.ascii "Enter byte"
+             79 74 65
+      001DD3 0A                    6064 	.db 0x0a
       001DD4 00                    6065 	.db 0x00
                                    6066 	.area CSEG    (CODE)
                                    6067 	.area CONST   (CODE)
-      001DD5                       6068 ___str_11:
-      001DD5 45 6E 74 65 72 20 62  6069 	.ascii "Enter byte"
-             79 74 65
-      001DDF 0A                    6070 	.db 0x0a
-      001DE0 00                    6071 	.db 0x00
+      001DD5                       6068 ___str_12:
+      001DD5 45 6E 74 65 72 20 61  6069 	.ascii "Enter address"
+             64 64 72 65 73 73
+      001DE2 0A                    6070 	.db 0x0a
+      001DE3 00                    6071 	.db 0x00
                                    6072 	.area CSEG    (CODE)
                                    6073 	.area CONST   (CODE)
-      001DE1                       6074 ___str_12:
-      001DE1 45 6E 74 65 72 20 61  6075 	.ascii "Enter address"
-             64 64 72 65 73 73
-      001DEE 0A                    6076 	.db 0x0a
-      001DEF 00                    6077 	.db 0x00
+      001DE4                       6074 ___str_13:
+      001DE4 49 6E 20 70 72 6F 67  6075 	.ascii "In progress"
+             72 65 73 73
+      001DEF 0A                    6076 	.db 0x0a
+      001DF0 00                    6077 	.db 0x00
                                    6078 	.area CSEG    (CODE)
                                    6079 	.area CONST   (CODE)
-      001DF0                       6080 ___str_13:
-      001DF0 49 6E 20 70 72 6F 67  6081 	.ascii "In progress"
-             72 65 73 73
-      001DFB 0A                    6082 	.db 0x0a
-      001DFC 00                    6083 	.db 0x00
-                                   6084 	.area CSEG    (CODE)
-                                   6085 	.area CONST   (CODE)
-      001DFD                       6086 ___str_14:
-      001DFD 20 66 65 74 63 68 65  6087 	.ascii " fetched!"
+      001DF1                       6080 ___str_14:
+      001DF1 20 66 65 74 63 68 65  6081 	.ascii " fetched!"
              64 21
-      001E06 0A                    6088 	.db 0x0a
-      001E07 53 75 63 63 65 73 73  6089 	.ascii "Success!"
+      001DFA 0A                    6082 	.db 0x0a
+      001DFB 53 75 63 63 65 73 73  6083 	.ascii "Success!"
              21
-      001E0F 0A                    6090 	.db 0x0a
-      001E10 00                    6091 	.db 0x00
+      001E03 0A                    6084 	.db 0x0a
+      001E04 00                    6085 	.db 0x00
+                                   6086 	.area CSEG    (CODE)
+                                   6087 	.area CONST   (CODE)
+      001E05                       6088 ___str_15:
+      001E05 43 68 65 63 6B 20 66  6089 	.ascii "Check failed"
+             61 69 6C 65 64
+      001E11 0A                    6090 	.db 0x0a
+      001E12 00                    6091 	.db 0x00
                                    6092 	.area CSEG    (CODE)
                                    6093 	.area CONST   (CODE)
-      001E11                       6094 ___str_15:
-      001E11 43 68 65 63 6B 20 66  6095 	.ascii "Check failed"
-             61 69 6C 65 64
-      001E1D 0A                    6096 	.db 0x0a
-      001E1E 00                    6097 	.db 0x00
-                                   6098 	.area CSEG    (CODE)
-                                   6099 	.area CONST   (CODE)
-      001E1F                       6100 ___str_16:
-      001E1F 50 72 65 73 73 20 31  6101 	.ascii "Press 1 for menu"
+      001E13                       6094 ___str_16:
+      001E13 50 72 65 73 73 20 31  6095 	.ascii "Press 1 for menu"
              20 66 6F 72 20 6D 65
              6E 75
-      001E2F 0A                    6102 	.db 0x0a
-      001E30 00                    6103 	.db 0x00
-                                   6104 	.area CSEG    (CODE)
-                                   6105 	.area CONST   (CODE)
-      001E31                       6106 ___str_17:
-      001E31 45 6E 74 65 72 20 73  6107 	.ascii "Enter start add."
+      001E23 0A                    6096 	.db 0x0a
+      001E24 00                    6097 	.db 0x00
+                                   6098 	.area CSEG    (CODE)
+                                   6099 	.area CONST   (CODE)
+      001E25                       6100 ___str_17:
+      001E25 45 6E 74 65 72 20 73  6101 	.ascii "Enter start add."
              74 61 72 74 20 61 64
              64 2E
+      001E35 0A                    6102 	.db 0x0a
+      001E36 00                    6103 	.db 0x00
+                                   6104 	.area CSEG    (CODE)
+                                   6105 	.area CONST   (CODE)
+      001E37                       6106 ___str_18:
+      001E37 45 6E 74 65 72 20 73  6107 	.ascii "Enter size"
+             69 7A 65
       001E41 0A                    6108 	.db 0x0a
       001E42 00                    6109 	.db 0x00
                                    6110 	.area CSEG    (CODE)
                                    6111 	.area CONST   (CODE)
-      001E43                       6112 ___str_18:
-      001E43 45 6E 74 65 72 20 73  6113 	.ascii "Enter size"
-             69 7A 65
-      001E4D 0A                    6114 	.db 0x0a
-      001E4E 00                    6115 	.db 0x00
-                                   6116 	.area CSEG    (CODE)
-                                   6117 	.area CONST   (CODE)
-      001E4F                       6118 ___str_19:
-      001E4F 45 6E 74 65 72 20 74  6119 	.ascii "Enter target add."
+      001E43                       6112 ___str_19:
+      001E43 45 6E 74 65 72 20 74  6113 	.ascii "Enter target add."
              61 72 67 65 74 20 61
              64 64 2E
-      001E60 0A                    6120 	.db 0x0a
-      001E61 00                    6121 	.db 0x00
-                                   6122 	.area CSEG    (CODE)
-                                   6123 	.area CONST   (CODE)
-      001E62                       6124 ___str_20:
-      001E62 4D 6F 76 65 20 69 6E  6125 	.ascii "Move in progress..."
+      001E54 0A                    6114 	.db 0x0a
+      001E55 00                    6115 	.db 0x00
+                                   6116 	.area CSEG    (CODE)
+                                   6117 	.area CONST   (CODE)
+      001E56                       6118 ___str_20:
+      001E56 4D 6F 76 65 20 69 6E  6119 	.ascii "Move in progress..."
              20 70 72 6F 67 72 65
              73 73 2E 2E 2E
-      001E75 0A                    6126 	.db 0x0a
-      001E76 00                    6127 	.db 0x00
+      001E69 0A                    6120 	.db 0x0a
+      001E6A 00                    6121 	.db 0x00
+                                   6122 	.area CSEG    (CODE)
+                                   6123 	.area CONST   (CODE)
+      001E6B                       6124 ___str_21:
+      001E6B 44 6F 6E 65 21        6125 	.ascii "Done!"
+      001E70 0A                    6126 	.db 0x0a
+      001E71 00                    6127 	.db 0x00
                                    6128 	.area CSEG    (CODE)
                                    6129 	.area CONST   (CODE)
-      001E77                       6130 ___str_21:
-      001E77 44 6F 6E 65 21        6131 	.ascii "Done!"
-      001E7C 0A                    6132 	.db 0x0a
-      001E7D 00                    6133 	.db 0x00
-                                   6134 	.area CSEG    (CODE)
-                                   6135 	.area CONST   (CODE)
-      001E7E                       6136 ___str_22:
-      001E7E 3A 20                 6137 	.ascii ": "
-      001E80 00                    6138 	.db 0x00
-                                   6139 	.area CSEG    (CODE)
-                                   6140 	.area CONST   (CODE)
-      001E81                       6141 ___str_23:
-      001E81 45 6E 74 65 72 20 6E  6142 	.ascii "Enter new byte:"
+      001E72                       6130 ___str_22:
+      001E72 3A 20                 6131 	.ascii ": "
+      001E74 00                    6132 	.db 0x00
+                                   6133 	.area CSEG    (CODE)
+                                   6134 	.area CONST   (CODE)
+      001E75                       6135 ___str_23:
+      001E75 45 6E 74 65 72 20 6E  6136 	.ascii "Enter new byte:"
              65 77 20 62 79 74 65
              3A
-      001E90 0A                    6143 	.db 0x0a
-      001E91 00                    6144 	.db 0x00
+      001E84 0A                    6137 	.db 0x0a
+      001E85 00                    6138 	.db 0x00
+                                   6139 	.area CSEG    (CODE)
+                                   6140 	.area CONST   (CODE)
+      001E86                       6141 ___str_24:
+      001E86 45 6E 74 65 72 20 61  6142 	.ascii "Enter address:"
+             64 64 72 65 73 73 3A
+      001E94 0A                    6143 	.db 0x0a
+      001E95 00                    6144 	.db 0x00
                                    6145 	.area CSEG    (CODE)
                                    6146 	.area CONST   (CODE)
-      001E92                       6147 ___str_24:
-      001E92 45 6E 74 65 72 20 61  6148 	.ascii "Enter address:"
-             64 64 72 65 73 73 3A
-      001EA0 0A                    6149 	.db 0x0a
-      001EA1 00                    6150 	.db 0x00
-                                   6151 	.area CSEG    (CODE)
-                                   6152 	.area CONST   (CODE)
-      001EA2                       6153 ___str_25:
-      001EA2 50 72 65 73 73 20 32  6154 	.ascii "Press 2 to edit again"
+      001E96                       6147 ___str_25:
+      001E96 50 72 65 73 73 20 32  6148 	.ascii "Press 2 to edit again"
              20 74 6F 20 65 64 69
              74 20 61 67 61 69 6E
-      001EB7 0A                    6155 	.db 0x0a
-      001EB8 00                    6156 	.db 0x00
-                                   6157 	.area CSEG    (CODE)
-                                   6158 	.area CONST   (CODE)
-      001EB9                       6159 ___str_26:
-      001EB9 50 72 65 73 73 20 33  6160 	.ascii "Press 3 to edit next address"
+      001EAB 0A                    6149 	.db 0x0a
+      001EAC 00                    6150 	.db 0x00
+                                   6151 	.area CSEG    (CODE)
+                                   6152 	.area CONST   (CODE)
+      001EAD                       6153 ___str_26:
+      001EAD 50 72 65 73 73 20 33  6154 	.ascii "Press 3 to edit next address"
              20 74 6F 20 65 64 69
              74 20 6E 65 78 74 20
              61 64 64 72 65 73 73
-      001ED5 0A                    6161 	.db 0x0a
-      001ED6 00                    6162 	.db 0x00
-                                   6163 	.area CSEG    (CODE)
-                                   6164 	.area CONST   (CODE)
-      001ED7                       6165 ___str_27:
-      001ED7 45 6E 74 65 72 20 62  6166 	.ascii "Enter block size:"
+      001EC9 0A                    6155 	.db 0x0a
+      001ECA 00                    6156 	.db 0x00
+                                   6157 	.area CSEG    (CODE)
+                                   6158 	.area CONST   (CODE)
+      001ECB                       6159 ___str_27:
+      001ECB 45 6E 74 65 72 20 62  6160 	.ascii "Enter block size:"
              6C 6F 63 6B 20 73 69
              7A 65 3A
-      001EE8 0A                    6167 	.db 0x0a
-      001EE9 00                    6168 	.db 0x00
-                                   6169 	.area CSEG    (CODE)
-                                   6170 	.area CONST   (CODE)
-      001EEA                       6171 ___str_28:
-      001EEA 45 6E 74 65 72 20 62  6172 	.ascii "Enter byte to count:"
+      001EDC 0A                    6161 	.db 0x0a
+      001EDD 00                    6162 	.db 0x00
+                                   6163 	.area CSEG    (CODE)
+                                   6164 	.area CONST   (CODE)
+      001EDE                       6165 ___str_28:
+      001EDE 45 6E 74 65 72 20 62  6166 	.ascii "Enter byte to count:"
              79 74 65 20 74 6F 20
              63 6F 75 6E 74 3A
-      001EFE 0A                    6173 	.db 0x0a
-      001EFF 00                    6174 	.db 0x00
-                                   6175 	.area CSEG    (CODE)
-                                   6176 	.area CONST   (CODE)
-      001F00                       6177 ___str_29:
-      001F00 54 65 6D 70 65 72 61  6178 	.ascii "Temperature: "
+      001EF2 0A                    6167 	.db 0x0a
+      001EF3 00                    6168 	.db 0x00
+                                   6169 	.area CSEG    (CODE)
+                                   6170 	.area CONST   (CODE)
+      001EF4                       6171 ___str_29:
+      001EF4 54 65 6D 70 65 72 61  6172 	.ascii "Temperature: "
              74 75 72 65 3A 20
-      001F0D 00                    6179 	.db 0x00
-                                   6180 	.area CSEG    (CODE)
-                                   6181 	.area CONST   (CODE)
-      001F0E                       6182 ___str_30:
-      001F0E 50 72 65 73 73 20 30  6183 	.ascii "Press 0 for menu"
+      001F01 00                    6173 	.db 0x00
+                                   6174 	.area CSEG    (CODE)
+                                   6175 	.area CONST   (CODE)
+      001F02                       6176 ___str_30:
+      001F02 50 72 65 73 73 20 30  6177 	.ascii "Press 0 for menu"
              20 66 6F 72 20 6D 65
              6E 75
-      001F1E 0A                    6184 	.db 0x0a
-      001F1F 00                    6185 	.db 0x00
-                                   6186 	.area CSEG    (CODE)
-                                   6187 	.area CONST   (CODE)
-      001F20                       6188 ___str_31:
-      001F20 4C 69 67 68 74 20 6C  6189 	.ascii "Light level: "
+      001F12 0A                    6178 	.db 0x0a
+      001F13 00                    6179 	.db 0x00
+                                   6180 	.area CSEG    (CODE)
+                                   6181 	.area CONST   (CODE)
+      001F14                       6182 ___str_31:
+      001F14 4C 69 67 68 74 20 6C  6183 	.ascii "Light level: "
              65 76 65 6C 3A 20
-      001F2D 00                    6190 	.db 0x00
+      001F21 00                    6184 	.db 0x00
+                                   6185 	.area CSEG    (CODE)
+                                   6186 	.area CONST   (CODE)
+      001F22                       6187 ___str_32:
+      001F22 42 72 61 6E 64 6F 6E  6188 	.ascii "Brandon Cline"
+             20 43 6C 69 6E 65
+      001F2F 0A                    6189 	.db 0x0a
+      001F30 00                    6190 	.db 0x00
                                    6191 	.area CSEG    (CODE)
                                    6192 	.area CONST   (CODE)
-      001F2E                       6193 ___str_32:
-      001F2E 42 72 61 6E 64 6F 6E  6194 	.ascii "Brandon Cline"
-             20 43 6C 69 6E 65
-      001F3B 0A                    6195 	.db 0x0a
-      001F3C 00                    6196 	.db 0x00
+      001F31                       6193 ___str_33:
+      001F31 45 43 45 4E 20 34 33  6194 	.ascii "ECEN 4330"
+             33 30
+      001F3A 0A                    6195 	.db 0x0a
+      001F3B 00                    6196 	.db 0x00
                                    6197 	.area CSEG    (CODE)
                                    6198 	.area CONST   (CODE)
-      001F3D                       6199 ___str_33:
-      001F3D 45 43 45 4E 20 34 33  6200 	.ascii "ECEN 4330"
-             33 30
-      001F46 0A                    6201 	.db 0x0a
-      001F47 00                    6202 	.db 0x00
+      001F3C                       6199 ___str_34:
+      001F3C 31 3A 20 42 61 73 69  6200 	.ascii "1: Basic check"
+             63 20 63 68 65 63 6B
+      001F4A 0A                    6201 	.db 0x0a
+      001F4B 00                    6202 	.db 0x00
                                    6203 	.area CSEG    (CODE)
                                    6204 	.area CONST   (CODE)
-      001F48                       6205 ___str_34:
-      001F48 31 3A 20 42 61 73 69  6206 	.ascii "1: Basic check"
-             63 20 63 68 65 63 6B
-      001F56 0A                    6207 	.db 0x0a
-      001F57 00                    6208 	.db 0x00
+      001F4C                       6205 ___str_35:
+      001F4C 32 3A 20 44 75 6D 70  6206 	.ascii "2: Dump"
+      001F53 0A                    6207 	.db 0x0a
+      001F54 00                    6208 	.db 0x00
                                    6209 	.area CSEG    (CODE)
                                    6210 	.area CONST   (CODE)
-      001F58                       6211 ___str_35:
-      001F58 32 3A 20 44 75 6D 70  6212 	.ascii "2: Dump"
-      001F5F 0A                    6213 	.db 0x0a
-      001F60 00                    6214 	.db 0x00
+      001F55                       6211 ___str_36:
+      001F55 33 3A 20 43 68 65 63  6212 	.ascii "3: Check"
+             6B
+      001F5D 0A                    6213 	.db 0x0a
+      001F5E 00                    6214 	.db 0x00
                                    6215 	.area CSEG    (CODE)
                                    6216 	.area CONST   (CODE)
-      001F61                       6217 ___str_36:
-      001F61 33 3A 20 43 68 65 63  6218 	.ascii "3: Check"
-             6B
-      001F69 0A                    6219 	.db 0x0a
-      001F6A 00                    6220 	.db 0x00
+      001F5F                       6217 ___str_37:
+      001F5F 41 3A 20 4D 6F 76 65  6218 	.ascii "A: Move"
+      001F66 0A                    6219 	.db 0x0a
+      001F67 00                    6220 	.db 0x00
                                    6221 	.area CSEG    (CODE)
                                    6222 	.area CONST   (CODE)
-      001F6B                       6223 ___str_37:
-      001F6B 41 3A 20 4D 6F 76 65  6224 	.ascii "A: Move"
-      001F72 0A                    6225 	.db 0x0a
-      001F73 00                    6226 	.db 0x00
+      001F68                       6223 ___str_38:
+      001F68 34 3A 20 45 64 69 74  6224 	.ascii "4: Edit"
+      001F6F 0A                    6225 	.db 0x0a
+      001F70 00                    6226 	.db 0x00
                                    6227 	.area CSEG    (CODE)
                                    6228 	.area CONST   (CODE)
-      001F74                       6229 ___str_38:
-      001F74 34 3A 20 45 64 69 74  6230 	.ascii "4: Edit"
-      001F7B 0A                    6231 	.db 0x0a
-      001F7C 00                    6232 	.db 0x00
+      001F71                       6229 ___str_39:
+      001F71 35 3A 20 46 69 6E 64  6230 	.ascii "5: Find"
+      001F78 0A                    6231 	.db 0x0a
+      001F79 00                    6232 	.db 0x00
                                    6233 	.area CSEG    (CODE)
                                    6234 	.area CONST   (CODE)
-      001F7D                       6235 ___str_39:
-      001F7D 35 3A 20 46 69 6E 64  6236 	.ascii "5: Find"
-      001F84 0A                    6237 	.db 0x0a
-      001F85 00                    6238 	.db 0x00
+      001F7A                       6235 ___str_40:
+      001F7A 36 3A 20 43 6F 75 6E  6236 	.ascii "6: Count"
+             74
+      001F82 0A                    6237 	.db 0x0a
+      001F83 00                    6238 	.db 0x00
                                    6239 	.area CSEG    (CODE)
                                    6240 	.area CONST   (CODE)
-      001F86                       6241 ___str_40:
-      001F86 36 3A 20 43 6F 75 6E  6242 	.ascii "6: Count"
-             74
-      001F8E 0A                    6243 	.db 0x0a
-      001F8F 00                    6244 	.db 0x00
+      001F84                       6241 ___str_41:
+      001F84 42 3A 20 54 65 6D 70  6242 	.ascii "B: Temperature"
+             65 72 61 74 75 72 65
+      001F92 0A                    6243 	.db 0x0a
+      001F93 00                    6244 	.db 0x00
                                    6245 	.area CSEG    (CODE)
                                    6246 	.area CONST   (CODE)
-      001F90                       6247 ___str_41:
-      001F90 42 3A 20 54 65 6D 70  6248 	.ascii "B: Temperature"
-             65 72 61 74 75 72 65
-      001F9E 0A                    6249 	.db 0x0a
-      001F9F 00                    6250 	.db 0x00
-                                   6251 	.area CSEG    (CODE)
-                                   6252 	.area CONST   (CODE)
-      001FA0                       6253 ___str_42:
-      001FA0 37 3A 20 4C 69 67 68  6254 	.ascii "7: Light"
+      001F94                       6247 ___str_42:
+      001F94 37 3A 20 4C 69 67 68  6248 	.ascii "7: Light"
              74
-      001FA8 0A                    6255 	.db 0x0a
-      001FA9 00                    6256 	.db 0x00
-                                   6257 	.area CSEG    (CODE)
-                                   6258 	.area XINIT   (CODE)
-                                   6259 	.area CABS    (ABS,CODE)
+      001F9C 0A                    6249 	.db 0x0a
+      001F9D 00                    6250 	.db 0x00
+                                   6251 	.area CSEG    (CODE)
+                                   6252 	.area XINIT   (CODE)
+                                   6253 	.area CABS    (ABS,CODE)

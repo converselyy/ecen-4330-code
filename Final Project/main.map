@@ -80,9 +80,9 @@ C:   00000079  s_CSEG
 C:   0000008C  l_SSEG                          
 C:   00000100  l_IRAM                          
 C:   00000775  l_CONST                         
-C:   000017BC  l_CSEG                          
-C:   00001835  s_CONST                         
-C:   00001FAA  s_XINIT                         
+C:   000017B0  l_CSEG                          
+C:   00001829  s_CONST                         
+C:   00001F9E  s_XINIT                         
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
 Hexadecimal  [32-Bits]
@@ -381,7 +381,7 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000079    000017BC =        6076. bytes (REL,CON,CODE)
+CSEG                                00000079    000017B0 =        6064. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -418,34 +418,34 @@ C:   0000117D  _basic                             main
 C:   00001213  _move                              main
 C:   000012EA  _editByte                          main
 C:   00001395  _edit                              main
-C:   0000147E  _count                             main
-C:   000014E2  _readTemp                          main
-C:   000014F1  _readLight                         main
-C:   00001500  _displayTemp                       main
-C:   0000153A  _displayLight                      main
-C:   00001574  _temperature                       main
-C:   000015C0  _light                             main
-C:   0000160C  _menu                              main
-C:   00001698  _main                              main
-C:   00001714  __divuint                          _divuint
-C:   0000173D  __mulint                           _mulint
-C:   0000173D  __mulint_dummy                     _mulint
-C:   0000175A  __moduint                          _moduint
-C:   000017A7  __gptrget                          _gptrget
-C:   000017C3  __modsint                          _modsint
-C:   000017F9  __divsint                          _divsint
-C:   00001831  __sdcc_external_startup            _startup
+C:   00001472  _count                             main
+C:   000014D6  _readTemp                          main
+C:   000014E5  _readLight                         main
+C:   000014F4  _displayTemp                       main
+C:   0000152E  _displayLight                      main
+C:   00001568  _temperature                       main
+C:   000015B4  _light                             main
+C:   00001600  _menu                              main
+C:   0000168C  _main                              main
+C:   00001708  __divuint                          _divuint
+C:   00001731  __mulint                           _mulint
+C:   00001731  __mulint_dummy                     _mulint
+C:   0000174E  __moduint                          _moduint
+C:   0000179B  __gptrget                          _gptrget
+C:   000017B7  __modsint                          _modsint
+C:   000017ED  __divsint                          _divsint
+C:   00001825  __sdcc_external_startup            _startup
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 19.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CONST                               00001835    00000775 =        1909. bytes (REL,CON,CODE)
+CONST                               00001829    00000775 =        1909. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00001D30  _keypad                            main
+C:   00001D24  _keypad                            main
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 20.
 
