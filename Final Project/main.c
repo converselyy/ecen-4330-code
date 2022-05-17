@@ -1,6 +1,3 @@
-#define LOWBYTE(d)	((unsigned char) (d))
-#define HIGHBYTE(d)	((unsigned char) (((unsigned int) (d)) >> 8))
-
 #include <stdbool.h>
 #include "ecen4330_lcd_v3.c"
 
@@ -11,10 +8,10 @@
 // function includes
 // #include "dump.c"
 #include "check.c"
-// #include "move.c"
-// #include "edit.c"
+#include "move.c"
+#include "edit.c"
 // #include "find.c"
-// #include "count.c"
+#include "count.c"
 #include "analog.c"
 
 /**
@@ -58,14 +55,17 @@ void menu(void) {
 	LCD_string_write("6: Count\n");
 
 	// B: Temperature
-	LCD_string_write("B: Temperature");
+	LCD_string_write("B: Temperature\n");
 	// 7: Light
-	LCD_string_write("7: Light");
+	LCD_string_write("7: Light\n");
 }
 
 void main(void) {
 	// declaration for input variable
 	__xdata uint8_t input;
+
+	// clear 7-segment display
+	iowrite8(seg7_address, 0x00);
 
 	// LCD initialization
 	TFT_LCD_INIT();
@@ -82,18 +82,19 @@ void main(void) {
 
 		// get input from user
 		input = keyDetect();
+		asciiToHex(input);
 
 		// select menu option based on input
 		switch(input) {
 			case '1': basic(); break;
 			// case '2': dump(); break;
 			case '3': check(); break;
-			// case 'A': move(); break;
-			// case '4': edit(); break;
+			case 'A': move(); break;
+			case '4': edit(); break;
 			// case '5': find(); break;
-			// case '6': count(); break;
-			// case 'B': temperature(); break;
-			// case '7': light(); break;
+			case '6': count(); break;
+			case 'B': temperature(); break;
+			case '7': light(); break;
 			default: break;
 		}
 	}

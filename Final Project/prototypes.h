@@ -12,5 +12,7 @@ void find(void);
 void count(void);
 uint8_t readTemp(void);
 uint8_t readLight(void);
+void displayTemp(uint8_t t);
+void displayLight(uint8_t l);
 void temperature(void);
 void light(void);

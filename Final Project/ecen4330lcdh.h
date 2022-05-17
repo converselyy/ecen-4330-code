@@ -39,6 +39,12 @@
 #define WHITE 0xFFFF
 
 
+#define LOWBYTE(d)	((unsigned char) (d))
+#define HIGHBYTE(d)	((unsigned char) (((unsigned int) (d)) >> 8))
+
+#define NUM 20
+
+
 
 void TFT_LCD_INIT(void);
 void delay(int16_t d);

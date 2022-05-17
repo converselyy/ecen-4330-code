@@ -1,7 +1,7 @@
 #include "ecen4330lcdh.h"
 #include "font.h"
 
-uint8_t keypad[4][4] =	{{'1','4','7','E'},
+const uint8_t keypad[4][4] =	{{'1','4','7','E'},
 				{'2','5','8','0'},
 				{'3','6','9','F'},
 				{'A','B','C','D'} };
@@ -615,7 +615,7 @@ void asciiToDec (uint8_t d) {
 }
 
 /**
- * @brief converts an ASCII character to its corresponding hex number
+ * @brief converts an ASCII character to its corresponding hex number INCORRECT
  * 
  * @param d the hex number to be converted
  */

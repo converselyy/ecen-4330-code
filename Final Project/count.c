@@ -9,14 +9,30 @@ void count() {
 	setTextSize(2);
 
 	// declarations
+	__xdata uint16_t add;
+	__xdata uint16_t i;
+	__xdata uint8_t size;
+	__xdata uint8_t key;
+	__xdata uint8_t count;
 
 	// get starting address
+	LCD_string_write("Enter address:\n");
+	add = getAddress();
+	write('\n');
 
 	// get block size
+	LCD_string_write("Enter block size:\n");
+	size = getByte();
+	write('\n');
 
 	// get byte of data to count
+	LCD_string_write("Enter byte to count:\n");
+	key = getByte();
 
 	// loop through block of data, keeping track of the addresses and keeping a running total of instanes
+	for (i = 0; i < size; i++) {
+		
+	}
 
 	// display addresses in pages and total number of instances
 
