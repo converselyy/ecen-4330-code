@@ -625,7 +625,7 @@ void asciiToHex (uint8_t d) {
 	uint8_t i = 0;
 	store[0] = 0;
 	store[1] = 0;
-	while (d >= 1){
+	// while (d >= 0) {
 
 		val = d % 16;
 		d = d/16;
@@ -637,7 +637,7 @@ void asciiToHex (uint8_t d) {
 			store[i] = (val%10) + 'A';
 		}
 		i++;
-	}
+	// }
 	write(store[1]);
 	write(store[0]);
 }

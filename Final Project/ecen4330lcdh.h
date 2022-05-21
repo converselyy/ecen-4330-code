@@ -42,7 +42,7 @@
 #define LOWBYTE(d)	((unsigned char) (d))
 #define HIGHBYTE(d)	((unsigned char) (((unsigned int) (d)) >> 8))
 
-#define NUM 20
+#define NUM 15
 
 
 

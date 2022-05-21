@@ -4,8 +4,8 @@
  * @return uint8_t the output from the temp sensor's ADC
  */
 uint8_t readTemp() {
-	IOM = 1;
 	__xdata uint8_t val;
+	IOM = 1;
 	val = *temp_address;
 	IOM = 0;
 	return val;
@@ -17,8 +17,8 @@ uint8_t readTemp() {
  * @return uint8_t the output from the light sensor's ADC
  */
 uint8_t readLight() {
-	IOM = 1;
 	__xdata uint8_t val;
+	IOM = 1;
 	val = *light_address;
 	IOM = 0;
 	return val;

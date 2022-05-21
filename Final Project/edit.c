@@ -15,6 +15,7 @@ void editByte(uint16_t add) {
 	// display address
 	asciiToHex(high);
 	asciiToHex(low);
+	// asciiToHex(add);
 	LCD_string_write(": ");
 
 	// fetch data at address
@@ -79,20 +80,20 @@ void edit() {
 		if (input == '1') {
 			break;
 		} else if (input =='2') {
-			editByte(add);
-
 			fillScreen(GRAY);
 			setCursor(0, 0);
+
+			editByte(add);
 
 			input = 0;
 		} else if (input == '3') {
-			editByte(++add);
-
 			fillScreen(GRAY);
 			setCursor(0, 0);
 
+			editByte(++add);
+
 			input = 0;
 		}
-	} while (input != '1' && input != '2');
+	} while (input != '1' && input != '2' && input != '3');
 
 }

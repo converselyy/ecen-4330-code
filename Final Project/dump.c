@@ -34,6 +34,7 @@ void dump() {
 	LCD_string_write("B-Byte, A-Word,\n");
 	LCD_string_write("D-Double word\n");
 
+	// wait for data type input
 	do {
 		type = keyDetect();
 		switch(type) {
@@ -43,6 +44,7 @@ void dump() {
 			default : break;
 		}
 	} while(type != 1 && type != 2 && type != 4);
+
 	asciiToHex(type);
 	write('\n');
 
@@ -92,7 +94,7 @@ void dump() {
 			if (j != type - 1) data = data << 4;
 
 			// push data at address to the running array
-			adds[i + 1] = adds[i++] | data;
+			adds[i + 1] = adds[i++ + 1] | data;
 			n++;
 
 		}
@@ -113,7 +115,7 @@ void dump() {
 			}
 
 			// print prompt for menu
-			LCD_string_write("Press 0 for menu\n");
+			LCD_string_write("Press 1 for menu\n");
 
 			// wait for user input, stay here until valid input is pressed
 			while(1) {
@@ -135,20 +137,20 @@ void dump() {
 					break;
 
 				// menu
-				} else if (input == '0') {
+				} else if (input == '1') {
 					break;
 				}
 			}
 			
 			// if the user pressed '0' then 
-			if (input == '0') break; // should theoretically break out of the for loop then the function
+			if (input == '1') break; // should theoretically break out of the for loop then the function
 		}
 
 		// // // if we're at the end of the addresses: (i != 0 && adds[i] == 0)
 		if (i == n) { // this means it's the end of the list
 			while(1) {
 				LCD_string_write("A for previous\n");
-				LCD_string_write("Press 0 for menu");
+				LCD_string_write("Press 1 for menu");
 
 				input = keyDetect();
 
@@ -158,12 +160,12 @@ void dump() {
 					fillScreen(GRAY);
 					setCursor(0, 0);
 					break;
-				} else if (input == '0') {
+				} else if (input == '1') {
 					break;
 				}
 			}
 			
-			if (input == '0') break; // should theoretically break out of the for loop then the function
+			if (input == '1') break; // should theoretically break out of the for loop then the function
 		}
 
 		// display address along with index
@@ -176,9 +178,9 @@ void dump() {
 	// wait for a button to be pressed for next, back, or menu
 	// probably a switch case
 
-	LCD_string_write("Press 1 for menu\n");
+	// LCD_string_write("Press 1 for menu\n");
 
-	do {
-		val = keyDetect();
-	} while (val != '1');
+	// do {
+	// 	val = keyDetect();
+	// } while (val != '1');
 }

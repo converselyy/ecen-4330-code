@@ -21,6 +21,7 @@
 	.globl _menu
 	.globl _editByte
 	.globl _basic
+	.globl _dumpPage
 	.globl _writeSomeLines
 	.globl _convertAsciiHex
 	.globl _write
@@ -123,6 +124,8 @@
 	.globl _DPL
 	.globl _SP
 	.globl _P0
+	.globl _dumpPage_PARM_3
+	.globl _dumpPage_PARM_2
 	.globl _drawChar_PARM_6
 	.globl _drawChar_PARM_5
 	.globl _drawChar_PARM_4
@@ -175,6 +178,7 @@
 	.globl _asciiToHex
 	.globl _getAddress
 	.globl _getByte
+	.globl _dump
 	.globl _check
 	.globl _move
 	.globl _edit
@@ -390,7 +394,19 @@ _drawChar_sloc2_1_0:
 	.ds 2
 _asciiToHex_store_65536_200:
 	.ds 2
-_move_target_65537_243:
+_dumpPage_PARM_2:
+	.ds 1
+_dumpPage_PARM_3:
+	.ds 1
+_dumpPage_start_65536_227:
+	.ds 2
+_dump_sloc0_1_0:
+	.ds 1
+_dump_sloc1_1_0:
+	.ds 2
+_dump_sloc2_1_0:
+	.ds 1
+_move_target_65537_265:
 	.ds 2
 ;--------------------------------------------------------
 ; overlayable items in internal ram
@@ -453,11 +469,19 @@ _convertAsciiHex_sloc0_1_0:
 ; external ram data
 ;--------------------------------------------------------
 	.area XSEG    (XDATA)
-_check_checker_65537_229:
+_dumpPage_i_65537_229:
+	.ds 2
+_dumpPage_data_65537_229:
 	.ds 1
-_check_error_65537_229:
+_dump_type_65537_235:
 	.ds 1
-_edit_input_65537_250:
+_dump_page_65537_235:
+	.ds 1
+_check_checker_65537_251:
+	.ds 1
+_check_error_65537_251:
+	.ds 1
+_edit_input_65537_272:
 	.ds 1
 ;--------------------------------------------------------
 ; absolute external ram data
@@ -3125,9 +3149,9 @@ _asciiToDec:
 ;Allocation info for local variables in function 'asciiToHex'
 ;------------------------------------------------------------
 ;d                         Allocated to registers r7 
-;val                       Allocated to registers r2 
+;val                       Allocated to registers r7 
 ;store                     Allocated with name '_asciiToHex_store_65536_200'
-;i                         Allocated to registers r6 
+;i                         Allocated to registers 
 ;------------------------------------------------------------
 ;	ecen4330_lcd_v3.c:622: void asciiToHex (uint8_t d) {
 ;	-----------------------------------------
@@ -3139,72 +3163,33 @@ _asciiToHex:
 	mov	_asciiToHex_store_65536_200,#0x00
 ;	ecen4330_lcd_v3.c:627: store[1] = 0;
 	mov	(_asciiToHex_store_65536_200 + 0x0001),#0x00
-;	ecen4330_lcd_v3.c:628: while (d >= 1){
-	mov	r6,#0x00
-00104$:
-	cjne	r7,#0x01,00122$
-00122$:
-	jc	00106$
 ;	ecen4330_lcd_v3.c:630: val = d % 16;
-	mov	ar4,r7
-	mov	r5,#0x00
-	mov	a,#0x0f
-	anl	a,r4
-	mov	r2,a
-;	ecen4330_lcd_v3.c:631: d = d/16;
-	mov	__divsint_PARM_2,#0x10
-;	1-genFromRTrack replaced	mov	(__divsint_PARM_2 + 1),#0x00
-	mov	(__divsint_PARM_2 + 1),r5
-	mov	dpl,r4
-	mov	dph,r5
-	push	ar6
-	push	ar2
-	lcall	__divsint
-	mov	r4,dpl
-	pop	ar2
-	pop	ar6
-	mov	ar7,r4
+	anl	ar7,#0x0f
 ;	ecen4330_lcd_v3.c:632: if (val <= 9) {
-	mov	a,r2
+	mov	a,r7
 	add	a,#0xff - 0x09
 	jc	00102$
 ;	ecen4330_lcd_v3.c:634: store[i] = val + '0';
-	mov	a,r6
-	add	a,#_asciiToHex_store_65536_200
-	mov	r1,a
-	mov	ar5,r2
+	mov	ar6,r7
 	mov	a,#0x30
-	add	a,r5
-	mov	@r1,a
+	add	a,r6
+	mov	_asciiToHex_store_65536_200,a
 	sjmp	00103$
 00102$:
 ;	ecen4330_lcd_v3.c:637: store[i] = (val%10) + 'A';
-	mov	a,r6
-	add	a,#_asciiToHex_store_65536_200
-	mov	r1,a
-	mov	r5,#0x00
+	mov	r6,#0x00
 	mov	__modsint_PARM_2,#0x0a
 ;	1-genFromRTrack replaced	mov	(__modsint_PARM_2 + 1),#0x00
-	mov	(__modsint_PARM_2 + 1),r5
-	mov	dpl,r2
-	mov	dph,r5
-	push	ar7
-	push	ar6
-	push	ar1
+	mov	(__modsint_PARM_2 + 1),r6
+	mov	dpl,r7
+	mov	dph,r6
 	lcall	__modsint
-	mov	r4,dpl
-	mov	r5,dph
-	pop	ar1
-	pop	ar6
-	pop	ar7
+	mov	r6,dpl
+	mov	r7,dph
 	mov	a,#0x41
-	add	a,r4
-	mov	@r1,a
+	add	a,r6
+	mov	_asciiToHex_store_65536_200,a
 00103$:
-;	ecen4330_lcd_v3.c:639: i++;
-	inc	r6
-	sjmp	00104$
-00106$:
 ;	ecen4330_lcd_v3.c:641: write(store[1]);
 	mov	dpl,(_asciiToHex_store_65536_200 + 0x0001)
 	lcall	_write
@@ -3491,14 +3476,627 @@ _getByte:
 ;	getFunctions.c:53: }
 	ret
 ;------------------------------------------------------------
+;Allocation info for local variables in function 'dumpPage'
+;------------------------------------------------------------
+;n                         Allocated with name '_dumpPage_PARM_2'
+;type                      Allocated with name '_dumpPage_PARM_3'
+;start                     Allocated with name '_dumpPage_start_65536_227'
+;ramAddress                Allocated to registers r6 r7 
+;i                         Allocated with name '_dumpPage_i_65537_229'
+;data                      Allocated with name '_dumpPage_data_65537_229'
+;j                         Allocated with name '_dumpPage_j_65537_229'
+;high                      Allocated with name '_dumpPage_high_65537_229'
+;low                       Allocated with name '_dumpPage_low_65537_229'
+;------------------------------------------------------------
+;	dump2.c:8: void dumpPage(uint16_t start, uint8_t n, uint8_t type/*, uint8_t page, bool direction*/) {
+;	-----------------------------------------
+;	 function dumpPage
+;	-----------------------------------------
+_dumpPage:
+	mov	_dumpPage_start_65536_227,dpl
+	mov	(_dumpPage_start_65536_227 + 1),dph
+;	dump2.c:10: fillScreen(GRAY);
+	mov	dptr,#0xd6ba
+	lcall	_fillScreen
+;	dump2.c:11: setCursor(0, 0);
+	clr	a
+	mov	_setCursor_PARM_2,a
+	mov	(_setCursor_PARM_2 + 1),a
+	mov	dptr,#0x0000
+	lcall	_setCursor
+;	dump2.c:12: setTextSize(2);
+	mov	dpl,#0x02
+	lcall	_setTextSize
+;	dump2.c:23: for (i = 0; i < n * type; i += type) {
+	mov	dptr,#_dumpPage_i_65537_229
+	clr	a
+	movx	@dptr,a
+	inc	dptr
+	movx	@dptr,a
+	mov	b,_dumpPage_PARM_2
+	mov	a,_dumpPage_PARM_3
+	mul	ab
+	mov	r4,a
+	mov	r5,b
+00109$:
+	mov	dptr,#_dumpPage_i_65537_229
+	movx	a,@dptr
+	mov	r2,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r3,a
+	mov	ar0,r2
+	mov	ar1,r3
+	mov	ar6,r4
+	mov	ar7,r5
+	clr	c
+	mov	a,r0
+	subb	a,r6
+	mov	a,r1
+	subb	a,r7
+	jc	00134$
+	ret
+00134$:
+;	dump2.c:25: if (i == __END_RAM__) break;
+	cjne	r0,#0xff,00135$
+	cjne	r1,#0xff,00135$
+	ret
+00135$:
+;	dump2.c:28: IOM = 0;
+;	assignBit
+	clr	_P3_4
+;	dump2.c:29: ramAddress = (uint16_t __xdata*)(i * type + start);
+	mov	__mulint_PARM_2,_dumpPage_PARM_3
+	mov	(__mulint_PARM_2 + 1),#0x00
+	mov	dpl,r2
+	mov	dph,r3
+	push	ar5
+	push	ar4
+	push	ar3
+	push	ar2
+	lcall	__mulint
+	mov	a,dpl
+	mov	b,dph
+	pop	ar2
+	pop	ar3
+	pop	ar4
+	pop	ar5
+	add	a,_dumpPage_start_65536_227
+	mov	r6,a
+	mov	a,(_dumpPage_start_65536_227 + 1)
+	addc	a,b
+	mov	r7,a
+;	dump2.c:30: IOM = 1;
+;	assignBit
+	setb	_P3_4
+;	dump2.c:32: high = HIGHBYTE(start + i);
+	mov	a,r2
+	add	a,_dumpPage_start_65536_227
+	mov	a,r3
+	addc	a,(_dumpPage_start_65536_227 + 1)
+	mov	dpl,a
+;	dump2.c:33: low = LOWBYTE(start + i);
+	mov	r1,_dumpPage_start_65536_227
+	mov	a,r2
+	add	a,r1
+	mov	r1,a
+;	dump2.c:36: asciiToHex(high);
+	push	ar7
+	push	ar6
+	push	ar5
+	push	ar4
+	push	ar1
+	lcall	_asciiToHex
+	pop	ar1
+;	dump2.c:37: asciiToHex(low);
+	mov	dpl,r1
+	lcall	_asciiToHex
+;	dump2.c:39: LCD_string_write(": ");
+	mov	dptr,#___str_6
+	mov	b,#0x80
+	lcall	_LCD_string_write
+	pop	ar4
+	pop	ar5
+	pop	ar6
+	pop	ar7
+;	dump2.c:41: for (j = 0; j < type; j++) {
+	mov	r3,#0x00
+00106$:
+	clr	c
+	mov	a,r3
+	subb	a,_dumpPage_PARM_3
+	jnc	00103$
+;	dump2.c:44: IOM = 0;
+;	assignBit
+	clr	_P3_4
+;	dump2.c:45: data = *ramAddress;
+	mov	dpl,r6
+	mov	dph,r7
+	movx	a,@dptr
+	mov	dptr,#_dumpPage_data_65537_229
+	movx	@dptr,a
+;	dump2.c:46: &ramAddress++;
+	mov	a,#0x02
+	add	a,r6
+	mov	r6,a
+	clr	a
+	addc	a,r7
+	mov	r7,a
+;	dump2.c:47: IOM = 1;
+;	assignBit
+	setb	_P3_4
+;	dump2.c:49: asciiToHex(data);
+	mov	dptr,#_dumpPage_data_65537_229
+	movx	a,@dptr
+	mov	dpl,a
+	push	ar7
+	push	ar6
+	push	ar5
+	push	ar4
+	push	ar3
+	lcall	_asciiToHex
+	pop	ar3
+	pop	ar4
+	pop	ar5
+	pop	ar6
+	pop	ar7
+;	dump2.c:41: for (j = 0; j < type; j++) {
+	inc	r3
+	sjmp	00106$
+00103$:
+;	dump2.c:52: write('\n');
+	mov	dpl,#0x0a
+	push	ar5
+	push	ar4
+	lcall	_write
+	pop	ar4
+	pop	ar5
+;	dump2.c:23: for (i = 0; i < n * type; i += type) {
+	mov	r6,_dumpPage_PARM_3
+	mov	r7,#0x00
+	mov	dptr,#_dumpPage_i_65537_229
+	movx	a,@dptr
+	mov	r2,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r3,a
+	mov	a,r6
+	add	a,r2
+	mov	r2,a
+	mov	a,r7
+	addc	a,r3
+	mov	r3,a
+	mov	dptr,#_dumpPage_i_65537_229
+	mov	a,r2
+	movx	@dptr,a
+	mov	a,r3
+	inc	dptr
+	movx	@dptr,a
+;	dump2.c:60: }
+	ljmp	00109$
+;------------------------------------------------------------
+;Allocation info for local variables in function 'dump'
+;------------------------------------------------------------
+;sloc0                     Allocated with name '_dump_sloc0_1_0'
+;sloc1                     Allocated with name '_dump_sloc1_1_0'
+;sloc2                     Allocated with name '_dump_sloc2_1_0'
+;type                      Allocated with name '_dump_type_65537_235'
+;size                      Allocated with name '_dump_size_65537_235'
+;page                      Allocated with name '_dump_page_65537_235'
+;input                     Allocated with name '_dump_input_65537_235'
+;address                   Allocated with name '_dump_address_65537_235'
+;------------------------------------------------------------
+;	dump2.c:66: void dump() {
+;	-----------------------------------------
+;	 function dump
+;	-----------------------------------------
+_dump:
+;	dump2.c:68: fillScreen(GRAY);
+	mov	dptr,#0xd6ba
+	lcall	_fillScreen
+;	dump2.c:69: setCursor(0, 0);
+	clr	a
+	mov	_setCursor_PARM_2,a
+	mov	(_setCursor_PARM_2 + 1),a
+	mov	dptr,#0x0000
+	lcall	_setCursor
+;	dump2.c:70: setTextSize(2);
+	mov	dpl,#0x02
+	lcall	_setTextSize
+;	dump2.c:80: page = 1;
+	mov	dptr,#_dump_page_65537_235
+	mov	a,#0x01
+	movx	@dptr,a
+;	dump2.c:83: LCD_string_write("Enter start address:\n");
+	mov	dptr,#___str_7
+	mov	b,#0x80
+	lcall	_LCD_string_write
+;	dump2.c:84: address = getAddress();
+	lcall	_getAddress
+	mov	r6,dpl
+	mov	r7,dph
+;	dump2.c:85: write('\n');
+	mov	dpl,#0x0a
+	push	ar7
+	push	ar6
+	lcall	_write
+;	dump2.c:89: LCD_string_write("Enter data type\n");
+	mov	dptr,#___str_8
+	mov	b,#0x80
+	lcall	_LCD_string_write
+;	dump2.c:90: LCD_string_write("B-Byte, A-Word,\n");
+	mov	dptr,#___str_9
+	mov	b,#0x80
+	lcall	_LCD_string_write
+;	dump2.c:91: LCD_string_write("D-Double word\n");
+	mov	dptr,#___str_10
+	mov	b,#0x80
+	lcall	_LCD_string_write
+	pop	ar6
+	pop	ar7
+;	dump2.c:94: do {
+00108$:
+;	dump2.c:95: type = keyDetect();
+	push	ar7
+	push	ar6
+	lcall	_keyDetect
+	mov	r5,dpl
+	pop	ar6
+	pop	ar7
+	mov	dptr,#_dump_type_65537_235
+	mov	a,r5
+	movx	@dptr,a
+;	dump2.c:96: switch(type) {
+	cjne	r5,#0x41,00197$
+	sjmp	00102$
+00197$:
+	cjne	r5,#0x42,00198$
+	sjmp	00101$
+00198$:
+;	dump2.c:97: case 'B': {
+	cjne	r5,#0x44,00109$
+	sjmp	00103$
+00101$:
+;	dump2.c:98: type = 1;
+	mov	dptr,#_dump_type_65537_235
+	mov	a,#0x01
+	movx	@dptr,a
+;	dump2.c:99: LCD_string_write("Byte\n");
+	mov	dptr,#___str_11
+	mov	b,#0x80
+	push	ar7
+	push	ar6
+	lcall	_LCD_string_write
+	pop	ar6
+	pop	ar7
+;	dump2.c:100: break;
+;	dump2.c:102: case 'A': {
+	sjmp	00109$
+00102$:
+;	dump2.c:103: type = 2; 
+	mov	dptr,#_dump_type_65537_235
+	mov	a,#0x02
+	movx	@dptr,a
+;	dump2.c:104: LCD_string_write("Word\n");
+	mov	dptr,#___str_12
+	mov	b,#0x80
+	push	ar7
+	push	ar6
+	lcall	_LCD_string_write
+	pop	ar6
+	pop	ar7
+;	dump2.c:105: break;
+;	dump2.c:107: case 'D': {
+	sjmp	00109$
+00103$:
+;	dump2.c:108: type = 4;
+	mov	dptr,#_dump_type_65537_235
+	mov	a,#0x04
+	movx	@dptr,a
+;	dump2.c:109: LCD_string_write("Double word\n");
+	mov	dptr,#___str_13
+	mov	b,#0x80
+	push	ar7
+	push	ar6
+	lcall	_LCD_string_write
+	pop	ar6
+	pop	ar7
+;	dump2.c:113: }
+00109$:
+;	dump2.c:114: } while(type != 1 && type != 2 && type != 4);
+	mov	dptr,#_dump_type_65537_235
+	movx	a,@dptr
+	mov	r5,a
+	cjne	r5,#0x01,00200$
+	sjmp	00110$
+00200$:
+	cjne	r5,#0x02,00201$
+	sjmp	00110$
+00201$:
+	cjne	r5,#0x04,00202$
+	sjmp	00203$
+00202$:
+	ljmp	00108$
+00203$:
+00110$:
+;	dump2.c:117: LCD_string_write("Enter block size:\n");
+	mov	dptr,#___str_14
+	mov	b,#0x80
+	push	ar7
+	push	ar6
+	lcall	_LCD_string_write
+;	dump2.c:118: size = getByte();
+	lcall	_getByte
+	mov	r5,dpl
+;	dump2.c:119: write('\n');
+	mov	dpl,#0x0a
+	push	ar5
+	lcall	_write
+	pop	ar5
+	pop	ar6
+	pop	ar7
+;	dump2.c:124: if (size < NUM) {
+	cjne	r5,#0x0f,00204$
+00204$:
+	jnc	00112$
+;	dump2.c:125: dumpPage(address, size, type);
+	mov	dptr,#_dump_type_65537_235
+	movx	a,@dptr
+	mov	_dumpPage_PARM_3,a
+	mov	_dumpPage_PARM_2,r5
+	mov	dpl,r6
+	mov	dph,r7
+	push	ar7
+	push	ar6
+	push	ar5
+	lcall	_dumpPage
+	pop	ar5
+	pop	ar6
+	pop	ar7
+	sjmp	00149$
+00112$:
+;	dump2.c:127: dumpPage(address, NUM, type);
+	mov	dptr,#_dump_type_65537_235
+	movx	a,@dptr
+	mov	_dumpPage_PARM_3,a
+	mov	_dumpPage_PARM_2,#0x0f
+	mov	dpl,r6
+	mov	dph,r7
+	push	ar7
+	push	ar6
+	push	ar5
+	lcall	_dumpPage
+	pop	ar5
+	pop	ar6
+	pop	ar7
+;	dump2.c:130: do {
+00149$:
+	clr	c
+	mov	a,#0x0f
+	subb	a,r5
+	clr	a
+	rlc	a
+	mov	r4,a
+	mov	_dump_sloc0_1_0,r4
+	mov	dptr,#_dump_type_65537_235
+	movx	a,@dptr
+	mov	_dump_sloc2_1_0,a
+	mov	r1,_dump_sloc2_1_0
+00132$:
+;	dump2.c:132: if (page != ((size / NUM) + 1) && size > NUM) {
+	push	ar1
+	mov	ar0,r5
+	mov	r1,#0x00
+	mov	__divsint_PARM_2,#0x0f
+;	1-genFromRTrack replaced	mov	(__divsint_PARM_2 + 1),#0x00
+	mov	(__divsint_PARM_2 + 1),r1
+	mov	dpl,r0
+	mov	dph,r1
+	push	ar7
+	push	ar6
+	push	ar5
+	push	ar4
+	push	ar1
+	lcall	__divsint
+	mov	a,dpl
+	mov	b,dph
+	pop	ar1
+	pop	ar4
+	pop	ar5
+	pop	ar6
+	pop	ar7
+	add	a,#0x01
+	mov	_dump_sloc1_1_0,a
+	clr	a
+	addc	a,b
+	mov	(_dump_sloc1_1_0 + 1),a
+	mov	dptr,#_dump_page_65537_235
+	movx	a,@dptr
+	mov	r3,#0x00
+	cjne	a,_dump_sloc1_1_0,00206$
+	mov	a,r3
+	cjne	a,(_dump_sloc1_1_0 + 1),00206$
+	pop	ar1
+	sjmp	00119$
+00206$:
+	pop	ar1
+	mov	a,r4
+	jz	00119$
+;	dump2.c:133: LCD_string_write("Press B for next\n");
+	mov	dptr,#___str_15
+	mov	b,#0x80
+	push	ar7
+	push	ar6
+	push	ar5
+	push	ar4
+	push	ar1
+	lcall	_LCD_string_write
+	pop	ar1
+	pop	ar4
+	pop	ar5
+	pop	ar6
+	pop	ar7
+	sjmp	00120$
+00119$:
+;	dump2.c:134: } else if (page != 1 || size > NUM) { /***** this needs to be turned into an if else, if the page is the last page *****/
+	mov	dptr,#_dump_page_65537_235
+	movx	a,@dptr
+	mov	r3,a
+	cjne	r3,#0x01,00114$
+	mov	a,_dump_sloc0_1_0
+	jz	00115$
+00114$:
+;	dump2.c:135: LCD_string_write("Press A for previous\n");
+	mov	dptr,#___str_16
+	mov	b,#0x80
+	push	ar7
+	push	ar6
+	push	ar5
+	push	ar4
+	push	ar1
+	lcall	_LCD_string_write
+	pop	ar1
+	pop	ar4
+	pop	ar5
+	pop	ar6
+	pop	ar7
+	sjmp	00120$
+00115$:
+;	dump2.c:137: LCD_string_write("Press A for previous, B for next\n");
+	mov	dptr,#___str_17
+	mov	b,#0x80
+	push	ar7
+	push	ar6
+	push	ar5
+	push	ar4
+	push	ar1
+	lcall	_LCD_string_write
+	pop	ar1
+	pop	ar4
+	pop	ar5
+	pop	ar6
+	pop	ar7
+00120$:
+;	dump2.c:140: LCD_string_write("Press 1 for menu");
+	mov	dptr,#___str_18
+	mov	b,#0x80
+	push	ar7
+	push	ar6
+	push	ar5
+	push	ar4
+	push	ar1
+	lcall	_LCD_string_write
+;	dump2.c:142: input = keyDetect();
+	lcall	_keyDetect
+	mov	r3,dpl
+	pop	ar1
+	pop	ar4
+	pop	ar5
+	pop	ar6
+	pop	ar7
+;	dump2.c:147: if (input == 'B' && page != NUM) {			// next
+	cjne	r3,#0x42,00129$
+	mov	dptr,#_dump_page_65537_235
+	movx	a,@dptr
+	mov	r0,a
+	cjne	r0,#0x0f,00213$
+	sjmp	00129$
+00213$:
+;	dump2.c:148: dumpPage(address + NUM, NUM, type);
+	push	ar1
+	mov	ar1,r6
+	mov	ar2,r7
+	mov	a,#0x0f
+	add	a,r1
+	mov	r1,a
+	clr	a
+	addc	a,r2
+	mov	r2,a
+	mov	dpl,r1
+	mov	dph,r2
+	mov	_dumpPage_PARM_2,#0x0f
+	mov	_dumpPage_PARM_3,_dump_sloc2_1_0
+	push	ar7
+	push	ar6
+	push	ar5
+	push	ar4
+	push	ar1
+	push	ar0
+	lcall	_dumpPage
+	pop	ar0
+	pop	ar1
+	pop	ar4
+	pop	ar5
+	pop	ar6
+	pop	ar7
+;	dump2.c:149: page++;
+	mov	dptr,#_dump_page_65537_235
+	mov	a,r0
+	inc	a
+	movx	@dptr,a
+	pop	ar1
+	ljmp	00132$
+00129$:
+;	dump2.c:150: } else if (input == 'A' && page != 1) {		// previous
+	cjne	r3,#0x41,00125$
+	mov	dptr,#_dump_page_65537_235
+	movx	a,@dptr
+	mov	r2,a
+	cjne	r2,#0x01,00216$
+	sjmp	00125$
+00216$:
+;	dump2.c:151: dumpPage(address - NUM, NUM, type);
+	push	ar4
+	mov	ar0,r6
+	mov	ar4,r7
+	mov	a,r0
+	add	a,#0xf1
+	mov	r0,a
+	mov	a,r4
+	addc	a,#0xff
+	mov	r4,a
+	mov	dpl,r0
+	mov	dph,r4
+	mov	_dumpPage_PARM_2,#0x0f
+	mov	_dumpPage_PARM_3,r1
+	push	ar7
+	push	ar6
+	push	ar5
+	push	ar4
+	push	ar2
+	push	ar1
+	lcall	_dumpPage
+	pop	ar1
+	pop	ar2
+	pop	ar4
+	pop	ar5
+	pop	ar6
+	pop	ar7
+;	dump2.c:152: page--;
+	mov	a,r2
+	dec	a
+	mov	dptr,#_dump_page_65537_235
+	movx	@dptr,a
+	pop	ar4
+	ljmp	00132$
+00125$:
+;	dump2.c:153: } else if (input == '1') {					// main menu
+	cjne	r3,#0x31,00217$
+	ret
+00217$:
+	ljmp	00132$
+;	dump2.c:157: } while (1);
+;	dump2.c:159: }
+	ret
+;------------------------------------------------------------
 ;Allocation info for local variables in function 'check'
 ;------------------------------------------------------------
 ;ramAddress                Allocated to registers r4 r5 
-;checker                   Allocated with name '_check_checker_65537_229'
-;input                     Allocated with name '_check_input_65537_229'
-;fetched                   Allocated with name '_check_fetched_65537_229'
-;i                         Allocated with name '_check_i_65537_229'
-;error                     Allocated with name '_check_error_65537_229'
+;checker                   Allocated with name '_check_checker_65537_251'
+;input                     Allocated with name '_check_input_65537_251'
+;fetched                   Allocated with name '_check_fetched_65537_251'
+;i                         Allocated with name '_check_i_65537_251'
+;error                     Allocated with name '_check_error_65537_251'
 ;------------------------------------------------------------
 ;	check.c:6: void check() {
 ;	-----------------------------------------
@@ -3518,23 +4116,23 @@ _check:
 	mov	dpl,#0x02
 	lcall	_setTextSize
 ;	check.c:17: __xdata bool error = false;
-	mov	dptr,#_check_error_65537_229
+	mov	dptr,#_check_error_65537_251
 	clr	a
 	movx	@dptr,a
 ;	check.c:21: LCD_string_write("Enter byte to check\n");
-	mov	dptr,#___str_6
+	mov	dptr,#___str_19
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	check.c:22: checker = getByte();
 	lcall	_getByte
 	mov	a,dpl
-	mov	dptr,#_check_checker_65537_229
+	mov	dptr,#_check_checker_65537_251
 	movx	@dptr,a
 ;	check.c:23: write('\n');
 	mov	dpl,#0x0a
 	lcall	_write
 ;	check.c:24: LCD_string_write("In progress...\n");
-	mov	dptr,#___str_7
+	mov	dptr,#___str_20
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	check.c:29: for (i = __START_RAM__; i < __END_RAM__; i++) {
@@ -3548,7 +4146,7 @@ _check:
 	mov	ar4,r6
 	mov	ar5,r7
 ;	check.c:32: *ramAddress = checker;
-	mov	dptr,#_check_checker_65537_229
+	mov	dptr,#_check_checker_65537_251
 	movx	a,@dptr
 	mov	r3,a
 	mov	r1,a
@@ -3597,11 +4195,11 @@ _check:
 	mov	dpl,#0x0a
 	lcall	_write
 ;	check.c:42: LCD_string_write("Memory check failed\n");
-	mov	dptr,#___str_8
+	mov	dptr,#___str_21
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	check.c:43: error = true;
-	mov	dptr,#_check_error_65537_229
+	mov	dptr,#_check_error_65537_251
 	mov	a,#0x01
 	movx	@dptr,a
 ;	check.c:44: break;
@@ -3611,7 +4209,7 @@ _check:
 ;	assignBit
 	clr	_P3_4
 ;	check.c:47: checker = ~checker;
-	mov	dptr,#_check_checker_65537_229
+	mov	dptr,#_check_checker_65537_251
 	mov	a,r3
 	cpl	a
 	movx	@dptr,a
@@ -3666,11 +4264,11 @@ _check:
 	mov	dpl,#0x0a
 	lcall	_write
 ;	check.c:58: LCD_string_write("Memory check failed\n");
-	mov	dptr,#___str_8
+	mov	dptr,#___str_21
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	check.c:59: error = true;
-	mov	dptr,#_check_error_65537_229
+	mov	dptr,#_check_error_65537_251
 	mov	a,#0x01
 	movx	@dptr,a
 ;	check.c:60: break;
@@ -3693,16 +4291,16 @@ _check:
 00139$:
 00106$:
 ;	check.c:68: if (error != false) {
-	mov	dptr,#_check_error_65537_229
+	mov	dptr,#_check_error_65537_251
 	movx	a,@dptr
 	jz	00108$
 ;	check.c:69: LCD_string_write("Success!\n");
-	mov	dptr,#___str_9
+	mov	dptr,#___str_22
 	mov	b,#0x80
 	lcall	_LCD_string_write
 00108$:
 ;	check.c:73: LCD_string_write("Press 1 for menu");
-	mov	dptr,#___str_10
+	mov	dptr,#___str_18
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	check.c:75: do {
@@ -3740,7 +4338,7 @@ _basic:
 	mov	dpl,#0x02
 	lcall	_setTextSize
 ;	check.c:97: LCD_string_write("Enter byte\n");
-	mov	dptr,#___str_11
+	mov	dptr,#___str_23
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	check.c:98: val = getByte();
@@ -3751,7 +4349,7 @@ _basic:
 	push	ar7
 	lcall	_write
 ;	check.c:102: LCD_string_write("Enter address\n");
-	mov	dptr,#___str_12
+	mov	dptr,#___str_24
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	check.c:103: add = getAddress();
@@ -3764,7 +4362,7 @@ _basic:
 	push	ar5
 	lcall	_write
 ;	check.c:105: LCD_string_write("In progress\n");
-	mov	dptr,#___str_13
+	mov	dptr,#___str_25
 	mov	b,#0x80
 	lcall	_LCD_string_write
 	pop	ar5
@@ -3795,18 +4393,18 @@ _basic:
 	mov	dpl,r5
 	lcall	_asciiToHex
 ;	check.c:121: LCD_string_write(" fetched!\nSuccess!\n");
-	mov	dptr,#___str_14
+	mov	dptr,#___str_26
 	mov	b,#0x80
 	lcall	_LCD_string_write
 	sjmp	00103$
 00102$:
 ;	check.c:123: LCD_string_write("Check failed\n");
-	mov	dptr,#___str_15
+	mov	dptr,#___str_27
 	mov	b,#0x80
 	lcall	_LCD_string_write
 00103$:
 ;	check.c:126: LCD_string_write("Press 1 for menu\n");
-	mov	dptr,#___str_16
+	mov	dptr,#___str_28
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	check.c:128: do {
@@ -3822,11 +4420,11 @@ _basic:
 ;Allocation info for local variables in function 'move'
 ;------------------------------------------------------------
 ;origin                    Allocated to registers 
-;target                    Allocated with name '_move_target_65537_243'
-;startAdd                  Allocated with name '_move_startAdd_65537_243'
-;targetAdd                 Allocated with name '_move_targetAdd_65537_243'
-;i                         Allocated with name '_move_i_65537_243'
-;size                      Allocated with name '_move_size_65537_243'
+;target                    Allocated with name '_move_target_65537_265'
+;startAdd                  Allocated with name '_move_startAdd_65537_265'
+;targetAdd                 Allocated with name '_move_targetAdd_65537_265'
+;i                         Allocated with name '_move_i_65537_265'
+;size                      Allocated with name '_move_size_65537_265'
 ;------------------------------------------------------------
 ;	move.c:5: void move() {
 ;	-----------------------------------------
@@ -3846,7 +4444,7 @@ _move:
 	mov	dpl,#0x02
 	lcall	_setTextSize
 ;	move.c:20: LCD_string_write("Enter start add.\n");
-	mov	dptr,#___str_17
+	mov	dptr,#___str_29
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	move.c:21: startAdd = getAddress();
@@ -3859,7 +4457,7 @@ _move:
 	push	ar6
 	lcall	_write
 ;	move.c:25: LCD_string_write("Enter size\n");
-	mov	dptr,#___str_18
+	mov	dptr,#___str_30
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	move.c:26: size = getByte();
@@ -3870,7 +4468,7 @@ _move:
 	push	ar5
 	lcall	_write
 ;	move.c:30: LCD_string_write("Enter target add.\n");
-	mov	dptr,#___str_19
+	mov	dptr,#___str_31
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	move.c:31: targetAdd = getAddress();
@@ -3883,7 +4481,7 @@ _move:
 	push	ar3
 	lcall	_write
 ;	move.c:35: LCD_string_write("Move in progress...\n");
-	mov	dptr,#___str_20
+	mov	dptr,#___str_32
 	mov	b,#0x80
 	lcall	_LCD_string_write
 	pop	ar3
@@ -3915,16 +4513,16 @@ _move:
 	mov	dpl,r6
 	mov	dph,r7
 ;	move.c:44: target = (uint16_t __xdata*)(targetAdd);
-	mov	_move_target_65537_243,r3
-	mov	(_move_target_65537_243 + 1),r4
+	mov	_move_target_65537_265,r3
+	mov	(_move_target_65537_265 + 1),r4
 ;	move.c:45: *target = *origin;
 	movx	a,@dptr
 	mov	r0,a
 	inc	dptr
 	movx	a,@dptr
 	mov	r5,a
-	mov	dpl,_move_target_65537_243
-	mov	dph,(_move_target_65537_243 + 1)
+	mov	dpl,_move_target_65537_265
+	mov	dph,(_move_target_65537_265 + 1)
 	mov	a,r0
 	movx	@dptr,a
 	mov	a,r5
@@ -3952,11 +4550,11 @@ _move:
 	sjmp	00106$
 00101$:
 ;	move.c:53: LCD_string_write("Done!\n");
-	mov	dptr,#___str_21
+	mov	dptr,#___str_33
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	move.c:54: LCD_string_write("Press 1 for menu\n");
-	mov	dptr,#___str_16
+	mov	dptr,#___str_28
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	move.c:56: do {
@@ -3973,8 +4571,10 @@ _move:
 ;------------------------------------------------------------
 ;add                       Allocated to registers r6 r7 
 ;ramAddress                Allocated to registers r6 r7 
-;val                       Allocated with name '_editByte_val_65536_248'
-;new                       Allocated with name '_editByte_new_65536_248'
+;val                       Allocated with name '_editByte_val_65536_270'
+;new                       Allocated with name '_editByte_new_65536_270'
+;high                      Allocated with name '_editByte_high_65536_270'
+;low                       Allocated with name '_editByte_low_65536_270'
 ;------------------------------------------------------------
 ;	edit.c:6: void editByte(uint16_t add) {
 ;	-----------------------------------------
@@ -3983,61 +4583,63 @@ _move:
 _editByte:
 	mov	r6,dpl
 	mov	r7,dph
-;	edit.c:13: asciiToHex(HIGHBYTE(add));
+;	edit.c:12: __xdata uint8_t high = HIGHBYTE(add);
 	mov	ar5,r7
 	mov	ar4,r5
+;	edit.c:13: __xdata uint8_t low = LOWBYTE(add);
+	mov	ar5,r6
+;	edit.c:16: asciiToHex(high);
 	mov	dpl,r4
 	push	ar7
-	push	ar6
-	push	ar4
-	lcall	_asciiToHex
-	pop	ar4
-	pop	ar6
-;	edit.c:14: asciiToHex(LOWBYTE(add));
-	mov	ar5,r6
-	mov	dpl,r5
 	push	ar6
 	push	ar5
 	push	ar4
 	lcall	_asciiToHex
-;	edit.c:15: LCD_string_write(": ");
-	mov	dptr,#___str_22
+	pop	ar4
+	pop	ar5
+;	edit.c:17: asciiToHex(low);
+	mov	dpl,r5
+	push	ar5
+	push	ar4
+	lcall	_asciiToHex
+;	edit.c:19: LCD_string_write(": ");
+	mov	dptr,#___str_6
 	mov	b,#0x80
 	lcall	_LCD_string_write
 	pop	ar4
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	edit.c:18: IOM = 0;
+;	edit.c:22: IOM = 0;
 ;	assignBit
 	clr	_P3_4
-;	edit.c:19: ramAddress = (uint16_t __xdata*)(add);
-;	edit.c:20: val = *ramAddress;
+;	edit.c:23: ramAddress = (uint16_t __xdata*)(add);
+;	edit.c:24: val = *ramAddress;
 	mov	dpl,r6
 	mov	dph,r7
 	movx	a,@dptr
 	mov	r3,a
-;	edit.c:21: IOM = 1;
+;	edit.c:25: IOM = 1;
 ;	assignBit
 	setb	_P3_4
-;	edit.c:24: asciiToHex(val);
+;	edit.c:28: asciiToHex(val);
 	mov	dpl,r3
 	push	ar7
 	push	ar6
 	push	ar5
 	push	ar4
 	lcall	_asciiToHex
-;	edit.c:27: write('\n');
+;	edit.c:31: write('\n');
 	mov	dpl,#0x0a
 	lcall	_write
-;	edit.c:28: LCD_string_write("Enter new byte:\n");
-	mov	dptr,#___str_23
+;	edit.c:32: LCD_string_write("Enter new byte:\n");
+	mov	dptr,#___str_34
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	edit.c:29: new = getByte();
+;	edit.c:33: new = getByte();
 	lcall	_getByte
 	mov	r3,dpl
-;	edit.c:30: write('\n');
+;	edit.c:34: write('\n');
 	mov	dpl,#0x0a
 	push	ar3
 	lcall	_write
@@ -4046,10 +4648,10 @@ _editByte:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	edit.c:33: IOM = 0;
+;	edit.c:37: IOM = 0;
 ;	assignBit
 	clr	_P3_4
-;	edit.c:34: *ramAddress = new;
+;	edit.c:38: *ramAddress = new;
 	mov	r2,#0x00
 	mov	dpl,r6
 	mov	dph,r7
@@ -4058,72 +4660,72 @@ _editByte:
 	mov	a,r2
 	inc	dptr
 	movx	@dptr,a
-;	edit.c:35: val = *ramAddress;
-;	edit.c:36: IOM = 1;
+;	edit.c:39: val = *ramAddress;
+;	edit.c:40: IOM = 1;
 ;	assignBit
 	setb	_P3_4
-;	edit.c:39: asciiToHex(HIGHBYTE(add));
+;	edit.c:43: asciiToHex(high);
 	mov	dpl,r4
 	push	ar5
 	push	ar3
 	lcall	_asciiToHex
 	pop	ar3
 	pop	ar5
-;	edit.c:40: asciiToHex(LOWBYTE(add));
+;	edit.c:44: asciiToHex(low);
 	mov	dpl,r5
 	push	ar3
 	lcall	_asciiToHex
-;	edit.c:41: LCD_string_write(": ");
-	mov	dptr,#___str_22
+;	edit.c:45: LCD_string_write(": ");
+	mov	dptr,#___str_6
 	mov	b,#0x80
 	lcall	_LCD_string_write
 	pop	ar3
-;	edit.c:42: asciiToHex(val);
+;	edit.c:46: asciiToHex(val);
 	mov	dpl,r3
 	lcall	_asciiToHex
-;	edit.c:43: write('\n');
+;	edit.c:47: write('\n');
 	mov	dpl,#0x0a
-;	edit.c:45: }
+;	edit.c:49: }
 	ljmp	_write
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'edit'
 ;------------------------------------------------------------
-;input                     Allocated with name '_edit_input_65537_250'
-;add                       Allocated with name '_edit_add_65537_250'
+;input                     Allocated with name '_edit_input_65537_272'
+;add                       Allocated with name '_edit_add_65537_272'
 ;------------------------------------------------------------
-;	edit.c:51: void edit() {
+;	edit.c:55: void edit() {
 ;	-----------------------------------------
 ;	 function edit
 ;	-----------------------------------------
 _edit:
-;	edit.c:53: fillScreen(GRAY);
+;	edit.c:57: fillScreen(GRAY);
 	mov	dptr,#0xd6ba
 	lcall	_fillScreen
-;	edit.c:54: setCursor(0, 0);
+;	edit.c:58: setCursor(0, 0);
 	clr	a
 	mov	_setCursor_PARM_2,a
 	mov	(_setCursor_PARM_2 + 1),a
 	mov	dptr,#0x0000
 	lcall	_setCursor
-;	edit.c:55: setTextSize(2);
+;	edit.c:59: setTextSize(2);
 	mov	dpl,#0x02
 	lcall	_setTextSize
-;	edit.c:62: LCD_string_write("Enter address:\n");
-	mov	dptr,#___str_24
+;	edit.c:66: LCD_string_write("Enter address:\n");
+	mov	dptr,#___str_35
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	edit.c:63: add = getAddress();
+;	edit.c:67: add = getAddress();
 	lcall	_getAddress
 	mov	r6,dpl
 	mov	r7,dph
-;	edit.c:64: write('\n');
+;	edit.c:68: write('\n');
 	mov	dpl,#0x0a
 	push	ar7
 	push	ar6
 	lcall	_write
 	pop	ar6
 	pop	ar7
-;	edit.c:67: editByte(add);
+;	edit.c:71: editByte(add);
 	mov	dpl,r6
 	mov	dph,r7
 	push	ar7
@@ -4131,75 +4733,42 @@ _edit:
 	lcall	_editByte
 	pop	ar6
 	pop	ar7
-;	edit.c:70: do {
-00110$:
-;	edit.c:71: LCD_string_write("Press 1 for menu\n");
-	mov	dptr,#___str_16
+;	edit.c:74: do {
+00111$:
+;	edit.c:75: LCD_string_write("Press 1 for menu\n");
+	mov	dptr,#___str_28
 	mov	b,#0x80
 	push	ar7
 	push	ar6
 	lcall	_LCD_string_write
-;	edit.c:72: LCD_string_write("Press 2 to edit again\n");
-	mov	dptr,#___str_25
+;	edit.c:76: LCD_string_write("Press 2 to edit again\n");
+	mov	dptr,#___str_36
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	edit.c:73: LCD_string_write("Press 3 to edit next address\n");
-	mov	dptr,#___str_26
+;	edit.c:77: LCD_string_write("Press 3 to edit next address\n");
+	mov	dptr,#___str_37
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	edit.c:74: input = keyDetect();
+;	edit.c:78: input = keyDetect();
 	lcall	_keyDetect
 	mov	r5,dpl
 	pop	ar6
 	pop	ar7
-	mov	dptr,#_edit_input_65537_250
+	mov	dptr,#_edit_input_65537_272
 	mov	a,r5
 	movx	@dptr,a
-;	edit.c:76: if (input == '1') {
-	cjne	r5,#0x31,00136$
+;	edit.c:80: if (input == '1') {
+	cjne	r5,#0x31,00141$
 	ret
-00136$:
-;	edit.c:78: } else if (input =='2') {
-	cjne	r5,#0x32,00104$
-;	edit.c:79: editByte(add);
-	mov	dpl,r6
-	mov	dph,r7
-	push	ar7
-	push	ar6
-	lcall	_editByte
-;	edit.c:81: fillScreen(GRAY);
-	mov	dptr,#0xd6ba
-	lcall	_fillScreen
-;	edit.c:82: setCursor(0, 0);
-	clr	a
-	mov	_setCursor_PARM_2,a
-	mov	(_setCursor_PARM_2 + 1),a
-	mov	dptr,#0x0000
-	lcall	_setCursor
-	pop	ar6
-	pop	ar7
-;	edit.c:84: input = 0;
-	mov	dptr,#_edit_input_65537_250
-	clr	a
-	movx	@dptr,a
-	sjmp	00111$
-00104$:
-;	edit.c:85: } else if (input == '3') {
-	cjne	r5,#0x33,00111$
-;	edit.c:86: editByte(++add);
-	inc	r6
-	cjne	r6,#0x00,00141$
-	inc	r7
 00141$:
-	mov	dpl,r6
-	mov	dph,r7
+;	edit.c:82: } else if (input =='2') {
+	cjne	r5,#0x32,00104$
+;	edit.c:83: fillScreen(GRAY);
+	mov	dptr,#0xd6ba
 	push	ar7
 	push	ar6
-	lcall	_editByte
-;	edit.c:88: fillScreen(GRAY);
-	mov	dptr,#0xd6ba
 	lcall	_fillScreen
-;	edit.c:89: setCursor(0, 0);
+;	edit.c:84: setCursor(0, 0);
 	clr	a
 	mov	_setCursor_PARM_2,a
 	mov	(_setCursor_PARM_2 + 1),a
@@ -4207,32 +4776,76 @@ _edit:
 	lcall	_setCursor
 	pop	ar6
 	pop	ar7
-;	edit.c:91: input = 0;
-	mov	dptr,#_edit_input_65537_250
+;	edit.c:86: editByte(add);
+	mov	dpl,r6
+	mov	dph,r7
+	push	ar7
+	push	ar6
+	lcall	_editByte
+	pop	ar6
+	pop	ar7
+;	edit.c:88: input = 0;
+	mov	dptr,#_edit_input_65537_272
 	clr	a
 	movx	@dptr,a
-00111$:
-;	edit.c:93: } while (input != '1' && input != '2');
-	mov	dptr,#_edit_input_65537_250
+	sjmp	00112$
+00104$:
+;	edit.c:89: } else if (input == '3') {
+	cjne	r5,#0x33,00112$
+;	edit.c:90: fillScreen(GRAY);
+	mov	dptr,#0xd6ba
+	push	ar7
+	push	ar6
+	lcall	_fillScreen
+;	edit.c:91: setCursor(0, 0);
+	clr	a
+	mov	_setCursor_PARM_2,a
+	mov	(_setCursor_PARM_2 + 1),a
+	mov	dptr,#0x0000
+	lcall	_setCursor
+	pop	ar6
+	pop	ar7
+;	edit.c:93: editByte(++add);
+	inc	r6
+	cjne	r6,#0x00,00146$
+	inc	r7
+00146$:
+	mov	dpl,r6
+	mov	dph,r7
+	push	ar7
+	push	ar6
+	lcall	_editByte
+	pop	ar6
+	pop	ar7
+;	edit.c:95: input = 0;
+	mov	dptr,#_edit_input_65537_272
+	clr	a
+	movx	@dptr,a
+00112$:
+;	edit.c:97: } while (input != '1' && input != '2' && input != '3');
+	mov	dptr,#_edit_input_65537_272
 	movx	a,@dptr
 	mov	r5,a
-	cjne	r5,#0x31,00142$
+	cjne	r5,#0x31,00147$
 	ret
-00142$:
-	cjne	r5,#0x32,00143$
+00147$:
+	cjne	r5,#0x32,00148$
 	ret
-00143$:
-	ljmp	00110$
-;	edit.c:95: }
+00148$:
+	cjne	r5,#0x33,00149$
+	ret
+00149$:
+	ljmp	00111$
+;	edit.c:99: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'count'
 ;------------------------------------------------------------
-;add                       Allocated with name '_count_add_65537_256'
-;i                         Allocated with name '_count_i_65537_256'
-;size                      Allocated with name '_count_size_65537_256'
-;key                       Allocated with name '_count_key_65537_256'
-;count                     Allocated with name '_count_count_65537_256'
+;add                       Allocated with name '_count_add_65537_278'
+;i                         Allocated with name '_count_i_65537_278'
+;size                      Allocated with name '_count_size_65537_278'
+;key                       Allocated with name '_count_key_65537_278'
+;count                     Allocated with name '_count_count_65537_278'
 ;------------------------------------------------------------
 ;	count.c:5: void count() {
 ;	-----------------------------------------
@@ -4252,7 +4865,7 @@ _count:
 	mov	dpl,#0x02
 	lcall	_setTextSize
 ;	count.c:19: LCD_string_write("Enter address:\n");
-	mov	dptr,#___str_24
+	mov	dptr,#___str_35
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	count.c:20: add = getAddress();
@@ -4261,7 +4874,7 @@ _count:
 	mov	dpl,#0x0a
 	lcall	_write
 ;	count.c:24: LCD_string_write("Enter block size:\n");
-	mov	dptr,#___str_27
+	mov	dptr,#___str_14
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	count.c:25: size = getByte();
@@ -4272,7 +4885,7 @@ _count:
 	push	ar7
 	lcall	_write
 ;	count.c:29: LCD_string_write("Enter byte to count:\n");
-	mov	dptr,#___str_28
+	mov	dptr,#___str_38
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	count.c:30: key = getByte();
@@ -4300,14 +4913,14 @@ _count:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'readTemp'
 ;------------------------------------------------------------
-;val                       Allocated with name '_readTemp_val_65537_260'
+;val                       Allocated with name '_readTemp_val_65536_281'
 ;------------------------------------------------------------
 ;	analog.c:6: uint8_t readTemp() {
 ;	-----------------------------------------
 ;	 function readTemp
 ;	-----------------------------------------
 _readTemp:
-;	analog.c:7: IOM = 1;
+;	analog.c:8: IOM = 1;
 ;	assignBit
 	setb	_P3_4
 ;	analog.c:9: val = *temp_address;
@@ -4325,14 +4938,14 @@ _readTemp:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'readLight'
 ;------------------------------------------------------------
-;val                       Allocated with name '_readLight_val_65537_262'
+;val                       Allocated with name '_readLight_val_65536_282'
 ;------------------------------------------------------------
 ;	analog.c:19: uint8_t readLight() {
 ;	-----------------------------------------
 ;	 function readLight
 ;	-----------------------------------------
 _readLight:
-;	analog.c:20: IOM = 1;
+;	analog.c:21: IOM = 1;
 ;	assignBit
 	setb	_P3_4
 ;	analog.c:22: val = *light_address;
@@ -4372,7 +4985,7 @@ _displayTemp:
 	mov	dpl,#0x02
 	lcall	_setTextSize
 ;	analog.c:38: LCD_string_write("Temperature: ");
-	mov	dptr,#___str_29
+	mov	dptr,#___str_39
 	mov	b,#0x80
 	lcall	_LCD_string_write
 	pop	ar7
@@ -4383,7 +4996,7 @@ _displayTemp:
 	mov	dpl,#0x0a
 	lcall	_write
 ;	analog.c:43: LCD_string_write("Press 0 for menu\n");
-	mov	dptr,#___str_30
+	mov	dptr,#___str_40
 	mov	b,#0x80
 ;	analog.c:44: }
 	ljmp	_LCD_string_write
@@ -4412,7 +5025,7 @@ _displayLight:
 	mov	dpl,#0x02
 	lcall	_setTextSize
 ;	analog.c:57: LCD_string_write("Light level: ");
-	mov	dptr,#___str_31
+	mov	dptr,#___str_41
 	mov	b,#0x80
 	lcall	_LCD_string_write
 	pop	ar7
@@ -4423,15 +5036,15 @@ _displayLight:
 	mov	dpl,#0x0a
 	lcall	_write
 ;	analog.c:62: LCD_string_write("Press 0 for menu\n");
-	mov	dptr,#___str_30
+	mov	dptr,#___str_40
 	mov	b,#0x80
 ;	analog.c:63: }
 	ljmp	_LCD_string_write
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'temperature'
 ;------------------------------------------------------------
-;temp                      Allocated with name '_temperature_temp_65537_268'
-;input                     Allocated with name '_temperature_input_65537_268'
+;temp                      Allocated with name '_temperature_temp_65537_288'
+;input                     Allocated with name '_temperature_input_65537_288'
 ;------------------------------------------------------------
 ;	analog.c:70: void temperature() {
 ;	-----------------------------------------
@@ -4451,7 +5064,7 @@ _temperature:
 	mov	dpl,#0x02
 	lcall	_setTextSize
 ;	analog.c:76: LCD_string_write("Temperature: ");
-	mov	dptr,#___str_29
+	mov	dptr,#___str_39
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	analog.c:82: temp = readTemp();
@@ -4462,7 +5075,7 @@ _temperature:
 	mov	dpl,#0x0a
 	lcall	_write
 ;	analog.c:89: LCD_string_write("Press 0 for menu\n");
-	mov	dptr,#___str_30
+	mov	dptr,#___str_40
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	analog.c:93: while (1) {
@@ -4486,8 +5099,8 @@ _temperature:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'light'
 ;------------------------------------------------------------
-;light                     Allocated with name '_light_light_65537_271'
-;input                     Allocated with name '_light_input_65537_271'
+;light                     Allocated with name '_light_light_65537_291'
+;input                     Allocated with name '_light_input_65537_291'
 ;------------------------------------------------------------
 ;	analog.c:109: void light() {
 ;	-----------------------------------------
@@ -4507,7 +5120,7 @@ _light:
 	mov	dpl,#0x02
 	lcall	_setTextSize
 ;	analog.c:115: LCD_string_write("Light level: ");
-	mov	dptr,#___str_31
+	mov	dptr,#___str_41
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	analog.c:121: light = readLight();
@@ -4518,7 +5131,7 @@ _light:
 	mov	dpl,#0x0a
 	lcall	_write
 ;	analog.c:128: LCD_string_write("Press 0 for menu\n");
-	mov	dptr,#___str_30
+	mov	dptr,#___str_40
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	analog.c:131: while (1) {
@@ -4568,54 +5181,54 @@ _menu:
 	mov	dptr,#0x0000
 	lcall	_setCursor
 ;	main.c:38: LCD_string_write("Brandon Cline\n");
-	mov	dptr,#___str_32
+	mov	dptr,#___str_42
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	main.c:39: LCD_string_write("ECEN 4330\n");
-	mov	dptr,#___str_33
+	mov	dptr,#___str_43
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	main.c:43: LCD_string_write("1: Basic check\n");
-	mov	dptr,#___str_34
+	mov	dptr,#___str_44
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	main.c:45: LCD_string_write("2: Dump\n");
-	mov	dptr,#___str_35
+	mov	dptr,#___str_45
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	main.c:47: LCD_string_write("3: Check\n");
-	mov	dptr,#___str_36
+	mov	dptr,#___str_46
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	main.c:49: LCD_string_write("A: Move\n");
-	mov	dptr,#___str_37
+	mov	dptr,#___str_47
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	main.c:51: LCD_string_write("4: Edit\n");
-	mov	dptr,#___str_38
+	mov	dptr,#___str_48
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	main.c:53: LCD_string_write("5: Find\n");
-	mov	dptr,#___str_39
+	mov	dptr,#___str_49
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	main.c:55: LCD_string_write("6: Count\n");
-	mov	dptr,#___str_40
+	mov	dptr,#___str_50
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	main.c:58: LCD_string_write("B: Temperature\n");
-	mov	dptr,#___str_41
+	mov	dptr,#___str_51
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	main.c:60: LCD_string_write("7: Light\n");
-	mov	dptr,#___str_42
+	mov	dptr,#___str_52
 	mov	b,#0x80
 ;	main.c:61: }
 	ljmp	_LCD_string_write
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'main'
 ;------------------------------------------------------------
-;input                     Allocated with name '_main_input_65536_276'
+;input                     Allocated with name '_main_input_65536_296'
 ;------------------------------------------------------------
 ;	main.c:63: void main(void) {
 ;	-----------------------------------------
@@ -4641,7 +5254,7 @@ _main:
 	mov	dpl,#0x14
 	lcall	_testCircles
 ;	main.c:79: while (1) {
-00111$:
+00112$:
 ;	main.c:81: menu();
 	lcall	_menu
 ;	main.c:84: input = keyDetect();
@@ -4652,56 +5265,63 @@ _main:
 	lcall	_asciiToHex
 	pop	ar7
 ;	main.c:88: switch(input) {
-	cjne	r7,#0x31,00147$
+	cjne	r7,#0x31,00152$
 	sjmp	00101$
-00147$:
-	cjne	r7,#0x33,00148$
-	sjmp	00102$
-00148$:
-	cjne	r7,#0x34,00149$
-	sjmp	00104$
-00149$:
-	cjne	r7,#0x36,00150$
-	sjmp	00105$
-00150$:
-	cjne	r7,#0x37,00151$
-	sjmp	00107$
-00151$:
-	cjne	r7,#0x41,00152$
-	sjmp	00103$
 00152$:
-;	main.c:89: case '1': basic(); break;
-	cjne	r7,#0x42,00111$
+	cjne	r7,#0x32,00153$
+	sjmp	00102$
+00153$:
+	cjne	r7,#0x33,00154$
+	sjmp	00103$
+00154$:
+	cjne	r7,#0x34,00155$
+	sjmp	00105$
+00155$:
+	cjne	r7,#0x36,00156$
 	sjmp	00106$
+00156$:
+	cjne	r7,#0x37,00157$
+	sjmp	00108$
+00157$:
+	cjne	r7,#0x41,00158$
+	sjmp	00104$
+00158$:
+;	main.c:89: case '1': basic(); break;
+	cjne	r7,#0x42,00112$
+	sjmp	00107$
 00101$:
 	lcall	_basic
-;	main.c:91: case '3': check(); break;
-	sjmp	00111$
+;	main.c:90: case '2': dump(); break;
+	sjmp	00112$
 00102$:
+	lcall	_dump
+;	main.c:91: case '3': check(); break;
+	sjmp	00112$
+00103$:
 	lcall	_check
 ;	main.c:92: case 'A': move(); break;
-	sjmp	00111$
-00103$:
+	sjmp	00112$
+00104$:
 	lcall	_move
 ;	main.c:93: case '4': edit(); break;
-	sjmp	00111$
-00104$:
+	sjmp	00112$
+00105$:
 	lcall	_edit
 ;	main.c:95: case '6': count(); break;
-	sjmp	00111$
-00105$:
+	sjmp	00112$
+00106$:
 	lcall	_count
 ;	main.c:96: case 'B': temperature(); break;
-	sjmp	00111$
-00106$:
+	sjmp	00112$
+00107$:
 	lcall	_temperature
 ;	main.c:97: case '7': light(); break;
-	sjmp	00111$
-00107$:
+	sjmp	00112$
+00108$:
 	lcall	_light
 ;	main.c:99: }
 ;	main.c:101: }
-	sjmp	00111$
+	sjmp	00112$
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 _font:
@@ -6031,53 +6651,124 @@ ___str_5:
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_6:
-	.ascii "Enter byte to check"
-	.db 0x0a
+	.ascii ": "
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_7:
-	.ascii "In progress..."
+	.ascii "Enter start address:"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_8:
-	.ascii "Memory check failed"
+	.ascii "Enter data type"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_9:
-	.ascii "Success!"
+	.ascii "B-Byte, A-Word,"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_10:
-	.ascii "Press 1 for menu"
+	.ascii "D-Double word"
+	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_11:
-	.ascii "Enter byte"
+	.ascii "Byte"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_12:
-	.ascii "Enter address"
+	.ascii "Word"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_13:
-	.ascii "In progress"
+	.ascii "Double word"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_14:
+	.ascii "Enter block size:"
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_15:
+	.ascii "Press B for next"
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_16:
+	.ascii "Press A for previous"
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_17:
+	.ascii "Press A for previous, B for next"
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_18:
+	.ascii "Press 1 for menu"
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_19:
+	.ascii "Enter byte to check"
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_20:
+	.ascii "In progress..."
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_21:
+	.ascii "Memory check failed"
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_22:
+	.ascii "Success!"
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_23:
+	.ascii "Enter byte"
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_24:
+	.ascii "Enter address"
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_25:
+	.ascii "In progress"
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_26:
 	.ascii " fetched!"
 	.db 0x0a
 	.ascii "Success!"
@@ -6085,166 +6776,155 @@ ___str_14:
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_15:
+___str_27:
 	.ascii "Check failed"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_16:
+___str_28:
 	.ascii "Press 1 for menu"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_17:
+___str_29:
 	.ascii "Enter start add."
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_18:
+___str_30:
 	.ascii "Enter size"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_19:
+___str_31:
 	.ascii "Enter target add."
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_20:
+___str_32:
 	.ascii "Move in progress..."
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_21:
+___str_33:
 	.ascii "Done!"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_22:
-	.ascii ": "
-	.db 0x00
-	.area CSEG    (CODE)
-	.area CONST   (CODE)
-___str_23:
+___str_34:
 	.ascii "Enter new byte:"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_24:
+___str_35:
 	.ascii "Enter address:"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_25:
+___str_36:
 	.ascii "Press 2 to edit again"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_26:
+___str_37:
 	.ascii "Press 3 to edit next address"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_27:
-	.ascii "Enter block size:"
-	.db 0x0a
-	.db 0x00
-	.area CSEG    (CODE)
-	.area CONST   (CODE)
-___str_28:
+___str_38:
 	.ascii "Enter byte to count:"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_29:
+___str_39:
 	.ascii "Temperature: "
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_30:
+___str_40:
 	.ascii "Press 0 for menu"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_31:
+___str_41:
 	.ascii "Light level: "
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_32:
+___str_42:
 	.ascii "Brandon Cline"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_33:
+___str_43:
 	.ascii "ECEN 4330"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_34:
+___str_44:
 	.ascii "1: Basic check"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_35:
+___str_45:
 	.ascii "2: Dump"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_36:
+___str_46:
 	.ascii "3: Check"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_37:
+___str_47:
 	.ascii "A: Move"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_38:
+___str_48:
 	.ascii "4: Edit"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_39:
+___str_49:
 	.ascii "5: Find"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_40:
+___str_50:
 	.ascii "6: Count"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_41:
+___str_51:
 	.ascii "B: Temperature"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_42:
+___str_52:
 	.ascii "7: Light"
 	.db 0x0a
 	.db 0x00

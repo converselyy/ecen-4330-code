@@ -6,7 +6,7 @@
 #include "getFunctions.c"
 
 // function includes
-// #include "dump.c"
+#include "dump2.c"
 #include "check.c"
 #include "move.c"
 #include "edit.c"
@@ -87,7 +87,7 @@ void main(void) {
 		// select menu option based on input
 		switch(input) {
 			case '1': basic(); break;
-			// case '2': dump(); break;
+			case '2': dump(); break;
 			case '3': check(); break;
 			case 'A': move(); break;
 			case '4': edit(); break;
