@@ -57,7 +57,7 @@ void iowrite8 (uint8_t __xdata* map_address, uint8_t d) {
 
 void delay (int16_t d)
 {
-	int i,j;
+	__xdata int i,j;
 	for (i=0;i<d;i++)
 	{
 		for (j=0;j<1000;j++);
@@ -82,7 +82,7 @@ void writeRegister8 (uint8_t a, uint8_t d) {
 
 
 void writeRegister16 (uint16_t a, uint16_t d) {
-	uint8_t hi, lo;
+	__xdata uint8_t hi, lo;
  	hi = (a) >> 8;
  	lo = (a);
  	write8Reg(hi);
@@ -248,11 +248,11 @@ void drawPixel(uint16_t x3,uint16_t y3,uint16_t color1)
  * @param color color of circle
  */
 void drawCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color){
-	int f = 1 - r;
-    int ddF_x = 1;
-    int ddF_y = -2 * r;
-    int x = 0;
-    int y = r;
+	__xdata int f = 1 - r;
+    __xdata int ddF_x = 1;
+    __xdata int ddF_y = -2 * r;
+    __xdata int x = 0;
+    __xdata int y = r;
 
     drawPixel(x0  , y0+r, color);
     drawPixel(x0  , y0-r, color);
@@ -287,7 +287,7 @@ void drawCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color){
  * @param color color of the circles
  */
 void testCircles (uint8_t radius, uint16_t color) {
-	int  x, y, r2 = radius * 2, w = _width  + radius, h = _height + radius;
+	__xdata int  x, y, r2 = radius * 2, w = _width  + radius, h = _height + radius;
 
 	for(x=0; x<w; x+=r2) {
 		for(y=0; y<h; y+=r2) {
@@ -334,11 +334,11 @@ void fillRect (uint16_t x,uint16_t y,uint16_t w,uint16_t h,uint16_t color) {
  * @param Color desired color of screen in rgb format (?)
  */
 void fillScreen (uint16_t Color) {
-	long len = (long)TFTWIDTH * (long)TFTHEIGHT;
+	__xdata long len = (long)TFTWIDTH * (long)TFTHEIGHT;
 
-	int blocks;
+	__xdata int blocks;
 
-	uint8_t  i, hi = Color >> 8,
+	__xdata uint8_t  i, hi = Color >> 8,
               lo = Color;
 
     blocks = (uint16_t)(len / 64);
@@ -382,11 +382,11 @@ void drawChar (int16_t x, int16_t y, uint8_t c,uint16_t color, uint16_t bg, uint
 		return;
 	}
 
-	int8_t i;
+	__xdata int8_t i;
 
 	for (i=0; i<6; i++ )
 	{
-		uint8_t line;
+		__xdata uint8_t line;
 
 		if (i == 5)
 		{
@@ -397,7 +397,7 @@ void drawChar (int16_t x, int16_t y, uint8_t c,uint16_t color, uint16_t bg, uint
 			line = pgm_read_byte(font+(c*5)+i);
 		}
 
-		int8_t j;
+		__xdata int8_t j;
 
 		for (j = 0; j<8; j++)
 		{
@@ -457,7 +457,7 @@ void write (uint8_t c)
  */
 void LCD_string_write (int8_t *str)
 {
-	int16_t i;
+	__xdata int16_t i;
 	for (i=0;str[i]!=0;i++)
 	{
 		write(str[i]);
@@ -470,7 +470,7 @@ void LCD_string_write (int8_t *str)
  * @param d 
  */
 void testRAM (uint8_t d) {
-	uint32_t i;
+	__xdata uint32_t i;
 	__xdata uint8_t* ram_address;
 
 	for (i = __START_RAM__; i < __END_RAM__; i++) {
@@ -486,8 +486,8 @@ void testRAM (uint8_t d) {
  * 
  */
 void freeType () {
-	uint8_t count = 0;
-	uint8_t d;
+	__xdata uint8_t count = 0;
+	__xdata uint8_t d;
 	while (1) {
 
 
@@ -585,8 +585,8 @@ uint8_t keyDetect () {
 }
 
 uint16_t reverse (uint8_t d) {
-	uint16_t rev = 0;
-	uint16_t val = 0;
+	__xdata uint16_t rev = 0;
+	__xdata uint16_t val = 0;
 	while (d >= 1) {
 
 		val = d%10;
@@ -602,8 +602,8 @@ uint16_t reverse (uint8_t d) {
  * @param d the character to be converted
  */
 void asciiToDec (uint8_t d) {
-	uint8_t val;
-	uint16_t id;
+	__xdata uint8_t val;
+	__xdata uint16_t id;
 	id = reverse(d);
 	while (id >= 1){
 
@@ -620,12 +620,12 @@ void asciiToDec (uint8_t d) {
  * @param d the hex number to be converted
  */
 void asciiToHex (uint8_t d) {
-	uint8_t val;
-	uint8_t store[2];
-	uint8_t i = 0;
+	__xdata uint8_t val;
+	__xdata uint8_t store[2];
+	__xdata uint8_t i = 0;
 	store[0] = 0;
 	store[1] = 0;
-	// while (d >= 0) {
+	while (d >= 1) {
 
 		val = d % 16;
 		d = d/16;
@@ -637,7 +637,7 @@ void asciiToHex (uint8_t d) {
 			store[i] = (val%10) + 'A';
 		}
 		i++;
-	// }
+	}
 	write(store[1]);
 	write(store[0]);
 }

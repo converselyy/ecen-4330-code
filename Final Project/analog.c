@@ -5,8 +5,10 @@
  */
 uint8_t readTemp() {
 	__xdata uint8_t val;
+	__xdata uint16_t* address;
 	IOM = 1;
-	val = *temp_address;
+	address = (uint16_t __xdata*)(temp_address);
+	val = *address;
 	IOM = 0;
 	return val;
 }
@@ -18,8 +20,10 @@ uint8_t readTemp() {
  */
 uint8_t readLight() {
 	__xdata uint8_t val;
+	__xdata uint16_t* address;
 	IOM = 1;
-	val = *light_address;
+	address = (uint16_t __xdata*)(light_address);
+	val = *address;
 	IOM = 0;
 	return val;
 }
@@ -41,6 +45,7 @@ void displayTemp(uint8_t t) {
 
 	write('\n');
 	LCD_string_write("Press 0 for menu\n");
+	LCD_string_write("Press any key to refresh\n");
 }
 
 /**
@@ -60,6 +65,7 @@ void displayLight(uint8_t l) {
 
 	write('\n');
 	LCD_string_write("Press 0 for menu\n");
+	LCD_string_write("Press any key to refresh\n");
 }
 
 /**
@@ -87,7 +93,7 @@ void temperature() {
 	// prompt for menu or refresh
 	write('\n');
 	LCD_string_write("Press 0 for menu\n");
-	// LCD_string_write("Press 1 to refresh\n");
+	LCD_string_write("Press any key to refresh\n");
 
 	// wait for user to press '0', refresh temperature while waiting
 	while (1) {
@@ -126,6 +132,7 @@ void light() {
 	// prompt for menu or refresh
 	write('\n');
 	LCD_string_write("Press 0 for menu\n");
+	LCD_string_write("Press any key to refresh\n");
 
 	// wait for user to press '0', refresh light level while waiting
 	while (1) {

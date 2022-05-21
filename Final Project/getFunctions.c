@@ -5,8 +5,8 @@
  */
 uint16_t getAddress() {
 	// declarations
-	uint8_t input, hex, i;
-	uint16_t address;
+	__xdata uint8_t input, hex, i;
+	__xdata uint16_t address;
 	
 	// prompt user for four nibbles while displaying input on screen
 	// setTextSize(3);
@@ -35,7 +35,7 @@ uint16_t getAddress() {
  */
 uint8_t getByte() {
 	// declarations
-	uint8_t input, hex, byte, i;
+	__xdata uint8_t input, hex, byte, i;
 
 	byte = 0;
 

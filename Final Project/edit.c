@@ -3,7 +3,7 @@
  * 
  * @param add address at which to edit
  */
-void editByte(uint16_t add) {
+void editByte(__xdata uint16_t add) {
 	// declarations
 	__xdata uint8_t val;
 	__xdata uint8_t new;

@@ -11,6 +11,7 @@
 #include "move.c"
 #include "edit.c"
 // #include "find.c"
+#include "find2.c"
 #include "count.c"
 #include "analog.c"
 
@@ -91,7 +92,7 @@ void main(void) {
 			case '3': check(); break;
 			case 'A': move(); break;
 			case '4': edit(); break;
-			// case '5': find(); break;
+			case '5': find(); break;
 			case '6': count(); break;
 			case 'B': temperature(); break;
 			case '7': light(); break;

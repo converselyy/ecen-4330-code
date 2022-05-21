@@ -2,10 +2,10 @@
  * @brief function to print out a page of dumped data
  * 
  * @param start address to start dump from
- * @param page current page
- * @param direction forwards or backwards in pages; true for forward, false for backward
+ * @param n number of entries to print
+ * @param type data type: 1 for byte, 2 for word, 4 for double word
  */
-void dumpPage(uint16_t start, uint8_t n, uint8_t type/*, uint8_t page, bool direction*/) {
+void dumpPage(__xdata uint16_t start, __xdata uint8_t n, __xdata uint8_t type/*, uint8_t page, bool direction*/) {
 	// LCD setup
 	fillScreen(GRAY);
 	setCursor(0, 0);
@@ -72,7 +72,6 @@ void dump() {
 	// declarations
 	__xdata uint8_t type;
 	__xdata uint8_t size;
-	// __xdata uint8_t entries;
 	__xdata uint8_t page;
 	__xdata uint8_t input;
 	__xdata uint16_t address;
@@ -131,26 +130,28 @@ void dump() {
 		// display LCD menu options
 		if (page != ((size / NUM) + 1) && size > NUM) {
 			LCD_string_write("Press B for next\n");
-		} else if (page != 1 || size > NUM) { /***** this needs to be turned into an if else, if the page is the last page *****/
+		} else if (page != 1 && size > NUM) {
 			LCD_string_write("Press A for previous\n");
 		} else {
 			LCD_string_write("Press A for previous, B for next\n");
 		}
 
-		LCD_string_write("Press 1 for menu");
+		LCD_string_write("Press 1 for menu\n");
 
 		input = keyDetect();
 
 		/******** need a way to prevent overflow on the last page ********/
 
 		// if statements for input
-		if (input == 'B' && page != NUM) {			// next
-			dumpPage(address + NUM, NUM, type);
+		if (input == 'B' && page != ((size / NUM) + 1)) {	// next
+			address += NUM;
+			dumpPage(address, NUM, type);
 			page++;
-		} else if (input == 'A' && page != 1) {		// previous
-			dumpPage(address - NUM, NUM, type);
+		} else if (input == 'A' && page != 1) {				// previous
+			address -= NUM;
+			dumpPage(address, NUM, type);
 			page--;
-		} else if (input == '1') {					// main menu
+		} else if (input == '1') {							// main menu
 			break;
 		}
 
