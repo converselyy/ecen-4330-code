@@ -20,7 +20,7 @@ void printFind(__xdata uint16_t start, __xdata uint8_t n, __xdata uint8_t key, _
 	__xdata uint8_t high;
 	__xdata uint8_t low;
 
-	// 
+	// loop through and print matched addresses
 	for (i = 0; i < n; i++) {
 		// check RAM location for key
 		IOM = 0;
@@ -40,11 +40,10 @@ void printFind(__xdata uint16_t start, __xdata uint8_t n, __xdata uint8_t key, _
 			// display address
 			asciiToHex(high);
 			asciiToHex(low);
+			write('\n');
 			
 		}
-
 	}
-
 }
 
 /**
@@ -75,7 +74,7 @@ void find() {
 	n = 0;
 
 	// get input for byte to search for
-	LCD_string_write("Enter byte:\n");
+	LCD_string_write("Enter byte to search:\n");
 	key = getByte();
 	write('\n');								// newline for next read
 
@@ -108,9 +107,12 @@ void find() {
 		printFind(address, NUM, key, index);
 		index += NUM;
 	}
-		
+	
 	do {
-		if (page != ((n / NUM) + 1) && n > NUM) {
+		// display buttons based on page number and number of entries
+		if (n == 0) {
+			LCD_string_write("None found!\n");
+		} else if (page != ((n / NUM) + 1) && n > NUM) {
 			LCD_string_write("Press B for next\n");
 		} else if (page != 1 && n > NUM) {
 			LCD_string_write("Press A for previous\n");
@@ -124,19 +126,17 @@ void find() {
 
 		// if statements for input
 		if (input == 'B' && page != ((size / n) + 1)) {		// next
+			index += NUM;
 			address += NUM;
 			printFind(address, NUM, key, index);
 			page++;
 		} else if (input == 'A' && page != 1) {				// previous
+			index -= NUM;
 			address -= NUM;
 			printFind(address, NUM, key, index);
 			page--;
 		} else if (input == '1') {							// main menu
 			break;
 		}
-
-
-
 	} while(1);
-	
 }

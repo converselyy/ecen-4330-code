@@ -19,7 +19,7 @@ uint16_t getAddress() {
 	for (i = 0; i < 4; i++) {
 		input = keyDetect();				// get the nibble
 		write(input);						// display nibble to user
-		hex = convertAsciiHex(input);			// convert ascii char to hex
+		hex = convertAsciiHex(input);		// convert ascii char to hex
 
 		// OR the input with the address then shift the bits left a whole nibble if the loop isn't finished
 		address = address | hex;
@@ -43,7 +43,7 @@ uint8_t getByte() {
 	for (i = 0; i < 2; i++) {
 		input = keyDetect();				// get the nibble
 		write(input);						// display nibble to user
-		hex = convertAsciiHex(input);			// convert ascii char to hex
+		hex = convertAsciiHex(input);		// convert ascii char to hex
 
 		// OR the input with the byte then shift the bits left a whole nibble if the loop isn't finished
 		byte = byte | hex;

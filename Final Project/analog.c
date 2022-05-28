@@ -9,7 +9,7 @@ uint8_t readTemp() {
 	IOM = 1;
 	address = (uint16_t __xdata*)(temp_address);
 	val = *address;
-	IOM = 0;
+	// IOM = 0;
 	return val;
 }
 
@@ -24,7 +24,7 @@ uint8_t readLight() {
 	IOM = 1;
 	address = (uint16_t __xdata*)(light_address);
 	val = *address;
-	IOM = 0;
+	// IOM = 0;
 	return val;
 }
 
@@ -44,8 +44,8 @@ void displayTemp(uint8_t t) {
 	asciiToHex(t);
 
 	write('\n');
-	LCD_string_write("Press 0 for menu\n");
-	LCD_string_write("Press any key to refresh\n");
+	LCD_string_write("Press 1 for menu\n");
+	LCD_string_write("Press key to refresh\n");
 }
 
 /**
@@ -64,8 +64,8 @@ void displayLight(uint8_t l) {
 	asciiToHex(l);
 
 	write('\n');
-	LCD_string_write("Press 0 for menu\n");
-	LCD_string_write("Press any key to refresh\n");
+	LCD_string_write("Press 1 for menu\n");
+	LCD_string_write("Press key to refresh\n");
 }
 
 /**
@@ -79,30 +79,24 @@ void temperature() {
 	setCursor(0, 0);
 	setTextSize(2);
 
-	LCD_string_write("Temperature: ");
-
 	// declarations
 	__xdata uint8_t temp, input;
 
 	// read temperature from address
 	temp = readTemp();
+	// temp = ioread8(temp_address);
 
-	// print temperature to screen
-	asciiToHex(temp);
-
-	// prompt for menu or refresh
-	write('\n');
-	LCD_string_write("Press 0 for menu\n");
-	LCD_string_write("Press any key to refresh\n");
+	displayTemp(temp);
 
 	// wait for user to press '0', refresh temperature while waiting
 	while (1) {
 		input = keyDetect();
 
-		if (input == '0') break;
+		if (input == '1') break;
 
 		delay(500);
-		temp = readTemp();
+		// temp = readTemp();
+		temp = ioread8(temp_address);
 		displayTemp(temp);
 	}
 }
@@ -118,30 +112,24 @@ void light() {
 	setCursor(0, 0);
 	setTextSize(2);
 
-	LCD_string_write("Light level: ");
-
 	// declarations
 	__xdata uint8_t light, input;
 
 	// read temperature from address
 	light = readLight();
+	// light = ioread8(light_address);
 
-	// print temperature to screen
-	asciiToHex(light);
-
-	// prompt for menu or refresh
-	write('\n');
-	LCD_string_write("Press 0 for menu\n");
-	LCD_string_write("Press any key to refresh\n");
+	displayLight(light);
 
 	// wait for user to press '0', refresh light level while waiting
 	while (1) {
 		input = keyDetect();
 
-		if (input == '0') break;
+		if (input == '1') break;
 
 		delay(500);
-		light = readLight();
+		// light = readLight();
+		light = ioread8(light_address);
 		displayLight(light);
 	}
 }

@@ -68,21 +68,21 @@ CABS                                00000000    00000000 =           0. bytes (A
       -----  --------------------------------   ------------------------
 C:   00000022  l_GSINIT3                       
 C:   0000002A  l_GSINIT4                       
-C:   00000032  l_XSEG                          
-C:   00000033  s_XISEG                         
 C:   00000035  s_GSINIT4                       
+C:   00000037  l_XSEG                          
+C:   00000038  s_XISEG                         
 C:   0000005F  s_GSINIT                        
 C:   0000005F  s_GSINIT5                       
 C:   0000006E  l_DSEG                          
 C:   00000076  s_GSFINAL                       
 C:   00000079  s_CSEG                          
-C:   0000007F  s_SSEG                          
-C:   00000081  l_SSEG                          
+C:   0000007E  s_SSEG                          
+C:   00000082  l_SSEG                          
 C:   00000100  l_IRAM                          
-C:   00000846  l_CONST                         
-C:   0000235C  l_CSEG                          
-C:   000023D5  s_CONST                         
-C:   00002C1B  s_XINIT                         
+C:   0000085C  l_CONST                         
+C:   00002481  l_CSEG                          
+C:   000024FA  s_CONST                         
+C:   00002D56  s_XINIT                         
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
 Hexadecimal  [32-Bits]
@@ -244,23 +244,23 @@ DSEG                                00000000    0000006E =         110. bytes (R
      00000032  _rotation                          main
      00000033  _textcolor                         main
      00000035  _textbgcolor                       main
-     00000037  __width                            main
-     00000039  __height                           main
-     0000003B  _drawPixel_PARM_2                  main
-     0000003D  _drawPixel_PARM_3                  main
-     0000003F  _drawCircle_PARM_2                 main
-     00000041  _drawCircle_PARM_3                 main
-     00000043  _drawCircle_PARM_4                 main
-     00000051  _testCircles_PARM_2                main
-     00000056  _fillRect_PARM_2                   main
-     00000058  _fillRect_PARM_3                   main
-     0000005A  _fillRect_PARM_4                   main
-     0000005C  _fillRect_PARM_5                   main
-     0000005E  _drawChar_PARM_2                   main
-     00000060  _drawChar_PARM_3                   main
-     00000061  _drawChar_PARM_4                   main
-     00000063  _drawChar_PARM_5                   main
-     00000065  _drawChar_PARM_6                   main
+     00000037  _drawPixel_PARM_2                  main
+     00000039  _drawPixel_PARM_3                  main
+     0000003B  _drawCircle_PARM_2                 main
+     0000003D  _drawCircle_PARM_3                 main
+     0000003F  _drawCircle_PARM_4                 main
+     0000004D  _testCircles_PARM_2                main
+     00000052  _fillRect_PARM_2                   main
+     00000054  _fillRect_PARM_3                   main
+     00000056  _fillRect_PARM_4                   main
+     00000058  _fillRect_PARM_5                   main
+     0000005A  _drawChar_PARM_2                   main
+     0000005C  _drawChar_PARM_3                   main
+     0000005D  _drawChar_PARM_4                   main
+     0000005F  _drawChar_PARM_5                   main
+     00000061  _drawChar_PARM_6                   main
+     00000079  _printCount_PARM_5                 main
+
 ASxxxx Linker V03.00 + NoICE + sdld,  page 8.
 Hexadecimal  [32-Bits]
 
@@ -289,26 +289,31 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-SSEG                                0000007F    00000081 =         129. bytes (REL,OVR)
+SSEG                                0000007E    00000082 =         130. bytes (REL,OVR)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     0000007F  __start__stack                     main
+     0000007E  __start__stack                     main
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 10.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-XSEG                                00000001    00000032 =          50. bytes (REL,CON,XDATA)
+XSEG                                00000001    00000037 =          55. bytes (REL,CON,XDATA)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-D:   00000016  _dumpPage_PARM_2                   main
-D:   00000017  _dumpPage_PARM_3                   main
+D:   00000001  __width                            main
+D:   00000003  __height                           main
+D:   00000017  _dumpPage_PARM_2                   main
+D:   00000018  _dumpPage_PARM_3                   main
 D:   00000026  _printFind_PARM_2                  main
 D:   00000027  _printFind_PARM_3                  main
 D:   00000028  _printFind_PARM_4                  main
+D:   0000002F  _printCount_PARM_2                 main
+D:   00000030  _printCount_PARM_3                 main
+D:   00000031  _printCount_PARM_4                 main
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 11.
 Hexadecimal  [32-Bits]
@@ -387,83 +392,86 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000079    0000235C =        9052. bytes (REL,CON,CODE)
+CSEG                                00000079    00002481 =        9345. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
 C:   00000079  _iowrite8                          main
-C:   00000089  _delay                             main
-C:   000000B9  _writeRegister8                    main
-C:   000000D9  _writeRegister16                   main
-C:   0000011E  _setCursor                         main
-C:   0000012B  _setTextColor                      main
-C:   00000138  _setTextSize                       main
-C:   00000150  _setRotation                       main
-C:   000001BB  _setAddress                        main
-C:   00000256  _TFT_LCD_INIT                      main
-C:   00000397  _drawPixel                         main
-C:   000003EE  _drawCircle                        main
-C:   000006D3  _testCircles                       main
-C:   00000791  _fillRect                          main
-C:   00000872  _fillScreen                        main
-C:   00000959  _drawChar                          main
-C:   00000C0B  _write                             main
-C:   00000C79  _LCD_string_write                  main
-C:   00000CB8  _testRAM                           main
-C:   00000CE9  _freeType                          main
-C:   00000D12  _keyDetect                         main
-C:   00000E0A  _reverse                           main
-C:   00000E87  _asciiToDec                        main
-C:   00000EF0  _asciiToHex                        main
-C:   00000F8D  _convertAsciiHex                   main
-C:   00000FA5  _writeSomeLines                    main
-C:   00001091  _getAddress                        main
-C:   000010F8  _getByte                           main
-C:   00001137  _dumpPage                          main
-C:   000012A8  _dump                              main
-C:   000015A7  _check                             main
-C:   000016E3  _basic                             main
-C:   00001779  _move                              main
-C:   00001850  _editByte                          main
-C:   00001907  _edit                              main
-C:   000019F8  _printFind                         main
-C:   00001ADF  _find                              main
-C:   00001D97  _count                             main
-C:   0000204A  _readTemp                          main
-C:   00002059  _readLight                         main
-C:   00002068  _displayTemp                       main
-C:   000020AB  _displayLight                      main
-C:   000020EE  _temperature                       main
-C:   00002143  _light                             main
-C:   00002198  _menu                              main
-C:   00002224  _main                              main
-C:   000022B4  __divuint                          _divuint
-C:   000022DD  __mulint                           _mulint
-C:   000022DD  __mulint_dummy                     _mulint
-C:   000022FA  __moduint                          _moduint
+C:   00000089  _ioread8                           main
+C:   0000009A  _delay                             main
+C:   000000CA  _writeRegister8                    main
+C:   000000EA  _writeRegister16                   main
+C:   0000012F  _setCursor                         main
+C:   0000013C  _setTextColor                      main
+C:   00000149  _setTextSize                       main
+C:   00000161  _setRotation                       main
+C:   000001EF  _setAddress                        main
+C:   0000028A  _TFT_LCD_INIT                      main
+C:   000003DA  _drawPixel                         main
+C:   00000431  _drawCircle                        main
+C:   00000716  _testCircles                       main
+C:   000007DC  _fillRect                          main
+C:   000008BD  _fillScreen                        main
+C:   000009A4  _drawChar                          main
+C:   00000C56  _write                             main
+C:   00000CC4  _LCD_string_write                  main
+C:   00000D03  _testRAM                           main
+C:   00000D34  _freeType                          main
+C:   00000D5D  _keyDetect                         main
+C:   00000E55  _reverse                           main
+C:   00000ED2  _asciiToDec                        main
+C:   00000F36  _asciiToHex                        main
+C:   00000FAB  _convertAsciiHex                   main
+C:   00000FC3  _writeSomeLines                    main
+C:   000010AF  _getAddress                        main
+C:   00001116  _getByte                           main
+C:   00001155  _dumpPage                          main
+C:   000012A1  _dump                              main
+C:   000015A0  _check                             main
+C:   000016DC  _basic                             main
+C:   00001772  _move                              main
+C:   0000186A  _editByte                          main
+C:   00001921  _edit                              main
+C:   00001A12  _printFind                         main
+C:   00001AFF  _find                              main
+C:   00001DC6  _printCount                        main
+C:   00001EAA  _count                             main
+C:   000021AC  _readTemp                          main
+C:   000021B8  _readLight                         main
+C:   000021C4  _displayTemp                       main
+C:   00002207  _displayLight                      main
+C:   0000224A  _temperature                       main
+C:   00002284  _light                             main
+C:   000022BE  _menu                              main
+C:   00002350  _main                              main
+C:   000023D9  __divuint                          _divuint
+C:   00002402  __mulint                           _mulint
 ASxxxx Linker V03.00 + NoICE + sdld,  page 19.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000079    0000235C =        9052. bytes (REL,CON,CODE)
+CSEG                                00000079    00002481 =        9345. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00002347  __gptrget                          _gptrget
-C:   00002363  __modsint                          _modsint
-C:   00002399  __divsint                          _divsint
-C:   000023D1  __sdcc_external_startup            _startup
+C:   00002402  __mulint_dummy                     _mulint
+C:   0000241F  __moduint                          _moduint
+C:   0000246C  __gptrget                          _gptrget
+C:   00002488  __modsint                          _modsint
+C:   000024BE  __divsint                          _divsint
+C:   000024F6  __sdcc_external_startup            _startup
+
 ASxxxx Linker V03.00 + NoICE + sdld,  page 20.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CONST                               000023D5    00000846 =        2118. bytes (REL,CON,CODE)
+CONST                               000024FA    0000085C =        2140. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   000028D0  _keypad                            main
+C:   000029F5  _keypad                            main
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 21.
 

@@ -11,24 +11,24 @@ void move() {
 	__xdata uint16_t startAdd;
 	__xdata uint16_t targetAdd;
 	__xdata uint16_t i;
-	__xdata uint8_t size;
+	__xdata uint8_t size, o;
 	__xdata uint16_t* origin;
 	__xdata uint16_t* target;
 
 	// get input for starting address
 	setTextSize(2);
-	LCD_string_write("Enter start add.\n");
+	LCD_string_write("Enter start address:\n");
 	startAdd = getAddress();
 	write('\n');
 
-	// get input for block size
-	LCD_string_write("Enter size\n");
-	size = getByte();
+	// get input for target address
+	LCD_string_write("Enter target address:\n");
+	targetAdd = getAddress();
 	write('\n');
 
-	// get input for target address
-	LCD_string_write("Enter target add.\n");
-	targetAdd = getAddress();
+	// get input for block size
+	LCD_string_write("Enter size:\n");
+	size = getByte();
 	write('\n');
 
 	// loading screen
@@ -36,18 +36,22 @@ void move() {
 
 	// loop through and copy the contents of each memory location starting at the start address to the corresponding target address
 	for (i = 0; i < size; i++) {
+		// if we've reached the end of memory on either side
+		if ((i + startAdd == __END_RAM__) || (i + targetAdd == __END_RAM__)) break;
+
 		// move memory from startAdd to targetAdd
 
 		// not sure if this actually works
 		IOM = 0;
-		origin = (uint16_t __xdata*)(startAdd);
-		target = (uint16_t __xdata*)(targetAdd);
-		*target = *origin;
+		origin = (uint16_t __xdata*)(startAdd + i);
+		target = (uint16_t __xdata*)(targetAdd + i);
+		o = *origin;
+		*target = o;
 		IOM = 1;
 		
 		// increment both startAdd and targetAdd
-		startAdd++;
-		targetAdd++;
+		// startAdd++;
+		// targetAdd++;
 	}
 
 	LCD_string_write("Done!\n");

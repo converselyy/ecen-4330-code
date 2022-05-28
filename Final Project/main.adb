@@ -1,5 +1,6 @@
 M:main
 F:G$iowrite8$0_0$0({2}DF,SV:S),C,0,0,0,0,0
+F:G$ioread8$0_0$0({2}DF,SC:U),C,0,0,0,0,0
 F:G$delay$0_0$0({2}DF,SV:S),Z,0,0,0,0,0
 F:G$writeRegister8$0_0$0({2}DF,SV:S),Z,0,0,0,0,0
 F:G$writeRegister16$0_0$0({2}DF,SV:S),Z,0,0,0,0,0

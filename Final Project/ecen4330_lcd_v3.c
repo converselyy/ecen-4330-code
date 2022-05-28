@@ -42,7 +42,7 @@ uint8_t textsize, rotation;
 uint16_t
     textcolor,
     textbgcolor;
-uint16_t
+__xdata uint16_t
     _width,
     _height;
 
@@ -51,6 +51,20 @@ void iowrite8 (uint8_t __xdata* map_address, uint8_t d) {
 	IOM = 1;
 	*map_address = d;
 	IOM = 0;
+}
+
+/**
+ * @brief theoretically reads data from an io address
+ * 
+ * @param map_address address to read from
+ * @return uint8_t data read from io
+ */
+uint8_t ioread8 (uint8_t __xdata* map_address) {
+	__xdata uint8_t val;
+	IOM = 1;
+	val = *map_address;
+	IOM = 0;
+	return val;
 }
 
 
@@ -611,7 +625,7 @@ void asciiToDec (uint8_t d) {
 		id = id/10;
 		write(val + '0');
 	}
-	write('\n');
+	// write('\n');
 }
 
 /**
@@ -620,9 +634,9 @@ void asciiToDec (uint8_t d) {
  * @param d the hex number to be converted
  */
 void asciiToHex (uint8_t d) {
-	__xdata uint8_t val;
-	__xdata uint8_t store[2];
-	__xdata uint8_t i = 0;
+	uint8_t val;
+	uint8_t store[2];
+	uint8_t i = 0;
 	store[0] = 0;
 	store[1] = 0;
 	while (d >= 1) {

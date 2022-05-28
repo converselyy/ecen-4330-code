@@ -39,6 +39,8 @@ void menu(void) {
 	LCD_string_write("Brandon Cline\n");
 	LCD_string_write("ECEN 4330\n");
 
+	setTextSize(2);
+
 	/******* print menu options *******/
 	// 1: Basic check
 	LCD_string_write("1: Basic check\n");
@@ -83,7 +85,7 @@ void main(void) {
 
 		// get input from user
 		input = keyDetect();
-		asciiToHex(input);
+		// asciiToHex(input);
 
 		// select menu option based on input
 		switch(input) {

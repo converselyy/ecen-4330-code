@@ -12,6 +12,7 @@ void editByte(__xdata uint16_t add);
 void edit(void);
 void printFind(__xdata uint16_t start, __xdata uint8_t n, __xdata uint8_t key, __xdata uint8_t index);
 void find(void);
+void printCount(__xdata uint16_t start, __xdata uint8_t n, __xdata uint8_t key, __xdata uint8_t index, uint8_t count);
 void count(void);
 uint8_t readTemp(void);
 uint8_t readLight(void);

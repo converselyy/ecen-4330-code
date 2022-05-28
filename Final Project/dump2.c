@@ -13,29 +13,29 @@ void dumpPage(__xdata uint16_t start, __xdata uint8_t n, __xdata uint8_t type/*,
 
 	// declarations
 	__xdata uint16_t i;
-	__xdata uint8_t data, j;
+	uint8_t data;
+	__xdata uint8_t j;
 	__xdata uint16_t* ramAddress;
 
-	__xdata uint8_t high;
-	__xdata uint8_t low;
+	__xdata uint8_t high, low;
 
 	// loop through using start address and NUM constant
 	for (i = 0; i < n * type; i += type) {
 		// if we've reached the end of the RAM, just stop
-		if (i == __END_RAM__) break;
+		if (i + start == __END_RAM__) break;
 
 		// get ram address based on address we're starting from
 		IOM = 0;
-		ramAddress = (uint16_t __xdata*)(i * type + start);
+		ramAddress = (uint16_t __xdata*)((i * type) + start);
 		IOM = 1;
 
-		high = HIGHBYTE(start + i);
-		low = LOWBYTE(start + i);
+		high = HIGHBYTE(start + (i * type));
+		low = LOWBYTE(start + (i * type));
 
 		// display address
 		asciiToHex(high);
 		asciiToHex(low);
-		// asciiToHex(i + start);
+		// asciiToHex(start + i * type);
 		LCD_string_write(": ");
 
 		for (j = 0; j < type; j++) {
@@ -43,7 +43,7 @@ void dumpPage(__xdata uint16_t start, __xdata uint8_t n, __xdata uint8_t type/*,
 			// display data at address
 			IOM = 0;
 			data = *ramAddress;
-			&ramAddress++;
+			&ramAddress++; // does this even work?
 			IOM = 1;
 
 			asciiToHex(data);
@@ -83,7 +83,6 @@ void dump() {
 	address = getAddress();
 	write('\n');
 
-	// get data type
 	// get input for data type
 	LCD_string_write("Enter data type\n");
 	LCD_string_write("B-Byte, A-Word,\n");
