@@ -15,17 +15,17 @@ void printCount(__xdata uint16_t start, __xdata uint8_t n, __xdata uint8_t key, 
 
 	// declarations
 	__xdata uint16_t i;
-	__xdata uint8_t found;
+	uint8_t found;
 	__xdata uint16_t* ramAddress;
 
-	__xdata uint8_t high;
-	__xdata uint8_t low;
+	uint8_t high;
+	uint8_t low;
 
 	// print count of entries
 	if (count == 0) {
 		LCD_string_write("No matches found\n");
 	} else {
-		asciiToHex(count); // this doesn't seem to print out the correct decimal value, rework this later
+		asciiToHex(count);
 		LCD_string_write(" matches found\n");
 	}
 

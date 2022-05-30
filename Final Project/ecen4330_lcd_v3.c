@@ -1,9 +1,9 @@
 #include "ecen4330lcdh.h"
 #include "font.h"
 
-const uint8_t keypad[4][4] =	{{'1','4','7','E'},
+const uint8_t keypad[4][4] =	{{'1','4','7','F'},
 				{'2','5','8','0'},
-				{'3','6','9','F'},
+				{'3','6','9','E'},
 				{'A','B','C','D'} };
 uint8_t colloc, rowloc;
 __xdata uint8_t* lcd_address = (uint8_t __xdata*) __LCD_ADDRESS__;
@@ -60,7 +60,7 @@ void iowrite8 (uint8_t __xdata* map_address, uint8_t d) {
  * @return uint8_t data read from io
  */
 uint8_t ioread8 (uint8_t __xdata* map_address) {
-	__xdata uint8_t val;
+	uint8_t val;
 	IOM = 1;
 	val = *map_address;
 	IOM = 0;
@@ -355,7 +355,7 @@ void fillScreen (uint16_t Color) {
 	__xdata uint8_t  i, hi = Color >> 8,
               lo = Color;
 
-    blocks = (uint16_t)(len / 64);
+    blocks = (__xdata uint16_t)(len / 64);
 	setAddress(0,0,TFTWIDTH-1,TFTHEIGHT-1);
 
 	write8Reg(0x2C);
@@ -483,7 +483,7 @@ void LCD_string_write (int8_t *str)
  * 
  * @param d 
  */
-void testRAM (uint8_t d) {
+void testRAM (__xdata uint8_t d) {
 	__xdata uint32_t i;
 	__xdata uint8_t* ram_address;
 
@@ -611,11 +611,11 @@ uint16_t reverse (uint8_t d) {
 }
 
 /**
- * @brief converts an ASCII character to its corresponding decimal number
+ * @brief prints ASCII character of decimal number (doesn't seem to work)
  * 
- * @param d the character to be converted
+ * @param d the decimal number to be converted
  */
-void asciiToDec (uint8_t d) {
+void asciiToDec (__xdata uint8_t d) {
 	__xdata uint8_t val;
 	__xdata uint16_t id;
 	id = reverse(d);
@@ -629,7 +629,7 @@ void asciiToDec (uint8_t d) {
 }
 
 /**
- * @brief converts an ASCII character to its corresponding hex number INCORRECT
+ * @brief prints ASCII character of hex number
  * 
  * @param d the hex number to be converted
  */

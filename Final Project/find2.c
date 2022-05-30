@@ -57,16 +57,18 @@ void find() {
 	setTextSize(2);
 
 	// declarations
-	__xdata uint8_t key;
+	uint8_t key;
 	__xdata uint8_t size;
 	__xdata uint8_t input;
 	__xdata uint8_t page;
 	__xdata uint8_t index;
-	__xdata uint8_t i;
-	__xdata uint8_t n;
-	__xdata uint8_t found;
+	uint8_t i;
+	uint8_t n;
+	uint8_t found;
 	__xdata uint16_t address;
 	__xdata uint16_t* ramAddress;
+
+	__xdata bool first = true;
 
 	// initialize current page number
 	page = 1;
@@ -76,12 +78,12 @@ void find() {
 	// get input for byte to search for
 	LCD_string_write("Enter byte to search:\n");
 	key = getByte();
-	write('\n');								// newline for next read
+	write('\n');
 
 	// get input for starting address
 	LCD_string_write("Enter start address:\n");
 	address = getAddress();
-	write('\n');								// newline for next read
+	write('\n');
 
 	// get input for block size
 	LCD_string_write("Enter block size:\n");
@@ -100,15 +102,20 @@ void find() {
 		}
 	}
 
-	// if there are less matches than can fit on a page, only need to print that many. otherwise, print as many as can fit
-	if (n < NUM) {
-		printFind(address, n, key, index);
-	} else {
-		printFind(address, NUM, key, index);
-		index += NUM;
-	}
+	asciiToHex(n);
+	delay(500);
 	
 	do {
+		// if there are less matches than can fit on a page, only need to print that many. otherwise, print as many as can fit
+		if (n < NUM && first) {
+			printFind(address, n, key, index);
+		} else if (first) {
+			printFind(address, NUM, key, index);
+			index += NUM;
+		}
+
+		first = false;
+
 		// display buttons based on page number and number of entries
 		if (n == 0) {
 			LCD_string_write("None found!\n");

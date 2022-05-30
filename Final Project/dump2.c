@@ -12,12 +12,12 @@ void dumpPage(__xdata uint16_t start, __xdata uint8_t n, __xdata uint8_t type/*,
 	setTextSize(2);
 
 	// declarations
-	__xdata uint16_t i;
+	uint16_t i;
 	uint8_t data;
 	__xdata uint8_t j;
 	__xdata uint16_t* ramAddress;
 
-	__xdata uint8_t high, low;
+	uint8_t high, low;
 
 	// loop through using start address and NUM constant
 	for (i = 0; i < n * type; i += type) {
@@ -74,6 +74,7 @@ void dump() {
 	__xdata uint8_t size;
 	__xdata uint8_t page;
 	__xdata uint8_t input;
+	__xdata uint8_t pages;
 	__xdata uint16_t address;
 
 	page = 1;
@@ -125,14 +126,17 @@ void dump() {
 		dumpPage(address, NUM, type);
 	}
 
+	pages = size / NUM;
+
 	do {
 		// display LCD menu options
-		if (page != ((size / NUM) + 1) && size > NUM) {
-			LCD_string_write("Press B for next\n");
-		} else if (page != 1 && size > NUM) {
+		if (page != 1 && page != pages) {
 			LCD_string_write("Press A for previous\n");
-		} else {
-			LCD_string_write("Press A for previous, B for next\n");
+			LCD_string_write("Press B for next\n");
+		} else if (page != pages) {
+			LCD_string_write("Press B for next\n");
+		} else if (page != 1) {
+			LCD_string_write("Press A for previous\n");
 		}
 
 		LCD_string_write("Press 1 for menu\n");
@@ -142,7 +146,7 @@ void dump() {
 		/******** need a way to prevent overflow on the last page ********/
 
 		// if statements for input
-		if (input == 'B' && page != ((size / NUM) + 1)) {	// next
+		if (input == 'B' && page != pages) {	// next
 			address += NUM;
 			dumpPage(address, NUM, type);
 			page++;

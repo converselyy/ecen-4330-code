@@ -76,8 +76,8 @@ void testCircles(uint8_t radius, uint16_t color);
 
 
 uint8_t keyDetect();
-void testRAM(uint8_t d);
+void testRAM(__xdata uint8_t d);
 void freeType();
 uint16_t reverse(uint8_t d);
-void asciiToDec(uint8_t d);
+void asciiToDec(__xdata uint8_t d);
 void asciiToHex(uint8_t d);

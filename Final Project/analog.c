@@ -37,7 +37,6 @@ void displayTemp(uint8_t t) {
 	// LCD setup
 	fillScreen(GRAY);
 	setCursor(0, 0);
-	setTextSize(2);
 
 	LCD_string_write("Temperature: ");
 
@@ -57,7 +56,6 @@ void displayLight(uint8_t l) {
 	// LCD setup
 	fillScreen(GRAY);
 	setCursor(0, 0);
-	setTextSize(2);
 
 	LCD_string_write("Light level: ");
 
@@ -80,11 +78,12 @@ void temperature() {
 	setTextSize(2);
 
 	// declarations
-	__xdata uint8_t temp, input;
+	__xdata uint8_t input;
+	uint8_t temp;
 
 	// read temperature from address
-	temp = readTemp();
-	// temp = ioread8(temp_address);
+	// temp = readTemp();
+	temp = ioread8(temp_address);
 
 	displayTemp(temp);
 
@@ -94,7 +93,7 @@ void temperature() {
 
 		if (input == '1') break;
 
-		delay(500);
+		// delay(500);
 		// temp = readTemp();
 		temp = ioread8(temp_address);
 		displayTemp(temp);
@@ -113,11 +112,12 @@ void light() {
 	setTextSize(2);
 
 	// declarations
-	__xdata uint8_t light, input;
+	__xdata uint8_t input;
+	uint8_t light;
 
 	// read temperature from address
-	light = readLight();
-	// light = ioread8(light_address);
+	// light = readLight();
+	light = ioread8(light_address);
 
 	displayLight(light);
 
@@ -127,7 +127,7 @@ void light() {
 
 		if (input == '1') break;
 
-		delay(500);
+		// delay(500);
 		// light = readLight();
 		light = ioread8(light_address);
 		displayLight(light);
