@@ -64,7 +64,6 @@ void count() {
 	uint8_t n = 0;
 	uint8_t found;
 	uint8_t size;
-	__xdata uint8_t input;
 	__xdata uint8_t page = 1;
 	uint8_t index = 0;
 	uint8_t pages;
@@ -90,10 +89,10 @@ void count() {
 	for (i = 0; i < size; i++) {
 		IOM = 0;
 		ramAddress = (uint16_t __xdata*)(address + i);
-		found = *ramAddress;
+		input = *ramAddress;
 		IOM = 1;
 
-		if (found == key) n++;
+		if (input == key) n++;
 	}
 
 	// display first page based on number of matches
@@ -105,7 +104,7 @@ void count() {
 	// }
 
 	// determine number of pages
-	pages = size / NUM;
+	pages = n / NUM;
 
 	// loop until input is detected
 	do {

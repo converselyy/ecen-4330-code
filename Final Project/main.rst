@@ -34,7 +34,7 @@
                                      34 	.globl _RS0
                                      35 	.globl _OV
                                      36 	.globl _F1
-                                     37 	.globl _P
+                                   ..   37 	.globl _P
                                      38 	.globl _PS
                                      39 	.globl _PT1
                                      40 	.globl _PX1

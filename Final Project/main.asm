@@ -123,12 +123,15 @@
 	.globl _DPL
 	.globl _SP
 	.globl _P0
+	.globl _printFind_PARM_4
+	.globl _printFind_PARM_2
 	.globl __height
 	.globl __width
 	.globl _printCount_PARM_5
 	.globl _printCount_PARM_4
 	.globl _printCount_PARM_3
 	.globl _printCount_PARM_2
+	.globl _printFind_PARM_3
 	.globl _drawChar_PARM_6
 	.globl _drawChar_PARM_5
 	.globl _drawChar_PARM_4
@@ -183,6 +186,8 @@
 	.globl _move
 	.globl _editByte
 	.globl _edit
+	.globl _printFind
+	.globl _find
 	.globl _printCount
 	.globl _count
 	.globl _readTemp
@@ -396,6 +401,18 @@ _move_sloc0_1_0:
 	.ds 2
 _move_sloc1_1_0:
 	.ds 2
+_printFind_PARM_3:
+	.ds 1
+_printFind_start_65536_261:
+	.ds 2
+_printFind_sloc0_1_0:
+	.ds 2
+_find_sloc0_1_0:
+	.ds 2
+_find_sloc1_1_0:
+	.ds 2
+_find_sloc2_1_0:
+	.ds 1
 _printCount_PARM_2:
 	.ds 1
 _printCount_PARM_3:
@@ -404,15 +421,15 @@ _printCount_PARM_4:
 	.ds 1
 _printCount_PARM_5:
 	.ds 1
-_count_key_65537_270:
+_count_key_65537_288:
 	.ds 1
-_count_n_65537_270:
+_count_n_65537_288:
 	.ds 1
-_count_size_65537_270:
+_count_size_65537_288:
 	.ds 1
-_count_index_65537_270:
+_count_index_65537_288:
 	.ds 1
-_count_pages_65537_270:
+_count_pages_65537_288:
 	.ds 1
 _count_sloc0_1_0:
 	.ds 1
@@ -526,7 +543,17 @@ _editByte_add_65536_253:
 	.ds 2
 _edit_input_65537_256:
 	.ds 1
-_count_page_65537_270:
+_printFind_PARM_2:
+	.ds 1
+_printFind_PARM_4:
+	.ds 1
+_find_page_65537_268:
+	.ds 1
+_find_index_65537_268:
+	.ds 1
+_find_address_65537_268:
+	.ds 2
+_count_page_65537_288:
 	.ds 1
 ;--------------------------------------------------------
 ; absolute external ram data
@@ -4599,6 +4626,599 @@ _edit:
 ;	edit.c:99: }
 	ret
 ;------------------------------------------------------------
+;Allocation info for local variables in function 'printFind'
+;------------------------------------------------------------
+;key                       Allocated with name '_printFind_PARM_3'
+;start                     Allocated with name '_printFind_start_65536_261'
+;ramAddress                Allocated to registers 
+;sloc0                     Allocated with name '_printFind_sloc0_1_0'
+;num                       Allocated with name '_printFind_PARM_2'
+;index                     Allocated with name '_printFind_PARM_4'
+;i                         Allocated with name '_printFind_i_65537_263'
+;found                     Allocated with name '_printFind_found_65537_263'
+;high                      Allocated with name '_printFind_high_65537_263'
+;low                       Allocated with name '_printFind_low_65537_263'
+;------------------------------------------------------------
+;	find3.c:1: void printFind(uint16_t start, __xdata uint8_t num, uint8_t key, __xdata uint8_t index) {
+;	-----------------------------------------
+;	 function printFind
+;	-----------------------------------------
+_printFind:
+	mov	_printFind_start_65536_261,dpl
+	mov	(_printFind_start_65536_261 + 1),dph
+;	find3.c:3: fillScreen(GRAY);
+	mov	dptr,#0xd6ba
+	lcall	_fillScreen
+;	find3.c:4: setCursor(0, 0);
+	clr	a
+	mov	_setCursor_PARM_2,a
+	mov	(_setCursor_PARM_2 + 1),a
+	mov	dptr,#0x0000
+	lcall	_setCursor
+;	find3.c:5: setTextSize(2);
+	mov	dpl,#0x02
+	lcall	_setTextSize
+;	find3.c:15: for (i = 0; i < num; i++) {
+	mov	dptr,#_printFind_PARM_2
+	movx	a,@dptr
+	mov	r5,a
+	mov	dptr,#_printFind_PARM_4
+	movx	a,@dptr
+	mov	r4,a
+	mov	r3,#0x00
+00107$:
+	clr	c
+	mov	a,r3
+	subb	a,r5
+	jc	00128$
+	ret
+00128$:
+;	find3.c:16: if (start + i == __END_RAM__) break;
+	mov	ar1,r3
+	mov	r2,#0x00
+	mov	_printFind_sloc0_1_0,_printFind_start_65536_261
+	mov	(_printFind_sloc0_1_0 + 1),(_printFind_start_65536_261 + 1)
+	mov	a,r1
+	add	a,_printFind_sloc0_1_0
+	mov	r0,a
+	mov	a,r2
+	addc	a,(_printFind_sloc0_1_0 + 1)
+	mov	r7,a
+	cjne	r0,#0xff,00129$
+	cjne	r7,#0xff,00129$
+	ret
+00129$:
+;	find3.c:18: IOM = 0;
+;	assignBit
+	clr	_P3_4
+;	find3.c:19: ramAddress = (uint16_t __xdata*)(start + i);
+	mov	a,r1
+	add	a,_printFind_sloc0_1_0
+	mov	r6,a
+	mov	a,r2
+	addc	a,(_printFind_sloc0_1_0 + 1)
+	mov	r7,a
+	mov	dpl,r6
+	mov	dph,r7
+;	find3.c:20: found = *ramAddress;
+	movx	a,@dptr
+;	find3.c:23: if (found == key) {
+	mov	r7,a
+	cjne	a,_printFind_PARM_3,00108$
+;	find3.c:26: asciiToHex(index++);
+	mov	dpl,r4
+	inc	r4
+	push	ar5
+	push	ar4
+	push	ar3
+	push	ar2
+	push	ar1
+	lcall	_asciiToHex
+;	find3.c:27: LCD_string_write(": ");
+	mov	dptr,#___str_21
+	mov	b,#0x80
+	lcall	_LCD_string_write
+	pop	ar1
+	pop	ar2
+	pop	ar3
+	pop	ar4
+	pop	ar5
+;	find3.c:29: high = HIGHBYTE(start + i);
+	mov	a,r1
+	add	a,_printFind_sloc0_1_0
+	mov	a,r2
+	addc	a,(_printFind_sloc0_1_0 + 1)
+	mov	dpl,a
+;	find3.c:30: low = LOWBYTE(start + i);
+	mov	r6,_printFind_start_65536_261
+	mov	a,r3
+	add	a,r6
+	mov	r6,a
+;	find3.c:33: asciiToHex(high);
+	push	ar6
+	push	ar5
+	push	ar4
+	push	ar3
+	lcall	_asciiToHex
+	pop	ar3
+	pop	ar4
+	pop	ar5
+	pop	ar6
+;	find3.c:34: asciiToHex(low);
+	mov	dpl,r6
+	push	ar5
+	push	ar4
+	push	ar3
+	lcall	_asciiToHex
+;	find3.c:36: write('\n');
+	mov	dpl,#0x0a
+	lcall	_write
+	pop	ar3
+	pop	ar4
+	pop	ar5
+00108$:
+;	find3.c:15: for (i = 0; i < num; i++) {
+	inc	r3
+;	find3.c:39: }
+	ljmp	00107$
+;------------------------------------------------------------
+;Allocation info for local variables in function 'find'
+;------------------------------------------------------------
+;ramAddress                Allocated to registers 
+;sloc0                     Allocated with name '_find_sloc0_1_0'
+;sloc1                     Allocated with name '_find_sloc1_1_0'
+;sloc2                     Allocated with name '_find_sloc2_1_0'
+;key                       Allocated with name '_find_key_65537_268'
+;i                         Allocated with name '_find_i_65537_268'
+;n                         Allocated with name '_find_n_65537_268'
+;size                      Allocated with name '_find_size_65537_268'
+;input                     Allocated with name '_find_input_65537_268'
+;page                      Allocated with name '_find_page_65537_268'
+;index                     Allocated with name '_find_index_65537_268'
+;pages                     Allocated with name '_find_pages_65537_268'
+;address                   Allocated with name '_find_address_65537_268'
+;------------------------------------------------------------
+;	find3.c:43: void find() {
+;	-----------------------------------------
+;	 function find
+;	-----------------------------------------
+_find:
+;	find3.c:45: fillScreen(GRAY);
+	mov	dptr,#0xd6ba
+	lcall	_fillScreen
+;	find3.c:46: setCursor(0, 0);
+	clr	a
+	mov	_setCursor_PARM_2,a
+	mov	(_setCursor_PARM_2 + 1),a
+	mov	dptr,#0x0000
+	lcall	_setCursor
+;	find3.c:47: setTextSize(2);
+	mov	dpl,#0x02
+	lcall	_setTextSize
+;	find3.c:56: __xdata uint8_t page = 1;
+	mov	dptr,#_find_page_65537_268
+	mov	a,#0x01
+	movx	@dptr,a
+;	find3.c:63: LCD_string_write("Enter byte to search:\n");
+	mov	dptr,#___str_26
+	mov	b,#0x80
+	lcall	_LCD_string_write
+;	find3.c:64: key = getByte();
+	lcall	_getByte
+	mov	r7,dpl
+;	find3.c:65: write('\n');
+	mov	dpl,#0x0a
+	push	ar7
+	lcall	_write
+;	find3.c:68: LCD_string_write("Enter start address:\n");
+	mov	dptr,#___str_16
+	mov	b,#0x80
+	lcall	_LCD_string_write
+;	find3.c:69: address = getAddress();
+	lcall	_getAddress
+	mov	r5,dpl
+	mov	r6,dph
+	mov	dptr,#_find_address_65537_268
+	mov	a,r5
+	movx	@dptr,a
+	mov	a,r6
+	inc	dptr
+	movx	@dptr,a
+;	find3.c:70: write('\n');
+	mov	dpl,#0x0a
+	push	ar6
+	push	ar5
+	lcall	_write
+;	find3.c:73: LCD_string_write("Enter block size:\n");
+	mov	dptr,#___str_27
+	mov	b,#0x80
+	lcall	_LCD_string_write
+;	find3.c:74: size = getByte();
+	lcall	_getByte
+	mov	r4,dpl
+;	find3.c:75: write('\n');
+	mov	dpl,#0x0a
+	push	ar4
+	lcall	_write
+	pop	ar4
+	pop	ar5
+	pop	ar6
+	pop	ar7
+;	find3.c:78: for (i = 0; i < size; i++) {
+	mov	r3,#0x00
+	mov	r2,#0x00
+00135$:
+	clr	c
+	mov	a,r2
+	subb	a,r4
+	jnc	00103$
+;	find3.c:79: IOM = 0;
+	push	ar4
+;	assignBit
+	clr	_P3_4
+;	find3.c:80: ramAddress = (uint16_t __xdata*)(address + i);
+	mov	_find_sloc0_1_0,r2
+	mov	(_find_sloc0_1_0 + 1),#0x00
+	mov	_find_sloc1_1_0,r5
+	mov	(_find_sloc1_1_0 + 1),r6
+	mov	r0,_find_sloc0_1_0
+	mov	r4,(_find_sloc0_1_0 + 1)
+	mov	a,r0
+	add	a,_find_sloc1_1_0
+	mov	r0,a
+	mov	a,r4
+	addc	a,(_find_sloc1_1_0 + 1)
+	mov	r4,a
+	mov	dpl,r0
+	mov	dph,r4
+;	find3.c:81: input = *ramAddress;
+	movx	a,@dptr
+	mov	r4,a
+;	find3.c:82: IOM = 1;
+;	assignBit
+	setb	_P3_4
+;	find3.c:84: if (input == key) n++;
+	mov	a,r4
+	cjne	a,ar7,00217$
+	sjmp	00218$
+00217$:
+	pop	ar4
+	sjmp	00136$
+00218$:
+	pop	ar4
+	inc	r3
+00136$:
+;	find3.c:78: for (i = 0; i < size; i++) {
+	inc	r2
+	sjmp	00135$
+00103$:
+;	find3.c:87: pages = size / NUM;
+	mov	r2,#0x00
+	mov	__divsint_PARM_2,#0x0f
+;	1-genFromRTrack replaced	mov	(__divsint_PARM_2 + 1),#0x00
+	mov	(__divsint_PARM_2 + 1),r2
+	mov	dpl,r4
+	mov	dph,r2
+	push	ar7
+	push	ar6
+	push	ar5
+	push	ar3
+	lcall	__divsint
+	mov	r2,dpl
+	pop	ar3
+	pop	ar5
+	pop	ar6
+	pop	ar7
+;	find3.c:91: printFind(address, NUM, key, index);
+	mov	dptr,#_printFind_PARM_2
+	mov	a,#0x0f
+	movx	@dptr,a
+	mov	_printFind_PARM_3,r7
+	mov	dptr,#_printFind_PARM_4
+	clr	a
+	movx	@dptr,a
+	mov	dpl,r5
+	mov	dph,r6
+	push	ar7
+	push	ar3
+	push	ar2
+	lcall	_printFind
+	pop	ar2
+	pop	ar3
+	pop	ar7
+;	find3.c:92: index += NUM;
+	mov	dptr,#_find_index_65537_268
+	mov	a,#0x0f
+	movx	@dptr,a
+;	find3.c:98: do {
+	clr	c
+	subb	a,r3
+	clr	a
+	rlc	a
+	mov	r6,a
+	mov	_find_sloc2_1_0,r6
+	mov	_find_sloc0_1_0,r6
+	mov	ar1,r6
+00131$:
+;	find3.c:100: if (n == 0) {
+	mov	a,r3
+	jnz	00117$
+;	find3.c:101: LCD_string_write("None found!\n");
+	mov	dptr,#___str_28
+	mov	b,#0x80
+	push	ar7
+	push	ar6
+	push	ar3
+	push	ar2
+	push	ar1
+	lcall	_LCD_string_write
+	pop	ar1
+	pop	ar2
+	pop	ar3
+	pop	ar6
+	pop	ar7
+	ljmp	00118$
+00117$:
+;	find3.c:102: } else if (page != 1 && page != pages && n > NUM) {
+	mov	dptr,#_find_page_65537_268
+	movx	a,@dptr
+	mov	r0,a
+	cjne	r0,#0x01,00220$
+	sjmp	00112$
+00220$:
+	mov	a,r0
+	cjne	a,ar2,00221$
+	sjmp	00112$
+00221$:
+	mov	a,r3
+	add	a,#0xff - 0x0f
+	jnc	00112$
+;	find3.c:103: LCD_string_write("Press A for previous\n");
+	mov	dptr,#___str_29
+	mov	b,#0x80
+	push	ar7
+	push	ar6
+	push	ar3
+	push	ar2
+	push	ar1
+	lcall	_LCD_string_write
+;	find3.c:104: LCD_string_write("Press B for next\n");
+	mov	dptr,#___str_30
+	mov	b,#0x80
+	lcall	_LCD_string_write
+	pop	ar1
+	pop	ar2
+	pop	ar3
+	pop	ar6
+	pop	ar7
+	sjmp	00118$
+00112$:
+;	find3.c:105: } else if (page != pages && n > NUM) {
+	mov	dptr,#_find_page_65537_268
+	movx	a,@dptr
+	cjne	a,ar2,00223$
+	sjmp	00108$
+00223$:
+	mov	a,r6
+	jz	00108$
+;	find3.c:106: LCD_string_write("Press B for next\n");
+	mov	dptr,#___str_30
+	mov	b,#0x80
+	push	ar7
+	push	ar6
+	push	ar3
+	push	ar2
+	push	ar1
+	lcall	_LCD_string_write
+	pop	ar1
+	pop	ar2
+	pop	ar3
+	pop	ar6
+	pop	ar7
+	sjmp	00118$
+00108$:
+;	find3.c:107: } else if (page != 1 && n > NUM) {
+	mov	dptr,#_find_page_65537_268
+	movx	a,@dptr
+	mov	r0,a
+	cjne	r0,#0x01,00225$
+	sjmp	00118$
+00225$:
+	mov	a,_find_sloc2_1_0
+	jz	00118$
+;	find3.c:108: LCD_string_write("Press A for previous\n");
+	mov	dptr,#___str_29
+	mov	b,#0x80
+	push	ar7
+	push	ar6
+	push	ar3
+	push	ar2
+	push	ar1
+	lcall	_LCD_string_write
+	pop	ar1
+	pop	ar2
+	pop	ar3
+	pop	ar6
+	pop	ar7
+00118$:
+;	find3.c:112: LCD_string_write("Press 1 for menu\n");
+	mov	dptr,#___str_10
+	mov	b,#0x80
+	push	ar7
+	push	ar6
+	push	ar3
+	push	ar2
+	push	ar1
+	lcall	_LCD_string_write
+;	find3.c:115: input = keyDetect();
+	lcall	_keyDetect
+	mov	r0,dpl
+	pop	ar1
+	pop	ar2
+	pop	ar3
+	pop	ar6
+	pop	ar7
+;	find3.c:118: if (input == '1') {
+	cjne	r0,#0x31,00227$
+	ret
+00227$:
+;	find3.c:120: } else if (input == 'B' && page != pages && n > NUM) {
+	cjne	r0,#0x42,00124$
+	mov	dptr,#_find_page_65537_268
+	movx	a,@dptr
+	mov	_find_sloc1_1_0,a
+	mov	a,r2
+	cjne	a,_find_sloc1_1_0,00230$
+	sjmp	00124$
+00230$:
+	mov	a,_find_sloc0_1_0
+	jz	00124$
+;	find3.c:121: index += NUM;
+	push	ar1
+	mov	dptr,#_find_index_65537_268
+	movx	a,@dptr
+	add	a,#0x0f
+	movx	@dptr,a
+;	find3.c:122: address += NUM;
+	mov	dptr,#_find_address_65537_268
+	movx	a,@dptr
+	mov	r1,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r4,a
+	mov	a,#0x0f
+	add	a,r1
+	mov	r1,a
+	clr	a
+	addc	a,r4
+	mov	r4,a
+	mov	dptr,#_find_address_65537_268
+	mov	a,r1
+	movx	@dptr,a
+	mov	a,r4
+	inc	dptr
+	movx	@dptr,a
+;	find3.c:123: printFind(address, NUM, key, index);
+	mov	dptr,#_find_address_65537_268
+	movx	a,@dptr
+	mov	r1,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r4,a
+	mov	dptr,#_find_index_65537_268
+	movx	a,@dptr
+	mov	r5,a
+	mov	dptr,#_printFind_PARM_2
+	mov	a,#0x0f
+	movx	@dptr,a
+	mov	_printFind_PARM_3,r7
+	mov	dptr,#_printFind_PARM_4
+	mov	a,r5
+	movx	@dptr,a
+	mov	dpl,r1
+	mov	dph,r4
+	push	ar7
+	push	ar6
+	push	ar3
+	push	ar2
+	push	ar1
+	lcall	_printFind
+	pop	ar1
+	pop	ar2
+	pop	ar3
+	pop	ar6
+	pop	ar7
+;	find3.c:124: page++;
+	mov	dptr,#_find_page_65537_268
+	mov	a,_find_sloc1_1_0
+	inc	a
+	movx	@dptr,a
+	pop	ar1
+	ljmp	00131$
+00124$:
+;	find3.c:125: } else if (input == 'A' && page != 1 && n > NUM) {
+	cjne	r0,#0x41,00232$
+	sjmp	00233$
+00232$:
+	ljmp	00131$
+00233$:
+	mov	dptr,#_find_page_65537_268
+	movx	a,@dptr
+	mov	r5,a
+	cjne	r5,#0x01,00234$
+	ljmp	00131$
+00234$:
+	mov	a,r1
+	jnz	00235$
+	ljmp	00131$
+00235$:
+;	find3.c:126: index -= NUM;
+	push	ar1
+	mov	dptr,#_find_index_65537_268
+	movx	a,@dptr
+	add	a,#0xf1
+	movx	@dptr,a
+;	find3.c:127: address -= NUM;
+	mov	dptr,#_find_address_65537_268
+	movx	a,@dptr
+	mov	r0,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r4,a
+	mov	a,r0
+	add	a,#0xf1
+	mov	r0,a
+	mov	a,r4
+	addc	a,#0xff
+	mov	r4,a
+	mov	dptr,#_find_address_65537_268
+	mov	a,r0
+	movx	@dptr,a
+	mov	a,r4
+	inc	dptr
+	movx	@dptr,a
+;	find3.c:128: printFind(address, NUM, key, index);
+	mov	dptr,#_find_address_65537_268
+	movx	a,@dptr
+	mov	r0,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r4,a
+	mov	dptr,#_find_index_65537_268
+	movx	a,@dptr
+	mov	r1,a
+	mov	dptr,#_printFind_PARM_2
+	mov	a,#0x0f
+	movx	@dptr,a
+	mov	_printFind_PARM_3,r7
+	mov	dptr,#_printFind_PARM_4
+	mov	a,r1
+	movx	@dptr,a
+	mov	dpl,r0
+	mov	dph,r4
+	push	ar7
+	push	ar6
+	push	ar5
+	push	ar3
+	push	ar2
+	push	ar1
+	lcall	_printFind
+	pop	ar1
+	pop	ar2
+	pop	ar3
+	pop	ar5
+	pop	ar6
+	pop	ar7
+;	find3.c:129: page--;
+	mov	a,r5
+	dec	a
+	mov	dptr,#_find_page_65537_268
+	movx	@dptr,a
+;	find3.c:131: } while (1);
+	pop	ar1
+;	find3.c:132: }
+	ljmp	00131$
+;------------------------------------------------------------
 ;Allocation info for local variables in function 'printCount'
 ;------------------------------------------------------------
 ;num                       Allocated with name '_printCount_PARM_2'
@@ -4639,7 +5259,7 @@ _printCount:
 	mov	a,_printCount_PARM_5
 	jnz	00102$
 ;	count3.c:15: LCD_string_write("No matches found\n");
-	mov	dptr,#___str_26
+	mov	dptr,#___str_31
 	mov	b,#0x80
 	push	ar7
 	push	ar6
@@ -4654,7 +5274,7 @@ _printCount:
 	push	ar6
 	lcall	_asciiToHex
 ;	count3.c:18: LCD_string_write(" matches found\n");
-	mov	dptr,#___str_27
+	mov	dptr,#___str_32
 	mov	b,#0x80
 	lcall	_LCD_string_write
 	pop	ar6
@@ -4738,13 +5358,13 @@ _printCount:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'count'
 ;------------------------------------------------------------
-;key                       Allocated with name '_count_key_65537_270'
+;key                       Allocated with name '_count_key_65537_288'
 ;i                         Allocated to registers r2 
-;n                         Allocated with name '_count_n_65537_270'
+;n                         Allocated with name '_count_n_65537_288'
 ;found                     Allocated to registers r4 
-;size                      Allocated with name '_count_size_65537_270'
-;index                     Allocated with name '_count_index_65537_270'
-;pages                     Allocated with name '_count_pages_65537_270'
+;size                      Allocated with name '_count_size_65537_288'
+;index                     Allocated with name '_count_index_65537_288'
+;pages                     Allocated with name '_count_pages_65537_288'
 ;address                   Allocated to registers r5 r6 
 ;ramAddress                Allocated to registers 
 ;sloc0                     Allocated with name '_count_sloc0_1_0'
@@ -4752,8 +5372,8 @@ _printCount:
 ;sloc2                     Allocated with name '_count_sloc2_1_0'
 ;sloc3                     Allocated with name '_count_sloc3_1_0'
 ;sloc4                     Allocated with name '_count_sloc4_1_0'
-;input                     Allocated with name '_count_input_65537_270'
-;page                      Allocated with name '_count_page_65537_270'
+;input                     Allocated with name '_count_input_65537_288'
+;page                      Allocated with name '_count_page_65537_288'
 ;------------------------------------------------------------
 ;	count3.c:55: void count() {
 ;	-----------------------------------------
@@ -4773,16 +5393,16 @@ _count:
 	mov	dpl,#0x02
 	lcall	_setTextSize
 ;	count3.c:68: __xdata uint8_t page = 1;
-	mov	dptr,#_count_page_65537_270
+	mov	dptr,#_count_page_65537_288
 	mov	a,#0x01
 	movx	@dptr,a
 ;	count3.c:75: LCD_string_write("Enter byte to count:\n");
-	mov	dptr,#___str_28
+	mov	dptr,#___str_33
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	count3.c:76: key = getByte();
 	lcall	_getByte
-	mov	_count_key_65537_270,dpl
+	mov	_count_key_65537_288,dpl
 ;	count3.c:77: write('\n');
 	mov	dpl,#0x0a
 	lcall	_write
@@ -4800,24 +5420,24 @@ _count:
 	push	ar5
 	lcall	_write
 ;	count3.c:85: LCD_string_write("Enter block size:\n");
-	mov	dptr,#___str_29
+	mov	dptr,#___str_27
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	count3.c:86: size = getByte();
 	lcall	_getByte
-	mov	_count_size_65537_270,dpl
+	mov	_count_size_65537_288,dpl
 ;	count3.c:87: write('\n');
 	mov	dpl,#0x0a
 	lcall	_write
 	pop	ar5
 	pop	ar6
 ;	count3.c:90: for (i = 0; i < size; i++) {
-	mov	_count_n_65537_270,#0x00
+	mov	_count_n_65537_288,#0x00
 	mov	r2,#0x00
 00132$:
 	clr	c
 	mov	a,r2
-	subb	a,_count_size_65537_270
+	subb	a,_count_size_65537_288
 	jnc	00154$
 ;	count3.c:91: IOM = 0;
 ;	assignBit
@@ -4843,19 +5463,19 @@ _count:
 	setb	_P3_4
 ;	count3.c:96: if (found == key) n++;
 	mov	a,r4
-	cjne	a,_count_key_65537_270,00133$
-	inc	_count_n_65537_270
+	cjne	a,_count_key_65537_288,00133$
+	inc	_count_n_65537_288
 00133$:
 ;	count3.c:90: for (i = 0; i < size; i++) {
 	inc	r2
 	sjmp	00132$
 00154$:
-	mov	r4,_count_n_65537_270
+	mov	r4,_count_n_65537_288
 ;	count3.c:101: printCount(address, NUM, key, index, n);
 	mov	_printCount_PARM_2,#0x0f
-	mov	_printCount_PARM_3,_count_key_65537_270
+	mov	_printCount_PARM_3,_count_key_65537_288
 	mov	_printCount_PARM_4,#0x00
-	mov	_printCount_PARM_5,_count_n_65537_270
+	mov	_printCount_PARM_5,_count_n_65537_288
 	mov	dpl,r5
 	mov	dph,r6
 	push	ar6
@@ -4863,9 +5483,9 @@ _count:
 	push	ar4
 	lcall	_printCount
 ;	count3.c:102: index += NUM;
-	mov	_count_index_65537_270,#0x0f
+	mov	_count_index_65537_288,#0x0f
 ;	count3.c:108: pages = size / NUM;
-	mov	r1,_count_size_65537_270
+	mov	r1,_count_size_65537_288
 	mov	r2,#0x00
 	mov	__divsint_PARM_2,#0x0f
 ;	1-genFromRTrack replaced	mov	(__divsint_PARM_2 + 1),#0x00
@@ -4877,11 +5497,11 @@ _count:
 	pop	ar4
 	pop	ar5
 	pop	ar6
-	mov	_count_pages_65537_270,r1
+	mov	_count_pages_65537_288,r1
 ;	count3.c:111: do {
 	clr	c
 	mov	a,#0x0f
-	subb	a,_count_n_65537_270
+	subb	a,_count_n_65537_288
 	clr	a
 	rlc	a
 	mov	r2,a
@@ -4891,21 +5511,21 @@ _count:
 	mov	_count_sloc2_1_0,r2
 00128$:
 ;	count3.c:113: if (page != 1 && page != pages && n > NUM) {
-	mov	dptr,#_count_page_65537_270
+	mov	dptr,#_count_page_65537_288
 	movx	a,@dptr
 	mov	_count_sloc3_1_0,a
 	mov	a,#0x01
 	cjne	a,_count_sloc3_1_0,00212$
 	sjmp	00112$
 00212$:
-	mov	a,_count_pages_65537_270
+	mov	a,_count_pages_65537_288
 	cjne	a,_count_sloc3_1_0,00213$
 	sjmp	00112$
 00213$:
 	mov	a,r2
 	jz	00112$
 ;	count3.c:114: LCD_string_write("Press A for previous\n");
-	mov	dptr,#___str_30
+	mov	dptr,#___str_29
 	mov	b,#0x80
 	push	ar6
 	push	ar5
@@ -4914,7 +5534,7 @@ _count:
 	push	ar0
 	lcall	_LCD_string_write
 ;	count3.c:115: LCD_string_write("Press B for next\n");
-	mov	dptr,#___str_31
+	mov	dptr,#___str_30
 	mov	b,#0x80
 	lcall	_LCD_string_write
 	pop	ar0
@@ -4925,17 +5545,17 @@ _count:
 	sjmp	00113$
 00112$:
 ;	count3.c:116: } else if (page != pages && n > NUM) {
-	mov	dptr,#_count_page_65537_270
+	mov	dptr,#_count_page_65537_288
 	movx	a,@dptr
 	mov	_count_sloc3_1_0,a
-	mov	a,_count_pages_65537_270
+	mov	a,_count_pages_65537_288
 	cjne	a,_count_sloc3_1_0,00215$
 	sjmp	00108$
 00215$:
 	mov	a,r0
 	jz	00108$
 ;	count3.c:117: LCD_string_write("Press B for next\n");
-	mov	dptr,#___str_31
+	mov	dptr,#___str_30
 	mov	b,#0x80
 	push	ar6
 	push	ar5
@@ -4958,7 +5578,7 @@ _count:
 	mov	a,_count_sloc0_1_0
 	jz	00113$
 ;	count3.c:119: LCD_string_write("Press A for previous\n");
-	mov	dptr,#___str_30
+	mov	dptr,#___str_29
 	mov	b,#0x80
 	push	ar6
 	push	ar5
@@ -4997,20 +5617,20 @@ _count:
 ;	count3.c:131: } else if (input == 'B' && page != pages && n > NUM) {
 	mov	a,#0x42
 	cjne	a,_count_sloc3_1_0,00121$
-	mov	dptr,#_count_page_65537_270
+	mov	dptr,#_count_page_65537_288
 	movx	a,@dptr
 	mov	_count_sloc4_1_0,a
-	mov	a,_count_pages_65537_270
+	mov	a,_count_pages_65537_288
 	cjne	a,_count_sloc4_1_0,00222$
 	sjmp	00121$
 00222$:
 	mov	a,_count_sloc1_1_0
 	jz	00121$
 ;	count3.c:132: index += NUM;
-	mov	r1,_count_index_65537_270
+	mov	r1,_count_index_65537_288
 	mov	a,#0x0f
 	add	a,r1
-	mov	_count_index_65537_270,a
+	mov	_count_index_65537_288,a
 ;	count3.c:133: address += NUM;
 	mov	ar1,r5
 	mov	ar7,r6
@@ -5024,8 +5644,8 @@ _count:
 	mov	ar6,r7
 ;	count3.c:134: printCount(address, NUM, key, index, n);
 	mov	_printCount_PARM_2,#0x0f
-	mov	_printCount_PARM_3,_count_key_65537_270
-	mov	_printCount_PARM_4,_count_index_65537_270
+	mov	_printCount_PARM_3,_count_key_65537_288
+	mov	_printCount_PARM_4,_count_index_65537_288
 	mov	_printCount_PARM_5,r4
 	mov	dpl,r5
 	mov	dph,r6
@@ -5041,7 +5661,7 @@ _count:
 	pop	ar5
 	pop	ar6
 ;	count3.c:135: page++;
-	mov	dptr,#_count_page_65537_270
+	mov	dptr,#_count_page_65537_288
 	mov	a,_count_sloc4_1_0
 	inc	a
 	movx	@dptr,a
@@ -5054,7 +5674,7 @@ _count:
 00224$:
 	ljmp	00128$
 00225$:
-	mov	dptr,#_count_page_65537_270
+	mov	dptr,#_count_page_65537_288
 	movx	a,@dptr
 	mov	r7,a
 	cjne	r7,#0x01,00226$
@@ -5065,9 +5685,9 @@ _count:
 	ljmp	00128$
 00227$:
 ;	count3.c:137: index -= NUM;
-	mov	a,_count_index_65537_270
+	mov	a,_count_index_65537_288
 	add	a,#0xf1
-	mov	_count_index_65537_270,a
+	mov	_count_index_65537_288,a
 ;	count3.c:138: address -= NUM;
 	mov	ar1,r5
 	mov	ar3,r6
@@ -5081,8 +5701,8 @@ _count:
 	mov	ar6,r3
 ;	count3.c:139: printCount(address, NUM, key, index, n);
 	mov	_printCount_PARM_2,#0x0f
-	mov	_printCount_PARM_3,_count_key_65537_270
-	mov	_printCount_PARM_4,_count_index_65537_270
+	mov	_printCount_PARM_3,_count_key_65537_288
+	mov	_printCount_PARM_4,_count_index_65537_288
 	mov	_printCount_PARM_5,r4
 	mov	dpl,r5
 	mov	dph,r6
@@ -5102,7 +5722,7 @@ _count:
 ;	count3.c:140: page--;
 	mov	a,r7
 	dec	a
-	mov	dptr,#_count_page_65537_270
+	mov	dptr,#_count_page_65537_288
 	movx	@dptr,a
 ;	count3.c:142: } while (1);
 ;	count3.c:143: }
@@ -5110,7 +5730,7 @@ _count:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'readTemp'
 ;------------------------------------------------------------
-;val                       Allocated with name '_readTemp_val_65536_280'
+;val                       Allocated with name '_readTemp_val_65536_298'
 ;address                   Allocated to registers 
 ;------------------------------------------------------------
 ;	analog.c:6: uint8_t readTemp() {
@@ -5133,7 +5753,7 @@ _readTemp:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'readLight'
 ;------------------------------------------------------------
-;val                       Allocated with name '_readLight_val_65536_281'
+;val                       Allocated with name '_readLight_val_65536_299'
 ;address                   Allocated to registers 
 ;------------------------------------------------------------
 ;	analog.c:21: uint8_t readLight() {
@@ -5175,7 +5795,7 @@ _displayTemp:
 	mov	dptr,#0x0000
 	lcall	_setCursor
 ;	analog.c:41: LCD_string_write("Temperature: ");
-	mov	dptr,#___str_32
+	mov	dptr,#___str_34
 	mov	b,#0x80
 	lcall	_LCD_string_write
 	pop	ar7
@@ -5190,7 +5810,7 @@ _displayTemp:
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	analog.c:47: LCD_string_write("Press key to refresh\n");
-	mov	dptr,#___str_33
+	mov	dptr,#___str_35
 	mov	b,#0x80
 ;	analog.c:48: }
 	ljmp	_LCD_string_write
@@ -5216,7 +5836,7 @@ _displayLight:
 	mov	dptr,#0x0000
 	lcall	_setCursor
 ;	analog.c:60: LCD_string_write("Light level: ");
-	mov	dptr,#___str_34
+	mov	dptr,#___str_36
 	mov	b,#0x80
 	lcall	_LCD_string_write
 	pop	ar7
@@ -5231,7 +5851,7 @@ _displayLight:
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	analog.c:66: LCD_string_write("Press key to refresh\n");
-	mov	dptr,#___str_33
+	mov	dptr,#___str_35
 	mov	b,#0x80
 ;	analog.c:67: }
 	ljmp	_LCD_string_write
@@ -5239,7 +5859,7 @@ _displayLight:
 ;Allocation info for local variables in function 'temperature'
 ;------------------------------------------------------------
 ;temp                      Allocated to registers 
-;input                     Allocated with name '_temperature_input_65537_287'
+;input                     Allocated with name '_temperature_input_65537_305'
 ;------------------------------------------------------------
 ;	analog.c:74: void temperature() {
 ;	-----------------------------------------
@@ -5285,7 +5905,7 @@ _temperature:
 ;Allocation info for local variables in function 'light'
 ;------------------------------------------------------------
 ;light                     Allocated to registers 
-;input                     Allocated with name '_light_input_65537_290'
+;input                     Allocated with name '_light_input_65537_308'
 ;------------------------------------------------------------
 ;	analog.c:108: void light() {
 ;	-----------------------------------------
@@ -5356,57 +5976,57 @@ _menu:
 	mov	dptr,#0x0000
 	lcall	_setCursor
 ;	main.c:40: LCD_string_write("Brandon Cline\n");
-	mov	dptr,#___str_35
+	mov	dptr,#___str_37
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	main.c:41: LCD_string_write("ECEN 4330\n");
-	mov	dptr,#___str_36
+	mov	dptr,#___str_38
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	main.c:43: setTextSize(2);
 	mov	dpl,#0x02
 	lcall	_setTextSize
 ;	main.c:47: LCD_string_write("1: Basic check\n");
-	mov	dptr,#___str_37
-	mov	b,#0x80
-	lcall	_LCD_string_write
-;	main.c:49: LCD_string_write("2: Dump\n");
-	mov	dptr,#___str_38
-	mov	b,#0x80
-	lcall	_LCD_string_write
-;	main.c:51: LCD_string_write("3: Check\n");
 	mov	dptr,#___str_39
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	main.c:53: LCD_string_write("A: Move\n");
+;	main.c:49: LCD_string_write("2: Dump\n");
 	mov	dptr,#___str_40
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	main.c:55: LCD_string_write("4: Edit\n");
+;	main.c:51: LCD_string_write("3: Check\n");
 	mov	dptr,#___str_41
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	main.c:57: LCD_string_write("5: Find\n");
+;	main.c:53: LCD_string_write("A: Move\n");
 	mov	dptr,#___str_42
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	main.c:59: LCD_string_write("6: Count\n");
+;	main.c:55: LCD_string_write("4: Edit\n");
 	mov	dptr,#___str_43
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	main.c:62: LCD_string_write("B: Temperature\n");
+;	main.c:57: LCD_string_write("5: Find\n");
 	mov	dptr,#___str_44
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	main.c:64: LCD_string_write("7: Light\n");
+;	main.c:59: LCD_string_write("6: Count\n");
 	mov	dptr,#___str_45
+	mov	b,#0x80
+	lcall	_LCD_string_write
+;	main.c:62: LCD_string_write("B: Temperature\n");
+	mov	dptr,#___str_46
+	mov	b,#0x80
+	lcall	_LCD_string_write
+;	main.c:64: LCD_string_write("7: Light\n");
+	mov	dptr,#___str_47
 	mov	b,#0x80
 ;	main.c:65: }
 	ljmp	_LCD_string_write
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'main'
 ;------------------------------------------------------------
-;input                     Allocated with name '_main_input_65536_295'
+;input                     Allocated with name '_main_input_65536_313'
 ;------------------------------------------------------------
 ;	main.c:67: void main(void) {
 ;	-----------------------------------------
@@ -6939,118 +7559,130 @@ ___str_25:
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_26:
-	.ascii "No matches found"
+	.ascii "Enter byte to search:"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_27:
-	.ascii " matches found"
-	.db 0x0a
-	.db 0x00
-	.area CSEG    (CODE)
-	.area CONST   (CODE)
-___str_28:
-	.ascii "Enter byte to count:"
-	.db 0x0a
-	.db 0x00
-	.area CSEG    (CODE)
-	.area CONST   (CODE)
-___str_29:
 	.ascii "Enter block size:"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_30:
+___str_28:
+	.ascii "None found!"
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_29:
 	.ascii "Press A for previous"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_31:
+___str_30:
 	.ascii "Press B for next"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
+___str_31:
+	.ascii "No matches found"
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
 ___str_32:
-	.ascii "Temperature: "
+	.ascii " matches found"
+	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_33:
-	.ascii "Press key to refresh"
+	.ascii "Enter byte to count:"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_34:
-	.ascii "Light level: "
+	.ascii "Temperature: "
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_35:
-	.ascii "Brandon Cline"
+	.ascii "Press key to refresh"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_36:
-	.ascii "ECEN 4330"
-	.db 0x0a
+	.ascii "Light level: "
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_37:
-	.ascii "1: Basic check"
+	.ascii "Brandon Cline"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_38:
-	.ascii "2: Dump"
+	.ascii "ECEN 4330"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_39:
-	.ascii "3: Check"
+	.ascii "1: Basic check"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_40:
-	.ascii "A: Move"
+	.ascii "2: Dump"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_41:
-	.ascii "4: Edit"
+	.ascii "3: Check"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_42:
-	.ascii "5: Find"
+	.ascii "A: Move"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_43:
-	.ascii "6: Count"
+	.ascii "4: Edit"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_44:
-	.ascii "B: Temperature"
+	.ascii "5: Find"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_45:
+	.ascii "6: Count"
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_46:
+	.ascii "B: Temperature"
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_47:
 	.ascii "7: Light"
 	.db 0x0a
 	.db 0x00

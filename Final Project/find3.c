@@ -84,7 +84,7 @@ void find() {
 		if (input == key) n++;
 	}
 
-	pages = size / NUM;
+	pages = n / NUM;
 
 	// display first page based on number
 	// if (n > NUM) {

@@ -11,9 +11,9 @@
 #include "edit.c"
 // #include "find.c"
 // #include "find2.c"
-// #include "find3.c"
+#include "find3.c"
 // #include "count.c"
-#include "count3.c"
+// #include "count3.c"
 #include "analog.c"
 
 /**
