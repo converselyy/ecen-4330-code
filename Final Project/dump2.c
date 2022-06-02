@@ -5,19 +5,20 @@
  * @param n number of entries to print
  * @param type data type: 1 for byte, 2 for word, 4 for double word
  */
-void dumpPage(__xdata uint16_t start, __xdata uint8_t n, __xdata uint8_t type) {
+void dumpPage(uint16_t start, __xdata uint8_t n, __xdata uint8_t type) {
 	// LCD setup
 	fillScreen(GRAY);
 	setCursor(0, 0);
 	setTextSize(2);
 
 	// declarations
-	uint8_t i;
+	__xdata uint8_t i;
 	uint8_t data;
 	__xdata uint8_t j;
 	__xdata uint16_t* ramAddress;
 
-	uint8_t high, low;
+	uint8_t high;
+	uint8_t low;
 
 	// loop through using start address and NUM constant
 	for (i = 0; i < n * type; i += type) {
@@ -56,7 +57,7 @@ void dumpPage(__xdata uint16_t start, __xdata uint8_t n, __xdata uint8_t type) {
  * @brief function to dump an amount of data stored in external RAM given a starting address, data type, and a block size
  * 
  */
-void dump() {
+void dump(void) {
 	// LCD setup
 	fillScreen(GRAY);
 	setCursor(0, 0);

@@ -1,34 +1,4 @@
 /**
- * @brief function to read input from the temperature sensor
- * 
- * @return uint8_t the output from the temp sensor's ADC
- */
-uint8_t readTemp() {
-	__xdata uint8_t val;
-	__xdata uint16_t* address;
-	IOM = 1;
-	address = (uint16_t __xdata*)(temp_address);
-	val = *address;
-	// IOM = 0;
-	return val;
-}
-
-/**
- * @brief function to read input from the light sensor
- * 
- * @return uint8_t the output from the light sensor's ADC
- */
-uint8_t readLight() {
-	__xdata uint8_t val;
-	__xdata uint16_t* address;
-	IOM = 1;
-	address = (uint16_t __xdata*)(light_address);
-	val = *address;
-	// IOM = 0;
-	return val;
-}
-
-/**
  * @brief function to refresh the temperature display
  * 
  * @param t the current temperature
@@ -71,14 +41,14 @@ void displayLight(uint8_t l) {
  * maybe change color of the screen based on temperature
  * 
  */
-void temperature() {
+void temperature(void) {
 	// LCD setup
 	fillScreen(GRAY);
 	setCursor(0, 0);
 	setTextSize(2);
 
 	// declarations
-	__xdata uint8_t input;
+	// __xdata uint8_t input;
 	uint8_t temp;
 
 	// read temperature from address
@@ -89,9 +59,9 @@ void temperature() {
 
 	// wait for user to press '0', refresh temperature while waiting
 	while (1) {
-		input = keyDetect();
+		temp = keyDetect();
 
-		if (input == '1') break;
+		if (temp == '1') break;
 
 		// delay(500);
 		// temp = readTemp();
@@ -105,14 +75,14 @@ void temperature() {
  * maybe change brightness of the screen based on the light level
  * 
  */
-void light() {
+void light(void) {
 	// LCD setup
 	fillScreen(GRAY);
 	setCursor(0, 0);
 	setTextSize(2);
 
 	// declarations
-	__xdata uint8_t input;
+	// __xdata uint8_t input;
 	uint8_t light;
 
 	// read temperature from address
@@ -123,9 +93,9 @@ void light() {
 
 	// wait for user to press '0', refresh light level while waiting
 	while (1) {
-		input = keyDetect();
+		light = keyDetect();
 
-		if (input == '1') break;
+		if (light == '1') break;
 
 		// delay(500);
 		// light = readLight();

@@ -1,19 +1,18 @@
-#include <stdbool.h>
 #include "ecen4330_lcd_v3.c"
 
 #include "prototypes.h"
 #include "getFunctions.c"
 
 // function includes
-// #include "dump2.c"
+#include "dump2.c"
 #include "check.c"
 #include "move.c"
 #include "edit.c"
 // #include "find.c"
 // #include "find2.c"
-#include "find3.c"
+// #include "find3.c"
 // #include "count.c"
-// #include "count3.c"
+#include "count3.c"
 #include "analog.c"
 
 /**
@@ -88,11 +87,11 @@ void main(void) {
 		// select menu option based on input
 		switch(input) {
 			case '1': basic(); break;
-			// case '2': dump(); break;
+			case '2': dump(); break;
 			case '3': check(); break;
 			case 'A': move(); break;
 			case '4': edit(); break;
-			// case '5': find(); break;
+			case '5': count(); break;
 			case '6': count(); break;
 			case 'B': temperature(); break;
 			case '7': light(); break;

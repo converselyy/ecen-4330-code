@@ -1,13 +1,14 @@
-void printCount(uint16_t start, uint8_t num, uint8_t key, uint8_t index, uint8_t count) {
+void printCount(uint16_t start, uint8_t num, uint8_t key, __xdata uint8_t index, uint8_t count) {
 	// LCD setup
 	fillScreen(GRAY);
 	setCursor(0, 0);
 	setTextSize(2);
 
 	// declarations
-	uint8_t i;
+	__xdata uint8_t i;
 	uint8_t found;
-	uint8_t high, low;
+	__xdata uint8_t high;
+	__xdata uint8_t low;
 	__xdata uint16_t* ramAddress;
 
 	// display number of matches found
@@ -20,29 +21,20 @@ void printCount(uint16_t start, uint8_t num, uint8_t key, uint8_t index, uint8_t
 
 	// loop through results to generate a page
 	for (i = 0; i < num; i++) {
-		// if (start + i == __END_RAM__) break;
+		if (start + i == __END_RAM__) break;
 
 		IOM = 0;
 		ramAddress = (uint16_t __xdata*)(start + i);
 		found = *ramAddress;
 		// IOM = 1;
 
-		high = HIGHBYTE(start + i);
-		low = LOWBYTE(start + i);
-
-		// asciiToHex(high);
-		// asciiToHex(low);
-
-		// // // write(' ');
-		// asciiToHex(key);
-		// write(' ');
-		// asciiToHex(found);
-		// write('\n');
-
 		if (found == key) {
 			// display index and address
 			asciiToHex(index++);
 			LCD_string_write(": ");
+
+			high = HIGHBYTE(start + i);
+			low = LOWBYTE(start + i);
 
 			// display address
 			asciiToHex(high);
@@ -52,7 +44,7 @@ void printCount(uint16_t start, uint8_t num, uint8_t key, uint8_t index, uint8_t
 	}
 }
 
-void count() {
+void count(void) {
 	// LCD setup
 	fillScreen(GRAY);
 	setCursor(0, 0);
@@ -60,14 +52,14 @@ void count() {
 
 	// declarations
 	uint8_t key;
-	uint8_t i;
+	__xdata uint8_t i;
 	uint8_t n = 0;
 	uint8_t found;
 	uint8_t size;
 	__xdata uint8_t page = 1;
-	uint8_t index = 0;
-	uint8_t pages;
-	uint16_t address;
+	__xdata uint8_t index = 0;
+	__xdata uint8_t pages;
+	__xdata uint16_t address;
 	__xdata uint16_t* ramAddress;
 
 	// get byte to count
@@ -89,10 +81,10 @@ void count() {
 	for (i = 0; i < size; i++) {
 		IOM = 0;
 		ramAddress = (uint16_t __xdata*)(address + i);
-		input = *ramAddress;
+		found = *ramAddress;
 		IOM = 1;
 
-		if (input == key) n++;
+		if (found == key) n++;
 	}
 
 	// display first page based on number of matches
@@ -122,17 +114,17 @@ void count() {
 		LCD_string_write("Press 1 for menu\n");
 
 		// wait for input
-		input = keyDetect();
+		found = keyDetect();
 
 		// print another page based on input
-		if (input == '1') {
+		if (found == '1') {
 			break;
-		} else if (input == 'B' && page != pages && n > NUM) {
+		} else if (found == 'B' && page != pages && n > NUM) {
 			index += NUM;
 			address += NUM;
 			printCount(address, NUM, key, index, n);
 			page++;
-		} else if (input == 'A' && page != 1 && n > NUM) {
+		} else if (found == 'A' && page != 1 && n > NUM) {
 			index -= NUM;
 			address -= NUM;
 			printCount(address, NUM, key, index, n);

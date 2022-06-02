@@ -69,12 +69,11 @@ uint8_t ioread8 (uint8_t __xdata* map_address) {
 
 
 
-void delay (int16_t d)
-{
+void delay (int16_t d) {
 	__xdata int i,j;
-	for (i=0;i<d;i++)
-	{
-		for (j=0;j<1000;j++);
+
+	for (i = 0; i < d; i++){
+		for (j = 0; j < 1000; j++);
 	}
 }
 
@@ -136,7 +135,7 @@ void setTextColor (uint16_t x, uint16_t y) {
  */
 void setTextSize (uint8_t s) {
 	if (s > 8) return;
-	textsize = (s>0) ? s : 1 ;
+	textsize = (s > 0) ? s : 1 ;
 }
 
 /**
@@ -224,7 +223,8 @@ void TFT_LCD_INIT (void) {
     writeRegister8(ILI9341_VCOMCONTROL2, 0xaa);
     writeRegister8(ILI9341_MEMCONTROL, ILI9341_MADCTL_MY | ILI9341_MADCTL_BGR);
     write8Reg(ILI9341_PIXELFORMAT);
-	write8Data(0x55);write8Data(0x00);
+	write8Data(0x55);
+	write8Data(0x00);
     writeRegister16(ILI9341_FRAMECONTROL, 0x001B);
 
     writeRegister8(ILI9341_ENTRYMODE, 0x07);
@@ -233,7 +233,7 @@ void TFT_LCD_INIT (void) {
     delay(150);
     writeRegister8(ILI9341_DISPLAYON, 0);
     delay(500);
-	setAddress(0,0,_width-1,_height-1);
+	setAddress(0, 0, _width-1, _height-1);
 }
 
 /**
@@ -243,11 +243,11 @@ void TFT_LCD_INIT (void) {
  * @param y3 y-coordinate
  * @param color1 color of pixel
  */
-void drawPixel(uint16_t x3,uint16_t y3,uint16_t color1)
-{
+void drawPixel(uint16_t x3,uint16_t y3,uint16_t color1) {
 	setAddress(x3,y3,x3+1,y3+1);
 
-    CD=0; write8(0x2C);
+    CD = 0;
+	write8(0x2C);
 
 	CD = 1;
 	write8(color1>>8);write8(color1);
@@ -273,12 +273,13 @@ void drawCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color){
     drawPixel(x0+r, y0  , color);
     drawPixel(x0-r, y0  , color);
 
-    while (x<y) {
+    while (x < y) {
         if (f >= 0) {
             y--;
             ddF_y += 2;
             f += ddF_y;
         }
+
         x++;
         ddF_x += 2;
         f += ddF_x;
@@ -301,43 +302,36 @@ void drawCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color){
  * @param color color of the circles
  */
 void testCircles (uint8_t radius, uint16_t color) {
-	__xdata int  x, y, r2 = radius * 2, w = _width  + radius, h = _height + radius;
+	__xdata int x, y, r2 = radius * 2, w = _width  + radius, h = _height + radius;
 
-	for(x=0; x<w; x+=r2) {
-		for(y=0; y<h; y+=r2) {
-		drawCircle(x, y, radius, color);
+	for (x = 0; x < w; x += r2) {
+		for (y = 0; y < h; y += r2) {
+			drawCircle(x, y, radius, color);
 		}
 	}
 }
 
 void fillRect (uint16_t x,uint16_t y,uint16_t w,uint16_t h,uint16_t color) {
-	if ((x >= TFTWIDTH) || (y >= TFTHEIGHT))
-	{
+	if ((x >= TFTWIDTH) || (y >= TFTHEIGHT)) {
 		return;
 	}
 
-	if ((x+w-1) >= TFTWIDTH)
-	{
+	if ((x+w-1) >= TFTWIDTH) {
 		w = TFTWIDTH-x;
 	}
 
-	if ((y+h-1) >= TFTHEIGHT)
-	{
+	if ((y+h-1) >= TFTHEIGHT) {
 		h = TFTHEIGHT-y;
 	}
 
-	setAddress(x, y, x+w-1, y+h-1);
-
+	setAddress(x, y, x + w - 1, y + h - 1);
 
 	write8Reg(0x2C);
 	CD = 1;
-	for(y=h; y>0; y--)
-	{
-		for(x=w; x>0; x--)
-		{
 
+	for (y = h; y > 0; y--) {
+		for(x = w; x > 0; x--) {
 			write8(color>>8); write8(color);
-
 		}
 	}
 }
@@ -356,25 +350,26 @@ void fillScreen (uint16_t Color) {
               lo = Color;
 
     blocks = (__xdata uint16_t)(len / 64);
-	setAddress(0,0,TFTWIDTH-1,TFTHEIGHT-1);
+	setAddress(0, 0, TFTWIDTH-1, TFTHEIGHT-1);
 
 	write8Reg(0x2C);
-		CD = 1;
-		write8(hi); write8(lo);
+	CD = 1;
+	write8(hi);
+	write8(lo);
 
-		len--;
-		while (blocks--) {
-      i = 16;
-      do {
+	len--;
+	while (blocks--) {
+		i = 16;
 
-				write8(hi); write8(lo);write8(hi); write8(lo);
-				write8(hi); write8(lo);write8(hi); write8(lo);
-      } while(--i);
+		do {
+			write8(hi); write8(lo);write8(hi); write8(lo);
+			write8(hi); write8(lo);write8(hi); write8(lo);
+		} while(--i);
     }
+
     for (i = (char)len & 63; i--; ) {
-
-      write8(hi); write8(lo);
-
+      write8(hi);
+	  write8(lo);
     }
 }
 /**
@@ -387,9 +382,9 @@ void fillScreen (uint16_t Color) {
  * @param bg background color of the character
  * @param size font size of the character
  */
-void drawChar (int16_t x, int16_t y, uint8_t c,uint16_t color, uint16_t bg, uint8_t size) {
+void drawChar (int16_t x, int16_t y, uint8_t c, uint16_t color, uint16_t bg, uint8_t size) {
 	if ((x >=TFTWIDTH) ||
-	    (y >=TFTHEIGHT)           ||
+	    (y >=TFTHEIGHT) ||
 	    ((x + 6 * size - 1) < 0) ||
 	    ((y + 8 * size - 1) < 0))
 	{
@@ -398,40 +393,28 @@ void drawChar (int16_t x, int16_t y, uint8_t c,uint16_t color, uint16_t bg, uint
 
 	__xdata int8_t i;
 
-	for (i=0; i<6; i++ )
-	{
+	for (i = 0; i < 6; i++)	{
 		__xdata uint8_t line;
 
-		if (i == 5)
-		{
+		if (i == 5) {
 			line = 0x0;
-		}
-		else
-		{
+		} else {
 			line = pgm_read_byte(font+(c*5)+i);
 		}
 
 		__xdata int8_t j;
 
-		for (j = 0; j<8; j++)
-		{
-			if (line & 0x1)
-			{
-				if (size == 1)
-				{
+		for (j = 0; j < 8; j++) {
+			if (line & 0x1) {
+				if (size == 1) {
 					drawPixel(x+i, y+j, color);
-				}
-				else {
+				} else {
 					fillRect(x+(i*size), y+(j*size), size, size, color);
 				}
-			} else if (bg != color)
-			{
-				if (size == 1)
-				{
+			} else if (bg != color) {
+				if (size == 1) {
 					drawPixel(x+i, y+j, bg);
-				}
-				else
-				{
+				} else {
 					fillRect(x+i*size, y+j*size, size, size, bg);
 				}
 			}
@@ -439,7 +422,6 @@ void drawChar (int16_t x, int16_t y, uint8_t c,uint16_t color, uint16_t bg, uint
 			line >>= 1;
 		}
 	}
-
 }
 
 /**
@@ -449,16 +431,12 @@ void drawChar (int16_t x, int16_t y, uint8_t c,uint16_t color, uint16_t bg, uint
  */
 void write (uint8_t c)
 {
-	if (c == '\n')
-	{
+	if (c == '\n') {
 		cursor_y += textsize*8;
 		cursor_x  = 0;
-	}
-	else if (c == '\r')
-	{
-	}
-	else
-	{
+	} else if (c == '\r') {
+
+	} else {
 		drawChar(cursor_x, cursor_y, c, textcolor, textbgcolor, textsize);
 		cursor_x += textsize*6;
 	}
@@ -469,11 +447,10 @@ void write (uint8_t c)
  * 
  * @param str string to be written
  */
-void LCD_string_write (int8_t *str)
-{
+void LCD_string_write (int8_t *str) {
 	__xdata int16_t i;
-	for (i=0;str[i]!=0;i++)
-	{
+
+	for (i = 0; str[i] != 0; i++) {
 		write(str[i]);
 	}
 }
@@ -502,15 +479,13 @@ void testRAM (__xdata uint8_t d) {
 void freeType () {
 	__xdata uint8_t count = 0;
 	__xdata uint8_t d;
+
 	while (1) {
-
-
 		if (count == 8) {
 			d = '\n';
 			count = 0;
 			write(d);
-		}
-		else {
+		} else {
 			d = keyDetect();
 			write(d);
 		}
@@ -526,17 +501,14 @@ void freeType () {
  */
 uint8_t keyDetect () {
 	__KEYPAD_PORT__ = 0xF0;
-	do
-	{
+	do {
 		__KEYPAD_PORT__ = 0xF0;
 		colloc = __KEYPAD_PORT__;
 		colloc&= 0xF0;
 	} while (colloc != 0xF0);
 
-	do
-	{
-		do
-		{
+	do {
+		do {
 			delay(20);
 			colloc = (__KEYPAD_PORT__ & 0xF0);
 		} while (colloc == 0xF0);
@@ -545,55 +517,43 @@ uint8_t keyDetect () {
 		colloc = (__KEYPAD_PORT__ & 0xF0);
 	} while (colloc == 0xF0);
 
-	while (1)
-	{
+	while (1) {
 		__KEYPAD_PORT__= 0xFE;
 		colloc = (__KEYPAD_PORT__ & 0xF0);
-		if (colloc != 0xF0)
-		{
+		if (colloc != 0xF0) {
 			rowloc = 0;
 			break;
 		}
 
 		__KEYPAD_PORT__ = 0xFD;
 		colloc = (__KEYPAD_PORT__ & 0xF0);
-		if (colloc != 0xF0)
-		{
+		if (colloc != 0xF0) {
 			rowloc = 1;
 			break;
 		}
 
 		__KEYPAD_PORT__ = 0xFB;
 		colloc = (__KEYPAD_PORT__ & 0xF0);
-		if (colloc != 0xF0)
-		{
+		if (colloc != 0xF0) {
 			rowloc = 2;
 			break;
 		}
 
 		__KEYPAD_PORT__ = 0xF7;
 		colloc = (__KEYPAD_PORT__ & 0xF0);
-		if (colloc != 0xF0)
-		{
+		if (colloc != 0xF0) {
 			rowloc = 3;
 			break;
 		}
 	}
 
-	if (colloc == 0xE0)
-	{
+	if (colloc == 0xE0) {
 		return (keypad[rowloc][0]);
-	}
-	else if (colloc == 0xD0)
-	{
+	} else if (colloc == 0xD0) {
 		return (keypad[rowloc][1]);
-	}
-	else if (colloc == 0xB0)
-	{
+	} else if (colloc == 0xB0) {
 		return (keypad[rowloc][2]);
-	}
-	else
-	{
+	} else {
 		return (keypad[rowloc][3]);
 	}
 }
@@ -601,10 +561,10 @@ uint8_t keyDetect () {
 uint16_t reverse (uint8_t d) {
 	__xdata uint16_t rev = 0;
 	__xdata uint16_t val = 0;
-	while (d >= 1) {
 
-		val = d%10;
-		d = d/10;
+	while (d >= 1) {
+		val = d % 10;
+		d = d / 10;
 		rev = rev * 10 + val;
 	}
 	return rev;
@@ -622,7 +582,7 @@ void asciiToDec (__xdata uint8_t d) {
 	while (id >= 1){
 
 		val = id % 10;
-		id = id/10;
+		id = id / 10;
 		write(val + '0');
 	}
 	// write('\n');
@@ -639,19 +599,19 @@ void asciiToHex (uint8_t d) {
 	uint8_t i = 0;
 	store[0] = 0;
 	store[1] = 0;
-	while (d >= 1) {
 
+	while (d >= 1) {
 		val = d % 16;
 		d = d/16;
 		if (val <= 9) {
-
 			store[i] = val + '0';
-		}
-		else {
+		} else {
 			store[i] = (val%10) + 'A';
 		}
+
 		i++;
 	}
+
 	write(store[1]);
 	write(store[0]);
 }

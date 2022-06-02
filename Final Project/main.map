@@ -68,9 +68,9 @@ CABS                                00000000    00000000 =           0. bytes (A
       -----  --------------------------------   ------------------------
 C:   00000021  s_SSEG                          
 C:   00000022  l_GSINIT3                       
-C:   00000024  l_XSEG                          
-C:   00000025  s_XISEG                         
+C:   00000029  l_XSEG                          
 C:   0000002A  l_GSINIT4                       
+C:   0000002A  s_XISEG                         
 C:   00000035  s_GSINIT4                       
 C:   0000005F  s_GSINIT                        
 C:   0000005F  s_GSINIT5                       
@@ -79,10 +79,10 @@ C:   00000076  s_GSFINAL
 C:   00000079  s_CSEG                          
 C:   000000DF  l_SSEG                          
 C:   00000100  l_IRAM                          
-C:   000007DF  l_CONST                         
-C:   00001F2F  l_CSEG                          
-C:   00001FA8  s_CONST                         
-C:   00002787  s_XINIT                         
+C:   00000805  l_CONST                         
+C:   00001F7A  l_CSEG                          
+C:   00001FF3  s_CONST                         
+C:   000027F8  s_XINIT                         
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
 Hexadecimal  [32-Bits]
@@ -259,11 +259,10 @@ DSEG                                00000000    0000006E =         110. bytes (R
      00000054  _drawChar_PARM_4                   main
      00000056  _drawChar_PARM_5                   main
      00000058  _drawChar_PARM_6                   main
-     00000068  _printFind_PARM_3                  main
-     00000072  _printCount_PARM_2                 main
-     00000073  _printCount_PARM_3                 main
-     00000074  _printCount_PARM_4                 main
-     00000075  _printCount_PARM_5                 main
+     0000006E  _printCount_PARM_2                 main
+     0000006F  _printCount_PARM_3                 main
+     00000070  _printCount_PARM_5                 main
+
 ASxxxx Linker V03.00 + NoICE + sdld,  page 8.
 Hexadecimal  [32-Bits]
 
@@ -303,14 +302,15 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-XSEG                                00000001    00000024 =          36. bytes (REL,CON,XDATA)
+XSEG                                00000001    00000029 =          41. bytes (REL,CON,XDATA)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
 D:   00000001  __width                            main
 D:   00000003  __height                           main
-D:   0000001E  _printFind_PARM_2                  main
-D:   0000001F  _printFind_PARM_4                  main
+D:   00000019  _dumpPage_PARM_2                   main
+D:   0000001A  _dumpPage_PARM_3                   main
+D:   00000025  _printCount_PARM_4                 main
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 11.
 Hexadecimal  [32-Bits]
@@ -389,7 +389,7 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000079    00001F2F =        7983. bytes (REL,CON,CODE)
+CSEG                                00000079    00001F7A =        8058. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -422,50 +422,49 @@ C:   00000FBA  _convertAsciiHex                   main
 C:   00000FD2  _writeSomeLines                    main
 C:   000010BE  _getAddress                        main
 C:   00001125  _getByte                           main
-C:   00001164  _check                             main
-C:   000012A0  _basic                             main
-C:   00001336  _move                              main
-C:   00001439  _editByte                          main
-C:   000014F0  _edit                              main
-C:   000015E1  _printFind                         main
-C:   0000169A  _find                              main
-C:   00001966  _printCount                        main
-C:   00001A22  _count                             main
-C:   00001C7A  _readTemp                          main
-C:   00001C86  _readLight                         main
-C:   00001C92  _displayTemp                       main
-C:   00001CCF  _displayLight                      main
-C:   00001D0C  _temperature                       main
-C:   00001D46  _light                             main
-C:   00001D80  _menu                              main
-C:   00001E12  _main                              main
-C:   00001E87  __divuint                          _divuint
-C:   00001EB0  __mulint                           _mulint
-C:   00001EB0  __mulint_dummy                     _mulint
-C:   00001ECD  __moduint                          _moduint
+C:   00001164  _dumpPage                          main
+C:   00001272  _dump                              main
+C:   000014FF  _check                             main
+C:   0000163B  _basic                             main
+C:   000016D1  _move                              main
+C:   000017D4  _editByte                          main
+C:   0000188B  _edit                              main
+C:   0000197C  _printCount                        main
+C:   00001A43  _count                             main
+C:   00001CC9  _displayTemp                       main
+C:   00001D06  _displayLight                      main
+C:   00001D43  _temperature                       main
+C:   00001D7D  _light                             main
+C:   00001DB7  _menu                              main
+C:   00001E49  _main                              main
+C:   00001ED2  __divuint                          _divuint
+C:   00001EFB  __mulint                           _mulint
+C:   00001EFB  __mulint_dummy                     _mulint
+C:   00001F18  __moduint                          _moduint
+C:   00001F65  __gptrget                          _gptrget
+C:   00001F81  __modsint                          _modsint
 ASxxxx Linker V03.00 + NoICE + sdld,  page 19.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000079    00001F2F =        7983. bytes (REL,CON,CODE)
+CSEG                                00000079    00001F7A =        8058. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00001F1A  __gptrget                          _gptrget
-C:   00001F36  __modsint                          _modsint
-C:   00001F6C  __divsint                          _divsint
-C:   00001FA4  __sdcc_external_startup            _startup
+C:   00001FB7  __divsint                          _divsint
+C:   00001FEF  __sdcc_external_startup            _startup
+
 ASxxxx Linker V03.00 + NoICE + sdld,  page 20.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CONST                               00001FA8    000007DF =        2015. bytes (REL,CON,CODE)
+CONST                               00001FF3    00000805 =        2053. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   000024A3  _keypad                            main
+C:   000024EE  _keypad                            main
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 21.
 

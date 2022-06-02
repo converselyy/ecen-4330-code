@@ -18,7 +18,7 @@ Internal RAM layout:
 0xf0:|S|S|S|S|S|S|S|S|S|S|S|S|S|S|S|S|
 0-3:Reg Banks, T:Bit regs, a-z:Data, B:Bits, Q:Overlay, I:iData, S:Stack, A:Absolute
 
-ERROR: Couldn't get 104 bytes allocated in internal RAM for area DSEG.
+ERROR: Couldn't get 97 bytes allocated in internal RAM for area DSEG.
 Stack starts at: 0x21 (sp set to 0x20) with 223 bytes available.
 The largest spare internal RAM space starts at 0xe with 18 bytes available.
 
@@ -26,5 +26,5 @@ Other memory:
    Name             Start    End      Size     Max     
    ---------------- -------- -------- -------- --------
    PAGED EXT. RAM                         0      256   
-   EXTERNAL RAM     0x0001   0x0024      36    65536   
-   ROM/EPROM/FLASH  0x0000   0x2786   10119    65536   
+   EXTERNAL RAM     0x0001   0x0029      41    65536   
+   ROM/EPROM/FLASH  0x0000   0x27f7   10232    65536   

@@ -2,7 +2,6 @@
 #include "ecen4330_lcd_v3.c"
 
 #include "prototypes.h"
-
 #include "getFunctions.c"
 
 // function includes
@@ -11,8 +10,10 @@
 #include "move.c"
 #include "edit.c"
 // #include "find.c"
-#include "find2.c"
-#include "count.c"
+// #include "find2.c"
+// #include "find3.c"
+// #include "count.c"
+#include "count3.c"
 #include "analog.c"
 
 /**
@@ -72,12 +73,9 @@ void main(void) {
 
 	// LCD initialization
 	TFT_LCD_INIT();
-	// writeSomeLines();
 	fillScreen(BLACK);
 	setRotation(0);
 	testCircles(20, BLUE);
-	// delay(100);
-	// fillScreen(GRAY);
 
 	while (1) {
 		// print menu
@@ -94,7 +92,7 @@ void main(void) {
 			case '3': check(); break;
 			case 'A': move(); break;
 			case '4': edit(); break;
-			case '5': find(); break;
+			case '5': count(); break;
 			case '6': count(); break;
 			case 'B': temperature(); break;
 			case '7': light(); break;

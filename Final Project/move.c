@@ -2,7 +2,7 @@
  * @brief copies a specified block of data to another specified location in external RAM
  * 
  */
-void move() {
+void move(void) {
 	// // LCD setup
 	fillScreen(GRAY);
 	setCursor(0, 0);

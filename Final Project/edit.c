@@ -52,7 +52,7 @@ void editByte(__xdata uint16_t add) {
  * @brief 
  * 
  */
-void edit() {
+void edit(void) {
 	// LCD setup
 	fillScreen(GRAY);
 	setCursor(0, 0);
