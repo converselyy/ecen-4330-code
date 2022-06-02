@@ -11,7 +11,7 @@ void check() {
 
 	// declarations
 	__xdata uint8_t checker;
-	__xdata uint8_t input;
+	// __xdata uint8_t input;
 	__xdata uint8_t fetched;
 	__xdata uint16_t i;
 	__xdata bool error = false;
@@ -70,11 +70,11 @@ void check() {
 	}
 
 	// write exit message for menu button
-	LCD_string_write("Press 1 for menu");
+	LCD_string_write("Press 1 for menu\n");
 
 	do {
-		input = keyDetect();
-	} while (input != '1');
+		checker = keyDetect();
+	} while (checker != '1');
 }
 
 /**
@@ -88,9 +88,9 @@ void basic() {
 	setTextSize(2);
 
 	// declarations
-	uint8_t val;
-	uint8_t fetched;
-	uint16_t add;
+	__xdata uint8_t val;
+	__xdata uint8_t fetched;
+	__xdata uint16_t add;
 	__xdata uint16_t* ramAddress;
 
 	// read byte to write and fetch

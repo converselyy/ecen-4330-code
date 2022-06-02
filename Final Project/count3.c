@@ -1,4 +1,4 @@
-void printCount(uint16_t start, uint8_t count, uint8_t key, uint8_t index, uint8_t number) {
+void printCount(uint16_t start, uint8_t num, uint8_t key, uint8_t index, uint8_t count) {
 	// LCD setup
 	fillScreen(GRAY);
 	setCursor(0, 0);
@@ -11,32 +11,42 @@ void printCount(uint16_t start, uint8_t count, uint8_t key, uint8_t index, uint8
 	__xdata uint16_t* ramAddress;
 
 	// display number of matches found
-	if (number == 0) {
+	if (count == 0) {
 		LCD_string_write("No matches found\n");
 	} else {
-		asciiToHex(number);
+		asciiToHex(count);
 		LCD_string_write(" matches found\n");
 	}
 
 	// loop through results to generate a page
-	for (i = 0; i < count; i++) {
+	for (i = 0; i < num; i++) {
+		// if (start + i == __END_RAM__) break;
+
 		IOM = 0;
-		ramAddress = (uint8_t __xdata*)(start + i);
+		ramAddress = (uint16_t __xdata*)(start + i);
 		found = *ramAddress;
-		IOM = 1;
+		// IOM = 1;
+
+		high = HIGHBYTE(start + i);
+		low = LOWBYTE(start + i);
+
+		// asciiToHex(high);
+		// asciiToHex(low);
+
+		// // // write(' ');
+		// asciiToHex(key);
+		// write(' ');
+		// asciiToHex(found);
+		// write('\n');
 
 		if (found == key) {
 			// display index and address
 			asciiToHex(index++);
 			LCD_string_write(": ");
 
-			high = HIGHBYTE(start + i);
-			low = LOWBYTE(start + i);
-
 			// display address
 			asciiToHex(high);
 			asciiToHex(low);
-			// asciiToHex(start + i);
 			write('\n');
 		}
 	}
@@ -53,12 +63,12 @@ void count() {
 	uint8_t i;
 	uint8_t n = 0;
 	uint8_t found;
-	__xdata uint8_t size;
+	uint8_t size;
 	__xdata uint8_t input;
 	__xdata uint8_t page = 1;
-	__xdata uint8_t index = 0;
-	__xdata uint8_t pages;
-	__xdata uint16_t address;
+	uint8_t index = 0;
+	uint8_t pages;
+	uint16_t address;
 	__xdata uint16_t* ramAddress;
 
 	// get byte to count
@@ -87,13 +97,14 @@ void count() {
 	}
 
 	// display first page based on number of matches
-	if (n > NUM) {
+	// if (n > NUM) {
 		printCount(address, NUM, key, index, n);
 		index += NUM;
-	} else {
-		printCount(address, n, key, index, n);
-	}
+	// } else {
+	// 	printCount(address, n, key, index, n);
+	// }
 
+	// determine number of pages
 	pages = size / NUM;
 
 	// loop until input is detected

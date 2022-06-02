@@ -2,11 +2,10 @@
 #include "ecen4330_lcd_v3.c"
 
 #include "prototypes.h"
-
 #include "getFunctions.c"
 
 // function includes
-#include "dump2.c"
+// #include "dump2.c"
 #include "check.c"
 #include "move.c"
 #include "edit.c"
@@ -74,12 +73,9 @@ void main(void) {
 
 	// LCD initialization
 	TFT_LCD_INIT();
-	// writeSomeLines();
 	fillScreen(BLACK);
 	setRotation(0);
 	testCircles(20, BLUE);
-	// delay(100);
-	// fillScreen(GRAY);
 
 	while (1) {
 		// print menu
@@ -92,7 +88,7 @@ void main(void) {
 		// select menu option based on input
 		switch(input) {
 			case '1': basic(); break;
-			case '2': dump(); break;
+			// case '2': dump(); break;
 			case '3': check(); break;
 			case 'A': move(); break;
 			case '4': edit(); break;

@@ -5,14 +5,14 @@
  * @param n number of entries to print
  * @param type data type: 1 for byte, 2 for word, 4 for double word
  */
-void dumpPage(__xdata uint16_t start, __xdata uint8_t n, __xdata uint8_t type/*, uint8_t page, bool direction*/) {
+void dumpPage(__xdata uint16_t start, __xdata uint8_t n, __xdata uint8_t type) {
 	// LCD setup
 	fillScreen(GRAY);
 	setCursor(0, 0);
 	setTextSize(2);
 
 	// declarations
-	uint16_t i;
+	uint8_t i;
 	uint8_t data;
 	__xdata uint8_t j;
 	__xdata uint16_t* ramAddress;
@@ -22,7 +22,7 @@ void dumpPage(__xdata uint16_t start, __xdata uint8_t n, __xdata uint8_t type/*,
 	// loop through using start address and NUM constant
 	for (i = 0; i < n * type; i += type) {
 		// if we've reached the end of the RAM, just stop
-		if (i + start == __END_RAM__) break;
+		if ((i * type) + start == __END_RAM__) break;
 
 		// get ram address based on address we're starting from
 		IOM = 0;
@@ -35,7 +35,6 @@ void dumpPage(__xdata uint16_t start, __xdata uint8_t n, __xdata uint8_t type/*,
 		// display address
 		asciiToHex(high);
 		asciiToHex(low);
-		// asciiToHex(start + i * type);
 		LCD_string_write(": ");
 
 		for (j = 0; j < type; j++) {
@@ -43,24 +42,18 @@ void dumpPage(__xdata uint16_t start, __xdata uint8_t n, __xdata uint8_t type/*,
 			// display data at address
 			IOM = 0;
 			data = *ramAddress;
-			&ramAddress++; // does this even work?
+			&ramAddress++;
 			IOM = 1;
 
 			asciiToHex(data);
 		}
 
 		write('\n');
-
-
 	}
-
-	// return incremented page number
-	// return direction ? page + 1 : page - 1;
-
 }
 
 /**
- * @brief function to dump a given amount of data stored in external RAM given a starting address, data type, and a block size
+ * @brief function to dump an amount of data stored in external RAM given a starting address, data type, and a block size
  * 
  */
 void dump() {
@@ -117,15 +110,14 @@ void dump() {
 	size = getByte();
 	write('\n');
 
-	// determine number of entries needed to retrieve based on data type and block size
-	// entries = size / type;
-
+	// print first page based on number of entries
 	if (size < NUM) {
 		dumpPage(address, size, type);
 	} else {
 		dumpPage(address, NUM, type);
 	}
 
+	// determine the number of pages
 	pages = size / NUM;
 
 	do {
@@ -142,8 +134,6 @@ void dump() {
 		LCD_string_write("Press 1 for menu\n");
 
 		input = keyDetect();
-
-		/******** need a way to prevent overflow on the last page ********/
 
 		// if statements for input
 		if (input == 'B' && page != pages) {	// next

@@ -10,8 +10,7 @@ void move() {
 	// declarations
 	__xdata uint16_t startAdd;
 	__xdata uint16_t targetAdd;
-	__xdata uint16_t i;
-	__xdata uint8_t size, o;
+	__xdata uint8_t i, size, o;
 	__xdata uint16_t* origin;
 	__xdata uint16_t* target;
 

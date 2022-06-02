@@ -1,12 +1,4 @@
-/**
- * @brief 
- * 
- * @param start 
- * @param count 
- * @param key 
- * @param index 
- */
-void printFind(uint16_t start, __xdata uint8_t count, uint8_t key, __xdata uint8_t index) {
+void printFind(uint16_t start, __xdata uint8_t num, uint8_t key, __xdata uint8_t index) {
 	// LCD setup
 	fillScreen(GRAY);
 	setCursor(0, 0);
@@ -14,19 +6,22 @@ void printFind(uint16_t start, __xdata uint8_t count, uint8_t key, __xdata uint8
 
 	// declarations
 	__xdata uint8_t i;
-	uint8_t found;
-	uint8_t high, low;
+	__xdata uint8_t found;
+	__xdata uint8_t high, low;
 	__xdata uint16_t* ramAddress;
 
 	// loop through results to generate a page
 
-	for (i = 0; i < count; i++) {
+	for (i = 0; i < num; i++) {
+		if (start + i == __END_RAM__) break;
+
 		IOM = 0;
-		ramAddress = (uint8_t __xdata*)(start + i);
+		ramAddress = (uint16_t __xdata*)(start + i);
 		found = *ramAddress;
-		IOM = 1;
+		// IOM = 1;
 
 		if (found == key) {
+
 			// display index and address
 			asciiToHex(index++);
 			LCD_string_write(": ");
@@ -52,10 +47,10 @@ void find() {
 	setTextSize(2);
 
 	// declarations
-	uint8_t key;
-	uint8_t i;
-	uint8_t n = 0;
-	uint8_t found;
+	__xdata uint8_t key;
+	__xdata uint8_t i;
+	__xdata uint8_t n = 0;
+	// __xdata uint8_t found;
 	__xdata uint8_t size;
 	__xdata uint8_t input;
 	__xdata uint8_t page = 1;
@@ -83,21 +78,21 @@ void find() {
 	for (i = 0; i < size; i++) {
 		IOM = 0;
 		ramAddress = (uint16_t __xdata*)(address + i);
-		found = *ramAddress;
+		input = *ramAddress;
 		IOM = 1;
 
-		if (found == key) n++;
+		if (input == key) n++;
 	}
 
 	pages = size / NUM;
 
 	// display first page based on number
-	if (n > NUM) {
+	// if (n > NUM) {
 		printFind(address, NUM, key, index);
 		index += NUM;
-	} else {
-		printFind(address, n, key, index);
-	}
+	// } else {
+	// 	printFind(address, n, key, index);
+	// }
 
 	// loop until input is detected
 	do {
