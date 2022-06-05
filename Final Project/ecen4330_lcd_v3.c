@@ -72,7 +72,7 @@ uint8_t ioread8 (uint8_t __xdata* map_address) {
 void delay (int16_t d) {
 	__xdata int i,j;
 
-	for (i = 0; i < d; i++){
+	for (i = 0; i < d; i++) {
 		for (j = 0; j < 1000; j++);
 	}
 }
@@ -597,16 +597,16 @@ void asciiToHex (uint8_t d) {
 	uint8_t val;
 	uint8_t store[2];
 	uint8_t i = 0;
-	store[0] = 0;
-	store[1] = 0;
+	store[0] = '0';
+	store[1] = '0';
 
 	while (d >= 1) {
 		val = d % 16;
-		d = d/16;
+		d = d / 16;
 		if (val <= 9) {
 			store[i] = val + '0';
 		} else {
-			store[i] = (val%10) + 'A';
+			store[i] = (val % 10) + 'A';
 		}
 
 		i++;

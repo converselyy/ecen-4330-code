@@ -17,8 +17,8 @@ void dumpPage(uint16_t start, __xdata uint8_t n, __xdata uint8_t type) {
 	__xdata uint8_t j;
 	__xdata uint16_t* ramAddress;
 
-	uint8_t high;
-	uint8_t low;
+	__xdata uint8_t high;
+	__xdata uint8_t low;
 
 	// loop through using start address and NUM constant
 	for (i = 0; i < n * type; i += type) {
@@ -39,6 +39,8 @@ void dumpPage(uint16_t start, __xdata uint8_t n, __xdata uint8_t type) {
 		LCD_string_write(": ");
 
 		for (j = 0; j < type; j++) {
+			// 
+			if ((i * type) + start == __END_RAM__) break;
 
 			// display data at address
 			IOM = 0;

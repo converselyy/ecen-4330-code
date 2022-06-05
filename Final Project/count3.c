@@ -1,14 +1,13 @@
-void printCount(uint16_t start, uint8_t num, uint8_t key, __xdata uint8_t index, uint8_t count) {
+void printCount(uint16_t start, uint8_t key, uint8_t index, uint8_t count) {
 	// LCD setup
 	fillScreen(GRAY);
 	setCursor(0, 0);
 	setTextSize(2);
 
 	// declarations
-	__xdata uint8_t i;
+	uint8_t i;
 	uint8_t found;
-	__xdata uint8_t high;
-	__xdata uint8_t low;
+	uint8_t high, low;
 	__xdata uint16_t* ramAddress;
 
 	// display number of matches found
@@ -20,21 +19,21 @@ void printCount(uint16_t start, uint8_t num, uint8_t key, __xdata uint8_t index,
 	}
 
 	// loop through results to generate a page
-	for (i = 0; i < num; i++) {
-		if (start + i == __END_RAM__) break;
+	for (i = 0; i < NUM; i++) {
+		// if (start + i == __END_RAM__) break;
 
 		IOM = 0;
 		ramAddress = (uint16_t __xdata*)(start + i);
 		found = *ramAddress;
 		// IOM = 1;
 
+		high = HIGHBYTE(start + i);
+		low = LOWBYTE(start + i);
+
 		if (found == key) {
 			// display index and address
 			asciiToHex(index++);
 			LCD_string_write(": ");
-
-			high = HIGHBYTE(start + i);
-			low = LOWBYTE(start + i);
 
 			// display address
 			asciiToHex(high);
@@ -44,7 +43,7 @@ void printCount(uint16_t start, uint8_t num, uint8_t key, __xdata uint8_t index,
 	}
 }
 
-void count(void) {
+void count() {
 	// LCD setup
 	fillScreen(GRAY);
 	setCursor(0, 0);
@@ -53,9 +52,9 @@ void count(void) {
 	// declarations
 	uint8_t key;
 	__xdata uint8_t i;
-	uint8_t n = 0;
+	__xdata uint8_t n = 0;
 	uint8_t found;
-	uint8_t size;
+	__xdata uint8_t size;
 	__xdata uint8_t page = 1;
 	__xdata uint8_t index = 0;
 	__xdata uint8_t pages;
@@ -89,14 +88,14 @@ void count(void) {
 
 	// display first page based on number of matches
 	// if (n > NUM) {
-		printCount(address, NUM, key, index, n);
+		printCount(address, key, index, n);
 		index += NUM;
 	// } else {
 	// 	printCount(address, n, key, index, n);
 	// }
 
 	// determine number of pages
-	pages = n / NUM;
+	pages = size / NUM;
 
 	// loop until input is detected
 	do {
@@ -122,12 +121,12 @@ void count(void) {
 		} else if (found == 'B' && page != pages && n > NUM) {
 			index += NUM;
 			address += NUM;
-			printCount(address, NUM, key, index, n);
+			printCount(address, key, index, n);
 			page++;
 		} else if (found == 'A' && page != 1 && n > NUM) {
 			index -= NUM;
 			address -= NUM;
-			printCount(address, NUM, key, index, n);
+			printCount(address, key, index, n);
 			page--;
 		}
 	} while (1);

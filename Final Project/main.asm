@@ -19,6 +19,7 @@
 	.globl _keypad
 	.globl _main
 	.globl _menu
+	.globl _UART_free_type
 	.globl _basic
 	.globl _writeSomeLines
 	.globl _convertAsciiHex
@@ -27,6 +28,9 @@
 	.globl _setRotation
 	.globl _ioread8
 	.globl _iowrite8
+	.globl _UART_transmit
+	.globl _UART_init
+	.globl _ISR_receive
 	.globl _CY
 	.globl _AC
 	.globl _F0
@@ -123,12 +127,11 @@
 	.globl _DPL
 	.globl _SP
 	.globl _P0
-	.globl _printCount_PARM_4
 	.globl _dumpPage_PARM_3
 	.globl _dumpPage_PARM_2
 	.globl __height
 	.globl __width
-	.globl _printCount_PARM_5
+	.globl _printCount_PARM_4
 	.globl _printCount_PARM_3
 	.globl _printCount_PARM_2
 	.globl _drawChar_PARM_6
@@ -159,6 +162,8 @@
 	.globl _lcd_address
 	.globl _rowloc
 	.globl _colloc
+	.globl _recieved_flag
+	.globl _received_byte
 	.globl _delay
 	.globl _writeRegister8
 	.globl _writeRegister16
@@ -308,6 +313,10 @@ _CY	=	0x00d7
 ; internal ram data
 ;--------------------------------------------------------
 	.area DSEG    (DATA)
+_received_byte::
+	.ds 1
+_recieved_flag::
+	.ds 1
 _colloc::
 	.ds 1
 _rowloc::
@@ -344,7 +353,7 @@ _drawCircle_PARM_3:
 	.ds 2
 _drawCircle_PARM_4:
 	.ds 2
-_drawCircle_x0_65536_105:
+_drawCircle_x0_65536_110:
 	.ds 2
 _drawCircle_sloc0_1_0:
 	.ds 2
@@ -358,7 +367,7 @@ _drawCircle_sloc4_1_0:
 	.ds 2
 _testCircles_PARM_2:
 	.ds 2
-_testCircles_radius_65536_109:
+_testCircles_radius_65536_114:
 	.ds 1
 _testCircles_sloc0_1_0:
 	.ds 2
@@ -390,15 +399,15 @@ _drawChar_sloc4_1_0:
 	.ds 1
 _drawChar_sloc5_1_0:
 	.ds 1
-_asciiToHex_store_65536_202:
+_asciiToHex_store_65536_207:
 	.ds 2
-_dumpPage_start_65536_233:
+_dumpPage_start_65536_238:
 	.ds 2
-_dumpPage_ramAddress_65537_235:
+_dumpPage_ramAddress_65537_240:
 	.ds 2
 _dumpPage_sloc0_1_0:
 	.ds 2
-_move_target_65537_275:
+_move_target_65537_280:
 	.ds 2
 _move_sloc0_1_0:
 	.ds 2
@@ -408,15 +417,9 @@ _printCount_PARM_2:
 	.ds 1
 _printCount_PARM_3:
 	.ds 1
-_printCount_PARM_5:
+_printCount_PARM_4:
 	.ds 1
-_printCount_start_65536_288:
-	.ds 2
-_count_key_65537_298:
-	.ds 1
-_count_n_65537_298:
-	.ds 1
-_count_size_65537_298:
+_count_key_65537_302:
 	.ds 1
 _count_sloc0_1_0:
 	.ds 1
@@ -427,6 +430,7 @@ _count_sloc2_1_0:
 ;--------------------------------------------------------
 ; overlayable items in internal ram
 ;--------------------------------------------------------
+	.area	OSEG    (OVR,DATA)
 	.area	OSEG    (OVR,DATA)
 _iowrite8_PARM_2:
 	.ds 1
@@ -490,59 +494,53 @@ __width::
 	.ds 2
 __height::
 	.ds 2
-_drawCircle_f_65536_106:
+_drawCircle_f_65536_111:
 	.ds 2
-_testCircles_x_65536_110:
+_testCircles_x_65536_115:
 	.ds 2
-_testCircles_y_65536_110:
+_testCircles_y_65536_115:
 	.ds 2
-_drawChar_line_196609_153:
+_drawChar_line_196609_158:
 	.ds 1
-_testRAM_d_65536_174:
+_testRAM_d_65536_179:
 	.ds 1
-_freeType_count_65536_178:
+_freeType_count_65536_183:
 	.ds 1
-_reverse_rev_65536_196:
+_reverse_rev_65536_201:
 	.ds 2
-_reverse_val_65536_196:
+_reverse_val_65536_201:
 	.ds 2
-_asciiToDec_d_65536_198:
+_asciiToDec_d_65536_203:
 	.ds 1
-_asciiToDec_val_65536_199:
+_asciiToDec_val_65536_204:
 	.ds 1
-_asciiToDec_id_65536_199:
+_asciiToDec_id_65536_204:
 	.ds 2
-_getAddress_address_65536_227:
+_getAddress_address_65536_232:
 	.ds 2
-_getByte_byte_65536_230:
+_getByte_byte_65536_235:
 	.ds 1
 _dumpPage_PARM_2:
 	.ds 1
 _dumpPage_PARM_3:
 	.ds 1
-_dumpPage_i_65537_235:
+_dumpPage_i_65537_240:
 	.ds 1
-_dump_type_65537_242:
+_dump_type_65537_247:
 	.ds 1
-_dump_page_65537_242:
+_dump_page_65537_247:
 	.ds 1
-_dump_address_65537_242:
+_dump_address_65537_247:
 	.ds 2
-_check_checker_65537_259:
-	.ds 1
-_check_error_65537_259:
-	.ds 1
-_editByte_add_65536_279:
+_editByte_add_65536_284:
 	.ds 2
-_edit_input_65537_283:
+_edit_input_65537_288:
 	.ds 1
-_printCount_PARM_4:
+_count_page_65537_302:
 	.ds 1
-_count_page_65537_298:
+_count_index_65537_302:
 	.ds 1
-_count_index_65537_298:
-	.ds 1
-_count_address_65537_298:
+_count_address_65537_302:
 	.ds 2
 ;--------------------------------------------------------
 ; absolute external ram data
@@ -568,6 +566,15 @@ _count_address_65537_298:
 	.area HOME    (CODE)
 __interrupt_vect:
 	ljmp	__sdcc_gsinit_startup
+	reti
+	.ds	7
+	reti
+	.ds	7
+	reti
+	.ds	7
+	reti
+	.ds	7
+	ljmp	_ISR_receive
 ;--------------------------------------------------------
 ; global & static initialisations
 ;--------------------------------------------------------
@@ -581,6 +588,10 @@ __interrupt_vect:
 	.globl __mcs51_genXINIT
 	.globl __mcs51_genXRAMCLEAR
 	.globl __mcs51_genRAMCLEAR
+;	USART.c:1: volatile unsigned char received_byte = 0;
+	mov	_received_byte,#0x00
+;	USART.c:2: volatile unsigned char recieved_flag = 0;
+	mov	_recieved_flag,#0x00
 ;	ecen4330_lcd_v3.c:9: __xdata uint8_t* lcd_address = (uint8_t __xdata*) __LCD_ADDRESS__;
 	mov	_lcd_address,#0x00
 	mov	(_lcd_address + 1),#0x40
@@ -609,6 +620,85 @@ __sdcc_program_startup:
 ;--------------------------------------------------------
 	.area CSEG    (CODE)
 ;------------------------------------------------------------
+;Allocation info for local variables in function 'ISR_receive'
+;------------------------------------------------------------
+;	USART.c:4: void ISR_receive() __interrupt (4) {
+;	-----------------------------------------
+;	 function ISR_receive
+;	-----------------------------------------
+_ISR_receive:
+	ar7 = 0x07
+	ar6 = 0x06
+	ar5 = 0x05
+	ar4 = 0x04
+	ar3 = 0x03
+	ar2 = 0x02
+	ar1 = 0x01
+	ar0 = 0x00
+;	USART.c:5: if (RI == 1) {
+	jnb	_RI,00103$
+;	USART.c:6: received_byte = SBUF;
+	mov	_received_byte,_SBUF
+;	USART.c:7: RI = 0;
+;	assignBit
+	clr	_RI
+;	USART.c:8: recieved_flag = 1;
+	mov	_recieved_flag,#0x01
+00103$:
+;	USART.c:10: }
+	reti
+;	eliminated unneeded mov psw,# (no regs used in bank)
+;	eliminated unneeded push/pop not_psw
+;	eliminated unneeded push/pop dpl
+;	eliminated unneeded push/pop dph
+;	eliminated unneeded push/pop b
+;	eliminated unneeded push/pop acc
+;------------------------------------------------------------
+;Allocation info for local variables in function 'UART_init'
+;------------------------------------------------------------
+;	USART.c:12: void UART_init () {
+;	-----------------------------------------
+;	 function UART_init
+;	-----------------------------------------
+_UART_init:
+;	USART.c:13: SCON = 0x50;  // Asynchronous mode, 8-bit data and 1-stop bit
+	mov	_SCON,#0x50
+;	USART.c:14: TMOD = 0x20;  // Timer1 in Mode2. in 8 bit auto reload
+	mov	_TMOD,#0x20
+;	USART.c:15: TH1 =  0xFD;  // Load timer value for 9600 baudrate
+	mov	_TH1,#0xfd
+;	USART.c:16: TR1 = 1;      // Turn ON the timer for Baud rate generation
+;	assignBit
+	setb	_TR1
+;	USART.c:17: ES  = 1;      // Enable Serial Interrupt
+;	assignBit
+	setb	_ES
+;	USART.c:18: EA  = 1;      // Enable Global Interrupt bit
+;	assignBit
+	setb	_EA
+;	USART.c:19: }
+	ret
+;------------------------------------------------------------
+;Allocation info for local variables in function 'UART_transmit'
+;------------------------------------------------------------
+;byte                      Allocated to registers 
+;------------------------------------------------------------
+;	USART.c:21: void UART_transmit (unsigned char byte) {
+;	-----------------------------------------
+;	 function UART_transmit
+;	-----------------------------------------
+_UART_transmit:
+	mov	_SBUF,dpl
+;	USART.c:23: while(TI == 0);
+00101$:
+;	USART.c:24: TI = 0;
+;	assignBit
+	jbc	_TI,00114$
+	sjmp	00101$
+00114$:
+;	USART.c:25: }
+	ret
+;------------------------------------------------------------
 ;Allocation info for local variables in function 'iowrite8'
 ;------------------------------------------------------------
 ;d                         Allocated with name '_iowrite8_PARM_2'
@@ -619,14 +709,6 @@ __sdcc_program_startup:
 ;	 function iowrite8
 ;	-----------------------------------------
 _iowrite8:
-	ar7 = 0x07
-	ar6 = 0x06
-	ar5 = 0x05
-	ar4 = 0x04
-	ar3 = 0x03
-	ar2 = 0x02
-	ar1 = 0x01
-	ar0 = 0x00
 	mov	r6,dpl
 	mov	r7,dph
 ;	ecen4330_lcd_v3.c:51: IOM = 1;
@@ -673,8 +755,8 @@ _ioread8:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'delay'
 ;------------------------------------------------------------
-;i                         Allocated with name '_delay_i_65536_29'
-;j                         Allocated with name '_delay_j_65536_29'
+;i                         Allocated with name '_delay_i_65536_34'
+;j                         Allocated with name '_delay_j_65536_34'
 ;d                         Allocated to registers r6 r7 
 ;------------------------------------------------------------
 ;	ecen4330_lcd_v3.c:72: void delay (int16_t d) {
@@ -684,7 +766,7 @@ _ioread8:
 _delay:
 	mov	r6,dpl
 	mov	r7,dph
-;	ecen4330_lcd_v3.c:75: for (i = 0; i < d; i++){
+;	ecen4330_lcd_v3.c:75: for (i = 0; i < d; i++) {
 	mov	r4,#0x00
 	mov	r5,#0x00
 00107$:
@@ -710,7 +792,7 @@ _delay:
 	mov	a,r2
 	orl	a,r3
 	jnz	00105$
-;	ecen4330_lcd_v3.c:75: for (i = 0; i < d; i++){
+;	ecen4330_lcd_v3.c:75: for (i = 0; i < d; i++) {
 	inc	r4
 	cjne	r4,#0x00,00107$
 	inc	r5
@@ -759,8 +841,8 @@ _writeRegister8:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'writeRegister16'
 ;------------------------------------------------------------
-;hi                        Allocated with name '_writeRegister16_hi_65536_38'
-;lo                        Allocated with name '_writeRegister16_lo_65536_38'
+;hi                        Allocated with name '_writeRegister16_hi_65536_43'
+;lo                        Allocated with name '_writeRegister16_lo_65536_43'
 ;d                         Allocated with name '_writeRegister16_PARM_2'
 ;a                         Allocated to registers r6 r7 
 ;------------------------------------------------------------
@@ -1451,25 +1533,25 @@ _drawPixel:
 ;y0                        Allocated with name '_drawCircle_PARM_2'
 ;r                         Allocated with name '_drawCircle_PARM_3'
 ;color                     Allocated with name '_drawCircle_PARM_4'
-;x0                        Allocated with name '_drawCircle_x0_65536_105'
+;x0                        Allocated with name '_drawCircle_x0_65536_110'
 ;sloc0                     Allocated with name '_drawCircle_sloc0_1_0'
 ;sloc1                     Allocated with name '_drawCircle_sloc1_1_0'
 ;sloc2                     Allocated with name '_drawCircle_sloc2_1_0'
 ;sloc3                     Allocated with name '_drawCircle_sloc3_1_0'
 ;sloc4                     Allocated with name '_drawCircle_sloc4_1_0'
-;f                         Allocated with name '_drawCircle_f_65536_106'
-;ddF_x                     Allocated with name '_drawCircle_ddF_x_65536_106'
-;ddF_y                     Allocated with name '_drawCircle_ddF_y_65536_106'
-;x                         Allocated with name '_drawCircle_x_65536_106'
-;y                         Allocated with name '_drawCircle_y_65536_106'
+;f                         Allocated with name '_drawCircle_f_65536_111'
+;ddF_x                     Allocated with name '_drawCircle_ddF_x_65536_111'
+;ddF_y                     Allocated with name '_drawCircle_ddF_y_65536_111'
+;x                         Allocated with name '_drawCircle_x_65536_111'
+;y                         Allocated with name '_drawCircle_y_65536_111'
 ;------------------------------------------------------------
 ;	ecen4330_lcd_v3.c:264: void drawCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color){
 ;	-----------------------------------------
 ;	 function drawCircle
 ;	-----------------------------------------
 _drawCircle:
-	mov	_drawCircle_x0_65536_105,dpl
-	mov	(_drawCircle_x0_65536_105 + 1),dph
+	mov	_drawCircle_x0_65536_110,dpl
+	mov	(_drawCircle_x0_65536_110 + 1),dph
 ;	ecen4330_lcd_v3.c:265: __xdata int f = 1 - r;
 	mov	a,#0x01
 	clr	c
@@ -1478,7 +1560,7 @@ _drawCircle:
 	clr	a
 	subb	a,(_drawCircle_PARM_3 + 1)
 	mov	r5,a
-	mov	dptr,#_drawCircle_f_65536_106
+	mov	dptr,#_drawCircle_f_65536_111
 	mov	a,r4
 	movx	@dptr,a
 	mov	a,r5
@@ -1503,8 +1585,8 @@ _drawCircle:
 	mov	(_drawPixel_PARM_2 + 1),a
 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
-	mov	dpl,_drawCircle_x0_65536_105
-	mov	dph,(_drawCircle_x0_65536_105 + 1)
+	mov	dpl,_drawCircle_x0_65536_110
+	mov	dph,(_drawCircle_x0_65536_110 + 1)
 	push	ar5
 	push	ar4
 	push	ar3
@@ -1520,15 +1602,15 @@ _drawCircle:
 	mov	(_drawPixel_PARM_2 + 1),a
 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
-	mov	dpl,_drawCircle_x0_65536_105
-	mov	dph,(_drawCircle_x0_65536_105 + 1)
+	mov	dpl,_drawCircle_x0_65536_110
+	mov	dph,(_drawCircle_x0_65536_110 + 1)
 	lcall	_drawPixel
 ;	ecen4330_lcd_v3.c:273: drawPixel(x0+r, y0  , color);
 	mov	a,_drawCircle_PARM_3
-	add	a,_drawCircle_x0_65536_105
+	add	a,_drawCircle_x0_65536_110
 	mov	dpl,a
 	mov	a,(_drawCircle_PARM_3 + 1)
-	addc	a,(_drawCircle_x0_65536_105 + 1)
+	addc	a,(_drawCircle_x0_65536_110 + 1)
 	mov	dph,a
 	mov	_drawPixel_PARM_2,_drawCircle_PARM_2
 	mov	(_drawPixel_PARM_2 + 1),(_drawCircle_PARM_2 + 1)
@@ -1536,11 +1618,11 @@ _drawCircle:
 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
 	lcall	_drawPixel
 ;	ecen4330_lcd_v3.c:274: drawPixel(x0-r, y0  , color);
-	mov	a,_drawCircle_x0_65536_105
+	mov	a,_drawCircle_x0_65536_110
 	clr	c
 	subb	a,_drawCircle_PARM_3
 	mov	dpl,a
-	mov	a,(_drawCircle_x0_65536_105 + 1)
+	mov	a,(_drawCircle_x0_65536_110 + 1)
 	subb	a,(_drawCircle_PARM_3 + 1)
 	mov	dph,a
 	mov	_drawPixel_PARM_2,_drawCircle_PARM_2
@@ -1571,7 +1653,7 @@ _drawCircle:
 	ret
 00121$:
 ;	ecen4330_lcd_v3.c:277: if (f >= 0) {
-	mov	dptr,#_drawCircle_f_65536_106
+	mov	dptr,#_drawCircle_f_65536_111
 	movx	a,@dptr
 	mov	_drawCircle_sloc1_1_0,a
 	inc	dptr
@@ -1591,7 +1673,7 @@ _drawCircle:
 	addc	a,r5
 	mov	r5,a
 ;	ecen4330_lcd_v3.c:280: f += ddF_y;
-	mov	dptr,#_drawCircle_f_65536_106
+	mov	dptr,#_drawCircle_f_65536_111
 	mov	a,r4
 	add	a,_drawCircle_sloc1_1_0
 	movx	@dptr,a
@@ -1615,13 +1697,13 @@ _drawCircle:
 	addc	a,(_drawCircle_sloc0_1_0 + 1)
 	mov	(_drawCircle_sloc0_1_0 + 1),a
 ;	ecen4330_lcd_v3.c:285: f += ddF_x;
-	mov	dptr,#_drawCircle_f_65536_106
+	mov	dptr,#_drawCircle_f_65536_111
 	movx	a,@dptr
 	mov	r6,a
 	inc	dptr
 	movx	a,@dptr
 	mov	r7,a
-	mov	dptr,#_drawCircle_f_65536_106
+	mov	dptr,#_drawCircle_f_65536_111
 	mov	a,_drawCircle_sloc0_1_0
 	add	a,r6
 	movx	@dptr,a
@@ -1630,8 +1712,8 @@ _drawCircle:
 	inc	dptr
 	movx	@dptr,a
 ;	ecen4330_lcd_v3.c:287: drawPixel(x0 + x, y0 + y, color);
-	mov	r6,_drawCircle_x0_65536_105
-	mov	r7,(_drawCircle_x0_65536_105 + 1)
+	mov	r6,_drawCircle_x0_65536_110
+	mov	r7,(_drawCircle_x0_65536_110 + 1)
 	mov	a,r0
 	add	a,r6
 	mov	r4,a
@@ -1877,22 +1959,22 @@ _drawCircle:
 ;Allocation info for local variables in function 'testCircles'
 ;------------------------------------------------------------
 ;color                     Allocated with name '_testCircles_PARM_2'
-;radius                    Allocated with name '_testCircles_radius_65536_109'
+;radius                    Allocated with name '_testCircles_radius_65536_114'
 ;sloc0                     Allocated with name '_testCircles_sloc0_1_0'
-;x                         Allocated with name '_testCircles_x_65536_110'
-;y                         Allocated with name '_testCircles_y_65536_110'
-;r2                        Allocated with name '_testCircles_r2_65536_110'
-;w                         Allocated with name '_testCircles_w_65536_110'
-;h                         Allocated with name '_testCircles_h_65536_110'
+;x                         Allocated with name '_testCircles_x_65536_115'
+;y                         Allocated with name '_testCircles_y_65536_115'
+;r2                        Allocated with name '_testCircles_r2_65536_115'
+;w                         Allocated with name '_testCircles_w_65536_115'
+;h                         Allocated with name '_testCircles_h_65536_115'
 ;------------------------------------------------------------
 ;	ecen4330_lcd_v3.c:304: void testCircles (uint8_t radius, uint16_t color) {
 ;	-----------------------------------------
 ;	 function testCircles
 ;	-----------------------------------------
 _testCircles:
-	mov	_testCircles_radius_65536_109,dpl
+	mov	_testCircles_radius_65536_114,dpl
 ;	ecen4330_lcd_v3.c:305: __xdata int x, y, r2 = radius * 2, w = _width  + radius, h = _height + radius;
-	mov	r5,_testCircles_radius_65536_109
+	mov	r5,_testCircles_radius_65536_114
 	mov	r6,#0x00
 	mov	a,r5
 	add	a,r5
@@ -1925,13 +2007,13 @@ _testCircles:
 	addc	a,r0
 	mov	r6,a
 ;	ecen4330_lcd_v3.c:307: for (x = 0; x < w; x += r2) {
-	mov	dptr,#_testCircles_x_65536_110
+	mov	dptr,#_testCircles_x_65536_115
 	clr	a
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
 00107$:
-	mov	dptr,#_testCircles_x_65536_110
+	mov	dptr,#_testCircles_x_65536_115
 	movx	a,@dptr
 	mov	r0,a
 	inc	dptr
@@ -1949,13 +2031,13 @@ _testCircles:
 	ret
 00127$:
 ;	ecen4330_lcd_v3.c:308: for (y = 0; y < h; y += r2) {
-	mov	dptr,#_testCircles_y_65536_110
+	mov	dptr,#_testCircles_y_65536_115
 	clr	a
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
 00104$:
-	mov	dptr,#_testCircles_y_65536_110
+	mov	dptr,#_testCircles_y_65536_115
 	movx	a,@dptr
 	mov	_testCircles_sloc0_1_0,a
 	inc	dptr
@@ -1975,7 +2057,7 @@ _testCircles:
 	mov	dph,r5
 	mov	_drawCircle_PARM_2,_testCircles_sloc0_1_0
 	mov	(_drawCircle_PARM_2 + 1),(_testCircles_sloc0_1_0 + 1)
-	mov	_drawCircle_PARM_3,_testCircles_radius_65536_109
+	mov	_drawCircle_PARM_3,_testCircles_radius_65536_114
 	mov	(_drawCircle_PARM_3 + 1),#0x00
 	mov	_drawCircle_PARM_4,_testCircles_PARM_2
 	mov	(_drawCircle_PARM_4 + 1),(_testCircles_PARM_2 + 1)
@@ -1997,7 +2079,7 @@ _testCircles:
 	pop	ar6
 	pop	ar7
 ;	ecen4330_lcd_v3.c:308: for (y = 0; y < h; y += r2) {
-	mov	dptr,#_testCircles_y_65536_110
+	mov	dptr,#_testCircles_y_65536_115
 	mov	a,r3
 	add	a,_testCircles_sloc0_1_0
 	movx	@dptr,a
@@ -2008,13 +2090,13 @@ _testCircles:
 	sjmp	00104$
 00108$:
 ;	ecen4330_lcd_v3.c:307: for (x = 0; x < w; x += r2) {
-	mov	dptr,#_testCircles_x_65536_110
+	mov	dptr,#_testCircles_x_65536_115
 	movx	a,@dptr
 	mov	r0,a
 	inc	dptr
 	movx	a,@dptr
 	mov	r5,a
-	mov	dptr,#_testCircles_x_65536_110
+	mov	dptr,#_testCircles_x_65536_115
 	mov	a,r3
 	add	a,r0
 	movx	@dptr,a
@@ -2210,11 +2292,11 @@ _fillRect:
 ;Allocation info for local variables in function 'fillScreen'
 ;------------------------------------------------------------
 ;Color                     Allocated to registers r6 r7 
-;len                       Allocated with name '_fillScreen_len_65536_129'
-;blocks                    Allocated with name '_fillScreen_blocks_65536_129'
-;i                         Allocated with name '_fillScreen_i_65536_129'
-;hi                        Allocated with name '_fillScreen_hi_65536_129'
-;lo                        Allocated with name '_fillScreen_lo_65536_129'
+;len                       Allocated with name '_fillScreen_len_65536_134'
+;blocks                    Allocated with name '_fillScreen_blocks_65536_134'
+;i                         Allocated with name '_fillScreen_i_65536_134'
+;hi                        Allocated with name '_fillScreen_hi_65536_134'
+;lo                        Allocated with name '_fillScreen_lo_65536_134'
 ;------------------------------------------------------------
 ;	ecen4330_lcd_v3.c:344: void fillScreen (uint16_t Color) {
 ;	-----------------------------------------
@@ -2402,9 +2484,9 @@ _fillScreen:
 ;sloc3                     Allocated with name '_drawChar_sloc3_1_0'
 ;sloc4                     Allocated with name '_drawChar_sloc4_1_0'
 ;sloc5                     Allocated with name '_drawChar_sloc5_1_0'
-;i                         Allocated with name '_drawChar_i_65537_151'
-;line                      Allocated with name '_drawChar_line_196609_153'
-;j                         Allocated with name '_drawChar_j_196610_156'
+;i                         Allocated with name '_drawChar_i_65537_156'
+;line                      Allocated with name '_drawChar_line_196609_158'
+;j                         Allocated with name '_drawChar_j_196610_161'
 ;------------------------------------------------------------
 ;	ecen4330_lcd_v3.c:385: void drawChar (int16_t x, int16_t y, uint8_t c, uint16_t color, uint16_t bg, uint8_t size) {
 ;	-----------------------------------------
@@ -2520,7 +2602,7 @@ _drawChar:
 ;	ecen4330_lcd_v3.c:399: if (i == 5) {
 	cjne	r1,#0x05,00107$
 ;	ecen4330_lcd_v3.c:400: line = 0x0;
-	mov	dptr,#_drawChar_line_196609_153
+	mov	dptr,#_drawChar_line_196609_158
 	clr	a
 	movx	@dptr,a
 	sjmp	00136$
@@ -2564,7 +2646,7 @@ _drawChar:
 	clr	a
 	movc	a,@a+dptr
 	mov	r2,a
-	mov	dptr,#_drawChar_line_196609_153
+	mov	dptr,#_drawChar_line_196609_158
 	movx	@dptr,a
 ;	ecen4330_lcd_v3.c:396: for (i = 0; i < 6; i++)	{
 ;	ecen4330_lcd_v3.c:407: for (j = 0; j < 8; j++) {
@@ -2598,7 +2680,7 @@ _drawChar:
 	mov	_drawChar_sloc4_1_0,#0x00
 00122$:
 ;	ecen4330_lcd_v3.c:408: if (line & 0x1) {
-	mov	dptr,#_drawChar_line_196609_153
+	mov	dptr,#_drawChar_line_196609_158
 	movx	a,@dptr
 	jb	acc.0,00188$
 	ljmp	00118$
@@ -2819,7 +2901,7 @@ _drawChar:
 ;	ecen4330_lcd_v3.c:418: fillRect(x+i*size, y+j*size, size, size, bg);
 00119$:
 ;	ecen4330_lcd_v3.c:422: line >>= 1;
-	mov	dptr,#_drawChar_line_196609_153
+	mov	dptr,#_drawChar_line_196609_158
 	movx	a,@dptr
 	clr	c
 	rrc	a
@@ -2929,7 +3011,7 @@ _write:
 ;Allocation info for local variables in function 'LCD_string_write'
 ;------------------------------------------------------------
 ;str                       Allocated to registers r5 r6 r7 
-;i                         Allocated with name '_LCD_string_write_i_65536_171'
+;i                         Allocated with name '_LCD_string_write_i_65536_176'
 ;------------------------------------------------------------
 ;	ecen4330_lcd_v3.c:450: void LCD_string_write (int8_t *str) {
 ;	-----------------------------------------
@@ -2980,8 +3062,8 @@ _LCD_string_write:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'testRAM'
 ;------------------------------------------------------------
-;d                         Allocated with name '_testRAM_d_65536_174'
-;i                         Allocated with name '_testRAM_i_65536_175'
+;d                         Allocated with name '_testRAM_d_65536_179'
+;i                         Allocated with name '_testRAM_i_65536_180'
 ;ram_address               Allocated to registers 
 ;------------------------------------------------------------
 ;	ecen4330_lcd_v3.c:463: void testRAM (__xdata uint8_t d) {
@@ -2990,7 +3072,7 @@ _LCD_string_write:
 ;	-----------------------------------------
 _testRAM:
 	mov	a,dpl
-	mov	dptr,#_testRAM_d_65536_174
+	mov	dptr,#_testRAM_d_65536_179
 	movx	@dptr,a
 ;	ecen4330_lcd_v3.c:467: for (i = __START_RAM__; i < __END_RAM__; i++) {
 	movx	a,@dptr
@@ -3036,8 +3118,8 @@ _testRAM:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'freeType'
 ;------------------------------------------------------------
-;count                     Allocated with name '_freeType_count_65536_178'
-;d                         Allocated with name '_freeType_d_65536_178'
+;count                     Allocated with name '_freeType_count_65536_183'
+;d                         Allocated with name '_freeType_d_65536_183'
 ;------------------------------------------------------------
 ;	ecen4330_lcd_v3.c:479: void freeType () {
 ;	-----------------------------------------
@@ -3045,18 +3127,18 @@ _testRAM:
 ;	-----------------------------------------
 _freeType:
 ;	ecen4330_lcd_v3.c:480: __xdata uint8_t count = 0;
-	mov	dptr,#_freeType_count_65536_178
+	mov	dptr,#_freeType_count_65536_183
 	clr	a
 	movx	@dptr,a
 ;	ecen4330_lcd_v3.c:483: while (1) {
 00105$:
 ;	ecen4330_lcd_v3.c:484: if (count == 8) {
-	mov	dptr,#_freeType_count_65536_178
+	mov	dptr,#_freeType_count_65536_183
 	movx	a,@dptr
 	mov	r7,a
 	cjne	r7,#0x08,00102$
 ;	ecen4330_lcd_v3.c:486: count = 0;
-	mov	dptr,#_freeType_count_65536_178
+	mov	dptr,#_freeType_count_65536_183
 	clr	a
 	movx	@dptr,a
 ;	ecen4330_lcd_v3.c:487: write(d);
@@ -3070,7 +3152,7 @@ _freeType:
 	lcall	_write
 00103$:
 ;	ecen4330_lcd_v3.c:493: count++;
-	mov	dptr,#_freeType_count_65536_178
+	mov	dptr,#_freeType_count_65536_183
 	movx	a,@dptr
 	add	a,#0x01
 	movx	@dptr,a
@@ -3269,8 +3351,8 @@ _keyDetect:
 ;Allocation info for local variables in function 'reverse'
 ;------------------------------------------------------------
 ;d                         Allocated to registers r7 
-;rev                       Allocated with name '_reverse_rev_65536_196'
-;val                       Allocated with name '_reverse_val_65536_196'
+;rev                       Allocated with name '_reverse_rev_65536_201'
+;val                       Allocated with name '_reverse_val_65536_201'
 ;------------------------------------------------------------
 ;	ecen4330_lcd_v3.c:561: uint16_t reverse (uint8_t d) {
 ;	-----------------------------------------
@@ -3279,7 +3361,7 @@ _keyDetect:
 _reverse:
 	mov	r7,dpl
 ;	ecen4330_lcd_v3.c:562: __xdata uint16_t rev = 0;
-	mov	dptr,#_reverse_rev_65536_196
+	mov	dptr,#_reverse_rev_65536_201
 	clr	a
 	movx	@dptr,a
 	inc	dptr
@@ -3304,7 +3386,7 @@ _reverse:
 	mov	r4,dph
 	pop	ar5
 	pop	ar6
-	mov	dptr,#_reverse_val_65536_196
+	mov	dptr,#_reverse_val_65536_201
 	mov	a,r3
 	movx	@dptr,a
 	mov	a,r4
@@ -3319,7 +3401,7 @@ _reverse:
 	mov	r5,dpl
 	mov	ar7,r5
 ;	ecen4330_lcd_v3.c:568: rev = rev * 10 + val;
-	mov	dptr,#_reverse_rev_65536_196
+	mov	dptr,#_reverse_rev_65536_201
 	movx	a,@dptr
 	mov	r5,a
 	inc	dptr
@@ -3333,13 +3415,13 @@ _reverse:
 	mov	r5,dpl
 	mov	r6,dph
 	pop	ar7
-	mov	dptr,#_reverse_val_65536_196
+	mov	dptr,#_reverse_val_65536_201
 	movx	a,@dptr
 	mov	r3,a
 	inc	dptr
 	movx	a,@dptr
 	mov	r4,a
-	mov	dptr,#_reverse_rev_65536_196
+	mov	dptr,#_reverse_rev_65536_201
 	mov	a,r3
 	add	a,r5
 	movx	@dptr,a
@@ -3350,7 +3432,7 @@ _reverse:
 	sjmp	00101$
 00103$:
 ;	ecen4330_lcd_v3.c:570: return rev;
-	mov	dptr,#_reverse_rev_65536_196
+	mov	dptr,#_reverse_rev_65536_201
 	movx	a,@dptr
 	mov	r6,a
 	inc	dptr
@@ -3362,9 +3444,9 @@ _reverse:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'asciiToDec'
 ;------------------------------------------------------------
-;d                         Allocated with name '_asciiToDec_d_65536_198'
-;val                       Allocated with name '_asciiToDec_val_65536_199'
-;id                        Allocated with name '_asciiToDec_id_65536_199'
+;d                         Allocated with name '_asciiToDec_d_65536_203'
+;val                       Allocated with name '_asciiToDec_val_65536_204'
+;id                        Allocated with name '_asciiToDec_id_65536_204'
 ;------------------------------------------------------------
 ;	ecen4330_lcd_v3.c:578: void asciiToDec (__xdata uint8_t d) {
 ;	-----------------------------------------
@@ -3372,7 +3454,7 @@ _reverse:
 ;	-----------------------------------------
 _asciiToDec:
 	mov	a,dpl
-	mov	dptr,#_asciiToDec_d_65536_198
+	mov	dptr,#_asciiToDec_d_65536_203
 	movx	@dptr,a
 ;	ecen4330_lcd_v3.c:581: id = reverse(d);
 	movx	a,@dptr
@@ -3380,14 +3462,14 @@ _asciiToDec:
 	lcall	_reverse
 	mov	a,dpl
 	mov	b,dph
-	mov	dptr,#_asciiToDec_id_65536_199
+	mov	dptr,#_asciiToDec_id_65536_204
 	movx	@dptr,a
 	mov	a,b
 	inc	dptr
 	movx	@dptr,a
 ;	ecen4330_lcd_v3.c:582: while (id >= 1){
 00101$:
-	mov	dptr,#_asciiToDec_id_65536_199
+	mov	dptr,#_asciiToDec_id_65536_204
 	movx	a,@dptr
 	mov	r6,a
 	inc	dptr
@@ -3410,7 +3492,7 @@ _asciiToDec:
 	mov	r4,dpl
 	pop	ar6
 	pop	ar7
-	mov	dptr,#_asciiToDec_val_65536_199
+	mov	dptr,#_asciiToDec_val_65536_204
 	mov	a,r4
 	movx	@dptr,a
 ;	ecen4330_lcd_v3.c:585: id = id / 10;
@@ -3421,14 +3503,14 @@ _asciiToDec:
 	lcall	__divuint
 	mov	r6,dpl
 	mov	r7,dph
-	mov	dptr,#_asciiToDec_id_65536_199
+	mov	dptr,#_asciiToDec_id_65536_204
 	mov	a,r6
 	movx	@dptr,a
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
 ;	ecen4330_lcd_v3.c:586: write(val + '0');
-	mov	dptr,#_asciiToDec_val_65536_199
+	mov	dptr,#_asciiToDec_val_65536_204
 	movx	a,@dptr
 	add	a,#0x30
 	mov	dpl,a
@@ -3442,7 +3524,7 @@ _asciiToDec:
 ;------------------------------------------------------------
 ;d                         Allocated to registers r7 
 ;val                       Allocated to registers r2 
-;store                     Allocated with name '_asciiToHex_store_65536_202'
+;store                     Allocated with name '_asciiToHex_store_65536_207'
 ;i                         Allocated to registers r6 
 ;------------------------------------------------------------
 ;	ecen4330_lcd_v3.c:596: void asciiToHex (uint8_t d) {
@@ -3451,10 +3533,10 @@ _asciiToDec:
 ;	-----------------------------------------
 _asciiToHex:
 	mov	r7,dpl
-;	ecen4330_lcd_v3.c:600: store[0] = 0;
-	mov	_asciiToHex_store_65536_202,#0x00
-;	ecen4330_lcd_v3.c:601: store[1] = 0;
-	mov	(_asciiToHex_store_65536_202 + 0x0001),#0x00
+;	ecen4330_lcd_v3.c:600: store[0] = '0';
+	mov	_asciiToHex_store_65536_207,#0x30
+;	ecen4330_lcd_v3.c:601: store[1] = '0';
+	mov	(_asciiToHex_store_65536_207 + 0x0001),#0x30
 ;	ecen4330_lcd_v3.c:603: while (d >= 1) {
 	mov	r6,#0x00
 00104$:
@@ -3467,7 +3549,7 @@ _asciiToHex:
 	mov	a,#0x0f
 	anl	a,r4
 	mov	r2,a
-;	ecen4330_lcd_v3.c:605: d = d/16;
+;	ecen4330_lcd_v3.c:605: d = d / 16;
 	mov	__divsint_PARM_2,#0x10
 ;	1-genFromRTrack replaced	mov	(__divsint_PARM_2 + 1),#0x00
 	mov	(__divsint_PARM_2 + 1),r5
@@ -3486,7 +3568,7 @@ _asciiToHex:
 	jc	00102$
 ;	ecen4330_lcd_v3.c:607: store[i] = val + '0';
 	mov	a,r6
-	add	a,#_asciiToHex_store_65536_202
+	add	a,#_asciiToHex_store_65536_207
 	mov	r1,a
 	mov	ar5,r2
 	mov	a,#0x30
@@ -3494,9 +3576,9 @@ _asciiToHex:
 	mov	@r1,a
 	sjmp	00103$
 00102$:
-;	ecen4330_lcd_v3.c:609: store[i] = (val%10) + 'A';
+;	ecen4330_lcd_v3.c:609: store[i] = (val % 10) + 'A';
 	mov	a,r6
-	add	a,#_asciiToHex_store_65536_202
+	add	a,#_asciiToHex_store_65536_207
 	mov	r1,a
 	mov	r5,#0x00
 	mov	__modsint_PARM_2,#0x0a
@@ -3522,10 +3604,10 @@ _asciiToHex:
 	sjmp	00104$
 00106$:
 ;	ecen4330_lcd_v3.c:615: write(store[1]);
-	mov	dpl,(_asciiToHex_store_65536_202 + 0x0001)
+	mov	dpl,(_asciiToHex_store_65536_207 + 0x0001)
 	lcall	_write
 ;	ecen4330_lcd_v3.c:616: write(store[0]);
-	mov	dpl,_asciiToHex_store_65536_202
+	mov	dpl,_asciiToHex_store_65536_207
 ;	ecen4330_lcd_v3.c:617: }
 	ljmp	_write
 ;------------------------------------------------------------
@@ -3685,10 +3767,10 @@ _writeSomeLines:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'getAddress'
 ;------------------------------------------------------------
-;input                     Allocated with name '_getAddress_input_65536_227'
-;hex                       Allocated with name '_getAddress_hex_65536_227'
-;i                         Allocated with name '_getAddress_i_65536_227'
-;address                   Allocated with name '_getAddress_address_65536_227'
+;input                     Allocated with name '_getAddress_input_65536_232'
+;hex                       Allocated with name '_getAddress_hex_65536_232'
+;i                         Allocated with name '_getAddress_i_65536_232'
+;address                   Allocated with name '_getAddress_address_65536_232'
 ;------------------------------------------------------------
 ;	getFunctions.c:6: uint16_t getAddress() {
 ;	-----------------------------------------
@@ -3696,7 +3778,7 @@ _writeSomeLines:
 ;	-----------------------------------------
 _getAddress:
 ;	getFunctions.c:16: address = 0;
-	mov	dptr,#_getAddress_address_65536_227
+	mov	dptr,#_getAddress_address_65536_232
 	clr	a
 	movx	@dptr,a
 	inc	dptr
@@ -3718,14 +3800,14 @@ _getAddress:
 	mov	r6,dpl
 	pop	ar7
 ;	getFunctions.c:25: address = address | hex;
-	mov	dptr,#_getAddress_address_65536_227
+	mov	dptr,#_getAddress_address_65536_232
 	movx	a,@dptr
 	mov	r4,a
 	inc	dptr
 	movx	a,@dptr
 	mov	r5,a
 	mov	r3,#0x00
-	mov	dptr,#_getAddress_address_65536_227
+	mov	dptr,#_getAddress_address_65536_232
 	mov	a,r6
 	orl	a,r4
 	movx	@dptr,a
@@ -3737,7 +3819,7 @@ _getAddress:
 	cjne	r7,#0x03,00121$
 	sjmp	00105$
 00121$:
-	mov	dptr,#_getAddress_address_65536_227
+	mov	dptr,#_getAddress_address_65536_232
 	movx	a,@dptr
 	mov	r5,a
 	inc	dptr
@@ -3753,7 +3835,7 @@ _getAddress:
 	xch	a,r5
 	xrl	a,r5
 	mov	r6,a
-	mov	dptr,#_getAddress_address_65536_227
+	mov	dptr,#_getAddress_address_65536_232
 	mov	a,r5
 	movx	@dptr,a
 	mov	a,r6
@@ -3766,7 +3848,7 @@ _getAddress:
 00122$:
 	jc	00104$
 ;	getFunctions.c:28: return address;
-	mov	dptr,#_getAddress_address_65536_227
+	mov	dptr,#_getAddress_address_65536_232
 	movx	a,@dptr
 	mov	r6,a
 	inc	dptr
@@ -3778,10 +3860,10 @@ _getAddress:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'getByte'
 ;------------------------------------------------------------
-;input                     Allocated with name '_getByte_input_65536_230'
-;hex                       Allocated with name '_getByte_hex_65536_230'
-;byte                      Allocated with name '_getByte_byte_65536_230'
-;i                         Allocated with name '_getByte_i_65536_230'
+;input                     Allocated with name '_getByte_input_65536_235'
+;hex                       Allocated with name '_getByte_hex_65536_235'
+;byte                      Allocated with name '_getByte_byte_65536_235'
+;i                         Allocated with name '_getByte_i_65536_235'
 ;------------------------------------------------------------
 ;	getFunctions.c:36: uint8_t getByte() {
 ;	-----------------------------------------
@@ -3789,7 +3871,7 @@ _getAddress:
 ;	-----------------------------------------
 _getByte:
 ;	getFunctions.c:40: byte = 0;
-	mov	dptr,#_getByte_byte_65536_230
+	mov	dptr,#_getByte_byte_65536_235
 	clr	a
 	movx	@dptr,a
 ;	getFunctions.c:43: for (i = 0; i < 2; i++) {
@@ -3809,7 +3891,7 @@ _getByte:
 	mov	r6,dpl
 	pop	ar7
 ;	getFunctions.c:49: byte = byte | hex;
-	mov	dptr,#_getByte_byte_65536_230
+	mov	dptr,#_getByte_byte_65536_235
 	movx	a,@dptr
 	orl	a,r6
 	movx	@dptr,a
@@ -3817,7 +3899,7 @@ _getByte:
 	cjne	r7,#0x01,00121$
 	sjmp	00105$
 00121$:
-	mov	dptr,#_getByte_byte_65536_230
+	mov	dptr,#_getByte_byte_65536_235
 	movx	a,@dptr
 	swap	a
 	anl	a,#0xf0
@@ -3830,7 +3912,7 @@ _getByte:
 00122$:
 	jc	00104$
 ;	getFunctions.c:52: return byte;
-	mov	dptr,#_getByte_byte_65536_230
+	mov	dptr,#_getByte_byte_65536_235
 	movx	a,@dptr
 ;	getFunctions.c:53: }
 	mov	dpl,a
@@ -3838,24 +3920,24 @@ _getByte:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'dumpPage'
 ;------------------------------------------------------------
-;start                     Allocated with name '_dumpPage_start_65536_233'
-;data                      Allocated to registers r1 
-;ramAddress                Allocated with name '_dumpPage_ramAddress_65537_235'
-;high                      Allocated to registers 
-;low                       Allocated to registers r6 
+;start                     Allocated with name '_dumpPage_start_65536_238'
+;data                      Allocated to registers r4 
+;ramAddress                Allocated with name '_dumpPage_ramAddress_65537_240'
 ;sloc0                     Allocated with name '_dumpPage_sloc0_1_0'
 ;n                         Allocated with name '_dumpPage_PARM_2'
 ;type                      Allocated with name '_dumpPage_PARM_3'
-;i                         Allocated with name '_dumpPage_i_65537_235'
-;j                         Allocated with name '_dumpPage_j_65537_235'
+;i                         Allocated with name '_dumpPage_i_65537_240'
+;j                         Allocated with name '_dumpPage_j_65537_240'
+;high                      Allocated with name '_dumpPage_high_65537_240'
+;low                       Allocated with name '_dumpPage_low_65537_240'
 ;------------------------------------------------------------
 ;	dump2.c:8: void dumpPage(uint16_t start, __xdata uint8_t n, __xdata uint8_t type) {
 ;	-----------------------------------------
 ;	 function dumpPage
 ;	-----------------------------------------
 _dumpPage:
-	mov	_dumpPage_start_65536_233,dpl
-	mov	(_dumpPage_start_65536_233 + 1),dph
+	mov	_dumpPage_start_65536_238,dpl
+	mov	(_dumpPage_start_65536_238 + 1),dph
 ;	dump2.c:10: fillScreen(GRAY);
 	mov	dptr,#0xd6ba
 	lcall	_fillScreen
@@ -3869,7 +3951,7 @@ _dumpPage:
 	mov	dpl,#0x02
 	lcall	_setTextSize
 ;	dump2.c:24: for (i = 0; i < n * type; i += type) {
-	mov	dptr,#_dumpPage_i_65537_235
+	mov	dptr,#_dumpPage_i_65537_240
 	clr	a
 	movx	@dptr,a
 	mov	dptr,#_dumpPage_PARM_3
@@ -3882,8 +3964,8 @@ _dumpPage:
 	mul	ab
 	mov	r3,a
 	mov	r4,b
-00109$:
-	mov	dptr,#_dumpPage_i_65537_235
+00111$:
+	mov	dptr,#_dumpPage_i_65537_240
 	movx	a,@dptr
 	mov	r2,a
 	mov	r0,a
@@ -3896,9 +3978,9 @@ _dumpPage:
 	mov	b,r4
 	xrl	b,#0x80
 	subb	a,b
-	jc	00134$
+	jc	00140$
 	ret
-00134$:
+00140$:
 ;	dump2.c:26: if ((i * type) + start == __END_RAM__) break;
 	mov	b,r2
 	mov	a,r5
@@ -3907,99 +3989,47 @@ _dumpPage:
 	mov	r1,b
 	mov	_dumpPage_sloc0_1_0,r0
 	mov	(_dumpPage_sloc0_1_0 + 1),r1
-	mov	a,_dumpPage_start_65536_233
+	mov	a,_dumpPage_start_65536_238
 	add	a,_dumpPage_sloc0_1_0
 	mov	r6,a
-	mov	a,(_dumpPage_start_65536_233 + 1)
+	mov	a,(_dumpPage_start_65536_238 + 1)
 	addc	a,(_dumpPage_sloc0_1_0 + 1)
 	mov	r7,a
-	cjne	r6,#0xff,00135$
-	cjne	r7,#0xff,00135$
+	cjne	r6,#0xff,00141$
+	cjne	r7,#0xff,00141$
 	ret
-00135$:
+00141$:
 ;	dump2.c:29: IOM = 0;
 ;	assignBit
 	clr	_P3_4
 ;	dump2.c:30: ramAddress = (uint16_t __xdata*)((i * type) + start);
-	mov	a,_dumpPage_start_65536_233
+	mov	a,_dumpPage_start_65536_238
 	add	a,_dumpPage_sloc0_1_0
 	mov	r6,a
-	mov	a,(_dumpPage_start_65536_233 + 1)
+	mov	a,(_dumpPage_start_65536_238 + 1)
 	addc	a,(_dumpPage_sloc0_1_0 + 1)
 	mov	r7,a
-	mov	_dumpPage_ramAddress_65537_235,r6
-	mov	(_dumpPage_ramAddress_65537_235 + 1),r7
+	mov	_dumpPage_ramAddress_65537_240,r6
+	mov	(_dumpPage_ramAddress_65537_240 + 1),r7
 ;	dump2.c:31: IOM = 1;
 ;	assignBit
 	setb	_P3_4
 ;	dump2.c:33: high = HIGHBYTE(start + (i * type));
-	mov	r6,_dumpPage_start_65536_233
-	mov	r7,(_dumpPage_start_65536_233 + 1)
+	mov	r6,_dumpPage_start_65536_238
+	mov	r7,(_dumpPage_start_65536_238 + 1)
 	mov	a,r0
 	add	a,r6
 	mov	a,r1
 	addc	a,r7
 	mov	dpl,a
 ;	dump2.c:34: low = LOWBYTE(start + (i * type));
-	mov	r6,_dumpPage_start_65536_233
+	mov	r6,_dumpPage_start_65536_238
 	mov	b,r2
 	mov	a,r5
 	mul	ab
 	add	a,r6
 	mov	r6,a
 ;	dump2.c:37: asciiToHex(high);
-	push	ar6
-	push	ar5
-	push	ar4
-	push	ar3
-	lcall	_asciiToHex
-	pop	ar3
-	pop	ar4
-	pop	ar5
-	pop	ar6
-;	dump2.c:38: asciiToHex(low);
-	mov	dpl,r6
-	push	ar5
-	push	ar4
-	push	ar3
-	lcall	_asciiToHex
-;	dump2.c:39: LCD_string_write(": ");
-	mov	dptr,#___str_6
-	mov	b,#0x80
-	lcall	_LCD_string_write
-	pop	ar3
-	pop	ar4
-	pop	ar5
-;	dump2.c:41: for (j = 0; j < type; j++) {
-	mov	r6,_dumpPage_ramAddress_65537_235
-	mov	r7,(_dumpPage_ramAddress_65537_235 + 1)
-	mov	r2,#0x00
-00106$:
-	clr	c
-	mov	a,r2
-	subb	a,r5
-	jnc	00103$
-;	dump2.c:44: IOM = 0;
-;	assignBit
-	clr	_P3_4
-;	dump2.c:45: data = *ramAddress;
-	mov	dpl,r6
-	mov	dph,r7
-	movx	a,@dptr
-	mov	r1,a
-;	dump2.c:46: &ramAddress++;
-	mov	a,#0x02
-	add	a,r6
-	mov	r6,a
-	clr	a
-	addc	a,r7
-	mov	r7,a
-;	dump2.c:47: IOM = 1;
-;	assignBit
-	setb	_P3_4
-;	dump2.c:49: asciiToHex(data);
-	mov	dpl,r1
-	push	ar7
 	push	ar6
 	push	ar5
 	push	ar4
@@ -4011,12 +4041,100 @@ _dumpPage:
 	pop	ar4
 	pop	ar5
 	pop	ar6
+;	dump2.c:38: asciiToHex(low);
+	mov	dpl,r6
+	push	ar5
+	push	ar4
+	push	ar3
+	push	ar2
+	lcall	_asciiToHex
+;	dump2.c:39: LCD_string_write(": ");
+	mov	dptr,#___str_6
+	mov	b,#0x80
+	lcall	_LCD_string_write
+	pop	ar2
+	pop	ar3
+	pop	ar4
+	pop	ar5
+;	dump2.c:41: for (j = 0; j < type; j++) {
+	mov	b,r2
+	mov	a,r5
+	mul	ab
+	mov	r6,a
+	mov	r7,b
+	mov	r1,_dumpPage_ramAddress_65537_240
+	mov	r2,(_dumpPage_ramAddress_65537_240 + 1)
+	mov	r0,#0x00
+00108$:
+	clr	c
+	mov	a,r0
+	subb	a,r5
+	jnc	00105$
+;	dump2.c:43: if ((i * type) + start == __END_RAM__) break;
+	push	ar3
+	push	ar4
+	mov	ar3,r6
+	mov	ar4,r7
+	mov	a,_dumpPage_start_65536_238
+	add	a,r3
+	mov	r3,a
+	mov	a,(_dumpPage_start_65536_238 + 1)
+	addc	a,r4
+	mov	r4,a
+	cjne	r3,#0xff,00143$
+	cjne	r4,#0xff,00143$
+	pop	ar4
+	pop	ar3
+	sjmp	00105$
+00143$:
+	pop	ar4
+	pop	ar3
+;	dump2.c:46: IOM = 0;
+	push	ar3
+	push	ar4
+;	assignBit
+	clr	_P3_4
+;	dump2.c:47: data = *ramAddress;
+	mov	dpl,r1
+	mov	dph,r2
+	movx	a,@dptr
+	mov	r4,a
+;	dump2.c:48: &ramAddress++;
+	mov	a,#0x02
+	add	a,r1
+	mov	r1,a
+	clr	a
+	addc	a,r2
+	mov	r2,a
+;	dump2.c:49: IOM = 1;
+;	assignBit
+	setb	_P3_4
+;	dump2.c:51: asciiToHex(data);
+	mov	dpl,r4
+	push	ar7
+	push	ar6
+	push	ar5
+	push	ar4
+	push	ar3
+	push	ar2
+	push	ar1
+	push	ar0
+	lcall	_asciiToHex
+	pop	ar0
+	pop	ar1
+	pop	ar2
+	pop	ar3
+	pop	ar4
+	pop	ar5
+	pop	ar6
 	pop	ar7
 ;	dump2.c:41: for (j = 0; j < type; j++) {
-	inc	r2
-	sjmp	00106$
-00103$:
-;	dump2.c:52: write('\n');
+	inc	r0
+	pop	ar4
+	pop	ar3
+	sjmp	00108$
+00105$:
+;	dump2.c:54: write('\n');
 	mov	dpl,#0x0a
 	push	ar5
 	push	ar4
@@ -4026,104 +4144,104 @@ _dumpPage:
 	pop	ar4
 	pop	ar5
 ;	dump2.c:24: for (i = 0; i < n * type; i += type) {
-	mov	dptr,#_dumpPage_i_65537_235
+	mov	dptr,#_dumpPage_i_65537_240
 	movx	a,@dptr
 	add	a,r5
 	movx	@dptr,a
-;	dump2.c:54: }
-	ljmp	00109$
+;	dump2.c:56: }
+	ljmp	00111$
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'dump'
 ;------------------------------------------------------------
-;type                      Allocated with name '_dump_type_65537_242'
-;size                      Allocated with name '_dump_size_65537_242'
-;page                      Allocated with name '_dump_page_65537_242'
-;input                     Allocated with name '_dump_input_65537_242'
-;pages                     Allocated with name '_dump_pages_65537_242'
-;address                   Allocated with name '_dump_address_65537_242'
+;type                      Allocated with name '_dump_type_65537_247'
+;size                      Allocated with name '_dump_size_65537_247'
+;page                      Allocated with name '_dump_page_65537_247'
+;input                     Allocated with name '_dump_input_65537_247'
+;pages                     Allocated with name '_dump_pages_65537_247'
+;address                   Allocated with name '_dump_address_65537_247'
 ;------------------------------------------------------------
-;	dump2.c:60: void dump(void) {
+;	dump2.c:62: void dump(void) {
 ;	-----------------------------------------
 ;	 function dump
 ;	-----------------------------------------
 _dump:
-;	dump2.c:62: fillScreen(GRAY);
+;	dump2.c:64: fillScreen(GRAY);
 	mov	dptr,#0xd6ba
 	lcall	_fillScreen
-;	dump2.c:63: setCursor(0, 0);
+;	dump2.c:65: setCursor(0, 0);
 	clr	a
 	mov	_setCursor_PARM_2,a
 	mov	(_setCursor_PARM_2 + 1),a
 	mov	dptr,#0x0000
 	lcall	_setCursor
-;	dump2.c:64: setTextSize(2);
+;	dump2.c:66: setTextSize(2);
 	mov	dpl,#0x02
 	lcall	_setTextSize
-;	dump2.c:74: page = 1;
-	mov	dptr,#_dump_page_65537_242
+;	dump2.c:76: page = 1;
+	mov	dptr,#_dump_page_65537_247
 	mov	a,#0x01
 	movx	@dptr,a
-;	dump2.c:77: LCD_string_write("Enter start address:\n");
+;	dump2.c:79: LCD_string_write("Enter start address:\n");
 	mov	dptr,#___str_7
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	dump2.c:78: address = getAddress();
+;	dump2.c:80: address = getAddress();
 	lcall	_getAddress
 	mov	r6,dpl
 	mov	r7,dph
-	mov	dptr,#_dump_address_65537_242
+	mov	dptr,#_dump_address_65537_247
 	mov	a,r6
 	movx	@dptr,a
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	dump2.c:79: write('\n');
+;	dump2.c:81: write('\n');
 	mov	dpl,#0x0a
 	push	ar7
 	push	ar6
 	lcall	_write
-;	dump2.c:82: LCD_string_write("Enter data type\n");
+;	dump2.c:84: LCD_string_write("Enter data type\n");
 	mov	dptr,#___str_8
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	dump2.c:83: LCD_string_write("B-Byte, A-Word,\n");
+;	dump2.c:85: LCD_string_write("B-Byte, A-Word,\n");
 	mov	dptr,#___str_9
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	dump2.c:84: LCD_string_write("D-Double word\n");
+;	dump2.c:86: LCD_string_write("D-Double word\n");
 	mov	dptr,#___str_10
 	mov	b,#0x80
 	lcall	_LCD_string_write
 	pop	ar6
 	pop	ar7
-;	dump2.c:87: do {
+;	dump2.c:89: do {
 00108$:
-;	dump2.c:88: type = keyDetect();
+;	dump2.c:90: type = keyDetect();
 	push	ar7
 	push	ar6
 	lcall	_keyDetect
 	mov	r5,dpl
 	pop	ar6
 	pop	ar7
-	mov	dptr,#_dump_type_65537_242
+	mov	dptr,#_dump_type_65537_247
 	mov	a,r5
 	movx	@dptr,a
-;	dump2.c:89: switch(type) {
+;	dump2.c:91: switch(type) {
 	cjne	r5,#0x41,00202$
 	sjmp	00102$
 00202$:
 	cjne	r5,#0x42,00203$
 	sjmp	00101$
 00203$:
-;	dump2.c:90: case 'B': {
+;	dump2.c:92: case 'B': {
 	cjne	r5,#0x44,00109$
 	sjmp	00103$
 00101$:
-;	dump2.c:91: type = 1;
-	mov	dptr,#_dump_type_65537_242
+;	dump2.c:93: type = 1;
+	mov	dptr,#_dump_type_65537_247
 	mov	a,#0x01
 	movx	@dptr,a
-;	dump2.c:92: LCD_string_write("Byte\n");
+;	dump2.c:94: LCD_string_write("Byte\n");
 	mov	dptr,#___str_11
 	mov	b,#0x80
 	push	ar7
@@ -4131,15 +4249,15 @@ _dump:
 	lcall	_LCD_string_write
 	pop	ar6
 	pop	ar7
-;	dump2.c:93: break;
-;	dump2.c:95: case 'A': {
+;	dump2.c:95: break;
+;	dump2.c:97: case 'A': {
 	sjmp	00109$
 00102$:
-;	dump2.c:96: type = 2; 
-	mov	dptr,#_dump_type_65537_242
+;	dump2.c:98: type = 2; 
+	mov	dptr,#_dump_type_65537_247
 	mov	a,#0x02
 	movx	@dptr,a
-;	dump2.c:97: LCD_string_write("Word\n");
+;	dump2.c:99: LCD_string_write("Word\n");
 	mov	dptr,#___str_12
 	mov	b,#0x80
 	push	ar7
@@ -4147,15 +4265,15 @@ _dump:
 	lcall	_LCD_string_write
 	pop	ar6
 	pop	ar7
-;	dump2.c:98: break;
-;	dump2.c:100: case 'D': {
+;	dump2.c:100: break;
+;	dump2.c:102: case 'D': {
 	sjmp	00109$
 00103$:
-;	dump2.c:101: type = 4;
-	mov	dptr,#_dump_type_65537_242
+;	dump2.c:103: type = 4;
+	mov	dptr,#_dump_type_65537_247
 	mov	a,#0x04
 	movx	@dptr,a
-;	dump2.c:102: LCD_string_write("Double word\n");
+;	dump2.c:104: LCD_string_write("Double word\n");
 	mov	dptr,#___str_13
 	mov	b,#0x80
 	push	ar7
@@ -4163,10 +4281,10 @@ _dump:
 	lcall	_LCD_string_write
 	pop	ar6
 	pop	ar7
-;	dump2.c:106: }
+;	dump2.c:108: }
 00109$:
-;	dump2.c:107: } while(type != 1 && type != 2 && type != 4);
-	mov	dptr,#_dump_type_65537_242
+;	dump2.c:109: } while(type != 1 && type != 2 && type != 4);
+	mov	dptr,#_dump_type_65537_247
 	movx	a,@dptr
 	mov	r5,a
 	cjne	r5,#0x01,00205$
@@ -4181,28 +4299,28 @@ _dump:
 	ljmp	00108$
 00208$:
 00110$:
-;	dump2.c:110: LCD_string_write("Enter block size:\n");
+;	dump2.c:112: LCD_string_write("Enter block size:\n");
 	mov	dptr,#___str_14
 	mov	b,#0x80
 	push	ar7
 	push	ar6
 	lcall	_LCD_string_write
-;	dump2.c:111: size = getByte();
+;	dump2.c:113: size = getByte();
 	lcall	_getByte
 	mov	r5,dpl
-;	dump2.c:112: write('\n');
+;	dump2.c:114: write('\n');
 	mov	dpl,#0x0a
 	push	ar5
 	lcall	_write
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	dump2.c:115: if (size < NUM) {
+;	dump2.c:117: if (size < NUM) {
 	cjne	r5,#0x0f,00209$
 00209$:
 	jnc	00112$
-;	dump2.c:116: dumpPage(address, size, type);
-	mov	dptr,#_dump_type_65537_242
+;	dump2.c:118: dumpPage(address, size, type);
+	mov	dptr,#_dump_type_65537_247
 	movx	a,@dptr
 	mov	r4,a
 	mov	dptr,#_dumpPage_PARM_2
@@ -4218,8 +4336,8 @@ _dump:
 	pop	ar5
 	sjmp	00113$
 00112$:
-;	dump2.c:118: dumpPage(address, NUM, type);
-	mov	dptr,#_dump_type_65537_242
+;	dump2.c:120: dumpPage(address, NUM, type);
+	mov	dptr,#_dump_type_65537_247
 	movx	a,@dptr
 	mov	r4,a
 	mov	dptr,#_dumpPage_PARM_2
@@ -4234,7 +4352,7 @@ _dump:
 	lcall	_dumpPage
 	pop	ar5
 00113$:
-;	dump2.c:122: pages = size / NUM;
+;	dump2.c:124: pages = size / NUM;
 	mov	r7,#0x00
 	mov	__divsint_PARM_2,#0x0f
 ;	1-genFromRTrack replaced	mov	(__divsint_PARM_2 + 1),#0x00
@@ -4243,14 +4361,14 @@ _dump:
 	mov	dph,r7
 	lcall	__divsint
 	mov	r6,dpl
-;	dump2.c:124: do {
-	mov	dptr,#_dump_type_65537_242
+;	dump2.c:126: do {
+	mov	dptr,#_dump_type_65537_247
 	movx	a,@dptr
 	mov	r7,a
 	mov	r5,a
 00133$:
-;	dump2.c:126: if (page != 1 && page != pages) {
-	mov	dptr,#_dump_page_65537_242
+;	dump2.c:128: if (page != 1 && page != pages) {
+	mov	dptr,#_dump_page_65537_247
 	movx	a,@dptr
 	mov	r4,a
 	cjne	r4,#0x01,00211$
@@ -4260,14 +4378,14 @@ _dump:
 	cjne	a,ar6,00212$
 	sjmp	00120$
 00212$:
-;	dump2.c:127: LCD_string_write("Press A for previous\n");
+;	dump2.c:129: LCD_string_write("Press A for previous\n");
 	mov	dptr,#___str_15
 	mov	b,#0x80
 	push	ar7
 	push	ar6
 	push	ar5
 	lcall	_LCD_string_write
-;	dump2.c:128: LCD_string_write("Press B for next\n");
+;	dump2.c:130: LCD_string_write("Press B for next\n");
 	mov	dptr,#___str_16
 	mov	b,#0x80
 	lcall	_LCD_string_write
@@ -4276,14 +4394,14 @@ _dump:
 	pop	ar7
 	sjmp	00121$
 00120$:
-;	dump2.c:129: } else if (page != pages) {
-	mov	dptr,#_dump_page_65537_242
+;	dump2.c:131: } else if (page != pages) {
+	mov	dptr,#_dump_page_65537_247
 	movx	a,@dptr
 	mov	r4,a
 	cjne	a,ar6,00213$
 	sjmp	00117$
 00213$:
-;	dump2.c:130: LCD_string_write("Press B for next\n");
+;	dump2.c:132: LCD_string_write("Press B for next\n");
 	mov	dptr,#___str_16
 	mov	b,#0x80
 	push	ar7
@@ -4295,11 +4413,11 @@ _dump:
 	pop	ar7
 	sjmp	00121$
 00117$:
-;	dump2.c:131: } else if (page != 1) {
+;	dump2.c:133: } else if (page != 1) {
 	cjne	r4,#0x01,00214$
 	sjmp	00121$
 00214$:
-;	dump2.c:132: LCD_string_write("Press A for previous\n");
+;	dump2.c:134: LCD_string_write("Press A for previous\n");
 	mov	dptr,#___str_15
 	mov	b,#0x80
 	push	ar7
@@ -4310,29 +4428,29 @@ _dump:
 	pop	ar6
 	pop	ar7
 00121$:
-;	dump2.c:135: LCD_string_write("Press 1 for menu\n");
+;	dump2.c:137: LCD_string_write("Press 1 for menu\n");
 	mov	dptr,#___str_17
 	mov	b,#0x80
 	push	ar7
 	push	ar6
 	push	ar5
 	lcall	_LCD_string_write
-;	dump2.c:137: input = keyDetect();
+;	dump2.c:139: input = keyDetect();
 	lcall	_keyDetect
 	mov	r4,dpl
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	dump2.c:140: if (input == 'B' && page != pages) {	// next
+;	dump2.c:142: if (input == 'B' && page != pages) {	// next
 	cjne	r4,#0x42,00130$
-	mov	dptr,#_dump_page_65537_242
+	mov	dptr,#_dump_page_65537_247
 	movx	a,@dptr
 	mov	r3,a
 	cjne	a,ar6,00217$
 	sjmp	00130$
 00217$:
-;	dump2.c:141: address += NUM;
-	mov	dptr,#_dump_address_65537_242
+;	dump2.c:143: address += NUM;
+	mov	dptr,#_dump_address_65537_247
 	movx	a,@dptr
 	mov	r1,a
 	inc	dptr
@@ -4344,14 +4462,14 @@ _dump:
 	clr	a
 	addc	a,r2
 	mov	r2,a
-	mov	dptr,#_dump_address_65537_242
+	mov	dptr,#_dump_address_65537_247
 	mov	a,r1
 	movx	@dptr,a
 	mov	a,r2
 	inc	dptr
 	movx	@dptr,a
-;	dump2.c:142: dumpPage(address, NUM, type);
-	mov	dptr,#_dump_address_65537_242
+;	dump2.c:144: dumpPage(address, NUM, type);
+	mov	dptr,#_dump_address_65537_247
 	movx	a,@dptr
 	mov	r1,a
 	inc	dptr
@@ -4374,23 +4492,23 @@ _dump:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	dump2.c:143: page++;
-	mov	dptr,#_dump_page_65537_242
+;	dump2.c:145: page++;
+	mov	dptr,#_dump_page_65537_247
 	mov	a,r3
 	inc	a
 	movx	@dptr,a
 	ljmp	00133$
 00130$:
-;	dump2.c:144: } else if (input == 'A' && page != 1) {				// previous
+;	dump2.c:146: } else if (input == 'A' && page != 1) {				// previous
 	cjne	r4,#0x41,00126$
-	mov	dptr,#_dump_page_65537_242
+	mov	dptr,#_dump_page_65537_247
 	movx	a,@dptr
 	mov	r3,a
 	cjne	r3,#0x01,00220$
 	sjmp	00126$
 00220$:
-;	dump2.c:145: address -= NUM;
-	mov	dptr,#_dump_address_65537_242
+;	dump2.c:147: address -= NUM;
+	mov	dptr,#_dump_address_65537_247
 	movx	a,@dptr
 	mov	r1,a
 	inc	dptr
@@ -4402,14 +4520,14 @@ _dump:
 	mov	a,r2
 	addc	a,#0xff
 	mov	r2,a
-	mov	dptr,#_dump_address_65537_242
+	mov	dptr,#_dump_address_65537_247
 	mov	a,r1
 	movx	@dptr,a
 	mov	a,r2
 	inc	dptr
 	movx	@dptr,a
-;	dump2.c:146: dumpPage(address, NUM, type);
-	mov	dptr,#_dump_address_65537_242
+;	dump2.c:148: dumpPage(address, NUM, type);
+	mov	dptr,#_dump_address_65537_247
 	movx	a,@dptr
 	mov	r1,a
 	inc	dptr
@@ -4432,31 +4550,31 @@ _dump:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	dump2.c:147: page--;
+;	dump2.c:149: page--;
 	mov	a,r3
 	dec	a
-	mov	dptr,#_dump_page_65537_242
+	mov	dptr,#_dump_page_65537_247
 	movx	@dptr,a
 	ljmp	00133$
 00126$:
-;	dump2.c:148: } else if (input == '1') {							// main menu
+;	dump2.c:150: } else if (input == '1') {							// main menu
 	cjne	r4,#0x31,00221$
 	ret
 00221$:
 	ljmp	00133$
-;	dump2.c:152: } while (1);
-;	dump2.c:154: }
+;	dump2.c:154: } while (1);
+;	dump2.c:156: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'check'
 ;------------------------------------------------------------
-;ramAddress                Allocated to registers r4 r5 
-;checker                   Allocated with name '_check_checker_65537_259'
-;fetched                   Allocated with name '_check_fetched_65537_259'
-;i                         Allocated with name '_check_i_65537_259'
-;error                     Allocated with name '_check_error_65537_259'
+;checker                   Allocated to registers r7 
+;fetched                   Allocated to registers r0 
+;error                     Allocated to registers r7 
+;ramAddress                Allocated to registers r2 r3 
+;i                         Allocated with name '_check_i_65537_264'
 ;------------------------------------------------------------
-;	check.c:6: void check(void) {
+;	check.c:6: void check (void) {
 ;	-----------------------------------------
 ;	 function check
 ;	-----------------------------------------
@@ -4473,79 +4591,76 @@ _check:
 ;	check.c:10: setTextSize(2);
 	mov	dpl,#0x02
 	lcall	_setTextSize
-;	check.c:17: __xdata uint8_t error = 0;
-	mov	dptr,#_check_error_65537_259
-	clr	a
-	movx	@dptr,a
-;	check.c:21: LCD_string_write("Enter byte to check\n");
+;	check.c:16: uint8_t error = 0;
+	mov	r7,#0x00
+;	check.c:20: LCD_string_write("Enter byte to check\n");
 	mov	dptr,#___str_18
 	mov	b,#0x80
+	push	ar7
 	lcall	_LCD_string_write
-;	check.c:22: checker = getByte();
+;	check.c:21: checker = getByte();
 	lcall	_getByte
-	mov	a,dpl
-	mov	dptr,#_check_checker_65537_259
-	movx	@dptr,a
-;	check.c:23: write('\n');
+	mov	r6,dpl
+;	check.c:22: write('\n');
 	mov	dpl,#0x0a
+	push	ar6
 	lcall	_write
-;	check.c:24: LCD_string_write("In progress...\n");
+;	check.c:23: LCD_string_write("In progress...\n");
 	mov	dptr,#___str_19
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	check.c:29: for (i = __START_RAM__; i < __END_RAM__; i++) {
-	mov	r6,#0x00
-	mov	r7,#0x00
+	pop	ar6
+	pop	ar7
+;	check.c:28: for (i = __START_RAM__; i < __END_RAM__; i++) {
+	mov	r4,#0x00
+	mov	r5,#0x00
 00112$:
-;	check.c:30: IOM = 0;
+;	check.c:29: IOM = 0;
 ;	assignBit
 	clr	_P3_4
-;	check.c:31: ramAddress = (uint16_t __xdata*)(i);
-	mov	ar4,r6
-	mov	ar5,r7
-;	check.c:32: *ramAddress = checker;
-	mov	dptr,#_check_checker_65537_259
-	movx	a,@dptr
-	mov	r3,a
-	mov	r1,a
-	mov	r2,#0x00
-	mov	dpl,r4
-	mov	dph,r5
-	mov	a,r1
+;	check.c:30: ramAddress = (uint16_t __xdata*)(i);
+	mov	ar2,r4
+	mov	ar3,r5
+;	check.c:31: *ramAddress = checker;
+	mov	ar0,r6
+	mov	r1,#0x00
+	mov	dpl,r2
+	mov	dph,r3
+	mov	a,r0
 	movx	@dptr,a
-	mov	a,r2
+	mov	a,r1
 	inc	dptr
 	movx	@dptr,a
-;	check.c:33: fetched = *ramAddress;
-;	check.c:34: IOM = 1;
+;	check.c:32: fetched = *ramAddress;
+;	check.c:33: IOM = 1;
 ;	assignBit
 	setb	_P3_4
 ;	check.c:35: if (fetched != checker) {
-	mov	a,r1
-	cjne	a,ar3,00136$
+	mov	a,r0
+	cjne	a,ar6,00141$
 	sjmp	00104$
-00136$:
+00141$:
 ;	check.c:36: asciiToHex(checker);
-	mov	dpl,r3
-	push	ar5
-	push	ar4
-	push	ar1
+	mov	dpl,r6
+	push	ar3
+	push	ar2
+	push	ar0
 	lcall	_asciiToHex
 ;	check.c:37: write(' ');
 	mov	dpl,#0x20
 	lcall	_write
-	pop	ar1
+	pop	ar0
 ;	check.c:38: asciiToHex(fetched);
-	mov	dpl,r1
+	mov	dpl,r0
 	lcall	_asciiToHex
 ;	check.c:39: write(' ');
 	mov	dpl,#0x20
 	lcall	_write
-	pop	ar4
-	pop	ar5
+	pop	ar2
+	pop	ar3
 ;	check.c:40: asciiToHex(*ramAddress);
-	mov	dpl,r4
-	mov	dph,r5
+	mov	dpl,r2
+	mov	dph,r3
 	movx	a,@dptr
 	mov	dpl,a
 	lcall	_asciiToHex
@@ -4557,9 +4672,7 @@ _check:
 	mov	b,#0x80
 	lcall	_LCD_string_write
 ;	check.c:43: error = 1;
-	mov	dptr,#_check_error_65537_259
-	mov	a,#0x01
-	movx	@dptr,a
+	mov	r7,#0x01
 ;	check.c:44: break;
 	sjmp	00106$
 00104$:
@@ -4567,172 +4680,164 @@ _check:
 ;	assignBit
 	clr	_P3_4
 ;	check.c:47: checker = ~checker;
-	mov	dptr,#_check_checker_65537_259
-	mov	a,r3
+	mov	a,r6
 	cpl	a
-	movx	@dptr,a
 ;	check.c:48: *ramAddress = checker;
-	movx	a,@dptr
-	mov	r3,a
-	mov	r1,a
-	mov	r2,#0x00
-	mov	dpl,r4
-	mov	dph,r5
-	mov	a,r1
+	mov	r6,a
+	mov	r0,a
+	mov	r1,#0x00
+	mov	dpl,r2
+	mov	dph,r3
+	mov	a,r0
 	movx	@dptr,a
-	mov	a,r2
+	mov	a,r1
 	inc	dptr
 	movx	@dptr,a
 ;	check.c:49: fetched = *ramAddress;
 ;	check.c:50: IOM = 1;
 ;	assignBit
 	setb	_P3_4
-;	check.c:51: if (fetched != checker) {
-	mov	a,r1
-	cjne	a,ar3,00137$
+;	check.c:52: if (fetched != checker) {
+	mov	a,r0
+	cjne	a,ar6,00142$
 	sjmp	00113$
-00137$:
-;	check.c:52: asciiToHex(~checker);
-	mov	a,r3
-	cpl	a
-	mov	dpl,a
-	push	ar5
-	push	ar4
-	push	ar1
+00142$:
+;	check.c:53: asciiToHex(checker);
+	mov	dpl,r6
+	push	ar3
+	push	ar2
+	push	ar0
 	lcall	_asciiToHex
-;	check.c:53: write(' ');
+;	check.c:54: write(' ');
 	mov	dpl,#0x20
 	lcall	_write
-	pop	ar1
-;	check.c:54: asciiToHex(fetched);
-	mov	dpl,r1
+	pop	ar0
+;	check.c:55: asciiToHex(fetched);
+	mov	dpl,r0
 	lcall	_asciiToHex
-;	check.c:55: write(' ');
+;	check.c:56: write(' ');
 	mov	dpl,#0x20
 	lcall	_write
-	pop	ar4
-	pop	ar5
-;	check.c:56: asciiToHex(*ramAddress);
-	mov	dpl,r4
-	mov	dph,r5
+	pop	ar2
+	pop	ar3
+;	check.c:57: asciiToHex(*ramAddress);
+	mov	dpl,r2
+	mov	dph,r3
 	movx	a,@dptr
 	mov	dpl,a
 	lcall	_asciiToHex
-;	check.c:57: write('\n');
+;	check.c:58: write('\n');
 	mov	dpl,#0x0a
 	lcall	_write
-;	check.c:58: LCD_string_write("Memory check failed\n");
+;	check.c:59: LCD_string_write("Memory check failed\n");
 	mov	dptr,#___str_20
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	check.c:59: error = 1;
-	mov	dptr,#_check_error_65537_259
-	mov	a,#0x01
-	movx	@dptr,a
-;	check.c:60: break;
+;	check.c:60: error = 1;
+	mov	r7,#0x01
+;	check.c:61: break;
 	sjmp	00106$
 00113$:
-;	check.c:29: for (i = __START_RAM__; i < __END_RAM__; i++) {
-	inc	r6
-	cjne	r6,#0x00,00138$
-	inc	r7
-00138$:
-	mov	ar4,r6
-	mov	ar5,r7
+;	check.c:28: for (i = __START_RAM__; i < __END_RAM__; i++) {
+	inc	r4
+	cjne	r4,#0x00,00143$
+	inc	r5
+00143$:
+	mov	ar2,r4
+	mov	ar3,r5
 	clr	c
-	mov	a,r4
+	mov	a,r2
 	subb	a,#0xff
-	mov	a,r5
+	mov	a,r3
 	subb	a,#0xff
-	jnc	00139$
+	jnc	00144$
 	ljmp	00112$
-00139$:
+00144$:
 00106$:
-;	check.c:68: if (error == 0) {
-	mov	dptr,#_check_error_65537_259
-	movx	a,@dptr
+;	check.c:69: if (error == 0) {
+	mov	a,r7
 	jnz	00108$
-;	check.c:69: LCD_string_write("Success!\n");
+;	check.c:70: LCD_string_write("Success!\n");
 	mov	dptr,#___str_21
 	mov	b,#0x80
 	lcall	_LCD_string_write
 00108$:
-;	check.c:73: LCD_string_write("Press 1 for menu\n");
+;	check.c:74: LCD_string_write("Press 1 for menu\n");
 	mov	dptr,#___str_17
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	check.c:75: do {
+;	check.c:76: do {
 00109$:
-;	check.c:76: checker = keyDetect();
+;	check.c:77: checker = keyDetect();
 	lcall	_keyDetect
 	mov	r7,dpl
-;	check.c:77: } while (checker != '1');
+;	check.c:78: } while (checker != '1');
 	cjne	r7,#0x31,00109$
-;	check.c:78: }
+;	check.c:79: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'basic'
 ;------------------------------------------------------------
 ;ramAddress                Allocated to registers 
-;val                       Allocated with name '_basic_val_65537_269'
-;fetched                   Allocated with name '_basic_fetched_65537_269'
-;add                       Allocated with name '_basic_add_65537_269'
+;val                       Allocated with name '_basic_val_65537_274'
+;fetched                   Allocated with name '_basic_fetched_65537_274'
+;add                       Allocated with name '_basic_add_65537_274'
 ;------------------------------------------------------------
-;	check.c:84: void basic(void) {
+;	check.c:85: void basic (void) {
 ;	-----------------------------------------
 ;	 function basic
 ;	-----------------------------------------
 _basic:
-;	check.c:86: fillScreen(GRAY);
+;	check.c:87: fillScreen(GRAY);
 	mov	dptr,#0xd6ba
 	lcall	_fillScreen
-;	check.c:87: setCursor(0, 0);
+;	check.c:88: setCursor(0, 0);
 	clr	a
 	mov	_setCursor_PARM_2,a
 	mov	(_setCursor_PARM_2 + 1),a
 	mov	dptr,#0x0000
 	lcall	_setCursor
-;	check.c:88: setTextSize(2);
+;	check.c:89: setTextSize(2);
 	mov	dpl,#0x02
 	lcall	_setTextSize
-;	check.c:97: LCD_string_write("Enter byte\n");
+;	check.c:98: LCD_string_write("Enter byte\n");
 	mov	dptr,#___str_22
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	check.c:98: val = getByte();
+;	check.c:99: val = getByte();
 	lcall	_getByte
 	mov	r7,dpl
-;	check.c:99: write('\n');
+;	check.c:100: write('\n');
 	mov	dpl,#0x0a
 	push	ar7
 	lcall	_write
-;	check.c:102: LCD_string_write("Enter address\n");
+;	check.c:103: LCD_string_write("Enter address\n");
 	mov	dptr,#___str_23
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	check.c:103: add = getAddress();
+;	check.c:104: add = getAddress();
 	lcall	_getAddress
 	mov	r5,dpl
 	mov	r6,dph
-;	check.c:104: write('\n');
+;	check.c:105: write('\n');
 	mov	dpl,#0x0a
 	push	ar6
 	push	ar5
 	lcall	_write
-;	check.c:105: LCD_string_write("In progress\n");
+;	check.c:106: LCD_string_write("In progress\n");
 	mov	dptr,#___str_24
 	mov	b,#0x80
 	lcall	_LCD_string_write
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	check.c:107: IOM = 0;
+;	check.c:108: IOM = 0;
 ;	assignBit
 	clr	_P3_4
-;	check.c:110: ramAddress = (uint16_t __xdata*)(add);
+;	check.c:111: ramAddress = (uint16_t __xdata*)(add);
 	mov	dpl,r5
 	mov	dph,r6
-;	check.c:111: *ramAddress = val;
+;	check.c:112: *ramAddress = val;
 	mov	ar5,r7
 	mov	r6,#0x00
 	mov	a,r5
@@ -4740,52 +4845,52 @@ _basic:
 	mov	a,r6
 	inc	dptr
 	movx	@dptr,a
-;	check.c:114: fetched = *ramAddress;
-;	check.c:116: IOM = 1;
+;	check.c:115: fetched = *ramAddress;
+;	check.c:117: IOM = 1;
 ;	assignBit
 	setb	_P3_4
-;	check.c:119: if (fetched == val) {
+;	check.c:120: if (fetched == val) {
 	mov	a,r5
 	cjne	a,ar7,00102$
-;	check.c:120: asciiToHex(fetched);
+;	check.c:121: asciiToHex(fetched);
 	mov	dpl,r5
 	lcall	_asciiToHex
-;	check.c:121: LCD_string_write(" fetched!\nSuccess!\n");
+;	check.c:122: LCD_string_write(" fetched!\nSuccess!\n");
 	mov	dptr,#___str_25
 	mov	b,#0x80
 	lcall	_LCD_string_write
 	sjmp	00103$
 00102$:
-;	check.c:123: LCD_string_write("Check failed\n");
+;	check.c:124: LCD_string_write("Check failed\n");
 	mov	dptr,#___str_26
 	mov	b,#0x80
 	lcall	_LCD_string_write
 00103$:
-;	check.c:126: LCD_string_write("Press 1 for menu\n");
+;	check.c:127: LCD_string_write("Press 1 for menu\n");
 	mov	dptr,#___str_17
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	check.c:128: do {
+;	check.c:129: do {
 00104$:
-;	check.c:129: fetched = keyDetect();
+;	check.c:130: fetched = keyDetect();
 	lcall	_keyDetect
 	mov	r7,dpl
-;	check.c:130: } while (fetched != '1');
+;	check.c:131: } while (fetched != '1');
 	cjne	r7,#0x31,00104$
-;	check.c:131: }
+;	check.c:132: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'move'
 ;------------------------------------------------------------
 ;origin                    Allocated to registers 
-;target                    Allocated with name '_move_target_65537_275'
+;target                    Allocated with name '_move_target_65537_280'
 ;sloc0                     Allocated with name '_move_sloc0_1_0'
 ;sloc1                     Allocated with name '_move_sloc1_1_0'
-;startAdd                  Allocated with name '_move_startAdd_65537_275'
-;targetAdd                 Allocated with name '_move_targetAdd_65537_275'
-;i                         Allocated with name '_move_i_65537_275'
-;size                      Allocated with name '_move_size_65537_275'
-;o                         Allocated with name '_move_o_65537_275'
+;startAdd                  Allocated with name '_move_startAdd_65537_280'
+;targetAdd                 Allocated with name '_move_targetAdd_65537_280'
+;i                         Allocated with name '_move_i_65537_280'
+;size                      Allocated with name '_move_size_65537_280'
+;o                         Allocated with name '_move_o_65537_280'
 ;------------------------------------------------------------
 ;	move.c:5: void move(void) {
 ;	-----------------------------------------
@@ -4909,15 +5014,15 @@ _move:
 	mov	a,(_move_sloc1_1_0 + 1)
 	addc	a,r3
 	mov	r3,a
-	mov	_move_target_65537_275,r1
-	mov	(_move_target_65537_275 + 1),r3
+	mov	_move_target_65537_280,r1
+	mov	(_move_target_65537_280 + 1),r3
 ;	move.c:47: o = *origin;
 	movx	a,@dptr
 	mov	r0,a
 ;	move.c:48: *target = o;
 	mov	r3,#0x00
-	mov	dpl,_move_target_65537_275
-	mov	dph,(_move_target_65537_275 + 1)
+	mov	dpl,_move_target_65537_280
+	mov	dph,(_move_target_65537_280 + 1)
 	mov	a,r0
 	movx	@dptr,a
 	mov	a,r3
@@ -4952,11 +5057,11 @@ _move:
 ;Allocation info for local variables in function 'editByte'
 ;------------------------------------------------------------
 ;ramAddress                Allocated to registers r6 r7 
-;add                       Allocated with name '_editByte_add_65536_279'
-;val                       Allocated with name '_editByte_val_65536_280'
-;new                       Allocated with name '_editByte_new_65536_280'
-;high                      Allocated with name '_editByte_high_65536_280'
-;low                       Allocated with name '_editByte_low_65536_280'
+;add                       Allocated with name '_editByte_add_65536_284'
+;val                       Allocated with name '_editByte_val_65536_285'
+;new                       Allocated with name '_editByte_new_65536_285'
+;high                      Allocated with name '_editByte_high_65536_285'
+;low                       Allocated with name '_editByte_low_65536_285'
 ;------------------------------------------------------------
 ;	edit.c:6: void editByte(__xdata uint16_t add) {
 ;	-----------------------------------------
@@ -4965,13 +5070,13 @@ _move:
 _editByte:
 	mov	r7,dph
 	mov	a,dpl
-	mov	dptr,#_editByte_add_65536_279
+	mov	dptr,#_editByte_add_65536_284
 	movx	@dptr,a
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
 ;	edit.c:12: __xdata uint8_t high = HIGHBYTE(add);
-	mov	dptr,#_editByte_add_65536_279
+	mov	dptr,#_editByte_add_65536_284
 	movx	a,@dptr
 	mov	r6,a
 	inc	dptr
@@ -5082,8 +5187,8 @@ _editByte:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'edit'
 ;------------------------------------------------------------
-;input                     Allocated with name '_edit_input_65537_283'
-;add                       Allocated with name '_edit_add_65537_283'
+;input                     Allocated with name '_edit_input_65537_288'
+;add                       Allocated with name '_edit_add_65537_288'
 ;------------------------------------------------------------
 ;	edit.c:55: void edit(void) {
 ;	-----------------------------------------
@@ -5146,7 +5251,7 @@ _edit:
 	mov	r5,dpl
 	pop	ar6
 	pop	ar7
-	mov	dptr,#_edit_input_65537_283
+	mov	dptr,#_edit_input_65537_288
 	mov	a,r5
 	movx	@dptr,a
 ;	edit.c:80: if (input == '1') {
@@ -5177,7 +5282,7 @@ _edit:
 	pop	ar6
 	pop	ar7
 ;	edit.c:88: input = 0;
-	mov	dptr,#_edit_input_65537_283
+	mov	dptr,#_edit_input_65537_288
 	clr	a
 	movx	@dptr,a
 	sjmp	00112$
@@ -5210,12 +5315,12 @@ _edit:
 	pop	ar6
 	pop	ar7
 ;	edit.c:95: input = 0;
-	mov	dptr,#_edit_input_65537_283
+	mov	dptr,#_edit_input_65537_288
 	clr	a
 	movx	@dptr,a
 00112$:
 ;	edit.c:97: } while (input != '1' && input != '2' && input != '3');
-	mov	dptr,#_edit_input_65537_283
+	mov	dptr,#_edit_input_65537_288
 	movx	a,@dptr
 	mov	r5,a
 	cjne	r5,#0x31,00147$
@@ -5233,26 +5338,27 @@ _edit:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'printCount'
 ;------------------------------------------------------------
-;num                       Allocated with name '_printCount_PARM_2'
-;key                       Allocated with name '_printCount_PARM_3'
-;count                     Allocated with name '_printCount_PARM_5'
-;start                     Allocated with name '_printCount_start_65536_288'
-;found                     Allocated to registers r7 
+;key                       Allocated with name '_printCount_PARM_2'
+;index                     Allocated with name '_printCount_PARM_3'
+;count                     Allocated with name '_printCount_PARM_4'
+;start                     Allocated to registers r6 r7 
+;i                         Allocated to registers r4 
+;found                     Allocated to registers r3 
+;high                      Allocated to registers r2 
+;low                       Allocated to registers r1 
 ;ramAddress                Allocated to registers 
-;index                     Allocated with name '_printCount_PARM_4'
-;i                         Allocated with name '_printCount_i_65537_290'
-;high                      Allocated with name '_printCount_high_65537_290'
-;low                       Allocated with name '_printCount_low_65537_290'
 ;------------------------------------------------------------
-;	count3.c:1: void printCount(uint16_t start, uint8_t num, uint8_t key, __xdata uint8_t index, uint8_t count) {
+;	count3.c:1: void printCount(uint16_t start, uint8_t key, uint8_t index, uint8_t count) {
 ;	-----------------------------------------
 ;	 function printCount
 ;	-----------------------------------------
 _printCount:
-	mov	_printCount_start_65536_288,dpl
-	mov	(_printCount_start_65536_288 + 1),dph
+	mov	r6,dpl
+	mov	r7,dph
 ;	count3.c:3: fillScreen(GRAY);
 	mov	dptr,#0xd6ba
+	push	ar7
+	push	ar6
 	lcall	_fillScreen
 ;	count3.c:4: setCursor(0, 0);
 	clr	a
@@ -5263,535 +5369,532 @@ _printCount:
 ;	count3.c:5: setTextSize(2);
 	mov	dpl,#0x02
 	lcall	_setTextSize
-;	count3.c:15: if (count == 0) {
-	mov	a,_printCount_PARM_5
+	pop	ar6
+	pop	ar7
+;	count3.c:14: if (count == 0) {
+	mov	a,_printCount_PARM_4
 	jnz	00102$
-;	count3.c:16: LCD_string_write("No matches found\n");
+;	count3.c:15: LCD_string_write("No matches found\n");
 	mov	dptr,#___str_35
 	mov	b,#0x80
+	push	ar7
+	push	ar6
 	lcall	_LCD_string_write
-	sjmp	00118$
+	pop	ar6
+	pop	ar7
+	sjmp	00113$
 00102$:
-;	count3.c:18: asciiToHex(count);
-	mov	dpl,_printCount_PARM_5
+;	count3.c:17: asciiToHex(count);
+	mov	dpl,_printCount_PARM_4
+	push	ar7
+	push	ar6
 	lcall	_asciiToHex
-;	count3.c:19: LCD_string_write(" matches found\n");
+;	count3.c:18: LCD_string_write(" matches found\n");
 	mov	dptr,#___str_36
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	count3.c:23: for (i = 0; i < num; i++) {
-00118$:
-	mov	dptr,#_printCount_PARM_4
-	movx	a,@dptr
-	mov	r5,a
+	pop	ar6
+	pop	ar7
+;	count3.c:22: for (i = 0; i < NUM; i++) {
+00113$:
+	mov	r5,_printCount_PARM_3
 	mov	r4,#0x00
-00110$:
-	clr	c
-	mov	a,r4
-	subb	a,_printCount_PARM_2
-	jc	00136$
-	ret
-00136$:
-;	count3.c:24: if (start + i == __END_RAM__) break;
-	mov	ar2,r4
-	mov	r3,#0x00
-	mov	r0,_printCount_start_65536_288
-	mov	r1,(_printCount_start_65536_288 + 1)
-	mov	a,r2
-	add	a,r0
-	mov	r6,a
-	mov	a,r3
-	addc	a,r1
-	mov	r7,a
-	cjne	r6,#0xff,00137$
-	cjne	r7,#0xff,00137$
-	ret
-00137$:
-;	count3.c:26: IOM = 0;
+00107$:
+;	count3.c:25: IOM = 0;
 ;	assignBit
 	clr	_P3_4
-;	count3.c:27: ramAddress = (uint16_t __xdata*)(start + i);
+;	count3.c:26: ramAddress = (uint16_t __xdata*)(start + i);
+	mov	ar2,r4
+	mov	r3,#0x00
+	mov	ar0,r6
+	mov	ar1,r7
 	mov	a,r2
 	add	a,r0
-	mov	r6,a
+	mov	r0,a
 	mov	a,r3
 	addc	a,r1
-	mov	r7,a
-	mov	dpl,r6
-	mov	dph,r7
-;	count3.c:28: found = *ramAddress;
+	mov	r1,a
+	mov	dpl,r0
+	mov	dph,r1
+;	count3.c:27: found = *ramAddress;
 	movx	a,@dptr
-;	count3.c:31: if (found == key) {
-	mov	r7,a
-	cjne	a,_printCount_PARM_3,00111$
-;	count3.c:33: asciiToHex(index++);
+	mov	r3,a
+;	count3.c:30: high = HIGHBYTE(start + i);
+	mov	ar2,r1
+;	count3.c:31: low = LOWBYTE(start + i);
+	mov	ar1,r6
+	mov	a,r4
+	add	a,r1
+	mov	r1,a
+;	count3.c:33: if (found == key) {
+	mov	a,r3
+	cjne	a,_printCount_PARM_2,00108$
+;	count3.c:35: asciiToHex(index++);
 	mov	dpl,r5
 	inc	r5
-	push	ar5
-	push	ar4
-	push	ar3
-	push	ar2
-	push	ar1
-	push	ar0
-	lcall	_asciiToHex
-;	count3.c:34: LCD_string_write(": ");
-	mov	dptr,#___str_6
-	mov	b,#0x80
-	lcall	_LCD_string_write
-	pop	ar0
-	pop	ar1
-	pop	ar2
-	pop	ar3
-	pop	ar4
-	pop	ar5
-;	count3.c:36: high = HIGHBYTE(start + i);
-	mov	a,r2
-	add	a,r0
-	mov	a,r3
-	addc	a,r1
-	mov	dpl,a
-;	count3.c:37: low = LOWBYTE(start + i);
-	mov	r6,_printCount_start_65536_288
-	mov	a,r4
-	add	a,r6
-	mov	r6,a
-;	count3.c:40: asciiToHex(high);
+	push	ar7
 	push	ar6
 	push	ar5
 	push	ar4
+	push	ar2
+	push	ar1
 	lcall	_asciiToHex
-	pop	ar4
-	pop	ar5
-	pop	ar6
-;	count3.c:41: asciiToHex(low);
-	mov	dpl,r6
-	push	ar5
-	push	ar4
+;	count3.c:36: LCD_string_write(": ");
+	mov	dptr,#___str_6
+	mov	b,#0x80
+	lcall	_LCD_string_write
+	pop	ar1
+	pop	ar2
+;	count3.c:39: asciiToHex(high);
+	mov	dpl,r2
+	push	ar1
 	lcall	_asciiToHex
-;	count3.c:42: write('\n');
+	pop	ar1
+;	count3.c:40: asciiToHex(low);
+	mov	dpl,r1
+	lcall	_asciiToHex
+;	count3.c:41: write('\n');
 	mov	dpl,#0x0a
 	lcall	_write
 	pop	ar4
 	pop	ar5
-00111$:
-;	count3.c:23: for (i = 0; i < num; i++) {
+	pop	ar6
+	pop	ar7
+00108$:
+;	count3.c:22: for (i = 0; i < NUM; i++) {
 	inc	r4
-;	count3.c:45: }
-	ljmp	00110$
+	cjne	r4,#0x0f,00127$
+00127$:
+	jc	00107$
+;	count3.c:44: }
+	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'count'
 ;------------------------------------------------------------
-;key                       Allocated with name '_count_key_65537_298'
-;n                         Allocated with name '_count_n_65537_298'
-;found                     Allocated to registers r7 
-;size                      Allocated with name '_count_size_65537_298'
+;key                       Allocated with name '_count_key_65537_302'
+;found                     Allocated to registers r0 
 ;ramAddress                Allocated to registers 
 ;sloc0                     Allocated with name '_count_sloc0_1_0'
 ;sloc1                     Allocated with name '_count_sloc1_1_0'
 ;sloc2                     Allocated with name '_count_sloc2_1_0'
-;i                         Allocated with name '_count_i_65537_298'
-;page                      Allocated with name '_count_page_65537_298'
-;index                     Allocated with name '_count_index_65537_298'
-;pages                     Allocated with name '_count_pages_65537_298'
-;address                   Allocated with name '_count_address_65537_298'
+;i                         Allocated with name '_count_i_65537_302'
+;n                         Allocated with name '_count_n_65537_302'
+;size                      Allocated with name '_count_size_65537_302'
+;page                      Allocated with name '_count_page_65537_302'
+;index                     Allocated with name '_count_index_65537_302'
+;pages                     Allocated with name '_count_pages_65537_302'
+;address                   Allocated with name '_count_address_65537_302'
 ;------------------------------------------------------------
-;	count3.c:47: void count(void) {
+;	count3.c:46: void count() {
 ;	-----------------------------------------
 ;	 function count
 ;	-----------------------------------------
 _count:
-;	count3.c:49: fillScreen(GRAY);
+;	count3.c:48: fillScreen(GRAY);
 	mov	dptr,#0xd6ba
 	lcall	_fillScreen
-;	count3.c:50: setCursor(0, 0);
+;	count3.c:49: setCursor(0, 0);
 	clr	a
 	mov	_setCursor_PARM_2,a
 	mov	(_setCursor_PARM_2 + 1),a
 	mov	dptr,#0x0000
 	lcall	_setCursor
-;	count3.c:51: setTextSize(2);
+;	count3.c:50: setTextSize(2);
 	mov	dpl,#0x02
 	lcall	_setTextSize
-;	count3.c:59: __xdata uint8_t page = 1;
-	mov	dptr,#_count_page_65537_298
+;	count3.c:58: __xdata uint8_t page = 1;
+	mov	dptr,#_count_page_65537_302
 	mov	a,#0x01
 	movx	@dptr,a
-;	count3.c:66: LCD_string_write("Enter byte to count:\n");
+;	count3.c:65: LCD_string_write("Enter byte to count:\n");
 	mov	dptr,#___str_37
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	count3.c:67: key = getByte();
+;	count3.c:66: key = getByte();
 	lcall	_getByte
-	mov	_count_key_65537_298,dpl
-;	count3.c:68: write('\n');
+	mov	_count_key_65537_302,dpl
+;	count3.c:67: write('\n');
 	mov	dpl,#0x0a
 	lcall	_write
-;	count3.c:71: LCD_string_write("Enter start address:\n");
+;	count3.c:70: LCD_string_write("Enter start address:\n");
 	mov	dptr,#___str_7
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	count3.c:72: address = getAddress();
+;	count3.c:71: address = getAddress();
 	lcall	_getAddress
 	mov	r5,dpl
 	mov	r6,dph
-	mov	dptr,#_count_address_65537_298
+	mov	dptr,#_count_address_65537_302
 	mov	a,r5
 	movx	@dptr,a
 	mov	a,r6
 	inc	dptr
 	movx	@dptr,a
-;	count3.c:73: write('\n');
+;	count3.c:72: write('\n');
 	mov	dpl,#0x0a
 	push	ar6
 	push	ar5
 	lcall	_write
-;	count3.c:76: LCD_string_write("Enter block size:\n");
+;	count3.c:75: LCD_string_write("Enter block size:\n");
 	mov	dptr,#___str_14
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	count3.c:77: size = getByte();
+;	count3.c:76: size = getByte();
 	lcall	_getByte
-	mov	_count_size_65537_298,dpl
-;	count3.c:78: write('\n');
+	mov	r4,dpl
+;	count3.c:77: write('\n');
 	mov	dpl,#0x0a
+	push	ar4
 	lcall	_write
+	pop	ar4
 	pop	ar5
 	pop	ar6
-;	count3.c:81: for (i = 0; i < size; i++) {
-	mov	_count_n_65537_298,#0x00
+;	count3.c:80: for (i = 0; i < size; i++) {
+	mov	r3,#0x00
 	mov	r2,#0x00
 00132$:
 	clr	c
 	mov	a,r2
-	subb	a,_count_size_65537_298
-	jnc	00154$
-;	count3.c:82: IOM = 0;
+	subb	a,r4
+	jnc	00103$
+;	count3.c:81: IOM = 0;
+	push	ar4
 ;	assignBit
 	clr	_P3_4
-;	count3.c:83: ramAddress = (uint16_t __xdata*)(address + i);
+;	count3.c:82: ramAddress = (uint16_t __xdata*)(address + i);
 	mov	ar0,r2
 	mov	r1,#0x00
-	mov	ar3,r5
-	mov	ar4,r6
+	mov	ar4,r5
+	mov	ar7,r6
 	mov	a,r0
-	add	a,r3
-	mov	r3,a
+	add	a,r4
+	mov	r4,a
 	mov	a,r1
-	addc	a,r4
-	mov	r4,a
-	mov	dpl,r3
-	mov	dph,r4
-;	count3.c:84: found = *ramAddress;
+	addc	a,r7
+	mov	r7,a
+	mov	dpl,r4
+	mov	dph,r7
+;	count3.c:83: found = *ramAddress;
 	movx	a,@dptr
-	mov	r4,a
-;	count3.c:85: IOM = 1;
+	mov	r7,a
+;	count3.c:84: IOM = 1;
 ;	assignBit
 	setb	_P3_4
-;	count3.c:87: if (found == key) n++;
-	mov	a,r4
-	cjne	a,_count_key_65537_298,00133$
-	inc	_count_n_65537_298
+;	count3.c:86: if (found == key) n++;
+	mov	a,r7
+	cjne	a,_count_key_65537_302,00228$
+	sjmp	00229$
+00228$:
+	pop	ar4
+	sjmp	00133$
+00229$:
+	pop	ar4
+	inc	r3
 00133$:
-;	count3.c:81: for (i = 0; i < size; i++) {
+;	count3.c:80: for (i = 0; i < size; i++) {
 	inc	r2
 	sjmp	00132$
-00154$:
-	mov	r4,_count_n_65537_298
-;	count3.c:92: printCount(address, NUM, key, index, n);
-	mov	_printCount_PARM_2,#0x0f
-	mov	_printCount_PARM_3,_count_key_65537_298
-	mov	dptr,#_printCount_PARM_4
-	clr	a
-	movx	@dptr,a
-	mov	_printCount_PARM_5,_count_n_65537_298
+00103$:
+;	count3.c:91: printCount(address, key, index, n);
+	mov	_printCount_PARM_2,_count_key_65537_302
+	mov	_printCount_PARM_3,#0x00
+	mov	_printCount_PARM_4,r3
 	mov	dpl,r5
 	mov	dph,r6
 	push	ar4
+	push	ar3
 	lcall	_printCount
-;	count3.c:93: index += NUM;
-	mov	dptr,#_count_index_65537_298
+	pop	ar3
+	pop	ar4
+;	count3.c:92: index += NUM;
+	mov	dptr,#_count_index_65537_302
 	mov	a,#0x0f
 	movx	@dptr,a
-;	count3.c:99: pages = n / NUM;
-	mov	r3,_count_n_65537_298
-	mov	r6,#0x00
+;	count3.c:98: pages = size / NUM;
+	mov	r7,#0x00
 ;	1-genFromRTrack replaced	mov	__divsint_PARM_2,#0x0f
 	mov	__divsint_PARM_2,a
 ;	1-genFromRTrack replaced	mov	(__divsint_PARM_2 + 1),#0x00
-	mov	(__divsint_PARM_2 + 1),r6
-	mov	dpl,r3
-	mov	dph,r6
+	mov	(__divsint_PARM_2 + 1),r7
+	mov	dpl,r4
+	mov	dph,r7
+	push	ar3
 	lcall	__divsint
-	mov	r5,dpl
-	pop	ar4
-;	count3.c:102: do {
+	mov	r6,dpl
+	pop	ar3
+;	count3.c:101: do {
 	clr	c
 	mov	a,#0x0f
-	subb	a,_count_n_65537_298
+	subb	a,r3
 	clr	a
 	rlc	a
-	mov	r6,a
-	mov	r3,a
-	mov	_count_sloc2_1_0,r6
-	mov	_count_sloc1_1_0,r6
-	mov	ar0,r6
+	mov	r7,a
+	mov	r5,a
+	mov	ar4,r7
+	mov	ar2,r3
+	mov	_count_sloc2_1_0,r7
+	mov	_count_sloc1_1_0,r7
 00128$:
-;	count3.c:104: if (page != 1 && page != pages && n > NUM) {
-	mov	dptr,#_count_page_65537_298
+;	count3.c:103: if (page != 1 && page != pages && n > NUM) {
+	mov	dptr,#_count_page_65537_302
 	movx	a,@dptr
 	mov	_count_sloc0_1_0,a
 	mov	a,#0x01
 	cjne	a,_count_sloc0_1_0,00230$
 	sjmp	00112$
 00230$:
-	mov	a,r5
+	mov	a,r6
 	cjne	a,_count_sloc0_1_0,00231$
 	sjmp	00112$
 00231$:
-	mov	a,r6
+	mov	a,r7
 	jz	00112$
-;	count3.c:105: LCD_string_write("Press A for previous\n");
+;	count3.c:104: LCD_string_write("Press A for previous\n");
 	mov	dptr,#___str_15
 	mov	b,#0x80
+	push	ar7
 	push	ar6
 	push	ar5
 	push	ar4
 	push	ar3
-	push	ar0
+	push	ar2
 	lcall	_LCD_string_write
-;	count3.c:106: LCD_string_write("Press B for next\n");
+;	count3.c:105: LCD_string_write("Press B for next\n");
 	mov	dptr,#___str_16
 	mov	b,#0x80
 	lcall	_LCD_string_write
-	pop	ar0
+	pop	ar2
 	pop	ar3
 	pop	ar4
 	pop	ar5
 	pop	ar6
+	pop	ar7
 	sjmp	00113$
 00112$:
-;	count3.c:107: } else if (page != pages && n > NUM) {
-	mov	dptr,#_count_page_65537_298
+;	count3.c:106: } else if (page != pages && n > NUM) {
+	mov	dptr,#_count_page_65537_302
 	movx	a,@dptr
-	cjne	a,ar5,00233$
+	cjne	a,ar6,00233$
 	sjmp	00108$
 00233$:
-	mov	a,r3
+	mov	a,r5
 	jz	00108$
-;	count3.c:108: LCD_string_write("Press B for next\n");
+;	count3.c:107: LCD_string_write("Press B for next\n");
 	mov	dptr,#___str_16
 	mov	b,#0x80
+	push	ar7
 	push	ar6
 	push	ar5
 	push	ar4
 	push	ar3
-	push	ar0
+	push	ar2
 	lcall	_LCD_string_write
-	pop	ar0
+	pop	ar2
 	pop	ar3
 	pop	ar4
 	pop	ar5
 	pop	ar6
+	pop	ar7
 	sjmp	00113$
 00108$:
-;	count3.c:109: } else if (page != 1 && n > NUM) {
-	mov	dptr,#_count_page_65537_298
+;	count3.c:108: } else if (page != 1 && n > NUM) {
+	mov	dptr,#_count_page_65537_302
 	movx	a,@dptr
-	mov	r7,a
-	cjne	r7,#0x01,00235$
+	mov	r0,a
+	cjne	r0,#0x01,00235$
 	sjmp	00113$
 00235$:
-	mov	a,_count_sloc2_1_0
+	mov	a,r4
 	jz	00113$
-;	count3.c:110: LCD_string_write("Press A for previous\n");
+;	count3.c:109: LCD_string_write("Press A for previous\n");
 	mov	dptr,#___str_15
 	mov	b,#0x80
+	push	ar7
 	push	ar6
 	push	ar5
 	push	ar4
 	push	ar3
-	push	ar0
+	push	ar2
 	lcall	_LCD_string_write
-	pop	ar0
+	pop	ar2
 	pop	ar3
 	pop	ar4
 	pop	ar5
 	pop	ar6
+	pop	ar7
 00113$:
-;	count3.c:114: LCD_string_write("Press 1 for menu\n");
+;	count3.c:113: LCD_string_write("Press 1 for menu\n");
 	mov	dptr,#___str_17
 	mov	b,#0x80
+	push	ar7
 	push	ar6
 	push	ar5
 	push	ar4
 	push	ar3
-	push	ar0
+	push	ar2
 	lcall	_LCD_string_write
-;	count3.c:117: found = keyDetect();
+;	count3.c:116: found = keyDetect();
 	lcall	_keyDetect
-	mov	r7,dpl
-	pop	ar0
+	mov	r0,dpl
+	pop	ar2
 	pop	ar3
 	pop	ar4
 	pop	ar5
 	pop	ar6
-;	count3.c:120: if (found == '1') {
-	cjne	r7,#0x31,00237$
+	pop	ar7
+;	count3.c:119: if (found == '1') {
+	cjne	r0,#0x31,00237$
 	ret
 00237$:
-;	count3.c:122: } else if (found == 'B' && page != pages && n > NUM) {
-	cjne	r7,#0x42,00121$
-	mov	dptr,#_count_page_65537_298
+;	count3.c:121: } else if (found == 'B' && page != pages && n > NUM) {
+	cjne	r0,#0x42,00121$
+	mov	dptr,#_count_page_65537_302
 	movx	a,@dptr
 	mov	_count_sloc0_1_0,a
-	mov	a,r5
+	mov	a,r6
 	cjne	a,_count_sloc0_1_0,00240$
 	sjmp	00121$
 00240$:
-	mov	a,_count_sloc1_1_0
+	mov	a,_count_sloc2_1_0
 	jz	00121$
-;	count3.c:123: index += NUM;
-	push	ar0
-	mov	dptr,#_count_index_65537_298
+;	count3.c:122: index += NUM;
+	push	ar3
+	mov	dptr,#_count_index_65537_302
 	movx	a,@dptr
 	add	a,#0x0f
 	movx	@dptr,a
-;	count3.c:124: address += NUM;
-	mov	dptr,#_count_address_65537_298
-	movx	a,@dptr
-	mov	r0,a
-	inc	dptr
+;	count3.c:123: address += NUM;
+	mov	dptr,#_count_address_65537_302
 	movx	a,@dptr
 	mov	r1,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r3,a
 	mov	a,#0x0f
-	add	a,r0
-	mov	r0,a
+	add	a,r1
+	mov	r1,a
 	clr	a
-	addc	a,r1
-	mov	r1,a
-	mov	dptr,#_count_address_65537_298
-	mov	a,r0
-	movx	@dptr,a
+	addc	a,r3
+	mov	r3,a
+	mov	dptr,#_count_address_65537_302
 	mov	a,r1
+	movx	@dptr,a
+	mov	a,r3
 	inc	dptr
 	movx	@dptr,a
-;	count3.c:125: printCount(address, NUM, key, index, n);
-	mov	dptr,#_count_address_65537_298
-	movx	a,@dptr
-	mov	r0,a
-	inc	dptr
+;	count3.c:124: printCount(address, key, index, n);
+	mov	dptr,#_count_address_65537_302
 	movx	a,@dptr
 	mov	r1,a
-	mov	dptr,#_count_index_65537_298
+	inc	dptr
 	movx	a,@dptr
-	mov	r2,a
-	mov	_printCount_PARM_2,#0x0f
-	mov	_printCount_PARM_3,_count_key_65537_298
-	mov	dptr,#_printCount_PARM_4
-	mov	a,r2
-	movx	@dptr,a
-	mov	_printCount_PARM_5,r4
-	mov	dpl,r0
-	mov	dph,r1
+	mov	r3,a
+	mov	dptr,#_count_index_65537_302
+	movx	a,@dptr
+	mov	_printCount_PARM_3,a
+	mov	_printCount_PARM_2,_count_key_65537_302
+	mov	_printCount_PARM_4,r2
+	mov	dpl,r1
+	mov	dph,r3
+	push	ar7
 	push	ar6
 	push	ar5
 	push	ar4
 	push	ar3
-	push	ar0
+	push	ar2
 	lcall	_printCount
-	pop	ar0
+	pop	ar2
 	pop	ar3
 	pop	ar4
 	pop	ar5
 	pop	ar6
-;	count3.c:126: page++;
-	mov	dptr,#_count_page_65537_298
+	pop	ar7
+;	count3.c:125: page++;
+	mov	dptr,#_count_page_65537_302
 	mov	a,_count_sloc0_1_0
 	inc	a
 	movx	@dptr,a
-	pop	ar0
+	pop	ar3
 	ljmp	00128$
 00121$:
-;	count3.c:127: } else if (found == 'A' && page != 1 && n > NUM) {
-	cjne	r7,#0x41,00242$
+;	count3.c:126: } else if (found == 'A' && page != 1 && n > NUM) {
+	cjne	r0,#0x41,00242$
 	sjmp	00243$
 00242$:
 	ljmp	00128$
 00243$:
-	mov	dptr,#_count_page_65537_298
+	mov	dptr,#_count_page_65537_302
 	movx	a,@dptr
-	mov	r7,a
-	cjne	r7,#0x01,00244$
+	mov	r1,a
+	cjne	r1,#0x01,00244$
 	ljmp	00128$
 00244$:
-	mov	a,r0
+	mov	a,_count_sloc1_1_0
 	jnz	00245$
 	ljmp	00128$
 00245$:
-;	count3.c:128: index -= NUM;
-	push	ar0
-	mov	dptr,#_count_index_65537_298
+;	count3.c:127: index -= NUM;
+	push	ar2
+	mov	dptr,#_count_index_65537_302
 	movx	a,@dptr
 	add	a,#0xf1
 	movx	@dptr,a
-;	count3.c:129: address -= NUM;
-	mov	dptr,#_count_address_65537_298
+;	count3.c:128: address -= NUM;
+	mov	dptr,#_count_address_65537_302
 	movx	a,@dptr
-	mov	r1,a
+	mov	r0,a
 	inc	dptr
 	movx	a,@dptr
 	mov	r2,a
-	mov	a,r1
+	mov	a,r0
 	add	a,#0xf1
-	mov	r1,a
+	mov	r0,a
 	mov	a,r2
 	addc	a,#0xff
 	mov	r2,a
-	mov	dptr,#_count_address_65537_298
-	mov	a,r1
+	mov	dptr,#_count_address_65537_302
+	mov	a,r0
 	movx	@dptr,a
 	mov	a,r2
 	inc	dptr
 	movx	@dptr,a
-;	count3.c:130: printCount(address, NUM, key, index, n);
-	mov	dptr,#_count_address_65537_298
+;	count3.c:129: printCount(address, key, index, n);
+	mov	dptr,#_count_address_65537_302
 	movx	a,@dptr
-	mov	r1,a
+	mov	r0,a
 	inc	dptr
 	movx	a,@dptr
 	mov	r2,a
-	mov	dptr,#_count_index_65537_298
+	mov	dptr,#_count_index_65537_302
 	movx	a,@dptr
-	mov	r0,a
-	mov	_printCount_PARM_2,#0x0f
-	mov	_printCount_PARM_3,_count_key_65537_298
-	mov	dptr,#_printCount_PARM_4
-	mov	a,r0
-	movx	@dptr,a
-	mov	_printCount_PARM_5,r4
-	mov	dpl,r1
+	mov	_printCount_PARM_3,a
+	mov	_printCount_PARM_2,_count_key_65537_302
+	mov	_printCount_PARM_4,r3
+	mov	dpl,r0
 	mov	dph,r2
 	push	ar7
 	push	ar6
 	push	ar5
 	push	ar4
 	push	ar3
-	push	ar0
+	push	ar2
+	push	ar1
 	lcall	_printCount
-	pop	ar0
+	pop	ar1
+	pop	ar2
 	pop	ar3
 	pop	ar4
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	count3.c:131: page--;
-	mov	a,r7
+;	count3.c:130: page--;
+	mov	a,r1
 	dec	a
-	mov	dptr,#_count_page_65537_298
+	mov	dptr,#_count_page_65537_302
 	movx	@dptr,a
-;	count3.c:133: } while (1);
-	pop	ar0
-;	count3.c:134: }
+;	count3.c:132: } while (1);
+	pop	ar2
+;	count3.c:133: }
 	ljmp	00128$
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'displayTemp'
@@ -5966,181 +6069,226 @@ _light:
 ;	analog.c:105: }
 	sjmp	00104$
 ;------------------------------------------------------------
+;Allocation info for local variables in function 'UART_free_type'
+;------------------------------------------------------------
+;	UART_freetype.c:1: void UART_free_type() {
+;	-----------------------------------------
+;	 function UART_free_type
+;	-----------------------------------------
+_UART_free_type:
+;	UART_freetype.c:2: LCD_string_write("UART Free type, 0 for menu:\n");
+	mov	dptr,#___str_41
+	mov	b,#0x80
+	lcall	_LCD_string_write
+;	UART_freetype.c:3: while (1) {
+00107$:
+;	UART_freetype.c:4: if (recieved_flag == 1) {
+	mov	a,#0x01
+	cjne	a,_recieved_flag,00107$
+;	UART_freetype.c:5: if (received_byte == '0') {
+	mov	a,#0x30
+	cjne	a,_received_byte,00125$
+	ret
+00125$:
+;	UART_freetype.c:9: write(received_byte);
+	mov	dpl,_received_byte
+	lcall	_write
+;	UART_freetype.c:10: write('\n');
+	mov	dpl,#0x0a
+	lcall	_write
+;	UART_freetype.c:11: recieved_flag = 0;
+	mov	_recieved_flag,#0x00
+;	UART_freetype.c:15: }
+	sjmp	00107$
+;------------------------------------------------------------
 ;Allocation info for local variables in function 'menu'
 ;------------------------------------------------------------
-;	main.c:30: void menu(void) {
+;	main.c:33: void menu(void) {
 ;	-----------------------------------------
 ;	 function menu
 ;	-----------------------------------------
 _menu:
-;	main.c:32: setRotation(2);
+;	main.c:35: setRotation(2);
 	mov	dpl,#0x02
 	lcall	_setRotation
-;	main.c:33: setTextSize(3);
+;	main.c:36: setTextSize(3);
 	mov	dpl,#0x03
 	lcall	_setTextSize
-;	main.c:34: fillScreen(GRAY);
+;	main.c:37: fillScreen(GRAY);
 	mov	dptr,#0xd6ba
 	lcall	_fillScreen
-;	main.c:35: setTextColor(BLACK, GRAY);
+;	main.c:38: setTextColor(BLACK, GRAY);
 	mov	_setTextColor_PARM_2,#0xba
 	mov	(_setTextColor_PARM_2 + 1),#0xd6
 	mov	dptr,#0x0000
 	lcall	_setTextColor
-;	main.c:36: setCursor(0, 0);
+;	main.c:39: setCursor(0, 0);
 	clr	a
 	mov	_setCursor_PARM_2,a
 	mov	(_setCursor_PARM_2 + 1),a
 	mov	dptr,#0x0000
 	lcall	_setCursor
-;	main.c:39: LCD_string_write("Brandon Cline\n");
-	mov	dptr,#___str_41
-	mov	b,#0x80
-	lcall	_LCD_string_write
-;	main.c:40: LCD_string_write("ECEN 4330\n");
+;	main.c:42: LCD_string_write("Brandon Cline\n");
 	mov	dptr,#___str_42
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	main.c:42: setTextSize(2);
-	mov	dpl,#0x02
-	lcall	_setTextSize
-;	main.c:46: LCD_string_write("1: Basic check\n");
+;	main.c:43: LCD_string_write("ECEN 4330\n");
 	mov	dptr,#___str_43
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	main.c:48: LCD_string_write("2: Dump\n");
+;	main.c:45: setTextSize(2);
+	mov	dpl,#0x02
+	lcall	_setTextSize
+;	main.c:49: LCD_string_write("1: Basic check\n");
 	mov	dptr,#___str_44
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	main.c:50: LCD_string_write("3: Check\n");
+;	main.c:51: LCD_string_write("2: Dump\n");
 	mov	dptr,#___str_45
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	main.c:52: LCD_string_write("A: Move\n");
+;	main.c:53: LCD_string_write("3: Check\n");
 	mov	dptr,#___str_46
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	main.c:54: LCD_string_write("4: Edit\n");
+;	main.c:55: LCD_string_write("A: Move\n");
 	mov	dptr,#___str_47
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	main.c:56: LCD_string_write("5: Find\n");
+;	main.c:57: LCD_string_write("4: Edit\n");
 	mov	dptr,#___str_48
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	main.c:58: LCD_string_write("6: Count\n");
+;	main.c:59: LCD_string_write("5: Find\n");
 	mov	dptr,#___str_49
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	main.c:61: LCD_string_write("B: Temperature\n");
+;	main.c:61: LCD_string_write("6: Count\n");
 	mov	dptr,#___str_50
 	mov	b,#0x80
 	lcall	_LCD_string_write
-;	main.c:63: LCD_string_write("7: Light\n");
+;	main.c:64: LCD_string_write("B: Temperature\n");
 	mov	dptr,#___str_51
 	mov	b,#0x80
-;	main.c:64: }
+	lcall	_LCD_string_write
+;	main.c:66: LCD_string_write("7: Light\n");
+	mov	dptr,#___str_52
+	mov	b,#0x80
+	lcall	_LCD_string_write
+;	main.c:69: LCD_string_write("8: UART free type\n");
+	mov	dptr,#___str_53
+	mov	b,#0x80
+;	main.c:70: }
 	ljmp	_LCD_string_write
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'main'
 ;------------------------------------------------------------
-;input                     Allocated with name '_main_input_65536_323'
+;input                     Allocated with name '_main_input_65536_332'
 ;------------------------------------------------------------
-;	main.c:66: void main(void) {
+;	main.c:72: void main(void) {
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
 _main:
-;	main.c:71: iowrite8(seg7_address, 0x00);
+;	main.c:77: iowrite8(seg7_address, 0x00);
 	mov	_iowrite8_PARM_2,#0x00
 	mov	dpl,_seg7_address
 	mov	dph,(_seg7_address + 1)
 	lcall	_iowrite8
-;	main.c:74: TFT_LCD_INIT();
+;	main.c:80: TFT_LCD_INIT();
 	lcall	_TFT_LCD_INIT
-;	main.c:75: fillScreen(BLACK);
+;	main.c:81: fillScreen(BLACK);
 	mov	dptr,#0x0000
 	lcall	_fillScreen
-;	main.c:76: setRotation(0);
+;	main.c:82: setRotation(0);
 	mov	dpl,#0x00
 	lcall	_setRotation
-;	main.c:77: testCircles(20, BLUE);
+;	main.c:83: testCircles(20, BLUE);
 	mov	_testCircles_PARM_2,#0x1f
 	mov	(_testCircles_PARM_2 + 1),#0x00
 	mov	dpl,#0x14
 	lcall	_testCircles
-;	main.c:79: while (1) {
-00113$:
-;	main.c:81: menu();
+;	main.c:84: UART_init();
+	lcall	_UART_init
+;	main.c:86: while (1) {
+00114$:
+;	main.c:88: menu();
 	lcall	_menu
-;	main.c:84: input = keyDetect();
+;	main.c:91: input = keyDetect();
 	lcall	_keyDetect
 	mov	r7,dpl
-;	main.c:88: switch(input) {
-	cjne	r7,#0x31,00157$
+;	main.c:95: switch(input) {
+	cjne	r7,#0x31,00162$
 	sjmp	00101$
-00157$:
-	cjne	r7,#0x32,00158$
-	sjmp	00102$
-00158$:
-	cjne	r7,#0x33,00159$
-	sjmp	00103$
-00159$:
-	cjne	r7,#0x34,00160$
-	sjmp	00105$
-00160$:
-	cjne	r7,#0x35,00161$
-	sjmp	00106$
-00161$:
-	cjne	r7,#0x36,00162$
-	sjmp	00107$
 00162$:
-	cjne	r7,#0x37,00163$
-	sjmp	00109$
+	cjne	r7,#0x32,00163$
+	sjmp	00102$
 00163$:
-	cjne	r7,#0x41,00164$
-	sjmp	00104$
+	cjne	r7,#0x33,00164$
+	sjmp	00103$
 00164$:
-;	main.c:89: case '1': basic(); break;
-	cjne	r7,#0x42,00113$
+	cjne	r7,#0x34,00165$
+	sjmp	00105$
+00165$:
+	cjne	r7,#0x35,00166$
+	sjmp	00106$
+00166$:
+	cjne	r7,#0x36,00167$
+	sjmp	00107$
+00167$:
+	cjne	r7,#0x37,00168$
+	sjmp	00109$
+00168$:
+	cjne	r7,#0x38,00169$
+	sjmp	00110$
+00169$:
+	cjne	r7,#0x41,00170$
+	sjmp	00104$
+00170$:
+;	main.c:96: case '1': basic(); break;
+	cjne	r7,#0x42,00114$
 	sjmp	00108$
 00101$:
 	lcall	_basic
-;	main.c:90: case '2': dump(); break;
-	sjmp	00113$
+;	main.c:97: case '2': dump(); break;
+	sjmp	00114$
 00102$:
 	lcall	_dump
-;	main.c:91: case '3': check(); break;
-	sjmp	00113$
+;	main.c:98: case '3': check(); break;
+	sjmp	00114$
 00103$:
 	lcall	_check
-;	main.c:92: case 'A': move(); break;
-	sjmp	00113$
+;	main.c:99: case 'A': move(); break;
+	sjmp	00114$
 00104$:
 	lcall	_move
-;	main.c:93: case '4': edit(); break;
-	sjmp	00113$
+;	main.c:100: case '4': edit(); break;
+	sjmp	00114$
 00105$:
 	lcall	_edit
-;	main.c:94: case '5': count(); break;
-	sjmp	00113$
+;	main.c:101: case '5': count(); break;
+	sjmp	00114$
 00106$:
 	lcall	_count
-;	main.c:95: case '6': count(); break;
-	sjmp	00113$
+;	main.c:102: case '6': count(); break;
+	sjmp	00114$
 00107$:
 	lcall	_count
-;	main.c:96: case 'B': temperature(); break;
-	sjmp	00113$
+;	main.c:103: case 'B': temperature(); break;
+	sjmp	00114$
 00108$:
 	lcall	_temperature
-;	main.c:97: case '7': light(); break;
-	sjmp	00113$
+;	main.c:104: case '7': light(); break;
+	sjmp	00114$
 00109$:
 	lcall	_light
-;	main.c:99: }
-;	main.c:101: }
-	sjmp	00113$
+;	main.c:105: case '8': UART_free_type(); break;
+	sjmp	00114$
+00110$:
+	lcall	_UART_free_type
+;	main.c:107: }
+;	main.c:109: }
+	sjmp	00114$
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 _font:
@@ -7679,67 +7827,79 @@ ___str_40:
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_41:
-	.ascii "Brandon Cline"
+	.ascii "UART Free type, 0 for menu:"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_42:
-	.ascii "ECEN 4330"
+	.ascii "Brandon Cline"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_43:
-	.ascii "1: Basic check"
+	.ascii "ECEN 4330"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_44:
-	.ascii "2: Dump"
+	.ascii "1: Basic check"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_45:
-	.ascii "3: Check"
+	.ascii "2: Dump"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_46:
-	.ascii "A: Move"
+	.ascii "3: Check"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_47:
-	.ascii "4: Edit"
+	.ascii "A: Move"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_48:
-	.ascii "5: Find"
+	.ascii "4: Edit"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_49:
-	.ascii "6: Count"
+	.ascii "5: Find"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_50:
-	.ascii "B: Temperature"
+	.ascii "6: Count"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_51:
+	.ascii "B: Temperature"
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_52:
 	.ascii "7: Light"
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_53:
+	.ascii "8: UART free type"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)

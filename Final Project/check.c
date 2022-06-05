@@ -3,18 +3,17 @@
  * @brief writes a byte of data as well as its complemented value to each RAM location and reads it back to check each RAM bit
  * 
  */
-void check(void) {
+void check (void) {
 	// LCD setup
 	fillScreen(GRAY);
 	setCursor(0, 0);
 	setTextSize(2);
 
 	// declarations
-	__xdata uint8_t checker;
-	// __xdata uint8_t input;
-	__xdata uint8_t fetched;
+	uint8_t checker;
+	uint8_t fetched;
 	__xdata uint16_t i;
-	__xdata uint8_t error = 0;
+	uint8_t error = 0;
 	__xdata uint16_t* ramAddress;
 
 	// print initial prompt for value to check with
@@ -32,6 +31,7 @@ void check(void) {
 		*ramAddress = checker;
 		fetched = *ramAddress;
 		IOM = 1;
+
 		if (fetched != checker) {
 			asciiToHex(checker);
 			write(' ');
@@ -48,8 +48,9 @@ void check(void) {
 			*ramAddress = checker;
 			fetched = *ramAddress;
 			IOM = 1;
+
 			if (fetched != checker) {
-				asciiToHex(~checker);
+				asciiToHex(checker);
 				write(' ');
 				asciiToHex(fetched);
 				write(' ');
@@ -81,7 +82,7 @@ void check(void) {
  * @brief basic memory check, gets user input, writes it to a location, reads it back, and displays the read value
  * 
  */
-void basic(void) {
+void basic (void) {
 	// LCD setup
 	fillScreen(GRAY);
 	setCursor(0, 0);

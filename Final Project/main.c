@@ -1,3 +1,5 @@
+#include <8051.h>
+#include "USART.c"
 #include "ecen4330_lcd_v3.c"
 
 #include "prototypes.h"
@@ -14,6 +16,7 @@
 // #include "count.c"
 #include "count3.c"
 #include "analog.c"
+#include "UART_freetype.c"
 
 /**
  * Name		: Brandon Cline
@@ -61,6 +64,9 @@ void menu(void) {
 	LCD_string_write("B: Temperature\n");
 	// 7: Light
 	LCD_string_write("7: Light\n");
+
+	// 8: UART free type
+	LCD_string_write("8: UART free type\n");
 }
 
 void main(void) {
@@ -75,6 +81,7 @@ void main(void) {
 	fillScreen(BLACK);
 	setRotation(0);
 	testCircles(20, BLUE);
+	UART_init();
 
 	while (1) {
 		// print menu
@@ -95,6 +102,7 @@ void main(void) {
 			case '6': count(); break;
 			case 'B': temperature(); break;
 			case '7': light(); break;
+			case '8': UART_free_type(); break;
 			default: break;
 		}
 	}
