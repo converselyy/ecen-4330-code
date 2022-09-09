@@ -1,87 +1,3 @@
-// void printFind(uint16_t start, uint8_t num, uint8_t key, uint8_t index) {
-// 	// LCD setup
-// 	fillScreen(GRAY);
-// 	setCursor(0, 0);
-// 	setTextSize(2);
-
-// 	// declarations
-// 	uint8_t i;
-// 	uint8_t found;
-// 	uint8_t high, low;
-// 	__xdata uint16_t* ramAddress;
-
-// 	// loop through results to generate a page
-// 	for (i = 0; i < num; i++) {
-// 		if (start + i == __END_RAM__) break;
-
-// 		IOM = 0;
-// 		ramAddress = (uint16_t __xdata*)(start + i);
-// 		found = *ramAddress;
-// 		// IOM = 1;
-
-// 		if (found == key) {
-// 			// display index and address
-// 			asciiToHex(index++);
-// 			LCD_string_write(": ");
-
-// 			high = HIGHBYTE(start + i);
-// 			low = LOWBYTE(start + i);
-
-// 			// display address
-// 			asciiToHex(high);
-// 			asciiToHex(low);
-// 			write('\n');
-// 		}
-// 	}
-// }
-
-void printCount(uint16_t start, uint8_t num, uint8_t key, uint8_t index, uint8_t count) {
-	// LCD setup
-	fillScreen(GRAY);
-	setCursor(0, 0);
-	setTextSize(2);
-
-	// declarations
-	uint8_t i;
-	uint8_t found;
-	uint8_t high, low;
-	__xdata uint16_t* ramAddress;
-
-	// display number of matches found
-	if (count == 0) {
-		LCD_string_write("No matches found\n");
-	} else {
-		asciiToHex(count);
-		LCD_string_write(" matches found\n");
-	}
-
-	// loop through results to generate a page
-	for (i = 0; i < num; i++) {
-		if (start + i == __END_RAM__) break;
-
-		IOM = 0;
-		ramAddress = (uint16_t __xdata*)(start + i);
-		found = *ramAddress;
-		// IOM = 1;
-
-		if (found == key) {
-			// display index and address
-			asciiToHex(index++);
-			LCD_string_write(": ");
-
-			high = HIGHBYTE(start + i);
-			low = LOWBYTE(start + i);
-
-			// display address
-			asciiToHex(high);
-			asciiToHex(low);
-			write('\n');
-		}
-	}
-}
-
-
-
 void find() {
 	// LCD setup
 	fillScreen(GRAY);
@@ -125,14 +41,9 @@ void find() {
 		if (found == key) n++;
 	}
 
-	// display first page based on number
-	// if (n > NUM) {
-		// printFind(address, NUM, key, index);
-		printCount(address, NUM, key, index, n);
-		index += NUM;
-	// } else {
-	// 	printFind(address, n, key, index);
-	// }
+	// display first page
+	printCount(address, key, index, n);
+	index += NUM;
 
 	pages = n / NUM;
 
@@ -160,12 +71,12 @@ void find() {
 		} else if (found == 'B' && page != pages && n > NUM) {
 			index += NUM;
 			address += NUM;
-			printCount(address, NUM, key, index, n);
+			printCount(address, key, index, n);
 			page++;
 		} else if (found == 'A' && page != 1 && n > NUM) {
 			index -= NUM;
 			address -= NUM;
-			printCount(address, NUM, key, index, n);
+			printCount(address, key, index, n);
 			page--;
 		}
 	} while (1);

@@ -21,149 +21,149 @@
                                      21 	.globl _menu
                                      22 	.globl _UART_free_type
                                      23 	.globl _basic
-                                     24 	.globl _writeSomeLines
-                                     25 	.globl _convertAsciiHex
-                                     26 	.globl _write
-                                     27 	.globl _drawChar
-                                     28 	.globl _setRotation
-                                     29 	.globl _ioread8
-                                     30 	.globl _iowrite8
-                                     31 	.globl _UART_transmit
-                                     32 	.globl _UART_init
-                                     33 	.globl _ISR_receive
-                                     34 	.globl _CY
-                                     35 	.globl _AC
-                                     36 	.globl _F0
-                                     37 	.globl _RS1
-                                     38 	.globl _RS0
-                                     39 	.globl _OV
-                                     40 	.globl _F1
-                                     41 	.globl _P
-                                     42 	.globl _PS
-                                     43 	.globl _PT1
-                                     44 	.globl _PX1
-                                     45 	.globl _PT0
-                                     46 	.globl _PX0
-                                     47 	.globl _RD
-                                     48 	.globl _WR
-                                     49 	.globl _T1
-                                     50 	.globl _T0
-                                     51 	.globl _INT1
-                                     52 	.globl _INT0
-                                     53 	.globl _TXD
-                                     54 	.globl _RXD
-                                     55 	.globl _P3_7
-                                     56 	.globl _P3_6
-                                     57 	.globl _P3_5
-                                     58 	.globl _P3_4
-                                     59 	.globl _P3_3
-                                     60 	.globl _P3_2
-                                     61 	.globl _P3_1
-                                     62 	.globl _P3_0
-                                     63 	.globl _EA
-                                     64 	.globl _ES
-                                     65 	.globl _ET1
-                                     66 	.globl _EX1
-                                     67 	.globl _ET0
-                                     68 	.globl _EX0
-                                     69 	.globl _P2_7
-                                     70 	.globl _P2_6
-                                     71 	.globl _P2_5
-                                     72 	.globl _P2_4
-                                     73 	.globl _P2_3
-                                     74 	.globl _P2_2
-                                     75 	.globl _P2_1
-                                     76 	.globl _P2_0
-                                     77 	.globl _SM0
-                                     78 	.globl _SM1
-                                     79 	.globl _SM2
-                                     80 	.globl _REN
-                                     81 	.globl _TB8
-                                     82 	.globl _RB8
-                                     83 	.globl _TI
-                                     84 	.globl _RI
-                                     85 	.globl _P1_7
-                                     86 	.globl _P1_6
-                                     87 	.globl _P1_5
-                                     88 	.globl _P1_4
-                                     89 	.globl _P1_3
-                                     90 	.globl _P1_2
-                                     91 	.globl _P1_1
-                                     92 	.globl _P1_0
-                                     93 	.globl _TF1
-                                     94 	.globl _TR1
-                                     95 	.globl _TF0
-                                     96 	.globl _TR0
-                                     97 	.globl _IE1
-                                     98 	.globl _IT1
-                                     99 	.globl _IE0
-                                    100 	.globl _IT0
-                                    101 	.globl _P0_7
-                                    102 	.globl _P0_6
-                                    103 	.globl _P0_5
-                                    104 	.globl _P0_4
-                                    105 	.globl _P0_3
-                                    106 	.globl _P0_2
-                                    107 	.globl _P0_1
-                                    108 	.globl _P0_0
-                                    109 	.globl _B
-                                    110 	.globl _ACC
-                                    111 	.globl _PSW
-                                    112 	.globl _IP
-                                    113 	.globl _P3
-                                    114 	.globl _IE
-                                    115 	.globl _P2
-                                    116 	.globl _SBUF
-                                    117 	.globl _SCON
-                                    118 	.globl _P1
-                                    119 	.globl _TH1
-                                    120 	.globl _TH0
-                                    121 	.globl _TL1
-                                    122 	.globl _TL0
-                                    123 	.globl _TMOD
-                                    124 	.globl _TCON
-                                    125 	.globl _PCON
-                                    126 	.globl _DPH
-                                    127 	.globl _DPL
-                                    128 	.globl _SP
-                                    129 	.globl _P0
-                                    130 	.globl _dumpPage_PARM_3
-                                    131 	.globl _dumpPage_PARM_2
+                                     24 	.globl _receive_parity
+                                     25 	.globl _UART_config
+                                     26 	.globl _UART_transmit
+                                     27 	.globl _UART_init
+                                     28 	.globl _ISR_receive
+                                     29 	.globl _writeSomeLines
+                                     30 	.globl _convertAsciiHex
+                                     31 	.globl _write
+                                     32 	.globl _drawChar
+                                     33 	.globl _setRotation
+                                     34 	.globl _ioread8
+                                     35 	.globl _iowrite8
+                                     36 	.globl _CY
+                                     37 	.globl _AC
+                                     38 	.globl _F0
+                                     39 	.globl _RS1
+                                     40 	.globl _RS0
+                                     41 	.globl _OV
+                                     42 	.globl _F1
+                                     43 	.globl _P
+                                     44 	.globl _PS
+                                     45 	.globl _PT1
+                                     46 	.globl _PX1
+                                     47 	.globl _PT0
+                                     48 	.globl _PX0
+                                     49 	.globl _RD
+                                     50 	.globl _WR
+                                     51 	.globl _T1
+                                     52 	.globl _T0
+                                     53 	.globl _INT1
+                                     54 	.globl _INT0
+                                     55 	.globl _TXD
+                                     56 	.globl _RXD
+                                     57 	.globl _P3_7
+                                     58 	.globl _P3_6
+                                     59 	.globl _P3_5
+                                     60 	.globl _P3_4
+                                     61 	.globl _P3_3
+                                     62 	.globl _P3_2
+                                     63 	.globl _P3_1
+                                     64 	.globl _P3_0
+                                     65 	.globl _EA
+                                     66 	.globl _ES
+                                     67 	.globl _ET1
+                                     68 	.globl _EX1
+                                     69 	.globl _ET0
+                                     70 	.globl _EX0
+                                     71 	.globl _P2_7
+                                     72 	.globl _P2_6
+                                     73 	.globl _P2_5
+                                     74 	.globl _P2_4
+                                     75 	.globl _P2_3
+                                     76 	.globl _P2_2
+                                     77 	.globl _P2_1
+                                     78 	.globl _P2_0
+                                     79 	.globl _SM0
+                                     80 	.globl _SM1
+                                     81 	.globl _SM2
+                                     82 	.globl _REN
+                                     83 	.globl _TB8
+                                     84 	.globl _RB8
+                                     85 	.globl _TI
+                                     86 	.globl _RI
+                                     87 	.globl _P1_7
+                                     88 	.globl _P1_6
+                                     89 	.globl _P1_5
+                                     90 	.globl _P1_4
+                                     91 	.globl _P1_3
+                                     92 	.globl _P1_2
+                                     93 	.globl _P1_1
+                                     94 	.globl _P1_0
+                                     95 	.globl _TF1
+                                     96 	.globl _TR1
+                                     97 	.globl _TF0
+                                     98 	.globl _TR0
+                                     99 	.globl _IE1
+                                    100 	.globl _IT1
+                                    101 	.globl _IE0
+                                    102 	.globl _IT0
+                                    103 	.globl _P0_7
+                                    104 	.globl _P0_6
+                                    105 	.globl _P0_5
+                                    106 	.globl _P0_4
+                                    107 	.globl _P0_3
+                                    108 	.globl _P0_2
+                                    109 	.globl _P0_1
+                                    110 	.globl _P0_0
+                                    111 	.globl _B
+                                    112 	.globl _ACC
+                                    113 	.globl _PSW
+                                    114 	.globl _IP
+                                    115 	.globl _P3
+                                    116 	.globl _IE
+                                    117 	.globl _P2
+                                    118 	.globl _SBUF
+                                    119 	.globl _SCON
+                                    120 	.globl _P1
+                                    121 	.globl _TH1
+                                    122 	.globl _TH0
+                                    123 	.globl _TL1
+                                    124 	.globl _TL0
+                                    125 	.globl _TMOD
+                                    126 	.globl _TCON
+                                    127 	.globl _PCON
+                                    128 	.globl _DPH
+                                    129 	.globl _DPL
+                                    130 	.globl _SP
+                                    131 	.globl _P0
                                     132 	.globl __height
                                     133 	.globl __width
-                                    134 	.globl _printCount_PARM_4
-                                    135 	.globl _printCount_PARM_3
-                                    136 	.globl _printCount_PARM_2
-                                    137 	.globl _drawChar_PARM_6
-                                    138 	.globl _drawChar_PARM_5
-                                    139 	.globl _drawChar_PARM_4
-                                    140 	.globl _drawChar_PARM_3
-                                    141 	.globl _drawChar_PARM_2
-                                    142 	.globl _fillRect_PARM_5
-                                    143 	.globl _fillRect_PARM_4
-                                    144 	.globl _fillRect_PARM_3
-                                    145 	.globl _fillRect_PARM_2
-                                    146 	.globl _testCircles_PARM_2
-                                    147 	.globl _drawCircle_PARM_4
-                                    148 	.globl _drawCircle_PARM_3
-                                    149 	.globl _drawCircle_PARM_2
-                                    150 	.globl _drawPixel_PARM_3
-                                    151 	.globl _drawPixel_PARM_2
-                                    152 	.globl _textbgcolor
-                                    153 	.globl _textcolor
-                                    154 	.globl _rotation
-                                    155 	.globl _textsize
-                                    156 	.globl _cursor_y
-                                    157 	.globl _cursor_x
-                                    158 	.globl _read_ram_address
-                                    159 	.globl _light_address
-                                    160 	.globl _temp_address
-                                    161 	.globl _seg7_address
-                                    162 	.globl _lcd_address
-                                    163 	.globl _rowloc
-                                    164 	.globl _colloc
-                                    165 	.globl _recieved_flag
-                                    166 	.globl _received_byte
+                                    134 	.globl _baud
+                                    135 	.globl _parity
+                                    136 	.globl _bit
+                                    137 	.globl _received_flag
+                                    138 	.globl _received_byte
+                                    139 	.globl _drawChar_PARM_6
+                                    140 	.globl _drawChar_PARM_5
+                                    141 	.globl _drawChar_PARM_4
+                                    142 	.globl _drawChar_PARM_3
+                                    143 	.globl _drawChar_PARM_2
+                                    144 	.globl _fillRect_PARM_5
+                                    145 	.globl _fillRect_PARM_4
+                                    146 	.globl _fillRect_PARM_3
+                                    147 	.globl _fillRect_PARM_2
+                                    148 	.globl _testCircles_PARM_2
+                                    149 	.globl _drawCircle_PARM_4
+                                    150 	.globl _drawCircle_PARM_3
+                                    151 	.globl _drawCircle_PARM_2
+                                    152 	.globl _drawPixel_PARM_3
+                                    153 	.globl _drawPixel_PARM_2
+                                    154 	.globl _textbgcolor
+                                    155 	.globl _textcolor
+                                    156 	.globl _rotation
+                                    157 	.globl _textsize
+                                    158 	.globl _cursor_y
+                                    159 	.globl _cursor_x
+                                    160 	.globl _read_ram_address
+                                    161 	.globl _light_address
+                                    162 	.globl _temp_address
+                                    163 	.globl _seg7_address
+                                    164 	.globl _lcd_address
+                                    165 	.globl _rowloc
+                                    166 	.globl _colloc
                                     167 	.globl _delay
                                     168 	.globl _writeRegister8
                                     169 	.globl _writeRegister16
@@ -186,7789 +186,6698 @@
                                     186 	.globl _asciiToHex
                                     187 	.globl _getAddress
                                     188 	.globl _getByte
-                                    189 	.globl _dumpPage
-                                    190 	.globl _dump
-                                    191 	.globl _check
-                                    192 	.globl _move
-                                    193 	.globl _editByte
-                                    194 	.globl _edit
-                                    195 	.globl _printCount
-                                    196 	.globl _count
-                                    197 	.globl _displayTemp
-                                    198 	.globl _displayLight
-                                    199 	.globl _temperature
-                                    200 	.globl _light
-                                    201 ;--------------------------------------------------------
-                                    202 ; special function registers
-                                    203 ;--------------------------------------------------------
-                                    204 	.area RSEG    (ABS,DATA)
-      000000                        205 	.org 0x0000
-                           000080   206 _P0	=	0x0080
-                           000081   207 _SP	=	0x0081
-                           000082   208 _DPL	=	0x0082
-                           000083   209 _DPH	=	0x0083
-                           000087   210 _PCON	=	0x0087
-                           000088   211 _TCON	=	0x0088
-                           000089   212 _TMOD	=	0x0089
-                           00008A   213 _TL0	=	0x008a
-                           00008B   214 _TL1	=	0x008b
-                           00008C   215 _TH0	=	0x008c
-                           00008D   216 _TH1	=	0x008d
-                           000090   217 _P1	=	0x0090
-                           000098   218 _SCON	=	0x0098
-                           000099   219 _SBUF	=	0x0099
-                           0000A0   220 _P2	=	0x00a0
-                           0000A8   221 _IE	=	0x00a8
-                           0000B0   222 _P3	=	0x00b0
-                           0000B8   223 _IP	=	0x00b8
-                           0000D0   224 _PSW	=	0x00d0
-                           0000E0   225 _ACC	=	0x00e0
-                           0000F0   226 _B	=	0x00f0
-                                    227 ;--------------------------------------------------------
-                                    228 ; special function bits
-                                    229 ;--------------------------------------------------------
-                                    230 	.area RSEG    (ABS,DATA)
-      000000                        231 	.org 0x0000
-                           000080   232 _P0_0	=	0x0080
-                           000081   233 _P0_1	=	0x0081
-                           000082   234 _P0_2	=	0x0082
-                           000083   235 _P0_3	=	0x0083
-                           000084   236 _P0_4	=	0x0084
-                           000085   237 _P0_5	=	0x0085
-                           000086   238 _P0_6	=	0x0086
-                           000087   239 _P0_7	=	0x0087
-                           000088   240 _IT0	=	0x0088
-                           000089   241 _IE0	=	0x0089
-                           00008A   242 _IT1	=	0x008a
-                           00008B   243 _IE1	=	0x008b
-                           00008C   244 _TR0	=	0x008c
-                           00008D   245 _TF0	=	0x008d
-                           00008E   246 _TR1	=	0x008e
-                           00008F   247 _TF1	=	0x008f
-                           000090   248 _P1_0	=	0x0090
-                           000091   249 _P1_1	=	0x0091
-                           000092   250 _P1_2	=	0x0092
-                           000093   251 _P1_3	=	0x0093
-                           000094   252 _P1_4	=	0x0094
-                           000095   253 _P1_5	=	0x0095
-                           000096   254 _P1_6	=	0x0096
-                           000097   255 _P1_7	=	0x0097
-                           000098   256 _RI	=	0x0098
-                           000099   257 _TI	=	0x0099
-                           00009A   258 _RB8	=	0x009a
-                           00009B   259 _TB8	=	0x009b
-                           00009C   260 _REN	=	0x009c
-                           00009D   261 _SM2	=	0x009d
-                           00009E   262 _SM1	=	0x009e
-                           00009F   263 _SM0	=	0x009f
-                           0000A0   264 _P2_0	=	0x00a0
-                           0000A1   265 _P2_1	=	0x00a1
-                           0000A2   266 _P2_2	=	0x00a2
-                           0000A3   267 _P2_3	=	0x00a3
-                           0000A4   268 _P2_4	=	0x00a4
-                           0000A5   269 _P2_5	=	0x00a5
-                           0000A6   270 _P2_6	=	0x00a6
-                           0000A7   271 _P2_7	=	0x00a7
-                           0000A8   272 _EX0	=	0x00a8
-                           0000A9   273 _ET0	=	0x00a9
-                           0000AA   274 _EX1	=	0x00aa
-                           0000AB   275 _ET1	=	0x00ab
-                           0000AC   276 _ES	=	0x00ac
-                           0000AF   277 _EA	=	0x00af
-                           0000B0   278 _P3_0	=	0x00b0
-                           0000B1   279 _P3_1	=	0x00b1
-                           0000B2   280 _P3_2	=	0x00b2
-                           0000B3   281 _P3_3	=	0x00b3
-                           0000B4   282 _P3_4	=	0x00b4
-                           0000B5   283 _P3_5	=	0x00b5
-                           0000B6   284 _P3_6	=	0x00b6
-                           0000B7   285 _P3_7	=	0x00b7
-                           0000B0   286 _RXD	=	0x00b0
-                           0000B1   287 _TXD	=	0x00b1
-                           0000B2   288 _INT0	=	0x00b2
-                           0000B3   289 _INT1	=	0x00b3
-                           0000B4   290 _T0	=	0x00b4
-                           0000B5   291 _T1	=	0x00b5
-                           0000B6   292 _WR	=	0x00b6
-                           0000B7   293 _RD	=	0x00b7
-                           0000B8   294 _PX0	=	0x00b8
-                           0000B9   295 _PT0	=	0x00b9
-                           0000BA   296 _PX1	=	0x00ba
-                           0000BB   297 _PT1	=	0x00bb
-                           0000BC   298 _PS	=	0x00bc
-                           0000D0   299 _P	=	0x00d0
-                           0000D1   300 _F1	=	0x00d1
-                           0000D2   301 _OV	=	0x00d2
-                           0000D3   302 _RS0	=	0x00d3
-                           0000D4   303 _RS1	=	0x00d4
-                           0000D5   304 _F0	=	0x00d5
-                           0000D6   305 _AC	=	0x00d6
-                           0000D7   306 _CY	=	0x00d7
-                                    307 ;--------------------------------------------------------
-                                    308 ; overlayable register banks
-                                    309 ;--------------------------------------------------------
-                                    310 	.area REG_BANK_0	(REL,OVR,DATA)
-      000000                        311 	.ds 8
-                                    312 ;--------------------------------------------------------
-                                    313 ; internal ram data
-                                    314 ;--------------------------------------------------------
-                                    315 	.area DSEG    (DATA)
-      000021                        316 _received_byte::
-      000021                        317 	.ds 1
-      000022                        318 _recieved_flag::
-      000022                        319 	.ds 1
-      000023                        320 _colloc::
-      000023                        321 	.ds 1
-      000024                        322 _rowloc::
-      000024                        323 	.ds 1
-      000025                        324 _lcd_address::
-      000025                        325 	.ds 2
-      000027                        326 _seg7_address::
-      000027                        327 	.ds 2
-      000029                        328 _temp_address::
-      000029                        329 	.ds 2
-      00002B                        330 _light_address::
-      00002B                        331 	.ds 2
-      00002D                        332 _read_ram_address::
-      00002D                        333 	.ds 2
-      00002F                        334 _cursor_x::
-      00002F                        335 	.ds 2
-      000031                        336 _cursor_y::
-      000031                        337 	.ds 2
-      000033                        338 _textsize::
-      000033                        339 	.ds 1
-      000034                        340 _rotation::
-      000034                        341 	.ds 1
-      000035                        342 _textcolor::
-      000035                        343 	.ds 2
-      000037                        344 _textbgcolor::
-      000037                        345 	.ds 2
-      000039                        346 _drawPixel_PARM_2:
-      000039                        347 	.ds 2
-      00003B                        348 _drawPixel_PARM_3:
-      00003B                        349 	.ds 2
-      00003D                        350 _drawCircle_PARM_2:
-      00003D                        351 	.ds 2
-      00003F                        352 _drawCircle_PARM_3:
-      00003F                        353 	.ds 2
-      000041                        354 _drawCircle_PARM_4:
-      000041                        355 	.ds 2
-      000043                        356 _drawCircle_x0_65536_110:
-      000043                        357 	.ds 2
-      000045                        358 _drawCircle_sloc0_1_0:
-      000045                        359 	.ds 2
-      000047                        360 _drawCircle_sloc1_1_0:
-      000047                        361 	.ds 2
-      000049                        362 _drawCircle_sloc2_1_0:
-      000049                        363 	.ds 2
-      00004B                        364 _drawCircle_sloc3_1_0:
-      00004B                        365 	.ds 2
-      00004D                        366 _drawCircle_sloc4_1_0:
-      00004D                        367 	.ds 2
-      00004F                        368 _testCircles_PARM_2:
-      00004F                        369 	.ds 2
-      000051                        370 _testCircles_radius_65536_114:
-      000051                        371 	.ds 1
-      000052                        372 _testCircles_sloc0_1_0:
-      000052                        373 	.ds 2
-      000054                        374 _fillRect_PARM_2:
-      000054                        375 	.ds 2
-      000056                        376 _fillRect_PARM_3:
-      000056                        377 	.ds 2
-      000058                        378 _fillRect_PARM_4:
-      000058                        379 	.ds 2
-      00005A                        380 _fillRect_PARM_5:
-      00005A                        381 	.ds 2
-      00005C                        382 _drawChar_PARM_2:
-      00005C                        383 	.ds 2
-      00005E                        384 _drawChar_PARM_3:
-      00005E                        385 	.ds 1
-      00005F                        386 _drawChar_PARM_4:
-      00005F                        387 	.ds 2
-      000061                        388 _drawChar_PARM_5:
-      000061                        389 	.ds 2
-      000063                        390 _drawChar_PARM_6:
-      000063                        391 	.ds 1
-      000064                        392 _drawChar_sloc1_1_0:
-      000064                        393 	.ds 2
-      000066                        394 _drawChar_sloc2_1_0:
-      000066                        395 	.ds 2
-      000068                        396 _drawChar_sloc3_1_0:
-      000068                        397 	.ds 1
-      000069                        398 _drawChar_sloc4_1_0:
-      000069                        399 	.ds 1
-      00006A                        400 _drawChar_sloc5_1_0:
-      00006A                        401 	.ds 1
-      00006B                        402 _asciiToHex_store_65536_207:
-      00006B                        403 	.ds 2
-      00006D                        404 _dumpPage_start_65536_238:
-      00006D                        405 	.ds 2
-      00006F                        406 _dumpPage_ramAddress_65537_240:
-      00006F                        407 	.ds 2
-      000071                        408 _dumpPage_sloc0_1_0:
-      000071                        409 	.ds 2
-      000073                        410 _move_target_65537_280:
-      000073                        411 	.ds 2
-      000075                        412 _move_sloc0_1_0:
-      000075                        413 	.ds 2
-      000077                        414 _move_sloc1_1_0:
-      000077                        415 	.ds 2
-      000079                        416 _printCount_PARM_2:
-      000079                        417 	.ds 1
-      00007A                        418 _printCount_PARM_3:
-      00007A                        419 	.ds 1
-      00007B                        420 _printCount_PARM_4:
-      00007B                        421 	.ds 1
-      00007C                        422 _count_key_65537_302:
-      00007C                        423 	.ds 1
-      00007D                        424 _count_sloc0_1_0:
-      00007D                        425 	.ds 1
-      00007E                        426 _count_sloc1_1_0:
-      00007E                        427 	.ds 1
-      00007F                        428 _count_sloc2_1_0:
-      00007F                        429 	.ds 1
-                                    430 ;--------------------------------------------------------
-                                    431 ; overlayable items in internal ram
-                                    432 ;--------------------------------------------------------
-                                    433 	.area	OSEG    (OVR,DATA)
-                                    434 	.area	OSEG    (OVR,DATA)
-      000008                        435 _iowrite8_PARM_2:
-      000008                        436 	.ds 1
-                                    437 	.area	OSEG    (OVR,DATA)
-                                    438 	.area	OSEG    (OVR,DATA)
-                                    439 	.area	OSEG    (OVR,DATA)
-      000008                        440 _writeRegister8_PARM_2:
-      000008                        441 	.ds 1
-                                    442 	.area	OSEG    (OVR,DATA)
-      000008                        443 _writeRegister16_PARM_2:
-      000008                        444 	.ds 2
-                                    445 	.area	OSEG    (OVR,DATA)
-      000008                        446 _setCursor_PARM_2:
-      000008                        447 	.ds 2
-                                    448 	.area	OSEG    (OVR,DATA)
-      000008                        449 _setTextColor_PARM_2:
-      000008                        450 	.ds 2
-                                    451 	.area	OSEG    (OVR,DATA)
-                                    452 	.area	OSEG    (OVR,DATA)
-      000008                        453 _setAddress_PARM_2:
-      000008                        454 	.ds 2
-      00000A                        455 _setAddress_PARM_3:
-      00000A                        456 	.ds 2
-      00000C                        457 _setAddress_PARM_4:
-      00000C                        458 	.ds 2
-                                    459 	.area	OSEG    (OVR,DATA)
-                                    460 	.area	OSEG    (OVR,DATA)
+                                    189 	.globl _check
+                                    190 	.globl _UART_menu
+                                    191 	.globl _loopback
+                                    192 	.globl _interboard
+                                    193 ;--------------------------------------------------------
+                                    194 ; special function registers
+                                    195 ;--------------------------------------------------------
+                                    196 	.area RSEG    (ABS,DATA)
+      000000                        197 	.org 0x0000
+                           000080   198 _P0	=	0x0080
+                           000081   199 _SP	=	0x0081
+                           000082   200 _DPL	=	0x0082
+                           000083   201 _DPH	=	0x0083
+                           000087   202 _PCON	=	0x0087
+                           000088   203 _TCON	=	0x0088
+                           000089   204 _TMOD	=	0x0089
+                           00008A   205 _TL0	=	0x008a
+                           00008B   206 _TL1	=	0x008b
+                           00008C   207 _TH0	=	0x008c
+                           00008D   208 _TH1	=	0x008d
+                           000090   209 _P1	=	0x0090
+                           000098   210 _SCON	=	0x0098
+                           000099   211 _SBUF	=	0x0099
+                           0000A0   212 _P2	=	0x00a0
+                           0000A8   213 _IE	=	0x00a8
+                           0000B0   214 _P3	=	0x00b0
+                           0000B8   215 _IP	=	0x00b8
+                           0000D0   216 _PSW	=	0x00d0
+                           0000E0   217 _ACC	=	0x00e0
+                           0000F0   218 _B	=	0x00f0
+                                    219 ;--------------------------------------------------------
+                                    220 ; special function bits
+                                    221 ;--------------------------------------------------------
+                                    222 	.area RSEG    (ABS,DATA)
+      000000                        223 	.org 0x0000
+                           000080   224 _P0_0	=	0x0080
+                           000081   225 _P0_1	=	0x0081
+                           000082   226 _P0_2	=	0x0082
+                           000083   227 _P0_3	=	0x0083
+                           000084   228 _P0_4	=	0x0084
+                           000085   229 _P0_5	=	0x0085
+                           000086   230 _P0_6	=	0x0086
+                           000087   231 _P0_7	=	0x0087
+                           000088   232 _IT0	=	0x0088
+                           000089   233 _IE0	=	0x0089
+                           00008A   234 _IT1	=	0x008a
+                           00008B   235 _IE1	=	0x008b
+                           00008C   236 _TR0	=	0x008c
+                           00008D   237 _TF0	=	0x008d
+                           00008E   238 _TR1	=	0x008e
+                           00008F   239 _TF1	=	0x008f
+                           000090   240 _P1_0	=	0x0090
+                           000091   241 _P1_1	=	0x0091
+                           000092   242 _P1_2	=	0x0092
+                           000093   243 _P1_3	=	0x0093
+                           000094   244 _P1_4	=	0x0094
+                           000095   245 _P1_5	=	0x0095
+                           000096   246 _P1_6	=	0x0096
+                           000097   247 _P1_7	=	0x0097
+                           000098   248 _RI	=	0x0098
+                           000099   249 _TI	=	0x0099
+                           00009A   250 _RB8	=	0x009a
+                           00009B   251 _TB8	=	0x009b
+                           00009C   252 _REN	=	0x009c
+                           00009D   253 _SM2	=	0x009d
+                           00009E   254 _SM1	=	0x009e
+                           00009F   255 _SM0	=	0x009f
+                           0000A0   256 _P2_0	=	0x00a0
+                           0000A1   257 _P2_1	=	0x00a1
+                           0000A2   258 _P2_2	=	0x00a2
+                           0000A3   259 _P2_3	=	0x00a3
+                           0000A4   260 _P2_4	=	0x00a4
+                           0000A5   261 _P2_5	=	0x00a5
+                           0000A6   262 _P2_6	=	0x00a6
+                           0000A7   263 _P2_7	=	0x00a7
+                           0000A8   264 _EX0	=	0x00a8
+                           0000A9   265 _ET0	=	0x00a9
+                           0000AA   266 _EX1	=	0x00aa
+                           0000AB   267 _ET1	=	0x00ab
+                           0000AC   268 _ES	=	0x00ac
+                           0000AF   269 _EA	=	0x00af
+                           0000B0   270 _P3_0	=	0x00b0
+                           0000B1   271 _P3_1	=	0x00b1
+                           0000B2   272 _P3_2	=	0x00b2
+                           0000B3   273 _P3_3	=	0x00b3
+                           0000B4   274 _P3_4	=	0x00b4
+                           0000B5   275 _P3_5	=	0x00b5
+                           0000B6   276 _P3_6	=	0x00b6
+                           0000B7   277 _P3_7	=	0x00b7
+                           0000B0   278 _RXD	=	0x00b0
+                           0000B1   279 _TXD	=	0x00b1
+                           0000B2   280 _INT0	=	0x00b2
+                           0000B3   281 _INT1	=	0x00b3
+                           0000B4   282 _T0	=	0x00b4
+                           0000B5   283 _T1	=	0x00b5
+                           0000B6   284 _WR	=	0x00b6
+                           0000B7   285 _RD	=	0x00b7
+                           0000B8   286 _PX0	=	0x00b8
+                           0000B9   287 _PT0	=	0x00b9
+                           0000BA   288 _PX1	=	0x00ba
+                           0000BB   289 _PT1	=	0x00bb
+                           0000BC   290 _PS	=	0x00bc
+                           0000D0   291 _P	=	0x00d0
+                           0000D1   292 _F1	=	0x00d1
+                           0000D2   293 _OV	=	0x00d2
+                           0000D3   294 _RS0	=	0x00d3
+                           0000D4   295 _RS1	=	0x00d4
+                           0000D5   296 _F0	=	0x00d5
+                           0000D6   297 _AC	=	0x00d6
+                           0000D7   298 _CY	=	0x00d7
+                                    299 ;--------------------------------------------------------
+                                    300 ; overlayable register banks
+                                    301 ;--------------------------------------------------------
+                                    302 	.area REG_BANK_0	(REL,OVR,DATA)
+      000000                        303 	.ds 8
+                                    304 ;--------------------------------------------------------
+                                    305 ; internal ram data
+                                    306 ;--------------------------------------------------------
+                                    307 	.area DSEG    (DATA)
+      000021                        308 _colloc::
+      000021                        309 	.ds 1
+      000022                        310 _rowloc::
+      000022                        311 	.ds 1
+      000023                        312 _lcd_address::
+      000023                        313 	.ds 2
+      000025                        314 _seg7_address::
+      000025                        315 	.ds 2
+      000027                        316 _temp_address::
+      000027                        317 	.ds 2
+      000029                        318 _light_address::
+      000029                        319 	.ds 2
+      00002B                        320 _read_ram_address::
+      00002B                        321 	.ds 2
+      00002D                        322 _cursor_x::
+      00002D                        323 	.ds 2
+      00002F                        324 _cursor_y::
+      00002F                        325 	.ds 2
+      000031                        326 _textsize::
+      000031                        327 	.ds 1
+      000032                        328 _rotation::
+      000032                        329 	.ds 1
+      000033                        330 _textcolor::
+      000033                        331 	.ds 2
+      000035                        332 _textbgcolor::
+      000035                        333 	.ds 2
+      000037                        334 _drawPixel_PARM_2:
+      000037                        335 	.ds 2
+      000039                        336 _drawPixel_PARM_3:
+      000039                        337 	.ds 2
+      00003B                        338 _drawCircle_PARM_2:
+      00003B                        339 	.ds 2
+      00003D                        340 _drawCircle_PARM_3:
+      00003D                        341 	.ds 2
+      00003F                        342 _drawCircle_PARM_4:
+      00003F                        343 	.ds 2
+      000041                        344 _drawCircle_x0_65536_105:
+      000041                        345 	.ds 2
+      000043                        346 _drawCircle_sloc0_1_0:
+      000043                        347 	.ds 2
+      000045                        348 _drawCircle_sloc1_1_0:
+      000045                        349 	.ds 2
+      000047                        350 _drawCircle_sloc2_1_0:
+      000047                        351 	.ds 2
+      000049                        352 _drawCircle_sloc3_1_0:
+      000049                        353 	.ds 2
+      00004B                        354 _drawCircle_sloc4_1_0:
+      00004B                        355 	.ds 2
+      00004D                        356 _testCircles_PARM_2:
+      00004D                        357 	.ds 2
+      00004F                        358 _testCircles_radius_65536_109:
+      00004F                        359 	.ds 1
+      000050                        360 _testCircles_sloc0_1_0:
+      000050                        361 	.ds 2
+      000052                        362 _fillRect_PARM_2:
+      000052                        363 	.ds 2
+      000054                        364 _fillRect_PARM_3:
+      000054                        365 	.ds 2
+      000056                        366 _fillRect_PARM_4:
+      000056                        367 	.ds 2
+      000058                        368 _fillRect_PARM_5:
+      000058                        369 	.ds 2
+      00005A                        370 _drawChar_PARM_2:
+      00005A                        371 	.ds 2
+      00005C                        372 _drawChar_PARM_3:
+      00005C                        373 	.ds 1
+      00005D                        374 _drawChar_PARM_4:
+      00005D                        375 	.ds 2
+      00005F                        376 _drawChar_PARM_5:
+      00005F                        377 	.ds 2
+      000061                        378 _drawChar_PARM_6:
+      000061                        379 	.ds 1
+      000062                        380 _drawChar_sloc1_1_0:
+      000062                        381 	.ds 2
+      000064                        382 _drawChar_sloc2_1_0:
+      000064                        383 	.ds 2
+      000066                        384 _drawChar_sloc3_1_0:
+      000066                        385 	.ds 1
+      000067                        386 _drawChar_sloc4_1_0:
+      000067                        387 	.ds 1
+      000068                        388 _drawChar_sloc5_1_0:
+      000068                        389 	.ds 1
+      000069                        390 _asciiToHex_store_65536_202:
+      000069                        391 	.ds 2
+      00006B                        392 _received_byte::
+      00006B                        393 	.ds 1
+      00006C                        394 _received_flag::
+      00006C                        395 	.ds 1
+      00006D                        396 _bit::
+      00006D                        397 	.ds 1
+      00006E                        398 _parity::
+      00006E                        399 	.ds 1
+      00006F                        400 _baud::
+      00006F                        401 	.ds 1
+                                    402 ;--------------------------------------------------------
+                                    403 ; overlayable items in internal ram
+                                    404 ;--------------------------------------------------------
+                                    405 	.area	OSEG    (OVR,DATA)
+      000008                        406 _iowrite8_PARM_2:
+      000008                        407 	.ds 1
+                                    408 	.area	OSEG    (OVR,DATA)
+                                    409 	.area	OSEG    (OVR,DATA)
+                                    410 	.area	OSEG    (OVR,DATA)
+      000008                        411 _writeRegister8_PARM_2:
+      000008                        412 	.ds 1
+                                    413 	.area	OSEG    (OVR,DATA)
+      000008                        414 _writeRegister16_PARM_2:
+      000008                        415 	.ds 2
+                                    416 	.area	OSEG    (OVR,DATA)
+      000008                        417 _setCursor_PARM_2:
+      000008                        418 	.ds 2
+                                    419 	.area	OSEG    (OVR,DATA)
+      000008                        420 _setTextColor_PARM_2:
+      000008                        421 	.ds 2
+                                    422 	.area	OSEG    (OVR,DATA)
+                                    423 	.area	OSEG    (OVR,DATA)
+      000008                        424 _setAddress_PARM_2:
+      000008                        425 	.ds 2
+      00000A                        426 _setAddress_PARM_3:
+      00000A                        427 	.ds 2
+      00000C                        428 _setAddress_PARM_4:
+      00000C                        429 	.ds 2
+                                    430 	.area	OSEG    (OVR,DATA)
+                                    431 	.area	OSEG    (OVR,DATA)
+                                    432 	.area	OSEG    (OVR,DATA)
+                                    433 ;--------------------------------------------------------
+                                    434 ; Stack segment in internal ram
+                                    435 ;--------------------------------------------------------
+                                    436 	.area	SSEG
+      000070                        437 __start__stack:
+      000070                        438 	.ds	1
+                                    439 
+                                    440 ;--------------------------------------------------------
+                                    441 ; indirectly addressable internal ram data
+                                    442 ;--------------------------------------------------------
+                                    443 	.area ISEG    (DATA)
+                                    444 ;--------------------------------------------------------
+                                    445 ; absolute internal ram data
+                                    446 ;--------------------------------------------------------
+                                    447 	.area IABS    (ABS,DATA)
+                                    448 	.area IABS    (ABS,DATA)
+                                    449 ;--------------------------------------------------------
+                                    450 ; bit data
+                                    451 ;--------------------------------------------------------
+                                    452 	.area BSEG    (BIT)
+      000000                        453 _drawChar_sloc0_1_0:
+      000000                        454 	.ds 1
+      000001                        455 _convertAsciiHex_sloc0_1_0:
+      000001                        456 	.ds 1
+      000002                        457 _parity_check_sloc0_1_0:
+      000002                        458 	.ds 1
+                                    459 ;--------------------------------------------------------
+                                    460 ; paged external ram data
                                     461 ;--------------------------------------------------------
-                                    462 ; Stack segment in internal ram
+                                    462 	.area PSEG    (PAG,XDATA)
                                     463 ;--------------------------------------------------------
-                                    464 	.area	SSEG
-      000080                        465 __start__stack:
-      000080                        466 	.ds	1
-                                    467 
-                                    468 ;--------------------------------------------------------
-                                    469 ; indirectly addressable internal ram data
-                                    470 ;--------------------------------------------------------
-                                    471 	.area ISEG    (DATA)
-                                    472 ;--------------------------------------------------------
-                                    473 ; absolute internal ram data
-                                    474 ;--------------------------------------------------------
-                                    475 	.area IABS    (ABS,DATA)
-                                    476 	.area IABS    (ABS,DATA)
-                                    477 ;--------------------------------------------------------
-                                    478 ; bit data
-                                    479 ;--------------------------------------------------------
-                                    480 	.area BSEG    (BIT)
-      000000                        481 _drawChar_sloc0_1_0:
-      000000                        482 	.ds 1
-      000001                        483 _convertAsciiHex_sloc0_1_0:
-      000001                        484 	.ds 1
-                                    485 ;--------------------------------------------------------
-                                    486 ; paged external ram data
-                                    487 ;--------------------------------------------------------
-                                    488 	.area PSEG    (PAG,XDATA)
-                                    489 ;--------------------------------------------------------
-                                    490 ; external ram data
-                                    491 ;--------------------------------------------------------
-                                    492 	.area XSEG    (XDATA)
-      000001                        493 __width::
-      000001                        494 	.ds 2
-      000003                        495 __height::
-      000003                        496 	.ds 2
-      000005                        497 _drawCircle_f_65536_111:
-      000005                        498 	.ds 2
-      000007                        499 _testCircles_x_65536_115:
-      000007                        500 	.ds 2
-      000009                        501 _testCircles_y_65536_115:
-      000009                        502 	.ds 2
-      00000B                        503 _drawChar_line_196609_158:
-      00000B                        504 	.ds 1
-      00000C                        505 _testRAM_d_65536_179:
-      00000C                        506 	.ds 1
-      00000D                        507 _freeType_count_65536_183:
-      00000D                        508 	.ds 1
-      00000E                        509 _reverse_rev_65536_201:
-      00000E                        510 	.ds 2
-      000010                        511 _reverse_val_65536_201:
-      000010                        512 	.ds 2
-      000012                        513 _asciiToDec_d_65536_203:
-      000012                        514 	.ds 1
-      000013                        515 _asciiToDec_val_65536_204:
-      000013                        516 	.ds 1
-      000014                        517 _asciiToDec_id_65536_204:
-      000014                        518 	.ds 2
-      000016                        519 _getAddress_address_65536_232:
-      000016                        520 	.ds 2
-      000018                        521 _getByte_byte_65536_235:
-      000018                        522 	.ds 1
-      000019                        523 _dumpPage_PARM_2:
-      000019                        524 	.ds 1
-      00001A                        525 _dumpPage_PARM_3:
-      00001A                        526 	.ds 1
-      00001B                        527 _dumpPage_i_65537_240:
-      00001B                        528 	.ds 1
-      00001C                        529 _dump_type_65537_247:
-      00001C                        530 	.ds 1
-      00001D                        531 _dump_page_65537_247:
-      00001D                        532 	.ds 1
-      00001E                        533 _dump_address_65537_247:
-      00001E                        534 	.ds 2
-      000020                        535 _editByte_add_65536_284:
-      000020                        536 	.ds 2
-      000022                        537 _edit_input_65537_288:
-      000022                        538 	.ds 1
-      000023                        539 _count_page_65537_302:
-      000023                        540 	.ds 1
-      000024                        541 _count_index_65537_302:
-      000024                        542 	.ds 1
-      000025                        543 _count_address_65537_302:
-      000025                        544 	.ds 2
-                                    545 ;--------------------------------------------------------
-                                    546 ; absolute external ram data
-                                    547 ;--------------------------------------------------------
-                                    548 	.area XABS    (ABS,XDATA)
-                                    549 ;--------------------------------------------------------
-                                    550 ; external initialized ram data
-                                    551 ;--------------------------------------------------------
-                                    552 	.area XISEG   (XDATA)
-                                    553 	.area HOME    (CODE)
-                                    554 	.area GSINIT0 (CODE)
-                                    555 	.area GSINIT1 (CODE)
-                                    556 	.area GSINIT2 (CODE)
-                                    557 	.area GSINIT3 (CODE)
-                                    558 	.area GSINIT4 (CODE)
-                                    559 	.area GSINIT5 (CODE)
-                                    560 	.area GSINIT  (CODE)
-                                    561 	.area GSFINAL (CODE)
-                                    562 	.area CSEG    (CODE)
-                                    563 ;--------------------------------------------------------
-                                    564 ; interrupt vector
-                                    565 ;--------------------------------------------------------
-                                    566 	.area HOME    (CODE)
-      000000                        567 __interrupt_vect:
-      000000 02 00 29         [24]  568 	ljmp	__sdcc_gsinit_startup
-      000003 32               [24]  569 	reti
-      000004                        570 	.ds	7
-      00000B 32               [24]  571 	reti
-      00000C                        572 	.ds	7
-      000013 32               [24]  573 	reti
-      000014                        574 	.ds	7
-      00001B 32               [24]  575 	reti
-      00001C                        576 	.ds	7
-      000023 02 00 A2         [24]  577 	ljmp	_ISR_receive
-                                    578 ;--------------------------------------------------------
-                                    579 ; global & static initialisations
-                                    580 ;--------------------------------------------------------
-                                    581 	.area HOME    (CODE)
-                                    582 	.area GSINIT  (CODE)
-                                    583 	.area GSFINAL (CODE)
-                                    584 	.area GSINIT  (CODE)
-                                    585 	.globl __sdcc_gsinit_startup
-                                    586 	.globl __sdcc_program_startup
-                                    587 	.globl __start__stack
-                                    588 	.globl __mcs51_genXINIT
-                                    589 	.globl __mcs51_genXRAMCLEAR
-                                    590 	.globl __mcs51_genRAMCLEAR
-                                    591 ;	USART.c:1: volatile unsigned char received_byte = 0;
-      000082 75 21 00         [24]  592 	mov	_received_byte,#0x00
-                                    593 ;	USART.c:2: volatile unsigned char recieved_flag = 0;
-      000085 75 22 00         [24]  594 	mov	_recieved_flag,#0x00
-                                    595 ;	ecen4330_lcd_v3.c:9: __xdata uint8_t* lcd_address = (uint8_t __xdata*) __LCD_ADDRESS__;
-      000088 75 25 00         [24]  596 	mov	_lcd_address,#0x00
-      00008B 75 26 40         [24]  597 	mov	(_lcd_address + 1),#0x40
-                                    598 ;	ecen4330_lcd_v3.c:10: __xdata uint8_t* seg7_address = (uint8_t __xdata*) __SEG_7_ADDRESS__;
-      00008E 75 27 00         [24]  599 	mov	_seg7_address,#0x00
-      000091 75 28 80         [24]  600 	mov	(_seg7_address + 1),#0x80
-                                    601 ;	ecen4330_lcd_v3.c:11: __xdata uint8_t* temp_address = (uint8_t __xdata*) __TEMP_ADDRESS__;
-      000094 75 29 00         [24]  602 	mov	_temp_address,#0x00
-      000097 75 2A C0         [24]  603 	mov	(_temp_address + 1),#0xc0
-                                    604 ;	ecen4330_lcd_v3.c:12: __xdata uint8_t* light_address = (uint8_t __xdata*) __PHOT_ADDRESS__;
-      00009A E4               [12]  605 	clr	a
-      00009B F5 2B            [12]  606 	mov	_light_address,a
-      00009D F5 2C            [12]  607 	mov	(_light_address + 1),a
-                                    608 	.area GSFINAL (CODE)
-      00009F 02 00 26         [24]  609 	ljmp	__sdcc_program_startup
-                                    610 ;--------------------------------------------------------
-                                    611 ; Home
-                                    612 ;--------------------------------------------------------
-                                    613 	.area HOME    (CODE)
-                                    614 	.area HOME    (CODE)
-      000026                        615 __sdcc_program_startup:
-      000026 02 1E F3         [24]  616 	ljmp	_main
-                                    617 ;	return from main will return to caller
-                                    618 ;--------------------------------------------------------
-                                    619 ; code
-                                    620 ;--------------------------------------------------------
-                                    621 	.area CSEG    (CODE)
-                                    622 ;------------------------------------------------------------
-                                    623 ;Allocation info for local variables in function 'ISR_receive'
-                                    624 ;------------------------------------------------------------
-                                    625 ;	USART.c:4: void ISR_receive() __interrupt (4) {
-                                    626 ;	-----------------------------------------
-                                    627 ;	 function ISR_receive
-                                    628 ;	-----------------------------------------
-      0000A2                        629 _ISR_receive:
-                           000007   630 	ar7 = 0x07
-                           000006   631 	ar6 = 0x06
-                           000005   632 	ar5 = 0x05
-                           000004   633 	ar4 = 0x04
-                           000003   634 	ar3 = 0x03
-                           000002   635 	ar2 = 0x02
-                           000001   636 	ar1 = 0x01
-                           000000   637 	ar0 = 0x00
-                                    638 ;	USART.c:5: if (RI == 1) {
-      0000A2 30 98 08         [24]  639 	jnb	_RI,00103$
-                                    640 ;	USART.c:6: received_byte = SBUF;
-      0000A5 85 99 21         [24]  641 	mov	_received_byte,_SBUF
-                                    642 ;	USART.c:7: RI = 0;
-                                    643 ;	assignBit
-      0000A8 C2 98            [12]  644 	clr	_RI
-                                    645 ;	USART.c:8: recieved_flag = 1;
-      0000AA 75 22 01         [24]  646 	mov	_recieved_flag,#0x01
-      0000AD                        647 00103$:
-                                    648 ;	USART.c:10: }
-      0000AD 32               [24]  649 	reti
-                                    650 ;	eliminated unneeded mov psw,# (no regs used in bank)
-                                    651 ;	eliminated unneeded push/pop not_psw
-                                    652 ;	eliminated unneeded push/pop dpl
-                                    653 ;	eliminated unneeded push/pop dph
-                                    654 ;	eliminated unneeded push/pop b
-                                    655 ;	eliminated unneeded push/pop acc
-                                    656 ;------------------------------------------------------------
-                                    657 ;Allocation info for local variables in function 'UART_init'
-                                    658 ;------------------------------------------------------------
-                                    659 ;	USART.c:12: void UART_init () {
-                                    660 ;	-----------------------------------------
-                                    661 ;	 function UART_init
-                                    662 ;	-----------------------------------------
-      0000AE                        663 _UART_init:
-                                    664 ;	USART.c:13: SCON = 0x50;  // Asynchronous mode, 8-bit data and 1-stop bit
-      0000AE 75 98 50         [24]  665 	mov	_SCON,#0x50
-                                    666 ;	USART.c:14: TMOD = 0x20;  // Timer1 in Mode2. in 8 bit auto reload
-      0000B1 75 89 20         [24]  667 	mov	_TMOD,#0x20
-                                    668 ;	USART.c:15: TH1 =  0xFD;  // Load timer value for 9600 baudrate
-      0000B4 75 8D FD         [24]  669 	mov	_TH1,#0xfd
-                                    670 ;	USART.c:16: TR1 = 1;      // Turn ON the timer for Baud rate generation
-                                    671 ;	assignBit
-      0000B7 D2 8E            [12]  672 	setb	_TR1
-                                    673 ;	USART.c:17: ES  = 1;      // Enable Serial Interrupt
-                                    674 ;	assignBit
-      0000B9 D2 AC            [12]  675 	setb	_ES
-                                    676 ;	USART.c:18: EA  = 1;      // Enable Global Interrupt bit
-                                    677 ;	assignBit
-      0000BB D2 AF            [12]  678 	setb	_EA
-                                    679 ;	USART.c:19: }
-      0000BD 22               [24]  680 	ret
-                                    681 ;------------------------------------------------------------
-                                    682 ;Allocation info for local variables in function 'UART_transmit'
-                                    683 ;------------------------------------------------------------
-                                    684 ;byte                      Allocated to registers 
-                                    685 ;------------------------------------------------------------
-                                    686 ;	USART.c:21: void UART_transmit (unsigned char byte) {
-                                    687 ;	-----------------------------------------
-                                    688 ;	 function UART_transmit
-                                    689 ;	-----------------------------------------
-      0000BE                        690 _UART_transmit:
-      0000BE 85 82 99         [24]  691 	mov	_SBUF,dpl
-                                    692 ;	USART.c:23: while(TI == 0);
-      0000C1                        693 00101$:
-                                    694 ;	USART.c:24: TI = 0;
-                                    695 ;	assignBit
-      0000C1 10 99 02         [24]  696 	jbc	_TI,00114$
-      0000C4 80 FB            [24]  697 	sjmp	00101$
-      0000C6                        698 00114$:
-                                    699 ;	USART.c:25: }
-      0000C6 22               [24]  700 	ret
-                                    701 ;------------------------------------------------------------
-                                    702 ;Allocation info for local variables in function 'iowrite8'
-                                    703 ;------------------------------------------------------------
-                                    704 ;d                         Allocated with name '_iowrite8_PARM_2'
-                                    705 ;map_address               Allocated to registers r6 r7 
-                                    706 ;------------------------------------------------------------
-                                    707 ;	ecen4330_lcd_v3.c:50: void iowrite8 (uint8_t __xdata* map_address, uint8_t d) {
-                                    708 ;	-----------------------------------------
-                                    709 ;	 function iowrite8
-                                    710 ;	-----------------------------------------
-      0000C7                        711 _iowrite8:
-      0000C7 AE 82            [24]  712 	mov	r6,dpl
-      0000C9 AF 83            [24]  713 	mov	r7,dph
-                                    714 ;	ecen4330_lcd_v3.c:51: IOM = 1;
-                                    715 ;	assignBit
-      0000CB D2 B4            [12]  716 	setb	_P3_4
-                                    717 ;	ecen4330_lcd_v3.c:52: *map_address = d;
-      0000CD 8E 82            [24]  718 	mov	dpl,r6
-      0000CF 8F 83            [24]  719 	mov	dph,r7
-      0000D1 E5 08            [12]  720 	mov	a,_iowrite8_PARM_2
-      0000D3 F0               [24]  721 	movx	@dptr,a
-                                    722 ;	ecen4330_lcd_v3.c:53: IOM = 0;
-                                    723 ;	assignBit
-      0000D4 C2 B4            [12]  724 	clr	_P3_4
-                                    725 ;	ecen4330_lcd_v3.c:54: }
-      0000D6 22               [24]  726 	ret
-                                    727 ;------------------------------------------------------------
-                                    728 ;Allocation info for local variables in function 'ioread8'
-                                    729 ;------------------------------------------------------------
-                                    730 ;map_address               Allocated to registers r6 r7 
-                                    731 ;val                       Allocated to registers r6 
-                                    732 ;------------------------------------------------------------
-                                    733 ;	ecen4330_lcd_v3.c:62: uint8_t ioread8 (uint8_t __xdata* map_address) {
-                                    734 ;	-----------------------------------------
-                                    735 ;	 function ioread8
-                                    736 ;	-----------------------------------------
-      0000D7                        737 _ioread8:
-      0000D7 AE 82            [24]  738 	mov	r6,dpl
-      0000D9 AF 83            [24]  739 	mov	r7,dph
-                                    740 ;	ecen4330_lcd_v3.c:64: IOM = 1;
-                                    741 ;	assignBit
-      0000DB D2 B4            [12]  742 	setb	_P3_4
-                                    743 ;	ecen4330_lcd_v3.c:65: val = *map_address;
-      0000DD 8E 82            [24]  744 	mov	dpl,r6
-      0000DF 8F 83            [24]  745 	mov	dph,r7
-      0000E1 E0               [24]  746 	movx	a,@dptr
-      0000E2 FE               [12]  747 	mov	r6,a
-                                    748 ;	ecen4330_lcd_v3.c:66: IOM = 0;
-                                    749 ;	assignBit
-      0000E3 C2 B4            [12]  750 	clr	_P3_4
-                                    751 ;	ecen4330_lcd_v3.c:67: return val;
-      0000E5 8E 82            [24]  752 	mov	dpl,r6
-                                    753 ;	ecen4330_lcd_v3.c:68: }
-      0000E7 22               [24]  754 	ret
-                                    755 ;------------------------------------------------------------
-                                    756 ;Allocation info for local variables in function 'delay'
-                                    757 ;------------------------------------------------------------
-                                    758 ;i                         Allocated with name '_delay_i_65536_34'
-                                    759 ;j                         Allocated with name '_delay_j_65536_34'
-                                    760 ;d                         Allocated to registers r6 r7 
-                                    761 ;------------------------------------------------------------
-                                    762 ;	ecen4330_lcd_v3.c:72: void delay (int16_t d) {
-                                    763 ;	-----------------------------------------
-                                    764 ;	 function delay
-                                    765 ;	-----------------------------------------
-      0000E8                        766 _delay:
-      0000E8 AE 82            [24]  767 	mov	r6,dpl
-      0000EA AF 83            [24]  768 	mov	r7,dph
-                                    769 ;	ecen4330_lcd_v3.c:75: for (i = 0; i < d; i++) {
-      0000EC 7C 00            [12]  770 	mov	r4,#0x00
-      0000EE 7D 00            [12]  771 	mov	r5,#0x00
-      0000F0                        772 00107$:
-      0000F0 8C 02            [24]  773 	mov	ar2,r4
-      0000F2 8D 03            [24]  774 	mov	ar3,r5
-      0000F4 C3               [12]  775 	clr	c
-      0000F5 EA               [12]  776 	mov	a,r2
-      0000F6 9E               [12]  777 	subb	a,r6
-      0000F7 EB               [12]  778 	mov	a,r3
-      0000F8 64 80            [12]  779 	xrl	a,#0x80
-      0000FA 8F F0            [24]  780 	mov	b,r7
-      0000FC 63 F0 80         [24]  781 	xrl	b,#0x80
-      0000FF 95 F0            [12]  782 	subb	a,b
-      000101 50 14            [24]  783 	jnc	00109$
-                                    784 ;	ecen4330_lcd_v3.c:76: for (j = 0; j < 1000; j++);
-      000103 7A E8            [12]  785 	mov	r2,#0xe8
-      000105 7B 03            [12]  786 	mov	r3,#0x03
-      000107                        787 00105$:
-      000107 1A               [12]  788 	dec	r2
-      000108 BA FF 01         [24]  789 	cjne	r2,#0xff,00130$
-      00010B 1B               [12]  790 	dec	r3
-      00010C                        791 00130$:
-      00010C EA               [12]  792 	mov	a,r2
-      00010D 4B               [12]  793 	orl	a,r3
-      00010E 70 F7            [24]  794 	jnz	00105$
-                                    795 ;	ecen4330_lcd_v3.c:75: for (i = 0; i < d; i++) {
-      000110 0C               [12]  796 	inc	r4
-      000111 BC 00 DC         [24]  797 	cjne	r4,#0x00,00107$
-      000114 0D               [12]  798 	inc	r5
-      000115 80 D9            [24]  799 	sjmp	00107$
-      000117                        800 00109$:
-                                    801 ;	ecen4330_lcd_v3.c:78: }
-      000117 22               [24]  802 	ret
-                                    803 ;------------------------------------------------------------
-                                    804 ;Allocation info for local variables in function 'writeRegister8'
-                                    805 ;------------------------------------------------------------
-                                    806 ;d                         Allocated with name '_writeRegister8_PARM_2'
-                                    807 ;a                         Allocated to registers r7 
-                                    808 ;------------------------------------------------------------
-                                    809 ;	ecen4330_lcd_v3.c:88: void writeRegister8 (uint8_t a, uint8_t d) {
-                                    810 ;	-----------------------------------------
-                                    811 ;	 function writeRegister8
-                                    812 ;	-----------------------------------------
-      000118                        813 _writeRegister8:
-      000118 AF 82            [24]  814 	mov	r7,dpl
-                                    815 ;	ecen4330_lcd_v3.c:89: CD = __CMD__;
-                                    816 ;	assignBit
-      00011A C2 B5            [12]  817 	clr	_P3_5
-                                    818 ;	ecen4330_lcd_v3.c:90: write8(a);
-                                    819 ;	assignBit
-      00011C D2 B4            [12]  820 	setb	_P3_4
-      00011E 85 25 82         [24]  821 	mov	dpl,_lcd_address
-      000121 85 26 83         [24]  822 	mov	dph,(_lcd_address + 1)
-      000124 EF               [12]  823 	mov	a,r7
-      000125 F0               [24]  824 	movx	@dptr,a
-                                    825 ;	assignBit
-      000126 C2 B4            [12]  826 	clr	_P3_4
-                                    827 ;	ecen4330_lcd_v3.c:91: CD = __DATA__;
-                                    828 ;	assignBit
-      000128 D2 B5            [12]  829 	setb	_P3_5
-                                    830 ;	ecen4330_lcd_v3.c:92: write8(d);
-                                    831 ;	assignBit
-      00012A D2 B4            [12]  832 	setb	_P3_4
-      00012C 85 25 82         [24]  833 	mov	dpl,_lcd_address
-      00012F 85 26 83         [24]  834 	mov	dph,(_lcd_address + 1)
-      000132 E5 08            [12]  835 	mov	a,_writeRegister8_PARM_2
-      000134 F0               [24]  836 	movx	@dptr,a
-                                    837 ;	assignBit
-      000135 C2 B4            [12]  838 	clr	_P3_4
-                                    839 ;	ecen4330_lcd_v3.c:93: }
-      000137 22               [24]  840 	ret
-                                    841 ;------------------------------------------------------------
-                                    842 ;Allocation info for local variables in function 'writeRegister16'
-                                    843 ;------------------------------------------------------------
-                                    844 ;hi                        Allocated with name '_writeRegister16_hi_65536_43'
-                                    845 ;lo                        Allocated with name '_writeRegister16_lo_65536_43'
-                                    846 ;d                         Allocated with name '_writeRegister16_PARM_2'
-                                    847 ;a                         Allocated to registers r6 r7 
-                                    848 ;------------------------------------------------------------
-                                    849 ;	ecen4330_lcd_v3.c:97: void writeRegister16 (uint16_t a, uint16_t d) {
-                                    850 ;	-----------------------------------------
-                                    851 ;	 function writeRegister16
-                                    852 ;	-----------------------------------------
-      000138                        853 _writeRegister16:
-      000138 AE 82            [24]  854 	mov	r6,dpl
-      00013A AF 83            [24]  855 	mov	r7,dph
-                                    856 ;	ecen4330_lcd_v3.c:99: hi = (a) >> 8;
-      00013C 8F 05            [24]  857 	mov	ar5,r7
-                                    858 ;	ecen4330_lcd_v3.c:100: lo = (a);
-                                    859 ;	ecen4330_lcd_v3.c:101: write8Reg(hi);
-                                    860 ;	assignBit
-      00013E C2 B5            [12]  861 	clr	_P3_5
-                                    862 ;	assignBit
-      000140 D2 B4            [12]  863 	setb	_P3_4
-      000142 85 25 82         [24]  864 	mov	dpl,_lcd_address
-      000145 85 26 83         [24]  865 	mov	dph,(_lcd_address + 1)
-      000148 ED               [12]  866 	mov	a,r5
-      000149 F0               [24]  867 	movx	@dptr,a
-                                    868 ;	assignBit
-      00014A C2 B4            [12]  869 	clr	_P3_4
-                                    870 ;	ecen4330_lcd_v3.c:102: write8Reg(lo);
-                                    871 ;	assignBit
-      00014C C2 B5            [12]  872 	clr	_P3_5
-                                    873 ;	assignBit
-      00014E D2 B4            [12]  874 	setb	_P3_4
-      000150 85 25 82         [24]  875 	mov	dpl,_lcd_address
-      000153 85 26 83         [24]  876 	mov	dph,(_lcd_address + 1)
-      000156 EE               [12]  877 	mov	a,r6
-      000157 F0               [24]  878 	movx	@dptr,a
-                                    879 ;	assignBit
-      000158 C2 B4            [12]  880 	clr	_P3_4
-                                    881 ;	ecen4330_lcd_v3.c:103: hi = (d) >> 8;
-      00015A AF 09            [24]  882 	mov	r7,(_writeRegister16_PARM_2 + 1)
-                                    883 ;	ecen4330_lcd_v3.c:104: lo = (d);
-      00015C AE 08            [24]  884 	mov	r6,_writeRegister16_PARM_2
-                                    885 ;	ecen4330_lcd_v3.c:105: CD = 1 ;
-                                    886 ;	assignBit
-      00015E D2 B5            [12]  887 	setb	_P3_5
-                                    888 ;	ecen4330_lcd_v3.c:106: write8Data(hi);
-                                    889 ;	assignBit
-      000160 D2 B5            [12]  890 	setb	_P3_5
-                                    891 ;	assignBit
-      000162 D2 B4            [12]  892 	setb	_P3_4
-      000164 85 25 82         [24]  893 	mov	dpl,_lcd_address
-      000167 85 26 83         [24]  894 	mov	dph,(_lcd_address + 1)
-      00016A EF               [12]  895 	mov	a,r7
-      00016B F0               [24]  896 	movx	@dptr,a
-                                    897 ;	assignBit
-      00016C C2 B4            [12]  898 	clr	_P3_4
-                                    899 ;	ecen4330_lcd_v3.c:107: write8Data(lo);
-                                    900 ;	assignBit
-      00016E D2 B5            [12]  901 	setb	_P3_5
-                                    902 ;	assignBit
-      000170 D2 B4            [12]  903 	setb	_P3_4
-      000172 85 25 82         [24]  904 	mov	dpl,_lcd_address
-      000175 85 26 83         [24]  905 	mov	dph,(_lcd_address + 1)
-      000178 EE               [12]  906 	mov	a,r6
-      000179 F0               [24]  907 	movx	@dptr,a
-                                    908 ;	assignBit
-      00017A C2 B4            [12]  909 	clr	_P3_4
-                                    910 ;	ecen4330_lcd_v3.c:108: }
-      00017C 22               [24]  911 	ret
-                                    912 ;------------------------------------------------------------
-                                    913 ;Allocation info for local variables in function 'setCursor'
-                                    914 ;------------------------------------------------------------
-                                    915 ;y                         Allocated with name '_setCursor_PARM_2'
-                                    916 ;x                         Allocated to registers 
-                                    917 ;------------------------------------------------------------
-                                    918 ;	ecen4330_lcd_v3.c:116: void setCursor (uint16_t x, uint16_t y) {
-                                    919 ;	-----------------------------------------
-                                    920 ;	 function setCursor
-                                    921 ;	-----------------------------------------
-      00017D                        922 _setCursor:
-      00017D 85 82 2F         [24]  923 	mov	_cursor_x,dpl
-      000180 85 83 30         [24]  924 	mov	(_cursor_x + 1),dph
-                                    925 ;	ecen4330_lcd_v3.c:118: cursor_y = y;
-      000183 85 08 31         [24]  926 	mov	_cursor_y,_setCursor_PARM_2
-      000186 85 09 32         [24]  927 	mov	(_cursor_y + 1),(_setCursor_PARM_2 + 1)
-                                    928 ;	ecen4330_lcd_v3.c:119: }
-      000189 22               [24]  929 	ret
-                                    930 ;------------------------------------------------------------
-                                    931 ;Allocation info for local variables in function 'setTextColor'
-                                    932 ;------------------------------------------------------------
-                                    933 ;y                         Allocated with name '_setTextColor_PARM_2'
-                                    934 ;x                         Allocated to registers 
-                                    935 ;------------------------------------------------------------
-                                    936 ;	ecen4330_lcd_v3.c:126: void setTextColor (uint16_t x, uint16_t y) {
-                                    937 ;	-----------------------------------------
-                                    938 ;	 function setTextColor
-                                    939 ;	-----------------------------------------
-      00018A                        940 _setTextColor:
-      00018A 85 82 35         [24]  941 	mov	_textcolor,dpl
-      00018D 85 83 36         [24]  942 	mov	(_textcolor + 1),dph
-                                    943 ;	ecen4330_lcd_v3.c:128: textbgcolor = y;
-      000190 85 08 37         [24]  944 	mov	_textbgcolor,_setTextColor_PARM_2
-      000193 85 09 38         [24]  945 	mov	(_textbgcolor + 1),(_setTextColor_PARM_2 + 1)
-                                    946 ;	ecen4330_lcd_v3.c:129: }
-      000196 22               [24]  947 	ret
-                                    948 ;------------------------------------------------------------
-                                    949 ;Allocation info for local variables in function 'setTextSize'
-                                    950 ;------------------------------------------------------------
-                                    951 ;s                         Allocated to registers r7 
-                                    952 ;------------------------------------------------------------
-                                    953 ;	ecen4330_lcd_v3.c:136: void setTextSize (uint8_t s) {
-                                    954 ;	-----------------------------------------
-                                    955 ;	 function setTextSize
-                                    956 ;	-----------------------------------------
-      000197                        957 _setTextSize:
-                                    958 ;	ecen4330_lcd_v3.c:137: if (s > 8) return;
-      000197 E5 82            [12]  959 	mov	a,dpl
-      000199 FF               [12]  960 	mov	r7,a
-      00019A 24 F7            [12]  961 	add	a,#0xff - 0x08
-      00019C 50 01            [24]  962 	jnc	00102$
-      00019E 22               [24]  963 	ret
-      00019F                        964 00102$:
-                                    965 ;	ecen4330_lcd_v3.c:138: textsize = (s > 0) ? s : 1 ;
-      00019F EF               [12]  966 	mov	a,r7
-      0001A0 60 06            [24]  967 	jz	00105$
-      0001A2 8F 06            [24]  968 	mov	ar6,r7
-      0001A4 7F 00            [12]  969 	mov	r7,#0x00
-      0001A6 80 04            [24]  970 	sjmp	00106$
-      0001A8                        971 00105$:
-      0001A8 7E 01            [12]  972 	mov	r6,#0x01
-      0001AA 7F 00            [12]  973 	mov	r7,#0x00
-      0001AC                        974 00106$:
-      0001AC 8E 33            [24]  975 	mov	_textsize,r6
-                                    976 ;	ecen4330_lcd_v3.c:139: }
-      0001AE 22               [24]  977 	ret
-                                    978 ;------------------------------------------------------------
-                                    979 ;Allocation info for local variables in function 'setRotation'
-                                    980 ;------------------------------------------------------------
-                                    981 ;flag                      Allocated to registers r7 
-                                    982 ;------------------------------------------------------------
-                                    983 ;	ecen4330_lcd_v3.c:151: void setRotation (uint8_t flag) {
-                                    984 ;	-----------------------------------------
-                                    985 ;	 function setRotation
-                                    986 ;	-----------------------------------------
-      0001AF                        987 _setRotation:
-                                    988 ;	ecen4330_lcd_v3.c:152: switch(flag) {
-      0001AF E5 82            [12]  989 	mov	a,dpl
-      0001B1 FF               [12]  990 	mov	r7,a
-      0001B2 24 FC            [12]  991 	add	a,#0xff - 0x03
-      0001B4 40 6A            [24]  992 	jc	00105$
-      0001B6 EF               [12]  993 	mov	a,r7
-      0001B7 2F               [12]  994 	add	a,r7
-                                    995 ;	ecen4330_lcd_v3.c:153: case 0:
-      0001B8 90 01 BC         [24]  996 	mov	dptr,#00115$
-      0001BB 73               [24]  997 	jmp	@a+dptr
-      0001BC                        998 00115$:
-      0001BC 80 06            [24]  999 	sjmp	00101$
-      0001BE 80 1B            [24] 1000 	sjmp	00102$
-      0001C0 80 30            [24] 1001 	sjmp	00103$
-      0001C2 80 45            [24] 1002 	sjmp	00104$
-      0001C4                       1003 00101$:
-                                   1004 ;	ecen4330_lcd_v3.c:154: flag = (ILI9341_MADCTL_MX | ILI9341_MADCTL_BGR);
-      0001C4 7F 48            [12] 1005 	mov	r7,#0x48
-                                   1006 ;	ecen4330_lcd_v3.c:155: _width = TFTWIDTH;
-      0001C6 90 00 01         [24] 1007 	mov	dptr,#__width
-      0001C9 74 F0            [12] 1008 	mov	a,#0xf0
-      0001CB F0               [24] 1009 	movx	@dptr,a
-      0001CC E4               [12] 1010 	clr	a
-      0001CD A3               [24] 1011 	inc	dptr
-      0001CE F0               [24] 1012 	movx	@dptr,a
-                                   1013 ;	ecen4330_lcd_v3.c:156: _height = TFTHEIGHT;
-      0001CF 90 00 03         [24] 1014 	mov	dptr,#__height
-      0001D2 74 40            [12] 1015 	mov	a,#0x40
-      0001D4 F0               [24] 1016 	movx	@dptr,a
-      0001D5 74 01            [12] 1017 	mov	a,#0x01
-      0001D7 A3               [24] 1018 	inc	dptr
-      0001D8 F0               [24] 1019 	movx	@dptr,a
-                                   1020 ;	ecen4330_lcd_v3.c:157: break;
-                                   1021 ;	ecen4330_lcd_v3.c:158: case 1:
-      0001D9 80 5A            [24] 1022 	sjmp	00106$
-      0001DB                       1023 00102$:
-                                   1024 ;	ecen4330_lcd_v3.c:159: flag = (ILI9341_MADCTL_MV | ILI9341_MADCTL_BGR);
-      0001DB 7F 28            [12] 1025 	mov	r7,#0x28
-                                   1026 ;	ecen4330_lcd_v3.c:160: _width = TFTHEIGHT;
-      0001DD 90 00 01         [24] 1027 	mov	dptr,#__width
-      0001E0 74 40            [12] 1028 	mov	a,#0x40
-      0001E2 F0               [24] 1029 	movx	@dptr,a
-      0001E3 74 01            [12] 1030 	mov	a,#0x01
-      0001E5 A3               [24] 1031 	inc	dptr
-      0001E6 F0               [24] 1032 	movx	@dptr,a
-                                   1033 ;	ecen4330_lcd_v3.c:161: _height = TFTWIDTH;
-      0001E7 90 00 03         [24] 1034 	mov	dptr,#__height
-      0001EA 74 F0            [12] 1035 	mov	a,#0xf0
-      0001EC F0               [24] 1036 	movx	@dptr,a
-      0001ED E4               [12] 1037 	clr	a
-      0001EE A3               [24] 1038 	inc	dptr
-      0001EF F0               [24] 1039 	movx	@dptr,a
-                                   1040 ;	ecen4330_lcd_v3.c:162: break;
-                                   1041 ;	ecen4330_lcd_v3.c:163: case 2:
-      0001F0 80 43            [24] 1042 	sjmp	00106$
-      0001F2                       1043 00103$:
-                                   1044 ;	ecen4330_lcd_v3.c:164: flag = (ILI9341_MADCTL_MY | ILI9341_MADCTL_BGR);
-      0001F2 7F 88            [12] 1045 	mov	r7,#0x88
-                                   1046 ;	ecen4330_lcd_v3.c:165: _width = TFTWIDTH;
-      0001F4 90 00 01         [24] 1047 	mov	dptr,#__width
-      0001F7 74 F0            [12] 1048 	mov	a,#0xf0
-      0001F9 F0               [24] 1049 	movx	@dptr,a
-      0001FA E4               [12] 1050 	clr	a
-      0001FB A3               [24] 1051 	inc	dptr
-      0001FC F0               [24] 1052 	movx	@dptr,a
-                                   1053 ;	ecen4330_lcd_v3.c:166: _height = TFTHEIGHT;
-      0001FD 90 00 03         [24] 1054 	mov	dptr,#__height
-      000200 74 40            [12] 1055 	mov	a,#0x40
-      000202 F0               [24] 1056 	movx	@dptr,a
-      000203 74 01            [12] 1057 	mov	a,#0x01
-      000205 A3               [24] 1058 	inc	dptr
-      000206 F0               [24] 1059 	movx	@dptr,a
-                                   1060 ;	ecen4330_lcd_v3.c:167: break;
-                                   1061 ;	ecen4330_lcd_v3.c:168: case 3:
-      000207 80 2C            [24] 1062 	sjmp	00106$
-      000209                       1063 00104$:
-                                   1064 ;	ecen4330_lcd_v3.c:169: flag = (ILI9341_MADCTL_MX | ILI9341_MADCTL_MY | ILI9341_MADCTL_MV | ILI9341_MADCTL_BGR);
-      000209 7F E8            [12] 1065 	mov	r7,#0xe8
-                                   1066 ;	ecen4330_lcd_v3.c:170: _width = TFTHEIGHT;
-      00020B 90 00 01         [24] 1067 	mov	dptr,#__width
-      00020E 74 40            [12] 1068 	mov	a,#0x40
-      000210 F0               [24] 1069 	movx	@dptr,a
-      000211 74 01            [12] 1070 	mov	a,#0x01
-      000213 A3               [24] 1071 	inc	dptr
-      000214 F0               [24] 1072 	movx	@dptr,a
-                                   1073 ;	ecen4330_lcd_v3.c:171: _height = TFTWIDTH;
-      000215 90 00 03         [24] 1074 	mov	dptr,#__height
-      000218 74 F0            [12] 1075 	mov	a,#0xf0
-      00021A F0               [24] 1076 	movx	@dptr,a
-      00021B E4               [12] 1077 	clr	a
-      00021C A3               [24] 1078 	inc	dptr
-      00021D F0               [24] 1079 	movx	@dptr,a
-                                   1080 ;	ecen4330_lcd_v3.c:172: break;
-                                   1081 ;	ecen4330_lcd_v3.c:173: default:
-      00021E 80 15            [24] 1082 	sjmp	00106$
-      000220                       1083 00105$:
-                                   1084 ;	ecen4330_lcd_v3.c:174: flag = (ILI9341_MADCTL_MX | ILI9341_MADCTL_BGR);
-      000220 7F 48            [12] 1085 	mov	r7,#0x48
-                                   1086 ;	ecen4330_lcd_v3.c:175: _width = TFTWIDTH;
-      000222 90 00 01         [24] 1087 	mov	dptr,#__width
-      000225 74 F0            [12] 1088 	mov	a,#0xf0
-      000227 F0               [24] 1089 	movx	@dptr,a
-      000228 E4               [12] 1090 	clr	a
-      000229 A3               [24] 1091 	inc	dptr
-      00022A F0               [24] 1092 	movx	@dptr,a
-                                   1093 ;	ecen4330_lcd_v3.c:176: _height = TFTHEIGHT;
-      00022B 90 00 03         [24] 1094 	mov	dptr,#__height
-      00022E 74 40            [12] 1095 	mov	a,#0x40
-      000230 F0               [24] 1096 	movx	@dptr,a
-      000231 74 01            [12] 1097 	mov	a,#0x01
-      000233 A3               [24] 1098 	inc	dptr
-      000234 F0               [24] 1099 	movx	@dptr,a
-                                   1100 ;	ecen4330_lcd_v3.c:178: }
-      000235                       1101 00106$:
-                                   1102 ;	ecen4330_lcd_v3.c:179: writeRegister8(ILI9341_MEMCONTROL, flag);
-      000235 8F 08            [24] 1103 	mov	_writeRegister8_PARM_2,r7
-      000237 75 82 36         [24] 1104 	mov	dpl,#0x36
-                                   1105 ;	ecen4330_lcd_v3.c:180: }
-      00023A 02 01 18         [24] 1106 	ljmp	_writeRegister8
-                                   1107 ;------------------------------------------------------------
-                                   1108 ;Allocation info for local variables in function 'setAddress'
-                                   1109 ;------------------------------------------------------------
-                                   1110 ;y1                        Allocated with name '_setAddress_PARM_2'
-                                   1111 ;x2                        Allocated with name '_setAddress_PARM_3'
-                                   1112 ;y2                        Allocated with name '_setAddress_PARM_4'
-                                   1113 ;x1                        Allocated to registers r6 r7 
-                                   1114 ;------------------------------------------------------------
-                                   1115 ;	ecen4330_lcd_v3.c:182: void setAddress (uint16_t x1,uint16_t y1,uint16_t x2,uint16_t y2) {
-                                   1116 ;	-----------------------------------------
-                                   1117 ;	 function setAddress
-                                   1118 ;	-----------------------------------------
-      00023D                       1119 _setAddress:
-      00023D AE 82            [24] 1120 	mov	r6,dpl
-      00023F AF 83            [24] 1121 	mov	r7,dph
-                                   1122 ;	ecen4330_lcd_v3.c:183: write8Reg(0x2A);
-                                   1123 ;	assignBit
-      000241 C2 B5            [12] 1124 	clr	_P3_5
-                                   1125 ;	assignBit
-      000243 D2 B4            [12] 1126 	setb	_P3_4
-      000245 85 25 82         [24] 1127 	mov	dpl,_lcd_address
-      000248 85 26 83         [24] 1128 	mov	dph,(_lcd_address + 1)
-      00024B 74 2A            [12] 1129 	mov	a,#0x2a
-      00024D F0               [24] 1130 	movx	@dptr,a
-                                   1131 ;	assignBit
-      00024E C2 B4            [12] 1132 	clr	_P3_4
-                                   1133 ;	ecen4330_lcd_v3.c:184: write8Data(x1 >> 8);
-                                   1134 ;	assignBit
-      000250 D2 B5            [12] 1135 	setb	_P3_5
-                                   1136 ;	assignBit
-      000252 D2 B4            [12] 1137 	setb	_P3_4
-      000254 85 25 82         [24] 1138 	mov	dpl,_lcd_address
-      000257 85 26 83         [24] 1139 	mov	dph,(_lcd_address + 1)
-      00025A 8F 05            [24] 1140 	mov	ar5,r7
-      00025C ED               [12] 1141 	mov	a,r5
-      00025D F0               [24] 1142 	movx	@dptr,a
-                                   1143 ;	assignBit
-      00025E C2 B4            [12] 1144 	clr	_P3_4
-                                   1145 ;	ecen4330_lcd_v3.c:185: write8Data(x1);
-                                   1146 ;	assignBit
-      000260 D2 B5            [12] 1147 	setb	_P3_5
-                                   1148 ;	assignBit
-      000262 D2 B4            [12] 1149 	setb	_P3_4
-      000264 85 25 82         [24] 1150 	mov	dpl,_lcd_address
-      000267 85 26 83         [24] 1151 	mov	dph,(_lcd_address + 1)
-      00026A EE               [12] 1152 	mov	a,r6
-      00026B F0               [24] 1153 	movx	@dptr,a
-                                   1154 ;	assignBit
-      00026C C2 B4            [12] 1155 	clr	_P3_4
-                                   1156 ;	ecen4330_lcd_v3.c:186: write8Data(x2 >> 8);
-                                   1157 ;	assignBit
-      00026E D2 B5            [12] 1158 	setb	_P3_5
-                                   1159 ;	assignBit
-      000270 D2 B4            [12] 1160 	setb	_P3_4
-      000272 85 25 82         [24] 1161 	mov	dpl,_lcd_address
-      000275 85 26 83         [24] 1162 	mov	dph,(_lcd_address + 1)
-      000278 E5 0B            [12] 1163 	mov	a,(_setAddress_PARM_3 + 1)
-      00027A F0               [24] 1164 	movx	@dptr,a
-                                   1165 ;	assignBit
-      00027B C2 B4            [12] 1166 	clr	_P3_4
-                                   1167 ;	ecen4330_lcd_v3.c:187: write8Data(x2);
-                                   1168 ;	assignBit
-      00027D D2 B5            [12] 1169 	setb	_P3_5
-                                   1170 ;	assignBit
-      00027F D2 B4            [12] 1171 	setb	_P3_4
-      000281 85 25 82         [24] 1172 	mov	dpl,_lcd_address
-      000284 85 26 83         [24] 1173 	mov	dph,(_lcd_address + 1)
-      000287 E5 0A            [12] 1174 	mov	a,_setAddress_PARM_3
-      000289 F0               [24] 1175 	movx	@dptr,a
-                                   1176 ;	assignBit
-      00028A C2 B4            [12] 1177 	clr	_P3_4
-                                   1178 ;	ecen4330_lcd_v3.c:189: write8Reg(0x2B);
-                                   1179 ;	assignBit
-      00028C C2 B5            [12] 1180 	clr	_P3_5
-                                   1181 ;	assignBit
-      00028E D2 B4            [12] 1182 	setb	_P3_4
-      000290 85 25 82         [24] 1183 	mov	dpl,_lcd_address
-      000293 85 26 83         [24] 1184 	mov	dph,(_lcd_address + 1)
-      000296 74 2B            [12] 1185 	mov	a,#0x2b
-      000298 F0               [24] 1186 	movx	@dptr,a
-                                   1187 ;	assignBit
-      000299 C2 B4            [12] 1188 	clr	_P3_4
-                                   1189 ;	ecen4330_lcd_v3.c:190: write8Data(y1 >> 8);
-                                   1190 ;	assignBit
-      00029B D2 B5            [12] 1191 	setb	_P3_5
-                                   1192 ;	assignBit
-      00029D D2 B4            [12] 1193 	setb	_P3_4
-      00029F 85 25 82         [24] 1194 	mov	dpl,_lcd_address
-      0002A2 85 26 83         [24] 1195 	mov	dph,(_lcd_address + 1)
-      0002A5 E5 09            [12] 1196 	mov	a,(_setAddress_PARM_2 + 1)
-      0002A7 F0               [24] 1197 	movx	@dptr,a
-                                   1198 ;	assignBit
-      0002A8 C2 B4            [12] 1199 	clr	_P3_4
-                                   1200 ;	ecen4330_lcd_v3.c:191: write8Data(y1);
-                                   1201 ;	assignBit
-      0002AA D2 B5            [12] 1202 	setb	_P3_5
-                                   1203 ;	assignBit
-      0002AC D2 B4            [12] 1204 	setb	_P3_4
-      0002AE 85 25 82         [24] 1205 	mov	dpl,_lcd_address
-      0002B1 85 26 83         [24] 1206 	mov	dph,(_lcd_address + 1)
-      0002B4 E5 08            [12] 1207 	mov	a,_setAddress_PARM_2
-      0002B6 F0               [24] 1208 	movx	@dptr,a
-                                   1209 ;	assignBit
-      0002B7 C2 B4            [12] 1210 	clr	_P3_4
-                                   1211 ;	ecen4330_lcd_v3.c:192: write8Data(y2 >> 8);
-                                   1212 ;	assignBit
-      0002B9 D2 B5            [12] 1213 	setb	_P3_5
-                                   1214 ;	assignBit
-      0002BB D2 B4            [12] 1215 	setb	_P3_4
-      0002BD 85 25 82         [24] 1216 	mov	dpl,_lcd_address
-      0002C0 85 26 83         [24] 1217 	mov	dph,(_lcd_address + 1)
-      0002C3 E5 0D            [12] 1218 	mov	a,(_setAddress_PARM_4 + 1)
-      0002C5 F0               [24] 1219 	movx	@dptr,a
-                                   1220 ;	assignBit
-      0002C6 C2 B4            [12] 1221 	clr	_P3_4
-                                   1222 ;	ecen4330_lcd_v3.c:193: write8Data(y2);
-                                   1223 ;	assignBit
-      0002C8 D2 B5            [12] 1224 	setb	_P3_5
-                                   1225 ;	assignBit
-      0002CA D2 B4            [12] 1226 	setb	_P3_4
-      0002CC 85 25 82         [24] 1227 	mov	dpl,_lcd_address
-      0002CF 85 26 83         [24] 1228 	mov	dph,(_lcd_address + 1)
-      0002D2 E5 0C            [12] 1229 	mov	a,_setAddress_PARM_4
-      0002D4 F0               [24] 1230 	movx	@dptr,a
-                                   1231 ;	assignBit
-      0002D5 C2 B4            [12] 1232 	clr	_P3_4
-                                   1233 ;	ecen4330_lcd_v3.c:194: }
-      0002D7 22               [24] 1234 	ret
-                                   1235 ;------------------------------------------------------------
-                                   1236 ;Allocation info for local variables in function 'TFT_LCD_INIT'
-                                   1237 ;------------------------------------------------------------
-                                   1238 ;	ecen4330_lcd_v3.c:200: void TFT_LCD_INIT (void) {
-                                   1239 ;	-----------------------------------------
-                                   1240 ;	 function TFT_LCD_INIT
-                                   1241 ;	-----------------------------------------
-      0002D8                       1242 _TFT_LCD_INIT:
-                                   1243 ;	ecen4330_lcd_v3.c:201: _width = TFTWIDTH;
-      0002D8 90 00 01         [24] 1244 	mov	dptr,#__width
-      0002DB 74 F0            [12] 1245 	mov	a,#0xf0
-      0002DD F0               [24] 1246 	movx	@dptr,a
-      0002DE E4               [12] 1247 	clr	a
-      0002DF A3               [24] 1248 	inc	dptr
-      0002E0 F0               [24] 1249 	movx	@dptr,a
-                                   1250 ;	ecen4330_lcd_v3.c:202: _height = TFTHEIGHT;
-      0002E1 90 00 03         [24] 1251 	mov	dptr,#__height
-      0002E4 74 40            [12] 1252 	mov	a,#0x40
-      0002E6 F0               [24] 1253 	movx	@dptr,a
-      0002E7 74 01            [12] 1254 	mov	a,#0x01
-      0002E9 A3               [24] 1255 	inc	dptr
-      0002EA F0               [24] 1256 	movx	@dptr,a
-                                   1257 ;	ecen4330_lcd_v3.c:204: IOM = 0;
-                                   1258 ;	assignBit
-      0002EB C2 B4            [12] 1259 	clr	_P3_4
-                                   1260 ;	ecen4330_lcd_v3.c:205: CD = 1;
-                                   1261 ;	assignBit
-      0002ED D2 B5            [12] 1262 	setb	_P3_5
-                                   1263 ;	ecen4330_lcd_v3.c:207: write8Reg(0x00);
-                                   1264 ;	assignBit
-      0002EF C2 B5            [12] 1265 	clr	_P3_5
-                                   1266 ;	assignBit
-      0002F1 D2 B4            [12] 1267 	setb	_P3_4
-      0002F3 85 25 82         [24] 1268 	mov	dpl,_lcd_address
-      0002F6 85 26 83         [24] 1269 	mov	dph,(_lcd_address + 1)
-      0002F9 E4               [12] 1270 	clr	a
-      0002FA F0               [24] 1271 	movx	@dptr,a
-                                   1272 ;	assignBit
-      0002FB C2 B4            [12] 1273 	clr	_P3_4
-                                   1274 ;	ecen4330_lcd_v3.c:208: write8Data(0x00);
-                                   1275 ;	assignBit
-      0002FD D2 B5            [12] 1276 	setb	_P3_5
-                                   1277 ;	assignBit
-      0002FF D2 B4            [12] 1278 	setb	_P3_4
-      000301 85 25 82         [24] 1279 	mov	dpl,_lcd_address
-      000304 85 26 83         [24] 1280 	mov	dph,(_lcd_address + 1)
-      000307 E4               [12] 1281 	clr	a
-      000308 F0               [24] 1282 	movx	@dptr,a
-                                   1283 ;	assignBit
-      000309 C2 B4            [12] 1284 	clr	_P3_4
-                                   1285 ;	ecen4330_lcd_v3.c:209: write8Data(0x00);
-                                   1286 ;	assignBit
-      00030B D2 B5            [12] 1287 	setb	_P3_5
-                                   1288 ;	assignBit
-      00030D D2 B4            [12] 1289 	setb	_P3_4
-      00030F 85 25 82         [24] 1290 	mov	dpl,_lcd_address
-      000312 85 26 83         [24] 1291 	mov	dph,(_lcd_address + 1)
-      000315 E4               [12] 1292 	clr	a
-      000316 F0               [24] 1293 	movx	@dptr,a
-                                   1294 ;	assignBit
-      000317 C2 B4            [12] 1295 	clr	_P3_4
-                                   1296 ;	ecen4330_lcd_v3.c:210: write8Data(0x00);
-                                   1297 ;	assignBit
-      000319 D2 B5            [12] 1298 	setb	_P3_5
-                                   1299 ;	assignBit
-      00031B D2 B4            [12] 1300 	setb	_P3_4
-      00031D 85 25 82         [24] 1301 	mov	dpl,_lcd_address
-      000320 85 26 83         [24] 1302 	mov	dph,(_lcd_address + 1)
-      000323 E4               [12] 1303 	clr	a
-      000324 F0               [24] 1304 	movx	@dptr,a
-                                   1305 ;	assignBit
-      000325 C2 B4            [12] 1306 	clr	_P3_4
-                                   1307 ;	ecen4330_lcd_v3.c:211: delay(200);
-      000327 90 00 C8         [24] 1308 	mov	dptr,#0x00c8
-      00032A 12 00 E8         [24] 1309 	lcall	_delay
-                                   1310 ;	ecen4330_lcd_v3.c:213: writeRegister8(ILI9341_SOFTRESET, 0);
-      00032D 75 08 00         [24] 1311 	mov	_writeRegister8_PARM_2,#0x00
-      000330 75 82 01         [24] 1312 	mov	dpl,#0x01
-      000333 12 01 18         [24] 1313 	lcall	_writeRegister8
-                                   1314 ;	ecen4330_lcd_v3.c:214: delay(50);
-      000336 90 00 32         [24] 1315 	mov	dptr,#0x0032
-      000339 12 00 E8         [24] 1316 	lcall	_delay
-                                   1317 ;	ecen4330_lcd_v3.c:215: writeRegister8(ILI9341_DISPLAYOFF, 0);
-      00033C 75 08 00         [24] 1318 	mov	_writeRegister8_PARM_2,#0x00
-      00033F 75 82 28         [24] 1319 	mov	dpl,#0x28
-      000342 12 01 18         [24] 1320 	lcall	_writeRegister8
-                                   1321 ;	ecen4330_lcd_v3.c:216: delay(10);
-      000345 90 00 0A         [24] 1322 	mov	dptr,#0x000a
-      000348 12 00 E8         [24] 1323 	lcall	_delay
-                                   1324 ;	ecen4330_lcd_v3.c:218: writeRegister8(ILI9341_POWERCONTROL1, 0x23);
-      00034B 75 08 23         [24] 1325 	mov	_writeRegister8_PARM_2,#0x23
-      00034E 75 82 C0         [24] 1326 	mov	dpl,#0xc0
-      000351 12 01 18         [24] 1327 	lcall	_writeRegister8
-                                   1328 ;	ecen4330_lcd_v3.c:219: writeRegister8(ILI9341_POWERCONTROL2, 0x11);
-      000354 75 08 11         [24] 1329 	mov	_writeRegister8_PARM_2,#0x11
-      000357 75 82 C1         [24] 1330 	mov	dpl,#0xc1
-      00035A 12 01 18         [24] 1331 	lcall	_writeRegister8
-                                   1332 ;	ecen4330_lcd_v3.c:220: write8Reg(ILI9341_VCOMCONTROL1);
-                                   1333 ;	assignBit
-      00035D C2 B5            [12] 1334 	clr	_P3_5
-                                   1335 ;	assignBit
-      00035F D2 B4            [12] 1336 	setb	_P3_4
-      000361 85 25 82         [24] 1337 	mov	dpl,_lcd_address
-      000364 85 26 83         [24] 1338 	mov	dph,(_lcd_address + 1)
-      000367 74 C5            [12] 1339 	mov	a,#0xc5
-      000369 F0               [24] 1340 	movx	@dptr,a
-                                   1341 ;	assignBit
-      00036A C2 B4            [12] 1342 	clr	_P3_4
-                                   1343 ;	ecen4330_lcd_v3.c:221: write8Data(0x3d);
-                                   1344 ;	assignBit
-      00036C D2 B5            [12] 1345 	setb	_P3_5
-                                   1346 ;	assignBit
-      00036E D2 B4            [12] 1347 	setb	_P3_4
-      000370 85 25 82         [24] 1348 	mov	dpl,_lcd_address
-      000373 85 26 83         [24] 1349 	mov	dph,(_lcd_address + 1)
-      000376 74 3D            [12] 1350 	mov	a,#0x3d
-      000378 F0               [24] 1351 	movx	@dptr,a
-                                   1352 ;	assignBit
-      000379 C2 B4            [12] 1353 	clr	_P3_4
-                                   1354 ;	ecen4330_lcd_v3.c:222: write8Data(0x30);
-                                   1355 ;	assignBit
-      00037B D2 B5            [12] 1356 	setb	_P3_5
-                                   1357 ;	assignBit
-      00037D D2 B4            [12] 1358 	setb	_P3_4
-      00037F 85 25 82         [24] 1359 	mov	dpl,_lcd_address
-      000382 85 26 83         [24] 1360 	mov	dph,(_lcd_address + 1)
-      000385 74 30            [12] 1361 	mov	a,#0x30
-      000387 F0               [24] 1362 	movx	@dptr,a
-                                   1363 ;	assignBit
-      000388 C2 B4            [12] 1364 	clr	_P3_4
-                                   1365 ;	ecen4330_lcd_v3.c:223: writeRegister8(ILI9341_VCOMCONTROL2, 0xaa);
-      00038A 75 08 AA         [24] 1366 	mov	_writeRegister8_PARM_2,#0xaa
-      00038D 75 82 C7         [24] 1367 	mov	dpl,#0xc7
-      000390 12 01 18         [24] 1368 	lcall	_writeRegister8
-                                   1369 ;	ecen4330_lcd_v3.c:224: writeRegister8(ILI9341_MEMCONTROL, ILI9341_MADCTL_MY | ILI9341_MADCTL_BGR);
-      000393 75 08 88         [24] 1370 	mov	_writeRegister8_PARM_2,#0x88
-      000396 75 82 36         [24] 1371 	mov	dpl,#0x36
-      000399 12 01 18         [24] 1372 	lcall	_writeRegister8
-                                   1373 ;	ecen4330_lcd_v3.c:225: write8Reg(ILI9341_PIXELFORMAT);
-                                   1374 ;	assignBit
-      00039C C2 B5            [12] 1375 	clr	_P3_5
-                                   1376 ;	assignBit
-      00039E D2 B4            [12] 1377 	setb	_P3_4
-      0003A0 85 25 82         [24] 1378 	mov	dpl,_lcd_address
-      0003A3 85 26 83         [24] 1379 	mov	dph,(_lcd_address + 1)
-      0003A6 74 3A            [12] 1380 	mov	a,#0x3a
-      0003A8 F0               [24] 1381 	movx	@dptr,a
-                                   1382 ;	assignBit
-      0003A9 C2 B4            [12] 1383 	clr	_P3_4
-                                   1384 ;	ecen4330_lcd_v3.c:226: write8Data(0x55);
-                                   1385 ;	assignBit
-      0003AB D2 B5            [12] 1386 	setb	_P3_5
-                                   1387 ;	assignBit
-      0003AD D2 B4            [12] 1388 	setb	_P3_4
-      0003AF 85 25 82         [24] 1389 	mov	dpl,_lcd_address
-      0003B2 85 26 83         [24] 1390 	mov	dph,(_lcd_address + 1)
-      0003B5 74 55            [12] 1391 	mov	a,#0x55
-      0003B7 F0               [24] 1392 	movx	@dptr,a
-                                   1393 ;	assignBit
-      0003B8 C2 B4            [12] 1394 	clr	_P3_4
-                                   1395 ;	ecen4330_lcd_v3.c:227: write8Data(0x00);
-                                   1396 ;	assignBit
-      0003BA D2 B5            [12] 1397 	setb	_P3_5
-                                   1398 ;	assignBit
-      0003BC D2 B4            [12] 1399 	setb	_P3_4
-      0003BE 85 25 82         [24] 1400 	mov	dpl,_lcd_address
-      0003C1 85 26 83         [24] 1401 	mov	dph,(_lcd_address + 1)
-      0003C4 E4               [12] 1402 	clr	a
-      0003C5 F0               [24] 1403 	movx	@dptr,a
-                                   1404 ;	assignBit
-      0003C6 C2 B4            [12] 1405 	clr	_P3_4
-                                   1406 ;	ecen4330_lcd_v3.c:228: writeRegister16(ILI9341_FRAMECONTROL, 0x001B);
-      0003C8 75 08 1B         [24] 1407 	mov	_writeRegister16_PARM_2,#0x1b
-      0003CB 75 09 00         [24] 1408 	mov	(_writeRegister16_PARM_2 + 1),#0x00
-      0003CE 90 00 B1         [24] 1409 	mov	dptr,#0x00b1
-      0003D1 12 01 38         [24] 1410 	lcall	_writeRegister16
-                                   1411 ;	ecen4330_lcd_v3.c:230: writeRegister8(ILI9341_ENTRYMODE, 0x07);
-      0003D4 75 08 07         [24] 1412 	mov	_writeRegister8_PARM_2,#0x07
-      0003D7 75 82 B7         [24] 1413 	mov	dpl,#0xb7
-      0003DA 12 01 18         [24] 1414 	lcall	_writeRegister8
-                                   1415 ;	ecen4330_lcd_v3.c:232: writeRegister8(ILI9341_SLEEPOUT, 0);
-      0003DD 75 08 00         [24] 1416 	mov	_writeRegister8_PARM_2,#0x00
-      0003E0 75 82 11         [24] 1417 	mov	dpl,#0x11
-      0003E3 12 01 18         [24] 1418 	lcall	_writeRegister8
-                                   1419 ;	ecen4330_lcd_v3.c:233: delay(150);
-      0003E6 90 00 96         [24] 1420 	mov	dptr,#0x0096
-      0003E9 12 00 E8         [24] 1421 	lcall	_delay
-                                   1422 ;	ecen4330_lcd_v3.c:234: writeRegister8(ILI9341_DISPLAYON, 0);
-      0003EC 75 08 00         [24] 1423 	mov	_writeRegister8_PARM_2,#0x00
-      0003EF 75 82 29         [24] 1424 	mov	dpl,#0x29
-      0003F2 12 01 18         [24] 1425 	lcall	_writeRegister8
-                                   1426 ;	ecen4330_lcd_v3.c:235: delay(500);
-      0003F5 90 01 F4         [24] 1427 	mov	dptr,#0x01f4
-      0003F8 12 00 E8         [24] 1428 	lcall	_delay
-                                   1429 ;	ecen4330_lcd_v3.c:236: setAddress(0, 0, _width-1, _height-1);
-      0003FB 90 00 01         [24] 1430 	mov	dptr,#__width
-      0003FE E0               [24] 1431 	movx	a,@dptr
-      0003FF FE               [12] 1432 	mov	r6,a
-      000400 A3               [24] 1433 	inc	dptr
-      000401 E0               [24] 1434 	movx	a,@dptr
-      000402 FF               [12] 1435 	mov	r7,a
-      000403 1E               [12] 1436 	dec	r6
-      000404 BE FF 01         [24] 1437 	cjne	r6,#0xff,00103$
-      000407 1F               [12] 1438 	dec	r7
-      000408                       1439 00103$:
-      000408 8E 0A            [24] 1440 	mov	_setAddress_PARM_3,r6
-      00040A 8F 0B            [24] 1441 	mov	(_setAddress_PARM_3 + 1),r7
-      00040C 90 00 03         [24] 1442 	mov	dptr,#__height
-      00040F E0               [24] 1443 	movx	a,@dptr
-      000410 FE               [12] 1444 	mov	r6,a
-      000411 A3               [24] 1445 	inc	dptr
-      000412 E0               [24] 1446 	movx	a,@dptr
-      000413 FF               [12] 1447 	mov	r7,a
-      000414 1E               [12] 1448 	dec	r6
-      000415 BE FF 01         [24] 1449 	cjne	r6,#0xff,00104$
-      000418 1F               [12] 1450 	dec	r7
-      000419                       1451 00104$:
-      000419 8E 0C            [24] 1452 	mov	_setAddress_PARM_4,r6
-      00041B 8F 0D            [24] 1453 	mov	(_setAddress_PARM_4 + 1),r7
-      00041D E4               [12] 1454 	clr	a
-      00041E F5 08            [12] 1455 	mov	_setAddress_PARM_2,a
-      000420 F5 09            [12] 1456 	mov	(_setAddress_PARM_2 + 1),a
-      000422 90 00 00         [24] 1457 	mov	dptr,#0x0000
-                                   1458 ;	ecen4330_lcd_v3.c:237: }
-      000425 02 02 3D         [24] 1459 	ljmp	_setAddress
-                                   1460 ;------------------------------------------------------------
-                                   1461 ;Allocation info for local variables in function 'drawPixel'
-                                   1462 ;------------------------------------------------------------
-                                   1463 ;y3                        Allocated with name '_drawPixel_PARM_2'
-                                   1464 ;color1                    Allocated with name '_drawPixel_PARM_3'
-                                   1465 ;x3                        Allocated to registers r6 r7 
-                                   1466 ;------------------------------------------------------------
-                                   1467 ;	ecen4330_lcd_v3.c:246: void drawPixel(uint16_t x3,uint16_t y3,uint16_t color1) {
-                                   1468 ;	-----------------------------------------
-                                   1469 ;	 function drawPixel
-                                   1470 ;	-----------------------------------------
-      000428                       1471 _drawPixel:
-      000428 AE 82            [24] 1472 	mov	r6,dpl
-      00042A AF 83            [24] 1473 	mov	r7,dph
-                                   1474 ;	ecen4330_lcd_v3.c:247: setAddress(x3,y3,x3+1,y3+1);
-      00042C 8E 04            [24] 1475 	mov	ar4,r6
-      00042E 8F 05            [24] 1476 	mov	ar5,r7
-      000430 0C               [12] 1477 	inc	r4
-      000431 BC 00 01         [24] 1478 	cjne	r4,#0x00,00103$
-      000434 0D               [12] 1479 	inc	r5
-      000435                       1480 00103$:
-      000435 8C 0A            [24] 1481 	mov	_setAddress_PARM_3,r4
-      000437 8D 0B            [24] 1482 	mov	(_setAddress_PARM_3 + 1),r5
-      000439 AC 39            [24] 1483 	mov	r4,_drawPixel_PARM_2
-      00043B AD 3A            [24] 1484 	mov	r5,(_drawPixel_PARM_2 + 1)
-      00043D 0C               [12] 1485 	inc	r4
-      00043E BC 00 01         [24] 1486 	cjne	r4,#0x00,00104$
-      000441 0D               [12] 1487 	inc	r5
-      000442                       1488 00104$:
-      000442 8C 0C            [24] 1489 	mov	_setAddress_PARM_4,r4
-      000444 8D 0D            [24] 1490 	mov	(_setAddress_PARM_4 + 1),r5
-      000446 85 39 08         [24] 1491 	mov	_setAddress_PARM_2,_drawPixel_PARM_2
-      000449 85 3A 09         [24] 1492 	mov	(_setAddress_PARM_2 + 1),(_drawPixel_PARM_2 + 1)
-      00044C 8E 82            [24] 1493 	mov	dpl,r6
-      00044E 8F 83            [24] 1494 	mov	dph,r7
-      000450 12 02 3D         [24] 1495 	lcall	_setAddress
-                                   1496 ;	ecen4330_lcd_v3.c:249: CD = 0;
-                                   1497 ;	assignBit
-      000453 C2 B5            [12] 1498 	clr	_P3_5
-                                   1499 ;	ecen4330_lcd_v3.c:250: write8(0x2C);
-                                   1500 ;	assignBit
-      000455 D2 B4            [12] 1501 	setb	_P3_4
-      000457 85 25 82         [24] 1502 	mov	dpl,_lcd_address
-      00045A 85 26 83         [24] 1503 	mov	dph,(_lcd_address + 1)
-      00045D 74 2C            [12] 1504 	mov	a,#0x2c
-      00045F F0               [24] 1505 	movx	@dptr,a
-                                   1506 ;	assignBit
-      000460 C2 B4            [12] 1507 	clr	_P3_4
-                                   1508 ;	ecen4330_lcd_v3.c:252: CD = 1;
-                                   1509 ;	assignBit
-      000462 D2 B5            [12] 1510 	setb	_P3_5
-                                   1511 ;	ecen4330_lcd_v3.c:253: write8(color1>>8);write8(color1);
-                                   1512 ;	assignBit
-      000464 D2 B4            [12] 1513 	setb	_P3_4
-      000466 85 25 82         [24] 1514 	mov	dpl,_lcd_address
-      000469 85 26 83         [24] 1515 	mov	dph,(_lcd_address + 1)
-      00046C E5 3C            [12] 1516 	mov	a,(_drawPixel_PARM_3 + 1)
-      00046E F0               [24] 1517 	movx	@dptr,a
-                                   1518 ;	assignBit
-      00046F C2 B4            [12] 1519 	clr	_P3_4
-                                   1520 ;	assignBit
-      000471 D2 B4            [12] 1521 	setb	_P3_4
-      000473 85 25 82         [24] 1522 	mov	dpl,_lcd_address
-      000476 85 26 83         [24] 1523 	mov	dph,(_lcd_address + 1)
-      000479 E5 3B            [12] 1524 	mov	a,_drawPixel_PARM_3
-      00047B F0               [24] 1525 	movx	@dptr,a
-                                   1526 ;	assignBit
-      00047C C2 B4            [12] 1527 	clr	_P3_4
-                                   1528 ;	ecen4330_lcd_v3.c:254: }
-      00047E 22               [24] 1529 	ret
-                                   1530 ;------------------------------------------------------------
-                                   1531 ;Allocation info for local variables in function 'drawCircle'
-                                   1532 ;------------------------------------------------------------
-                                   1533 ;y0                        Allocated with name '_drawCircle_PARM_2'
-                                   1534 ;r                         Allocated with name '_drawCircle_PARM_3'
-                                   1535 ;color                     Allocated with name '_drawCircle_PARM_4'
-                                   1536 ;x0                        Allocated with name '_drawCircle_x0_65536_110'
-                                   1537 ;sloc0                     Allocated with name '_drawCircle_sloc0_1_0'
-                                   1538 ;sloc1                     Allocated with name '_drawCircle_sloc1_1_0'
-                                   1539 ;sloc2                     Allocated with name '_drawCircle_sloc2_1_0'
-                                   1540 ;sloc3                     Allocated with name '_drawCircle_sloc3_1_0'
-                                   1541 ;sloc4                     Allocated with name '_drawCircle_sloc4_1_0'
-                                   1542 ;f                         Allocated with name '_drawCircle_f_65536_111'
-                                   1543 ;ddF_x                     Allocated with name '_drawCircle_ddF_x_65536_111'
-                                   1544 ;ddF_y                     Allocated with name '_drawCircle_ddF_y_65536_111'
-                                   1545 ;x                         Allocated with name '_drawCircle_x_65536_111'
-                                   1546 ;y                         Allocated with name '_drawCircle_y_65536_111'
-                                   1547 ;------------------------------------------------------------
-                                   1548 ;	ecen4330_lcd_v3.c:264: void drawCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color){
-                                   1549 ;	-----------------------------------------
-                                   1550 ;	 function drawCircle
-                                   1551 ;	-----------------------------------------
-      00047F                       1552 _drawCircle:
-      00047F 85 82 43         [24] 1553 	mov	_drawCircle_x0_65536_110,dpl
-      000482 85 83 44         [24] 1554 	mov	(_drawCircle_x0_65536_110 + 1),dph
-                                   1555 ;	ecen4330_lcd_v3.c:265: __xdata int f = 1 - r;
-      000485 74 01            [12] 1556 	mov	a,#0x01
-      000487 C3               [12] 1557 	clr	c
-      000488 95 3F            [12] 1558 	subb	a,_drawCircle_PARM_3
-      00048A FC               [12] 1559 	mov	r4,a
-      00048B E4               [12] 1560 	clr	a
-      00048C 95 40            [12] 1561 	subb	a,(_drawCircle_PARM_3 + 1)
-      00048E FD               [12] 1562 	mov	r5,a
-      00048F 90 00 05         [24] 1563 	mov	dptr,#_drawCircle_f_65536_111
-      000492 EC               [12] 1564 	mov	a,r4
-      000493 F0               [24] 1565 	movx	@dptr,a
-      000494 ED               [12] 1566 	mov	a,r5
-      000495 A3               [24] 1567 	inc	dptr
-      000496 F0               [24] 1568 	movx	@dptr,a
-                                   1569 ;	ecen4330_lcd_v3.c:267: __xdata int ddF_y = -2 * r;
-      000497 85 3F 08         [24] 1570 	mov	__mulint_PARM_2,_drawCircle_PARM_3
-      00049A 85 40 09         [24] 1571 	mov	(__mulint_PARM_2 + 1),(_drawCircle_PARM_3 + 1)
-      00049D 90 FF FE         [24] 1572 	mov	dptr,#0xfffe
-      0004A0 12 1F B2         [24] 1573 	lcall	__mulint
-      0004A3 AC 82            [24] 1574 	mov	r4,dpl
-      0004A5 AD 83            [24] 1575 	mov	r5,dph
-                                   1576 ;	ecen4330_lcd_v3.c:269: __xdata int y = r;
-      0004A7 AA 3F            [24] 1577 	mov	r2,_drawCircle_PARM_3
-      0004A9 AB 40            [24] 1578 	mov	r3,(_drawCircle_PARM_3 + 1)
-                                   1579 ;	ecen4330_lcd_v3.c:271: drawPixel(x0  , y0+r, color);
-      0004AB E5 3F            [12] 1580 	mov	a,_drawCircle_PARM_3
-      0004AD 25 3D            [12] 1581 	add	a,_drawCircle_PARM_2
-      0004AF F5 39            [12] 1582 	mov	_drawPixel_PARM_2,a
-      0004B1 E5 40            [12] 1583 	mov	a,(_drawCircle_PARM_3 + 1)
-      0004B3 35 3E            [12] 1584 	addc	a,(_drawCircle_PARM_2 + 1)
-      0004B5 F5 3A            [12] 1585 	mov	(_drawPixel_PARM_2 + 1),a
-      0004B7 85 41 3B         [24] 1586 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
-      0004BA 85 42 3C         [24] 1587 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
-      0004BD 85 43 82         [24] 1588 	mov	dpl,_drawCircle_x0_65536_110
-      0004C0 85 44 83         [24] 1589 	mov	dph,(_drawCircle_x0_65536_110 + 1)
-      0004C3 C0 05            [24] 1590 	push	ar5
-      0004C5 C0 04            [24] 1591 	push	ar4
-      0004C7 C0 03            [24] 1592 	push	ar3
-      0004C9 C0 02            [24] 1593 	push	ar2
-      0004CB 12 04 28         [24] 1594 	lcall	_drawPixel
-                                   1595 ;	ecen4330_lcd_v3.c:272: drawPixel(x0  , y0-r, color);
-      0004CE E5 3D            [12] 1596 	mov	a,_drawCircle_PARM_2
-      0004D0 C3               [12] 1597 	clr	c
-      0004D1 95 3F            [12] 1598 	subb	a,_drawCircle_PARM_3
-      0004D3 F5 39            [12] 1599 	mov	_drawPixel_PARM_2,a
-      0004D5 E5 3E            [12] 1600 	mov	a,(_drawCircle_PARM_2 + 1)
-      0004D7 95 40            [12] 1601 	subb	a,(_drawCircle_PARM_3 + 1)
-      0004D9 F5 3A            [12] 1602 	mov	(_drawPixel_PARM_2 + 1),a
-      0004DB 85 41 3B         [24] 1603 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
-      0004DE 85 42 3C         [24] 1604 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
-      0004E1 85 43 82         [24] 1605 	mov	dpl,_drawCircle_x0_65536_110
-      0004E4 85 44 83         [24] 1606 	mov	dph,(_drawCircle_x0_65536_110 + 1)
-      0004E7 12 04 28         [24] 1607 	lcall	_drawPixel
-                                   1608 ;	ecen4330_lcd_v3.c:273: drawPixel(x0+r, y0  , color);
-      0004EA E5 3F            [12] 1609 	mov	a,_drawCircle_PARM_3
-      0004EC 25 43            [12] 1610 	add	a,_drawCircle_x0_65536_110
-      0004EE F5 82            [12] 1611 	mov	dpl,a
-      0004F0 E5 40            [12] 1612 	mov	a,(_drawCircle_PARM_3 + 1)
-      0004F2 35 44            [12] 1613 	addc	a,(_drawCircle_x0_65536_110 + 1)
-      0004F4 F5 83            [12] 1614 	mov	dph,a
-      0004F6 85 3D 39         [24] 1615 	mov	_drawPixel_PARM_2,_drawCircle_PARM_2
-      0004F9 85 3E 3A         [24] 1616 	mov	(_drawPixel_PARM_2 + 1),(_drawCircle_PARM_2 + 1)
-      0004FC 85 41 3B         [24] 1617 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
-      0004FF 85 42 3C         [24] 1618 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
-      000502 12 04 28         [24] 1619 	lcall	_drawPixel
-                                   1620 ;	ecen4330_lcd_v3.c:274: drawPixel(x0-r, y0  , color);
-      000505 E5 43            [12] 1621 	mov	a,_drawCircle_x0_65536_110
-      000507 C3               [12] 1622 	clr	c
-      000508 95 3F            [12] 1623 	subb	a,_drawCircle_PARM_3
-      00050A F5 82            [12] 1624 	mov	dpl,a
-      00050C E5 44            [12] 1625 	mov	a,(_drawCircle_x0_65536_110 + 1)
-      00050E 95 40            [12] 1626 	subb	a,(_drawCircle_PARM_3 + 1)
-      000510 F5 83            [12] 1627 	mov	dph,a
-      000512 85 3D 39         [24] 1628 	mov	_drawPixel_PARM_2,_drawCircle_PARM_2
-      000515 85 3E 3A         [24] 1629 	mov	(_drawPixel_PARM_2 + 1),(_drawCircle_PARM_2 + 1)
-      000518 85 41 3B         [24] 1630 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
-      00051B 85 42 3C         [24] 1631 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
-      00051E 12 04 28         [24] 1632 	lcall	_drawPixel
-      000521 D0 02            [24] 1633 	pop	ar2
-      000523 D0 03            [24] 1634 	pop	ar3
-      000525 D0 04            [24] 1635 	pop	ar4
-      000527 D0 05            [24] 1636 	pop	ar5
-                                   1637 ;	ecen4330_lcd_v3.c:276: while (x < y) {
-      000529 78 00            [12] 1638 	mov	r0,#0x00
-      00052B 79 00            [12] 1639 	mov	r1,#0x00
-      00052D 75 45 01         [24] 1640 	mov	_drawCircle_sloc0_1_0,#0x01
-                                   1641 ;	1-genFromRTrack replaced	mov	(_drawCircle_sloc0_1_0 + 1),#0x00
-      000530 89 46            [24] 1642 	mov	(_drawCircle_sloc0_1_0 + 1),r1
-      000532                       1643 00103$:
-      000532 C3               [12] 1644 	clr	c
-      000533 E8               [12] 1645 	mov	a,r0
-      000534 9A               [12] 1646 	subb	a,r2
-      000535 E9               [12] 1647 	mov	a,r1
-      000536 64 80            [12] 1648 	xrl	a,#0x80
-      000538 8B F0            [24] 1649 	mov	b,r3
-      00053A 63 F0 80         [24] 1650 	xrl	b,#0x80
-      00053D 95 F0            [12] 1651 	subb	a,b
-      00053F 40 01            [24] 1652 	jc	00121$
-      000541 22               [24] 1653 	ret
-      000542                       1654 00121$:
-                                   1655 ;	ecen4330_lcd_v3.c:277: if (f >= 0) {
-      000542 90 00 05         [24] 1656 	mov	dptr,#_drawCircle_f_65536_111
-      000545 E0               [24] 1657 	movx	a,@dptr
-      000546 F5 47            [12] 1658 	mov	_drawCircle_sloc1_1_0,a
-      000548 A3               [24] 1659 	inc	dptr
-      000549 E0               [24] 1660 	movx	a,@dptr
-      00054A F5 48            [12] 1661 	mov	(_drawCircle_sloc1_1_0 + 1),a
-      00054C 20 E7 18         [24] 1662 	jb	acc.7,00102$
-                                   1663 ;	ecen4330_lcd_v3.c:278: y--;
-      00054F 1A               [12] 1664 	dec	r2
-      000550 BA FF 01         [24] 1665 	cjne	r2,#0xff,00123$
-      000553 1B               [12] 1666 	dec	r3
-      000554                       1667 00123$:
-                                   1668 ;	ecen4330_lcd_v3.c:279: ddF_y += 2;
-      000554 74 02            [12] 1669 	mov	a,#0x02
-      000556 2C               [12] 1670 	add	a,r4
-      000557 FC               [12] 1671 	mov	r4,a
-      000558 E4               [12] 1672 	clr	a
-      000559 3D               [12] 1673 	addc	a,r5
-      00055A FD               [12] 1674 	mov	r5,a
-                                   1675 ;	ecen4330_lcd_v3.c:280: f += ddF_y;
-      00055B 90 00 05         [24] 1676 	mov	dptr,#_drawCircle_f_65536_111
-      00055E EC               [12] 1677 	mov	a,r4
-      00055F 25 47            [12] 1678 	add	a,_drawCircle_sloc1_1_0
-      000561 F0               [24] 1679 	movx	@dptr,a
-      000562 ED               [12] 1680 	mov	a,r5
-      000563 35 48            [12] 1681 	addc	a,(_drawCircle_sloc1_1_0 + 1)
-      000565 A3               [24] 1682 	inc	dptr
-      000566 F0               [24] 1683 	movx	@dptr,a
-      000567                       1684 00102$:
-                                   1685 ;	ecen4330_lcd_v3.c:283: x++;
-      000567 C0 04            [24] 1686 	push	ar4
-      000569 C0 05            [24] 1687 	push	ar5
-      00056B 08               [12] 1688 	inc	r0
-      00056C B8 00 01         [24] 1689 	cjne	r0,#0x00,00124$
-      00056F 09               [12] 1690 	inc	r1
-      000570                       1691 00124$:
-                                   1692 ;	ecen4330_lcd_v3.c:284: ddF_x += 2;
-      000570 74 02            [12] 1693 	mov	a,#0x02
-      000572 25 45            [12] 1694 	add	a,_drawCircle_sloc0_1_0
-      000574 F5 45            [12] 1695 	mov	_drawCircle_sloc0_1_0,a
-      000576 E4               [12] 1696 	clr	a
-      000577 35 46            [12] 1697 	addc	a,(_drawCircle_sloc0_1_0 + 1)
-      000579 F5 46            [12] 1698 	mov	(_drawCircle_sloc0_1_0 + 1),a
-                                   1699 ;	ecen4330_lcd_v3.c:285: f += ddF_x;
-      00057B 90 00 05         [24] 1700 	mov	dptr,#_drawCircle_f_65536_111
-      00057E E0               [24] 1701 	movx	a,@dptr
-      00057F FE               [12] 1702 	mov	r6,a
-      000580 A3               [24] 1703 	inc	dptr
-      000581 E0               [24] 1704 	movx	a,@dptr
-      000582 FF               [12] 1705 	mov	r7,a
-      000583 90 00 05         [24] 1706 	mov	dptr,#_drawCircle_f_65536_111
-      000586 E5 45            [12] 1707 	mov	a,_drawCircle_sloc0_1_0
-      000588 2E               [12] 1708 	add	a,r6
-      000589 F0               [24] 1709 	movx	@dptr,a
-      00058A E5 46            [12] 1710 	mov	a,(_drawCircle_sloc0_1_0 + 1)
-      00058C 3F               [12] 1711 	addc	a,r7
-      00058D A3               [24] 1712 	inc	dptr
-      00058E F0               [24] 1713 	movx	@dptr,a
-                                   1714 ;	ecen4330_lcd_v3.c:287: drawPixel(x0 + x, y0 + y, color);
-      00058F AE 43            [24] 1715 	mov	r6,_drawCircle_x0_65536_110
-      000591 AF 44            [24] 1716 	mov	r7,(_drawCircle_x0_65536_110 + 1)
-      000593 E8               [12] 1717 	mov	a,r0
-      000594 2E               [12] 1718 	add	a,r6
-      000595 FC               [12] 1719 	mov	r4,a
-      000596 E9               [12] 1720 	mov	a,r1
-      000597 3F               [12] 1721 	addc	a,r7
-      000598 FD               [12] 1722 	mov	r5,a
-      000599 8C 47            [24] 1723 	mov	_drawCircle_sloc1_1_0,r4
-      00059B 8D 48            [24] 1724 	mov	(_drawCircle_sloc1_1_0 + 1),r5
-      00059D 85 3D 49         [24] 1725 	mov	_drawCircle_sloc2_1_0,_drawCircle_PARM_2
-      0005A0 85 3E 4A         [24] 1726 	mov	(_drawCircle_sloc2_1_0 + 1),(_drawCircle_PARM_2 + 1)
-      0005A3 EA               [12] 1727 	mov	a,r2
-      0005A4 25 49            [12] 1728 	add	a,_drawCircle_sloc2_1_0
-      0005A6 FC               [12] 1729 	mov	r4,a
-      0005A7 EB               [12] 1730 	mov	a,r3
-      0005A8 35 4A            [12] 1731 	addc	a,(_drawCircle_sloc2_1_0 + 1)
-      0005AA FD               [12] 1732 	mov	r5,a
-      0005AB 8C 4B            [24] 1733 	mov	_drawCircle_sloc3_1_0,r4
-      0005AD 8D 4C            [24] 1734 	mov	(_drawCircle_sloc3_1_0 + 1),r5
-      0005AF 85 4B 39         [24] 1735 	mov	_drawPixel_PARM_2,_drawCircle_sloc3_1_0
-      0005B2 85 4C 3A         [24] 1736 	mov	(_drawPixel_PARM_2 + 1),(_drawCircle_sloc3_1_0 + 1)
-      0005B5 85 41 3B         [24] 1737 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
-      0005B8 85 42 3C         [24] 1738 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
-      0005BB 85 47 82         [24] 1739 	mov	dpl,_drawCircle_sloc1_1_0
-      0005BE 85 48 83         [24] 1740 	mov	dph,(_drawCircle_sloc1_1_0 + 1)
-      0005C1 C0 07            [24] 1741 	push	ar7
-      0005C3 C0 06            [24] 1742 	push	ar6
-      0005C5 C0 05            [24] 1743 	push	ar5
-      0005C7 C0 04            [24] 1744 	push	ar4
-      0005C9 C0 03            [24] 1745 	push	ar3
-      0005CB C0 02            [24] 1746 	push	ar2
-      0005CD C0 01            [24] 1747 	push	ar1
-      0005CF C0 00            [24] 1748 	push	ar0
-      0005D1 12 04 28         [24] 1749 	lcall	_drawPixel
-      0005D4 D0 00            [24] 1750 	pop	ar0
-      0005D6 D0 01            [24] 1751 	pop	ar1
-      0005D8 D0 02            [24] 1752 	pop	ar2
-      0005DA D0 03            [24] 1753 	pop	ar3
-      0005DC D0 04            [24] 1754 	pop	ar4
-      0005DE D0 05            [24] 1755 	pop	ar5
-      0005E0 D0 06            [24] 1756 	pop	ar6
-      0005E2 D0 07            [24] 1757 	pop	ar7
-                                   1758 ;	ecen4330_lcd_v3.c:288: drawPixel(x0 - x, y0 + y, color);
-      0005E4 EE               [12] 1759 	mov	a,r6
-      0005E5 C3               [12] 1760 	clr	c
-      0005E6 98               [12] 1761 	subb	a,r0
-      0005E7 FC               [12] 1762 	mov	r4,a
-      0005E8 EF               [12] 1763 	mov	a,r7
-      0005E9 99               [12] 1764 	subb	a,r1
-      0005EA FD               [12] 1765 	mov	r5,a
-      0005EB 8C 4D            [24] 1766 	mov	_drawCircle_sloc4_1_0,r4
-      0005ED 8D 4E            [24] 1767 	mov	(_drawCircle_sloc4_1_0 + 1),r5
-      0005EF 85 4B 39         [24] 1768 	mov	_drawPixel_PARM_2,_drawCircle_sloc3_1_0
-      0005F2 85 4C 3A         [24] 1769 	mov	(_drawPixel_PARM_2 + 1),(_drawCircle_sloc3_1_0 + 1)
-      0005F5 85 41 3B         [24] 1770 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
-      0005F8 85 42 3C         [24] 1771 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
-      0005FB 85 4D 82         [24] 1772 	mov	dpl,_drawCircle_sloc4_1_0
-      0005FE 85 4E 83         [24] 1773 	mov	dph,(_drawCircle_sloc4_1_0 + 1)
-      000601 C0 07            [24] 1774 	push	ar7
-      000603 C0 06            [24] 1775 	push	ar6
-      000605 C0 05            [24] 1776 	push	ar5
-      000607 C0 04            [24] 1777 	push	ar4
-      000609 C0 03            [24] 1778 	push	ar3
-      00060B C0 02            [24] 1779 	push	ar2
-      00060D C0 01            [24] 1780 	push	ar1
-      00060F C0 00            [24] 1781 	push	ar0
-      000611 12 04 28         [24] 1782 	lcall	_drawPixel
-      000614 D0 00            [24] 1783 	pop	ar0
-      000616 D0 01            [24] 1784 	pop	ar1
-      000618 D0 02            [24] 1785 	pop	ar2
-      00061A D0 03            [24] 1786 	pop	ar3
-      00061C D0 04            [24] 1787 	pop	ar4
-      00061E D0 05            [24] 1788 	pop	ar5
-                                   1789 ;	ecen4330_lcd_v3.c:289: drawPixel(x0 + x, y0 - y, color);
-      000620 E5 49            [12] 1790 	mov	a,_drawCircle_sloc2_1_0
-      000622 C3               [12] 1791 	clr	c
-      000623 9A               [12] 1792 	subb	a,r2
-      000624 FC               [12] 1793 	mov	r4,a
-      000625 E5 4A            [12] 1794 	mov	a,(_drawCircle_sloc2_1_0 + 1)
-      000627 9B               [12] 1795 	subb	a,r3
-      000628 FD               [12] 1796 	mov	r5,a
-      000629 8C 39            [24] 1797 	mov	_drawPixel_PARM_2,r4
-      00062B 8D 3A            [24] 1798 	mov	(_drawPixel_PARM_2 + 1),r5
-      00062D 85 41 3B         [24] 1799 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
-      000630 85 42 3C         [24] 1800 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
-      000633 85 47 82         [24] 1801 	mov	dpl,_drawCircle_sloc1_1_0
-      000636 85 48 83         [24] 1802 	mov	dph,(_drawCircle_sloc1_1_0 + 1)
-      000639 C0 05            [24] 1803 	push	ar5
-      00063B C0 04            [24] 1804 	push	ar4
-      00063D C0 03            [24] 1805 	push	ar3
-      00063F C0 02            [24] 1806 	push	ar2
-      000641 C0 01            [24] 1807 	push	ar1
-      000643 C0 00            [24] 1808 	push	ar0
-      000645 12 04 28         [24] 1809 	lcall	_drawPixel
-      000648 D0 00            [24] 1810 	pop	ar0
-      00064A D0 01            [24] 1811 	pop	ar1
-      00064C D0 02            [24] 1812 	pop	ar2
-      00064E D0 03            [24] 1813 	pop	ar3
-      000650 D0 04            [24] 1814 	pop	ar4
-      000652 D0 05            [24] 1815 	pop	ar5
-                                   1816 ;	ecen4330_lcd_v3.c:290: drawPixel(x0 - x, y0 - y, color);
-      000654 8C 39            [24] 1817 	mov	_drawPixel_PARM_2,r4
-      000656 8D 3A            [24] 1818 	mov	(_drawPixel_PARM_2 + 1),r5
-      000658 85 41 3B         [24] 1819 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
-      00065B 85 42 3C         [24] 1820 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
-      00065E 85 4D 82         [24] 1821 	mov	dpl,_drawCircle_sloc4_1_0
-      000661 85 4E 83         [24] 1822 	mov	dph,(_drawCircle_sloc4_1_0 + 1)
-      000664 C0 05            [24] 1823 	push	ar5
-      000666 C0 04            [24] 1824 	push	ar4
-      000668 C0 03            [24] 1825 	push	ar3
-      00066A C0 02            [24] 1826 	push	ar2
-      00066C C0 01            [24] 1827 	push	ar1
-      00066E C0 00            [24] 1828 	push	ar0
-      000670 12 04 28         [24] 1829 	lcall	_drawPixel
-      000673 D0 00            [24] 1830 	pop	ar0
-      000675 D0 01            [24] 1831 	pop	ar1
-      000677 D0 02            [24] 1832 	pop	ar2
-      000679 D0 03            [24] 1833 	pop	ar3
-      00067B D0 04            [24] 1834 	pop	ar4
-      00067D D0 05            [24] 1835 	pop	ar5
-      00067F D0 06            [24] 1836 	pop	ar6
-      000681 D0 07            [24] 1837 	pop	ar7
-                                   1838 ;	ecen4330_lcd_v3.c:291: drawPixel(x0 + y, y0 + x, color);
-      000683 EA               [12] 1839 	mov	a,r2
-      000684 2E               [12] 1840 	add	a,r6
-      000685 FC               [12] 1841 	mov	r4,a
-      000686 EB               [12] 1842 	mov	a,r3
-      000687 3F               [12] 1843 	addc	a,r7
-      000688 FD               [12] 1844 	mov	r5,a
-      000689 8C 4D            [24] 1845 	mov	_drawCircle_sloc4_1_0,r4
-      00068B 8D 4E            [24] 1846 	mov	(_drawCircle_sloc4_1_0 + 1),r5
-      00068D E8               [12] 1847 	mov	a,r0
-      00068E 25 49            [12] 1848 	add	a,_drawCircle_sloc2_1_0
-      000690 FC               [12] 1849 	mov	r4,a
-      000691 E9               [12] 1850 	mov	a,r1
-      000692 35 4A            [12] 1851 	addc	a,(_drawCircle_sloc2_1_0 + 1)
-      000694 FD               [12] 1852 	mov	r5,a
-      000695 8C 39            [24] 1853 	mov	_drawPixel_PARM_2,r4
-      000697 8D 3A            [24] 1854 	mov	(_drawPixel_PARM_2 + 1),r5
-      000699 85 41 3B         [24] 1855 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
-      00069C 85 42 3C         [24] 1856 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
-      00069F 85 4D 82         [24] 1857 	mov	dpl,_drawCircle_sloc4_1_0
-      0006A2 85 4E 83         [24] 1858 	mov	dph,(_drawCircle_sloc4_1_0 + 1)
-      0006A5 C0 07            [24] 1859 	push	ar7
-      0006A7 C0 06            [24] 1860 	push	ar6
-      0006A9 C0 05            [24] 1861 	push	ar5
-      0006AB C0 04            [24] 1862 	push	ar4
-      0006AD C0 03            [24] 1863 	push	ar3
-      0006AF C0 02            [24] 1864 	push	ar2
-      0006B1 C0 01            [24] 1865 	push	ar1
-      0006B3 C0 00            [24] 1866 	push	ar0
-      0006B5 12 04 28         [24] 1867 	lcall	_drawPixel
-      0006B8 D0 00            [24] 1868 	pop	ar0
-      0006BA D0 01            [24] 1869 	pop	ar1
-      0006BC D0 02            [24] 1870 	pop	ar2
-      0006BE D0 03            [24] 1871 	pop	ar3
-      0006C0 D0 04            [24] 1872 	pop	ar4
-      0006C2 D0 05            [24] 1873 	pop	ar5
-      0006C4 D0 06            [24] 1874 	pop	ar6
-      0006C6 D0 07            [24] 1875 	pop	ar7
-                                   1876 ;	ecen4330_lcd_v3.c:292: drawPixel(x0 - y, y0 + x, color);
-      0006C8 EE               [12] 1877 	mov	a,r6
-      0006C9 C3               [12] 1878 	clr	c
-      0006CA 9A               [12] 1879 	subb	a,r2
-      0006CB FE               [12] 1880 	mov	r6,a
-      0006CC EF               [12] 1881 	mov	a,r7
-      0006CD 9B               [12] 1882 	subb	a,r3
-      0006CE FF               [12] 1883 	mov	r7,a
-      0006CF 8C 39            [24] 1884 	mov	_drawPixel_PARM_2,r4
-      0006D1 8D 3A            [24] 1885 	mov	(_drawPixel_PARM_2 + 1),r5
-      0006D3 85 41 3B         [24] 1886 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
-      0006D6 85 42 3C         [24] 1887 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
-      0006D9 8E 82            [24] 1888 	mov	dpl,r6
-      0006DB 8F 83            [24] 1889 	mov	dph,r7
-      0006DD C0 07            [24] 1890 	push	ar7
-      0006DF C0 06            [24] 1891 	push	ar6
-      0006E1 C0 05            [24] 1892 	push	ar5
-      0006E3 C0 04            [24] 1893 	push	ar4
-      0006E5 C0 03            [24] 1894 	push	ar3
-      0006E7 C0 02            [24] 1895 	push	ar2
-      0006E9 C0 01            [24] 1896 	push	ar1
-      0006EB C0 00            [24] 1897 	push	ar0
-      0006ED 12 04 28         [24] 1898 	lcall	_drawPixel
-      0006F0 D0 00            [24] 1899 	pop	ar0
-      0006F2 D0 01            [24] 1900 	pop	ar1
-      0006F4 D0 02            [24] 1901 	pop	ar2
-      0006F6 D0 03            [24] 1902 	pop	ar3
-      0006F8 D0 04            [24] 1903 	pop	ar4
-      0006FA D0 05            [24] 1904 	pop	ar5
-                                   1905 ;	ecen4330_lcd_v3.c:293: drawPixel(x0 + y, y0 - x, color);
-      0006FC E5 49            [12] 1906 	mov	a,_drawCircle_sloc2_1_0
-      0006FE C3               [12] 1907 	clr	c
-      0006FF 98               [12] 1908 	subb	a,r0
-      000700 FC               [12] 1909 	mov	r4,a
-      000701 E5 4A            [12] 1910 	mov	a,(_drawCircle_sloc2_1_0 + 1)
-      000703 99               [12] 1911 	subb	a,r1
-      000704 FD               [12] 1912 	mov	r5,a
-      000705 8C 39            [24] 1913 	mov	_drawPixel_PARM_2,r4
-      000707 8D 3A            [24] 1914 	mov	(_drawPixel_PARM_2 + 1),r5
-      000709 85 41 3B         [24] 1915 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
-      00070C 85 42 3C         [24] 1916 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
-      00070F 85 4D 82         [24] 1917 	mov	dpl,_drawCircle_sloc4_1_0
-      000712 85 4E 83         [24] 1918 	mov	dph,(_drawCircle_sloc4_1_0 + 1)
-      000715 C0 05            [24] 1919 	push	ar5
-      000717 C0 04            [24] 1920 	push	ar4
-      000719 C0 03            [24] 1921 	push	ar3
-      00071B C0 02            [24] 1922 	push	ar2
-      00071D C0 01            [24] 1923 	push	ar1
-      00071F C0 00            [24] 1924 	push	ar0
-      000721 12 04 28         [24] 1925 	lcall	_drawPixel
-      000724 D0 00            [24] 1926 	pop	ar0
-      000726 D0 01            [24] 1927 	pop	ar1
-      000728 D0 02            [24] 1928 	pop	ar2
-      00072A D0 03            [24] 1929 	pop	ar3
-      00072C D0 04            [24] 1930 	pop	ar4
-      00072E D0 05            [24] 1931 	pop	ar5
-      000730 D0 06            [24] 1932 	pop	ar6
-      000732 D0 07            [24] 1933 	pop	ar7
-                                   1934 ;	ecen4330_lcd_v3.c:294: drawPixel(x0 - y, y0 - x, color);
-      000734 8C 39            [24] 1935 	mov	_drawPixel_PARM_2,r4
-      000736 8D 3A            [24] 1936 	mov	(_drawPixel_PARM_2 + 1),r5
-      000738 85 41 3B         [24] 1937 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
-      00073B 85 42 3C         [24] 1938 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
-      00073E 8E 82            [24] 1939 	mov	dpl,r6
-      000740 8F 83            [24] 1940 	mov	dph,r7
-      000742 C0 05            [24] 1941 	push	ar5
-      000744 C0 04            [24] 1942 	push	ar4
-      000746 C0 03            [24] 1943 	push	ar3
-      000748 C0 02            [24] 1944 	push	ar2
-      00074A C0 01            [24] 1945 	push	ar1
-      00074C C0 00            [24] 1946 	push	ar0
-      00074E 12 04 28         [24] 1947 	lcall	_drawPixel
-      000751 D0 00            [24] 1948 	pop	ar0
-      000753 D0 01            [24] 1949 	pop	ar1
-      000755 D0 02            [24] 1950 	pop	ar2
-      000757 D0 03            [24] 1951 	pop	ar3
-      000759 D0 04            [24] 1952 	pop	ar4
-      00075B D0 05            [24] 1953 	pop	ar5
-      00075D D0 05            [24] 1954 	pop	ar5
-      00075F D0 04            [24] 1955 	pop	ar4
-                                   1956 ;	ecen4330_lcd_v3.c:296: }
-      000761 02 05 32         [24] 1957 	ljmp	00103$
-                                   1958 ;------------------------------------------------------------
-                                   1959 ;Allocation info for local variables in function 'testCircles'
-                                   1960 ;------------------------------------------------------------
-                                   1961 ;color                     Allocated with name '_testCircles_PARM_2'
-                                   1962 ;radius                    Allocated with name '_testCircles_radius_65536_114'
-                                   1963 ;sloc0                     Allocated with name '_testCircles_sloc0_1_0'
-                                   1964 ;x                         Allocated with name '_testCircles_x_65536_115'
-                                   1965 ;y                         Allocated with name '_testCircles_y_65536_115'
-                                   1966 ;r2                        Allocated with name '_testCircles_r2_65536_115'
-                                   1967 ;w                         Allocated with name '_testCircles_w_65536_115'
-                                   1968 ;h                         Allocated with name '_testCircles_h_65536_115'
-                                   1969 ;------------------------------------------------------------
-                                   1970 ;	ecen4330_lcd_v3.c:304: void testCircles (uint8_t radius, uint16_t color) {
-                                   1971 ;	-----------------------------------------
-                                   1972 ;	 function testCircles
-                                   1973 ;	-----------------------------------------
-      000764                       1974 _testCircles:
-      000764 85 82 51         [24] 1975 	mov	_testCircles_radius_65536_114,dpl
-                                   1976 ;	ecen4330_lcd_v3.c:305: __xdata int x, y, r2 = radius * 2, w = _width  + radius, h = _height + radius;
-      000767 AD 51            [24] 1977 	mov	r5,_testCircles_radius_65536_114
-      000769 7E 00            [12] 1978 	mov	r6,#0x00
-      00076B ED               [12] 1979 	mov	a,r5
-      00076C 2D               [12] 1980 	add	a,r5
-      00076D FB               [12] 1981 	mov	r3,a
-      00076E EE               [12] 1982 	mov	a,r6
-      00076F 33               [12] 1983 	rlc	a
-      000770 FC               [12] 1984 	mov	r4,a
-      000771 90 00 01         [24] 1985 	mov	dptr,#__width
-      000774 E0               [24] 1986 	movx	a,@dptr
-      000775 F9               [12] 1987 	mov	r1,a
-      000776 A3               [24] 1988 	inc	dptr
-      000777 E0               [24] 1989 	movx	a,@dptr
-      000778 FA               [12] 1990 	mov	r2,a
-      000779 ED               [12] 1991 	mov	a,r5
-      00077A 29               [12] 1992 	add	a,r1
-      00077B F9               [12] 1993 	mov	r1,a
-      00077C EE               [12] 1994 	mov	a,r6
-      00077D 3A               [12] 1995 	addc	a,r2
-      00077E FA               [12] 1996 	mov	r2,a
-      00077F 90 00 03         [24] 1997 	mov	dptr,#__height
-      000782 E0               [24] 1998 	movx	a,@dptr
-      000783 FF               [12] 1999 	mov	r7,a
-      000784 A3               [24] 2000 	inc	dptr
-      000785 E0               [24] 2001 	movx	a,@dptr
-      000786 F8               [12] 2002 	mov	r0,a
-      000787 ED               [12] 2003 	mov	a,r5
-      000788 2F               [12] 2004 	add	a,r7
-      000789 FF               [12] 2005 	mov	r7,a
-      00078A EE               [12] 2006 	mov	a,r6
-      00078B 38               [12] 2007 	addc	a,r0
-      00078C FE               [12] 2008 	mov	r6,a
-                                   2009 ;	ecen4330_lcd_v3.c:307: for (x = 0; x < w; x += r2) {
-      00078D 90 00 07         [24] 2010 	mov	dptr,#_testCircles_x_65536_115
-      000790 E4               [12] 2011 	clr	a
-      000791 F0               [24] 2012 	movx	@dptr,a
-      000792 A3               [24] 2013 	inc	dptr
-      000793 F0               [24] 2014 	movx	@dptr,a
-      000794                       2015 00107$:
-      000794 90 00 07         [24] 2016 	mov	dptr,#_testCircles_x_65536_115
-      000797 E0               [24] 2017 	movx	a,@dptr
-      000798 F8               [12] 2018 	mov	r0,a
-      000799 A3               [24] 2019 	inc	dptr
-      00079A E0               [24] 2020 	movx	a,@dptr
-      00079B FD               [12] 2021 	mov	r5,a
-      00079C C3               [12] 2022 	clr	c
-      00079D E8               [12] 2023 	mov	a,r0
-      00079E 99               [12] 2024 	subb	a,r1
-      00079F ED               [12] 2025 	mov	a,r5
-      0007A0 64 80            [12] 2026 	xrl	a,#0x80
-      0007A2 8A F0            [24] 2027 	mov	b,r2
-      0007A4 63 F0 80         [24] 2028 	xrl	b,#0x80
-      0007A7 95 F0            [12] 2029 	subb	a,b
-      0007A9 40 01            [24] 2030 	jc	00127$
-      0007AB 22               [24] 2031 	ret
-      0007AC                       2032 00127$:
-                                   2033 ;	ecen4330_lcd_v3.c:308: for (y = 0; y < h; y += r2) {
-      0007AC 90 00 09         [24] 2034 	mov	dptr,#_testCircles_y_65536_115
-      0007AF E4               [12] 2035 	clr	a
-      0007B0 F0               [24] 2036 	movx	@dptr,a
-      0007B1 A3               [24] 2037 	inc	dptr
-      0007B2 F0               [24] 2038 	movx	@dptr,a
-      0007B3                       2039 00104$:
-      0007B3 90 00 09         [24] 2040 	mov	dptr,#_testCircles_y_65536_115
-      0007B6 E0               [24] 2041 	movx	a,@dptr
-      0007B7 F5 52            [12] 2042 	mov	_testCircles_sloc0_1_0,a
-      0007B9 A3               [24] 2043 	inc	dptr
-      0007BA E0               [24] 2044 	movx	a,@dptr
-      0007BB F5 53            [12] 2045 	mov	(_testCircles_sloc0_1_0 + 1),a
-      0007BD C3               [12] 2046 	clr	c
-      0007BE E5 52            [12] 2047 	mov	a,_testCircles_sloc0_1_0
-      0007C0 9F               [12] 2048 	subb	a,r7
-      0007C1 E5 53            [12] 2049 	mov	a,(_testCircles_sloc0_1_0 + 1)
-      0007C3 64 80            [12] 2050 	xrl	a,#0x80
-      0007C5 8E F0            [24] 2051 	mov	b,r6
-      0007C7 63 F0 80         [24] 2052 	xrl	b,#0x80
-      0007CA 95 F0            [12] 2053 	subb	a,b
-      0007CC 50 47            [24] 2054 	jnc	00108$
-                                   2055 ;	ecen4330_lcd_v3.c:309: drawCircle(x, y, radius, color);
-      0007CE 88 82            [24] 2056 	mov	dpl,r0
-      0007D0 8D 83            [24] 2057 	mov	dph,r5
-      0007D2 85 52 3D         [24] 2058 	mov	_drawCircle_PARM_2,_testCircles_sloc0_1_0
-      0007D5 85 53 3E         [24] 2059 	mov	(_drawCircle_PARM_2 + 1),(_testCircles_sloc0_1_0 + 1)
-      0007D8 85 51 3F         [24] 2060 	mov	_drawCircle_PARM_3,_testCircles_radius_65536_114
-      0007DB 75 40 00         [24] 2061 	mov	(_drawCircle_PARM_3 + 1),#0x00
-      0007DE 85 4F 41         [24] 2062 	mov	_drawCircle_PARM_4,_testCircles_PARM_2
-      0007E1 85 50 42         [24] 2063 	mov	(_drawCircle_PARM_4 + 1),(_testCircles_PARM_2 + 1)
-      0007E4 C0 07            [24] 2064 	push	ar7
-      0007E6 C0 06            [24] 2065 	push	ar6
-      0007E8 C0 05            [24] 2066 	push	ar5
-      0007EA C0 04            [24] 2067 	push	ar4
-      0007EC C0 03            [24] 2068 	push	ar3
-      0007EE C0 02            [24] 2069 	push	ar2
-      0007F0 C0 01            [24] 2070 	push	ar1
-      0007F2 C0 00            [24] 2071 	push	ar0
-      0007F4 12 04 7F         [24] 2072 	lcall	_drawCircle
-      0007F7 D0 00            [24] 2073 	pop	ar0
-      0007F9 D0 01            [24] 2074 	pop	ar1
-      0007FB D0 02            [24] 2075 	pop	ar2
-      0007FD D0 03            [24] 2076 	pop	ar3
-      0007FF D0 04            [24] 2077 	pop	ar4
-      000801 D0 05            [24] 2078 	pop	ar5
-      000803 D0 06            [24] 2079 	pop	ar6
-      000805 D0 07            [24] 2080 	pop	ar7
-                                   2081 ;	ecen4330_lcd_v3.c:308: for (y = 0; y < h; y += r2) {
-      000807 90 00 09         [24] 2082 	mov	dptr,#_testCircles_y_65536_115
-      00080A EB               [12] 2083 	mov	a,r3
-      00080B 25 52            [12] 2084 	add	a,_testCircles_sloc0_1_0
-      00080D F0               [24] 2085 	movx	@dptr,a
-      00080E EC               [12] 2086 	mov	a,r4
-      00080F 35 53            [12] 2087 	addc	a,(_testCircles_sloc0_1_0 + 1)
-      000811 A3               [24] 2088 	inc	dptr
-      000812 F0               [24] 2089 	movx	@dptr,a
-      000813 80 9E            [24] 2090 	sjmp	00104$
-      000815                       2091 00108$:
-                                   2092 ;	ecen4330_lcd_v3.c:307: for (x = 0; x < w; x += r2) {
-      000815 90 00 07         [24] 2093 	mov	dptr,#_testCircles_x_65536_115
-      000818 E0               [24] 2094 	movx	a,@dptr
-      000819 F8               [12] 2095 	mov	r0,a
-      00081A A3               [24] 2096 	inc	dptr
-      00081B E0               [24] 2097 	movx	a,@dptr
-      00081C FD               [12] 2098 	mov	r5,a
-      00081D 90 00 07         [24] 2099 	mov	dptr,#_testCircles_x_65536_115
-      000820 EB               [12] 2100 	mov	a,r3
-      000821 28               [12] 2101 	add	a,r0
-      000822 F0               [24] 2102 	movx	@dptr,a
-      000823 EC               [12] 2103 	mov	a,r4
-      000824 3D               [12] 2104 	addc	a,r5
-      000825 A3               [24] 2105 	inc	dptr
-      000826 F0               [24] 2106 	movx	@dptr,a
-                                   2107 ;	ecen4330_lcd_v3.c:312: }
-      000827 02 07 94         [24] 2108 	ljmp	00107$
-                                   2109 ;------------------------------------------------------------
-                                   2110 ;Allocation info for local variables in function 'fillRect'
-                                   2111 ;------------------------------------------------------------
-                                   2112 ;y                         Allocated with name '_fillRect_PARM_2'
-                                   2113 ;w                         Allocated with name '_fillRect_PARM_3'
-                                   2114 ;h                         Allocated with name '_fillRect_PARM_4'
-                                   2115 ;color                     Allocated with name '_fillRect_PARM_5'
-                                   2116 ;x                         Allocated to registers 
-                                   2117 ;------------------------------------------------------------
-                                   2118 ;	ecen4330_lcd_v3.c:314: void fillRect (uint16_t x,uint16_t y,uint16_t w,uint16_t h,uint16_t color) {
-                                   2119 ;	-----------------------------------------
-                                   2120 ;	 function fillRect
-                                   2121 ;	-----------------------------------------
-      00082A                       2122 _fillRect:
-      00082A AE 82            [24] 2123 	mov	r6,dpl
-      00082C AF 83            [24] 2124 	mov	r7,dph
-                                   2125 ;	ecen4330_lcd_v3.c:315: if ((x >= TFTWIDTH) || (y >= TFTHEIGHT)) {
-      00082E 8E 04            [24] 2126 	mov	ar4,r6
-      000830 8F 05            [24] 2127 	mov	ar5,r7
-      000832 C3               [12] 2128 	clr	c
-      000833 EC               [12] 2129 	mov	a,r4
-      000834 94 F0            [12] 2130 	subb	a,#0xf0
-      000836 ED               [12] 2131 	mov	a,r5
-      000837 94 00            [12] 2132 	subb	a,#0x00
-      000839 50 0D            [24] 2133 	jnc	00101$
-      00083B AC 54            [24] 2134 	mov	r4,_fillRect_PARM_2
-      00083D AD 55            [24] 2135 	mov	r5,(_fillRect_PARM_2 + 1)
-      00083F C3               [12] 2136 	clr	c
-      000840 EC               [12] 2137 	mov	a,r4
-      000841 94 40            [12] 2138 	subb	a,#0x40
-      000843 ED               [12] 2139 	mov	a,r5
-      000844 94 01            [12] 2140 	subb	a,#0x01
-      000846 40 01            [24] 2141 	jc	00102$
-      000848                       2142 00101$:
-                                   2143 ;	ecen4330_lcd_v3.c:316: return;
-      000848 22               [24] 2144 	ret
-      000849                       2145 00102$:
-                                   2146 ;	ecen4330_lcd_v3.c:319: if ((x+w-1) >= TFTWIDTH) {
-      000849 E5 56            [12] 2147 	mov	a,_fillRect_PARM_3
-      00084B 2E               [12] 2148 	add	a,r6
-      00084C FC               [12] 2149 	mov	r4,a
-      00084D E5 57            [12] 2150 	mov	a,(_fillRect_PARM_3 + 1)
-      00084F 3F               [12] 2151 	addc	a,r7
-      000850 FD               [12] 2152 	mov	r5,a
-      000851 1C               [12] 2153 	dec	r4
-      000852 BC FF 01         [24] 2154 	cjne	r4,#0xff,00161$
-      000855 1D               [12] 2155 	dec	r5
-      000856                       2156 00161$:
-      000856 C3               [12] 2157 	clr	c
-      000857 EC               [12] 2158 	mov	a,r4
-      000858 94 F0            [12] 2159 	subb	a,#0xf0
-      00085A ED               [12] 2160 	mov	a,r5
-      00085B 94 00            [12] 2161 	subb	a,#0x00
-      00085D 40 0A            [24] 2162 	jc	00105$
-                                   2163 ;	ecen4330_lcd_v3.c:320: w = TFTWIDTH-x;
-      00085F 74 F0            [12] 2164 	mov	a,#0xf0
-      000861 C3               [12] 2165 	clr	c
-      000862 9E               [12] 2166 	subb	a,r6
-      000863 F5 56            [12] 2167 	mov	_fillRect_PARM_3,a
-      000865 E4               [12] 2168 	clr	a
-      000866 9F               [12] 2169 	subb	a,r7
-      000867 F5 57            [12] 2170 	mov	(_fillRect_PARM_3 + 1),a
-      000869                       2171 00105$:
-                                   2172 ;	ecen4330_lcd_v3.c:323: if ((y+h-1) >= TFTHEIGHT) {
-      000869 E5 58            [12] 2173 	mov	a,_fillRect_PARM_4
-      00086B 25 54            [12] 2174 	add	a,_fillRect_PARM_2
-      00086D FC               [12] 2175 	mov	r4,a
-      00086E E5 59            [12] 2176 	mov	a,(_fillRect_PARM_4 + 1)
-      000870 35 55            [12] 2177 	addc	a,(_fillRect_PARM_2 + 1)
-      000872 FD               [12] 2178 	mov	r5,a
-      000873 1C               [12] 2179 	dec	r4
-      000874 BC FF 01         [24] 2180 	cjne	r4,#0xff,00163$
-      000877 1D               [12] 2181 	dec	r5
-      000878                       2182 00163$:
-      000878 C3               [12] 2183 	clr	c
-      000879 EC               [12] 2184 	mov	a,r4
-      00087A 94 40            [12] 2185 	subb	a,#0x40
-      00087C ED               [12] 2186 	mov	a,r5
-      00087D 94 01            [12] 2187 	subb	a,#0x01
-      00087F 40 0D            [24] 2188 	jc	00107$
-                                   2189 ;	ecen4330_lcd_v3.c:324: h = TFTHEIGHT-y;
-      000881 74 40            [12] 2190 	mov	a,#0x40
-      000883 C3               [12] 2191 	clr	c
-      000884 95 54            [12] 2192 	subb	a,_fillRect_PARM_2
-      000886 F5 58            [12] 2193 	mov	_fillRect_PARM_4,a
-      000888 74 01            [12] 2194 	mov	a,#0x01
-      00088A 95 55            [12] 2195 	subb	a,(_fillRect_PARM_2 + 1)
-      00088C F5 59            [12] 2196 	mov	(_fillRect_PARM_4 + 1),a
-      00088E                       2197 00107$:
-                                   2198 ;	ecen4330_lcd_v3.c:327: setAddress(x, y, x + w - 1, y + h - 1);
-      00088E E5 56            [12] 2199 	mov	a,_fillRect_PARM_3
-      000890 2E               [12] 2200 	add	a,r6
-      000891 FC               [12] 2201 	mov	r4,a
-      000892 E5 57            [12] 2202 	mov	a,(_fillRect_PARM_3 + 1)
-      000894 3F               [12] 2203 	addc	a,r7
-      000895 FD               [12] 2204 	mov	r5,a
-      000896 1C               [12] 2205 	dec	r4
-      000897 BC FF 01         [24] 2206 	cjne	r4,#0xff,00165$
-      00089A 1D               [12] 2207 	dec	r5
-      00089B                       2208 00165$:
-      00089B 8C 0A            [24] 2209 	mov	_setAddress_PARM_3,r4
-      00089D 8D 0B            [24] 2210 	mov	(_setAddress_PARM_3 + 1),r5
-      00089F E5 58            [12] 2211 	mov	a,_fillRect_PARM_4
-      0008A1 25 54            [12] 2212 	add	a,_fillRect_PARM_2
-      0008A3 FC               [12] 2213 	mov	r4,a
-      0008A4 E5 59            [12] 2214 	mov	a,(_fillRect_PARM_4 + 1)
-      0008A6 35 55            [12] 2215 	addc	a,(_fillRect_PARM_2 + 1)
-      0008A8 FD               [12] 2216 	mov	r5,a
-      0008A9 1C               [12] 2217 	dec	r4
-      0008AA BC FF 01         [24] 2218 	cjne	r4,#0xff,00166$
-      0008AD 1D               [12] 2219 	dec	r5
-      0008AE                       2220 00166$:
-      0008AE 8C 0C            [24] 2221 	mov	_setAddress_PARM_4,r4
-      0008B0 8D 0D            [24] 2222 	mov	(_setAddress_PARM_4 + 1),r5
-      0008B2 85 54 08         [24] 2223 	mov	_setAddress_PARM_2,_fillRect_PARM_2
-      0008B5 85 55 09         [24] 2224 	mov	(_setAddress_PARM_2 + 1),(_fillRect_PARM_2 + 1)
-      0008B8 8E 82            [24] 2225 	mov	dpl,r6
-      0008BA 8F 83            [24] 2226 	mov	dph,r7
-      0008BC 12 02 3D         [24] 2227 	lcall	_setAddress
-                                   2228 ;	ecen4330_lcd_v3.c:329: write8Reg(0x2C);
-                                   2229 ;	assignBit
-      0008BF C2 B5            [12] 2230 	clr	_P3_5
-                                   2231 ;	assignBit
-      0008C1 D2 B4            [12] 2232 	setb	_P3_4
-      0008C3 85 25 82         [24] 2233 	mov	dpl,_lcd_address
-      0008C6 85 26 83         [24] 2234 	mov	dph,(_lcd_address + 1)
-      0008C9 74 2C            [12] 2235 	mov	a,#0x2c
-      0008CB F0               [24] 2236 	movx	@dptr,a
-                                   2237 ;	assignBit
-      0008CC C2 B4            [12] 2238 	clr	_P3_4
-                                   2239 ;	ecen4330_lcd_v3.c:330: CD = 1;
-                                   2240 ;	assignBit
-      0008CE D2 B5            [12] 2241 	setb	_P3_5
-                                   2242 ;	ecen4330_lcd_v3.c:332: for (y = h; y > 0; y--) {
-      0008D0 AF 5B            [24] 2243 	mov	r7,(_fillRect_PARM_5 + 1)
-      0008D2 AD 58            [24] 2244 	mov	r5,_fillRect_PARM_4
-      0008D4 AE 59            [24] 2245 	mov	r6,(_fillRect_PARM_4 + 1)
-      0008D6                       2246 00114$:
-      0008D6 ED               [12] 2247 	mov	a,r5
-      0008D7 4E               [12] 2248 	orl	a,r6
-      0008D8 60 30            [24] 2249 	jz	00116$
-                                   2250 ;	ecen4330_lcd_v3.c:333: for(x = w; x > 0; x--) {
-      0008DA AB 56            [24] 2251 	mov	r3,_fillRect_PARM_3
-      0008DC AC 57            [24] 2252 	mov	r4,(_fillRect_PARM_3 + 1)
-      0008DE                       2253 00111$:
-      0008DE EB               [12] 2254 	mov	a,r3
-      0008DF 4C               [12] 2255 	orl	a,r4
-      0008E0 60 21            [24] 2256 	jz	00115$
-                                   2257 ;	ecen4330_lcd_v3.c:334: write8(color>>8); write8(color);
+                                    464 ; external ram data
+                                    465 ;--------------------------------------------------------
+                                    466 	.area XSEG    (XDATA)
+      000001                        467 __width::
+      000001                        468 	.ds 2
+      000003                        469 __height::
+      000003                        470 	.ds 2
+      000005                        471 _drawCircle_f_65536_106:
+      000005                        472 	.ds 2
+      000007                        473 _testCircles_x_65536_110:
+      000007                        474 	.ds 2
+      000009                        475 _testCircles_y_65536_110:
+      000009                        476 	.ds 2
+      00000B                        477 _drawChar_line_196609_153:
+      00000B                        478 	.ds 1
+      00000C                        479 _testRAM_d_65536_174:
+      00000C                        480 	.ds 1
+      00000D                        481 _freeType_count_65536_178:
+      00000D                        482 	.ds 1
+      00000E                        483 _reverse_rev_65536_196:
+      00000E                        484 	.ds 2
+      000010                        485 _reverse_val_65536_196:
+      000010                        486 	.ds 2
+      000012                        487 _asciiToDec_d_65536_198:
+      000012                        488 	.ds 1
+      000013                        489 _asciiToDec_val_65536_199:
+      000013                        490 	.ds 1
+      000014                        491 _asciiToDec_id_65536_199:
+      000014                        492 	.ds 2
+      000016                        493 _getAddress_address_65536_270:
+      000016                        494 	.ds 2
+      000018                        495 _getByte_byte_65536_273:
+      000018                        496 	.ds 1
+                                    497 ;--------------------------------------------------------
+                                    498 ; absolute external ram data
+                                    499 ;--------------------------------------------------------
+                                    500 	.area XABS    (ABS,XDATA)
+                                    501 ;--------------------------------------------------------
+                                    502 ; external initialized ram data
+                                    503 ;--------------------------------------------------------
+                                    504 	.area XISEG   (XDATA)
+                                    505 	.area HOME    (CODE)
+                                    506 	.area GSINIT0 (CODE)
+                                    507 	.area GSINIT1 (CODE)
+                                    508 	.area GSINIT2 (CODE)
+                                    509 	.area GSINIT3 (CODE)
+                                    510 	.area GSINIT4 (CODE)
+                                    511 	.area GSINIT5 (CODE)
+                                    512 	.area GSINIT  (CODE)
+                                    513 	.area GSFINAL (CODE)
+                                    514 	.area CSEG    (CODE)
+                                    515 ;--------------------------------------------------------
+                                    516 ; interrupt vector
+                                    517 ;--------------------------------------------------------
+                                    518 	.area HOME    (CODE)
+      000000                        519 __interrupt_vect:
+      000000 02 00 29         [24]  520 	ljmp	__sdcc_gsinit_startup
+      000003 32               [24]  521 	reti
+      000004                        522 	.ds	7
+      00000B 32               [24]  523 	reti
+      00000C                        524 	.ds	7
+      000013 32               [24]  525 	reti
+      000014                        526 	.ds	7
+      00001B 32               [24]  527 	reti
+      00001C                        528 	.ds	7
+      000023 02 10 E5         [24]  529 	ljmp	_ISR_receive
+                                    530 ;--------------------------------------------------------
+                                    531 ; global & static initialisations
+                                    532 ;--------------------------------------------------------
+                                    533 	.area HOME    (CODE)
+                                    534 	.area GSINIT  (CODE)
+                                    535 	.area GSFINAL (CODE)
+                                    536 	.area GSINIT  (CODE)
+                                    537 	.globl __sdcc_gsinit_startup
+                                    538 	.globl __sdcc_program_startup
+                                    539 	.globl __start__stack
+                                    540 	.globl __mcs51_genXINIT
+                                    541 	.globl __mcs51_genXRAMCLEAR
+                                    542 	.globl __mcs51_genRAMCLEAR
+                                    543 ;	ecen4330_lcd_v3.c:9: __xdata uint8_t* lcd_address = (uint8_t __xdata*) __LCD_ADDRESS__;
+      000082 75 23 00         [24]  544 	mov	_lcd_address,#0x00
+      000085 75 24 40         [24]  545 	mov	(_lcd_address + 1),#0x40
+                                    546 ;	ecen4330_lcd_v3.c:10: __xdata uint8_t* seg7_address = (uint8_t __xdata*) __SEG_7_ADDRESS__;
+      000088 75 25 00         [24]  547 	mov	_seg7_address,#0x00
+      00008B 75 26 80         [24]  548 	mov	(_seg7_address + 1),#0x80
+                                    549 ;	ecen4330_lcd_v3.c:11: __xdata uint8_t* temp_address = (uint8_t __xdata*) __TEMP_ADDRESS__;
+      00008E 75 27 00         [24]  550 	mov	_temp_address,#0x00
+      000091 75 28 C0         [24]  551 	mov	(_temp_address + 1),#0xc0
+                                    552 ;	ecen4330_lcd_v3.c:12: __xdata uint8_t* light_address = (uint8_t __xdata*) __PHOT_ADDRESS__;
+      000094 E4               [12]  553 	clr	a
+      000095 F5 29            [12]  554 	mov	_light_address,a
+      000097 F5 2A            [12]  555 	mov	(_light_address + 1),a
+                                    556 ;	USART.c:1: volatile unsigned char received_byte = 0;
+                                    557 ;	1-genFromRTrack replaced	mov	_received_byte,#0x00
+      000099 F5 6B            [12]  558 	mov	_received_byte,a
+                                    559 ;	USART.c:2: volatile unsigned char received_flag = 0;
+                                    560 ;	1-genFromRTrack replaced	mov	_received_flag,#0x00
+      00009B F5 6C            [12]  561 	mov	_received_flag,a
+                                    562 	.area GSFINAL (CODE)
+      00009D 02 00 26         [24]  563 	ljmp	__sdcc_program_startup
+                                    564 ;--------------------------------------------------------
+                                    565 ; Home
+                                    566 ;--------------------------------------------------------
+                                    567 	.area HOME    (CODE)
+                                    568 	.area HOME    (CODE)
+      000026                        569 __sdcc_program_startup:
+      000026 02 19 46         [24]  570 	ljmp	_main
+                                    571 ;	return from main will return to caller
+                                    572 ;--------------------------------------------------------
+                                    573 ; code
+                                    574 ;--------------------------------------------------------
+                                    575 	.area CSEG    (CODE)
+                                    576 ;------------------------------------------------------------
+                                    577 ;Allocation info for local variables in function 'iowrite8'
+                                    578 ;------------------------------------------------------------
+                                    579 ;d                         Allocated with name '_iowrite8_PARM_2'
+                                    580 ;map_address               Allocated to registers r6 r7 
+                                    581 ;------------------------------------------------------------
+                                    582 ;	ecen4330_lcd_v3.c:50: void iowrite8 (uint8_t __xdata* map_address, uint8_t d) {
+                                    583 ;	-----------------------------------------
+                                    584 ;	 function iowrite8
+                                    585 ;	-----------------------------------------
+      0000A0                        586 _iowrite8:
+                           000007   587 	ar7 = 0x07
+                           000006   588 	ar6 = 0x06
+                           000005   589 	ar5 = 0x05
+                           000004   590 	ar4 = 0x04
+                           000003   591 	ar3 = 0x03
+                           000002   592 	ar2 = 0x02
+                           000001   593 	ar1 = 0x01
+                           000000   594 	ar0 = 0x00
+      0000A0 AE 82            [24]  595 	mov	r6,dpl
+      0000A2 AF 83            [24]  596 	mov	r7,dph
+                                    597 ;	ecen4330_lcd_v3.c:51: IOM = 1;
+                                    598 ;	assignBit
+      0000A4 D2 B4            [12]  599 	setb	_P3_4
+                                    600 ;	ecen4330_lcd_v3.c:52: *map_address = d;
+      0000A6 8E 82            [24]  601 	mov	dpl,r6
+      0000A8 8F 83            [24]  602 	mov	dph,r7
+      0000AA E5 08            [12]  603 	mov	a,_iowrite8_PARM_2
+      0000AC F0               [24]  604 	movx	@dptr,a
+                                    605 ;	ecen4330_lcd_v3.c:53: IOM = 0;
+                                    606 ;	assignBit
+      0000AD C2 B4            [12]  607 	clr	_P3_4
+                                    608 ;	ecen4330_lcd_v3.c:54: }
+      0000AF 22               [24]  609 	ret
+                                    610 ;------------------------------------------------------------
+                                    611 ;Allocation info for local variables in function 'ioread8'
+                                    612 ;------------------------------------------------------------
+                                    613 ;map_address               Allocated to registers r6 r7 
+                                    614 ;val                       Allocated to registers r6 
+                                    615 ;------------------------------------------------------------
+                                    616 ;	ecen4330_lcd_v3.c:62: uint8_t ioread8 (uint8_t __xdata* map_address) {
+                                    617 ;	-----------------------------------------
+                                    618 ;	 function ioread8
+                                    619 ;	-----------------------------------------
+      0000B0                        620 _ioread8:
+      0000B0 AE 82            [24]  621 	mov	r6,dpl
+      0000B2 AF 83            [24]  622 	mov	r7,dph
+                                    623 ;	ecen4330_lcd_v3.c:64: IOM = 1;
+                                    624 ;	assignBit
+      0000B4 D2 B4            [12]  625 	setb	_P3_4
+                                    626 ;	ecen4330_lcd_v3.c:65: val = *map_address;
+      0000B6 8E 82            [24]  627 	mov	dpl,r6
+      0000B8 8F 83            [24]  628 	mov	dph,r7
+      0000BA E0               [24]  629 	movx	a,@dptr
+      0000BB FE               [12]  630 	mov	r6,a
+                                    631 ;	ecen4330_lcd_v3.c:66: IOM = 0;
+                                    632 ;	assignBit
+      0000BC C2 B4            [12]  633 	clr	_P3_4
+                                    634 ;	ecen4330_lcd_v3.c:67: return val;
+      0000BE 8E 82            [24]  635 	mov	dpl,r6
+                                    636 ;	ecen4330_lcd_v3.c:68: }
+      0000C0 22               [24]  637 	ret
+                                    638 ;------------------------------------------------------------
+                                    639 ;Allocation info for local variables in function 'delay'
+                                    640 ;------------------------------------------------------------
+                                    641 ;i                         Allocated with name '_delay_i_65536_29'
+                                    642 ;j                         Allocated with name '_delay_j_65536_29'
+                                    643 ;d                         Allocated to registers r6 r7 
+                                    644 ;------------------------------------------------------------
+                                    645 ;	ecen4330_lcd_v3.c:72: void delay (int16_t d) {
+                                    646 ;	-----------------------------------------
+                                    647 ;	 function delay
+                                    648 ;	-----------------------------------------
+      0000C1                        649 _delay:
+      0000C1 AE 82            [24]  650 	mov	r6,dpl
+      0000C3 AF 83            [24]  651 	mov	r7,dph
+                                    652 ;	ecen4330_lcd_v3.c:75: for (i = 0; i < d; i++) {
+      0000C5 7C 00            [12]  653 	mov	r4,#0x00
+      0000C7 7D 00            [12]  654 	mov	r5,#0x00
+      0000C9                        655 00107$:
+      0000C9 8C 02            [24]  656 	mov	ar2,r4
+      0000CB 8D 03            [24]  657 	mov	ar3,r5
+      0000CD C3               [12]  658 	clr	c
+      0000CE EA               [12]  659 	mov	a,r2
+      0000CF 9E               [12]  660 	subb	a,r6
+      0000D0 EB               [12]  661 	mov	a,r3
+      0000D1 64 80            [12]  662 	xrl	a,#0x80
+      0000D3 8F F0            [24]  663 	mov	b,r7
+      0000D5 63 F0 80         [24]  664 	xrl	b,#0x80
+      0000D8 95 F0            [12]  665 	subb	a,b
+      0000DA 50 14            [24]  666 	jnc	00109$
+                                    667 ;	ecen4330_lcd_v3.c:76: for (j = 0; j < 1000; j++);
+      0000DC 7A E8            [12]  668 	mov	r2,#0xe8
+      0000DE 7B 03            [12]  669 	mov	r3,#0x03
+      0000E0                        670 00105$:
+      0000E0 1A               [12]  671 	dec	r2
+      0000E1 BA FF 01         [24]  672 	cjne	r2,#0xff,00130$
+      0000E4 1B               [12]  673 	dec	r3
+      0000E5                        674 00130$:
+      0000E5 EA               [12]  675 	mov	a,r2
+      0000E6 4B               [12]  676 	orl	a,r3
+      0000E7 70 F7            [24]  677 	jnz	00105$
+                                    678 ;	ecen4330_lcd_v3.c:75: for (i = 0; i < d; i++) {
+      0000E9 0C               [12]  679 	inc	r4
+      0000EA BC 00 DC         [24]  680 	cjne	r4,#0x00,00107$
+      0000ED 0D               [12]  681 	inc	r5
+      0000EE 80 D9            [24]  682 	sjmp	00107$
+      0000F0                        683 00109$:
+                                    684 ;	ecen4330_lcd_v3.c:78: }
+      0000F0 22               [24]  685 	ret
+                                    686 ;------------------------------------------------------------
+                                    687 ;Allocation info for local variables in function 'writeRegister8'
+                                    688 ;------------------------------------------------------------
+                                    689 ;d                         Allocated with name '_writeRegister8_PARM_2'
+                                    690 ;a                         Allocated to registers r7 
+                                    691 ;------------------------------------------------------------
+                                    692 ;	ecen4330_lcd_v3.c:88: void writeRegister8 (uint8_t a, uint8_t d) {
+                                    693 ;	-----------------------------------------
+                                    694 ;	 function writeRegister8
+                                    695 ;	-----------------------------------------
+      0000F1                        696 _writeRegister8:
+      0000F1 AF 82            [24]  697 	mov	r7,dpl
+                                    698 ;	ecen4330_lcd_v3.c:89: CD = __CMD__;
+                                    699 ;	assignBit
+      0000F3 C2 B5            [12]  700 	clr	_P3_5
+                                    701 ;	ecen4330_lcd_v3.c:90: write8(a);
+                                    702 ;	assignBit
+      0000F5 D2 B4            [12]  703 	setb	_P3_4
+      0000F7 85 23 82         [24]  704 	mov	dpl,_lcd_address
+      0000FA 85 24 83         [24]  705 	mov	dph,(_lcd_address + 1)
+      0000FD EF               [12]  706 	mov	a,r7
+      0000FE F0               [24]  707 	movx	@dptr,a
+                                    708 ;	assignBit
+      0000FF C2 B4            [12]  709 	clr	_P3_4
+                                    710 ;	ecen4330_lcd_v3.c:91: CD = __DATA__;
+                                    711 ;	assignBit
+      000101 D2 B5            [12]  712 	setb	_P3_5
+                                    713 ;	ecen4330_lcd_v3.c:92: write8(d);
+                                    714 ;	assignBit
+      000103 D2 B4            [12]  715 	setb	_P3_4
+      000105 85 23 82         [24]  716 	mov	dpl,_lcd_address
+      000108 85 24 83         [24]  717 	mov	dph,(_lcd_address + 1)
+      00010B E5 08            [12]  718 	mov	a,_writeRegister8_PARM_2
+      00010D F0               [24]  719 	movx	@dptr,a
+                                    720 ;	assignBit
+      00010E C2 B4            [12]  721 	clr	_P3_4
+                                    722 ;	ecen4330_lcd_v3.c:93: }
+      000110 22               [24]  723 	ret
+                                    724 ;------------------------------------------------------------
+                                    725 ;Allocation info for local variables in function 'writeRegister16'
+                                    726 ;------------------------------------------------------------
+                                    727 ;hi                        Allocated with name '_writeRegister16_hi_65536_38'
+                                    728 ;lo                        Allocated with name '_writeRegister16_lo_65536_38'
+                                    729 ;d                         Allocated with name '_writeRegister16_PARM_2'
+                                    730 ;a                         Allocated to registers r6 r7 
+                                    731 ;------------------------------------------------------------
+                                    732 ;	ecen4330_lcd_v3.c:97: void writeRegister16 (uint16_t a, uint16_t d) {
+                                    733 ;	-----------------------------------------
+                                    734 ;	 function writeRegister16
+                                    735 ;	-----------------------------------------
+      000111                        736 _writeRegister16:
+      000111 AE 82            [24]  737 	mov	r6,dpl
+      000113 AF 83            [24]  738 	mov	r7,dph
+                                    739 ;	ecen4330_lcd_v3.c:99: hi = (a) >> 8;
+      000115 8F 05            [24]  740 	mov	ar5,r7
+                                    741 ;	ecen4330_lcd_v3.c:100: lo = (a);
+                                    742 ;	ecen4330_lcd_v3.c:101: write8Reg(hi);
+                                    743 ;	assignBit
+      000117 C2 B5            [12]  744 	clr	_P3_5
+                                    745 ;	assignBit
+      000119 D2 B4            [12]  746 	setb	_P3_4
+      00011B 85 23 82         [24]  747 	mov	dpl,_lcd_address
+      00011E 85 24 83         [24]  748 	mov	dph,(_lcd_address + 1)
+      000121 ED               [12]  749 	mov	a,r5
+      000122 F0               [24]  750 	movx	@dptr,a
+                                    751 ;	assignBit
+      000123 C2 B4            [12]  752 	clr	_P3_4
+                                    753 ;	ecen4330_lcd_v3.c:102: write8Reg(lo);
+                                    754 ;	assignBit
+      000125 C2 B5            [12]  755 	clr	_P3_5
+                                    756 ;	assignBit
+      000127 D2 B4            [12]  757 	setb	_P3_4
+      000129 85 23 82         [24]  758 	mov	dpl,_lcd_address
+      00012C 85 24 83         [24]  759 	mov	dph,(_lcd_address + 1)
+      00012F EE               [12]  760 	mov	a,r6
+      000130 F0               [24]  761 	movx	@dptr,a
+                                    762 ;	assignBit
+      000131 C2 B4            [12]  763 	clr	_P3_4
+                                    764 ;	ecen4330_lcd_v3.c:103: hi = (d) >> 8;
+      000133 AF 09            [24]  765 	mov	r7,(_writeRegister16_PARM_2 + 1)
+                                    766 ;	ecen4330_lcd_v3.c:104: lo = (d);
+      000135 AE 08            [24]  767 	mov	r6,_writeRegister16_PARM_2
+                                    768 ;	ecen4330_lcd_v3.c:105: CD = 1 ;
+                                    769 ;	assignBit
+      000137 D2 B5            [12]  770 	setb	_P3_5
+                                    771 ;	ecen4330_lcd_v3.c:106: write8Data(hi);
+                                    772 ;	assignBit
+      000139 D2 B5            [12]  773 	setb	_P3_5
+                                    774 ;	assignBit
+      00013B D2 B4            [12]  775 	setb	_P3_4
+      00013D 85 23 82         [24]  776 	mov	dpl,_lcd_address
+      000140 85 24 83         [24]  777 	mov	dph,(_lcd_address + 1)
+      000143 EF               [12]  778 	mov	a,r7
+      000144 F0               [24]  779 	movx	@dptr,a
+                                    780 ;	assignBit
+      000145 C2 B4            [12]  781 	clr	_P3_4
+                                    782 ;	ecen4330_lcd_v3.c:107: write8Data(lo);
+                                    783 ;	assignBit
+      000147 D2 B5            [12]  784 	setb	_P3_5
+                                    785 ;	assignBit
+      000149 D2 B4            [12]  786 	setb	_P3_4
+      00014B 85 23 82         [24]  787 	mov	dpl,_lcd_address
+      00014E 85 24 83         [24]  788 	mov	dph,(_lcd_address + 1)
+      000151 EE               [12]  789 	mov	a,r6
+      000152 F0               [24]  790 	movx	@dptr,a
+                                    791 ;	assignBit
+      000153 C2 B4            [12]  792 	clr	_P3_4
+                                    793 ;	ecen4330_lcd_v3.c:108: }
+      000155 22               [24]  794 	ret
+                                    795 ;------------------------------------------------------------
+                                    796 ;Allocation info for local variables in function 'setCursor'
+                                    797 ;------------------------------------------------------------
+                                    798 ;y                         Allocated with name '_setCursor_PARM_2'
+                                    799 ;x                         Allocated to registers 
+                                    800 ;------------------------------------------------------------
+                                    801 ;	ecen4330_lcd_v3.c:116: void setCursor (uint16_t x, uint16_t y) {
+                                    802 ;	-----------------------------------------
+                                    803 ;	 function setCursor
+                                    804 ;	-----------------------------------------
+      000156                        805 _setCursor:
+      000156 85 82 2D         [24]  806 	mov	_cursor_x,dpl
+      000159 85 83 2E         [24]  807 	mov	(_cursor_x + 1),dph
+                                    808 ;	ecen4330_lcd_v3.c:118: cursor_y = y;
+      00015C 85 08 2F         [24]  809 	mov	_cursor_y,_setCursor_PARM_2
+      00015F 85 09 30         [24]  810 	mov	(_cursor_y + 1),(_setCursor_PARM_2 + 1)
+                                    811 ;	ecen4330_lcd_v3.c:119: }
+      000162 22               [24]  812 	ret
+                                    813 ;------------------------------------------------------------
+                                    814 ;Allocation info for local variables in function 'setTextColor'
+                                    815 ;------------------------------------------------------------
+                                    816 ;y                         Allocated with name '_setTextColor_PARM_2'
+                                    817 ;x                         Allocated to registers 
+                                    818 ;------------------------------------------------------------
+                                    819 ;	ecen4330_lcd_v3.c:126: void setTextColor (uint16_t x, uint16_t y) {
+                                    820 ;	-----------------------------------------
+                                    821 ;	 function setTextColor
+                                    822 ;	-----------------------------------------
+      000163                        823 _setTextColor:
+      000163 85 82 33         [24]  824 	mov	_textcolor,dpl
+      000166 85 83 34         [24]  825 	mov	(_textcolor + 1),dph
+                                    826 ;	ecen4330_lcd_v3.c:128: textbgcolor = y;
+      000169 85 08 35         [24]  827 	mov	_textbgcolor,_setTextColor_PARM_2
+      00016C 85 09 36         [24]  828 	mov	(_textbgcolor + 1),(_setTextColor_PARM_2 + 1)
+                                    829 ;	ecen4330_lcd_v3.c:129: }
+      00016F 22               [24]  830 	ret
+                                    831 ;------------------------------------------------------------
+                                    832 ;Allocation info for local variables in function 'setTextSize'
+                                    833 ;------------------------------------------------------------
+                                    834 ;s                         Allocated to registers r7 
+                                    835 ;------------------------------------------------------------
+                                    836 ;	ecen4330_lcd_v3.c:136: void setTextSize (uint8_t s) {
+                                    837 ;	-----------------------------------------
+                                    838 ;	 function setTextSize
+                                    839 ;	-----------------------------------------
+      000170                        840 _setTextSize:
+                                    841 ;	ecen4330_lcd_v3.c:137: if (s > 8) return;
+      000170 E5 82            [12]  842 	mov	a,dpl
+      000172 FF               [12]  843 	mov	r7,a
+      000173 24 F7            [12]  844 	add	a,#0xff - 0x08
+      000175 50 01            [24]  845 	jnc	00102$
+      000177 22               [24]  846 	ret
+      000178                        847 00102$:
+                                    848 ;	ecen4330_lcd_v3.c:138: textsize = (s > 0) ? s : 1 ;
+      000178 EF               [12]  849 	mov	a,r7
+      000179 60 06            [24]  850 	jz	00105$
+      00017B 8F 06            [24]  851 	mov	ar6,r7
+      00017D 7F 00            [12]  852 	mov	r7,#0x00
+      00017F 80 04            [24]  853 	sjmp	00106$
+      000181                        854 00105$:
+      000181 7E 01            [12]  855 	mov	r6,#0x01
+      000183 7F 00            [12]  856 	mov	r7,#0x00
+      000185                        857 00106$:
+      000185 8E 31            [24]  858 	mov	_textsize,r6
+                                    859 ;	ecen4330_lcd_v3.c:139: }
+      000187 22               [24]  860 	ret
+                                    861 ;------------------------------------------------------------
+                                    862 ;Allocation info for local variables in function 'setRotation'
+                                    863 ;------------------------------------------------------------
+                                    864 ;flag                      Allocated to registers r7 
+                                    865 ;------------------------------------------------------------
+                                    866 ;	ecen4330_lcd_v3.c:151: void setRotation (uint8_t flag) {
+                                    867 ;	-----------------------------------------
+                                    868 ;	 function setRotation
+                                    869 ;	-----------------------------------------
+      000188                        870 _setRotation:
+                                    871 ;	ecen4330_lcd_v3.c:152: switch(flag) {
+      000188 E5 82            [12]  872 	mov	a,dpl
+      00018A FF               [12]  873 	mov	r7,a
+      00018B 24 FC            [12]  874 	add	a,#0xff - 0x03
+      00018D 40 6A            [24]  875 	jc	00105$
+      00018F EF               [12]  876 	mov	a,r7
+      000190 2F               [12]  877 	add	a,r7
+                                    878 ;	ecen4330_lcd_v3.c:153: case 0:
+      000191 90 01 95         [24]  879 	mov	dptr,#00115$
+      000194 73               [24]  880 	jmp	@a+dptr
+      000195                        881 00115$:
+      000195 80 06            [24]  882 	sjmp	00101$
+      000197 80 1B            [24]  883 	sjmp	00102$
+      000199 80 30            [24]  884 	sjmp	00103$
+      00019B 80 45            [24]  885 	sjmp	00104$
+      00019D                        886 00101$:
+                                    887 ;	ecen4330_lcd_v3.c:154: flag = (ILI9341_MADCTL_MX | ILI9341_MADCTL_BGR);
+      00019D 7F 48            [12]  888 	mov	r7,#0x48
+                                    889 ;	ecen4330_lcd_v3.c:155: _width = TFTWIDTH;
+      00019F 90 00 01         [24]  890 	mov	dptr,#__width
+      0001A2 74 F0            [12]  891 	mov	a,#0xf0
+      0001A4 F0               [24]  892 	movx	@dptr,a
+      0001A5 E4               [12]  893 	clr	a
+      0001A6 A3               [24]  894 	inc	dptr
+      0001A7 F0               [24]  895 	movx	@dptr,a
+                                    896 ;	ecen4330_lcd_v3.c:156: _height = TFTHEIGHT;
+      0001A8 90 00 03         [24]  897 	mov	dptr,#__height
+      0001AB 74 40            [12]  898 	mov	a,#0x40
+      0001AD F0               [24]  899 	movx	@dptr,a
+      0001AE 74 01            [12]  900 	mov	a,#0x01
+      0001B0 A3               [24]  901 	inc	dptr
+      0001B1 F0               [24]  902 	movx	@dptr,a
+                                    903 ;	ecen4330_lcd_v3.c:157: break;
+                                    904 ;	ecen4330_lcd_v3.c:158: case 1:
+      0001B2 80 5A            [24]  905 	sjmp	00106$
+      0001B4                        906 00102$:
+                                    907 ;	ecen4330_lcd_v3.c:159: flag = (ILI9341_MADCTL_MV | ILI9341_MADCTL_BGR);
+      0001B4 7F 28            [12]  908 	mov	r7,#0x28
+                                    909 ;	ecen4330_lcd_v3.c:160: _width = TFTHEIGHT;
+      0001B6 90 00 01         [24]  910 	mov	dptr,#__width
+      0001B9 74 40            [12]  911 	mov	a,#0x40
+      0001BB F0               [24]  912 	movx	@dptr,a
+      0001BC 74 01            [12]  913 	mov	a,#0x01
+      0001BE A3               [24]  914 	inc	dptr
+      0001BF F0               [24]  915 	movx	@dptr,a
+                                    916 ;	ecen4330_lcd_v3.c:161: _height = TFTWIDTH;
+      0001C0 90 00 03         [24]  917 	mov	dptr,#__height
+      0001C3 74 F0            [12]  918 	mov	a,#0xf0
+      0001C5 F0               [24]  919 	movx	@dptr,a
+      0001C6 E4               [12]  920 	clr	a
+      0001C7 A3               [24]  921 	inc	dptr
+      0001C8 F0               [24]  922 	movx	@dptr,a
+                                    923 ;	ecen4330_lcd_v3.c:162: break;
+                                    924 ;	ecen4330_lcd_v3.c:163: case 2:
+      0001C9 80 43            [24]  925 	sjmp	00106$
+      0001CB                        926 00103$:
+                                    927 ;	ecen4330_lcd_v3.c:164: flag = (ILI9341_MADCTL_MY | ILI9341_MADCTL_BGR);
+      0001CB 7F 88            [12]  928 	mov	r7,#0x88
+                                    929 ;	ecen4330_lcd_v3.c:165: _width = TFTWIDTH;
+      0001CD 90 00 01         [24]  930 	mov	dptr,#__width
+      0001D0 74 F0            [12]  931 	mov	a,#0xf0
+      0001D2 F0               [24]  932 	movx	@dptr,a
+      0001D3 E4               [12]  933 	clr	a
+      0001D4 A3               [24]  934 	inc	dptr
+      0001D5 F0               [24]  935 	movx	@dptr,a
+                                    936 ;	ecen4330_lcd_v3.c:166: _height = TFTHEIGHT;
+      0001D6 90 00 03         [24]  937 	mov	dptr,#__height
+      0001D9 74 40            [12]  938 	mov	a,#0x40
+      0001DB F0               [24]  939 	movx	@dptr,a
+      0001DC 74 01            [12]  940 	mov	a,#0x01
+      0001DE A3               [24]  941 	inc	dptr
+      0001DF F0               [24]  942 	movx	@dptr,a
+                                    943 ;	ecen4330_lcd_v3.c:167: break;
+                                    944 ;	ecen4330_lcd_v3.c:168: case 3:
+      0001E0 80 2C            [24]  945 	sjmp	00106$
+      0001E2                        946 00104$:
+                                    947 ;	ecen4330_lcd_v3.c:169: flag = (ILI9341_MADCTL_MX | ILI9341_MADCTL_MY | ILI9341_MADCTL_MV | ILI9341_MADCTL_BGR);
+      0001E2 7F E8            [12]  948 	mov	r7,#0xe8
+                                    949 ;	ecen4330_lcd_v3.c:170: _width = TFTHEIGHT;
+      0001E4 90 00 01         [24]  950 	mov	dptr,#__width
+      0001E7 74 40            [12]  951 	mov	a,#0x40
+      0001E9 F0               [24]  952 	movx	@dptr,a
+      0001EA 74 01            [12]  953 	mov	a,#0x01
+      0001EC A3               [24]  954 	inc	dptr
+      0001ED F0               [24]  955 	movx	@dptr,a
+                                    956 ;	ecen4330_lcd_v3.c:171: _height = TFTWIDTH;
+      0001EE 90 00 03         [24]  957 	mov	dptr,#__height
+      0001F1 74 F0            [12]  958 	mov	a,#0xf0
+      0001F3 F0               [24]  959 	movx	@dptr,a
+      0001F4 E4               [12]  960 	clr	a
+      0001F5 A3               [24]  961 	inc	dptr
+      0001F6 F0               [24]  962 	movx	@dptr,a
+                                    963 ;	ecen4330_lcd_v3.c:172: break;
+                                    964 ;	ecen4330_lcd_v3.c:173: default:
+      0001F7 80 15            [24]  965 	sjmp	00106$
+      0001F9                        966 00105$:
+                                    967 ;	ecen4330_lcd_v3.c:174: flag = (ILI9341_MADCTL_MX | ILI9341_MADCTL_BGR);
+      0001F9 7F 48            [12]  968 	mov	r7,#0x48
+                                    969 ;	ecen4330_lcd_v3.c:175: _width = TFTWIDTH;
+      0001FB 90 00 01         [24]  970 	mov	dptr,#__width
+      0001FE 74 F0            [12]  971 	mov	a,#0xf0
+      000200 F0               [24]  972 	movx	@dptr,a
+      000201 E4               [12]  973 	clr	a
+      000202 A3               [24]  974 	inc	dptr
+      000203 F0               [24]  975 	movx	@dptr,a
+                                    976 ;	ecen4330_lcd_v3.c:176: _height = TFTHEIGHT;
+      000204 90 00 03         [24]  977 	mov	dptr,#__height
+      000207 74 40            [12]  978 	mov	a,#0x40
+      000209 F0               [24]  979 	movx	@dptr,a
+      00020A 74 01            [12]  980 	mov	a,#0x01
+      00020C A3               [24]  981 	inc	dptr
+      00020D F0               [24]  982 	movx	@dptr,a
+                                    983 ;	ecen4330_lcd_v3.c:178: }
+      00020E                        984 00106$:
+                                    985 ;	ecen4330_lcd_v3.c:179: writeRegister8(ILI9341_MEMCONTROL, flag);
+      00020E 8F 08            [24]  986 	mov	_writeRegister8_PARM_2,r7
+      000210 75 82 36         [24]  987 	mov	dpl,#0x36
+                                    988 ;	ecen4330_lcd_v3.c:180: }
+      000213 02 00 F1         [24]  989 	ljmp	_writeRegister8
+                                    990 ;------------------------------------------------------------
+                                    991 ;Allocation info for local variables in function 'setAddress'
+                                    992 ;------------------------------------------------------------
+                                    993 ;y1                        Allocated with name '_setAddress_PARM_2'
+                                    994 ;x2                        Allocated with name '_setAddress_PARM_3'
+                                    995 ;y2                        Allocated with name '_setAddress_PARM_4'
+                                    996 ;x1                        Allocated to registers r6 r7 
+                                    997 ;------------------------------------------------------------
+                                    998 ;	ecen4330_lcd_v3.c:182: void setAddress (uint16_t x1,uint16_t y1,uint16_t x2,uint16_t y2) {
+                                    999 ;	-----------------------------------------
+                                   1000 ;	 function setAddress
+                                   1001 ;	-----------------------------------------
+      000216                       1002 _setAddress:
+      000216 AE 82            [24] 1003 	mov	r6,dpl
+      000218 AF 83            [24] 1004 	mov	r7,dph
+                                   1005 ;	ecen4330_lcd_v3.c:183: write8Reg(0x2A);
+                                   1006 ;	assignBit
+      00021A C2 B5            [12] 1007 	clr	_P3_5
+                                   1008 ;	assignBit
+      00021C D2 B4            [12] 1009 	setb	_P3_4
+      00021E 85 23 82         [24] 1010 	mov	dpl,_lcd_address
+      000221 85 24 83         [24] 1011 	mov	dph,(_lcd_address + 1)
+      000224 74 2A            [12] 1012 	mov	a,#0x2a
+      000226 F0               [24] 1013 	movx	@dptr,a
+                                   1014 ;	assignBit
+      000227 C2 B4            [12] 1015 	clr	_P3_4
+                                   1016 ;	ecen4330_lcd_v3.c:184: write8Data(x1 >> 8);
+                                   1017 ;	assignBit
+      000229 D2 B5            [12] 1018 	setb	_P3_5
+                                   1019 ;	assignBit
+      00022B D2 B4            [12] 1020 	setb	_P3_4
+      00022D 85 23 82         [24] 1021 	mov	dpl,_lcd_address
+      000230 85 24 83         [24] 1022 	mov	dph,(_lcd_address + 1)
+      000233 8F 05            [24] 1023 	mov	ar5,r7
+      000235 ED               [12] 1024 	mov	a,r5
+      000236 F0               [24] 1025 	movx	@dptr,a
+                                   1026 ;	assignBit
+      000237 C2 B4            [12] 1027 	clr	_P3_4
+                                   1028 ;	ecen4330_lcd_v3.c:185: write8Data(x1);
+                                   1029 ;	assignBit
+      000239 D2 B5            [12] 1030 	setb	_P3_5
+                                   1031 ;	assignBit
+      00023B D2 B4            [12] 1032 	setb	_P3_4
+      00023D 85 23 82         [24] 1033 	mov	dpl,_lcd_address
+      000240 85 24 83         [24] 1034 	mov	dph,(_lcd_address + 1)
+      000243 EE               [12] 1035 	mov	a,r6
+      000244 F0               [24] 1036 	movx	@dptr,a
+                                   1037 ;	assignBit
+      000245 C2 B4            [12] 1038 	clr	_P3_4
+                                   1039 ;	ecen4330_lcd_v3.c:186: write8Data(x2 >> 8);
+                                   1040 ;	assignBit
+      000247 D2 B5            [12] 1041 	setb	_P3_5
+                                   1042 ;	assignBit
+      000249 D2 B4            [12] 1043 	setb	_P3_4
+      00024B 85 23 82         [24] 1044 	mov	dpl,_lcd_address
+      00024E 85 24 83         [24] 1045 	mov	dph,(_lcd_address + 1)
+      000251 E5 0B            [12] 1046 	mov	a,(_setAddress_PARM_3 + 1)
+      000253 F0               [24] 1047 	movx	@dptr,a
+                                   1048 ;	assignBit
+      000254 C2 B4            [12] 1049 	clr	_P3_4
+                                   1050 ;	ecen4330_lcd_v3.c:187: write8Data(x2);
+                                   1051 ;	assignBit
+      000256 D2 B5            [12] 1052 	setb	_P3_5
+                                   1053 ;	assignBit
+      000258 D2 B4            [12] 1054 	setb	_P3_4
+      00025A 85 23 82         [24] 1055 	mov	dpl,_lcd_address
+      00025D 85 24 83         [24] 1056 	mov	dph,(_lcd_address + 1)
+      000260 E5 0A            [12] 1057 	mov	a,_setAddress_PARM_3
+      000262 F0               [24] 1058 	movx	@dptr,a
+                                   1059 ;	assignBit
+      000263 C2 B4            [12] 1060 	clr	_P3_4
+                                   1061 ;	ecen4330_lcd_v3.c:189: write8Reg(0x2B);
+                                   1062 ;	assignBit
+      000265 C2 B5            [12] 1063 	clr	_P3_5
+                                   1064 ;	assignBit
+      000267 D2 B4            [12] 1065 	setb	_P3_4
+      000269 85 23 82         [24] 1066 	mov	dpl,_lcd_address
+      00026C 85 24 83         [24] 1067 	mov	dph,(_lcd_address + 1)
+      00026F 74 2B            [12] 1068 	mov	a,#0x2b
+      000271 F0               [24] 1069 	movx	@dptr,a
+                                   1070 ;	assignBit
+      000272 C2 B4            [12] 1071 	clr	_P3_4
+                                   1072 ;	ecen4330_lcd_v3.c:190: write8Data(y1 >> 8);
+                                   1073 ;	assignBit
+      000274 D2 B5            [12] 1074 	setb	_P3_5
+                                   1075 ;	assignBit
+      000276 D2 B4            [12] 1076 	setb	_P3_4
+      000278 85 23 82         [24] 1077 	mov	dpl,_lcd_address
+      00027B 85 24 83         [24] 1078 	mov	dph,(_lcd_address + 1)
+      00027E E5 09            [12] 1079 	mov	a,(_setAddress_PARM_2 + 1)
+      000280 F0               [24] 1080 	movx	@dptr,a
+                                   1081 ;	assignBit
+      000281 C2 B4            [12] 1082 	clr	_P3_4
+                                   1083 ;	ecen4330_lcd_v3.c:191: write8Data(y1);
+                                   1084 ;	assignBit
+      000283 D2 B5            [12] 1085 	setb	_P3_5
+                                   1086 ;	assignBit
+      000285 D2 B4            [12] 1087 	setb	_P3_4
+      000287 85 23 82         [24] 1088 	mov	dpl,_lcd_address
+      00028A 85 24 83         [24] 1089 	mov	dph,(_lcd_address + 1)
+      00028D E5 08            [12] 1090 	mov	a,_setAddress_PARM_2
+      00028F F0               [24] 1091 	movx	@dptr,a
+                                   1092 ;	assignBit
+      000290 C2 B4            [12] 1093 	clr	_P3_4
+                                   1094 ;	ecen4330_lcd_v3.c:192: write8Data(y2 >> 8);
+                                   1095 ;	assignBit
+      000292 D2 B5            [12] 1096 	setb	_P3_5
+                                   1097 ;	assignBit
+      000294 D2 B4            [12] 1098 	setb	_P3_4
+      000296 85 23 82         [24] 1099 	mov	dpl,_lcd_address
+      000299 85 24 83         [24] 1100 	mov	dph,(_lcd_address + 1)
+      00029C E5 0D            [12] 1101 	mov	a,(_setAddress_PARM_4 + 1)
+      00029E F0               [24] 1102 	movx	@dptr,a
+                                   1103 ;	assignBit
+      00029F C2 B4            [12] 1104 	clr	_P3_4
+                                   1105 ;	ecen4330_lcd_v3.c:193: write8Data(y2);
+                                   1106 ;	assignBit
+      0002A1 D2 B5            [12] 1107 	setb	_P3_5
+                                   1108 ;	assignBit
+      0002A3 D2 B4            [12] 1109 	setb	_P3_4
+      0002A5 85 23 82         [24] 1110 	mov	dpl,_lcd_address
+      0002A8 85 24 83         [24] 1111 	mov	dph,(_lcd_address + 1)
+      0002AB E5 0C            [12] 1112 	mov	a,_setAddress_PARM_4
+      0002AD F0               [24] 1113 	movx	@dptr,a
+                                   1114 ;	assignBit
+      0002AE C2 B4            [12] 1115 	clr	_P3_4
+                                   1116 ;	ecen4330_lcd_v3.c:194: }
+      0002B0 22               [24] 1117 	ret
+                                   1118 ;------------------------------------------------------------
+                                   1119 ;Allocation info for local variables in function 'TFT_LCD_INIT'
+                                   1120 ;------------------------------------------------------------
+                                   1121 ;	ecen4330_lcd_v3.c:200: void TFT_LCD_INIT (void) {
+                                   1122 ;	-----------------------------------------
+                                   1123 ;	 function TFT_LCD_INIT
+                                   1124 ;	-----------------------------------------
+      0002B1                       1125 _TFT_LCD_INIT:
+                                   1126 ;	ecen4330_lcd_v3.c:201: _width = TFTWIDTH;
+      0002B1 90 00 01         [24] 1127 	mov	dptr,#__width
+      0002B4 74 F0            [12] 1128 	mov	a,#0xf0
+      0002B6 F0               [24] 1129 	movx	@dptr,a
+      0002B7 E4               [12] 1130 	clr	a
+      0002B8 A3               [24] 1131 	inc	dptr
+      0002B9 F0               [24] 1132 	movx	@dptr,a
+                                   1133 ;	ecen4330_lcd_v3.c:202: _height = TFTHEIGHT;
+      0002BA 90 00 03         [24] 1134 	mov	dptr,#__height
+      0002BD 74 40            [12] 1135 	mov	a,#0x40
+      0002BF F0               [24] 1136 	movx	@dptr,a
+      0002C0 74 01            [12] 1137 	mov	a,#0x01
+      0002C2 A3               [24] 1138 	inc	dptr
+      0002C3 F0               [24] 1139 	movx	@dptr,a
+                                   1140 ;	ecen4330_lcd_v3.c:204: IOM = 0;
+                                   1141 ;	assignBit
+      0002C4 C2 B4            [12] 1142 	clr	_P3_4
+                                   1143 ;	ecen4330_lcd_v3.c:205: CD = 1;
+                                   1144 ;	assignBit
+      0002C6 D2 B5            [12] 1145 	setb	_P3_5
+                                   1146 ;	ecen4330_lcd_v3.c:207: write8Reg(0x00);
+                                   1147 ;	assignBit
+      0002C8 C2 B5            [12] 1148 	clr	_P3_5
+                                   1149 ;	assignBit
+      0002CA D2 B4            [12] 1150 	setb	_P3_4
+      0002CC 85 23 82         [24] 1151 	mov	dpl,_lcd_address
+      0002CF 85 24 83         [24] 1152 	mov	dph,(_lcd_address + 1)
+      0002D2 E4               [12] 1153 	clr	a
+      0002D3 F0               [24] 1154 	movx	@dptr,a
+                                   1155 ;	assignBit
+      0002D4 C2 B4            [12] 1156 	clr	_P3_4
+                                   1157 ;	ecen4330_lcd_v3.c:208: write8Data(0x00);
+                                   1158 ;	assignBit
+      0002D6 D2 B5            [12] 1159 	setb	_P3_5
+                                   1160 ;	assignBit
+      0002D8 D2 B4            [12] 1161 	setb	_P3_4
+      0002DA 85 23 82         [24] 1162 	mov	dpl,_lcd_address
+      0002DD 85 24 83         [24] 1163 	mov	dph,(_lcd_address + 1)
+      0002E0 E4               [12] 1164 	clr	a
+      0002E1 F0               [24] 1165 	movx	@dptr,a
+                                   1166 ;	assignBit
+      0002E2 C2 B4            [12] 1167 	clr	_P3_4
+                                   1168 ;	ecen4330_lcd_v3.c:209: write8Data(0x00);
+                                   1169 ;	assignBit
+      0002E4 D2 B5            [12] 1170 	setb	_P3_5
+                                   1171 ;	assignBit
+      0002E6 D2 B4            [12] 1172 	setb	_P3_4
+      0002E8 85 23 82         [24] 1173 	mov	dpl,_lcd_address
+      0002EB 85 24 83         [24] 1174 	mov	dph,(_lcd_address + 1)
+      0002EE E4               [12] 1175 	clr	a
+      0002EF F0               [24] 1176 	movx	@dptr,a
+                                   1177 ;	assignBit
+      0002F0 C2 B4            [12] 1178 	clr	_P3_4
+                                   1179 ;	ecen4330_lcd_v3.c:210: write8Data(0x00);
+                                   1180 ;	assignBit
+      0002F2 D2 B5            [12] 1181 	setb	_P3_5
+                                   1182 ;	assignBit
+      0002F4 D2 B4            [12] 1183 	setb	_P3_4
+      0002F6 85 23 82         [24] 1184 	mov	dpl,_lcd_address
+      0002F9 85 24 83         [24] 1185 	mov	dph,(_lcd_address + 1)
+      0002FC E4               [12] 1186 	clr	a
+      0002FD F0               [24] 1187 	movx	@dptr,a
+                                   1188 ;	assignBit
+      0002FE C2 B4            [12] 1189 	clr	_P3_4
+                                   1190 ;	ecen4330_lcd_v3.c:211: delay(200);
+      000300 90 00 C8         [24] 1191 	mov	dptr,#0x00c8
+      000303 12 00 C1         [24] 1192 	lcall	_delay
+                                   1193 ;	ecen4330_lcd_v3.c:213: writeRegister8(ILI9341_SOFTRESET, 0);
+      000306 75 08 00         [24] 1194 	mov	_writeRegister8_PARM_2,#0x00
+      000309 75 82 01         [24] 1195 	mov	dpl,#0x01
+      00030C 12 00 F1         [24] 1196 	lcall	_writeRegister8
+                                   1197 ;	ecen4330_lcd_v3.c:214: delay(50);
+      00030F 90 00 32         [24] 1198 	mov	dptr,#0x0032
+      000312 12 00 C1         [24] 1199 	lcall	_delay
+                                   1200 ;	ecen4330_lcd_v3.c:215: writeRegister8(ILI9341_DISPLAYOFF, 0);
+      000315 75 08 00         [24] 1201 	mov	_writeRegister8_PARM_2,#0x00
+      000318 75 82 28         [24] 1202 	mov	dpl,#0x28
+      00031B 12 00 F1         [24] 1203 	lcall	_writeRegister8
+                                   1204 ;	ecen4330_lcd_v3.c:216: delay(10);
+      00031E 90 00 0A         [24] 1205 	mov	dptr,#0x000a
+      000321 12 00 C1         [24] 1206 	lcall	_delay
+                                   1207 ;	ecen4330_lcd_v3.c:218: writeRegister8(ILI9341_POWERCONTROL1, 0x23);
+      000324 75 08 23         [24] 1208 	mov	_writeRegister8_PARM_2,#0x23
+      000327 75 82 C0         [24] 1209 	mov	dpl,#0xc0
+      00032A 12 00 F1         [24] 1210 	lcall	_writeRegister8
+                                   1211 ;	ecen4330_lcd_v3.c:219: writeRegister8(ILI9341_POWERCONTROL2, 0x11);
+      00032D 75 08 11         [24] 1212 	mov	_writeRegister8_PARM_2,#0x11
+      000330 75 82 C1         [24] 1213 	mov	dpl,#0xc1
+      000333 12 00 F1         [24] 1214 	lcall	_writeRegister8
+                                   1215 ;	ecen4330_lcd_v3.c:220: write8Reg(ILI9341_VCOMCONTROL1);
+                                   1216 ;	assignBit
+      000336 C2 B5            [12] 1217 	clr	_P3_5
+                                   1218 ;	assignBit
+      000338 D2 B4            [12] 1219 	setb	_P3_4
+      00033A 85 23 82         [24] 1220 	mov	dpl,_lcd_address
+      00033D 85 24 83         [24] 1221 	mov	dph,(_lcd_address + 1)
+      000340 74 C5            [12] 1222 	mov	a,#0xc5
+      000342 F0               [24] 1223 	movx	@dptr,a
+                                   1224 ;	assignBit
+      000343 C2 B4            [12] 1225 	clr	_P3_4
+                                   1226 ;	ecen4330_lcd_v3.c:221: write8Data(0x3d);
+                                   1227 ;	assignBit
+      000345 D2 B5            [12] 1228 	setb	_P3_5
+                                   1229 ;	assignBit
+      000347 D2 B4            [12] 1230 	setb	_P3_4
+      000349 85 23 82         [24] 1231 	mov	dpl,_lcd_address
+      00034C 85 24 83         [24] 1232 	mov	dph,(_lcd_address + 1)
+      00034F 74 3D            [12] 1233 	mov	a,#0x3d
+      000351 F0               [24] 1234 	movx	@dptr,a
+                                   1235 ;	assignBit
+      000352 C2 B4            [12] 1236 	clr	_P3_4
+                                   1237 ;	ecen4330_lcd_v3.c:222: write8Data(0x30);
+                                   1238 ;	assignBit
+      000354 D2 B5            [12] 1239 	setb	_P3_5
+                                   1240 ;	assignBit
+      000356 D2 B4            [12] 1241 	setb	_P3_4
+      000358 85 23 82         [24] 1242 	mov	dpl,_lcd_address
+      00035B 85 24 83         [24] 1243 	mov	dph,(_lcd_address + 1)
+      00035E 74 30            [12] 1244 	mov	a,#0x30
+      000360 F0               [24] 1245 	movx	@dptr,a
+                                   1246 ;	assignBit
+      000361 C2 B4            [12] 1247 	clr	_P3_4
+                                   1248 ;	ecen4330_lcd_v3.c:223: writeRegister8(ILI9341_VCOMCONTROL2, 0xaa);
+      000363 75 08 AA         [24] 1249 	mov	_writeRegister8_PARM_2,#0xaa
+      000366 75 82 C7         [24] 1250 	mov	dpl,#0xc7
+      000369 12 00 F1         [24] 1251 	lcall	_writeRegister8
+                                   1252 ;	ecen4330_lcd_v3.c:224: writeRegister8(ILI9341_MEMCONTROL, ILI9341_MADCTL_MY | ILI9341_MADCTL_BGR);
+      00036C 75 08 88         [24] 1253 	mov	_writeRegister8_PARM_2,#0x88
+      00036F 75 82 36         [24] 1254 	mov	dpl,#0x36
+      000372 12 00 F1         [24] 1255 	lcall	_writeRegister8
+                                   1256 ;	ecen4330_lcd_v3.c:225: write8Reg(ILI9341_PIXELFORMAT);
+                                   1257 ;	assignBit
+      000375 C2 B5            [12] 1258 	clr	_P3_5
+                                   1259 ;	assignBit
+      000377 D2 B4            [12] 1260 	setb	_P3_4
+      000379 85 23 82         [24] 1261 	mov	dpl,_lcd_address
+      00037C 85 24 83         [24] 1262 	mov	dph,(_lcd_address + 1)
+      00037F 74 3A            [12] 1263 	mov	a,#0x3a
+      000381 F0               [24] 1264 	movx	@dptr,a
+                                   1265 ;	assignBit
+      000382 C2 B4            [12] 1266 	clr	_P3_4
+                                   1267 ;	ecen4330_lcd_v3.c:226: write8Data(0x55);
+                                   1268 ;	assignBit
+      000384 D2 B5            [12] 1269 	setb	_P3_5
+                                   1270 ;	assignBit
+      000386 D2 B4            [12] 1271 	setb	_P3_4
+      000388 85 23 82         [24] 1272 	mov	dpl,_lcd_address
+      00038B 85 24 83         [24] 1273 	mov	dph,(_lcd_address + 1)
+      00038E 74 55            [12] 1274 	mov	a,#0x55
+      000390 F0               [24] 1275 	movx	@dptr,a
+                                   1276 ;	assignBit
+      000391 C2 B4            [12] 1277 	clr	_P3_4
+                                   1278 ;	ecen4330_lcd_v3.c:227: write8Data(0x00);
+                                   1279 ;	assignBit
+      000393 D2 B5            [12] 1280 	setb	_P3_5
+                                   1281 ;	assignBit
+      000395 D2 B4            [12] 1282 	setb	_P3_4
+      000397 85 23 82         [24] 1283 	mov	dpl,_lcd_address
+      00039A 85 24 83         [24] 1284 	mov	dph,(_lcd_address + 1)
+      00039D E4               [12] 1285 	clr	a
+      00039E F0               [24] 1286 	movx	@dptr,a
+                                   1287 ;	assignBit
+      00039F C2 B4            [12] 1288 	clr	_P3_4
+                                   1289 ;	ecen4330_lcd_v3.c:228: writeRegister16(ILI9341_FRAMECONTROL, 0x001B);
+      0003A1 75 08 1B         [24] 1290 	mov	_writeRegister16_PARM_2,#0x1b
+      0003A4 75 09 00         [24] 1291 	mov	(_writeRegister16_PARM_2 + 1),#0x00
+      0003A7 90 00 B1         [24] 1292 	mov	dptr,#0x00b1
+      0003AA 12 01 11         [24] 1293 	lcall	_writeRegister16
+                                   1294 ;	ecen4330_lcd_v3.c:230: writeRegister8(ILI9341_ENTRYMODE, 0x07);
+      0003AD 75 08 07         [24] 1295 	mov	_writeRegister8_PARM_2,#0x07
+      0003B0 75 82 B7         [24] 1296 	mov	dpl,#0xb7
+      0003B3 12 00 F1         [24] 1297 	lcall	_writeRegister8
+                                   1298 ;	ecen4330_lcd_v3.c:232: writeRegister8(ILI9341_SLEEPOUT, 0);
+      0003B6 75 08 00         [24] 1299 	mov	_writeRegister8_PARM_2,#0x00
+      0003B9 75 82 11         [24] 1300 	mov	dpl,#0x11
+      0003BC 12 00 F1         [24] 1301 	lcall	_writeRegister8
+                                   1302 ;	ecen4330_lcd_v3.c:233: delay(150);
+      0003BF 90 00 96         [24] 1303 	mov	dptr,#0x0096
+      0003C2 12 00 C1         [24] 1304 	lcall	_delay
+                                   1305 ;	ecen4330_lcd_v3.c:234: writeRegister8(ILI9341_DISPLAYON, 0);
+      0003C5 75 08 00         [24] 1306 	mov	_writeRegister8_PARM_2,#0x00
+      0003C8 75 82 29         [24] 1307 	mov	dpl,#0x29
+      0003CB 12 00 F1         [24] 1308 	lcall	_writeRegister8
+                                   1309 ;	ecen4330_lcd_v3.c:235: delay(500);
+      0003CE 90 01 F4         [24] 1310 	mov	dptr,#0x01f4
+      0003D1 12 00 C1         [24] 1311 	lcall	_delay
+                                   1312 ;	ecen4330_lcd_v3.c:236: setAddress(0, 0, _width-1, _height-1);
+      0003D4 90 00 01         [24] 1313 	mov	dptr,#__width
+      0003D7 E0               [24] 1314 	movx	a,@dptr
+      0003D8 FE               [12] 1315 	mov	r6,a
+      0003D9 A3               [24] 1316 	inc	dptr
+      0003DA E0               [24] 1317 	movx	a,@dptr
+      0003DB FF               [12] 1318 	mov	r7,a
+      0003DC 1E               [12] 1319 	dec	r6
+      0003DD BE FF 01         [24] 1320 	cjne	r6,#0xff,00103$
+      0003E0 1F               [12] 1321 	dec	r7
+      0003E1                       1322 00103$:
+      0003E1 8E 0A            [24] 1323 	mov	_setAddress_PARM_3,r6
+      0003E3 8F 0B            [24] 1324 	mov	(_setAddress_PARM_3 + 1),r7
+      0003E5 90 00 03         [24] 1325 	mov	dptr,#__height
+      0003E8 E0               [24] 1326 	movx	a,@dptr
+      0003E9 FE               [12] 1327 	mov	r6,a
+      0003EA A3               [24] 1328 	inc	dptr
+      0003EB E0               [24] 1329 	movx	a,@dptr
+      0003EC FF               [12] 1330 	mov	r7,a
+      0003ED 1E               [12] 1331 	dec	r6
+      0003EE BE FF 01         [24] 1332 	cjne	r6,#0xff,00104$
+      0003F1 1F               [12] 1333 	dec	r7
+      0003F2                       1334 00104$:
+      0003F2 8E 0C            [24] 1335 	mov	_setAddress_PARM_4,r6
+      0003F4 8F 0D            [24] 1336 	mov	(_setAddress_PARM_4 + 1),r7
+      0003F6 E4               [12] 1337 	clr	a
+      0003F7 F5 08            [12] 1338 	mov	_setAddress_PARM_2,a
+      0003F9 F5 09            [12] 1339 	mov	(_setAddress_PARM_2 + 1),a
+      0003FB 90 00 00         [24] 1340 	mov	dptr,#0x0000
+                                   1341 ;	ecen4330_lcd_v3.c:237: }
+      0003FE 02 02 16         [24] 1342 	ljmp	_setAddress
+                                   1343 ;------------------------------------------------------------
+                                   1344 ;Allocation info for local variables in function 'drawPixel'
+                                   1345 ;------------------------------------------------------------
+                                   1346 ;y3                        Allocated with name '_drawPixel_PARM_2'
+                                   1347 ;color1                    Allocated with name '_drawPixel_PARM_3'
+                                   1348 ;x3                        Allocated to registers r6 r7 
+                                   1349 ;------------------------------------------------------------
+                                   1350 ;	ecen4330_lcd_v3.c:246: void drawPixel(uint16_t x3,uint16_t y3,uint16_t color1) {
+                                   1351 ;	-----------------------------------------
+                                   1352 ;	 function drawPixel
+                                   1353 ;	-----------------------------------------
+      000401                       1354 _drawPixel:
+      000401 AE 82            [24] 1355 	mov	r6,dpl
+      000403 AF 83            [24] 1356 	mov	r7,dph
+                                   1357 ;	ecen4330_lcd_v3.c:247: setAddress(x3,y3,x3+1,y3+1);
+      000405 8E 04            [24] 1358 	mov	ar4,r6
+      000407 8F 05            [24] 1359 	mov	ar5,r7
+      000409 0C               [12] 1360 	inc	r4
+      00040A BC 00 01         [24] 1361 	cjne	r4,#0x00,00103$
+      00040D 0D               [12] 1362 	inc	r5
+      00040E                       1363 00103$:
+      00040E 8C 0A            [24] 1364 	mov	_setAddress_PARM_3,r4
+      000410 8D 0B            [24] 1365 	mov	(_setAddress_PARM_3 + 1),r5
+      000412 AC 37            [24] 1366 	mov	r4,_drawPixel_PARM_2
+      000414 AD 38            [24] 1367 	mov	r5,(_drawPixel_PARM_2 + 1)
+      000416 0C               [12] 1368 	inc	r4
+      000417 BC 00 01         [24] 1369 	cjne	r4,#0x00,00104$
+      00041A 0D               [12] 1370 	inc	r5
+      00041B                       1371 00104$:
+      00041B 8C 0C            [24] 1372 	mov	_setAddress_PARM_4,r4
+      00041D 8D 0D            [24] 1373 	mov	(_setAddress_PARM_4 + 1),r5
+      00041F 85 37 08         [24] 1374 	mov	_setAddress_PARM_2,_drawPixel_PARM_2
+      000422 85 38 09         [24] 1375 	mov	(_setAddress_PARM_2 + 1),(_drawPixel_PARM_2 + 1)
+      000425 8E 82            [24] 1376 	mov	dpl,r6
+      000427 8F 83            [24] 1377 	mov	dph,r7
+      000429 12 02 16         [24] 1378 	lcall	_setAddress
+                                   1379 ;	ecen4330_lcd_v3.c:249: CD = 0;
+                                   1380 ;	assignBit
+      00042C C2 B5            [12] 1381 	clr	_P3_5
+                                   1382 ;	ecen4330_lcd_v3.c:250: write8(0x2C);
+                                   1383 ;	assignBit
+      00042E D2 B4            [12] 1384 	setb	_P3_4
+      000430 85 23 82         [24] 1385 	mov	dpl,_lcd_address
+      000433 85 24 83         [24] 1386 	mov	dph,(_lcd_address + 1)
+      000436 74 2C            [12] 1387 	mov	a,#0x2c
+      000438 F0               [24] 1388 	movx	@dptr,a
+                                   1389 ;	assignBit
+      000439 C2 B4            [12] 1390 	clr	_P3_4
+                                   1391 ;	ecen4330_lcd_v3.c:252: CD = 1;
+                                   1392 ;	assignBit
+      00043B D2 B5            [12] 1393 	setb	_P3_5
+                                   1394 ;	ecen4330_lcd_v3.c:253: write8(color1>>8);write8(color1);
+                                   1395 ;	assignBit
+      00043D D2 B4            [12] 1396 	setb	_P3_4
+      00043F 85 23 82         [24] 1397 	mov	dpl,_lcd_address
+      000442 85 24 83         [24] 1398 	mov	dph,(_lcd_address + 1)
+      000445 E5 3A            [12] 1399 	mov	a,(_drawPixel_PARM_3 + 1)
+      000447 F0               [24] 1400 	movx	@dptr,a
+                                   1401 ;	assignBit
+      000448 C2 B4            [12] 1402 	clr	_P3_4
+                                   1403 ;	assignBit
+      00044A D2 B4            [12] 1404 	setb	_P3_4
+      00044C 85 23 82         [24] 1405 	mov	dpl,_lcd_address
+      00044F 85 24 83         [24] 1406 	mov	dph,(_lcd_address + 1)
+      000452 E5 39            [12] 1407 	mov	a,_drawPixel_PARM_3
+      000454 F0               [24] 1408 	movx	@dptr,a
+                                   1409 ;	assignBit
+      000455 C2 B4            [12] 1410 	clr	_P3_4
+                                   1411 ;	ecen4330_lcd_v3.c:254: }
+      000457 22               [24] 1412 	ret
+                                   1413 ;------------------------------------------------------------
+                                   1414 ;Allocation info for local variables in function 'drawCircle'
+                                   1415 ;------------------------------------------------------------
+                                   1416 ;y0                        Allocated with name '_drawCircle_PARM_2'
+                                   1417 ;r                         Allocated with name '_drawCircle_PARM_3'
+                                   1418 ;color                     Allocated with name '_drawCircle_PARM_4'
+                                   1419 ;x0                        Allocated with name '_drawCircle_x0_65536_105'
+                                   1420 ;sloc0                     Allocated with name '_drawCircle_sloc0_1_0'
+                                   1421 ;sloc1                     Allocated with name '_drawCircle_sloc1_1_0'
+                                   1422 ;sloc2                     Allocated with name '_drawCircle_sloc2_1_0'
+                                   1423 ;sloc3                     Allocated with name '_drawCircle_sloc3_1_0'
+                                   1424 ;sloc4                     Allocated with name '_drawCircle_sloc4_1_0'
+                                   1425 ;f                         Allocated with name '_drawCircle_f_65536_106'
+                                   1426 ;ddF_x                     Allocated with name '_drawCircle_ddF_x_65536_106'
+                                   1427 ;ddF_y                     Allocated with name '_drawCircle_ddF_y_65536_106'
+                                   1428 ;x                         Allocated with name '_drawCircle_x_65536_106'
+                                   1429 ;y                         Allocated with name '_drawCircle_y_65536_106'
+                                   1430 ;------------------------------------------------------------
+                                   1431 ;	ecen4330_lcd_v3.c:264: void drawCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color){
+                                   1432 ;	-----------------------------------------
+                                   1433 ;	 function drawCircle
+                                   1434 ;	-----------------------------------------
+      000458                       1435 _drawCircle:
+      000458 85 82 41         [24] 1436 	mov	_drawCircle_x0_65536_105,dpl
+      00045B 85 83 42         [24] 1437 	mov	(_drawCircle_x0_65536_105 + 1),dph
+                                   1438 ;	ecen4330_lcd_v3.c:265: __xdata int f = 1 - r;
+      00045E 74 01            [12] 1439 	mov	a,#0x01
+      000460 C3               [12] 1440 	clr	c
+      000461 95 3D            [12] 1441 	subb	a,_drawCircle_PARM_3
+      000463 FC               [12] 1442 	mov	r4,a
+      000464 E4               [12] 1443 	clr	a
+      000465 95 3E            [12] 1444 	subb	a,(_drawCircle_PARM_3 + 1)
+      000467 FD               [12] 1445 	mov	r5,a
+      000468 90 00 05         [24] 1446 	mov	dptr,#_drawCircle_f_65536_106
+      00046B EC               [12] 1447 	mov	a,r4
+      00046C F0               [24] 1448 	movx	@dptr,a
+      00046D ED               [12] 1449 	mov	a,r5
+      00046E A3               [24] 1450 	inc	dptr
+      00046F F0               [24] 1451 	movx	@dptr,a
+                                   1452 ;	ecen4330_lcd_v3.c:267: __xdata int ddF_y = -2 * r;
+      000470 85 3D 08         [24] 1453 	mov	__mulint_PARM_2,_drawCircle_PARM_3
+      000473 85 3E 09         [24] 1454 	mov	(__mulint_PARM_2 + 1),(_drawCircle_PARM_3 + 1)
+      000476 90 FF FE         [24] 1455 	mov	dptr,#0xfffe
+      000479 12 19 BF         [24] 1456 	lcall	__mulint
+      00047C AC 82            [24] 1457 	mov	r4,dpl
+      00047E AD 83            [24] 1458 	mov	r5,dph
+                                   1459 ;	ecen4330_lcd_v3.c:269: __xdata int y = r;
+      000480 AA 3D            [24] 1460 	mov	r2,_drawCircle_PARM_3
+      000482 AB 3E            [24] 1461 	mov	r3,(_drawCircle_PARM_3 + 1)
+                                   1462 ;	ecen4330_lcd_v3.c:271: drawPixel(x0  , y0+r, color);
+      000484 E5 3D            [12] 1463 	mov	a,_drawCircle_PARM_3
+      000486 25 3B            [12] 1464 	add	a,_drawCircle_PARM_2
+      000488 F5 37            [12] 1465 	mov	_drawPixel_PARM_2,a
+      00048A E5 3E            [12] 1466 	mov	a,(_drawCircle_PARM_3 + 1)
+      00048C 35 3C            [12] 1467 	addc	a,(_drawCircle_PARM_2 + 1)
+      00048E F5 38            [12] 1468 	mov	(_drawPixel_PARM_2 + 1),a
+      000490 85 3F 39         [24] 1469 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
+      000493 85 40 3A         [24] 1470 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
+      000496 85 41 82         [24] 1471 	mov	dpl,_drawCircle_x0_65536_105
+      000499 85 42 83         [24] 1472 	mov	dph,(_drawCircle_x0_65536_105 + 1)
+      00049C C0 05            [24] 1473 	push	ar5
+      00049E C0 04            [24] 1474 	push	ar4
+      0004A0 C0 03            [24] 1475 	push	ar3
+      0004A2 C0 02            [24] 1476 	push	ar2
+      0004A4 12 04 01         [24] 1477 	lcall	_drawPixel
+                                   1478 ;	ecen4330_lcd_v3.c:272: drawPixel(x0  , y0-r, color);
+      0004A7 E5 3B            [12] 1479 	mov	a,_drawCircle_PARM_2
+      0004A9 C3               [12] 1480 	clr	c
+      0004AA 95 3D            [12] 1481 	subb	a,_drawCircle_PARM_3
+      0004AC F5 37            [12] 1482 	mov	_drawPixel_PARM_2,a
+      0004AE E5 3C            [12] 1483 	mov	a,(_drawCircle_PARM_2 + 1)
+      0004B0 95 3E            [12] 1484 	subb	a,(_drawCircle_PARM_3 + 1)
+      0004B2 F5 38            [12] 1485 	mov	(_drawPixel_PARM_2 + 1),a
+      0004B4 85 3F 39         [24] 1486 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
+      0004B7 85 40 3A         [24] 1487 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
+      0004BA 85 41 82         [24] 1488 	mov	dpl,_drawCircle_x0_65536_105
+      0004BD 85 42 83         [24] 1489 	mov	dph,(_drawCircle_x0_65536_105 + 1)
+      0004C0 12 04 01         [24] 1490 	lcall	_drawPixel
+                                   1491 ;	ecen4330_lcd_v3.c:273: drawPixel(x0+r, y0  , color);
+      0004C3 E5 3D            [12] 1492 	mov	a,_drawCircle_PARM_3
+      0004C5 25 41            [12] 1493 	add	a,_drawCircle_x0_65536_105
+      0004C7 F5 82            [12] 1494 	mov	dpl,a
+      0004C9 E5 3E            [12] 1495 	mov	a,(_drawCircle_PARM_3 + 1)
+      0004CB 35 42            [12] 1496 	addc	a,(_drawCircle_x0_65536_105 + 1)
+      0004CD F5 83            [12] 1497 	mov	dph,a
+      0004CF 85 3B 37         [24] 1498 	mov	_drawPixel_PARM_2,_drawCircle_PARM_2
+      0004D2 85 3C 38         [24] 1499 	mov	(_drawPixel_PARM_2 + 1),(_drawCircle_PARM_2 + 1)
+      0004D5 85 3F 39         [24] 1500 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
+      0004D8 85 40 3A         [24] 1501 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
+      0004DB 12 04 01         [24] 1502 	lcall	_drawPixel
+                                   1503 ;	ecen4330_lcd_v3.c:274: drawPixel(x0-r, y0  , color);
+      0004DE E5 41            [12] 1504 	mov	a,_drawCircle_x0_65536_105
+      0004E0 C3               [12] 1505 	clr	c
+      0004E1 95 3D            [12] 1506 	subb	a,_drawCircle_PARM_3
+      0004E3 F5 82            [12] 1507 	mov	dpl,a
+      0004E5 E5 42            [12] 1508 	mov	a,(_drawCircle_x0_65536_105 + 1)
+      0004E7 95 3E            [12] 1509 	subb	a,(_drawCircle_PARM_3 + 1)
+      0004E9 F5 83            [12] 1510 	mov	dph,a
+      0004EB 85 3B 37         [24] 1511 	mov	_drawPixel_PARM_2,_drawCircle_PARM_2
+      0004EE 85 3C 38         [24] 1512 	mov	(_drawPixel_PARM_2 + 1),(_drawCircle_PARM_2 + 1)
+      0004F1 85 3F 39         [24] 1513 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
+      0004F4 85 40 3A         [24] 1514 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
+      0004F7 12 04 01         [24] 1515 	lcall	_drawPixel
+      0004FA D0 02            [24] 1516 	pop	ar2
+      0004FC D0 03            [24] 1517 	pop	ar3
+      0004FE D0 04            [24] 1518 	pop	ar4
+      000500 D0 05            [24] 1519 	pop	ar5
+                                   1520 ;	ecen4330_lcd_v3.c:276: while (x < y) {
+      000502 78 00            [12] 1521 	mov	r0,#0x00
+      000504 79 00            [12] 1522 	mov	r1,#0x00
+      000506 75 43 01         [24] 1523 	mov	_drawCircle_sloc0_1_0,#0x01
+                                   1524 ;	1-genFromRTrack replaced	mov	(_drawCircle_sloc0_1_0 + 1),#0x00
+      000509 89 44            [24] 1525 	mov	(_drawCircle_sloc0_1_0 + 1),r1
+      00050B                       1526 00103$:
+      00050B C3               [12] 1527 	clr	c
+      00050C E8               [12] 1528 	mov	a,r0
+      00050D 9A               [12] 1529 	subb	a,r2
+      00050E E9               [12] 1530 	mov	a,r1
+      00050F 64 80            [12] 1531 	xrl	a,#0x80
+      000511 8B F0            [24] 1532 	mov	b,r3
+      000513 63 F0 80         [24] 1533 	xrl	b,#0x80
+      000516 95 F0            [12] 1534 	subb	a,b
+      000518 40 01            [24] 1535 	jc	00121$
+      00051A 22               [24] 1536 	ret
+      00051B                       1537 00121$:
+                                   1538 ;	ecen4330_lcd_v3.c:277: if (f >= 0) {
+      00051B 90 00 05         [24] 1539 	mov	dptr,#_drawCircle_f_65536_106
+      00051E E0               [24] 1540 	movx	a,@dptr
+      00051F F5 45            [12] 1541 	mov	_drawCircle_sloc1_1_0,a
+      000521 A3               [24] 1542 	inc	dptr
+      000522 E0               [24] 1543 	movx	a,@dptr
+      000523 F5 46            [12] 1544 	mov	(_drawCircle_sloc1_1_0 + 1),a
+      000525 20 E7 18         [24] 1545 	jb	acc.7,00102$
+                                   1546 ;	ecen4330_lcd_v3.c:278: y--;
+      000528 1A               [12] 1547 	dec	r2
+      000529 BA FF 01         [24] 1548 	cjne	r2,#0xff,00123$
+      00052C 1B               [12] 1549 	dec	r3
+      00052D                       1550 00123$:
+                                   1551 ;	ecen4330_lcd_v3.c:279: ddF_y += 2;
+      00052D 74 02            [12] 1552 	mov	a,#0x02
+      00052F 2C               [12] 1553 	add	a,r4
+      000530 FC               [12] 1554 	mov	r4,a
+      000531 E4               [12] 1555 	clr	a
+      000532 3D               [12] 1556 	addc	a,r5
+      000533 FD               [12] 1557 	mov	r5,a
+                                   1558 ;	ecen4330_lcd_v3.c:280: f += ddF_y;
+      000534 90 00 05         [24] 1559 	mov	dptr,#_drawCircle_f_65536_106
+      000537 EC               [12] 1560 	mov	a,r4
+      000538 25 45            [12] 1561 	add	a,_drawCircle_sloc1_1_0
+      00053A F0               [24] 1562 	movx	@dptr,a
+      00053B ED               [12] 1563 	mov	a,r5
+      00053C 35 46            [12] 1564 	addc	a,(_drawCircle_sloc1_1_0 + 1)
+      00053E A3               [24] 1565 	inc	dptr
+      00053F F0               [24] 1566 	movx	@dptr,a
+      000540                       1567 00102$:
+                                   1568 ;	ecen4330_lcd_v3.c:283: x++;
+      000540 C0 04            [24] 1569 	push	ar4
+      000542 C0 05            [24] 1570 	push	ar5
+      000544 08               [12] 1571 	inc	r0
+      000545 B8 00 01         [24] 1572 	cjne	r0,#0x00,00124$
+      000548 09               [12] 1573 	inc	r1
+      000549                       1574 00124$:
+                                   1575 ;	ecen4330_lcd_v3.c:284: ddF_x += 2;
+      000549 74 02            [12] 1576 	mov	a,#0x02
+      00054B 25 43            [12] 1577 	add	a,_drawCircle_sloc0_1_0
+      00054D F5 43            [12] 1578 	mov	_drawCircle_sloc0_1_0,a
+      00054F E4               [12] 1579 	clr	a
+      000550 35 44            [12] 1580 	addc	a,(_drawCircle_sloc0_1_0 + 1)
+      000552 F5 44            [12] 1581 	mov	(_drawCircle_sloc0_1_0 + 1),a
+                                   1582 ;	ecen4330_lcd_v3.c:285: f += ddF_x;
+      000554 90 00 05         [24] 1583 	mov	dptr,#_drawCircle_f_65536_106
+      000557 E0               [24] 1584 	movx	a,@dptr
+      000558 FE               [12] 1585 	mov	r6,a
+      000559 A3               [24] 1586 	inc	dptr
+      00055A E0               [24] 1587 	movx	a,@dptr
+      00055B FF               [12] 1588 	mov	r7,a
+      00055C 90 00 05         [24] 1589 	mov	dptr,#_drawCircle_f_65536_106
+      00055F E5 43            [12] 1590 	mov	a,_drawCircle_sloc0_1_0
+      000561 2E               [12] 1591 	add	a,r6
+      000562 F0               [24] 1592 	movx	@dptr,a
+      000563 E5 44            [12] 1593 	mov	a,(_drawCircle_sloc0_1_0 + 1)
+      000565 3F               [12] 1594 	addc	a,r7
+      000566 A3               [24] 1595 	inc	dptr
+      000567 F0               [24] 1596 	movx	@dptr,a
+                                   1597 ;	ecen4330_lcd_v3.c:287: drawPixel(x0 + x, y0 + y, color);
+      000568 AE 41            [24] 1598 	mov	r6,_drawCircle_x0_65536_105
+      00056A AF 42            [24] 1599 	mov	r7,(_drawCircle_x0_65536_105 + 1)
+      00056C E8               [12] 1600 	mov	a,r0
+      00056D 2E               [12] 1601 	add	a,r6
+      00056E FC               [12] 1602 	mov	r4,a
+      00056F E9               [12] 1603 	mov	a,r1
+      000570 3F               [12] 1604 	addc	a,r7
+      000571 FD               [12] 1605 	mov	r5,a
+      000572 8C 45            [24] 1606 	mov	_drawCircle_sloc1_1_0,r4
+      000574 8D 46            [24] 1607 	mov	(_drawCircle_sloc1_1_0 + 1),r5
+      000576 85 3B 47         [24] 1608 	mov	_drawCircle_sloc2_1_0,_drawCircle_PARM_2
+      000579 85 3C 48         [24] 1609 	mov	(_drawCircle_sloc2_1_0 + 1),(_drawCircle_PARM_2 + 1)
+      00057C EA               [12] 1610 	mov	a,r2
+      00057D 25 47            [12] 1611 	add	a,_drawCircle_sloc2_1_0
+      00057F FC               [12] 1612 	mov	r4,a
+      000580 EB               [12] 1613 	mov	a,r3
+      000581 35 48            [12] 1614 	addc	a,(_drawCircle_sloc2_1_0 + 1)
+      000583 FD               [12] 1615 	mov	r5,a
+      000584 8C 49            [24] 1616 	mov	_drawCircle_sloc3_1_0,r4
+      000586 8D 4A            [24] 1617 	mov	(_drawCircle_sloc3_1_0 + 1),r5
+      000588 85 49 37         [24] 1618 	mov	_drawPixel_PARM_2,_drawCircle_sloc3_1_0
+      00058B 85 4A 38         [24] 1619 	mov	(_drawPixel_PARM_2 + 1),(_drawCircle_sloc3_1_0 + 1)
+      00058E 85 3F 39         [24] 1620 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
+      000591 85 40 3A         [24] 1621 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
+      000594 85 45 82         [24] 1622 	mov	dpl,_drawCircle_sloc1_1_0
+      000597 85 46 83         [24] 1623 	mov	dph,(_drawCircle_sloc1_1_0 + 1)
+      00059A C0 07            [24] 1624 	push	ar7
+      00059C C0 06            [24] 1625 	push	ar6
+      00059E C0 05            [24] 1626 	push	ar5
+      0005A0 C0 04            [24] 1627 	push	ar4
+      0005A2 C0 03            [24] 1628 	push	ar3
+      0005A4 C0 02            [24] 1629 	push	ar2
+      0005A6 C0 01            [24] 1630 	push	ar1
+      0005A8 C0 00            [24] 1631 	push	ar0
+      0005AA 12 04 01         [24] 1632 	lcall	_drawPixel
+      0005AD D0 00            [24] 1633 	pop	ar0
+      0005AF D0 01            [24] 1634 	pop	ar1
+      0005B1 D0 02            [24] 1635 	pop	ar2
+      0005B3 D0 03            [24] 1636 	pop	ar3
+      0005B5 D0 04            [24] 1637 	pop	ar4
+      0005B7 D0 05            [24] 1638 	pop	ar5
+      0005B9 D0 06            [24] 1639 	pop	ar6
+      0005BB D0 07            [24] 1640 	pop	ar7
+                                   1641 ;	ecen4330_lcd_v3.c:288: drawPixel(x0 - x, y0 + y, color);
+      0005BD EE               [12] 1642 	mov	a,r6
+      0005BE C3               [12] 1643 	clr	c
+      0005BF 98               [12] 1644 	subb	a,r0
+      0005C0 FC               [12] 1645 	mov	r4,a
+      0005C1 EF               [12] 1646 	mov	a,r7
+      0005C2 99               [12] 1647 	subb	a,r1
+      0005C3 FD               [12] 1648 	mov	r5,a
+      0005C4 8C 4B            [24] 1649 	mov	_drawCircle_sloc4_1_0,r4
+      0005C6 8D 4C            [24] 1650 	mov	(_drawCircle_sloc4_1_0 + 1),r5
+      0005C8 85 49 37         [24] 1651 	mov	_drawPixel_PARM_2,_drawCircle_sloc3_1_0
+      0005CB 85 4A 38         [24] 1652 	mov	(_drawPixel_PARM_2 + 1),(_drawCircle_sloc3_1_0 + 1)
+      0005CE 85 3F 39         [24] 1653 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
+      0005D1 85 40 3A         [24] 1654 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
+      0005D4 85 4B 82         [24] 1655 	mov	dpl,_drawCircle_sloc4_1_0
+      0005D7 85 4C 83         [24] 1656 	mov	dph,(_drawCircle_sloc4_1_0 + 1)
+      0005DA C0 07            [24] 1657 	push	ar7
+      0005DC C0 06            [24] 1658 	push	ar6
+      0005DE C0 05            [24] 1659 	push	ar5
+      0005E0 C0 04            [24] 1660 	push	ar4
+      0005E2 C0 03            [24] 1661 	push	ar3
+      0005E4 C0 02            [24] 1662 	push	ar2
+      0005E6 C0 01            [24] 1663 	push	ar1
+      0005E8 C0 00            [24] 1664 	push	ar0
+      0005EA 12 04 01         [24] 1665 	lcall	_drawPixel
+      0005ED D0 00            [24] 1666 	pop	ar0
+      0005EF D0 01            [24] 1667 	pop	ar1
+      0005F1 D0 02            [24] 1668 	pop	ar2
+      0005F3 D0 03            [24] 1669 	pop	ar3
+      0005F5 D0 04            [24] 1670 	pop	ar4
+      0005F7 D0 05            [24] 1671 	pop	ar5
+                                   1672 ;	ecen4330_lcd_v3.c:289: drawPixel(x0 + x, y0 - y, color);
+      0005F9 E5 47            [12] 1673 	mov	a,_drawCircle_sloc2_1_0
+      0005FB C3               [12] 1674 	clr	c
+      0005FC 9A               [12] 1675 	subb	a,r2
+      0005FD FC               [12] 1676 	mov	r4,a
+      0005FE E5 48            [12] 1677 	mov	a,(_drawCircle_sloc2_1_0 + 1)
+      000600 9B               [12] 1678 	subb	a,r3
+      000601 FD               [12] 1679 	mov	r5,a
+      000602 8C 37            [24] 1680 	mov	_drawPixel_PARM_2,r4
+      000604 8D 38            [24] 1681 	mov	(_drawPixel_PARM_2 + 1),r5
+      000606 85 3F 39         [24] 1682 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
+      000609 85 40 3A         [24] 1683 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
+      00060C 85 45 82         [24] 1684 	mov	dpl,_drawCircle_sloc1_1_0
+      00060F 85 46 83         [24] 1685 	mov	dph,(_drawCircle_sloc1_1_0 + 1)
+      000612 C0 05            [24] 1686 	push	ar5
+      000614 C0 04            [24] 1687 	push	ar4
+      000616 C0 03            [24] 1688 	push	ar3
+      000618 C0 02            [24] 1689 	push	ar2
+      00061A C0 01            [24] 1690 	push	ar1
+      00061C C0 00            [24] 1691 	push	ar0
+      00061E 12 04 01         [24] 1692 	lcall	_drawPixel
+      000621 D0 00            [24] 1693 	pop	ar0
+      000623 D0 01            [24] 1694 	pop	ar1
+      000625 D0 02            [24] 1695 	pop	ar2
+      000627 D0 03            [24] 1696 	pop	ar3
+      000629 D0 04            [24] 1697 	pop	ar4
+      00062B D0 05            [24] 1698 	pop	ar5
+                                   1699 ;	ecen4330_lcd_v3.c:290: drawPixel(x0 - x, y0 - y, color);
+      00062D 8C 37            [24] 1700 	mov	_drawPixel_PARM_2,r4
+      00062F 8D 38            [24] 1701 	mov	(_drawPixel_PARM_2 + 1),r5
+      000631 85 3F 39         [24] 1702 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
+      000634 85 40 3A         [24] 1703 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
+      000637 85 4B 82         [24] 1704 	mov	dpl,_drawCircle_sloc4_1_0
+      00063A 85 4C 83         [24] 1705 	mov	dph,(_drawCircle_sloc4_1_0 + 1)
+      00063D C0 05            [24] 1706 	push	ar5
+      00063F C0 04            [24] 1707 	push	ar4
+      000641 C0 03            [24] 1708 	push	ar3
+      000643 C0 02            [24] 1709 	push	ar2
+      000645 C0 01            [24] 1710 	push	ar1
+      000647 C0 00            [24] 1711 	push	ar0
+      000649 12 04 01         [24] 1712 	lcall	_drawPixel
+      00064C D0 00            [24] 1713 	pop	ar0
+      00064E D0 01            [24] 1714 	pop	ar1
+      000650 D0 02            [24] 1715 	pop	ar2
+      000652 D0 03            [24] 1716 	pop	ar3
+      000654 D0 04            [24] 1717 	pop	ar4
+      000656 D0 05            [24] 1718 	pop	ar5
+      000658 D0 06            [24] 1719 	pop	ar6
+      00065A D0 07            [24] 1720 	pop	ar7
+                                   1721 ;	ecen4330_lcd_v3.c:291: drawPixel(x0 + y, y0 + x, color);
+      00065C EA               [12] 1722 	mov	a,r2
+      00065D 2E               [12] 1723 	add	a,r6
+      00065E FC               [12] 1724 	mov	r4,a
+      00065F EB               [12] 1725 	mov	a,r3
+      000660 3F               [12] 1726 	addc	a,r7
+      000661 FD               [12] 1727 	mov	r5,a
+      000662 8C 4B            [24] 1728 	mov	_drawCircle_sloc4_1_0,r4
+      000664 8D 4C            [24] 1729 	mov	(_drawCircle_sloc4_1_0 + 1),r5
+      000666 E8               [12] 1730 	mov	a,r0
+      000667 25 47            [12] 1731 	add	a,_drawCircle_sloc2_1_0
+      000669 FC               [12] 1732 	mov	r4,a
+      00066A E9               [12] 1733 	mov	a,r1
+      00066B 35 48            [12] 1734 	addc	a,(_drawCircle_sloc2_1_0 + 1)
+      00066D FD               [12] 1735 	mov	r5,a
+      00066E 8C 37            [24] 1736 	mov	_drawPixel_PARM_2,r4
+      000670 8D 38            [24] 1737 	mov	(_drawPixel_PARM_2 + 1),r5
+      000672 85 3F 39         [24] 1738 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
+      000675 85 40 3A         [24] 1739 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
+      000678 85 4B 82         [24] 1740 	mov	dpl,_drawCircle_sloc4_1_0
+      00067B 85 4C 83         [24] 1741 	mov	dph,(_drawCircle_sloc4_1_0 + 1)
+      00067E C0 07            [24] 1742 	push	ar7
+      000680 C0 06            [24] 1743 	push	ar6
+      000682 C0 05            [24] 1744 	push	ar5
+      000684 C0 04            [24] 1745 	push	ar4
+      000686 C0 03            [24] 1746 	push	ar3
+      000688 C0 02            [24] 1747 	push	ar2
+      00068A C0 01            [24] 1748 	push	ar1
+      00068C C0 00            [24] 1749 	push	ar0
+      00068E 12 04 01         [24] 1750 	lcall	_drawPixel
+      000691 D0 00            [24] 1751 	pop	ar0
+      000693 D0 01            [24] 1752 	pop	ar1
+      000695 D0 02            [24] 1753 	pop	ar2
+      000697 D0 03            [24] 1754 	pop	ar3
+      000699 D0 04            [24] 1755 	pop	ar4
+      00069B D0 05            [24] 1756 	pop	ar5
+      00069D D0 06            [24] 1757 	pop	ar6
+      00069F D0 07            [24] 1758 	pop	ar7
+                                   1759 ;	ecen4330_lcd_v3.c:292: drawPixel(x0 - y, y0 + x, color);
+      0006A1 EE               [12] 1760 	mov	a,r6
+      0006A2 C3               [12] 1761 	clr	c
+      0006A3 9A               [12] 1762 	subb	a,r2
+      0006A4 FE               [12] 1763 	mov	r6,a
+      0006A5 EF               [12] 1764 	mov	a,r7
+      0006A6 9B               [12] 1765 	subb	a,r3
+      0006A7 FF               [12] 1766 	mov	r7,a
+      0006A8 8C 37            [24] 1767 	mov	_drawPixel_PARM_2,r4
+      0006AA 8D 38            [24] 1768 	mov	(_drawPixel_PARM_2 + 1),r5
+      0006AC 85 3F 39         [24] 1769 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
+      0006AF 85 40 3A         [24] 1770 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
+      0006B2 8E 82            [24] 1771 	mov	dpl,r6
+      0006B4 8F 83            [24] 1772 	mov	dph,r7
+      0006B6 C0 07            [24] 1773 	push	ar7
+      0006B8 C0 06            [24] 1774 	push	ar6
+      0006BA C0 05            [24] 1775 	push	ar5
+      0006BC C0 04            [24] 1776 	push	ar4
+      0006BE C0 03            [24] 1777 	push	ar3
+      0006C0 C0 02            [24] 1778 	push	ar2
+      0006C2 C0 01            [24] 1779 	push	ar1
+      0006C4 C0 00            [24] 1780 	push	ar0
+      0006C6 12 04 01         [24] 1781 	lcall	_drawPixel
+      0006C9 D0 00            [24] 1782 	pop	ar0
+      0006CB D0 01            [24] 1783 	pop	ar1
+      0006CD D0 02            [24] 1784 	pop	ar2
+      0006CF D0 03            [24] 1785 	pop	ar3
+      0006D1 D0 04            [24] 1786 	pop	ar4
+      0006D3 D0 05            [24] 1787 	pop	ar5
+                                   1788 ;	ecen4330_lcd_v3.c:293: drawPixel(x0 + y, y0 - x, color);
+      0006D5 E5 47            [12] 1789 	mov	a,_drawCircle_sloc2_1_0
+      0006D7 C3               [12] 1790 	clr	c
+      0006D8 98               [12] 1791 	subb	a,r0
+      0006D9 FC               [12] 1792 	mov	r4,a
+      0006DA E5 48            [12] 1793 	mov	a,(_drawCircle_sloc2_1_0 + 1)
+      0006DC 99               [12] 1794 	subb	a,r1
+      0006DD FD               [12] 1795 	mov	r5,a
+      0006DE 8C 37            [24] 1796 	mov	_drawPixel_PARM_2,r4
+      0006E0 8D 38            [24] 1797 	mov	(_drawPixel_PARM_2 + 1),r5
+      0006E2 85 3F 39         [24] 1798 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
+      0006E5 85 40 3A         [24] 1799 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
+      0006E8 85 4B 82         [24] 1800 	mov	dpl,_drawCircle_sloc4_1_0
+      0006EB 85 4C 83         [24] 1801 	mov	dph,(_drawCircle_sloc4_1_0 + 1)
+      0006EE C0 05            [24] 1802 	push	ar5
+      0006F0 C0 04            [24] 1803 	push	ar4
+      0006F2 C0 03            [24] 1804 	push	ar3
+      0006F4 C0 02            [24] 1805 	push	ar2
+      0006F6 C0 01            [24] 1806 	push	ar1
+      0006F8 C0 00            [24] 1807 	push	ar0
+      0006FA 12 04 01         [24] 1808 	lcall	_drawPixel
+      0006FD D0 00            [24] 1809 	pop	ar0
+      0006FF D0 01            [24] 1810 	pop	ar1
+      000701 D0 02            [24] 1811 	pop	ar2
+      000703 D0 03            [24] 1812 	pop	ar3
+      000705 D0 04            [24] 1813 	pop	ar4
+      000707 D0 05            [24] 1814 	pop	ar5
+      000709 D0 06            [24] 1815 	pop	ar6
+      00070B D0 07            [24] 1816 	pop	ar7
+                                   1817 ;	ecen4330_lcd_v3.c:294: drawPixel(x0 - y, y0 - x, color);
+      00070D 8C 37            [24] 1818 	mov	_drawPixel_PARM_2,r4
+      00070F 8D 38            [24] 1819 	mov	(_drawPixel_PARM_2 + 1),r5
+      000711 85 3F 39         [24] 1820 	mov	_drawPixel_PARM_3,_drawCircle_PARM_4
+      000714 85 40 3A         [24] 1821 	mov	(_drawPixel_PARM_3 + 1),(_drawCircle_PARM_4 + 1)
+      000717 8E 82            [24] 1822 	mov	dpl,r6
+      000719 8F 83            [24] 1823 	mov	dph,r7
+      00071B C0 05            [24] 1824 	push	ar5
+      00071D C0 04            [24] 1825 	push	ar4
+      00071F C0 03            [24] 1826 	push	ar3
+      000721 C0 02            [24] 1827 	push	ar2
+      000723 C0 01            [24] 1828 	push	ar1
+      000725 C0 00            [24] 1829 	push	ar0
+      000727 12 04 01         [24] 1830 	lcall	_drawPixel
+      00072A D0 00            [24] 1831 	pop	ar0
+      00072C D0 01            [24] 1832 	pop	ar1
+      00072E D0 02            [24] 1833 	pop	ar2
+      000730 D0 03            [24] 1834 	pop	ar3
+      000732 D0 04            [24] 1835 	pop	ar4
+      000734 D0 05            [24] 1836 	pop	ar5
+      000736 D0 05            [24] 1837 	pop	ar5
+      000738 D0 04            [24] 1838 	pop	ar4
+                                   1839 ;	ecen4330_lcd_v3.c:296: }
+      00073A 02 05 0B         [24] 1840 	ljmp	00103$
+                                   1841 ;------------------------------------------------------------
+                                   1842 ;Allocation info for local variables in function 'testCircles'
+                                   1843 ;------------------------------------------------------------
+                                   1844 ;color                     Allocated with name '_testCircles_PARM_2'
+                                   1845 ;radius                    Allocated with name '_testCircles_radius_65536_109'
+                                   1846 ;sloc0                     Allocated with name '_testCircles_sloc0_1_0'
+                                   1847 ;x                         Allocated with name '_testCircles_x_65536_110'
+                                   1848 ;y                         Allocated with name '_testCircles_y_65536_110'
+                                   1849 ;r2                        Allocated with name '_testCircles_r2_65536_110'
+                                   1850 ;w                         Allocated with name '_testCircles_w_65536_110'
+                                   1851 ;h                         Allocated with name '_testCircles_h_65536_110'
+                                   1852 ;------------------------------------------------------------
+                                   1853 ;	ecen4330_lcd_v3.c:304: void testCircles (uint8_t radius, uint16_t color) {
+                                   1854 ;	-----------------------------------------
+                                   1855 ;	 function testCircles
+                                   1856 ;	-----------------------------------------
+      00073D                       1857 _testCircles:
+      00073D 85 82 4F         [24] 1858 	mov	_testCircles_radius_65536_109,dpl
+                                   1859 ;	ecen4330_lcd_v3.c:305: __xdata int x, y, r2 = radius * 2, w = _width  + radius, h = _height + radius;
+      000740 AD 4F            [24] 1860 	mov	r5,_testCircles_radius_65536_109
+      000742 7E 00            [12] 1861 	mov	r6,#0x00
+      000744 ED               [12] 1862 	mov	a,r5
+      000745 2D               [12] 1863 	add	a,r5
+      000746 FB               [12] 1864 	mov	r3,a
+      000747 EE               [12] 1865 	mov	a,r6
+      000748 33               [12] 1866 	rlc	a
+      000749 FC               [12] 1867 	mov	r4,a
+      00074A 90 00 01         [24] 1868 	mov	dptr,#__width
+      00074D E0               [24] 1869 	movx	a,@dptr
+      00074E F9               [12] 1870 	mov	r1,a
+      00074F A3               [24] 1871 	inc	dptr
+      000750 E0               [24] 1872 	movx	a,@dptr
+      000751 FA               [12] 1873 	mov	r2,a
+      000752 ED               [12] 1874 	mov	a,r5
+      000753 29               [12] 1875 	add	a,r1
+      000754 F9               [12] 1876 	mov	r1,a
+      000755 EE               [12] 1877 	mov	a,r6
+      000756 3A               [12] 1878 	addc	a,r2
+      000757 FA               [12] 1879 	mov	r2,a
+      000758 90 00 03         [24] 1880 	mov	dptr,#__height
+      00075B E0               [24] 1881 	movx	a,@dptr
+      00075C FF               [12] 1882 	mov	r7,a
+      00075D A3               [24] 1883 	inc	dptr
+      00075E E0               [24] 1884 	movx	a,@dptr
+      00075F F8               [12] 1885 	mov	r0,a
+      000760 ED               [12] 1886 	mov	a,r5
+      000761 2F               [12] 1887 	add	a,r7
+      000762 FF               [12] 1888 	mov	r7,a
+      000763 EE               [12] 1889 	mov	a,r6
+      000764 38               [12] 1890 	addc	a,r0
+      000765 FE               [12] 1891 	mov	r6,a
+                                   1892 ;	ecen4330_lcd_v3.c:307: for (x = 0; x < w; x += r2) {
+      000766 90 00 07         [24] 1893 	mov	dptr,#_testCircles_x_65536_110
+      000769 E4               [12] 1894 	clr	a
+      00076A F0               [24] 1895 	movx	@dptr,a
+      00076B A3               [24] 1896 	inc	dptr
+      00076C F0               [24] 1897 	movx	@dptr,a
+      00076D                       1898 00107$:
+      00076D 90 00 07         [24] 1899 	mov	dptr,#_testCircles_x_65536_110
+      000770 E0               [24] 1900 	movx	a,@dptr
+      000771 F8               [12] 1901 	mov	r0,a
+      000772 A3               [24] 1902 	inc	dptr
+      000773 E0               [24] 1903 	movx	a,@dptr
+      000774 FD               [12] 1904 	mov	r5,a
+      000775 C3               [12] 1905 	clr	c
+      000776 E8               [12] 1906 	mov	a,r0
+      000777 99               [12] 1907 	subb	a,r1
+      000778 ED               [12] 1908 	mov	a,r5
+      000779 64 80            [12] 1909 	xrl	a,#0x80
+      00077B 8A F0            [24] 1910 	mov	b,r2
+      00077D 63 F0 80         [24] 1911 	xrl	b,#0x80
+      000780 95 F0            [12] 1912 	subb	a,b
+      000782 40 01            [24] 1913 	jc	00127$
+      000784 22               [24] 1914 	ret
+      000785                       1915 00127$:
+                                   1916 ;	ecen4330_lcd_v3.c:308: for (y = 0; y < h; y += r2) {
+      000785 90 00 09         [24] 1917 	mov	dptr,#_testCircles_y_65536_110
+      000788 E4               [12] 1918 	clr	a
+      000789 F0               [24] 1919 	movx	@dptr,a
+      00078A A3               [24] 1920 	inc	dptr
+      00078B F0               [24] 1921 	movx	@dptr,a
+      00078C                       1922 00104$:
+      00078C 90 00 09         [24] 1923 	mov	dptr,#_testCircles_y_65536_110
+      00078F E0               [24] 1924 	movx	a,@dptr
+      000790 F5 50            [12] 1925 	mov	_testCircles_sloc0_1_0,a
+      000792 A3               [24] 1926 	inc	dptr
+      000793 E0               [24] 1927 	movx	a,@dptr
+      000794 F5 51            [12] 1928 	mov	(_testCircles_sloc0_1_0 + 1),a
+      000796 C3               [12] 1929 	clr	c
+      000797 E5 50            [12] 1930 	mov	a,_testCircles_sloc0_1_0
+      000799 9F               [12] 1931 	subb	a,r7
+      00079A E5 51            [12] 1932 	mov	a,(_testCircles_sloc0_1_0 + 1)
+      00079C 64 80            [12] 1933 	xrl	a,#0x80
+      00079E 8E F0            [24] 1934 	mov	b,r6
+      0007A0 63 F0 80         [24] 1935 	xrl	b,#0x80
+      0007A3 95 F0            [12] 1936 	subb	a,b
+      0007A5 50 47            [24] 1937 	jnc	00108$
+                                   1938 ;	ecen4330_lcd_v3.c:309: drawCircle(x, y, radius, color);
+      0007A7 88 82            [24] 1939 	mov	dpl,r0
+      0007A9 8D 83            [24] 1940 	mov	dph,r5
+      0007AB 85 50 3B         [24] 1941 	mov	_drawCircle_PARM_2,_testCircles_sloc0_1_0
+      0007AE 85 51 3C         [24] 1942 	mov	(_drawCircle_PARM_2 + 1),(_testCircles_sloc0_1_0 + 1)
+      0007B1 85 4F 3D         [24] 1943 	mov	_drawCircle_PARM_3,_testCircles_radius_65536_109
+      0007B4 75 3E 00         [24] 1944 	mov	(_drawCircle_PARM_3 + 1),#0x00
+      0007B7 85 4D 3F         [24] 1945 	mov	_drawCircle_PARM_4,_testCircles_PARM_2
+      0007BA 85 4E 40         [24] 1946 	mov	(_drawCircle_PARM_4 + 1),(_testCircles_PARM_2 + 1)
+      0007BD C0 07            [24] 1947 	push	ar7
+      0007BF C0 06            [24] 1948 	push	ar6
+      0007C1 C0 05            [24] 1949 	push	ar5
+      0007C3 C0 04            [24] 1950 	push	ar4
+      0007C5 C0 03            [24] 1951 	push	ar3
+      0007C7 C0 02            [24] 1952 	push	ar2
+      0007C9 C0 01            [24] 1953 	push	ar1
+      0007CB C0 00            [24] 1954 	push	ar0
+      0007CD 12 04 58         [24] 1955 	lcall	_drawCircle
+      0007D0 D0 00            [24] 1956 	pop	ar0
+      0007D2 D0 01            [24] 1957 	pop	ar1
+      0007D4 D0 02            [24] 1958 	pop	ar2
+      0007D6 D0 03            [24] 1959 	pop	ar3
+      0007D8 D0 04            [24] 1960 	pop	ar4
+      0007DA D0 05            [24] 1961 	pop	ar5
+      0007DC D0 06            [24] 1962 	pop	ar6
+      0007DE D0 07            [24] 1963 	pop	ar7
+                                   1964 ;	ecen4330_lcd_v3.c:308: for (y = 0; y < h; y += r2) {
+      0007E0 90 00 09         [24] 1965 	mov	dptr,#_testCircles_y_65536_110
+      0007E3 EB               [12] 1966 	mov	a,r3
+      0007E4 25 50            [12] 1967 	add	a,_testCircles_sloc0_1_0
+      0007E6 F0               [24] 1968 	movx	@dptr,a
+      0007E7 EC               [12] 1969 	mov	a,r4
+      0007E8 35 51            [12] 1970 	addc	a,(_testCircles_sloc0_1_0 + 1)
+      0007EA A3               [24] 1971 	inc	dptr
+      0007EB F0               [24] 1972 	movx	@dptr,a
+      0007EC 80 9E            [24] 1973 	sjmp	00104$
+      0007EE                       1974 00108$:
+                                   1975 ;	ecen4330_lcd_v3.c:307: for (x = 0; x < w; x += r2) {
+      0007EE 90 00 07         [24] 1976 	mov	dptr,#_testCircles_x_65536_110
+      0007F1 E0               [24] 1977 	movx	a,@dptr
+      0007F2 F8               [12] 1978 	mov	r0,a
+      0007F3 A3               [24] 1979 	inc	dptr
+      0007F4 E0               [24] 1980 	movx	a,@dptr
+      0007F5 FD               [12] 1981 	mov	r5,a
+      0007F6 90 00 07         [24] 1982 	mov	dptr,#_testCircles_x_65536_110
+      0007F9 EB               [12] 1983 	mov	a,r3
+      0007FA 28               [12] 1984 	add	a,r0
+      0007FB F0               [24] 1985 	movx	@dptr,a
+      0007FC EC               [12] 1986 	mov	a,r4
+      0007FD 3D               [12] 1987 	addc	a,r5
+      0007FE A3               [24] 1988 	inc	dptr
+      0007FF F0               [24] 1989 	movx	@dptr,a
+                                   1990 ;	ecen4330_lcd_v3.c:312: }
+      000800 02 07 6D         [24] 1991 	ljmp	00107$
+                                   1992 ;------------------------------------------------------------
+                                   1993 ;Allocation info for local variables in function 'fillRect'
+                                   1994 ;------------------------------------------------------------
+                                   1995 ;y                         Allocated with name '_fillRect_PARM_2'
+                                   1996 ;w                         Allocated with name '_fillRect_PARM_3'
+                                   1997 ;h                         Allocated with name '_fillRect_PARM_4'
+                                   1998 ;color                     Allocated with name '_fillRect_PARM_5'
+                                   1999 ;x                         Allocated to registers 
+                                   2000 ;------------------------------------------------------------
+                                   2001 ;	ecen4330_lcd_v3.c:314: void fillRect (uint16_t x,uint16_t y,uint16_t w,uint16_t h,uint16_t color) {
+                                   2002 ;	-----------------------------------------
+                                   2003 ;	 function fillRect
+                                   2004 ;	-----------------------------------------
+      000803                       2005 _fillRect:
+      000803 AE 82            [24] 2006 	mov	r6,dpl
+      000805 AF 83            [24] 2007 	mov	r7,dph
+                                   2008 ;	ecen4330_lcd_v3.c:315: if ((x >= TFTWIDTH) || (y >= TFTHEIGHT)) {
+      000807 8E 04            [24] 2009 	mov	ar4,r6
+      000809 8F 05            [24] 2010 	mov	ar5,r7
+      00080B C3               [12] 2011 	clr	c
+      00080C EC               [12] 2012 	mov	a,r4
+      00080D 94 F0            [12] 2013 	subb	a,#0xf0
+      00080F ED               [12] 2014 	mov	a,r5
+      000810 94 00            [12] 2015 	subb	a,#0x00
+      000812 50 0D            [24] 2016 	jnc	00101$
+      000814 AC 52            [24] 2017 	mov	r4,_fillRect_PARM_2
+      000816 AD 53            [24] 2018 	mov	r5,(_fillRect_PARM_2 + 1)
+      000818 C3               [12] 2019 	clr	c
+      000819 EC               [12] 2020 	mov	a,r4
+      00081A 94 40            [12] 2021 	subb	a,#0x40
+      00081C ED               [12] 2022 	mov	a,r5
+      00081D 94 01            [12] 2023 	subb	a,#0x01
+      00081F 40 01            [24] 2024 	jc	00102$
+      000821                       2025 00101$:
+                                   2026 ;	ecen4330_lcd_v3.c:316: return;
+      000821 22               [24] 2027 	ret
+      000822                       2028 00102$:
+                                   2029 ;	ecen4330_lcd_v3.c:319: if ((x+w-1) >= TFTWIDTH) {
+      000822 E5 54            [12] 2030 	mov	a,_fillRect_PARM_3
+      000824 2E               [12] 2031 	add	a,r6
+      000825 FC               [12] 2032 	mov	r4,a
+      000826 E5 55            [12] 2033 	mov	a,(_fillRect_PARM_3 + 1)
+      000828 3F               [12] 2034 	addc	a,r7
+      000829 FD               [12] 2035 	mov	r5,a
+      00082A 1C               [12] 2036 	dec	r4
+      00082B BC FF 01         [24] 2037 	cjne	r4,#0xff,00161$
+      00082E 1D               [12] 2038 	dec	r5
+      00082F                       2039 00161$:
+      00082F C3               [12] 2040 	clr	c
+      000830 EC               [12] 2041 	mov	a,r4
+      000831 94 F0            [12] 2042 	subb	a,#0xf0
+      000833 ED               [12] 2043 	mov	a,r5
+      000834 94 00            [12] 2044 	subb	a,#0x00
+      000836 40 0A            [24] 2045 	jc	00105$
+                                   2046 ;	ecen4330_lcd_v3.c:320: w = TFTWIDTH-x;
+      000838 74 F0            [12] 2047 	mov	a,#0xf0
+      00083A C3               [12] 2048 	clr	c
+      00083B 9E               [12] 2049 	subb	a,r6
+      00083C F5 54            [12] 2050 	mov	_fillRect_PARM_3,a
+      00083E E4               [12] 2051 	clr	a
+      00083F 9F               [12] 2052 	subb	a,r7
+      000840 F5 55            [12] 2053 	mov	(_fillRect_PARM_3 + 1),a
+      000842                       2054 00105$:
+                                   2055 ;	ecen4330_lcd_v3.c:323: if ((y+h-1) >= TFTHEIGHT) {
+      000842 E5 56            [12] 2056 	mov	a,_fillRect_PARM_4
+      000844 25 52            [12] 2057 	add	a,_fillRect_PARM_2
+      000846 FC               [12] 2058 	mov	r4,a
+      000847 E5 57            [12] 2059 	mov	a,(_fillRect_PARM_4 + 1)
+      000849 35 53            [12] 2060 	addc	a,(_fillRect_PARM_2 + 1)
+      00084B FD               [12] 2061 	mov	r5,a
+      00084C 1C               [12] 2062 	dec	r4
+      00084D BC FF 01         [24] 2063 	cjne	r4,#0xff,00163$
+      000850 1D               [12] 2064 	dec	r5
+      000851                       2065 00163$:
+      000851 C3               [12] 2066 	clr	c
+      000852 EC               [12] 2067 	mov	a,r4
+      000853 94 40            [12] 2068 	subb	a,#0x40
+      000855 ED               [12] 2069 	mov	a,r5
+      000856 94 01            [12] 2070 	subb	a,#0x01
+      000858 40 0D            [24] 2071 	jc	00107$
+                                   2072 ;	ecen4330_lcd_v3.c:324: h = TFTHEIGHT-y;
+      00085A 74 40            [12] 2073 	mov	a,#0x40
+      00085C C3               [12] 2074 	clr	c
+      00085D 95 52            [12] 2075 	subb	a,_fillRect_PARM_2
+      00085F F5 56            [12] 2076 	mov	_fillRect_PARM_4,a
+      000861 74 01            [12] 2077 	mov	a,#0x01
+      000863 95 53            [12] 2078 	subb	a,(_fillRect_PARM_2 + 1)
+      000865 F5 57            [12] 2079 	mov	(_fillRect_PARM_4 + 1),a
+      000867                       2080 00107$:
+                                   2081 ;	ecen4330_lcd_v3.c:327: setAddress(x, y, x + w - 1, y + h - 1);
+      000867 E5 54            [12] 2082 	mov	a,_fillRect_PARM_3
+      000869 2E               [12] 2083 	add	a,r6
+      00086A FC               [12] 2084 	mov	r4,a
+      00086B E5 55            [12] 2085 	mov	a,(_fillRect_PARM_3 + 1)
+      00086D 3F               [12] 2086 	addc	a,r7
+      00086E FD               [12] 2087 	mov	r5,a
+      00086F 1C               [12] 2088 	dec	r4
+      000870 BC FF 01         [24] 2089 	cjne	r4,#0xff,00165$
+      000873 1D               [12] 2090 	dec	r5
+      000874                       2091 00165$:
+      000874 8C 0A            [24] 2092 	mov	_setAddress_PARM_3,r4
+      000876 8D 0B            [24] 2093 	mov	(_setAddress_PARM_3 + 1),r5
+      000878 E5 56            [12] 2094 	mov	a,_fillRect_PARM_4
+      00087A 25 52            [12] 2095 	add	a,_fillRect_PARM_2
+      00087C FC               [12] 2096 	mov	r4,a
+      00087D E5 57            [12] 2097 	mov	a,(_fillRect_PARM_4 + 1)
+      00087F 35 53            [12] 2098 	addc	a,(_fillRect_PARM_2 + 1)
+      000881 FD               [12] 2099 	mov	r5,a
+      000882 1C               [12] 2100 	dec	r4
+      000883 BC FF 01         [24] 2101 	cjne	r4,#0xff,00166$
+      000886 1D               [12] 2102 	dec	r5
+      000887                       2103 00166$:
+      000887 8C 0C            [24] 2104 	mov	_setAddress_PARM_4,r4
+      000889 8D 0D            [24] 2105 	mov	(_setAddress_PARM_4 + 1),r5
+      00088B 85 52 08         [24] 2106 	mov	_setAddress_PARM_2,_fillRect_PARM_2
+      00088E 85 53 09         [24] 2107 	mov	(_setAddress_PARM_2 + 1),(_fillRect_PARM_2 + 1)
+      000891 8E 82            [24] 2108 	mov	dpl,r6
+      000893 8F 83            [24] 2109 	mov	dph,r7
+      000895 12 02 16         [24] 2110 	lcall	_setAddress
+                                   2111 ;	ecen4330_lcd_v3.c:329: write8Reg(0x2C);
+                                   2112 ;	assignBit
+      000898 C2 B5            [12] 2113 	clr	_P3_5
+                                   2114 ;	assignBit
+      00089A D2 B4            [12] 2115 	setb	_P3_4
+      00089C 85 23 82         [24] 2116 	mov	dpl,_lcd_address
+      00089F 85 24 83         [24] 2117 	mov	dph,(_lcd_address + 1)
+      0008A2 74 2C            [12] 2118 	mov	a,#0x2c
+      0008A4 F0               [24] 2119 	movx	@dptr,a
+                                   2120 ;	assignBit
+      0008A5 C2 B4            [12] 2121 	clr	_P3_4
+                                   2122 ;	ecen4330_lcd_v3.c:330: CD = 1;
+                                   2123 ;	assignBit
+      0008A7 D2 B5            [12] 2124 	setb	_P3_5
+                                   2125 ;	ecen4330_lcd_v3.c:332: for (y = h; y > 0; y--) {
+      0008A9 AF 59            [24] 2126 	mov	r7,(_fillRect_PARM_5 + 1)
+      0008AB AD 56            [24] 2127 	mov	r5,_fillRect_PARM_4
+      0008AD AE 57            [24] 2128 	mov	r6,(_fillRect_PARM_4 + 1)
+      0008AF                       2129 00114$:
+      0008AF ED               [12] 2130 	mov	a,r5
+      0008B0 4E               [12] 2131 	orl	a,r6
+      0008B1 60 30            [24] 2132 	jz	00116$
+                                   2133 ;	ecen4330_lcd_v3.c:333: for(x = w; x > 0; x--) {
+      0008B3 AB 54            [24] 2134 	mov	r3,_fillRect_PARM_3
+      0008B5 AC 55            [24] 2135 	mov	r4,(_fillRect_PARM_3 + 1)
+      0008B7                       2136 00111$:
+      0008B7 EB               [12] 2137 	mov	a,r3
+      0008B8 4C               [12] 2138 	orl	a,r4
+      0008B9 60 21            [24] 2139 	jz	00115$
+                                   2140 ;	ecen4330_lcd_v3.c:334: write8(color>>8); write8(color);
+                                   2141 ;	assignBit
+      0008BB D2 B4            [12] 2142 	setb	_P3_4
+      0008BD 85 23 82         [24] 2143 	mov	dpl,_lcd_address
+      0008C0 85 24 83         [24] 2144 	mov	dph,(_lcd_address + 1)
+      0008C3 EF               [12] 2145 	mov	a,r7
+      0008C4 F0               [24] 2146 	movx	@dptr,a
+                                   2147 ;	assignBit
+      0008C5 C2 B4            [12] 2148 	clr	_P3_4
+                                   2149 ;	assignBit
+      0008C7 D2 B4            [12] 2150 	setb	_P3_4
+      0008C9 85 23 82         [24] 2151 	mov	dpl,_lcd_address
+      0008CC 85 24 83         [24] 2152 	mov	dph,(_lcd_address + 1)
+      0008CF E5 58            [12] 2153 	mov	a,_fillRect_PARM_5
+      0008D1 FA               [12] 2154 	mov	r2,a
+      0008D2 F0               [24] 2155 	movx	@dptr,a
+                                   2156 ;	assignBit
+      0008D3 C2 B4            [12] 2157 	clr	_P3_4
+                                   2158 ;	ecen4330_lcd_v3.c:333: for(x = w; x > 0; x--) {
+      0008D5 1B               [12] 2159 	dec	r3
+      0008D6 BB FF 01         [24] 2160 	cjne	r3,#0xff,00169$
+      0008D9 1C               [12] 2161 	dec	r4
+      0008DA                       2162 00169$:
+      0008DA 80 DB            [24] 2163 	sjmp	00111$
+      0008DC                       2164 00115$:
+                                   2165 ;	ecen4330_lcd_v3.c:332: for (y = h; y > 0; y--) {
+      0008DC 1D               [12] 2166 	dec	r5
+      0008DD BD FF 01         [24] 2167 	cjne	r5,#0xff,00170$
+      0008E0 1E               [12] 2168 	dec	r6
+      0008E1                       2169 00170$:
+      0008E1 80 CC            [24] 2170 	sjmp	00114$
+      0008E3                       2171 00116$:
+                                   2172 ;	ecen4330_lcd_v3.c:337: }
+      0008E3 22               [24] 2173 	ret
+                                   2174 ;------------------------------------------------------------
+                                   2175 ;Allocation info for local variables in function 'fillScreen'
+                                   2176 ;------------------------------------------------------------
+                                   2177 ;Color                     Allocated to registers r6 r7 
+                                   2178 ;len                       Allocated with name '_fillScreen_len_65536_129'
+                                   2179 ;blocks                    Allocated with name '_fillScreen_blocks_65536_129'
+                                   2180 ;i                         Allocated with name '_fillScreen_i_65536_129'
+                                   2181 ;hi                        Allocated with name '_fillScreen_hi_65536_129'
+                                   2182 ;lo                        Allocated with name '_fillScreen_lo_65536_129'
+                                   2183 ;------------------------------------------------------------
+                                   2184 ;	ecen4330_lcd_v3.c:344: void fillScreen (uint16_t Color) {
+                                   2185 ;	-----------------------------------------
+                                   2186 ;	 function fillScreen
+                                   2187 ;	-----------------------------------------
+      0008E4                       2188 _fillScreen:
+      0008E4 AE 82            [24] 2189 	mov	r6,dpl
+      0008E6 AF 83            [24] 2190 	mov	r7,dph
+                                   2191 ;	ecen4330_lcd_v3.c:349: __xdata uint8_t  i, hi = Color >> 8,
+      0008E8 8F 05            [24] 2192 	mov	ar5,r7
+                                   2193 ;	ecen4330_lcd_v3.c:350: lo = Color;
+                                   2194 ;	ecen4330_lcd_v3.c:353: setAddress(0, 0, TFTWIDTH-1, TFTHEIGHT-1);
+      0008EA E4               [12] 2195 	clr	a
+      0008EB F5 08            [12] 2196 	mov	_setAddress_PARM_2,a
+      0008ED F5 09            [12] 2197 	mov	(_setAddress_PARM_2 + 1),a
+      0008EF 75 0A EF         [24] 2198 	mov	_setAddress_PARM_3,#0xef
+                                   2199 ;	1-genFromRTrack replaced	mov	(_setAddress_PARM_3 + 1),#0x00
+      0008F2 F5 0B            [12] 2200 	mov	(_setAddress_PARM_3 + 1),a
+      0008F4 75 0C 3F         [24] 2201 	mov	_setAddress_PARM_4,#0x3f
+      0008F7 75 0D 01         [24] 2202 	mov	(_setAddress_PARM_4 + 1),#0x01
+      0008FA 90 00 00         [24] 2203 	mov	dptr,#0x0000
+      0008FD C0 06            [24] 2204 	push	ar6
+      0008FF C0 05            [24] 2205 	push	ar5
+      000901 12 02 16         [24] 2206 	lcall	_setAddress
+      000904 D0 05            [24] 2207 	pop	ar5
+      000906 D0 06            [24] 2208 	pop	ar6
+                                   2209 ;	ecen4330_lcd_v3.c:355: write8Reg(0x2C);
+                                   2210 ;	assignBit
+      000908 C2 B5            [12] 2211 	clr	_P3_5
+                                   2212 ;	assignBit
+      00090A D2 B4            [12] 2213 	setb	_P3_4
+      00090C 85 23 82         [24] 2214 	mov	dpl,_lcd_address
+      00090F 85 24 83         [24] 2215 	mov	dph,(_lcd_address + 1)
+      000912 74 2C            [12] 2216 	mov	a,#0x2c
+      000914 F0               [24] 2217 	movx	@dptr,a
+                                   2218 ;	assignBit
+      000915 C2 B4            [12] 2219 	clr	_P3_4
+                                   2220 ;	ecen4330_lcd_v3.c:356: CD = 1;
+                                   2221 ;	assignBit
+      000917 D2 B5            [12] 2222 	setb	_P3_5
+                                   2223 ;	ecen4330_lcd_v3.c:357: write8(hi);
+                                   2224 ;	assignBit
+      000919 D2 B4            [12] 2225 	setb	_P3_4
+      00091B 85 23 82         [24] 2226 	mov	dpl,_lcd_address
+      00091E 85 24 83         [24] 2227 	mov	dph,(_lcd_address + 1)
+      000921 ED               [12] 2228 	mov	a,r5
+      000922 F0               [24] 2229 	movx	@dptr,a
+                                   2230 ;	assignBit
+      000923 C2 B4            [12] 2231 	clr	_P3_4
+                                   2232 ;	ecen4330_lcd_v3.c:358: write8(lo);
+                                   2233 ;	assignBit
+      000925 D2 B4            [12] 2234 	setb	_P3_4
+      000927 85 23 82         [24] 2235 	mov	dpl,_lcd_address
+      00092A 85 24 83         [24] 2236 	mov	dph,(_lcd_address + 1)
+      00092D EE               [12] 2237 	mov	a,r6
+      00092E F0               [24] 2238 	movx	@dptr,a
+                                   2239 ;	assignBit
+      00092F C2 B4            [12] 2240 	clr	_P3_4
+                                   2241 ;	ecen4330_lcd_v3.c:361: while (blocks--) {
+      000931 7C B0            [12] 2242 	mov	r4,#0xb0
+      000933 7F 04            [12] 2243 	mov	r7,#0x04
+      000935                       2244 00104$:
+      000935 8C 02            [24] 2245 	mov	ar2,r4
+      000937 8F 03            [24] 2246 	mov	ar3,r7
+      000939 1C               [12] 2247 	dec	r4
+      00093A BC FF 01         [24] 2248 	cjne	r4,#0xff,00140$
+      00093D 1F               [12] 2249 	dec	r7
+      00093E                       2250 00140$:
+      00093E EA               [12] 2251 	mov	a,r2
+      00093F 4B               [12] 2252 	orl	a,r3
+      000940 60 66            [24] 2253 	jz	00106$
+                                   2254 ;	ecen4330_lcd_v3.c:364: do {
+      000942 7B 10            [12] 2255 	mov	r3,#0x10
+      000944                       2256 00101$:
+                                   2257 ;	ecen4330_lcd_v3.c:365: write8(hi); write8(lo);write8(hi); write8(lo);
                                    2258 ;	assignBit
-      0008E2 D2 B4            [12] 2259 	setb	_P3_4
-      0008E4 85 25 82         [24] 2260 	mov	dpl,_lcd_address
-      0008E7 85 26 83         [24] 2261 	mov	dph,(_lcd_address + 1)
-      0008EA EF               [12] 2262 	mov	a,r7
-      0008EB F0               [24] 2263 	movx	@dptr,a
+      000944 D2 B4            [12] 2259 	setb	_P3_4
+      000946 85 23 82         [24] 2260 	mov	dpl,_lcd_address
+      000949 85 24 83         [24] 2261 	mov	dph,(_lcd_address + 1)
+      00094C ED               [12] 2262 	mov	a,r5
+      00094D F0               [24] 2263 	movx	@dptr,a
                                    2264 ;	assignBit
-      0008EC C2 B4            [12] 2265 	clr	_P3_4
+      00094E C2 B4            [12] 2265 	clr	_P3_4
                                    2266 ;	assignBit
-      0008EE D2 B4            [12] 2267 	setb	_P3_4
-      0008F0 85 25 82         [24] 2268 	mov	dpl,_lcd_address
-      0008F3 85 26 83         [24] 2269 	mov	dph,(_lcd_address + 1)
-      0008F6 E5 5A            [12] 2270 	mov	a,_fillRect_PARM_5
-      0008F8 FA               [12] 2271 	mov	r2,a
-      0008F9 F0               [24] 2272 	movx	@dptr,a
-                                   2273 ;	assignBit
-      0008FA C2 B4            [12] 2274 	clr	_P3_4
-                                   2275 ;	ecen4330_lcd_v3.c:333: for(x = w; x > 0; x--) {
-      0008FC 1B               [12] 2276 	dec	r3
-      0008FD BB FF 01         [24] 2277 	cjne	r3,#0xff,00169$
-      000900 1C               [12] 2278 	dec	r4
-      000901                       2279 00169$:
-      000901 80 DB            [24] 2280 	sjmp	00111$
-      000903                       2281 00115$:
-                                   2282 ;	ecen4330_lcd_v3.c:332: for (y = h; y > 0; y--) {
-      000903 1D               [12] 2283 	dec	r5
-      000904 BD FF 01         [24] 2284 	cjne	r5,#0xff,00170$
-      000907 1E               [12] 2285 	dec	r6
-      000908                       2286 00170$:
-      000908 80 CC            [24] 2287 	sjmp	00114$
-      00090A                       2288 00116$:
-                                   2289 ;	ecen4330_lcd_v3.c:337: }
-      00090A 22               [24] 2290 	ret
-                                   2291 ;------------------------------------------------------------
-                                   2292 ;Allocation info for local variables in function 'fillScreen'
-                                   2293 ;------------------------------------------------------------
-                                   2294 ;Color                     Allocated to registers r6 r7 
-                                   2295 ;len                       Allocated with name '_fillScreen_len_65536_134'
-                                   2296 ;blocks                    Allocated with name '_fillScreen_blocks_65536_134'
-                                   2297 ;i                         Allocated with name '_fillScreen_i_65536_134'
-                                   2298 ;hi                        Allocated with name '_fillScreen_hi_65536_134'
-                                   2299 ;lo                        Allocated with name '_fillScreen_lo_65536_134'
-                                   2300 ;------------------------------------------------------------
-                                   2301 ;	ecen4330_lcd_v3.c:344: void fillScreen (uint16_t Color) {
-                                   2302 ;	-----------------------------------------
-                                   2303 ;	 function fillScreen
-                                   2304 ;	-----------------------------------------
-      00090B                       2305 _fillScreen:
-      00090B AE 82            [24] 2306 	mov	r6,dpl
-      00090D AF 83            [24] 2307 	mov	r7,dph
-                                   2308 ;	ecen4330_lcd_v3.c:349: __xdata uint8_t  i, hi = Color >> 8,
-      00090F 8F 05            [24] 2309 	mov	ar5,r7
-                                   2310 ;	ecen4330_lcd_v3.c:350: lo = Color;
-                                   2311 ;	ecen4330_lcd_v3.c:353: setAddress(0, 0, TFTWIDTH-1, TFTHEIGHT-1);
-      000911 E4               [12] 2312 	clr	a
-      000912 F5 08            [12] 2313 	mov	_setAddress_PARM_2,a
-      000914 F5 09            [12] 2314 	mov	(_setAddress_PARM_2 + 1),a
-      000916 75 0A EF         [24] 2315 	mov	_setAddress_PARM_3,#0xef
-                                   2316 ;	1-genFromRTrack replaced	mov	(_setAddress_PARM_3 + 1),#0x00
-      000919 F5 0B            [12] 2317 	mov	(_setAddress_PARM_3 + 1),a
-      00091B 75 0C 3F         [24] 2318 	mov	_setAddress_PARM_4,#0x3f
-      00091E 75 0D 01         [24] 2319 	mov	(_setAddress_PARM_4 + 1),#0x01
-      000921 90 00 00         [24] 2320 	mov	dptr,#0x0000
-      000924 C0 06            [24] 2321 	push	ar6
-      000926 C0 05            [24] 2322 	push	ar5
-      000928 12 02 3D         [24] 2323 	lcall	_setAddress
-      00092B D0 05            [24] 2324 	pop	ar5
-      00092D D0 06            [24] 2325 	pop	ar6
-                                   2326 ;	ecen4330_lcd_v3.c:355: write8Reg(0x2C);
-                                   2327 ;	assignBit
-      00092F C2 B5            [12] 2328 	clr	_P3_5
-                                   2329 ;	assignBit
-      000931 D2 B4            [12] 2330 	setb	_P3_4
-      000933 85 25 82         [24] 2331 	mov	dpl,_lcd_address
-      000936 85 26 83         [24] 2332 	mov	dph,(_lcd_address + 1)
-      000939 74 2C            [12] 2333 	mov	a,#0x2c
-      00093B F0               [24] 2334 	movx	@dptr,a
+      000950 D2 B4            [12] 2267 	setb	_P3_4
+      000952 85 23 82         [24] 2268 	mov	dpl,_lcd_address
+      000955 85 24 83         [24] 2269 	mov	dph,(_lcd_address + 1)
+      000958 EE               [12] 2270 	mov	a,r6
+      000959 F0               [24] 2271 	movx	@dptr,a
+                                   2272 ;	assignBit
+      00095A C2 B4            [12] 2273 	clr	_P3_4
+                                   2274 ;	assignBit
+      00095C D2 B4            [12] 2275 	setb	_P3_4
+      00095E 85 23 82         [24] 2276 	mov	dpl,_lcd_address
+      000961 85 24 83         [24] 2277 	mov	dph,(_lcd_address + 1)
+      000964 ED               [12] 2278 	mov	a,r5
+      000965 F0               [24] 2279 	movx	@dptr,a
+                                   2280 ;	assignBit
+      000966 C2 B4            [12] 2281 	clr	_P3_4
+                                   2282 ;	assignBit
+      000968 D2 B4            [12] 2283 	setb	_P3_4
+      00096A 85 23 82         [24] 2284 	mov	dpl,_lcd_address
+      00096D 85 24 83         [24] 2285 	mov	dph,(_lcd_address + 1)
+      000970 EE               [12] 2286 	mov	a,r6
+      000971 F0               [24] 2287 	movx	@dptr,a
+                                   2288 ;	assignBit
+      000972 C2 B4            [12] 2289 	clr	_P3_4
+                                   2290 ;	ecen4330_lcd_v3.c:366: write8(hi); write8(lo);write8(hi); write8(lo);
+                                   2291 ;	assignBit
+      000974 D2 B4            [12] 2292 	setb	_P3_4
+      000976 85 23 82         [24] 2293 	mov	dpl,_lcd_address
+      000979 85 24 83         [24] 2294 	mov	dph,(_lcd_address + 1)
+      00097C ED               [12] 2295 	mov	a,r5
+      00097D F0               [24] 2296 	movx	@dptr,a
+                                   2297 ;	assignBit
+      00097E C2 B4            [12] 2298 	clr	_P3_4
+                                   2299 ;	assignBit
+      000980 D2 B4            [12] 2300 	setb	_P3_4
+      000982 85 23 82         [24] 2301 	mov	dpl,_lcd_address
+      000985 85 24 83         [24] 2302 	mov	dph,(_lcd_address + 1)
+      000988 EE               [12] 2303 	mov	a,r6
+      000989 F0               [24] 2304 	movx	@dptr,a
+                                   2305 ;	assignBit
+      00098A C2 B4            [12] 2306 	clr	_P3_4
+                                   2307 ;	assignBit
+      00098C D2 B4            [12] 2308 	setb	_P3_4
+      00098E 85 23 82         [24] 2309 	mov	dpl,_lcd_address
+      000991 85 24 83         [24] 2310 	mov	dph,(_lcd_address + 1)
+      000994 ED               [12] 2311 	mov	a,r5
+      000995 F0               [24] 2312 	movx	@dptr,a
+                                   2313 ;	assignBit
+      000996 C2 B4            [12] 2314 	clr	_P3_4
+                                   2315 ;	assignBit
+      000998 D2 B4            [12] 2316 	setb	_P3_4
+      00099A 85 23 82         [24] 2317 	mov	dpl,_lcd_address
+      00099D 85 24 83         [24] 2318 	mov	dph,(_lcd_address + 1)
+      0009A0 EE               [12] 2319 	mov	a,r6
+      0009A1 F0               [24] 2320 	movx	@dptr,a
+                                   2321 ;	assignBit
+      0009A2 C2 B4            [12] 2322 	clr	_P3_4
+                                   2323 ;	ecen4330_lcd_v3.c:367: } while(--i);
+      0009A4 DB 9E            [24] 2324 	djnz	r3,00101$
+      0009A6 80 8D            [24] 2325 	sjmp	00104$
+      0009A8                       2326 00106$:
+                                   2327 ;	ecen4330_lcd_v3.c:370: for (i = (char)len & 63; i--; ) {
+      0009A8 7F 3F            [12] 2328 	mov	r7,#0x3f
+      0009AA                       2329 00109$:
+      0009AA 8F 04            [24] 2330 	mov	ar4,r7
+      0009AC 1F               [12] 2331 	dec	r7
+      0009AD EC               [12] 2332 	mov	a,r4
+      0009AE 60 1A            [24] 2333 	jz	00111$
+                                   2334 ;	ecen4330_lcd_v3.c:371: write8(hi);
                                    2335 ;	assignBit
-      00093C C2 B4            [12] 2336 	clr	_P3_4
-                                   2337 ;	ecen4330_lcd_v3.c:356: CD = 1;
-                                   2338 ;	assignBit
-      00093E D2 B5            [12] 2339 	setb	_P3_5
-                                   2340 ;	ecen4330_lcd_v3.c:357: write8(hi);
+      0009B0 D2 B4            [12] 2336 	setb	_P3_4
+      0009B2 85 23 82         [24] 2337 	mov	dpl,_lcd_address
+      0009B5 85 24 83         [24] 2338 	mov	dph,(_lcd_address + 1)
+      0009B8 ED               [12] 2339 	mov	a,r5
+      0009B9 F0               [24] 2340 	movx	@dptr,a
                                    2341 ;	assignBit
-      000940 D2 B4            [12] 2342 	setb	_P3_4
-      000942 85 25 82         [24] 2343 	mov	dpl,_lcd_address
-      000945 85 26 83         [24] 2344 	mov	dph,(_lcd_address + 1)
-      000948 ED               [12] 2345 	mov	a,r5
-      000949 F0               [24] 2346 	movx	@dptr,a
-                                   2347 ;	assignBit
-      00094A C2 B4            [12] 2348 	clr	_P3_4
-                                   2349 ;	ecen4330_lcd_v3.c:358: write8(lo);
+      0009BA C2 B4            [12] 2342 	clr	_P3_4
+                                   2343 ;	ecen4330_lcd_v3.c:372: write8(lo);
+                                   2344 ;	assignBit
+      0009BC D2 B4            [12] 2345 	setb	_P3_4
+      0009BE 85 23 82         [24] 2346 	mov	dpl,_lcd_address
+      0009C1 85 24 83         [24] 2347 	mov	dph,(_lcd_address + 1)
+      0009C4 EE               [12] 2348 	mov	a,r6
+      0009C5 F0               [24] 2349 	movx	@dptr,a
                                    2350 ;	assignBit
-      00094C D2 B4            [12] 2351 	setb	_P3_4
-      00094E 85 25 82         [24] 2352 	mov	dpl,_lcd_address
-      000951 85 26 83         [24] 2353 	mov	dph,(_lcd_address + 1)
-      000954 EE               [12] 2354 	mov	a,r6
-      000955 F0               [24] 2355 	movx	@dptr,a
-                                   2356 ;	assignBit
-      000956 C2 B4            [12] 2357 	clr	_P3_4
-                                   2358 ;	ecen4330_lcd_v3.c:361: while (blocks--) {
-      000958 7C B0            [12] 2359 	mov	r4,#0xb0
-      00095A 7F 04            [12] 2360 	mov	r7,#0x04
-      00095C                       2361 00104$:
-      00095C 8C 02            [24] 2362 	mov	ar2,r4
-      00095E 8F 03            [24] 2363 	mov	ar3,r7
-      000960 1C               [12] 2364 	dec	r4
-      000961 BC FF 01         [24] 2365 	cjne	r4,#0xff,00140$
-      000964 1F               [12] 2366 	dec	r7
-      000965                       2367 00140$:
-      000965 EA               [12] 2368 	mov	a,r2
-      000966 4B               [12] 2369 	orl	a,r3
-      000967 60 66            [24] 2370 	jz	00106$
-                                   2371 ;	ecen4330_lcd_v3.c:364: do {
-      000969 7B 10            [12] 2372 	mov	r3,#0x10
-      00096B                       2373 00101$:
-                                   2374 ;	ecen4330_lcd_v3.c:365: write8(hi); write8(lo);write8(hi); write8(lo);
-                                   2375 ;	assignBit
-      00096B D2 B4            [12] 2376 	setb	_P3_4
-      00096D 85 25 82         [24] 2377 	mov	dpl,_lcd_address
-      000970 85 26 83         [24] 2378 	mov	dph,(_lcd_address + 1)
-      000973 ED               [12] 2379 	mov	a,r5
-      000974 F0               [24] 2380 	movx	@dptr,a
-                                   2381 ;	assignBit
-      000975 C2 B4            [12] 2382 	clr	_P3_4
-                                   2383 ;	assignBit
-      000977 D2 B4            [12] 2384 	setb	_P3_4
-      000979 85 25 82         [24] 2385 	mov	dpl,_lcd_address
-      00097C 85 26 83         [24] 2386 	mov	dph,(_lcd_address + 1)
-      00097F EE               [12] 2387 	mov	a,r6
-      000980 F0               [24] 2388 	movx	@dptr,a
-                                   2389 ;	assignBit
-      000981 C2 B4            [12] 2390 	clr	_P3_4
-                                   2391 ;	assignBit
-      000983 D2 B4            [12] 2392 	setb	_P3_4
-      000985 85 25 82         [24] 2393 	mov	dpl,_lcd_address
-      000988 85 26 83         [24] 2394 	mov	dph,(_lcd_address + 1)
-      00098B ED               [12] 2395 	mov	a,r5
-      00098C F0               [24] 2396 	movx	@dptr,a
-                                   2397 ;	assignBit
-      00098D C2 B4            [12] 2398 	clr	_P3_4
-                                   2399 ;	assignBit
-      00098F D2 B4            [12] 2400 	setb	_P3_4
-      000991 85 25 82         [24] 2401 	mov	dpl,_lcd_address
-      000994 85 26 83         [24] 2402 	mov	dph,(_lcd_address + 1)
-      000997 EE               [12] 2403 	mov	a,r6
-      000998 F0               [24] 2404 	movx	@dptr,a
-                                   2405 ;	assignBit
-      000999 C2 B4            [12] 2406 	clr	_P3_4
-                                   2407 ;	ecen4330_lcd_v3.c:366: write8(hi); write8(lo);write8(hi); write8(lo);
-                                   2408 ;	assignBit
-      00099B D2 B4            [12] 2409 	setb	_P3_4
-      00099D 85 25 82         [24] 2410 	mov	dpl,_lcd_address
-      0009A0 85 26 83         [24] 2411 	mov	dph,(_lcd_address + 1)
-      0009A3 ED               [12] 2412 	mov	a,r5
-      0009A4 F0               [24] 2413 	movx	@dptr,a
-                                   2414 ;	assignBit
-      0009A5 C2 B4            [12] 2415 	clr	_P3_4
-                                   2416 ;	assignBit
-      0009A7 D2 B4            [12] 2417 	setb	_P3_4
-      0009A9 85 25 82         [24] 2418 	mov	dpl,_lcd_address
-      0009AC 85 26 83         [24] 2419 	mov	dph,(_lcd_address + 1)
-      0009AF EE               [12] 2420 	mov	a,r6
-      0009B0 F0               [24] 2421 	movx	@dptr,a
-                                   2422 ;	assignBit
-      0009B1 C2 B4            [12] 2423 	clr	_P3_4
-                                   2424 ;	assignBit
-      0009B3 D2 B4            [12] 2425 	setb	_P3_4
-      0009B5 85 25 82         [24] 2426 	mov	dpl,_lcd_address
-      0009B8 85 26 83         [24] 2427 	mov	dph,(_lcd_address + 1)
-      0009BB ED               [12] 2428 	mov	a,r5
-      0009BC F0               [24] 2429 	movx	@dptr,a
-                                   2430 ;	assignBit
-      0009BD C2 B4            [12] 2431 	clr	_P3_4
-                                   2432 ;	assignBit
-      0009BF D2 B4            [12] 2433 	setb	_P3_4
-      0009C1 85 25 82         [24] 2434 	mov	dpl,_lcd_address
-      0009C4 85 26 83         [24] 2435 	mov	dph,(_lcd_address + 1)
-      0009C7 EE               [12] 2436 	mov	a,r6
-      0009C8 F0               [24] 2437 	movx	@dptr,a
-                                   2438 ;	assignBit
-      0009C9 C2 B4            [12] 2439 	clr	_P3_4
-                                   2440 ;	ecen4330_lcd_v3.c:367: } while(--i);
-      0009CB DB 9E            [24] 2441 	djnz	r3,00101$
-      0009CD 80 8D            [24] 2442 	sjmp	00104$
-      0009CF                       2443 00106$:
-                                   2444 ;	ecen4330_lcd_v3.c:370: for (i = (char)len & 63; i--; ) {
-      0009CF 7F 3F            [12] 2445 	mov	r7,#0x3f
-      0009D1                       2446 00109$:
-      0009D1 8F 04            [24] 2447 	mov	ar4,r7
-      0009D3 1F               [12] 2448 	dec	r7
-      0009D4 EC               [12] 2449 	mov	a,r4
-      0009D5 60 1A            [24] 2450 	jz	00111$
-                                   2451 ;	ecen4330_lcd_v3.c:371: write8(hi);
-                                   2452 ;	assignBit
-      0009D7 D2 B4            [12] 2453 	setb	_P3_4
-      0009D9 85 25 82         [24] 2454 	mov	dpl,_lcd_address
-      0009DC 85 26 83         [24] 2455 	mov	dph,(_lcd_address + 1)
-      0009DF ED               [12] 2456 	mov	a,r5
-      0009E0 F0               [24] 2457 	movx	@dptr,a
-                                   2458 ;	assignBit
-      0009E1 C2 B4            [12] 2459 	clr	_P3_4
-                                   2460 ;	ecen4330_lcd_v3.c:372: write8(lo);
-                                   2461 ;	assignBit
-      0009E3 D2 B4            [12] 2462 	setb	_P3_4
-      0009E5 85 25 82         [24] 2463 	mov	dpl,_lcd_address
-      0009E8 85 26 83         [24] 2464 	mov	dph,(_lcd_address + 1)
-      0009EB EE               [12] 2465 	mov	a,r6
-      0009EC F0               [24] 2466 	movx	@dptr,a
-                                   2467 ;	assignBit
-      0009ED C2 B4            [12] 2468 	clr	_P3_4
-      0009EF 80 E0            [24] 2469 	sjmp	00109$
-      0009F1                       2470 00111$:
-                                   2471 ;	ecen4330_lcd_v3.c:374: }
-      0009F1 22               [24] 2472 	ret
-                                   2473 ;------------------------------------------------------------
-                                   2474 ;Allocation info for local variables in function 'drawChar'
-                                   2475 ;------------------------------------------------------------
-                                   2476 ;y                         Allocated with name '_drawChar_PARM_2'
-                                   2477 ;c                         Allocated with name '_drawChar_PARM_3'
-                                   2478 ;color                     Allocated with name '_drawChar_PARM_4'
-                                   2479 ;bg                        Allocated with name '_drawChar_PARM_5'
-                                   2480 ;size                      Allocated with name '_drawChar_PARM_6'
-                                   2481 ;x                         Allocated to registers r6 r7 
-                                   2482 ;sloc1                     Allocated with name '_drawChar_sloc1_1_0'
-                                   2483 ;sloc2                     Allocated with name '_drawChar_sloc2_1_0'
-                                   2484 ;sloc3                     Allocated with name '_drawChar_sloc3_1_0'
-                                   2485 ;sloc4                     Allocated with name '_drawChar_sloc4_1_0'
-                                   2486 ;sloc5                     Allocated with name '_drawChar_sloc5_1_0'
-                                   2487 ;i                         Allocated with name '_drawChar_i_65537_156'
-                                   2488 ;line                      Allocated with name '_drawChar_line_196609_158'
-                                   2489 ;j                         Allocated with name '_drawChar_j_196610_161'
-                                   2490 ;------------------------------------------------------------
-                                   2491 ;	ecen4330_lcd_v3.c:385: void drawChar (int16_t x, int16_t y, uint8_t c, uint16_t color, uint16_t bg, uint8_t size) {
-                                   2492 ;	-----------------------------------------
-                                   2493 ;	 function drawChar
-                                   2494 ;	-----------------------------------------
-      0009F2                       2495 _drawChar:
-      0009F2 AE 82            [24] 2496 	mov	r6,dpl
-      0009F4 AF 83            [24] 2497 	mov	r7,dph
-                                   2498 ;	ecen4330_lcd_v3.c:386: if ((x >=TFTWIDTH) ||
-      0009F6 C3               [12] 2499 	clr	c
-      0009F7 EE               [12] 2500 	mov	a,r6
-      0009F8 94 F0            [12] 2501 	subb	a,#0xf0
-      0009FA EF               [12] 2502 	mov	a,r7
-      0009FB 64 80            [12] 2503 	xrl	a,#0x80
-      0009FD 94 80            [12] 2504 	subb	a,#0x80
-      0009FF 50 67            [24] 2505 	jnc	00101$
-                                   2506 ;	ecen4330_lcd_v3.c:387: (y >=TFTHEIGHT) ||
-      000A01 AC 5C            [24] 2507 	mov	r4,_drawChar_PARM_2
-      000A03 AD 5D            [24] 2508 	mov	r5,(_drawChar_PARM_2 + 1)
-      000A05 C3               [12] 2509 	clr	c
-      000A06 EC               [12] 2510 	mov	a,r4
-      000A07 94 40            [12] 2511 	subb	a,#0x40
-      000A09 ED               [12] 2512 	mov	a,r5
-      000A0A 64 80            [12] 2513 	xrl	a,#0x80
-      000A0C 94 81            [12] 2514 	subb	a,#0x81
-      000A0E 50 58            [24] 2515 	jnc	00101$
-                                   2516 ;	ecen4330_lcd_v3.c:388: ((x + 6 * size - 1) < 0) ||
-      000A10 AA 63            [24] 2517 	mov	r2,_drawChar_PARM_6
-      000A12 7B 00            [12] 2518 	mov	r3,#0x00
-      000A14 8A 08            [24] 2519 	mov	__mulint_PARM_2,r2
-      000A16 8B 09            [24] 2520 	mov	(__mulint_PARM_2 + 1),r3
-      000A18 90 00 06         [24] 2521 	mov	dptr,#0x0006
-      000A1B C0 07            [24] 2522 	push	ar7
-      000A1D C0 06            [24] 2523 	push	ar6
-      000A1F C0 05            [24] 2524 	push	ar5
-      000A21 C0 04            [24] 2525 	push	ar4
-      000A23 C0 03            [24] 2526 	push	ar3
-      000A25 C0 02            [24] 2527 	push	ar2
-      000A27 12 1F B2         [24] 2528 	lcall	__mulint
-      000A2A A8 82            [24] 2529 	mov	r0,dpl
-      000A2C A9 83            [24] 2530 	mov	r1,dph
-      000A2E D0 02            [24] 2531 	pop	ar2
-      000A30 D0 03            [24] 2532 	pop	ar3
-      000A32 D0 04            [24] 2533 	pop	ar4
-      000A34 D0 05            [24] 2534 	pop	ar5
-      000A36 D0 06            [24] 2535 	pop	ar6
-      000A38 D0 07            [24] 2536 	pop	ar7
-      000A3A E8               [12] 2537 	mov	a,r0
-      000A3B 2E               [12] 2538 	add	a,r6
-      000A3C F8               [12] 2539 	mov	r0,a
-      000A3D E9               [12] 2540 	mov	a,r1
-      000A3E 3F               [12] 2541 	addc	a,r7
-      000A3F F9               [12] 2542 	mov	r1,a
-      000A40 18               [12] 2543 	dec	r0
-      000A41 B8 FF 01         [24] 2544 	cjne	r0,#0xff,00176$
-      000A44 19               [12] 2545 	dec	r1
-      000A45                       2546 00176$:
-      000A45 E9               [12] 2547 	mov	a,r1
-      000A46 20 E7 1F         [24] 2548 	jb	acc.7,00101$
-                                   2549 ;	ecen4330_lcd_v3.c:389: ((y + 8 * size - 1) < 0))
-      000A49 EB               [12] 2550 	mov	a,r3
-      000A4A C4               [12] 2551 	swap	a
-      000A4B 03               [12] 2552 	rr	a
-      000A4C 54 F8            [12] 2553 	anl	a,#0xf8
-      000A4E CA               [12] 2554 	xch	a,r2
-      000A4F C4               [12] 2555 	swap	a
-      000A50 03               [12] 2556 	rr	a
-      000A51 CA               [12] 2557 	xch	a,r2
-      000A52 6A               [12] 2558 	xrl	a,r2
-      000A53 CA               [12] 2559 	xch	a,r2
-      000A54 54 F8            [12] 2560 	anl	a,#0xf8
-      000A56 CA               [12] 2561 	xch	a,r2
-      000A57 6A               [12] 2562 	xrl	a,r2
-      000A58 FB               [12] 2563 	mov	r3,a
-      000A59 EA               [12] 2564 	mov	a,r2
-      000A5A 2C               [12] 2565 	add	a,r4
-      000A5B FA               [12] 2566 	mov	r2,a
-      000A5C EB               [12] 2567 	mov	a,r3
-      000A5D 3D               [12] 2568 	addc	a,r5
-      000A5E FB               [12] 2569 	mov	r3,a
-      000A5F 1A               [12] 2570 	dec	r2
-      000A60 BA FF 01         [24] 2571 	cjne	r2,#0xff,00178$
-      000A63 1B               [12] 2572 	dec	r3
-      000A64                       2573 00178$:
-      000A64 EB               [12] 2574 	mov	a,r3
-      000A65 30 E7 01         [24] 2575 	jnb	acc.7,00138$
-      000A68                       2576 00101$:
-                                   2577 ;	ecen4330_lcd_v3.c:391: return;
-      000A68 22               [24] 2578 	ret
-                                   2579 ;	ecen4330_lcd_v3.c:396: for (i = 0; i < 6; i++)	{
-      000A69                       2580 00138$:
-      000A69 74 01            [12] 2581 	mov	a,#0x01
-      000A6B B5 63 04         [24] 2582 	cjne	a,_drawChar_PARM_6,00180$
-      000A6E 74 01            [12] 2583 	mov	a,#0x01
-      000A70 80 01            [24] 2584 	sjmp	00181$
-      000A72                       2585 00180$:
-      000A72 E4               [12] 2586 	clr	a
-      000A73                       2587 00181$:
-      000A73 FB               [12] 2588 	mov	r3,a
-      000A74 8B 6A            [24] 2589 	mov	_drawChar_sloc5_1_0,r3
-      000A76 E5 5F            [12] 2590 	mov	a,_drawChar_PARM_4
-      000A78 B5 61 08         [24] 2591 	cjne	a,_drawChar_PARM_5,00182$
-      000A7B E5 60            [12] 2592 	mov	a,(_drawChar_PARM_4 + 1)
-      000A7D B5 62 03         [24] 2593 	cjne	a,(_drawChar_PARM_5 + 1),00182$
-      000A80 D3               [12] 2594 	setb	c
-      000A81 80 01            [24] 2595 	sjmp	00183$
-      000A83                       2596 00182$:
-      000A83 C3               [12] 2597 	clr	c
-      000A84                       2598 00183$:
-      000A84 92 00            [24] 2599 	mov	_drawChar_sloc0_1_0,c
-      000A86 79 00            [12] 2600 	mov	r1,#0x00
-      000A88                       2601 00124$:
-                                   2602 ;	ecen4330_lcd_v3.c:399: if (i == 5) {
-      000A88 B9 05 07         [24] 2603 	cjne	r1,#0x05,00107$
-                                   2604 ;	ecen4330_lcd_v3.c:400: line = 0x0;
-      000A8B 90 00 0B         [24] 2605 	mov	dptr,#_drawChar_line_196609_158
-      000A8E E4               [12] 2606 	clr	a
-      000A8F F0               [24] 2607 	movx	@dptr,a
-      000A90 80 49            [24] 2608 	sjmp	00136$
-      000A92                       2609 00107$:
-                                   2610 ;	ecen4330_lcd_v3.c:402: line = pgm_read_byte(font+(c*5)+i);
-      000A92 85 5E 08         [24] 2611 	mov	__mulint_PARM_2,_drawChar_PARM_3
-      000A95 75 09 00         [24] 2612 	mov	(__mulint_PARM_2 + 1),#0x00
-      000A98 90 00 05         [24] 2613 	mov	dptr,#0x0005
-      000A9B C0 07            [24] 2614 	push	ar7
-      000A9D C0 06            [24] 2615 	push	ar6
-      000A9F C0 05            [24] 2616 	push	ar5
-      000AA1 C0 04            [24] 2617 	push	ar4
-      000AA3 C0 03            [24] 2618 	push	ar3
-      000AA5 C0 01            [24] 2619 	push	ar1
-      000AA7 12 1F B2         [24] 2620 	lcall	__mulint
-      000AAA A8 82            [24] 2621 	mov	r0,dpl
-      000AAC AA 83            [24] 2622 	mov	r2,dph
-      000AAE D0 01            [24] 2623 	pop	ar1
-      000AB0 D0 03            [24] 2624 	pop	ar3
-      000AB2 D0 04            [24] 2625 	pop	ar4
-      000AB4 D0 05            [24] 2626 	pop	ar5
-      000AB6 D0 06            [24] 2627 	pop	ar6
-      000AB8 D0 07            [24] 2628 	pop	ar7
-      000ABA E8               [12] 2629 	mov	a,r0
-      000ABB 24 AA            [12] 2630 	add	a,#_font
-      000ABD F5 64            [12] 2631 	mov	_drawChar_sloc1_1_0,a
-      000ABF EA               [12] 2632 	mov	a,r2
-      000AC0 34 20            [12] 2633 	addc	a,#(_font >> 8)
-      000AC2 F5 65            [12] 2634 	mov	(_drawChar_sloc1_1_0 + 1),a
-      000AC4 E9               [12] 2635 	mov	a,r1
-      000AC5 F8               [12] 2636 	mov	r0,a
-      000AC6 33               [12] 2637 	rlc	a
-      000AC7 95 E0            [12] 2638 	subb	a,acc
-      000AC9 FA               [12] 2639 	mov	r2,a
-      000ACA E8               [12] 2640 	mov	a,r0
-      000ACB 25 64            [12] 2641 	add	a,_drawChar_sloc1_1_0
-      000ACD F5 82            [12] 2642 	mov	dpl,a
-      000ACF EA               [12] 2643 	mov	a,r2
-      000AD0 35 65            [12] 2644 	addc	a,(_drawChar_sloc1_1_0 + 1)
-      000AD2 F5 83            [12] 2645 	mov	dph,a
-      000AD4 E4               [12] 2646 	clr	a
-      000AD5 93               [24] 2647 	movc	a,@a+dptr
-      000AD6 FA               [12] 2648 	mov	r2,a
-      000AD7 90 00 0B         [24] 2649 	mov	dptr,#_drawChar_line_196609_158
-      000ADA F0               [24] 2650 	movx	@dptr,a
-                                   2651 ;	ecen4330_lcd_v3.c:396: for (i = 0; i < 6; i++)	{
-                                   2652 ;	ecen4330_lcd_v3.c:407: for (j = 0; j < 8; j++) {
-      000ADB                       2653 00136$:
-      000ADB C2 D5            [12] 2654 	clr	F0
-      000ADD 85 63 F0         [24] 2655 	mov	b,_drawChar_PARM_6
-      000AE0 E9               [12] 2656 	mov	a,r1
-      000AE1 30 E7 04         [24] 2657 	jnb	acc.7,00186$
-      000AE4 B2 D5            [12] 2658 	cpl	F0
-      000AE6 F4               [12] 2659 	cpl	a
-      000AE7 04               [12] 2660 	inc	a
-      000AE8                       2661 00186$:
-      000AE8 A4               [48] 2662 	mul	ab
-      000AE9 30 D5 0A         [24] 2663 	jnb	F0,00187$
-      000AEC F4               [12] 2664 	cpl	a
-      000AED 24 01            [12] 2665 	add	a,#0x01
-      000AEF C5 F0            [12] 2666 	xch	a,b
-      000AF1 F4               [12] 2667 	cpl	a
-      000AF2 34 00            [12] 2668 	addc	a,#0x00
-      000AF4 C5 F0            [12] 2669 	xch	a,b
-      000AF6                       2670 00187$:
-      000AF6 2E               [12] 2671 	add	a,r6
-      000AF7 F5 64            [12] 2672 	mov	_drawChar_sloc1_1_0,a
-      000AF9 EF               [12] 2673 	mov	a,r7
-      000AFA 35 F0            [12] 2674 	addc	a,b
-      000AFC F5 65            [12] 2675 	mov	(_drawChar_sloc1_1_0 + 1),a
-      000AFE 89 00            [24] 2676 	mov	ar0,r1
-      000B00 85 64 66         [24] 2677 	mov	_drawChar_sloc2_1_0,_drawChar_sloc1_1_0
-      000B03 85 65 67         [24] 2678 	mov	(_drawChar_sloc2_1_0 + 1),(_drawChar_sloc1_1_0 + 1)
-      000B06 89 68            [24] 2679 	mov	_drawChar_sloc3_1_0,r1
-      000B08 75 69 00         [24] 2680 	mov	_drawChar_sloc4_1_0,#0x00
-      000B0B                       2681 00122$:
-                                   2682 ;	ecen4330_lcd_v3.c:408: if (line & 0x1) {
-      000B0B 90 00 0B         [24] 2683 	mov	dptr,#_drawChar_line_196609_158
-      000B0E E0               [24] 2684 	movx	a,@dptr
-      000B0F 20 E0 03         [24] 2685 	jb	acc.0,00188$
-      000B12 02 0B CA         [24] 2686 	ljmp	00118$
-      000B15                       2687 00188$:
-                                   2688 ;	ecen4330_lcd_v3.c:409: if (size == 1) {
-      000B15 EB               [12] 2689 	mov	a,r3
-      000B16 60 4E            [24] 2690 	jz	00110$
-                                   2691 ;	ecen4330_lcd_v3.c:410: drawPixel(x+i, y+j, color);
-      000B18 C0 00            [24] 2692 	push	ar0
-      000B1A E5 68            [12] 2693 	mov	a,_drawChar_sloc3_1_0
-      000B1C F8               [12] 2694 	mov	r0,a
-      000B1D 33               [12] 2695 	rlc	a
-      000B1E 95 E0            [12] 2696 	subb	a,acc
-      000B20 FA               [12] 2697 	mov	r2,a
-      000B21 E8               [12] 2698 	mov	a,r0
-      000B22 2E               [12] 2699 	add	a,r6
-      000B23 F8               [12] 2700 	mov	r0,a
-      000B24 EA               [12] 2701 	mov	a,r2
-      000B25 3F               [12] 2702 	addc	a,r7
-      000B26 FA               [12] 2703 	mov	r2,a
-      000B27 88 82            [24] 2704 	mov	dpl,r0
-      000B29 8A 83            [24] 2705 	mov	dph,r2
-      000B2B E5 69            [12] 2706 	mov	a,_drawChar_sloc4_1_0
-      000B2D F8               [12] 2707 	mov	r0,a
-      000B2E 33               [12] 2708 	rlc	a
-      000B2F 95 E0            [12] 2709 	subb	a,acc
-      000B31 FA               [12] 2710 	mov	r2,a
-      000B32 E8               [12] 2711 	mov	a,r0
-      000B33 2C               [12] 2712 	add	a,r4
-      000B34 F8               [12] 2713 	mov	r0,a
-      000B35 EA               [12] 2714 	mov	a,r2
-      000B36 3D               [12] 2715 	addc	a,r5
-      000B37 FA               [12] 2716 	mov	r2,a
-      000B38 88 39            [24] 2717 	mov	_drawPixel_PARM_2,r0
-      000B3A 8A 3A            [24] 2718 	mov	(_drawPixel_PARM_2 + 1),r2
-      000B3C 85 5F 3B         [24] 2719 	mov	_drawPixel_PARM_3,_drawChar_PARM_4
-      000B3F 85 60 3C         [24] 2720 	mov	(_drawPixel_PARM_3 + 1),(_drawChar_PARM_4 + 1)
-      000B42 C0 07            [24] 2721 	push	ar7
-      000B44 C0 06            [24] 2722 	push	ar6
-      000B46 C0 05            [24] 2723 	push	ar5
-      000B48 C0 04            [24] 2724 	push	ar4
-      000B4A C0 03            [24] 2725 	push	ar3
-      000B4C C0 01            [24] 2726 	push	ar1
-      000B4E C0 00            [24] 2727 	push	ar0
-      000B50 12 04 28         [24] 2728 	lcall	_drawPixel
-      000B53 D0 00            [24] 2729 	pop	ar0
-      000B55 D0 01            [24] 2730 	pop	ar1
-      000B57 D0 03            [24] 2731 	pop	ar3
-      000B59 D0 04            [24] 2732 	pop	ar4
-      000B5B D0 05            [24] 2733 	pop	ar5
-      000B5D D0 06            [24] 2734 	pop	ar6
-      000B5F D0 07            [24] 2735 	pop	ar7
-      000B61 D0 00            [24] 2736 	pop	ar0
-      000B63 02 0C 81         [24] 2737 	ljmp	00119$
-      000B66                       2738 00110$:
-                                   2739 ;	ecen4330_lcd_v3.c:412: fillRect(x+(i*size), y+(j*size), size, size, color);
-      000B66 C0 00            [24] 2740 	push	ar0
-      000B68 85 66 82         [24] 2741 	mov	dpl,_drawChar_sloc2_1_0
-      000B6B 85 67 83         [24] 2742 	mov	dph,(_drawChar_sloc2_1_0 + 1)
-      000B6E C2 D5            [12] 2743 	clr	F0
-      000B70 85 63 F0         [24] 2744 	mov	b,_drawChar_PARM_6
-      000B73 E5 69            [12] 2745 	mov	a,_drawChar_sloc4_1_0
-      000B75 30 E7 04         [24] 2746 	jnb	acc.7,00190$
-      000B78 B2 D5            [12] 2747 	cpl	F0
-      000B7A F4               [12] 2748 	cpl	a
-      000B7B 04               [12] 2749 	inc	a
-      000B7C                       2750 00190$:
-      000B7C A4               [48] 2751 	mul	ab
-      000B7D 30 D5 0A         [24] 2752 	jnb	F0,00191$
-      000B80 F4               [12] 2753 	cpl	a
-      000B81 24 01            [12] 2754 	add	a,#0x01
-      000B83 C5 F0            [12] 2755 	xch	a,b
-      000B85 F4               [12] 2756 	cpl	a
-      000B86 34 00            [12] 2757 	addc	a,#0x00
-      000B88 C5 F0            [12] 2758 	xch	a,b
-      000B8A                       2759 00191$:
-      000B8A 2C               [12] 2760 	add	a,r4
-      000B8B F8               [12] 2761 	mov	r0,a
-      000B8C ED               [12] 2762 	mov	a,r5
-      000B8D 35 F0            [12] 2763 	addc	a,b
-      000B8F FA               [12] 2764 	mov	r2,a
-      000B90 88 54            [24] 2765 	mov	_fillRect_PARM_2,r0
-      000B92 8A 55            [24] 2766 	mov	(_fillRect_PARM_2 + 1),r2
-      000B94 A8 63            [24] 2767 	mov	r0,_drawChar_PARM_6
-      000B96 7A 00            [12] 2768 	mov	r2,#0x00
-      000B98 88 56            [24] 2769 	mov	_fillRect_PARM_3,r0
-      000B9A 8A 57            [24] 2770 	mov	(_fillRect_PARM_3 + 1),r2
-      000B9C 88 58            [24] 2771 	mov	_fillRect_PARM_4,r0
-      000B9E 8A 59            [24] 2772 	mov	(_fillRect_PARM_4 + 1),r2
-      000BA0 85 5F 5A         [24] 2773 	mov	_fillRect_PARM_5,_drawChar_PARM_4
-      000BA3 85 60 5B         [24] 2774 	mov	(_fillRect_PARM_5 + 1),(_drawChar_PARM_4 + 1)
-      000BA6 C0 07            [24] 2775 	push	ar7
-      000BA8 C0 06            [24] 2776 	push	ar6
-      000BAA C0 05            [24] 2777 	push	ar5
-      000BAC C0 04            [24] 2778 	push	ar4
-      000BAE C0 03            [24] 2779 	push	ar3
-      000BB0 C0 01            [24] 2780 	push	ar1
-      000BB2 C0 00            [24] 2781 	push	ar0
-      000BB4 12 08 2A         [24] 2782 	lcall	_fillRect
-      000BB7 D0 00            [24] 2783 	pop	ar0
-      000BB9 D0 01            [24] 2784 	pop	ar1
-      000BBB D0 03            [24] 2785 	pop	ar3
-      000BBD D0 04            [24] 2786 	pop	ar4
-      000BBF D0 05            [24] 2787 	pop	ar5
-      000BC1 D0 06            [24] 2788 	pop	ar6
-      000BC3 D0 07            [24] 2789 	pop	ar7
-      000BC5 D0 00            [24] 2790 	pop	ar0
-      000BC7 02 0C 81         [24] 2791 	ljmp	00119$
-      000BCA                       2792 00118$:
-                                   2793 ;	ecen4330_lcd_v3.c:414: } else if (bg != color) {
-      000BCA 30 00 03         [24] 2794 	jnb	_drawChar_sloc0_1_0,00192$
-      000BCD 02 0C 81         [24] 2795 	ljmp	00119$
-      000BD0                       2796 00192$:
-                                   2797 ;	ecen4330_lcd_v3.c:415: if (size == 1) {
-      000BD0 E5 6A            [12] 2798 	mov	a,_drawChar_sloc5_1_0
-      000BD2 60 4C            [24] 2799 	jz	00113$
-                                   2800 ;	ecen4330_lcd_v3.c:416: drawPixel(x+i, y+j, bg);
-      000BD4 C0 03            [24] 2801 	push	ar3
-      000BD6 E8               [12] 2802 	mov	a,r0
-      000BD7 FA               [12] 2803 	mov	r2,a
-      000BD8 33               [12] 2804 	rlc	a
-      000BD9 95 E0            [12] 2805 	subb	a,acc
-      000BDB FB               [12] 2806 	mov	r3,a
-      000BDC EA               [12] 2807 	mov	a,r2
-      000BDD 2E               [12] 2808 	add	a,r6
-      000BDE FA               [12] 2809 	mov	r2,a
-      000BDF EB               [12] 2810 	mov	a,r3
-      000BE0 3F               [12] 2811 	addc	a,r7
-      000BE1 FB               [12] 2812 	mov	r3,a
-      000BE2 8A 82            [24] 2813 	mov	dpl,r2
-      000BE4 8B 83            [24] 2814 	mov	dph,r3
-      000BE6 E5 69            [12] 2815 	mov	a,_drawChar_sloc4_1_0
-      000BE8 FA               [12] 2816 	mov	r2,a
-      000BE9 33               [12] 2817 	rlc	a
-      000BEA 95 E0            [12] 2818 	subb	a,acc
-      000BEC FB               [12] 2819 	mov	r3,a
-      000BED EA               [12] 2820 	mov	a,r2
-      000BEE 2C               [12] 2821 	add	a,r4
-      000BEF FA               [12] 2822 	mov	r2,a
-      000BF0 EB               [12] 2823 	mov	a,r3
-      000BF1 3D               [12] 2824 	addc	a,r5
-      000BF2 FB               [12] 2825 	mov	r3,a
-      000BF3 8A 39            [24] 2826 	mov	_drawPixel_PARM_2,r2
-      000BF5 8B 3A            [24] 2827 	mov	(_drawPixel_PARM_2 + 1),r3
-      000BF7 85 61 3B         [24] 2828 	mov	_drawPixel_PARM_3,_drawChar_PARM_5
-      000BFA 85 62 3C         [24] 2829 	mov	(_drawPixel_PARM_3 + 1),(_drawChar_PARM_5 + 1)
-      000BFD C0 07            [24] 2830 	push	ar7
-      000BFF C0 06            [24] 2831 	push	ar6
-      000C01 C0 05            [24] 2832 	push	ar5
-      000C03 C0 04            [24] 2833 	push	ar4
-      000C05 C0 03            [24] 2834 	push	ar3
-      000C07 C0 01            [24] 2835 	push	ar1
-      000C09 C0 00            [24] 2836 	push	ar0
-      000C0B 12 04 28         [24] 2837 	lcall	_drawPixel
-      000C0E D0 00            [24] 2838 	pop	ar0
-      000C10 D0 01            [24] 2839 	pop	ar1
-      000C12 D0 03            [24] 2840 	pop	ar3
-      000C14 D0 04            [24] 2841 	pop	ar4
-      000C16 D0 05            [24] 2842 	pop	ar5
-      000C18 D0 06            [24] 2843 	pop	ar6
-      000C1A D0 07            [24] 2844 	pop	ar7
-      000C1C D0 03            [24] 2845 	pop	ar3
-      000C1E 80 61            [24] 2846 	sjmp	00119$
-      000C20                       2847 00113$:
-                                   2848 ;	ecen4330_lcd_v3.c:418: fillRect(x+i*size, y+j*size, size, size, bg);
-      000C20 C0 00            [24] 2849 	push	ar0
-      000C22 85 64 82         [24] 2850 	mov	dpl,_drawChar_sloc1_1_0
-      000C25 85 65 83         [24] 2851 	mov	dph,(_drawChar_sloc1_1_0 + 1)
-      000C28 C2 D5            [12] 2852 	clr	F0
-      000C2A 85 63 F0         [24] 2853 	mov	b,_drawChar_PARM_6
-      000C2D E5 69            [12] 2854 	mov	a,_drawChar_sloc4_1_0
-      000C2F 30 E7 04         [24] 2855 	jnb	acc.7,00194$
-      000C32 B2 D5            [12] 2856 	cpl	F0
-      000C34 F4               [12] 2857 	cpl	a
-      000C35 04               [12] 2858 	inc	a
-      000C36                       2859 00194$:
-      000C36 A4               [48] 2860 	mul	ab
-      000C37 30 D5 0A         [24] 2861 	jnb	F0,00195$
-      000C3A F4               [12] 2862 	cpl	a
-      000C3B 24 01            [12] 2863 	add	a,#0x01
-      000C3D C5 F0            [12] 2864 	xch	a,b
-      000C3F F4               [12] 2865 	cpl	a
-      000C40 34 00            [12] 2866 	addc	a,#0x00
-      000C42 C5 F0            [12] 2867 	xch	a,b
-      000C44                       2868 00195$:
-      000C44 2C               [12] 2869 	add	a,r4
-      000C45 F8               [12] 2870 	mov	r0,a
-      000C46 ED               [12] 2871 	mov	a,r5
-      000C47 35 F0            [12] 2872 	addc	a,b
-      000C49 FA               [12] 2873 	mov	r2,a
-      000C4A 88 54            [24] 2874 	mov	_fillRect_PARM_2,r0
-      000C4C 8A 55            [24] 2875 	mov	(_fillRect_PARM_2 + 1),r2
-      000C4E A8 63            [24] 2876 	mov	r0,_drawChar_PARM_6
-      000C50 7A 00            [12] 2877 	mov	r2,#0x00
-      000C52 88 56            [24] 2878 	mov	_fillRect_PARM_3,r0
-      000C54 8A 57            [24] 2879 	mov	(_fillRect_PARM_3 + 1),r2
-      000C56 88 58            [24] 2880 	mov	_fillRect_PARM_4,r0
-      000C58 8A 59            [24] 2881 	mov	(_fillRect_PARM_4 + 1),r2
-      000C5A 85 61 5A         [24] 2882 	mov	_fillRect_PARM_5,_drawChar_PARM_5
-      000C5D 85 62 5B         [24] 2883 	mov	(_fillRect_PARM_5 + 1),(_drawChar_PARM_5 + 1)
-      000C60 C0 07            [24] 2884 	push	ar7
-      000C62 C0 06            [24] 2885 	push	ar6
-      000C64 C0 05            [24] 2886 	push	ar5
-      000C66 C0 04            [24] 2887 	push	ar4
-      000C68 C0 03            [24] 2888 	push	ar3
-      000C6A C0 01            [24] 2889 	push	ar1
-      000C6C C0 00            [24] 2890 	push	ar0
-      000C6E 12 08 2A         [24] 2891 	lcall	_fillRect
-      000C71 D0 00            [24] 2892 	pop	ar0
-      000C73 D0 01            [24] 2893 	pop	ar1
-      000C75 D0 03            [24] 2894 	pop	ar3
-      000C77 D0 04            [24] 2895 	pop	ar4
-      000C79 D0 05            [24] 2896 	pop	ar5
-      000C7B D0 06            [24] 2897 	pop	ar6
-      000C7D D0 07            [24] 2898 	pop	ar7
-                                   2899 ;	ecen4330_lcd_v3.c:396: for (i = 0; i < 6; i++)	{
-      000C7F D0 00            [24] 2900 	pop	ar0
-                                   2901 ;	ecen4330_lcd_v3.c:418: fillRect(x+i*size, y+j*size, size, size, bg);
-      000C81                       2902 00119$:
-                                   2903 ;	ecen4330_lcd_v3.c:422: line >>= 1;
-      000C81 90 00 0B         [24] 2904 	mov	dptr,#_drawChar_line_196609_158
-      000C84 E0               [24] 2905 	movx	a,@dptr
-      000C85 C3               [12] 2906 	clr	c
-      000C86 13               [12] 2907 	rrc	a
-      000C87 FA               [12] 2908 	mov	r2,a
-      000C88 F0               [24] 2909 	movx	@dptr,a
-                                   2910 ;	ecen4330_lcd_v3.c:407: for (j = 0; j < 8; j++) {
-      000C89 05 69            [12] 2911 	inc	_drawChar_sloc4_1_0
-      000C8B C3               [12] 2912 	clr	c
-      000C8C E5 69            [12] 2913 	mov	a,_drawChar_sloc4_1_0
-      000C8E 64 80            [12] 2914 	xrl	a,#0x80
-      000C90 94 88            [12] 2915 	subb	a,#0x88
-      000C92 50 03            [24] 2916 	jnc	00196$
-      000C94 02 0B 0B         [24] 2917 	ljmp	00122$
-      000C97                       2918 00196$:
-                                   2919 ;	ecen4330_lcd_v3.c:396: for (i = 0; i < 6; i++)	{
-      000C97 09               [12] 2920 	inc	r1
-      000C98 C3               [12] 2921 	clr	c
-      000C99 E9               [12] 2922 	mov	a,r1
-      000C9A 64 80            [12] 2923 	xrl	a,#0x80
-      000C9C 94 86            [12] 2924 	subb	a,#0x86
-      000C9E 50 03            [24] 2925 	jnc	00197$
-      000CA0 02 0A 88         [24] 2926 	ljmp	00124$
-      000CA3                       2927 00197$:
-                                   2928 ;	ecen4330_lcd_v3.c:425: }
-      000CA3 22               [24] 2929 	ret
-                                   2930 ;------------------------------------------------------------
-                                   2931 ;Allocation info for local variables in function 'write'
-                                   2932 ;------------------------------------------------------------
-                                   2933 ;c                         Allocated to registers r7 
-                                   2934 ;------------------------------------------------------------
-                                   2935 ;	ecen4330_lcd_v3.c:432: void write (uint8_t c)
-                                   2936 ;	-----------------------------------------
-                                   2937 ;	 function write
-                                   2938 ;	-----------------------------------------
-      000CA4                       2939 _write:
-      000CA4 AF 82            [24] 2940 	mov	r7,dpl
-                                   2941 ;	ecen4330_lcd_v3.c:434: if (c == '\n') {
-      000CA6 BF 0A 26         [24] 2942 	cjne	r7,#0x0a,00105$
-                                   2943 ;	ecen4330_lcd_v3.c:435: cursor_y += textsize*8;
-      000CA9 AD 33            [24] 2944 	mov	r5,_textsize
-      000CAB E4               [12] 2945 	clr	a
-      000CAC C4               [12] 2946 	swap	a
-      000CAD 03               [12] 2947 	rr	a
-      000CAE 54 F8            [12] 2948 	anl	a,#0xf8
-      000CB0 CD               [12] 2949 	xch	a,r5
-      000CB1 C4               [12] 2950 	swap	a
-      000CB2 03               [12] 2951 	rr	a
-      000CB3 CD               [12] 2952 	xch	a,r5
-      000CB4 6D               [12] 2953 	xrl	a,r5
-      000CB5 CD               [12] 2954 	xch	a,r5
-      000CB6 54 F8            [12] 2955 	anl	a,#0xf8
-      000CB8 CD               [12] 2956 	xch	a,r5
-      000CB9 6D               [12] 2957 	xrl	a,r5
-      000CBA FE               [12] 2958 	mov	r6,a
-      000CBB AB 31            [24] 2959 	mov	r3,_cursor_y
-      000CBD AC 32            [24] 2960 	mov	r4,(_cursor_y + 1)
-      000CBF ED               [12] 2961 	mov	a,r5
-      000CC0 2B               [12] 2962 	add	a,r3
-      000CC1 FB               [12] 2963 	mov	r3,a
-      000CC2 EE               [12] 2964 	mov	a,r6
-      000CC3 3C               [12] 2965 	addc	a,r4
-      000CC4 FC               [12] 2966 	mov	r4,a
-      000CC5 8B 31            [24] 2967 	mov	_cursor_y,r3
-      000CC7 8C 32            [24] 2968 	mov	(_cursor_y + 1),r4
-                                   2969 ;	ecen4330_lcd_v3.c:436: cursor_x  = 0;
-      000CC9 E4               [12] 2970 	clr	a
-      000CCA F5 2F            [12] 2971 	mov	_cursor_x,a
-      000CCC F5 30            [12] 2972 	mov	(_cursor_x + 1),a
-      000CCE 22               [24] 2973 	ret
-      000CCF                       2974 00105$:
-                                   2975 ;	ecen4330_lcd_v3.c:437: } else if (c == '\r') {
-      000CCF BF 0D 01         [24] 2976 	cjne	r7,#0x0d,00119$
-      000CD2 22               [24] 2977 	ret
-      000CD3                       2978 00119$:
-                                   2979 ;	ecen4330_lcd_v3.c:440: drawChar(cursor_x, cursor_y, c, textcolor, textbgcolor, textsize);
-      000CD3 85 31 5C         [24] 2980 	mov	_drawChar_PARM_2,_cursor_y
-      000CD6 85 32 5D         [24] 2981 	mov	(_drawChar_PARM_2 + 1),(_cursor_y + 1)
-      000CD9 8F 5E            [24] 2982 	mov	_drawChar_PARM_3,r7
-      000CDB 85 35 5F         [24] 2983 	mov	_drawChar_PARM_4,_textcolor
-      000CDE 85 36 60         [24] 2984 	mov	(_drawChar_PARM_4 + 1),(_textcolor + 1)
-      000CE1 85 37 61         [24] 2985 	mov	_drawChar_PARM_5,_textbgcolor
-      000CE4 85 38 62         [24] 2986 	mov	(_drawChar_PARM_5 + 1),(_textbgcolor + 1)
-      000CE7 85 33 63         [24] 2987 	mov	_drawChar_PARM_6,_textsize
-      000CEA 85 2F 82         [24] 2988 	mov	dpl,_cursor_x
-      000CED 85 30 83         [24] 2989 	mov	dph,(_cursor_x + 1)
-      000CF0 12 09 F2         [24] 2990 	lcall	_drawChar
-                                   2991 ;	ecen4330_lcd_v3.c:441: cursor_x += textsize*6;
-      000CF3 85 33 08         [24] 2992 	mov	__mulint_PARM_2,_textsize
-      000CF6 75 09 00         [24] 2993 	mov	(__mulint_PARM_2 + 1),#0x00
-      000CF9 90 00 06         [24] 2994 	mov	dptr,#0x0006
-      000CFC 12 1F B2         [24] 2995 	lcall	__mulint
-      000CFF AE 82            [24] 2996 	mov	r6,dpl
-      000D01 AF 83            [24] 2997 	mov	r7,dph
-      000D03 AC 2F            [24] 2998 	mov	r4,_cursor_x
-      000D05 AD 30            [24] 2999 	mov	r5,(_cursor_x + 1)
-      000D07 EE               [12] 3000 	mov	a,r6
-      000D08 2C               [12] 3001 	add	a,r4
-      000D09 FC               [12] 3002 	mov	r4,a
-      000D0A EF               [12] 3003 	mov	a,r7
-      000D0B 3D               [12] 3004 	addc	a,r5
-      000D0C FD               [12] 3005 	mov	r5,a
-      000D0D 8C 2F            [24] 3006 	mov	_cursor_x,r4
-      000D0F 8D 30            [24] 3007 	mov	(_cursor_x + 1),r5
-                                   3008 ;	ecen4330_lcd_v3.c:443: }
-      000D11 22               [24] 3009 	ret
-                                   3010 ;------------------------------------------------------------
-                                   3011 ;Allocation info for local variables in function 'LCD_string_write'
-                                   3012 ;------------------------------------------------------------
-                                   3013 ;str                       Allocated to registers r5 r6 r7 
-                                   3014 ;i                         Allocated with name '_LCD_string_write_i_65536_176'
-                                   3015 ;------------------------------------------------------------
-                                   3016 ;	ecen4330_lcd_v3.c:450: void LCD_string_write (int8_t *str) {
-                                   3017 ;	-----------------------------------------
-                                   3018 ;	 function LCD_string_write
-                                   3019 ;	-----------------------------------------
-      000D12                       3020 _LCD_string_write:
-      000D12 AD 82            [24] 3021 	mov	r5,dpl
-      000D14 AE 83            [24] 3022 	mov	r6,dph
-      000D16 AF F0            [24] 3023 	mov	r7,b
-                                   3024 ;	ecen4330_lcd_v3.c:453: for (i = 0; str[i] != 0; i++) {
-      000D18 7B 00            [12] 3025 	mov	r3,#0x00
-      000D1A 7C 00            [12] 3026 	mov	r4,#0x00
-      000D1C                       3027 00103$:
-      000D1C EB               [12] 3028 	mov	a,r3
-      000D1D 2D               [12] 3029 	add	a,r5
-      000D1E F8               [12] 3030 	mov	r0,a
-      000D1F EC               [12] 3031 	mov	a,r4
-      000D20 3E               [12] 3032 	addc	a,r6
-      000D21 F9               [12] 3033 	mov	r1,a
-      000D22 8F 02            [24] 3034 	mov	ar2,r7
-      000D24 88 82            [24] 3035 	mov	dpl,r0
-      000D26 89 83            [24] 3036 	mov	dph,r1
-      000D28 8A F0            [24] 3037 	mov	b,r2
-      000D2A 12 20 1C         [24] 3038 	lcall	__gptrget
-      000D2D FA               [12] 3039 	mov	r2,a
-      000D2E 60 20            [24] 3040 	jz	00105$
-                                   3041 ;	ecen4330_lcd_v3.c:454: write(str[i]);
-      000D30 8A 82            [24] 3042 	mov	dpl,r2
-      000D32 C0 07            [24] 3043 	push	ar7
-      000D34 C0 06            [24] 3044 	push	ar6
-      000D36 C0 05            [24] 3045 	push	ar5
-      000D38 C0 04            [24] 3046 	push	ar4
-      000D3A C0 03            [24] 3047 	push	ar3
-      000D3C 12 0C A4         [24] 3048 	lcall	_write
-      000D3F D0 03            [24] 3049 	pop	ar3
-      000D41 D0 04            [24] 3050 	pop	ar4
-      000D43 D0 05            [24] 3051 	pop	ar5
-      000D45 D0 06            [24] 3052 	pop	ar6
-      000D47 D0 07            [24] 3053 	pop	ar7
-                                   3054 ;	ecen4330_lcd_v3.c:453: for (i = 0; str[i] != 0; i++) {
-      000D49 0B               [12] 3055 	inc	r3
-      000D4A BB 00 CF         [24] 3056 	cjne	r3,#0x00,00103$
-      000D4D 0C               [12] 3057 	inc	r4
-      000D4E 80 CC            [24] 3058 	sjmp	00103$
-      000D50                       3059 00105$:
-                                   3060 ;	ecen4330_lcd_v3.c:456: }
-      000D50 22               [24] 3061 	ret
-                                   3062 ;------------------------------------------------------------
-                                   3063 ;Allocation info for local variables in function 'testRAM'
-                                   3064 ;------------------------------------------------------------
-                                   3065 ;d                         Allocated with name '_testRAM_d_65536_179'
-                                   3066 ;i                         Allocated with name '_testRAM_i_65536_180'
-                                   3067 ;ram_address               Allocated to registers 
-                                   3068 ;------------------------------------------------------------
-                                   3069 ;	ecen4330_lcd_v3.c:463: void testRAM (__xdata uint8_t d) {
-                                   3070 ;	-----------------------------------------
-                                   3071 ;	 function testRAM
-                                   3072 ;	-----------------------------------------
-      000D51                       3073 _testRAM:
-      000D51 E5 82            [12] 3074 	mov	a,dpl
-      000D53 90 00 0C         [24] 3075 	mov	dptr,#_testRAM_d_65536_179
-      000D56 F0               [24] 3076 	movx	@dptr,a
-                                   3077 ;	ecen4330_lcd_v3.c:467: for (i = __START_RAM__; i < __END_RAM__; i++) {
-      000D57 E0               [24] 3078 	movx	a,@dptr
-      000D58 FF               [12] 3079 	mov	r7,a
-      000D59 7B 00            [12] 3080 	mov	r3,#0x00
-      000D5B 7C 00            [12] 3081 	mov	r4,#0x00
-      000D5D 7D 00            [12] 3082 	mov	r5,#0x00
-      000D5F 7E 00            [12] 3083 	mov	r6,#0x00
-      000D61                       3084 00102$:
-                                   3085 ;	ecen4330_lcd_v3.c:468: IOM = 0;
-                                   3086 ;	assignBit
-      000D61 C2 B4            [12] 3087 	clr	_P3_4
-                                   3088 ;	ecen4330_lcd_v3.c:469: ram_address = (uint8_t __xdata*)(i);
-      000D63 8B 82            [24] 3089 	mov	dpl,r3
-      000D65 8C 83            [24] 3090 	mov	dph,r4
-                                   3091 ;	ecen4330_lcd_v3.c:470: *ram_address = d;
-      000D67 EF               [12] 3092 	mov	a,r7
-      000D68 F0               [24] 3093 	movx	@dptr,a
-                                   3094 ;	ecen4330_lcd_v3.c:471: IOM = 1;
-                                   3095 ;	assignBit
-      000D69 D2 B4            [12] 3096 	setb	_P3_4
-                                   3097 ;	ecen4330_lcd_v3.c:467: for (i = __START_RAM__; i < __END_RAM__; i++) {
-      000D6B 0B               [12] 3098 	inc	r3
-      000D6C BB 00 09         [24] 3099 	cjne	r3,#0x00,00111$
-      000D6F 0C               [12] 3100 	inc	r4
-      000D70 BC 00 05         [24] 3101 	cjne	r4,#0x00,00111$
-      000D73 0D               [12] 3102 	inc	r5
-      000D74 BD 00 01         [24] 3103 	cjne	r5,#0x00,00111$
-      000D77 0E               [12] 3104 	inc	r6
-      000D78                       3105 00111$:
-      000D78 C3               [12] 3106 	clr	c
-      000D79 EB               [12] 3107 	mov	a,r3
-      000D7A 94 FF            [12] 3108 	subb	a,#0xff
-      000D7C EC               [12] 3109 	mov	a,r4
-      000D7D 94 FF            [12] 3110 	subb	a,#0xff
-      000D7F ED               [12] 3111 	mov	a,r5
-      000D80 94 00            [12] 3112 	subb	a,#0x00
-      000D82 EE               [12] 3113 	mov	a,r6
-      000D83 94 00            [12] 3114 	subb	a,#0x00
-      000D85 40 DA            [24] 3115 	jc	00102$
-                                   3116 ;	ecen4330_lcd_v3.c:473: }
-      000D87 22               [24] 3117 	ret
-                                   3118 ;------------------------------------------------------------
-                                   3119 ;Allocation info for local variables in function 'freeType'
-                                   3120 ;------------------------------------------------------------
-                                   3121 ;count                     Allocated with name '_freeType_count_65536_183'
-                                   3122 ;d                         Allocated with name '_freeType_d_65536_183'
-                                   3123 ;------------------------------------------------------------
-                                   3124 ;	ecen4330_lcd_v3.c:479: void freeType () {
-                                   3125 ;	-----------------------------------------
-                                   3126 ;	 function freeType
-                                   3127 ;	-----------------------------------------
-      000D88                       3128 _freeType:
-                                   3129 ;	ecen4330_lcd_v3.c:480: __xdata uint8_t count = 0;
-      000D88 90 00 0D         [24] 3130 	mov	dptr,#_freeType_count_65536_183
-      000D8B E4               [12] 3131 	clr	a
-      000D8C F0               [24] 3132 	movx	@dptr,a
-                                   3133 ;	ecen4330_lcd_v3.c:483: while (1) {
-      000D8D                       3134 00105$:
-                                   3135 ;	ecen4330_lcd_v3.c:484: if (count == 8) {
-      000D8D 90 00 0D         [24] 3136 	mov	dptr,#_freeType_count_65536_183
-      000D90 E0               [24] 3137 	movx	a,@dptr
-      000D91 FF               [12] 3138 	mov	r7,a
-      000D92 BF 08 0D         [24] 3139 	cjne	r7,#0x08,00102$
-                                   3140 ;	ecen4330_lcd_v3.c:486: count = 0;
-      000D95 90 00 0D         [24] 3141 	mov	dptr,#_freeType_count_65536_183
-      000D98 E4               [12] 3142 	clr	a
-      000D99 F0               [24] 3143 	movx	@dptr,a
-                                   3144 ;	ecen4330_lcd_v3.c:487: write(d);
-      000D9A 75 82 0A         [24] 3145 	mov	dpl,#0x0a
-      000D9D 12 0C A4         [24] 3146 	lcall	_write
-      000DA0 80 06            [24] 3147 	sjmp	00103$
-      000DA2                       3148 00102$:
-                                   3149 ;	ecen4330_lcd_v3.c:489: d = keyDetect();
-      000DA2 12 0D B1         [24] 3150 	lcall	_keyDetect
-                                   3151 ;	ecen4330_lcd_v3.c:490: write(d);
-      000DA5 12 0C A4         [24] 3152 	lcall	_write
-      000DA8                       3153 00103$:
-                                   3154 ;	ecen4330_lcd_v3.c:493: count++;
-      000DA8 90 00 0D         [24] 3155 	mov	dptr,#_freeType_count_65536_183
-      000DAB E0               [24] 3156 	movx	a,@dptr
-      000DAC 24 01            [12] 3157 	add	a,#0x01
-      000DAE F0               [24] 3158 	movx	@dptr,a
-                                   3159 ;	ecen4330_lcd_v3.c:495: }
-      000DAF 80 DC            [24] 3160 	sjmp	00105$
-                                   3161 ;------------------------------------------------------------
-                                   3162 ;Allocation info for local variables in function 'keyDetect'
-                                   3163 ;------------------------------------------------------------
-                                   3164 ;	ecen4330_lcd_v3.c:502: uint8_t keyDetect () {
-                                   3165 ;	-----------------------------------------
-                                   3166 ;	 function keyDetect
-                                   3167 ;	-----------------------------------------
-      000DB1                       3168 _keyDetect:
-                                   3169 ;	ecen4330_lcd_v3.c:503: __KEYPAD_PORT__ = 0xF0;
-      000DB1 75 90 F0         [24] 3170 	mov	_P1,#0xf0
-                                   3171 ;	ecen4330_lcd_v3.c:504: do {
-      000DB4                       3172 00101$:
-                                   3173 ;	ecen4330_lcd_v3.c:505: __KEYPAD_PORT__ = 0xF0;
-      000DB4 75 90 F0         [24] 3174 	mov	_P1,#0xf0
-                                   3175 ;	ecen4330_lcd_v3.c:506: colloc = __KEYPAD_PORT__;
-      000DB7 85 90 23         [24] 3176 	mov	_colloc,_P1
-                                   3177 ;	ecen4330_lcd_v3.c:507: colloc&= 0xF0;
-      000DBA 53 23 F0         [24] 3178 	anl	_colloc,#0xf0
-                                   3179 ;	ecen4330_lcd_v3.c:508: } while (colloc != 0xF0);
-      000DBD 74 F0            [12] 3180 	mov	a,#0xf0
-      000DBF B5 23 F2         [24] 3181 	cjne	a,_colloc,00101$
-                                   3182 ;	ecen4330_lcd_v3.c:511: do {
-      000DC2                       3183 00104$:
-                                   3184 ;	ecen4330_lcd_v3.c:512: delay(20);
-      000DC2 90 00 14         [24] 3185 	mov	dptr,#0x0014
-      000DC5 12 00 E8         [24] 3186 	lcall	_delay
-                                   3187 ;	ecen4330_lcd_v3.c:513: colloc = (__KEYPAD_PORT__ & 0xF0);
-      000DC8 E5 90            [12] 3188 	mov	a,_P1
-      000DCA 54 F0            [12] 3189 	anl	a,#0xf0
-      000DCC F5 23            [12] 3190 	mov	_colloc,a
-                                   3191 ;	ecen4330_lcd_v3.c:514: } while (colloc == 0xF0);
-      000DCE 74 F0            [12] 3192 	mov	a,#0xf0
-      000DD0 B5 23 02         [24] 3193 	cjne	a,_colloc,00178$
-      000DD3 80 ED            [24] 3194 	sjmp	00104$
-      000DD5                       3195 00178$:
-                                   3196 ;	ecen4330_lcd_v3.c:516: delay(1);
-      000DD5 90 00 01         [24] 3197 	mov	dptr,#0x0001
-      000DD8 12 00 E8         [24] 3198 	lcall	_delay
-                                   3199 ;	ecen4330_lcd_v3.c:517: colloc = (__KEYPAD_PORT__ & 0xF0);
-      000DDB E5 90            [12] 3200 	mov	a,_P1
-      000DDD 54 F0            [12] 3201 	anl	a,#0xf0
-      000DDF F5 23            [12] 3202 	mov	_colloc,a
-                                   3203 ;	ecen4330_lcd_v3.c:518: } while (colloc == 0xF0);
-      000DE1 74 F0            [12] 3204 	mov	a,#0xf0
-      000DE3 B5 23 02         [24] 3205 	cjne	a,_colloc,00179$
-      000DE6 80 DA            [24] 3206 	sjmp	00104$
-      000DE8                       3207 00179$:
-                                   3208 ;	ecen4330_lcd_v3.c:520: while (1) {
-      000DE8                       3209 00119$:
-                                   3210 ;	ecen4330_lcd_v3.c:521: __KEYPAD_PORT__= 0xFE;
-      000DE8 75 90 FE         [24] 3211 	mov	_P1,#0xfe
-                                   3212 ;	ecen4330_lcd_v3.c:522: colloc = (__KEYPAD_PORT__ & 0xF0);
-      000DEB E5 90            [12] 3213 	mov	a,_P1
-      000DED 54 F0            [12] 3214 	anl	a,#0xf0
-      000DEF F5 23            [12] 3215 	mov	_colloc,a
-                                   3216 ;	ecen4330_lcd_v3.c:523: if (colloc != 0xF0) {
-      000DF1 74 F0            [12] 3217 	mov	a,#0xf0
-      000DF3 B5 23 02         [24] 3218 	cjne	a,_colloc,00180$
-      000DF6 80 05            [24] 3219 	sjmp	00111$
-      000DF8                       3220 00180$:
-                                   3221 ;	ecen4330_lcd_v3.c:524: rowloc = 0;
-      000DF8 75 24 00         [24] 3222 	mov	_rowloc,#0x00
-                                   3223 ;	ecen4330_lcd_v3.c:525: break;
-      000DFB 80 3D            [24] 3224 	sjmp	00120$
-      000DFD                       3225 00111$:
-                                   3226 ;	ecen4330_lcd_v3.c:528: __KEYPAD_PORT__ = 0xFD;
-      000DFD 75 90 FD         [24] 3227 	mov	_P1,#0xfd
-                                   3228 ;	ecen4330_lcd_v3.c:529: colloc = (__KEYPAD_PORT__ & 0xF0);
-      000E00 E5 90            [12] 3229 	mov	a,_P1
-      000E02 54 F0            [12] 3230 	anl	a,#0xf0
-      000E04 F5 23            [12] 3231 	mov	_colloc,a
-                                   3232 ;	ecen4330_lcd_v3.c:530: if (colloc != 0xF0) {
-      000E06 74 F0            [12] 3233 	mov	a,#0xf0
-      000E08 B5 23 02         [24] 3234 	cjne	a,_colloc,00181$
-      000E0B 80 05            [24] 3235 	sjmp	00113$
-      000E0D                       3236 00181$:
-                                   3237 ;	ecen4330_lcd_v3.c:531: rowloc = 1;
-      000E0D 75 24 01         [24] 3238 	mov	_rowloc,#0x01
-                                   3239 ;	ecen4330_lcd_v3.c:532: break;
-      000E10 80 28            [24] 3240 	sjmp	00120$
-      000E12                       3241 00113$:
-                                   3242 ;	ecen4330_lcd_v3.c:535: __KEYPAD_PORT__ = 0xFB;
-      000E12 75 90 FB         [24] 3243 	mov	_P1,#0xfb
-                                   3244 ;	ecen4330_lcd_v3.c:536: colloc = (__KEYPAD_PORT__ & 0xF0);
-      000E15 E5 90            [12] 3245 	mov	a,_P1
-      000E17 54 F0            [12] 3246 	anl	a,#0xf0
-      000E19 F5 23            [12] 3247 	mov	_colloc,a
-                                   3248 ;	ecen4330_lcd_v3.c:537: if (colloc != 0xF0) {
-      000E1B 74 F0            [12] 3249 	mov	a,#0xf0
-      000E1D B5 23 02         [24] 3250 	cjne	a,_colloc,00182$
-      000E20 80 05            [24] 3251 	sjmp	00115$
-      000E22                       3252 00182$:
-                                   3253 ;	ecen4330_lcd_v3.c:538: rowloc = 2;
-      000E22 75 24 02         [24] 3254 	mov	_rowloc,#0x02
-                                   3255 ;	ecen4330_lcd_v3.c:539: break;
-      000E25 80 13            [24] 3256 	sjmp	00120$
-      000E27                       3257 00115$:
-                                   3258 ;	ecen4330_lcd_v3.c:542: __KEYPAD_PORT__ = 0xF7;
-      000E27 75 90 F7         [24] 3259 	mov	_P1,#0xf7
-                                   3260 ;	ecen4330_lcd_v3.c:543: colloc = (__KEYPAD_PORT__ & 0xF0);
-      000E2A E5 90            [12] 3261 	mov	a,_P1
-      000E2C 54 F0            [12] 3262 	anl	a,#0xf0
-      000E2E F5 23            [12] 3263 	mov	_colloc,a
-                                   3264 ;	ecen4330_lcd_v3.c:544: if (colloc != 0xF0) {
-      000E30 74 F0            [12] 3265 	mov	a,#0xf0
-      000E32 B5 23 02         [24] 3266 	cjne	a,_colloc,00183$
-      000E35 80 B1            [24] 3267 	sjmp	00119$
-      000E37                       3268 00183$:
-                                   3269 ;	ecen4330_lcd_v3.c:545: rowloc = 3;
-      000E37 75 24 03         [24] 3270 	mov	_rowloc,#0x03
-                                   3271 ;	ecen4330_lcd_v3.c:546: break;
-      000E3A                       3272 00120$:
-                                   3273 ;	ecen4330_lcd_v3.c:550: if (colloc == 0xE0) {
-      000E3A 74 E0            [12] 3274 	mov	a,#0xe0
-      000E3C B5 23 15         [24] 3275 	cjne	a,_colloc,00128$
-                                   3276 ;	ecen4330_lcd_v3.c:551: return (keypad[rowloc][0]);
-      000E3F E5 24            [12] 3277 	mov	a,_rowloc
-      000E41 75 F0 04         [24] 3278 	mov	b,#0x04
-      000E44 A4               [48] 3279 	mul	ab
-      000E45 24 A5            [12] 3280 	add	a,#_keypad
-      000E47 F5 82            [12] 3281 	mov	dpl,a
-      000E49 74 25            [12] 3282 	mov	a,#(_keypad >> 8)
-      000E4B 35 F0            [12] 3283 	addc	a,b
-      000E4D F5 83            [12] 3284 	mov	dph,a
-      000E4F E4               [12] 3285 	clr	a
-      000E50 93               [24] 3286 	movc	a,@a+dptr
-      000E51 F5 82            [12] 3287 	mov	dpl,a
-      000E53 22               [24] 3288 	ret
-      000E54                       3289 00128$:
-                                   3290 ;	ecen4330_lcd_v3.c:552: } else if (colloc == 0xD0) {
-      000E54 74 D0            [12] 3291 	mov	a,#0xd0
-      000E56 B5 23 18         [24] 3292 	cjne	a,_colloc,00125$
-                                   3293 ;	ecen4330_lcd_v3.c:553: return (keypad[rowloc][1]);
-      000E59 E5 24            [12] 3294 	mov	a,_rowloc
-      000E5B 75 F0 04         [24] 3295 	mov	b,#0x04
-      000E5E A4               [48] 3296 	mul	ab
-      000E5F 24 A5            [12] 3297 	add	a,#_keypad
-      000E61 FE               [12] 3298 	mov	r6,a
-      000E62 74 25            [12] 3299 	mov	a,#(_keypad >> 8)
-      000E64 35 F0            [12] 3300 	addc	a,b
-      000E66 FF               [12] 3301 	mov	r7,a
-      000E67 8E 82            [24] 3302 	mov	dpl,r6
-      000E69 8F 83            [24] 3303 	mov	dph,r7
-      000E6B A3               [24] 3304 	inc	dptr
-      000E6C E4               [12] 3305 	clr	a
-      000E6D 93               [24] 3306 	movc	a,@a+dptr
-      000E6E F5 82            [12] 3307 	mov	dpl,a
-      000E70 22               [24] 3308 	ret
-      000E71                       3309 00125$:
-                                   3310 ;	ecen4330_lcd_v3.c:554: } else if (colloc == 0xB0) {
-      000E71 74 B0            [12] 3311 	mov	a,#0xb0
-      000E73 B5 23 19         [24] 3312 	cjne	a,_colloc,00122$
-                                   3313 ;	ecen4330_lcd_v3.c:555: return (keypad[rowloc][2]);
-      000E76 E5 24            [12] 3314 	mov	a,_rowloc
-      000E78 75 F0 04         [24] 3315 	mov	b,#0x04
-      000E7B A4               [48] 3316 	mul	ab
-      000E7C 24 A5            [12] 3317 	add	a,#_keypad
-      000E7E FE               [12] 3318 	mov	r6,a
-      000E7F 74 25            [12] 3319 	mov	a,#(_keypad >> 8)
-      000E81 35 F0            [12] 3320 	addc	a,b
-      000E83 FF               [12] 3321 	mov	r7,a
-      000E84 8E 82            [24] 3322 	mov	dpl,r6
-      000E86 8F 83            [24] 3323 	mov	dph,r7
-      000E88 A3               [24] 3324 	inc	dptr
-      000E89 A3               [24] 3325 	inc	dptr
-      000E8A E4               [12] 3326 	clr	a
-      000E8B 93               [24] 3327 	movc	a,@a+dptr
-      000E8C F5 82            [12] 3328 	mov	dpl,a
-      000E8E 22               [24] 3329 	ret
-      000E8F                       3330 00122$:
-                                   3331 ;	ecen4330_lcd_v3.c:557: return (keypad[rowloc][3]);
-      000E8F E5 24            [12] 3332 	mov	a,_rowloc
-      000E91 75 F0 04         [24] 3333 	mov	b,#0x04
-      000E94 A4               [48] 3334 	mul	ab
-      000E95 24 A5            [12] 3335 	add	a,#_keypad
-      000E97 FE               [12] 3336 	mov	r6,a
-      000E98 74 25            [12] 3337 	mov	a,#(_keypad >> 8)
-      000E9A 35 F0            [12] 3338 	addc	a,b
-      000E9C FF               [12] 3339 	mov	r7,a
-      000E9D 8E 82            [24] 3340 	mov	dpl,r6
-      000E9F 8F 83            [24] 3341 	mov	dph,r7
-      000EA1 A3               [24] 3342 	inc	dptr
-      000EA2 A3               [24] 3343 	inc	dptr
-      000EA3 A3               [24] 3344 	inc	dptr
-      000EA4 E4               [12] 3345 	clr	a
-      000EA5 93               [24] 3346 	movc	a,@a+dptr
-                                   3347 ;	ecen4330_lcd_v3.c:559: }
-      000EA6 F5 82            [12] 3348 	mov	dpl,a
-      000EA8 22               [24] 3349 	ret
-                                   3350 ;------------------------------------------------------------
-                                   3351 ;Allocation info for local variables in function 'reverse'
-                                   3352 ;------------------------------------------------------------
-                                   3353 ;d                         Allocated to registers r7 
-                                   3354 ;rev                       Allocated with name '_reverse_rev_65536_201'
-                                   3355 ;val                       Allocated with name '_reverse_val_65536_201'
-                                   3356 ;------------------------------------------------------------
-                                   3357 ;	ecen4330_lcd_v3.c:561: uint16_t reverse (uint8_t d) {
-                                   3358 ;	-----------------------------------------
-                                   3359 ;	 function reverse
-                                   3360 ;	-----------------------------------------
-      000EA9                       3361 _reverse:
-      000EA9 AF 82            [24] 3362 	mov	r7,dpl
-                                   3363 ;	ecen4330_lcd_v3.c:562: __xdata uint16_t rev = 0;
-      000EAB 90 00 0E         [24] 3364 	mov	dptr,#_reverse_rev_65536_201
-      000EAE E4               [12] 3365 	clr	a
-      000EAF F0               [24] 3366 	movx	@dptr,a
-      000EB0 A3               [24] 3367 	inc	dptr
-      000EB1 F0               [24] 3368 	movx	@dptr,a
-                                   3369 ;	ecen4330_lcd_v3.c:565: while (d >= 1) {
-      000EB2                       3370 00101$:
-      000EB2 BF 01 00         [24] 3371 	cjne	r7,#0x01,00114$
-      000EB5                       3372 00114$:
-      000EB5 40 63            [24] 3373 	jc	00103$
-                                   3374 ;	ecen4330_lcd_v3.c:566: val = d % 10;
-      000EB7 8F 05            [24] 3375 	mov	ar5,r7
-      000EB9 7E 00            [12] 3376 	mov	r6,#0x00
-      000EBB 75 08 0A         [24] 3377 	mov	__modsint_PARM_2,#0x0a
-                                   3378 ;	1-genFromRTrack replaced	mov	(__modsint_PARM_2 + 1),#0x00
-      000EBE 8E 09            [24] 3379 	mov	(__modsint_PARM_2 + 1),r6
-      000EC0 8D 82            [24] 3380 	mov	dpl,r5
-      000EC2 8E 83            [24] 3381 	mov	dph,r6
-      000EC4 C0 06            [24] 3382 	push	ar6
-      000EC6 C0 05            [24] 3383 	push	ar5
-      000EC8 12 20 38         [24] 3384 	lcall	__modsint
-      000ECB AB 82            [24] 3385 	mov	r3,dpl
-      000ECD AC 83            [24] 3386 	mov	r4,dph
-      000ECF D0 05            [24] 3387 	pop	ar5
-      000ED1 D0 06            [24] 3388 	pop	ar6
-      000ED3 90 00 10         [24] 3389 	mov	dptr,#_reverse_val_65536_201
-      000ED6 EB               [12] 3390 	mov	a,r3
-      000ED7 F0               [24] 3391 	movx	@dptr,a
-      000ED8 EC               [12] 3392 	mov	a,r4
-      000ED9 A3               [24] 3393 	inc	dptr
-      000EDA F0               [24] 3394 	movx	@dptr,a
-                                   3395 ;	ecen4330_lcd_v3.c:567: d = d / 10;
-      000EDB 75 08 0A         [24] 3396 	mov	__divsint_PARM_2,#0x0a
-      000EDE 75 09 00         [24] 3397 	mov	(__divsint_PARM_2 + 1),#0x00
-      000EE1 8D 82            [24] 3398 	mov	dpl,r5
-      000EE3 8E 83            [24] 3399 	mov	dph,r6
-      000EE5 12 20 6E         [24] 3400 	lcall	__divsint
-      000EE8 AD 82            [24] 3401 	mov	r5,dpl
-      000EEA 8D 07            [24] 3402 	mov	ar7,r5
-                                   3403 ;	ecen4330_lcd_v3.c:568: rev = rev * 10 + val;
-      000EEC 90 00 0E         [24] 3404 	mov	dptr,#_reverse_rev_65536_201
-      000EEF E0               [24] 3405 	movx	a,@dptr
-      000EF0 FD               [12] 3406 	mov	r5,a
-      000EF1 A3               [24] 3407 	inc	dptr
-      000EF2 E0               [24] 3408 	movx	a,@dptr
-      000EF3 FE               [12] 3409 	mov	r6,a
-      000EF4 8D 08            [24] 3410 	mov	__mulint_PARM_2,r5
-      000EF6 8E 09            [24] 3411 	mov	(__mulint_PARM_2 + 1),r6
-      000EF8 90 00 0A         [24] 3412 	mov	dptr,#0x000a
-      000EFB C0 07            [24] 3413 	push	ar7
-      000EFD 12 1F B2         [24] 3414 	lcall	__mulint
-      000F00 AD 82            [24] 3415 	mov	r5,dpl
-      000F02 AE 83            [24] 3416 	mov	r6,dph
-      000F04 D0 07            [24] 3417 	pop	ar7
-      000F06 90 00 10         [24] 3418 	mov	dptr,#_reverse_val_65536_201
-      000F09 E0               [24] 3419 	movx	a,@dptr
-      000F0A FB               [12] 3420 	mov	r3,a
-      000F0B A3               [24] 3421 	inc	dptr
-      000F0C E0               [24] 3422 	movx	a,@dptr
-      000F0D FC               [12] 3423 	mov	r4,a
-      000F0E 90 00 0E         [24] 3424 	mov	dptr,#_reverse_rev_65536_201
-      000F11 EB               [12] 3425 	mov	a,r3
-      000F12 2D               [12] 3426 	add	a,r5
-      000F13 F0               [24] 3427 	movx	@dptr,a
-      000F14 EC               [12] 3428 	mov	a,r4
-      000F15 3E               [12] 3429 	addc	a,r6
-      000F16 A3               [24] 3430 	inc	dptr
-      000F17 F0               [24] 3431 	movx	@dptr,a
-      000F18 80 98            [24] 3432 	sjmp	00101$
-      000F1A                       3433 00103$:
-                                   3434 ;	ecen4330_lcd_v3.c:570: return rev;
-      000F1A 90 00 0E         [24] 3435 	mov	dptr,#_reverse_rev_65536_201
-      000F1D E0               [24] 3436 	movx	a,@dptr
-      000F1E FE               [12] 3437 	mov	r6,a
-      000F1F A3               [24] 3438 	inc	dptr
-      000F20 E0               [24] 3439 	movx	a,@dptr
-                                   3440 ;	ecen4330_lcd_v3.c:571: }
-      000F21 8E 82            [24] 3441 	mov	dpl,r6
-      000F23 F5 83            [12] 3442 	mov	dph,a
-      000F25 22               [24] 3443 	ret
-                                   3444 ;------------------------------------------------------------
-                                   3445 ;Allocation info for local variables in function 'asciiToDec'
-                                   3446 ;------------------------------------------------------------
-                                   3447 ;d                         Allocated with name '_asciiToDec_d_65536_203'
-                                   3448 ;val                       Allocated with name '_asciiToDec_val_65536_204'
-                                   3449 ;id                        Allocated with name '_asciiToDec_id_65536_204'
-                                   3450 ;------------------------------------------------------------
-                                   3451 ;	ecen4330_lcd_v3.c:578: void asciiToDec (__xdata uint8_t d) {
-                                   3452 ;	-----------------------------------------
-                                   3453 ;	 function asciiToDec
-                                   3454 ;	-----------------------------------------
-      000F26                       3455 _asciiToDec:
-      000F26 E5 82            [12] 3456 	mov	a,dpl
-      000F28 90 00 12         [24] 3457 	mov	dptr,#_asciiToDec_d_65536_203
-      000F2B F0               [24] 3458 	movx	@dptr,a
-                                   3459 ;	ecen4330_lcd_v3.c:581: id = reverse(d);
-      000F2C E0               [24] 3460 	movx	a,@dptr
-      000F2D F5 82            [12] 3461 	mov	dpl,a
-      000F2F 12 0E A9         [24] 3462 	lcall	_reverse
-      000F32 E5 82            [12] 3463 	mov	a,dpl
-      000F34 85 83 F0         [24] 3464 	mov	b,dph
-      000F37 90 00 14         [24] 3465 	mov	dptr,#_asciiToDec_id_65536_204
-      000F3A F0               [24] 3466 	movx	@dptr,a
-      000F3B E5 F0            [12] 3467 	mov	a,b
-      000F3D A3               [24] 3468 	inc	dptr
-      000F3E F0               [24] 3469 	movx	@dptr,a
-                                   3470 ;	ecen4330_lcd_v3.c:582: while (id >= 1){
-      000F3F                       3471 00101$:
-      000F3F 90 00 14         [24] 3472 	mov	dptr,#_asciiToDec_id_65536_204
-      000F42 E0               [24] 3473 	movx	a,@dptr
-      000F43 FE               [12] 3474 	mov	r6,a
-      000F44 A3               [24] 3475 	inc	dptr
-      000F45 E0               [24] 3476 	movx	a,@dptr
-      000F46 FF               [12] 3477 	mov	r7,a
-      000F47 C3               [12] 3478 	clr	c
-      000F48 EE               [12] 3479 	mov	a,r6
-      000F49 94 01            [12] 3480 	subb	a,#0x01
-      000F4B EF               [12] 3481 	mov	a,r7
-      000F4C 94 00            [12] 3482 	subb	a,#0x00
-      000F4E 40 42            [24] 3483 	jc	00104$
-                                   3484 ;	ecen4330_lcd_v3.c:584: val = id % 10;
-      000F50 75 08 0A         [24] 3485 	mov	__moduint_PARM_2,#0x0a
-      000F53 75 09 00         [24] 3486 	mov	(__moduint_PARM_2 + 1),#0x00
-      000F56 8E 82            [24] 3487 	mov	dpl,r6
-      000F58 8F 83            [24] 3488 	mov	dph,r7
-      000F5A C0 07            [24] 3489 	push	ar7
-      000F5C C0 06            [24] 3490 	push	ar6
-      000F5E 12 1F CF         [24] 3491 	lcall	__moduint
-      000F61 AC 82            [24] 3492 	mov	r4,dpl
-      000F63 D0 06            [24] 3493 	pop	ar6
-      000F65 D0 07            [24] 3494 	pop	ar7
-      000F67 90 00 13         [24] 3495 	mov	dptr,#_asciiToDec_val_65536_204
-      000F6A EC               [12] 3496 	mov	a,r4
-      000F6B F0               [24] 3497 	movx	@dptr,a
-                                   3498 ;	ecen4330_lcd_v3.c:585: id = id / 10;
-      000F6C 75 08 0A         [24] 3499 	mov	__divuint_PARM_2,#0x0a
-      000F6F 75 09 00         [24] 3500 	mov	(__divuint_PARM_2 + 1),#0x00
-      000F72 8E 82            [24] 3501 	mov	dpl,r6
-      000F74 8F 83            [24] 3502 	mov	dph,r7
-      000F76 12 1F 89         [24] 3503 	lcall	__divuint
-      000F79 AE 82            [24] 3504 	mov	r6,dpl
-      000F7B AF 83            [24] 3505 	mov	r7,dph
-      000F7D 90 00 14         [24] 3506 	mov	dptr,#_asciiToDec_id_65536_204
-      000F80 EE               [12] 3507 	mov	a,r6
-      000F81 F0               [24] 3508 	movx	@dptr,a
-      000F82 EF               [12] 3509 	mov	a,r7
-      000F83 A3               [24] 3510 	inc	dptr
-      000F84 F0               [24] 3511 	movx	@dptr,a
-                                   3512 ;	ecen4330_lcd_v3.c:586: write(val + '0');
-      000F85 90 00 13         [24] 3513 	mov	dptr,#_asciiToDec_val_65536_204
-      000F88 E0               [24] 3514 	movx	a,@dptr
-      000F89 24 30            [12] 3515 	add	a,#0x30
-      000F8B F5 82            [12] 3516 	mov	dpl,a
-      000F8D 12 0C A4         [24] 3517 	lcall	_write
-      000F90 80 AD            [24] 3518 	sjmp	00101$
-      000F92                       3519 00104$:
-                                   3520 ;	ecen4330_lcd_v3.c:589: }
-      000F92 22               [24] 3521 	ret
-                                   3522 ;------------------------------------------------------------
-                                   3523 ;Allocation info for local variables in function 'asciiToHex'
-                                   3524 ;------------------------------------------------------------
-                                   3525 ;d                         Allocated to registers r7 
-                                   3526 ;val                       Allocated to registers r2 
-                                   3527 ;store                     Allocated with name '_asciiToHex_store_65536_207'
-                                   3528 ;i                         Allocated to registers r6 
-                                   3529 ;------------------------------------------------------------
-                                   3530 ;	ecen4330_lcd_v3.c:596: void asciiToHex (uint8_t d) {
+      0009C6 C2 B4            [12] 2351 	clr	_P3_4
+      0009C8 80 E0            [24] 2352 	sjmp	00109$
+      0009CA                       2353 00111$:
+                                   2354 ;	ecen4330_lcd_v3.c:374: }
+      0009CA 22               [24] 2355 	ret
+                                   2356 ;------------------------------------------------------------
+                                   2357 ;Allocation info for local variables in function 'drawChar'
+                                   2358 ;------------------------------------------------------------
+                                   2359 ;y                         Allocated with name '_drawChar_PARM_2'
+                                   2360 ;c                         Allocated with name '_drawChar_PARM_3'
+                                   2361 ;color                     Allocated with name '_drawChar_PARM_4'
+                                   2362 ;bg                        Allocated with name '_drawChar_PARM_5'
+                                   2363 ;size                      Allocated with name '_drawChar_PARM_6'
+                                   2364 ;x                         Allocated to registers r6 r7 
+                                   2365 ;sloc1                     Allocated with name '_drawChar_sloc1_1_0'
+                                   2366 ;sloc2                     Allocated with name '_drawChar_sloc2_1_0'
+                                   2367 ;sloc3                     Allocated with name '_drawChar_sloc3_1_0'
+                                   2368 ;sloc4                     Allocated with name '_drawChar_sloc4_1_0'
+                                   2369 ;sloc5                     Allocated with name '_drawChar_sloc5_1_0'
+                                   2370 ;i                         Allocated with name '_drawChar_i_65537_151'
+                                   2371 ;line                      Allocated with name '_drawChar_line_196609_153'
+                                   2372 ;j                         Allocated with name '_drawChar_j_196610_156'
+                                   2373 ;------------------------------------------------------------
+                                   2374 ;	ecen4330_lcd_v3.c:385: void drawChar (int16_t x, int16_t y, uint8_t c, uint16_t color, uint16_t bg, uint8_t size) {
+                                   2375 ;	-----------------------------------------
+                                   2376 ;	 function drawChar
+                                   2377 ;	-----------------------------------------
+      0009CB                       2378 _drawChar:
+      0009CB AE 82            [24] 2379 	mov	r6,dpl
+      0009CD AF 83            [24] 2380 	mov	r7,dph
+                                   2381 ;	ecen4330_lcd_v3.c:386: if ((x >=TFTWIDTH) ||
+      0009CF C3               [12] 2382 	clr	c
+      0009D0 EE               [12] 2383 	mov	a,r6
+      0009D1 94 F0            [12] 2384 	subb	a,#0xf0
+      0009D3 EF               [12] 2385 	mov	a,r7
+      0009D4 64 80            [12] 2386 	xrl	a,#0x80
+      0009D6 94 80            [12] 2387 	subb	a,#0x80
+      0009D8 50 67            [24] 2388 	jnc	00101$
+                                   2389 ;	ecen4330_lcd_v3.c:387: (y >=TFTHEIGHT) ||
+      0009DA AC 5A            [24] 2390 	mov	r4,_drawChar_PARM_2
+      0009DC AD 5B            [24] 2391 	mov	r5,(_drawChar_PARM_2 + 1)
+      0009DE C3               [12] 2392 	clr	c
+      0009DF EC               [12] 2393 	mov	a,r4
+      0009E0 94 40            [12] 2394 	subb	a,#0x40
+      0009E2 ED               [12] 2395 	mov	a,r5
+      0009E3 64 80            [12] 2396 	xrl	a,#0x80
+      0009E5 94 81            [12] 2397 	subb	a,#0x81
+      0009E7 50 58            [24] 2398 	jnc	00101$
+                                   2399 ;	ecen4330_lcd_v3.c:388: ((x + 6 * size - 1) < 0) ||
+      0009E9 AA 61            [24] 2400 	mov	r2,_drawChar_PARM_6
+      0009EB 7B 00            [12] 2401 	mov	r3,#0x00
+      0009ED 8A 08            [24] 2402 	mov	__mulint_PARM_2,r2
+      0009EF 8B 09            [24] 2403 	mov	(__mulint_PARM_2 + 1),r3
+      0009F1 90 00 06         [24] 2404 	mov	dptr,#0x0006
+      0009F4 C0 07            [24] 2405 	push	ar7
+      0009F6 C0 06            [24] 2406 	push	ar6
+      0009F8 C0 05            [24] 2407 	push	ar5
+      0009FA C0 04            [24] 2408 	push	ar4
+      0009FC C0 03            [24] 2409 	push	ar3
+      0009FE C0 02            [24] 2410 	push	ar2
+      000A00 12 19 BF         [24] 2411 	lcall	__mulint
+      000A03 A8 82            [24] 2412 	mov	r0,dpl
+      000A05 A9 83            [24] 2413 	mov	r1,dph
+      000A07 D0 02            [24] 2414 	pop	ar2
+      000A09 D0 03            [24] 2415 	pop	ar3
+      000A0B D0 04            [24] 2416 	pop	ar4
+      000A0D D0 05            [24] 2417 	pop	ar5
+      000A0F D0 06            [24] 2418 	pop	ar6
+      000A11 D0 07            [24] 2419 	pop	ar7
+      000A13 E8               [12] 2420 	mov	a,r0
+      000A14 2E               [12] 2421 	add	a,r6
+      000A15 F8               [12] 2422 	mov	r0,a
+      000A16 E9               [12] 2423 	mov	a,r1
+      000A17 3F               [12] 2424 	addc	a,r7
+      000A18 F9               [12] 2425 	mov	r1,a
+      000A19 18               [12] 2426 	dec	r0
+      000A1A B8 FF 01         [24] 2427 	cjne	r0,#0xff,00176$
+      000A1D 19               [12] 2428 	dec	r1
+      000A1E                       2429 00176$:
+      000A1E E9               [12] 2430 	mov	a,r1
+      000A1F 20 E7 1F         [24] 2431 	jb	acc.7,00101$
+                                   2432 ;	ecen4330_lcd_v3.c:389: ((y + 8 * size - 1) < 0))
+      000A22 EB               [12] 2433 	mov	a,r3
+      000A23 C4               [12] 2434 	swap	a
+      000A24 03               [12] 2435 	rr	a
+      000A25 54 F8            [12] 2436 	anl	a,#0xf8
+      000A27 CA               [12] 2437 	xch	a,r2
+      000A28 C4               [12] 2438 	swap	a
+      000A29 03               [12] 2439 	rr	a
+      000A2A CA               [12] 2440 	xch	a,r2
+      000A2B 6A               [12] 2441 	xrl	a,r2
+      000A2C CA               [12] 2442 	xch	a,r2
+      000A2D 54 F8            [12] 2443 	anl	a,#0xf8
+      000A2F CA               [12] 2444 	xch	a,r2
+      000A30 6A               [12] 2445 	xrl	a,r2
+      000A31 FB               [12] 2446 	mov	r3,a
+      000A32 EA               [12] 2447 	mov	a,r2
+      000A33 2C               [12] 2448 	add	a,r4
+      000A34 FA               [12] 2449 	mov	r2,a
+      000A35 EB               [12] 2450 	mov	a,r3
+      000A36 3D               [12] 2451 	addc	a,r5
+      000A37 FB               [12] 2452 	mov	r3,a
+      000A38 1A               [12] 2453 	dec	r2
+      000A39 BA FF 01         [24] 2454 	cjne	r2,#0xff,00178$
+      000A3C 1B               [12] 2455 	dec	r3
+      000A3D                       2456 00178$:
+      000A3D EB               [12] 2457 	mov	a,r3
+      000A3E 30 E7 01         [24] 2458 	jnb	acc.7,00138$
+      000A41                       2459 00101$:
+                                   2460 ;	ecen4330_lcd_v3.c:391: return;
+      000A41 22               [24] 2461 	ret
+                                   2462 ;	ecen4330_lcd_v3.c:396: for (i = 0; i < 6; i++)	{
+      000A42                       2463 00138$:
+      000A42 74 01            [12] 2464 	mov	a,#0x01
+      000A44 B5 61 04         [24] 2465 	cjne	a,_drawChar_PARM_6,00180$
+      000A47 74 01            [12] 2466 	mov	a,#0x01
+      000A49 80 01            [24] 2467 	sjmp	00181$
+      000A4B                       2468 00180$:
+      000A4B E4               [12] 2469 	clr	a
+      000A4C                       2470 00181$:
+      000A4C FB               [12] 2471 	mov	r3,a
+      000A4D 8B 68            [24] 2472 	mov	_drawChar_sloc5_1_0,r3
+      000A4F E5 5D            [12] 2473 	mov	a,_drawChar_PARM_4
+      000A51 B5 5F 08         [24] 2474 	cjne	a,_drawChar_PARM_5,00182$
+      000A54 E5 5E            [12] 2475 	mov	a,(_drawChar_PARM_4 + 1)
+      000A56 B5 60 03         [24] 2476 	cjne	a,(_drawChar_PARM_5 + 1),00182$
+      000A59 D3               [12] 2477 	setb	c
+      000A5A 80 01            [24] 2478 	sjmp	00183$
+      000A5C                       2479 00182$:
+      000A5C C3               [12] 2480 	clr	c
+      000A5D                       2481 00183$:
+      000A5D 92 00            [24] 2482 	mov	_drawChar_sloc0_1_0,c
+      000A5F 79 00            [12] 2483 	mov	r1,#0x00
+      000A61                       2484 00124$:
+                                   2485 ;	ecen4330_lcd_v3.c:399: if (i == 5) {
+      000A61 B9 05 07         [24] 2486 	cjne	r1,#0x05,00107$
+                                   2487 ;	ecen4330_lcd_v3.c:400: line = 0x0;
+      000A64 90 00 0B         [24] 2488 	mov	dptr,#_drawChar_line_196609_153
+      000A67 E4               [12] 2489 	clr	a
+      000A68 F0               [24] 2490 	movx	@dptr,a
+      000A69 80 49            [24] 2491 	sjmp	00136$
+      000A6B                       2492 00107$:
+                                   2493 ;	ecen4330_lcd_v3.c:402: line = pgm_read_byte(font+(c*5)+i);
+      000A6B 85 5C 08         [24] 2494 	mov	__mulint_PARM_2,_drawChar_PARM_3
+      000A6E 75 09 00         [24] 2495 	mov	(__mulint_PARM_2 + 1),#0x00
+      000A71 90 00 05         [24] 2496 	mov	dptr,#0x0005
+      000A74 C0 07            [24] 2497 	push	ar7
+      000A76 C0 06            [24] 2498 	push	ar6
+      000A78 C0 05            [24] 2499 	push	ar5
+      000A7A C0 04            [24] 2500 	push	ar4
+      000A7C C0 03            [24] 2501 	push	ar3
+      000A7E C0 01            [24] 2502 	push	ar1
+      000A80 12 19 BF         [24] 2503 	lcall	__mulint
+      000A83 A8 82            [24] 2504 	mov	r0,dpl
+      000A85 AA 83            [24] 2505 	mov	r2,dph
+      000A87 D0 01            [24] 2506 	pop	ar1
+      000A89 D0 03            [24] 2507 	pop	ar3
+      000A8B D0 04            [24] 2508 	pop	ar4
+      000A8D D0 05            [24] 2509 	pop	ar5
+      000A8F D0 06            [24] 2510 	pop	ar6
+      000A91 D0 07            [24] 2511 	pop	ar7
+      000A93 E8               [12] 2512 	mov	a,r0
+      000A94 24 B7            [12] 2513 	add	a,#_font
+      000A96 F5 62            [12] 2514 	mov	_drawChar_sloc1_1_0,a
+      000A98 EA               [12] 2515 	mov	a,r2
+      000A99 34 1A            [12] 2516 	addc	a,#(_font >> 8)
+      000A9B F5 63            [12] 2517 	mov	(_drawChar_sloc1_1_0 + 1),a
+      000A9D E9               [12] 2518 	mov	a,r1
+      000A9E F8               [12] 2519 	mov	r0,a
+      000A9F 33               [12] 2520 	rlc	a
+      000AA0 95 E0            [12] 2521 	subb	a,acc
+      000AA2 FA               [12] 2522 	mov	r2,a
+      000AA3 E8               [12] 2523 	mov	a,r0
+      000AA4 25 62            [12] 2524 	add	a,_drawChar_sloc1_1_0
+      000AA6 F5 82            [12] 2525 	mov	dpl,a
+      000AA8 EA               [12] 2526 	mov	a,r2
+      000AA9 35 63            [12] 2527 	addc	a,(_drawChar_sloc1_1_0 + 1)
+      000AAB F5 83            [12] 2528 	mov	dph,a
+      000AAD E4               [12] 2529 	clr	a
+      000AAE 93               [24] 2530 	movc	a,@a+dptr
+      000AAF FA               [12] 2531 	mov	r2,a
+      000AB0 90 00 0B         [24] 2532 	mov	dptr,#_drawChar_line_196609_153
+      000AB3 F0               [24] 2533 	movx	@dptr,a
+                                   2534 ;	ecen4330_lcd_v3.c:396: for (i = 0; i < 6; i++)	{
+                                   2535 ;	ecen4330_lcd_v3.c:407: for (j = 0; j < 8; j++) {
+      000AB4                       2536 00136$:
+      000AB4 C2 D5            [12] 2537 	clr	F0
+      000AB6 85 61 F0         [24] 2538 	mov	b,_drawChar_PARM_6
+      000AB9 E9               [12] 2539 	mov	a,r1
+      000ABA 30 E7 04         [24] 2540 	jnb	acc.7,00186$
+      000ABD B2 D5            [12] 2541 	cpl	F0
+      000ABF F4               [12] 2542 	cpl	a
+      000AC0 04               [12] 2543 	inc	a
+      000AC1                       2544 00186$:
+      000AC1 A4               [48] 2545 	mul	ab
+      000AC2 30 D5 0A         [24] 2546 	jnb	F0,00187$
+      000AC5 F4               [12] 2547 	cpl	a
+      000AC6 24 01            [12] 2548 	add	a,#0x01
+      000AC8 C5 F0            [12] 2549 	xch	a,b
+      000ACA F4               [12] 2550 	cpl	a
+      000ACB 34 00            [12] 2551 	addc	a,#0x00
+      000ACD C5 F0            [12] 2552 	xch	a,b
+      000ACF                       2553 00187$:
+      000ACF 2E               [12] 2554 	add	a,r6
+      000AD0 F5 62            [12] 2555 	mov	_drawChar_sloc1_1_0,a
+      000AD2 EF               [12] 2556 	mov	a,r7
+      000AD3 35 F0            [12] 2557 	addc	a,b
+      000AD5 F5 63            [12] 2558 	mov	(_drawChar_sloc1_1_0 + 1),a
+      000AD7 89 00            [24] 2559 	mov	ar0,r1
+      000AD9 85 62 64         [24] 2560 	mov	_drawChar_sloc2_1_0,_drawChar_sloc1_1_0
+      000ADC 85 63 65         [24] 2561 	mov	(_drawChar_sloc2_1_0 + 1),(_drawChar_sloc1_1_0 + 1)
+      000ADF 89 66            [24] 2562 	mov	_drawChar_sloc3_1_0,r1
+      000AE1 75 67 00         [24] 2563 	mov	_drawChar_sloc4_1_0,#0x00
+      000AE4                       2564 00122$:
+                                   2565 ;	ecen4330_lcd_v3.c:408: if (line & 0x1) {
+      000AE4 90 00 0B         [24] 2566 	mov	dptr,#_drawChar_line_196609_153
+      000AE7 E0               [24] 2567 	movx	a,@dptr
+      000AE8 20 E0 03         [24] 2568 	jb	acc.0,00188$
+      000AEB 02 0B A3         [24] 2569 	ljmp	00118$
+      000AEE                       2570 00188$:
+                                   2571 ;	ecen4330_lcd_v3.c:409: if (size == 1) {
+      000AEE EB               [12] 2572 	mov	a,r3
+      000AEF 60 4E            [24] 2573 	jz	00110$
+                                   2574 ;	ecen4330_lcd_v3.c:410: drawPixel(x+i, y+j, color);
+      000AF1 C0 00            [24] 2575 	push	ar0
+      000AF3 E5 66            [12] 2576 	mov	a,_drawChar_sloc3_1_0
+      000AF5 F8               [12] 2577 	mov	r0,a
+      000AF6 33               [12] 2578 	rlc	a
+      000AF7 95 E0            [12] 2579 	subb	a,acc
+      000AF9 FA               [12] 2580 	mov	r2,a
+      000AFA E8               [12] 2581 	mov	a,r0
+      000AFB 2E               [12] 2582 	add	a,r6
+      000AFC F8               [12] 2583 	mov	r0,a
+      000AFD EA               [12] 2584 	mov	a,r2
+      000AFE 3F               [12] 2585 	addc	a,r7
+      000AFF FA               [12] 2586 	mov	r2,a
+      000B00 88 82            [24] 2587 	mov	dpl,r0
+      000B02 8A 83            [24] 2588 	mov	dph,r2
+      000B04 E5 67            [12] 2589 	mov	a,_drawChar_sloc4_1_0
+      000B06 F8               [12] 2590 	mov	r0,a
+      000B07 33               [12] 2591 	rlc	a
+      000B08 95 E0            [12] 2592 	subb	a,acc
+      000B0A FA               [12] 2593 	mov	r2,a
+      000B0B E8               [12] 2594 	mov	a,r0
+      000B0C 2C               [12] 2595 	add	a,r4
+      000B0D F8               [12] 2596 	mov	r0,a
+      000B0E EA               [12] 2597 	mov	a,r2
+      000B0F 3D               [12] 2598 	addc	a,r5
+      000B10 FA               [12] 2599 	mov	r2,a
+      000B11 88 37            [24] 2600 	mov	_drawPixel_PARM_2,r0
+      000B13 8A 38            [24] 2601 	mov	(_drawPixel_PARM_2 + 1),r2
+      000B15 85 5D 39         [24] 2602 	mov	_drawPixel_PARM_3,_drawChar_PARM_4
+      000B18 85 5E 3A         [24] 2603 	mov	(_drawPixel_PARM_3 + 1),(_drawChar_PARM_4 + 1)
+      000B1B C0 07            [24] 2604 	push	ar7
+      000B1D C0 06            [24] 2605 	push	ar6
+      000B1F C0 05            [24] 2606 	push	ar5
+      000B21 C0 04            [24] 2607 	push	ar4
+      000B23 C0 03            [24] 2608 	push	ar3
+      000B25 C0 01            [24] 2609 	push	ar1
+      000B27 C0 00            [24] 2610 	push	ar0
+      000B29 12 04 01         [24] 2611 	lcall	_drawPixel
+      000B2C D0 00            [24] 2612 	pop	ar0
+      000B2E D0 01            [24] 2613 	pop	ar1
+      000B30 D0 03            [24] 2614 	pop	ar3
+      000B32 D0 04            [24] 2615 	pop	ar4
+      000B34 D0 05            [24] 2616 	pop	ar5
+      000B36 D0 06            [24] 2617 	pop	ar6
+      000B38 D0 07            [24] 2618 	pop	ar7
+      000B3A D0 00            [24] 2619 	pop	ar0
+      000B3C 02 0C 5A         [24] 2620 	ljmp	00119$
+      000B3F                       2621 00110$:
+                                   2622 ;	ecen4330_lcd_v3.c:412: fillRect(x+(i*size), y+(j*size), size, size, color);
+      000B3F C0 00            [24] 2623 	push	ar0
+      000B41 85 64 82         [24] 2624 	mov	dpl,_drawChar_sloc2_1_0
+      000B44 85 65 83         [24] 2625 	mov	dph,(_drawChar_sloc2_1_0 + 1)
+      000B47 C2 D5            [12] 2626 	clr	F0
+      000B49 85 61 F0         [24] 2627 	mov	b,_drawChar_PARM_6
+      000B4C E5 67            [12] 2628 	mov	a,_drawChar_sloc4_1_0
+      000B4E 30 E7 04         [24] 2629 	jnb	acc.7,00190$
+      000B51 B2 D5            [12] 2630 	cpl	F0
+      000B53 F4               [12] 2631 	cpl	a
+      000B54 04               [12] 2632 	inc	a
+      000B55                       2633 00190$:
+      000B55 A4               [48] 2634 	mul	ab
+      000B56 30 D5 0A         [24] 2635 	jnb	F0,00191$
+      000B59 F4               [12] 2636 	cpl	a
+      000B5A 24 01            [12] 2637 	add	a,#0x01
+      000B5C C5 F0            [12] 2638 	xch	a,b
+      000B5E F4               [12] 2639 	cpl	a
+      000B5F 34 00            [12] 2640 	addc	a,#0x00
+      000B61 C5 F0            [12] 2641 	xch	a,b
+      000B63                       2642 00191$:
+      000B63 2C               [12] 2643 	add	a,r4
+      000B64 F8               [12] 2644 	mov	r0,a
+      000B65 ED               [12] 2645 	mov	a,r5
+      000B66 35 F0            [12] 2646 	addc	a,b
+      000B68 FA               [12] 2647 	mov	r2,a
+      000B69 88 52            [24] 2648 	mov	_fillRect_PARM_2,r0
+      000B6B 8A 53            [24] 2649 	mov	(_fillRect_PARM_2 + 1),r2
+      000B6D A8 61            [24] 2650 	mov	r0,_drawChar_PARM_6
+      000B6F 7A 00            [12] 2651 	mov	r2,#0x00
+      000B71 88 54            [24] 2652 	mov	_fillRect_PARM_3,r0
+      000B73 8A 55            [24] 2653 	mov	(_fillRect_PARM_3 + 1),r2
+      000B75 88 56            [24] 2654 	mov	_fillRect_PARM_4,r0
+      000B77 8A 57            [24] 2655 	mov	(_fillRect_PARM_4 + 1),r2
+      000B79 85 5D 58         [24] 2656 	mov	_fillRect_PARM_5,_drawChar_PARM_4
+      000B7C 85 5E 59         [24] 2657 	mov	(_fillRect_PARM_5 + 1),(_drawChar_PARM_4 + 1)
+      000B7F C0 07            [24] 2658 	push	ar7
+      000B81 C0 06            [24] 2659 	push	ar6
+      000B83 C0 05            [24] 2660 	push	ar5
+      000B85 C0 04            [24] 2661 	push	ar4
+      000B87 C0 03            [24] 2662 	push	ar3
+      000B89 C0 01            [24] 2663 	push	ar1
+      000B8B C0 00            [24] 2664 	push	ar0
+      000B8D 12 08 03         [24] 2665 	lcall	_fillRect
+      000B90 D0 00            [24] 2666 	pop	ar0
+      000B92 D0 01            [24] 2667 	pop	ar1
+      000B94 D0 03            [24] 2668 	pop	ar3
+      000B96 D0 04            [24] 2669 	pop	ar4
+      000B98 D0 05            [24] 2670 	pop	ar5
+      000B9A D0 06            [24] 2671 	pop	ar6
+      000B9C D0 07            [24] 2672 	pop	ar7
+      000B9E D0 00            [24] 2673 	pop	ar0
+      000BA0 02 0C 5A         [24] 2674 	ljmp	00119$
+      000BA3                       2675 00118$:
+                                   2676 ;	ecen4330_lcd_v3.c:414: } else if (bg != color) {
+      000BA3 30 00 03         [24] 2677 	jnb	_drawChar_sloc0_1_0,00192$
+      000BA6 02 0C 5A         [24] 2678 	ljmp	00119$
+      000BA9                       2679 00192$:
+                                   2680 ;	ecen4330_lcd_v3.c:415: if (size == 1) {
+      000BA9 E5 68            [12] 2681 	mov	a,_drawChar_sloc5_1_0
+      000BAB 60 4C            [24] 2682 	jz	00113$
+                                   2683 ;	ecen4330_lcd_v3.c:416: drawPixel(x+i, y+j, bg);
+      000BAD C0 03            [24] 2684 	push	ar3
+      000BAF E8               [12] 2685 	mov	a,r0
+      000BB0 FA               [12] 2686 	mov	r2,a
+      000BB1 33               [12] 2687 	rlc	a
+      000BB2 95 E0            [12] 2688 	subb	a,acc
+      000BB4 FB               [12] 2689 	mov	r3,a
+      000BB5 EA               [12] 2690 	mov	a,r2
+      000BB6 2E               [12] 2691 	add	a,r6
+      000BB7 FA               [12] 2692 	mov	r2,a
+      000BB8 EB               [12] 2693 	mov	a,r3
+      000BB9 3F               [12] 2694 	addc	a,r7
+      000BBA FB               [12] 2695 	mov	r3,a
+      000BBB 8A 82            [24] 2696 	mov	dpl,r2
+      000BBD 8B 83            [24] 2697 	mov	dph,r3
+      000BBF E5 67            [12] 2698 	mov	a,_drawChar_sloc4_1_0
+      000BC1 FA               [12] 2699 	mov	r2,a
+      000BC2 33               [12] 2700 	rlc	a
+      000BC3 95 E0            [12] 2701 	subb	a,acc
+      000BC5 FB               [12] 2702 	mov	r3,a
+      000BC6 EA               [12] 2703 	mov	a,r2
+      000BC7 2C               [12] 2704 	add	a,r4
+      000BC8 FA               [12] 2705 	mov	r2,a
+      000BC9 EB               [12] 2706 	mov	a,r3
+      000BCA 3D               [12] 2707 	addc	a,r5
+      000BCB FB               [12] 2708 	mov	r3,a
+      000BCC 8A 37            [24] 2709 	mov	_drawPixel_PARM_2,r2
+      000BCE 8B 38            [24] 2710 	mov	(_drawPixel_PARM_2 + 1),r3
+      000BD0 85 5F 39         [24] 2711 	mov	_drawPixel_PARM_3,_drawChar_PARM_5
+      000BD3 85 60 3A         [24] 2712 	mov	(_drawPixel_PARM_3 + 1),(_drawChar_PARM_5 + 1)
+      000BD6 C0 07            [24] 2713 	push	ar7
+      000BD8 C0 06            [24] 2714 	push	ar6
+      000BDA C0 05            [24] 2715 	push	ar5
+      000BDC C0 04            [24] 2716 	push	ar4
+      000BDE C0 03            [24] 2717 	push	ar3
+      000BE0 C0 01            [24] 2718 	push	ar1
+      000BE2 C0 00            [24] 2719 	push	ar0
+      000BE4 12 04 01         [24] 2720 	lcall	_drawPixel
+      000BE7 D0 00            [24] 2721 	pop	ar0
+      000BE9 D0 01            [24] 2722 	pop	ar1
+      000BEB D0 03            [24] 2723 	pop	ar3
+      000BED D0 04            [24] 2724 	pop	ar4
+      000BEF D0 05            [24] 2725 	pop	ar5
+      000BF1 D0 06            [24] 2726 	pop	ar6
+      000BF3 D0 07            [24] 2727 	pop	ar7
+      000BF5 D0 03            [24] 2728 	pop	ar3
+      000BF7 80 61            [24] 2729 	sjmp	00119$
+      000BF9                       2730 00113$:
+                                   2731 ;	ecen4330_lcd_v3.c:418: fillRect(x+i*size, y+j*size, size, size, bg);
+      000BF9 C0 00            [24] 2732 	push	ar0
+      000BFB 85 62 82         [24] 2733 	mov	dpl,_drawChar_sloc1_1_0
+      000BFE 85 63 83         [24] 2734 	mov	dph,(_drawChar_sloc1_1_0 + 1)
+      000C01 C2 D5            [12] 2735 	clr	F0
+      000C03 85 61 F0         [24] 2736 	mov	b,_drawChar_PARM_6
+      000C06 E5 67            [12] 2737 	mov	a,_drawChar_sloc4_1_0
+      000C08 30 E7 04         [24] 2738 	jnb	acc.7,00194$
+      000C0B B2 D5            [12] 2739 	cpl	F0
+      000C0D F4               [12] 2740 	cpl	a
+      000C0E 04               [12] 2741 	inc	a
+      000C0F                       2742 00194$:
+      000C0F A4               [48] 2743 	mul	ab
+      000C10 30 D5 0A         [24] 2744 	jnb	F0,00195$
+      000C13 F4               [12] 2745 	cpl	a
+      000C14 24 01            [12] 2746 	add	a,#0x01
+      000C16 C5 F0            [12] 2747 	xch	a,b
+      000C18 F4               [12] 2748 	cpl	a
+      000C19 34 00            [12] 2749 	addc	a,#0x00
+      000C1B C5 F0            [12] 2750 	xch	a,b
+      000C1D                       2751 00195$:
+      000C1D 2C               [12] 2752 	add	a,r4
+      000C1E F8               [12] 2753 	mov	r0,a
+      000C1F ED               [12] 2754 	mov	a,r5
+      000C20 35 F0            [12] 2755 	addc	a,b
+      000C22 FA               [12] 2756 	mov	r2,a
+      000C23 88 52            [24] 2757 	mov	_fillRect_PARM_2,r0
+      000C25 8A 53            [24] 2758 	mov	(_fillRect_PARM_2 + 1),r2
+      000C27 A8 61            [24] 2759 	mov	r0,_drawChar_PARM_6
+      000C29 7A 00            [12] 2760 	mov	r2,#0x00
+      000C2B 88 54            [24] 2761 	mov	_fillRect_PARM_3,r0
+      000C2D 8A 55            [24] 2762 	mov	(_fillRect_PARM_3 + 1),r2
+      000C2F 88 56            [24] 2763 	mov	_fillRect_PARM_4,r0
+      000C31 8A 57            [24] 2764 	mov	(_fillRect_PARM_4 + 1),r2
+      000C33 85 5F 58         [24] 2765 	mov	_fillRect_PARM_5,_drawChar_PARM_5
+      000C36 85 60 59         [24] 2766 	mov	(_fillRect_PARM_5 + 1),(_drawChar_PARM_5 + 1)
+      000C39 C0 07            [24] 2767 	push	ar7
+      000C3B C0 06            [24] 2768 	push	ar6
+      000C3D C0 05            [24] 2769 	push	ar5
+      000C3F C0 04            [24] 2770 	push	ar4
+      000C41 C0 03            [24] 2771 	push	ar3
+      000C43 C0 01            [24] 2772 	push	ar1
+      000C45 C0 00            [24] 2773 	push	ar0
+      000C47 12 08 03         [24] 2774 	lcall	_fillRect
+      000C4A D0 00            [24] 2775 	pop	ar0
+      000C4C D0 01            [24] 2776 	pop	ar1
+      000C4E D0 03            [24] 2777 	pop	ar3
+      000C50 D0 04            [24] 2778 	pop	ar4
+      000C52 D0 05            [24] 2779 	pop	ar5
+      000C54 D0 06            [24] 2780 	pop	ar6
+      000C56 D0 07            [24] 2781 	pop	ar7
+                                   2782 ;	ecen4330_lcd_v3.c:396: for (i = 0; i < 6; i++)	{
+      000C58 D0 00            [24] 2783 	pop	ar0
+                                   2784 ;	ecen4330_lcd_v3.c:418: fillRect(x+i*size, y+j*size, size, size, bg);
+      000C5A                       2785 00119$:
+                                   2786 ;	ecen4330_lcd_v3.c:422: line >>= 1;
+      000C5A 90 00 0B         [24] 2787 	mov	dptr,#_drawChar_line_196609_153
+      000C5D E0               [24] 2788 	movx	a,@dptr
+      000C5E C3               [12] 2789 	clr	c
+      000C5F 13               [12] 2790 	rrc	a
+      000C60 FA               [12] 2791 	mov	r2,a
+      000C61 F0               [24] 2792 	movx	@dptr,a
+                                   2793 ;	ecen4330_lcd_v3.c:407: for (j = 0; j < 8; j++) {
+      000C62 05 67            [12] 2794 	inc	_drawChar_sloc4_1_0
+      000C64 C3               [12] 2795 	clr	c
+      000C65 E5 67            [12] 2796 	mov	a,_drawChar_sloc4_1_0
+      000C67 64 80            [12] 2797 	xrl	a,#0x80
+      000C69 94 88            [12] 2798 	subb	a,#0x88
+      000C6B 50 03            [24] 2799 	jnc	00196$
+      000C6D 02 0A E4         [24] 2800 	ljmp	00122$
+      000C70                       2801 00196$:
+                                   2802 ;	ecen4330_lcd_v3.c:396: for (i = 0; i < 6; i++)	{
+      000C70 09               [12] 2803 	inc	r1
+      000C71 C3               [12] 2804 	clr	c
+      000C72 E9               [12] 2805 	mov	a,r1
+      000C73 64 80            [12] 2806 	xrl	a,#0x80
+      000C75 94 86            [12] 2807 	subb	a,#0x86
+      000C77 50 03            [24] 2808 	jnc	00197$
+      000C79 02 0A 61         [24] 2809 	ljmp	00124$
+      000C7C                       2810 00197$:
+                                   2811 ;	ecen4330_lcd_v3.c:425: }
+      000C7C 22               [24] 2812 	ret
+                                   2813 ;------------------------------------------------------------
+                                   2814 ;Allocation info for local variables in function 'write'
+                                   2815 ;------------------------------------------------------------
+                                   2816 ;c                         Allocated to registers r7 
+                                   2817 ;------------------------------------------------------------
+                                   2818 ;	ecen4330_lcd_v3.c:432: void write (uint8_t c)
+                                   2819 ;	-----------------------------------------
+                                   2820 ;	 function write
+                                   2821 ;	-----------------------------------------
+      000C7D                       2822 _write:
+      000C7D AF 82            [24] 2823 	mov	r7,dpl
+                                   2824 ;	ecen4330_lcd_v3.c:434: if (c == '\n') {
+      000C7F BF 0A 26         [24] 2825 	cjne	r7,#0x0a,00105$
+                                   2826 ;	ecen4330_lcd_v3.c:435: cursor_y += textsize*8;
+      000C82 AD 31            [24] 2827 	mov	r5,_textsize
+      000C84 E4               [12] 2828 	clr	a
+      000C85 C4               [12] 2829 	swap	a
+      000C86 03               [12] 2830 	rr	a
+      000C87 54 F8            [12] 2831 	anl	a,#0xf8
+      000C89 CD               [12] 2832 	xch	a,r5
+      000C8A C4               [12] 2833 	swap	a
+      000C8B 03               [12] 2834 	rr	a
+      000C8C CD               [12] 2835 	xch	a,r5
+      000C8D 6D               [12] 2836 	xrl	a,r5
+      000C8E CD               [12] 2837 	xch	a,r5
+      000C8F 54 F8            [12] 2838 	anl	a,#0xf8
+      000C91 CD               [12] 2839 	xch	a,r5
+      000C92 6D               [12] 2840 	xrl	a,r5
+      000C93 FE               [12] 2841 	mov	r6,a
+      000C94 AB 2F            [24] 2842 	mov	r3,_cursor_y
+      000C96 AC 30            [24] 2843 	mov	r4,(_cursor_y + 1)
+      000C98 ED               [12] 2844 	mov	a,r5
+      000C99 2B               [12] 2845 	add	a,r3
+      000C9A FB               [12] 2846 	mov	r3,a
+      000C9B EE               [12] 2847 	mov	a,r6
+      000C9C 3C               [12] 2848 	addc	a,r4
+      000C9D FC               [12] 2849 	mov	r4,a
+      000C9E 8B 2F            [24] 2850 	mov	_cursor_y,r3
+      000CA0 8C 30            [24] 2851 	mov	(_cursor_y + 1),r4
+                                   2852 ;	ecen4330_lcd_v3.c:436: cursor_x  = 0;
+      000CA2 E4               [12] 2853 	clr	a
+      000CA3 F5 2D            [12] 2854 	mov	_cursor_x,a
+      000CA5 F5 2E            [12] 2855 	mov	(_cursor_x + 1),a
+      000CA7 22               [24] 2856 	ret
+      000CA8                       2857 00105$:
+                                   2858 ;	ecen4330_lcd_v3.c:437: } else if (c == '\r') {
+      000CA8 BF 0D 01         [24] 2859 	cjne	r7,#0x0d,00119$
+      000CAB 22               [24] 2860 	ret
+      000CAC                       2861 00119$:
+                                   2862 ;	ecen4330_lcd_v3.c:440: drawChar(cursor_x, cursor_y, c, textcolor, textbgcolor, textsize);
+      000CAC 85 2F 5A         [24] 2863 	mov	_drawChar_PARM_2,_cursor_y
+      000CAF 85 30 5B         [24] 2864 	mov	(_drawChar_PARM_2 + 1),(_cursor_y + 1)
+      000CB2 8F 5C            [24] 2865 	mov	_drawChar_PARM_3,r7
+      000CB4 85 33 5D         [24] 2866 	mov	_drawChar_PARM_4,_textcolor
+      000CB7 85 34 5E         [24] 2867 	mov	(_drawChar_PARM_4 + 1),(_textcolor + 1)
+      000CBA 85 35 5F         [24] 2868 	mov	_drawChar_PARM_5,_textbgcolor
+      000CBD 85 36 60         [24] 2869 	mov	(_drawChar_PARM_5 + 1),(_textbgcolor + 1)
+      000CC0 85 31 61         [24] 2870 	mov	_drawChar_PARM_6,_textsize
+      000CC3 85 2D 82         [24] 2871 	mov	dpl,_cursor_x
+      000CC6 85 2E 83         [24] 2872 	mov	dph,(_cursor_x + 1)
+      000CC9 12 09 CB         [24] 2873 	lcall	_drawChar
+                                   2874 ;	ecen4330_lcd_v3.c:441: cursor_x += textsize*6;
+      000CCC 85 31 08         [24] 2875 	mov	__mulint_PARM_2,_textsize
+      000CCF 75 09 00         [24] 2876 	mov	(__mulint_PARM_2 + 1),#0x00
+      000CD2 90 00 06         [24] 2877 	mov	dptr,#0x0006
+      000CD5 12 19 BF         [24] 2878 	lcall	__mulint
+      000CD8 AE 82            [24] 2879 	mov	r6,dpl
+      000CDA AF 83            [24] 2880 	mov	r7,dph
+      000CDC AC 2D            [24] 2881 	mov	r4,_cursor_x
+      000CDE AD 2E            [24] 2882 	mov	r5,(_cursor_x + 1)
+      000CE0 EE               [12] 2883 	mov	a,r6
+      000CE1 2C               [12] 2884 	add	a,r4
+      000CE2 FC               [12] 2885 	mov	r4,a
+      000CE3 EF               [12] 2886 	mov	a,r7
+      000CE4 3D               [12] 2887 	addc	a,r5
+      000CE5 FD               [12] 2888 	mov	r5,a
+      000CE6 8C 2D            [24] 2889 	mov	_cursor_x,r4
+      000CE8 8D 2E            [24] 2890 	mov	(_cursor_x + 1),r5
+                                   2891 ;	ecen4330_lcd_v3.c:443: }
+      000CEA 22               [24] 2892 	ret
+                                   2893 ;------------------------------------------------------------
+                                   2894 ;Allocation info for local variables in function 'LCD_string_write'
+                                   2895 ;------------------------------------------------------------
+                                   2896 ;str                       Allocated to registers r5 r6 r7 
+                                   2897 ;i                         Allocated with name '_LCD_string_write_i_65536_171'
+                                   2898 ;------------------------------------------------------------
+                                   2899 ;	ecen4330_lcd_v3.c:450: void LCD_string_write (int8_t *str) {
+                                   2900 ;	-----------------------------------------
+                                   2901 ;	 function LCD_string_write
+                                   2902 ;	-----------------------------------------
+      000CEB                       2903 _LCD_string_write:
+      000CEB AD 82            [24] 2904 	mov	r5,dpl
+      000CED AE 83            [24] 2905 	mov	r6,dph
+      000CEF AF F0            [24] 2906 	mov	r7,b
+                                   2907 ;	ecen4330_lcd_v3.c:453: for (i = 0; str[i] != 0; i++) {
+      000CF1 7B 00            [12] 2908 	mov	r3,#0x00
+      000CF3 7C 00            [12] 2909 	mov	r4,#0x00
+      000CF5                       2910 00103$:
+      000CF5 EB               [12] 2911 	mov	a,r3
+      000CF6 2D               [12] 2912 	add	a,r5
+      000CF7 F8               [12] 2913 	mov	r0,a
+      000CF8 EC               [12] 2914 	mov	a,r4
+      000CF9 3E               [12] 2915 	addc	a,r6
+      000CFA F9               [12] 2916 	mov	r1,a
+      000CFB 8F 02            [24] 2917 	mov	ar2,r7
+      000CFD 88 82            [24] 2918 	mov	dpl,r0
+      000CFF 89 83            [24] 2919 	mov	dph,r1
+      000D01 8A F0            [24] 2920 	mov	b,r2
+      000D03 12 1A 29         [24] 2921 	lcall	__gptrget
+      000D06 FA               [12] 2922 	mov	r2,a
+      000D07 60 20            [24] 2923 	jz	00105$
+                                   2924 ;	ecen4330_lcd_v3.c:454: write(str[i]);
+      000D09 8A 82            [24] 2925 	mov	dpl,r2
+      000D0B C0 07            [24] 2926 	push	ar7
+      000D0D C0 06            [24] 2927 	push	ar6
+      000D0F C0 05            [24] 2928 	push	ar5
+      000D11 C0 04            [24] 2929 	push	ar4
+      000D13 C0 03            [24] 2930 	push	ar3
+      000D15 12 0C 7D         [24] 2931 	lcall	_write
+      000D18 D0 03            [24] 2932 	pop	ar3
+      000D1A D0 04            [24] 2933 	pop	ar4
+      000D1C D0 05            [24] 2934 	pop	ar5
+      000D1E D0 06            [24] 2935 	pop	ar6
+      000D20 D0 07            [24] 2936 	pop	ar7
+                                   2937 ;	ecen4330_lcd_v3.c:453: for (i = 0; str[i] != 0; i++) {
+      000D22 0B               [12] 2938 	inc	r3
+      000D23 BB 00 CF         [24] 2939 	cjne	r3,#0x00,00103$
+      000D26 0C               [12] 2940 	inc	r4
+      000D27 80 CC            [24] 2941 	sjmp	00103$
+      000D29                       2942 00105$:
+                                   2943 ;	ecen4330_lcd_v3.c:456: }
+      000D29 22               [24] 2944 	ret
+                                   2945 ;------------------------------------------------------------
+                                   2946 ;Allocation info for local variables in function 'testRAM'
+                                   2947 ;------------------------------------------------------------
+                                   2948 ;d                         Allocated with name '_testRAM_d_65536_174'
+                                   2949 ;i                         Allocated with name '_testRAM_i_65536_175'
+                                   2950 ;ram_address               Allocated to registers 
+                                   2951 ;------------------------------------------------------------
+                                   2952 ;	ecen4330_lcd_v3.c:463: void testRAM (__xdata uint8_t d) {
+                                   2953 ;	-----------------------------------------
+                                   2954 ;	 function testRAM
+                                   2955 ;	-----------------------------------------
+      000D2A                       2956 _testRAM:
+      000D2A E5 82            [12] 2957 	mov	a,dpl
+      000D2C 90 00 0C         [24] 2958 	mov	dptr,#_testRAM_d_65536_174
+      000D2F F0               [24] 2959 	movx	@dptr,a
+                                   2960 ;	ecen4330_lcd_v3.c:467: for (i = __START_RAM__; i < __END_RAM__; i++) {
+      000D30 E0               [24] 2961 	movx	a,@dptr
+      000D31 FF               [12] 2962 	mov	r7,a
+      000D32 7B 00            [12] 2963 	mov	r3,#0x00
+      000D34 7C 00            [12] 2964 	mov	r4,#0x00
+      000D36 7D 00            [12] 2965 	mov	r5,#0x00
+      000D38 7E 00            [12] 2966 	mov	r6,#0x00
+      000D3A                       2967 00102$:
+                                   2968 ;	ecen4330_lcd_v3.c:468: IOM = 0;
+                                   2969 ;	assignBit
+      000D3A C2 B4            [12] 2970 	clr	_P3_4
+                                   2971 ;	ecen4330_lcd_v3.c:469: ram_address = (uint8_t __xdata*)(i);
+      000D3C 8B 82            [24] 2972 	mov	dpl,r3
+      000D3E 8C 83            [24] 2973 	mov	dph,r4
+                                   2974 ;	ecen4330_lcd_v3.c:470: *ram_address = d;
+      000D40 EF               [12] 2975 	mov	a,r7
+      000D41 F0               [24] 2976 	movx	@dptr,a
+                                   2977 ;	ecen4330_lcd_v3.c:471: IOM = 1;
+                                   2978 ;	assignBit
+      000D42 D2 B4            [12] 2979 	setb	_P3_4
+                                   2980 ;	ecen4330_lcd_v3.c:467: for (i = __START_RAM__; i < __END_RAM__; i++) {
+      000D44 0B               [12] 2981 	inc	r3
+      000D45 BB 00 09         [24] 2982 	cjne	r3,#0x00,00111$
+      000D48 0C               [12] 2983 	inc	r4
+      000D49 BC 00 05         [24] 2984 	cjne	r4,#0x00,00111$
+      000D4C 0D               [12] 2985 	inc	r5
+      000D4D BD 00 01         [24] 2986 	cjne	r5,#0x00,00111$
+      000D50 0E               [12] 2987 	inc	r6
+      000D51                       2988 00111$:
+      000D51 C3               [12] 2989 	clr	c
+      000D52 EB               [12] 2990 	mov	a,r3
+      000D53 94 FF            [12] 2991 	subb	a,#0xff
+      000D55 EC               [12] 2992 	mov	a,r4
+      000D56 94 FF            [12] 2993 	subb	a,#0xff
+      000D58 ED               [12] 2994 	mov	a,r5
+      000D59 94 00            [12] 2995 	subb	a,#0x00
+      000D5B EE               [12] 2996 	mov	a,r6
+      000D5C 94 00            [12] 2997 	subb	a,#0x00
+      000D5E 40 DA            [24] 2998 	jc	00102$
+                                   2999 ;	ecen4330_lcd_v3.c:473: }
+      000D60 22               [24] 3000 	ret
+                                   3001 ;------------------------------------------------------------
+                                   3002 ;Allocation info for local variables in function 'freeType'
+                                   3003 ;------------------------------------------------------------
+                                   3004 ;count                     Allocated with name '_freeType_count_65536_178'
+                                   3005 ;d                         Allocated with name '_freeType_d_65536_178'
+                                   3006 ;------------------------------------------------------------
+                                   3007 ;	ecen4330_lcd_v3.c:479: void freeType () {
+                                   3008 ;	-----------------------------------------
+                                   3009 ;	 function freeType
+                                   3010 ;	-----------------------------------------
+      000D61                       3011 _freeType:
+                                   3012 ;	ecen4330_lcd_v3.c:480: __xdata uint8_t count = 0;
+      000D61 90 00 0D         [24] 3013 	mov	dptr,#_freeType_count_65536_178
+      000D64 E4               [12] 3014 	clr	a
+      000D65 F0               [24] 3015 	movx	@dptr,a
+                                   3016 ;	ecen4330_lcd_v3.c:483: while (1) {
+      000D66                       3017 00105$:
+                                   3018 ;	ecen4330_lcd_v3.c:484: if (count == 8) {
+      000D66 90 00 0D         [24] 3019 	mov	dptr,#_freeType_count_65536_178
+      000D69 E0               [24] 3020 	movx	a,@dptr
+      000D6A FF               [12] 3021 	mov	r7,a
+      000D6B BF 08 0D         [24] 3022 	cjne	r7,#0x08,00102$
+                                   3023 ;	ecen4330_lcd_v3.c:486: count = 0;
+      000D6E 90 00 0D         [24] 3024 	mov	dptr,#_freeType_count_65536_178
+      000D71 E4               [12] 3025 	clr	a
+      000D72 F0               [24] 3026 	movx	@dptr,a
+                                   3027 ;	ecen4330_lcd_v3.c:487: write(d);
+      000D73 75 82 0A         [24] 3028 	mov	dpl,#0x0a
+      000D76 12 0C 7D         [24] 3029 	lcall	_write
+      000D79 80 06            [24] 3030 	sjmp	00103$
+      000D7B                       3031 00102$:
+                                   3032 ;	ecen4330_lcd_v3.c:489: d = keyDetect();
+      000D7B 12 0D 8A         [24] 3033 	lcall	_keyDetect
+                                   3034 ;	ecen4330_lcd_v3.c:490: write(d);
+      000D7E 12 0C 7D         [24] 3035 	lcall	_write
+      000D81                       3036 00103$:
+                                   3037 ;	ecen4330_lcd_v3.c:493: count++;
+      000D81 90 00 0D         [24] 3038 	mov	dptr,#_freeType_count_65536_178
+      000D84 E0               [24] 3039 	movx	a,@dptr
+      000D85 24 01            [12] 3040 	add	a,#0x01
+      000D87 F0               [24] 3041 	movx	@dptr,a
+                                   3042 ;	ecen4330_lcd_v3.c:495: }
+      000D88 80 DC            [24] 3043 	sjmp	00105$
+                                   3044 ;------------------------------------------------------------
+                                   3045 ;Allocation info for local variables in function 'keyDetect'
+                                   3046 ;------------------------------------------------------------
+                                   3047 ;	ecen4330_lcd_v3.c:502: uint8_t keyDetect () {
+                                   3048 ;	-----------------------------------------
+                                   3049 ;	 function keyDetect
+                                   3050 ;	-----------------------------------------
+      000D8A                       3051 _keyDetect:
+                                   3052 ;	ecen4330_lcd_v3.c:503: __KEYPAD_PORT__ = 0xF0;
+      000D8A 75 90 F0         [24] 3053 	mov	_P1,#0xf0
+                                   3054 ;	ecen4330_lcd_v3.c:504: do {
+      000D8D                       3055 00101$:
+                                   3056 ;	ecen4330_lcd_v3.c:505: __KEYPAD_PORT__ = 0xF0;
+      000D8D 75 90 F0         [24] 3057 	mov	_P1,#0xf0
+                                   3058 ;	ecen4330_lcd_v3.c:506: colloc = __KEYPAD_PORT__;
+      000D90 85 90 21         [24] 3059 	mov	_colloc,_P1
+                                   3060 ;	ecen4330_lcd_v3.c:507: colloc&= 0xF0;
+      000D93 53 21 F0         [24] 3061 	anl	_colloc,#0xf0
+                                   3062 ;	ecen4330_lcd_v3.c:508: } while (colloc != 0xF0);
+      000D96 74 F0            [12] 3063 	mov	a,#0xf0
+      000D98 B5 21 F2         [24] 3064 	cjne	a,_colloc,00101$
+                                   3065 ;	ecen4330_lcd_v3.c:511: do {
+      000D9B                       3066 00104$:
+                                   3067 ;	ecen4330_lcd_v3.c:512: delay(20);
+      000D9B 90 00 14         [24] 3068 	mov	dptr,#0x0014
+      000D9E 12 00 C1         [24] 3069 	lcall	_delay
+                                   3070 ;	ecen4330_lcd_v3.c:513: colloc = (__KEYPAD_PORT__ & 0xF0);
+      000DA1 E5 90            [12] 3071 	mov	a,_P1
+      000DA3 54 F0            [12] 3072 	anl	a,#0xf0
+      000DA5 F5 21            [12] 3073 	mov	_colloc,a
+                                   3074 ;	ecen4330_lcd_v3.c:514: } while (colloc == 0xF0);
+      000DA7 74 F0            [12] 3075 	mov	a,#0xf0
+      000DA9 B5 21 02         [24] 3076 	cjne	a,_colloc,00178$
+      000DAC 80 ED            [24] 3077 	sjmp	00104$
+      000DAE                       3078 00178$:
+                                   3079 ;	ecen4330_lcd_v3.c:516: delay(1);
+      000DAE 90 00 01         [24] 3080 	mov	dptr,#0x0001
+      000DB1 12 00 C1         [24] 3081 	lcall	_delay
+                                   3082 ;	ecen4330_lcd_v3.c:517: colloc = (__KEYPAD_PORT__ & 0xF0);
+      000DB4 E5 90            [12] 3083 	mov	a,_P1
+      000DB6 54 F0            [12] 3084 	anl	a,#0xf0
+      000DB8 F5 21            [12] 3085 	mov	_colloc,a
+                                   3086 ;	ecen4330_lcd_v3.c:518: } while (colloc == 0xF0);
+      000DBA 74 F0            [12] 3087 	mov	a,#0xf0
+      000DBC B5 21 02         [24] 3088 	cjne	a,_colloc,00179$
+      000DBF 80 DA            [24] 3089 	sjmp	00104$
+      000DC1                       3090 00179$:
+                                   3091 ;	ecen4330_lcd_v3.c:520: while (1) {
+      000DC1                       3092 00119$:
+                                   3093 ;	ecen4330_lcd_v3.c:521: __KEYPAD_PORT__= 0xFE;
+      000DC1 75 90 FE         [24] 3094 	mov	_P1,#0xfe
+                                   3095 ;	ecen4330_lcd_v3.c:522: colloc = (__KEYPAD_PORT__ & 0xF0);
+      000DC4 E5 90            [12] 3096 	mov	a,_P1
+      000DC6 54 F0            [12] 3097 	anl	a,#0xf0
+      000DC8 F5 21            [12] 3098 	mov	_colloc,a
+                                   3099 ;	ecen4330_lcd_v3.c:523: if (colloc != 0xF0) {
+      000DCA 74 F0            [12] 3100 	mov	a,#0xf0
+      000DCC B5 21 02         [24] 3101 	cjne	a,_colloc,00180$
+      000DCF 80 05            [24] 3102 	sjmp	00111$
+      000DD1                       3103 00180$:
+                                   3104 ;	ecen4330_lcd_v3.c:524: rowloc = 0;
+      000DD1 75 22 00         [24] 3105 	mov	_rowloc,#0x00
+                                   3106 ;	ecen4330_lcd_v3.c:525: break;
+      000DD4 80 3D            [24] 3107 	sjmp	00120$
+      000DD6                       3108 00111$:
+                                   3109 ;	ecen4330_lcd_v3.c:528: __KEYPAD_PORT__ = 0xFD;
+      000DD6 75 90 FD         [24] 3110 	mov	_P1,#0xfd
+                                   3111 ;	ecen4330_lcd_v3.c:529: colloc = (__KEYPAD_PORT__ & 0xF0);
+      000DD9 E5 90            [12] 3112 	mov	a,_P1
+      000DDB 54 F0            [12] 3113 	anl	a,#0xf0
+      000DDD F5 21            [12] 3114 	mov	_colloc,a
+                                   3115 ;	ecen4330_lcd_v3.c:530: if (colloc != 0xF0) {
+      000DDF 74 F0            [12] 3116 	mov	a,#0xf0
+      000DE1 B5 21 02         [24] 3117 	cjne	a,_colloc,00181$
+      000DE4 80 05            [24] 3118 	sjmp	00113$
+      000DE6                       3119 00181$:
+                                   3120 ;	ecen4330_lcd_v3.c:531: rowloc = 1;
+      000DE6 75 22 01         [24] 3121 	mov	_rowloc,#0x01
+                                   3122 ;	ecen4330_lcd_v3.c:532: break;
+      000DE9 80 28            [24] 3123 	sjmp	00120$
+      000DEB                       3124 00113$:
+                                   3125 ;	ecen4330_lcd_v3.c:535: __KEYPAD_PORT__ = 0xFB;
+      000DEB 75 90 FB         [24] 3126 	mov	_P1,#0xfb
+                                   3127 ;	ecen4330_lcd_v3.c:536: colloc = (__KEYPAD_PORT__ & 0xF0);
+      000DEE E5 90            [12] 3128 	mov	a,_P1
+      000DF0 54 F0            [12] 3129 	anl	a,#0xf0
+      000DF2 F5 21            [12] 3130 	mov	_colloc,a
+                                   3131 ;	ecen4330_lcd_v3.c:537: if (colloc != 0xF0) {
+      000DF4 74 F0            [12] 3132 	mov	a,#0xf0
+      000DF6 B5 21 02         [24] 3133 	cjne	a,_colloc,00182$
+      000DF9 80 05            [24] 3134 	sjmp	00115$
+      000DFB                       3135 00182$:
+                                   3136 ;	ecen4330_lcd_v3.c:538: rowloc = 2;
+      000DFB 75 22 02         [24] 3137 	mov	_rowloc,#0x02
+                                   3138 ;	ecen4330_lcd_v3.c:539: break;
+      000DFE 80 13            [24] 3139 	sjmp	00120$
+      000E00                       3140 00115$:
+                                   3141 ;	ecen4330_lcd_v3.c:542: __KEYPAD_PORT__ = 0xF7;
+      000E00 75 90 F7         [24] 3142 	mov	_P1,#0xf7
+                                   3143 ;	ecen4330_lcd_v3.c:543: colloc = (__KEYPAD_PORT__ & 0xF0);
+      000E03 E5 90            [12] 3144 	mov	a,_P1
+      000E05 54 F0            [12] 3145 	anl	a,#0xf0
+      000E07 F5 21            [12] 3146 	mov	_colloc,a
+                                   3147 ;	ecen4330_lcd_v3.c:544: if (colloc != 0xF0) {
+      000E09 74 F0            [12] 3148 	mov	a,#0xf0
+      000E0B B5 21 02         [24] 3149 	cjne	a,_colloc,00183$
+      000E0E 80 B1            [24] 3150 	sjmp	00119$
+      000E10                       3151 00183$:
+                                   3152 ;	ecen4330_lcd_v3.c:545: rowloc = 3;
+      000E10 75 22 03         [24] 3153 	mov	_rowloc,#0x03
+                                   3154 ;	ecen4330_lcd_v3.c:546: break;
+      000E13                       3155 00120$:
+                                   3156 ;	ecen4330_lcd_v3.c:550: if (colloc == 0xE0) {
+      000E13 74 E0            [12] 3157 	mov	a,#0xe0
+      000E15 B5 21 15         [24] 3158 	cjne	a,_colloc,00128$
+                                   3159 ;	ecen4330_lcd_v3.c:551: return (keypad[rowloc][0]);
+      000E18 E5 22            [12] 3160 	mov	a,_rowloc
+      000E1A 75 F0 04         [24] 3161 	mov	b,#0x04
+      000E1D A4               [48] 3162 	mul	ab
+      000E1E 24 B2            [12] 3163 	add	a,#_keypad
+      000E20 F5 82            [12] 3164 	mov	dpl,a
+      000E22 74 1F            [12] 3165 	mov	a,#(_keypad >> 8)
+      000E24 35 F0            [12] 3166 	addc	a,b
+      000E26 F5 83            [12] 3167 	mov	dph,a
+      000E28 E4               [12] 3168 	clr	a
+      000E29 93               [24] 3169 	movc	a,@a+dptr
+      000E2A F5 82            [12] 3170 	mov	dpl,a
+      000E2C 22               [24] 3171 	ret
+      000E2D                       3172 00128$:
+                                   3173 ;	ecen4330_lcd_v3.c:552: } else if (colloc == 0xD0) {
+      000E2D 74 D0            [12] 3174 	mov	a,#0xd0
+      000E2F B5 21 18         [24] 3175 	cjne	a,_colloc,00125$
+                                   3176 ;	ecen4330_lcd_v3.c:553: return (keypad[rowloc][1]);
+      000E32 E5 22            [12] 3177 	mov	a,_rowloc
+      000E34 75 F0 04         [24] 3178 	mov	b,#0x04
+      000E37 A4               [48] 3179 	mul	ab
+      000E38 24 B2            [12] 3180 	add	a,#_keypad
+      000E3A FE               [12] 3181 	mov	r6,a
+      000E3B 74 1F            [12] 3182 	mov	a,#(_keypad >> 8)
+      000E3D 35 F0            [12] 3183 	addc	a,b
+      000E3F FF               [12] 3184 	mov	r7,a
+      000E40 8E 82            [24] 3185 	mov	dpl,r6
+      000E42 8F 83            [24] 3186 	mov	dph,r7
+      000E44 A3               [24] 3187 	inc	dptr
+      000E45 E4               [12] 3188 	clr	a
+      000E46 93               [24] 3189 	movc	a,@a+dptr
+      000E47 F5 82            [12] 3190 	mov	dpl,a
+      000E49 22               [24] 3191 	ret
+      000E4A                       3192 00125$:
+                                   3193 ;	ecen4330_lcd_v3.c:554: } else if (colloc == 0xB0) {
+      000E4A 74 B0            [12] 3194 	mov	a,#0xb0
+      000E4C B5 21 19         [24] 3195 	cjne	a,_colloc,00122$
+                                   3196 ;	ecen4330_lcd_v3.c:555: return (keypad[rowloc][2]);
+      000E4F E5 22            [12] 3197 	mov	a,_rowloc
+      000E51 75 F0 04         [24] 3198 	mov	b,#0x04
+      000E54 A4               [48] 3199 	mul	ab
+      000E55 24 B2            [12] 3200 	add	a,#_keypad
+      000E57 FE               [12] 3201 	mov	r6,a
+      000E58 74 1F            [12] 3202 	mov	a,#(_keypad >> 8)
+      000E5A 35 F0            [12] 3203 	addc	a,b
+      000E5C FF               [12] 3204 	mov	r7,a
+      000E5D 8E 82            [24] 3205 	mov	dpl,r6
+      000E5F 8F 83            [24] 3206 	mov	dph,r7
+      000E61 A3               [24] 3207 	inc	dptr
+      000E62 A3               [24] 3208 	inc	dptr
+      000E63 E4               [12] 3209 	clr	a
+      000E64 93               [24] 3210 	movc	a,@a+dptr
+      000E65 F5 82            [12] 3211 	mov	dpl,a
+      000E67 22               [24] 3212 	ret
+      000E68                       3213 00122$:
+                                   3214 ;	ecen4330_lcd_v3.c:557: return (keypad[rowloc][3]);
+      000E68 E5 22            [12] 3215 	mov	a,_rowloc
+      000E6A 75 F0 04         [24] 3216 	mov	b,#0x04
+      000E6D A4               [48] 3217 	mul	ab
+      000E6E 24 B2            [12] 3218 	add	a,#_keypad
+      000E70 FE               [12] 3219 	mov	r6,a
+      000E71 74 1F            [12] 3220 	mov	a,#(_keypad >> 8)
+      000E73 35 F0            [12] 3221 	addc	a,b
+      000E75 FF               [12] 3222 	mov	r7,a
+      000E76 8E 82            [24] 3223 	mov	dpl,r6
+      000E78 8F 83            [24] 3224 	mov	dph,r7
+      000E7A A3               [24] 3225 	inc	dptr
+      000E7B A3               [24] 3226 	inc	dptr
+      000E7C A3               [24] 3227 	inc	dptr
+      000E7D E4               [12] 3228 	clr	a
+      000E7E 93               [24] 3229 	movc	a,@a+dptr
+                                   3230 ;	ecen4330_lcd_v3.c:559: }
+      000E7F F5 82            [12] 3231 	mov	dpl,a
+      000E81 22               [24] 3232 	ret
+                                   3233 ;------------------------------------------------------------
+                                   3234 ;Allocation info for local variables in function 'reverse'
+                                   3235 ;------------------------------------------------------------
+                                   3236 ;d                         Allocated to registers r7 
+                                   3237 ;rev                       Allocated with name '_reverse_rev_65536_196'
+                                   3238 ;val                       Allocated with name '_reverse_val_65536_196'
+                                   3239 ;------------------------------------------------------------
+                                   3240 ;	ecen4330_lcd_v3.c:561: uint16_t reverse (uint8_t d) {
+                                   3241 ;	-----------------------------------------
+                                   3242 ;	 function reverse
+                                   3243 ;	-----------------------------------------
+      000E82                       3244 _reverse:
+      000E82 AF 82            [24] 3245 	mov	r7,dpl
+                                   3246 ;	ecen4330_lcd_v3.c:562: __xdata uint16_t rev = 0;
+      000E84 90 00 0E         [24] 3247 	mov	dptr,#_reverse_rev_65536_196
+      000E87 E4               [12] 3248 	clr	a
+      000E88 F0               [24] 3249 	movx	@dptr,a
+      000E89 A3               [24] 3250 	inc	dptr
+      000E8A F0               [24] 3251 	movx	@dptr,a
+                                   3252 ;	ecen4330_lcd_v3.c:565: while (d >= 1) {
+      000E8B                       3253 00101$:
+      000E8B BF 01 00         [24] 3254 	cjne	r7,#0x01,00114$
+      000E8E                       3255 00114$:
+      000E8E 40 63            [24] 3256 	jc	00103$
+                                   3257 ;	ecen4330_lcd_v3.c:566: val = d % 10;
+      000E90 8F 05            [24] 3258 	mov	ar5,r7
+      000E92 7E 00            [12] 3259 	mov	r6,#0x00
+      000E94 75 08 0A         [24] 3260 	mov	__modsint_PARM_2,#0x0a
+                                   3261 ;	1-genFromRTrack replaced	mov	(__modsint_PARM_2 + 1),#0x00
+      000E97 8E 09            [24] 3262 	mov	(__modsint_PARM_2 + 1),r6
+      000E99 8D 82            [24] 3263 	mov	dpl,r5
+      000E9B 8E 83            [24] 3264 	mov	dph,r6
+      000E9D C0 06            [24] 3265 	push	ar6
+      000E9F C0 05            [24] 3266 	push	ar5
+      000EA1 12 1A 45         [24] 3267 	lcall	__modsint
+      000EA4 AB 82            [24] 3268 	mov	r3,dpl
+      000EA6 AC 83            [24] 3269 	mov	r4,dph
+      000EA8 D0 05            [24] 3270 	pop	ar5
+      000EAA D0 06            [24] 3271 	pop	ar6
+      000EAC 90 00 10         [24] 3272 	mov	dptr,#_reverse_val_65536_196
+      000EAF EB               [12] 3273 	mov	a,r3
+      000EB0 F0               [24] 3274 	movx	@dptr,a
+      000EB1 EC               [12] 3275 	mov	a,r4
+      000EB2 A3               [24] 3276 	inc	dptr
+      000EB3 F0               [24] 3277 	movx	@dptr,a
+                                   3278 ;	ecen4330_lcd_v3.c:567: d = d / 10;
+      000EB4 75 08 0A         [24] 3279 	mov	__divsint_PARM_2,#0x0a
+      000EB7 75 09 00         [24] 3280 	mov	(__divsint_PARM_2 + 1),#0x00
+      000EBA 8D 82            [24] 3281 	mov	dpl,r5
+      000EBC 8E 83            [24] 3282 	mov	dph,r6
+      000EBE 12 1A 7B         [24] 3283 	lcall	__divsint
+      000EC1 AD 82            [24] 3284 	mov	r5,dpl
+      000EC3 8D 07            [24] 3285 	mov	ar7,r5
+                                   3286 ;	ecen4330_lcd_v3.c:568: rev = rev * 10 + val;
+      000EC5 90 00 0E         [24] 3287 	mov	dptr,#_reverse_rev_65536_196
+      000EC8 E0               [24] 3288 	movx	a,@dptr
+      000EC9 FD               [12] 3289 	mov	r5,a
+      000ECA A3               [24] 3290 	inc	dptr
+      000ECB E0               [24] 3291 	movx	a,@dptr
+      000ECC FE               [12] 3292 	mov	r6,a
+      000ECD 8D 08            [24] 3293 	mov	__mulint_PARM_2,r5
+      000ECF 8E 09            [24] 3294 	mov	(__mulint_PARM_2 + 1),r6
+      000ED1 90 00 0A         [24] 3295 	mov	dptr,#0x000a
+      000ED4 C0 07            [24] 3296 	push	ar7
+      000ED6 12 19 BF         [24] 3297 	lcall	__mulint
+      000ED9 AD 82            [24] 3298 	mov	r5,dpl
+      000EDB AE 83            [24] 3299 	mov	r6,dph
+      000EDD D0 07            [24] 3300 	pop	ar7
+      000EDF 90 00 10         [24] 3301 	mov	dptr,#_reverse_val_65536_196
+      000EE2 E0               [24] 3302 	movx	a,@dptr
+      000EE3 FB               [12] 3303 	mov	r3,a
+      000EE4 A3               [24] 3304 	inc	dptr
+      000EE5 E0               [24] 3305 	movx	a,@dptr
+      000EE6 FC               [12] 3306 	mov	r4,a
+      000EE7 90 00 0E         [24] 3307 	mov	dptr,#_reverse_rev_65536_196
+      000EEA EB               [12] 3308 	mov	a,r3
+      000EEB 2D               [12] 3309 	add	a,r5
+      000EEC F0               [24] 3310 	movx	@dptr,a
+      000EED EC               [12] 3311 	mov	a,r4
+      000EEE 3E               [12] 3312 	addc	a,r6
+      000EEF A3               [24] 3313 	inc	dptr
+      000EF0 F0               [24] 3314 	movx	@dptr,a
+      000EF1 80 98            [24] 3315 	sjmp	00101$
+      000EF3                       3316 00103$:
+                                   3317 ;	ecen4330_lcd_v3.c:570: return rev;
+      000EF3 90 00 0E         [24] 3318 	mov	dptr,#_reverse_rev_65536_196
+      000EF6 E0               [24] 3319 	movx	a,@dptr
+      000EF7 FE               [12] 3320 	mov	r6,a
+      000EF8 A3               [24] 3321 	inc	dptr
+      000EF9 E0               [24] 3322 	movx	a,@dptr
+                                   3323 ;	ecen4330_lcd_v3.c:571: }
+      000EFA 8E 82            [24] 3324 	mov	dpl,r6
+      000EFC F5 83            [12] 3325 	mov	dph,a
+      000EFE 22               [24] 3326 	ret
+                                   3327 ;------------------------------------------------------------
+                                   3328 ;Allocation info for local variables in function 'asciiToDec'
+                                   3329 ;------------------------------------------------------------
+                                   3330 ;d                         Allocated with name '_asciiToDec_d_65536_198'
+                                   3331 ;val                       Allocated with name '_asciiToDec_val_65536_199'
+                                   3332 ;id                        Allocated with name '_asciiToDec_id_65536_199'
+                                   3333 ;------------------------------------------------------------
+                                   3334 ;	ecen4330_lcd_v3.c:578: void asciiToDec (__xdata uint8_t d) {
+                                   3335 ;	-----------------------------------------
+                                   3336 ;	 function asciiToDec
+                                   3337 ;	-----------------------------------------
+      000EFF                       3338 _asciiToDec:
+      000EFF E5 82            [12] 3339 	mov	a,dpl
+      000F01 90 00 12         [24] 3340 	mov	dptr,#_asciiToDec_d_65536_198
+      000F04 F0               [24] 3341 	movx	@dptr,a
+                                   3342 ;	ecen4330_lcd_v3.c:581: id = reverse(d);
+      000F05 E0               [24] 3343 	movx	a,@dptr
+      000F06 F5 82            [12] 3344 	mov	dpl,a
+      000F08 12 0E 82         [24] 3345 	lcall	_reverse
+      000F0B E5 82            [12] 3346 	mov	a,dpl
+      000F0D 85 83 F0         [24] 3347 	mov	b,dph
+      000F10 90 00 14         [24] 3348 	mov	dptr,#_asciiToDec_id_65536_199
+      000F13 F0               [24] 3349 	movx	@dptr,a
+      000F14 E5 F0            [12] 3350 	mov	a,b
+      000F16 A3               [24] 3351 	inc	dptr
+      000F17 F0               [24] 3352 	movx	@dptr,a
+                                   3353 ;	ecen4330_lcd_v3.c:582: while (id >= 1){
+      000F18                       3354 00101$:
+      000F18 90 00 14         [24] 3355 	mov	dptr,#_asciiToDec_id_65536_199
+      000F1B E0               [24] 3356 	movx	a,@dptr
+      000F1C FE               [12] 3357 	mov	r6,a
+      000F1D A3               [24] 3358 	inc	dptr
+      000F1E E0               [24] 3359 	movx	a,@dptr
+      000F1F FF               [12] 3360 	mov	r7,a
+      000F20 C3               [12] 3361 	clr	c
+      000F21 EE               [12] 3362 	mov	a,r6
+      000F22 94 01            [12] 3363 	subb	a,#0x01
+      000F24 EF               [12] 3364 	mov	a,r7
+      000F25 94 00            [12] 3365 	subb	a,#0x00
+      000F27 40 42            [24] 3366 	jc	00104$
+                                   3367 ;	ecen4330_lcd_v3.c:584: val = id % 10;
+      000F29 75 08 0A         [24] 3368 	mov	__moduint_PARM_2,#0x0a
+      000F2C 75 09 00         [24] 3369 	mov	(__moduint_PARM_2 + 1),#0x00
+      000F2F 8E 82            [24] 3370 	mov	dpl,r6
+      000F31 8F 83            [24] 3371 	mov	dph,r7
+      000F33 C0 07            [24] 3372 	push	ar7
+      000F35 C0 06            [24] 3373 	push	ar6
+      000F37 12 19 DC         [24] 3374 	lcall	__moduint
+      000F3A AC 82            [24] 3375 	mov	r4,dpl
+      000F3C D0 06            [24] 3376 	pop	ar6
+      000F3E D0 07            [24] 3377 	pop	ar7
+      000F40 90 00 13         [24] 3378 	mov	dptr,#_asciiToDec_val_65536_199
+      000F43 EC               [12] 3379 	mov	a,r4
+      000F44 F0               [24] 3380 	movx	@dptr,a
+                                   3381 ;	ecen4330_lcd_v3.c:585: id = id / 10;
+      000F45 75 08 0A         [24] 3382 	mov	__divuint_PARM_2,#0x0a
+      000F48 75 09 00         [24] 3383 	mov	(__divuint_PARM_2 + 1),#0x00
+      000F4B 8E 82            [24] 3384 	mov	dpl,r6
+      000F4D 8F 83            [24] 3385 	mov	dph,r7
+      000F4F 12 19 96         [24] 3386 	lcall	__divuint
+      000F52 AE 82            [24] 3387 	mov	r6,dpl
+      000F54 AF 83            [24] 3388 	mov	r7,dph
+      000F56 90 00 14         [24] 3389 	mov	dptr,#_asciiToDec_id_65536_199
+      000F59 EE               [12] 3390 	mov	a,r6
+      000F5A F0               [24] 3391 	movx	@dptr,a
+      000F5B EF               [12] 3392 	mov	a,r7
+      000F5C A3               [24] 3393 	inc	dptr
+      000F5D F0               [24] 3394 	movx	@dptr,a
+                                   3395 ;	ecen4330_lcd_v3.c:586: write(val + '0');
+      000F5E 90 00 13         [24] 3396 	mov	dptr,#_asciiToDec_val_65536_199
+      000F61 E0               [24] 3397 	movx	a,@dptr
+      000F62 24 30            [12] 3398 	add	a,#0x30
+      000F64 F5 82            [12] 3399 	mov	dpl,a
+      000F66 12 0C 7D         [24] 3400 	lcall	_write
+      000F69 80 AD            [24] 3401 	sjmp	00101$
+      000F6B                       3402 00104$:
+                                   3403 ;	ecen4330_lcd_v3.c:589: }
+      000F6B 22               [24] 3404 	ret
+                                   3405 ;------------------------------------------------------------
+                                   3406 ;Allocation info for local variables in function 'asciiToHex'
+                                   3407 ;------------------------------------------------------------
+                                   3408 ;d                         Allocated to registers r7 
+                                   3409 ;val                       Allocated to registers r2 
+                                   3410 ;store                     Allocated with name '_asciiToHex_store_65536_202'
+                                   3411 ;i                         Allocated to registers r6 
+                                   3412 ;------------------------------------------------------------
+                                   3413 ;	ecen4330_lcd_v3.c:596: void asciiToHex (uint8_t d) {
+                                   3414 ;	-----------------------------------------
+                                   3415 ;	 function asciiToHex
+                                   3416 ;	-----------------------------------------
+      000F6C                       3417 _asciiToHex:
+      000F6C AF 82            [24] 3418 	mov	r7,dpl
+                                   3419 ;	ecen4330_lcd_v3.c:600: store[0] = '0';
+      000F6E 75 69 30         [24] 3420 	mov	_asciiToHex_store_65536_202,#0x30
+                                   3421 ;	ecen4330_lcd_v3.c:601: store[1] = '0';
+      000F71 75 6A 30         [24] 3422 	mov	(_asciiToHex_store_65536_202 + 0x0001),#0x30
+                                   3423 ;	ecen4330_lcd_v3.c:603: while (d >= 1) {
+      000F74 7E 00            [12] 3424 	mov	r6,#0x00
+      000F76                       3425 00104$:
+      000F76 BF 01 00         [24] 3426 	cjne	r7,#0x01,00122$
+      000F79                       3427 00122$:
+      000F79 40 5A            [24] 3428 	jc	00106$
+                                   3429 ;	ecen4330_lcd_v3.c:604: val = d % 16;
+      000F7B 8F 04            [24] 3430 	mov	ar4,r7
+      000F7D 7D 00            [12] 3431 	mov	r5,#0x00
+      000F7F 74 0F            [12] 3432 	mov	a,#0x0f
+      000F81 5C               [12] 3433 	anl	a,r4
+      000F82 FA               [12] 3434 	mov	r2,a
+                                   3435 ;	ecen4330_lcd_v3.c:605: d = d / 16;
+      000F83 75 08 10         [24] 3436 	mov	__divsint_PARM_2,#0x10
+                                   3437 ;	1-genFromRTrack replaced	mov	(__divsint_PARM_2 + 1),#0x00
+      000F86 8D 09            [24] 3438 	mov	(__divsint_PARM_2 + 1),r5
+      000F88 8C 82            [24] 3439 	mov	dpl,r4
+      000F8A 8D 83            [24] 3440 	mov	dph,r5
+      000F8C C0 06            [24] 3441 	push	ar6
+      000F8E C0 02            [24] 3442 	push	ar2
+      000F90 12 1A 7B         [24] 3443 	lcall	__divsint
+      000F93 AC 82            [24] 3444 	mov	r4,dpl
+      000F95 D0 02            [24] 3445 	pop	ar2
+      000F97 D0 06            [24] 3446 	pop	ar6
+      000F99 8C 07            [24] 3447 	mov	ar7,r4
+                                   3448 ;	ecen4330_lcd_v3.c:606: if (val <= 9) {
+      000F9B EA               [12] 3449 	mov	a,r2
+      000F9C 24 F6            [12] 3450 	add	a,#0xff - 0x09
+      000F9E 40 0C            [24] 3451 	jc	00102$
+                                   3452 ;	ecen4330_lcd_v3.c:607: store[i] = val + '0';
+      000FA0 EE               [12] 3453 	mov	a,r6
+      000FA1 24 69            [12] 3454 	add	a,#_asciiToHex_store_65536_202
+      000FA3 F9               [12] 3455 	mov	r1,a
+      000FA4 8A 05            [24] 3456 	mov	ar5,r2
+      000FA6 74 30            [12] 3457 	mov	a,#0x30
+      000FA8 2D               [12] 3458 	add	a,r5
+      000FA9 F7               [12] 3459 	mov	@r1,a
+      000FAA 80 26            [24] 3460 	sjmp	00103$
+      000FAC                       3461 00102$:
+                                   3462 ;	ecen4330_lcd_v3.c:609: store[i] = (val % 10) + 'A';
+      000FAC EE               [12] 3463 	mov	a,r6
+      000FAD 24 69            [12] 3464 	add	a,#_asciiToHex_store_65536_202
+      000FAF F9               [12] 3465 	mov	r1,a
+      000FB0 7D 00            [12] 3466 	mov	r5,#0x00
+      000FB2 75 08 0A         [24] 3467 	mov	__modsint_PARM_2,#0x0a
+                                   3468 ;	1-genFromRTrack replaced	mov	(__modsint_PARM_2 + 1),#0x00
+      000FB5 8D 09            [24] 3469 	mov	(__modsint_PARM_2 + 1),r5
+      000FB7 8A 82            [24] 3470 	mov	dpl,r2
+      000FB9 8D 83            [24] 3471 	mov	dph,r5
+      000FBB C0 07            [24] 3472 	push	ar7
+      000FBD C0 06            [24] 3473 	push	ar6
+      000FBF C0 01            [24] 3474 	push	ar1
+      000FC1 12 1A 45         [24] 3475 	lcall	__modsint
+      000FC4 AC 82            [24] 3476 	mov	r4,dpl
+      000FC6 AD 83            [24] 3477 	mov	r5,dph
+      000FC8 D0 01            [24] 3478 	pop	ar1
+      000FCA D0 06            [24] 3479 	pop	ar6
+      000FCC D0 07            [24] 3480 	pop	ar7
+      000FCE 74 41            [12] 3481 	mov	a,#0x41
+      000FD0 2C               [12] 3482 	add	a,r4
+      000FD1 F7               [12] 3483 	mov	@r1,a
+      000FD2                       3484 00103$:
+                                   3485 ;	ecen4330_lcd_v3.c:612: i++;
+      000FD2 0E               [12] 3486 	inc	r6
+      000FD3 80 A1            [24] 3487 	sjmp	00104$
+      000FD5                       3488 00106$:
+                                   3489 ;	ecen4330_lcd_v3.c:615: write(store[1]);
+      000FD5 85 6A 82         [24] 3490 	mov	dpl,(_asciiToHex_store_65536_202 + 0x0001)
+      000FD8 12 0C 7D         [24] 3491 	lcall	_write
+                                   3492 ;	ecen4330_lcd_v3.c:616: write(store[0]);
+      000FDB 85 69 82         [24] 3493 	mov	dpl,_asciiToHex_store_65536_202
+                                   3494 ;	ecen4330_lcd_v3.c:617: }
+      000FDE 02 0C 7D         [24] 3495 	ljmp	_write
+                                   3496 ;------------------------------------------------------------
+                                   3497 ;Allocation info for local variables in function 'convertAsciiHex'
+                                   3498 ;------------------------------------------------------------
+                                   3499 ;d                         Allocated to registers r7 
+                                   3500 ;------------------------------------------------------------
+                                   3501 ;	ecen4330_lcd_v3.c:625: uint8_t convertAsciiHex(uint8_t d) {
+                                   3502 ;	-----------------------------------------
+                                   3503 ;	 function convertAsciiHex
+                                   3504 ;	-----------------------------------------
+      000FE1                       3505 _convertAsciiHex:
+                                   3506 ;	ecen4330_lcd_v3.c:626: return (d <= '9') ? (d - '0') : (d - 'A' + 10);
+      000FE1 E5 82            [12] 3507 	mov	a,dpl
+      000FE3 FF               [12] 3508 	mov	r7,a
+      000FE4 24 C6            [12] 3509 	add	a,#0xff - 0x39
+      000FE6 92 01            [24] 3510 	mov	_convertAsciiHex_sloc0_1_0,c
+      000FE8 40 08            [24] 3511 	jc	00103$
+      000FEA 8F 06            [24] 3512 	mov	ar6,r7
+      000FEC EE               [12] 3513 	mov	a,r6
+      000FED 24 D0            [12] 3514 	add	a,#0xd0
+      000FEF FE               [12] 3515 	mov	r6,a
+      000FF0 80 04            [24] 3516 	sjmp	00104$
+      000FF2                       3517 00103$:
+      000FF2 74 C9            [12] 3518 	mov	a,#0xc9
+      000FF4 2F               [12] 3519 	add	a,r7
+      000FF5 FE               [12] 3520 	mov	r6,a
+      000FF6                       3521 00104$:
+      000FF6 8E 82            [24] 3522 	mov	dpl,r6
+                                   3523 ;	ecen4330_lcd_v3.c:627: }
+      000FF8 22               [24] 3524 	ret
+                                   3525 ;------------------------------------------------------------
+                                   3526 ;Allocation info for local variables in function 'writeSomeLines'
+                                   3527 ;------------------------------------------------------------
+                                   3528 ;	ecen4330_lcd_v3.c:633: void writeSomeLines () {
+                                   3529 ;	-----------------------------------------
+                                   3530 ;	 function writeSomeLines
                                    3531 ;	-----------------------------------------
-                                   3532 ;	 function asciiToHex
-                                   3533 ;	-----------------------------------------
-      000F93                       3534 _asciiToHex:
-      000F93 AF 82            [24] 3535 	mov	r7,dpl
-                                   3536 ;	ecen4330_lcd_v3.c:600: store[0] = '0';
-      000F95 75 6B 30         [24] 3537 	mov	_asciiToHex_store_65536_207,#0x30
-                                   3538 ;	ecen4330_lcd_v3.c:601: store[1] = '0';
-      000F98 75 6C 30         [24] 3539 	mov	(_asciiToHex_store_65536_207 + 0x0001),#0x30
-                                   3540 ;	ecen4330_lcd_v3.c:603: while (d >= 1) {
-      000F9B 7E 00            [12] 3541 	mov	r6,#0x00
-      000F9D                       3542 00104$:
-      000F9D BF 01 00         [24] 3543 	cjne	r7,#0x01,00122$
-      000FA0                       3544 00122$:
-      000FA0 40 5A            [24] 3545 	jc	00106$
-                                   3546 ;	ecen4330_lcd_v3.c:604: val = d % 16;
-      000FA2 8F 04            [24] 3547 	mov	ar4,r7
-      000FA4 7D 00            [12] 3548 	mov	r5,#0x00
-      000FA6 74 0F            [12] 3549 	mov	a,#0x0f
-      000FA8 5C               [12] 3550 	anl	a,r4
-      000FA9 FA               [12] 3551 	mov	r2,a
-                                   3552 ;	ecen4330_lcd_v3.c:605: d = d / 16;
-      000FAA 75 08 10         [24] 3553 	mov	__divsint_PARM_2,#0x10
-                                   3554 ;	1-genFromRTrack replaced	mov	(__divsint_PARM_2 + 1),#0x00
-      000FAD 8D 09            [24] 3555 	mov	(__divsint_PARM_2 + 1),r5
-      000FAF 8C 82            [24] 3556 	mov	dpl,r4
-      000FB1 8D 83            [24] 3557 	mov	dph,r5
-      000FB3 C0 06            [24] 3558 	push	ar6
-      000FB5 C0 02            [24] 3559 	push	ar2
-      000FB7 12 20 6E         [24] 3560 	lcall	__divsint
-      000FBA AC 82            [24] 3561 	mov	r4,dpl
-      000FBC D0 02            [24] 3562 	pop	ar2
-      000FBE D0 06            [24] 3563 	pop	ar6
-      000FC0 8C 07            [24] 3564 	mov	ar7,r4
-                                   3565 ;	ecen4330_lcd_v3.c:606: if (val <= 9) {
-      000FC2 EA               [12] 3566 	mov	a,r2
-      000FC3 24 F6            [12] 3567 	add	a,#0xff - 0x09
-      000FC5 40 0C            [24] 3568 	jc	00102$
-                                   3569 ;	ecen4330_lcd_v3.c:607: store[i] = val + '0';
-      000FC7 EE               [12] 3570 	mov	a,r6
-      000FC8 24 6B            [12] 3571 	add	a,#_asciiToHex_store_65536_207
-      000FCA F9               [12] 3572 	mov	r1,a
-      000FCB 8A 05            [24] 3573 	mov	ar5,r2
-      000FCD 74 30            [12] 3574 	mov	a,#0x30
-      000FCF 2D               [12] 3575 	add	a,r5
-      000FD0 F7               [12] 3576 	mov	@r1,a
-      000FD1 80 26            [24] 3577 	sjmp	00103$
-      000FD3                       3578 00102$:
-                                   3579 ;	ecen4330_lcd_v3.c:609: store[i] = (val % 10) + 'A';
-      000FD3 EE               [12] 3580 	mov	a,r6
-      000FD4 24 6B            [12] 3581 	add	a,#_asciiToHex_store_65536_207
-      000FD6 F9               [12] 3582 	mov	r1,a
-      000FD7 7D 00            [12] 3583 	mov	r5,#0x00
-      000FD9 75 08 0A         [24] 3584 	mov	__modsint_PARM_2,#0x0a
-                                   3585 ;	1-genFromRTrack replaced	mov	(__modsint_PARM_2 + 1),#0x00
-      000FDC 8D 09            [24] 3586 	mov	(__modsint_PARM_2 + 1),r5
-      000FDE 8A 82            [24] 3587 	mov	dpl,r2
-      000FE0 8D 83            [24] 3588 	mov	dph,r5
-      000FE2 C0 07            [24] 3589 	push	ar7
-      000FE4 C0 06            [24] 3590 	push	ar6
-      000FE6 C0 01            [24] 3591 	push	ar1
-      000FE8 12 20 38         [24] 3592 	lcall	__modsint
-      000FEB AC 82            [24] 3593 	mov	r4,dpl
-      000FED AD 83            [24] 3594 	mov	r5,dph
-      000FEF D0 01            [24] 3595 	pop	ar1
-      000FF1 D0 06            [24] 3596 	pop	ar6
-      000FF3 D0 07            [24] 3597 	pop	ar7
-      000FF5 74 41            [12] 3598 	mov	a,#0x41
-      000FF7 2C               [12] 3599 	add	a,r4
-      000FF8 F7               [12] 3600 	mov	@r1,a
-      000FF9                       3601 00103$:
-                                   3602 ;	ecen4330_lcd_v3.c:612: i++;
-      000FF9 0E               [12] 3603 	inc	r6
-      000FFA 80 A1            [24] 3604 	sjmp	00104$
-      000FFC                       3605 00106$:
-                                   3606 ;	ecen4330_lcd_v3.c:615: write(store[1]);
-      000FFC 85 6C 82         [24] 3607 	mov	dpl,(_asciiToHex_store_65536_207 + 0x0001)
-      000FFF 12 0C A4         [24] 3608 	lcall	_write
-                                   3609 ;	ecen4330_lcd_v3.c:616: write(store[0]);
-      001002 85 6B 82         [24] 3610 	mov	dpl,_asciiToHex_store_65536_207
-                                   3611 ;	ecen4330_lcd_v3.c:617: }
-      001005 02 0C A4         [24] 3612 	ljmp	_write
-                                   3613 ;------------------------------------------------------------
-                                   3614 ;Allocation info for local variables in function 'convertAsciiHex'
-                                   3615 ;------------------------------------------------------------
-                                   3616 ;d                         Allocated to registers r7 
-                                   3617 ;------------------------------------------------------------
-                                   3618 ;	ecen4330_lcd_v3.c:625: uint8_t convertAsciiHex(uint8_t d) {
-                                   3619 ;	-----------------------------------------
-                                   3620 ;	 function convertAsciiHex
-                                   3621 ;	-----------------------------------------
-      001008                       3622 _convertAsciiHex:
-                                   3623 ;	ecen4330_lcd_v3.c:626: return (d <= '9') ? (d - '0') : (d - 'A' + 10);
-      001008 E5 82            [12] 3624 	mov	a,dpl
-      00100A FF               [12] 3625 	mov	r7,a
-      00100B 24 C6            [12] 3626 	add	a,#0xff - 0x39
-      00100D 92 01            [24] 3627 	mov	_convertAsciiHex_sloc0_1_0,c
-      00100F 40 08            [24] 3628 	jc	00103$
-      001011 8F 06            [24] 3629 	mov	ar6,r7
-      001013 EE               [12] 3630 	mov	a,r6
-      001014 24 D0            [12] 3631 	add	a,#0xd0
-      001016 FE               [12] 3632 	mov	r6,a
-      001017 80 04            [24] 3633 	sjmp	00104$
-      001019                       3634 00103$:
-      001019 74 C9            [12] 3635 	mov	a,#0xc9
-      00101B 2F               [12] 3636 	add	a,r7
-      00101C FE               [12] 3637 	mov	r6,a
-      00101D                       3638 00104$:
-      00101D 8E 82            [24] 3639 	mov	dpl,r6
-                                   3640 ;	ecen4330_lcd_v3.c:627: }
-      00101F 22               [24] 3641 	ret
-                                   3642 ;------------------------------------------------------------
-                                   3643 ;Allocation info for local variables in function 'writeSomeLines'
-                                   3644 ;------------------------------------------------------------
-                                   3645 ;	ecen4330_lcd_v3.c:633: void writeSomeLines () {
-                                   3646 ;	-----------------------------------------
-                                   3647 ;	 function writeSomeLines
-                                   3648 ;	-----------------------------------------
-      001020                       3649 _writeSomeLines:
-                                   3650 ;	ecen4330_lcd_v3.c:634: fillScreen(RED);
-      001020 90 F8 00         [24] 3651 	mov	dptr,#0xf800
-      001023 12 09 0B         [24] 3652 	lcall	_fillScreen
-                                   3653 ;	ecen4330_lcd_v3.c:636: delay(20);
-      001026 90 00 14         [24] 3654 	mov	dptr,#0x0014
-      001029 12 00 E8         [24] 3655 	lcall	_delay
-                                   3656 ;	ecen4330_lcd_v3.c:637: fillScreen(GREEN);
-      00102C 90 07 E0         [24] 3657 	mov	dptr,#0x07e0
-      00102F 12 09 0B         [24] 3658 	lcall	_fillScreen
-                                   3659 ;	ecen4330_lcd_v3.c:639: delay(20);
-      001032 90 00 14         [24] 3660 	mov	dptr,#0x0014
-      001035 12 00 E8         [24] 3661 	lcall	_delay
-                                   3662 ;	ecen4330_lcd_v3.c:641: setRotation(0);
-      001038 75 82 00         [24] 3663 	mov	dpl,#0x00
-      00103B 12 01 AF         [24] 3664 	lcall	_setRotation
-                                   3665 ;	ecen4330_lcd_v3.c:642: fillScreen(BLACK);
-      00103E 90 00 00         [24] 3666 	mov	dptr,#0x0000
-      001041 12 09 0B         [24] 3667 	lcall	_fillScreen
-                                   3668 ;	ecen4330_lcd_v3.c:643: testCircles(20, RED);
-      001044 75 4F 00         [24] 3669 	mov	_testCircles_PARM_2,#0x00
-      001047 75 50 F8         [24] 3670 	mov	(_testCircles_PARM_2 + 1),#0xf8
-      00104A 75 82 14         [24] 3671 	mov	dpl,#0x14
-      00104D 12 07 64         [24] 3672 	lcall	_testCircles
-                                   3673 ;	ecen4330_lcd_v3.c:644: delay(100);
-      001050 90 00 64         [24] 3674 	mov	dptr,#0x0064
-      001053 12 00 E8         [24] 3675 	lcall	_delay
-                                   3676 ;	ecen4330_lcd_v3.c:645: fillScreen(BLACK);
-      001056 90 00 00         [24] 3677 	mov	dptr,#0x0000
-      001059 12 09 0B         [24] 3678 	lcall	_fillScreen
-                                   3679 ;	ecen4330_lcd_v3.c:646: setTextSize(5);
-      00105C 75 82 05         [24] 3680 	mov	dpl,#0x05
-      00105F 12 01 97         [24] 3681 	lcall	_setTextSize
-                                   3682 ;	ecen4330_lcd_v3.c:647: setTextColor(CYAN, BLACK);
-      001062 E4               [12] 3683 	clr	a
-      001063 F5 08            [12] 3684 	mov	_setTextColor_PARM_2,a
-      001065 F5 09            [12] 3685 	mov	(_setTextColor_PARM_2 + 1),a
-      001067 90 07 FF         [24] 3686 	mov	dptr,#0x07ff
-      00106A 12 01 8A         [24] 3687 	lcall	_setTextColor
-                                   3688 ;	ecen4330_lcd_v3.c:648: LCD_string_write("Welcome\n");
-      00106D 90 25 B5         [24] 3689 	mov	dptr,#___str_0
-      001070 75 F0 80         [24] 3690 	mov	b,#0x80
-      001073 12 0D 12         [24] 3691 	lcall	_LCD_string_write
-                                   3692 ;	ecen4330_lcd_v3.c:649: setTextSize(3);
-      001076 75 82 03         [24] 3693 	mov	dpl,#0x03
-      001079 12 01 97         [24] 3694 	lcall	_setTextSize
-                                   3695 ;	ecen4330_lcd_v3.c:650: LCD_string_write("ECEN-4330\n");
-      00107C 90 25 BE         [24] 3696 	mov	dptr,#___str_1
-      00107F 75 F0 80         [24] 3697 	mov	b,#0x80
-      001082 12 0D 12         [24] 3698 	lcall	_LCD_string_write
-                                   3699 ;	ecen4330_lcd_v3.c:651: LCD_string_write("Rotation 0");
-      001085 90 25 C9         [24] 3700 	mov	dptr,#___str_2
-      001088 75 F0 80         [24] 3701 	mov	b,#0x80
-      00108B 12 0D 12         [24] 3702 	lcall	_LCD_string_write
-                                   3703 ;	ecen4330_lcd_v3.c:652: delay(200);
-      00108E 90 00 C8         [24] 3704 	mov	dptr,#0x00c8
-      001091 12 00 E8         [24] 3705 	lcall	_delay
-                                   3706 ;	ecen4330_lcd_v3.c:653: fillScreen(BLACK);
-      001094 90 00 00         [24] 3707 	mov	dptr,#0x0000
-      001097 12 09 0B         [24] 3708 	lcall	_fillScreen
-                                   3709 ;	ecen4330_lcd_v3.c:654: setRotation(1);
-      00109A 75 82 01         [24] 3710 	mov	dpl,#0x01
-      00109D 12 01 AF         [24] 3711 	lcall	_setRotation
-                                   3712 ;	ecen4330_lcd_v3.c:655: setCursor(0,0);
-      0010A0 E4               [12] 3713 	clr	a
-      0010A1 F5 08            [12] 3714 	mov	_setCursor_PARM_2,a
-      0010A3 F5 09            [12] 3715 	mov	(_setCursor_PARM_2 + 1),a
-      0010A5 90 00 00         [24] 3716 	mov	dptr,#0x0000
-      0010A8 12 01 7D         [24] 3717 	lcall	_setCursor
-                                   3718 ;	ecen4330_lcd_v3.c:656: LCD_string_write("Rotation 1");
-      0010AB 90 25 D4         [24] 3719 	mov	dptr,#___str_3
-      0010AE 75 F0 80         [24] 3720 	mov	b,#0x80
-      0010B1 12 0D 12         [24] 3721 	lcall	_LCD_string_write
-                                   3722 ;	ecen4330_lcd_v3.c:657: delay(500);
-      0010B4 90 01 F4         [24] 3723 	mov	dptr,#0x01f4
-      0010B7 12 00 E8         [24] 3724 	lcall	_delay
-                                   3725 ;	ecen4330_lcd_v3.c:658: fillScreen(BLACK);
-      0010BA 90 00 00         [24] 3726 	mov	dptr,#0x0000
-      0010BD 12 09 0B         [24] 3727 	lcall	_fillScreen
-                                   3728 ;	ecen4330_lcd_v3.c:659: setRotation(2);
-      0010C0 75 82 02         [24] 3729 	mov	dpl,#0x02
-      0010C3 12 01 AF         [24] 3730 	lcall	_setRotation
-                                   3731 ;	ecen4330_lcd_v3.c:660: setCursor(0,0);
-      0010C6 E4               [12] 3732 	clr	a
-      0010C7 F5 08            [12] 3733 	mov	_setCursor_PARM_2,a
-      0010C9 F5 09            [12] 3734 	mov	(_setCursor_PARM_2 + 1),a
-      0010CB 90 00 00         [24] 3735 	mov	dptr,#0x0000
-      0010CE 12 01 7D         [24] 3736 	lcall	_setCursor
-                                   3737 ;	ecen4330_lcd_v3.c:661: LCD_string_write("Rotation 2");
-      0010D1 90 25 DF         [24] 3738 	mov	dptr,#___str_4
-      0010D4 75 F0 80         [24] 3739 	mov	b,#0x80
-      0010D7 12 0D 12         [24] 3740 	lcall	_LCD_string_write
-                                   3741 ;	ecen4330_lcd_v3.c:662: delay(500);
-      0010DA 90 01 F4         [24] 3742 	mov	dptr,#0x01f4
-      0010DD 12 00 E8         [24] 3743 	lcall	_delay
-                                   3744 ;	ecen4330_lcd_v3.c:663: fillScreen(BLACK);
-      0010E0 90 00 00         [24] 3745 	mov	dptr,#0x0000
-      0010E3 12 09 0B         [24] 3746 	lcall	_fillScreen
-                                   3747 ;	ecen4330_lcd_v3.c:664: setRotation(3);
-      0010E6 75 82 03         [24] 3748 	mov	dpl,#0x03
-      0010E9 12 01 AF         [24] 3749 	lcall	_setRotation
-                                   3750 ;	ecen4330_lcd_v3.c:665: setCursor(0,0);
-      0010EC E4               [12] 3751 	clr	a
-      0010ED F5 08            [12] 3752 	mov	_setCursor_PARM_2,a
-      0010EF F5 09            [12] 3753 	mov	(_setCursor_PARM_2 + 1),a
-      0010F1 90 00 00         [24] 3754 	mov	dptr,#0x0000
-      0010F4 12 01 7D         [24] 3755 	lcall	_setCursor
-                                   3756 ;	ecen4330_lcd_v3.c:666: delay(200);
-      0010F7 90 00 C8         [24] 3757 	mov	dptr,#0x00c8
-      0010FA 12 00 E8         [24] 3758 	lcall	_delay
-                                   3759 ;	ecen4330_lcd_v3.c:667: LCD_string_write("Rotation 3");
-      0010FD 90 25 EA         [24] 3760 	mov	dptr,#___str_5
-      001100 75 F0 80         [24] 3761 	mov	b,#0x80
-      001103 12 0D 12         [24] 3762 	lcall	_LCD_string_write
-                                   3763 ;	ecen4330_lcd_v3.c:668: delay(200);
-      001106 90 00 C8         [24] 3764 	mov	dptr,#0x00c8
-                                   3765 ;	ecen4330_lcd_v3.c:669: }
-      001109 02 00 E8         [24] 3766 	ljmp	_delay
-                                   3767 ;------------------------------------------------------------
-                                   3768 ;Allocation info for local variables in function 'getAddress'
-                                   3769 ;------------------------------------------------------------
-                                   3770 ;input                     Allocated with name '_getAddress_input_65536_232'
-                                   3771 ;hex                       Allocated with name '_getAddress_hex_65536_232'
-                                   3772 ;i                         Allocated with name '_getAddress_i_65536_232'
-                                   3773 ;address                   Allocated with name '_getAddress_address_65536_232'
-                                   3774 ;------------------------------------------------------------
-                                   3775 ;	getFunctions.c:6: uint16_t getAddress() {
-                                   3776 ;	-----------------------------------------
-                                   3777 ;	 function getAddress
-                                   3778 ;	-----------------------------------------
-      00110C                       3779 _getAddress:
-                                   3780 ;	getFunctions.c:16: address = 0;
-      00110C 90 00 16         [24] 3781 	mov	dptr,#_getAddress_address_65536_232
-      00110F E4               [12] 3782 	clr	a
-      001110 F0               [24] 3783 	movx	@dptr,a
-      001111 A3               [24] 3784 	inc	dptr
-      001112 F0               [24] 3785 	movx	@dptr,a
-                                   3786 ;	getFunctions.c:19: for (i = 0; i < 4; i++) {
-      001113 7F 00            [12] 3787 	mov	r7,#0x00
-      001115                       3788 00104$:
-                                   3789 ;	getFunctions.c:20: input = keyDetect();				// get the nibble
-      001115 C0 07            [24] 3790 	push	ar7
-      001117 12 0D B1         [24] 3791 	lcall	_keyDetect
-                                   3792 ;	getFunctions.c:21: write(input);						// display nibble to user
-      00111A AE 82            [24] 3793 	mov  r6,dpl
-      00111C C0 06            [24] 3794 	push	ar6
-      00111E 12 0C A4         [24] 3795 	lcall	_write
-      001121 D0 06            [24] 3796 	pop	ar6
-                                   3797 ;	getFunctions.c:22: hex = convertAsciiHex(input);		// convert ascii char to hex
-      001123 8E 82            [24] 3798 	mov	dpl,r6
-      001125 12 10 08         [24] 3799 	lcall	_convertAsciiHex
-      001128 AE 82            [24] 3800 	mov	r6,dpl
-      00112A D0 07            [24] 3801 	pop	ar7
-                                   3802 ;	getFunctions.c:25: address = address | hex;
-      00112C 90 00 16         [24] 3803 	mov	dptr,#_getAddress_address_65536_232
-      00112F E0               [24] 3804 	movx	a,@dptr
-      001130 FC               [12] 3805 	mov	r4,a
-      001131 A3               [24] 3806 	inc	dptr
-      001132 E0               [24] 3807 	movx	a,@dptr
-      001133 FD               [12] 3808 	mov	r5,a
-      001134 7B 00            [12] 3809 	mov	r3,#0x00
-      001136 90 00 16         [24] 3810 	mov	dptr,#_getAddress_address_65536_232
-      001139 EE               [12] 3811 	mov	a,r6
-      00113A 4C               [12] 3812 	orl	a,r4
-      00113B F0               [24] 3813 	movx	@dptr,a
-      00113C EB               [12] 3814 	mov	a,r3
-      00113D 4D               [12] 3815 	orl	a,r5
-      00113E A3               [24] 3816 	inc	dptr
-      00113F F0               [24] 3817 	movx	@dptr,a
-                                   3818 ;	getFunctions.c:26: if (i != 3) address = address << 4;
-      001140 BF 03 02         [24] 3819 	cjne	r7,#0x03,00121$
-      001143 80 1C            [24] 3820 	sjmp	00105$
-      001145                       3821 00121$:
-      001145 90 00 16         [24] 3822 	mov	dptr,#_getAddress_address_65536_232
-      001148 E0               [24] 3823 	movx	a,@dptr
-      001149 FD               [12] 3824 	mov	r5,a
-      00114A A3               [24] 3825 	inc	dptr
-      00114B E0               [24] 3826 	movx	a,@dptr
-      00114C C4               [12] 3827 	swap	a
-      00114D 54 F0            [12] 3828 	anl	a,#0xf0
-      00114F CD               [12] 3829 	xch	a,r5
-      001150 C4               [12] 3830 	swap	a
-      001151 CD               [12] 3831 	xch	a,r5
-      001152 6D               [12] 3832 	xrl	a,r5
-      001153 CD               [12] 3833 	xch	a,r5
-      001154 54 F0            [12] 3834 	anl	a,#0xf0
-      001156 CD               [12] 3835 	xch	a,r5
-      001157 6D               [12] 3836 	xrl	a,r5
-      001158 FE               [12] 3837 	mov	r6,a
-      001159 90 00 16         [24] 3838 	mov	dptr,#_getAddress_address_65536_232
-      00115C ED               [12] 3839 	mov	a,r5
-      00115D F0               [24] 3840 	movx	@dptr,a
-      00115E EE               [12] 3841 	mov	a,r6
-      00115F A3               [24] 3842 	inc	dptr
-      001160 F0               [24] 3843 	movx	@dptr,a
-      001161                       3844 00105$:
-                                   3845 ;	getFunctions.c:19: for (i = 0; i < 4; i++) {
-      001161 0F               [12] 3846 	inc	r7
-      001162 BF 04 00         [24] 3847 	cjne	r7,#0x04,00122$
-      001165                       3848 00122$:
-      001165 40 AE            [24] 3849 	jc	00104$
-                                   3850 ;	getFunctions.c:28: return address;
-      001167 90 00 16         [24] 3851 	mov	dptr,#_getAddress_address_65536_232
-      00116A E0               [24] 3852 	movx	a,@dptr
-      00116B FE               [12] 3853 	mov	r6,a
-      00116C A3               [24] 3854 	inc	dptr
-      00116D E0               [24] 3855 	movx	a,@dptr
-                                   3856 ;	getFunctions.c:29: }
-      00116E 8E 82            [24] 3857 	mov	dpl,r6
-      001170 F5 83            [12] 3858 	mov	dph,a
-      001172 22               [24] 3859 	ret
-                                   3860 ;------------------------------------------------------------
-                                   3861 ;Allocation info for local variables in function 'getByte'
-                                   3862 ;------------------------------------------------------------
-                                   3863 ;input                     Allocated with name '_getByte_input_65536_235'
-                                   3864 ;hex                       Allocated with name '_getByte_hex_65536_235'
-                                   3865 ;byte                      Allocated with name '_getByte_byte_65536_235'
-                                   3866 ;i                         Allocated with name '_getByte_i_65536_235'
-                                   3867 ;------------------------------------------------------------
-                                   3868 ;	getFunctions.c:36: uint8_t getByte() {
-                                   3869 ;	-----------------------------------------
-                                   3870 ;	 function getByte
-                                   3871 ;	-----------------------------------------
-      001173                       3872 _getByte:
-                                   3873 ;	getFunctions.c:40: byte = 0;
-      001173 90 00 18         [24] 3874 	mov	dptr,#_getByte_byte_65536_235
-      001176 E4               [12] 3875 	clr	a
-      001177 F0               [24] 3876 	movx	@dptr,a
-                                   3877 ;	getFunctions.c:43: for (i = 0; i < 2; i++) {
-      001178 7F 00            [12] 3878 	mov	r7,#0x00
-      00117A                       3879 00104$:
-                                   3880 ;	getFunctions.c:44: input = keyDetect();				// get the nibble
-      00117A C0 07            [24] 3881 	push	ar7
-      00117C 12 0D B1         [24] 3882 	lcall	_keyDetect
-                                   3883 ;	getFunctions.c:45: write(input);						// display nibble to user
-      00117F AE 82            [24] 3884 	mov  r6,dpl
-      001181 C0 06            [24] 3885 	push	ar6
-      001183 12 0C A4         [24] 3886 	lcall	_write
-      001186 D0 06            [24] 3887 	pop	ar6
-                                   3888 ;	getFunctions.c:46: hex = convertAsciiHex(input);		// convert ascii char to hex
-      001188 8E 82            [24] 3889 	mov	dpl,r6
-      00118A 12 10 08         [24] 3890 	lcall	_convertAsciiHex
-      00118D AE 82            [24] 3891 	mov	r6,dpl
-      00118F D0 07            [24] 3892 	pop	ar7
-                                   3893 ;	getFunctions.c:49: byte = byte | hex;
-      001191 90 00 18         [24] 3894 	mov	dptr,#_getByte_byte_65536_235
-      001194 E0               [24] 3895 	movx	a,@dptr
-      001195 4E               [12] 3896 	orl	a,r6
-      001196 F0               [24] 3897 	movx	@dptr,a
-                                   3898 ;	getFunctions.c:50: if (i != 1) byte = byte << 4;
-      001197 BF 01 02         [24] 3899 	cjne	r7,#0x01,00121$
-      00119A 80 09            [24] 3900 	sjmp	00105$
-      00119C                       3901 00121$:
-      00119C 90 00 18         [24] 3902 	mov	dptr,#_getByte_byte_65536_235
-      00119F E0               [24] 3903 	movx	a,@dptr
-      0011A0 C4               [12] 3904 	swap	a
-      0011A1 54 F0            [12] 3905 	anl	a,#0xf0
-      0011A3 FE               [12] 3906 	mov	r6,a
-      0011A4 F0               [24] 3907 	movx	@dptr,a
-      0011A5                       3908 00105$:
-                                   3909 ;	getFunctions.c:43: for (i = 0; i < 2; i++) {
-      0011A5 0F               [12] 3910 	inc	r7
-      0011A6 BF 02 00         [24] 3911 	cjne	r7,#0x02,00122$
-      0011A9                       3912 00122$:
-      0011A9 40 CF            [24] 3913 	jc	00104$
-                                   3914 ;	getFunctions.c:52: return byte;
-      0011AB 90 00 18         [24] 3915 	mov	dptr,#_getByte_byte_65536_235
-      0011AE E0               [24] 3916 	movx	a,@dptr
-                                   3917 ;	getFunctions.c:53: }
-      0011AF F5 82            [12] 3918 	mov	dpl,a
-      0011B1 22               [24] 3919 	ret
-                                   3920 ;------------------------------------------------------------
-                                   3921 ;Allocation info for local variables in function 'dumpPage'
-                                   3922 ;------------------------------------------------------------
-                                   3923 ;start                     Allocated with name '_dumpPage_start_65536_238'
-                                   3924 ;data                      Allocated to registers r4 
-                                   3925 ;ramAddress                Allocated with name '_dumpPage_ramAddress_65537_240'
-                                   3926 ;sloc0                     Allocated with name '_dumpPage_sloc0_1_0'
-                                   3927 ;n                         Allocated with name '_dumpPage_PARM_2'
-                                   3928 ;type                      Allocated with name '_dumpPage_PARM_3'
-                                   3929 ;i                         Allocated with name '_dumpPage_i_65537_240'
-                                   3930 ;j                         Allocated with name '_dumpPage_j_65537_240'
-                                   3931 ;high                      Allocated with name '_dumpPage_high_65537_240'
-                                   3932 ;low                       Allocated with name '_dumpPage_low_65537_240'
-                                   3933 ;------------------------------------------------------------
-                                   3934 ;	dump2.c:8: void dumpPage(uint16_t start, __xdata uint8_t n, __xdata uint8_t type) {
-                                   3935 ;	-----------------------------------------
-                                   3936 ;	 function dumpPage
-                                   3937 ;	-----------------------------------------
-      0011B2                       3938 _dumpPage:
-      0011B2 85 82 6D         [24] 3939 	mov	_dumpPage_start_65536_238,dpl
-      0011B5 85 83 6E         [24] 3940 	mov	(_dumpPage_start_65536_238 + 1),dph
-                                   3941 ;	dump2.c:10: fillScreen(GRAY);
-      0011B8 90 D6 BA         [24] 3942 	mov	dptr,#0xd6ba
-      0011BB 12 09 0B         [24] 3943 	lcall	_fillScreen
-                                   3944 ;	dump2.c:11: setCursor(0, 0);
-      0011BE E4               [12] 3945 	clr	a
-      0011BF F5 08            [12] 3946 	mov	_setCursor_PARM_2,a
-      0011C1 F5 09            [12] 3947 	mov	(_setCursor_PARM_2 + 1),a
-      0011C3 90 00 00         [24] 3948 	mov	dptr,#0x0000
-      0011C6 12 01 7D         [24] 3949 	lcall	_setCursor
-                                   3950 ;	dump2.c:12: setTextSize(2);
-      0011C9 75 82 02         [24] 3951 	mov	dpl,#0x02
-      0011CC 12 01 97         [24] 3952 	lcall	_setTextSize
-                                   3953 ;	dump2.c:24: for (i = 0; i < n * type; i += type) {
-      0011CF 90 00 1B         [24] 3954 	mov	dptr,#_dumpPage_i_65537_240
-      0011D2 E4               [12] 3955 	clr	a
-      0011D3 F0               [24] 3956 	movx	@dptr,a
-      0011D4 90 00 1A         [24] 3957 	mov	dptr,#_dumpPage_PARM_3
-      0011D7 E0               [24] 3958 	movx	a,@dptr
-      0011D8 FD               [12] 3959 	mov	r5,a
-      0011D9 90 00 19         [24] 3960 	mov	dptr,#_dumpPage_PARM_2
-      0011DC E0               [24] 3961 	movx	a,@dptr
-      0011DD F5 F0            [12] 3962 	mov	b,a
-      0011DF ED               [12] 3963 	mov	a,r5
-      0011E0 A4               [48] 3964 	mul	ab
-      0011E1 FB               [12] 3965 	mov	r3,a
-      0011E2 AC F0            [24] 3966 	mov	r4,b
-      0011E4                       3967 00111$:
-      0011E4 90 00 1B         [24] 3968 	mov	dptr,#_dumpPage_i_65537_240
-      0011E7 E0               [24] 3969 	movx	a,@dptr
-      0011E8 FA               [12] 3970 	mov	r2,a
-      0011E9 F8               [12] 3971 	mov	r0,a
-      0011EA 79 00            [12] 3972 	mov	r1,#0x00
-      0011EC C3               [12] 3973 	clr	c
-      0011ED E8               [12] 3974 	mov	a,r0
-      0011EE 9B               [12] 3975 	subb	a,r3
-      0011EF E9               [12] 3976 	mov	a,r1
-      0011F0 64 80            [12] 3977 	xrl	a,#0x80
-      0011F2 8C F0            [24] 3978 	mov	b,r4
-      0011F4 63 F0 80         [24] 3979 	xrl	b,#0x80
-      0011F7 95 F0            [12] 3980 	subb	a,b
-      0011F9 40 01            [24] 3981 	jc	00140$
-      0011FB 22               [24] 3982 	ret
-      0011FC                       3983 00140$:
-                                   3984 ;	dump2.c:26: if ((i * type) + start == __END_RAM__) break;
-      0011FC 8A F0            [24] 3985 	mov	b,r2
-      0011FE ED               [12] 3986 	mov	a,r5
-      0011FF A4               [48] 3987 	mul	ab
-      001200 F8               [12] 3988 	mov	r0,a
-      001201 A9 F0            [24] 3989 	mov	r1,b
-      001203 88 71            [24] 3990 	mov	_dumpPage_sloc0_1_0,r0
-      001205 89 72            [24] 3991 	mov	(_dumpPage_sloc0_1_0 + 1),r1
-      001207 E5 6D            [12] 3992 	mov	a,_dumpPage_start_65536_238
-      001209 25 71            [12] 3993 	add	a,_dumpPage_sloc0_1_0
-      00120B FE               [12] 3994 	mov	r6,a
-      00120C E5 6E            [12] 3995 	mov	a,(_dumpPage_start_65536_238 + 1)
-      00120E 35 72            [12] 3996 	addc	a,(_dumpPage_sloc0_1_0 + 1)
-      001210 FF               [12] 3997 	mov	r7,a
-      001211 BE FF 04         [24] 3998 	cjne	r6,#0xff,00141$
-      001214 BF FF 01         [24] 3999 	cjne	r7,#0xff,00141$
-      001217 22               [24] 4000 	ret
-      001218                       4001 00141$:
-                                   4002 ;	dump2.c:29: IOM = 0;
-                                   4003 ;	assignBit
-      001218 C2 B4            [12] 4004 	clr	_P3_4
-                                   4005 ;	dump2.c:30: ramAddress = (uint16_t __xdata*)((i * type) + start);
-      00121A E5 6D            [12] 4006 	mov	a,_dumpPage_start_65536_238
-      00121C 25 71            [12] 4007 	add	a,_dumpPage_sloc0_1_0
-      00121E FE               [12] 4008 	mov	r6,a
-      00121F E5 6E            [12] 4009 	mov	a,(_dumpPage_start_65536_238 + 1)
-      001221 35 72            [12] 4010 	addc	a,(_dumpPage_sloc0_1_0 + 1)
-      001223 FF               [12] 4011 	mov	r7,a
-      001224 8E 6F            [24] 4012 	mov	_dumpPage_ramAddress_65537_240,r6
-      001226 8F 70            [24] 4013 	mov	(_dumpPage_ramAddress_65537_240 + 1),r7
-                                   4014 ;	dump2.c:31: IOM = 1;
-                                   4015 ;	assignBit
-      001228 D2 B4            [12] 4016 	setb	_P3_4
-                                   4017 ;	dump2.c:33: high = HIGHBYTE(start + (i * type));
-      00122A AE 6D            [24] 4018 	mov	r6,_dumpPage_start_65536_238
-      00122C AF 6E            [24] 4019 	mov	r7,(_dumpPage_start_65536_238 + 1)
-      00122E E8               [12] 4020 	mov	a,r0
-      00122F 2E               [12] 4021 	add	a,r6
-      001230 E9               [12] 4022 	mov	a,r1
-      001231 3F               [12] 4023 	addc	a,r7
-      001232 F5 82            [12] 4024 	mov	dpl,a
-                                   4025 ;	dump2.c:34: low = LOWBYTE(start + (i * type));
-      001234 AE 6D            [24] 4026 	mov	r6,_dumpPage_start_65536_238
-      001236 8A F0            [24] 4027 	mov	b,r2
-      001238 ED               [12] 4028 	mov	a,r5
-      001239 A4               [48] 4029 	mul	ab
-      00123A 2E               [12] 4030 	add	a,r6
-      00123B FE               [12] 4031 	mov	r6,a
-                                   4032 ;	dump2.c:37: asciiToHex(high);
-      00123C C0 06            [24] 4033 	push	ar6
-      00123E C0 05            [24] 4034 	push	ar5
-      001240 C0 04            [24] 4035 	push	ar4
-      001242 C0 03            [24] 4036 	push	ar3
-      001244 C0 02            [24] 4037 	push	ar2
-      001246 12 0F 93         [24] 4038 	lcall	_asciiToHex
-      001249 D0 02            [24] 4039 	pop	ar2
-      00124B D0 03            [24] 4040 	pop	ar3
-      00124D D0 04            [24] 4041 	pop	ar4
-      00124F D0 05            [24] 4042 	pop	ar5
-      001251 D0 06            [24] 4043 	pop	ar6
-                                   4044 ;	dump2.c:38: asciiToHex(low);
-      001253 8E 82            [24] 4045 	mov	dpl,r6
-      001255 C0 05            [24] 4046 	push	ar5
-      001257 C0 04            [24] 4047 	push	ar4
-      001259 C0 03            [24] 4048 	push	ar3
-      00125B C0 02            [24] 4049 	push	ar2
-      00125D 12 0F 93         [24] 4050 	lcall	_asciiToHex
-                                   4051 ;	dump2.c:39: LCD_string_write(": ");
-      001260 90 25 F5         [24] 4052 	mov	dptr,#___str_6
-      001263 75 F0 80         [24] 4053 	mov	b,#0x80
-      001266 12 0D 12         [24] 4054 	lcall	_LCD_string_write
-      001269 D0 02            [24] 4055 	pop	ar2
-      00126B D0 03            [24] 4056 	pop	ar3
-      00126D D0 04            [24] 4057 	pop	ar4
-      00126F D0 05            [24] 4058 	pop	ar5
-                                   4059 ;	dump2.c:41: for (j = 0; j < type; j++) {
-      001271 8A F0            [24] 4060 	mov	b,r2
-      001273 ED               [12] 4061 	mov	a,r5
-      001274 A4               [48] 4062 	mul	ab
-      001275 FE               [12] 4063 	mov	r6,a
-      001276 AF F0            [24] 4064 	mov	r7,b
-      001278 A9 6F            [24] 4065 	mov	r1,_dumpPage_ramAddress_65537_240
-      00127A AA 70            [24] 4066 	mov	r2,(_dumpPage_ramAddress_65537_240 + 1)
-      00127C 78 00            [12] 4067 	mov	r0,#0x00
-      00127E                       4068 00108$:
-      00127E C3               [12] 4069 	clr	c
-      00127F E8               [12] 4070 	mov	a,r0
-      001280 9D               [12] 4071 	subb	a,r5
-      001281 50 61            [24] 4072 	jnc	00105$
-                                   4073 ;	dump2.c:43: if ((i * type) + start == __END_RAM__) break;
-      001283 C0 03            [24] 4074 	push	ar3
-      001285 C0 04            [24] 4075 	push	ar4
-      001287 8E 03            [24] 4076 	mov	ar3,r6
-      001289 8F 04            [24] 4077 	mov	ar4,r7
-      00128B E5 6D            [12] 4078 	mov	a,_dumpPage_start_65536_238
-      00128D 2B               [12] 4079 	add	a,r3
-      00128E FB               [12] 4080 	mov	r3,a
-      00128F E5 6E            [12] 4081 	mov	a,(_dumpPage_start_65536_238 + 1)
-      001291 3C               [12] 4082 	addc	a,r4
-      001292 FC               [12] 4083 	mov	r4,a
-      001293 BB FF 09         [24] 4084 	cjne	r3,#0xff,00143$
-      001296 BC FF 06         [24] 4085 	cjne	r4,#0xff,00143$
-      001299 D0 04            [24] 4086 	pop	ar4
-      00129B D0 03            [24] 4087 	pop	ar3
-      00129D 80 45            [24] 4088 	sjmp	00105$
-      00129F                       4089 00143$:
-      00129F D0 04            [24] 4090 	pop	ar4
-      0012A1 D0 03            [24] 4091 	pop	ar3
-                                   4092 ;	dump2.c:46: IOM = 0;
-      0012A3 C0 03            [24] 4093 	push	ar3
-      0012A5 C0 04            [24] 4094 	push	ar4
-                                   4095 ;	assignBit
-      0012A7 C2 B4            [12] 4096 	clr	_P3_4
-                                   4097 ;	dump2.c:47: data = *ramAddress;
-      0012A9 89 82            [24] 4098 	mov	dpl,r1
-      0012AB 8A 83            [24] 4099 	mov	dph,r2
-      0012AD E0               [24] 4100 	movx	a,@dptr
-      0012AE FC               [12] 4101 	mov	r4,a
-                                   4102 ;	dump2.c:48: &ramAddress++;
-      0012AF 74 02            [12] 4103 	mov	a,#0x02
-      0012B1 29               [12] 4104 	add	a,r1
-      0012B2 F9               [12] 4105 	mov	r1,a
-      0012B3 E4               [12] 4106 	clr	a
-      0012B4 3A               [12] 4107 	addc	a,r2
-      0012B5 FA               [12] 4108 	mov	r2,a
-                                   4109 ;	dump2.c:49: IOM = 1;
-                                   4110 ;	assignBit
-      0012B6 D2 B4            [12] 4111 	setb	_P3_4
-                                   4112 ;	dump2.c:51: asciiToHex(data);
-      0012B8 8C 82            [24] 4113 	mov	dpl,r4
-      0012BA C0 07            [24] 4114 	push	ar7
-      0012BC C0 06            [24] 4115 	push	ar6
-      0012BE C0 05            [24] 4116 	push	ar5
-      0012C0 C0 04            [24] 4117 	push	ar4
-      0012C2 C0 03            [24] 4118 	push	ar3
-      0012C4 C0 02            [24] 4119 	push	ar2
-      0012C6 C0 01            [24] 4120 	push	ar1
-      0012C8 C0 00            [24] 4121 	push	ar0
-      0012CA 12 0F 93         [24] 4122 	lcall	_asciiToHex
-      0012CD D0 00            [24] 4123 	pop	ar0
-      0012CF D0 01            [24] 4124 	pop	ar1
-      0012D1 D0 02            [24] 4125 	pop	ar2
-      0012D3 D0 03            [24] 4126 	pop	ar3
-      0012D5 D0 04            [24] 4127 	pop	ar4
-      0012D7 D0 05            [24] 4128 	pop	ar5
-      0012D9 D0 06            [24] 4129 	pop	ar6
-      0012DB D0 07            [24] 4130 	pop	ar7
-                                   4131 ;	dump2.c:41: for (j = 0; j < type; j++) {
-      0012DD 08               [12] 4132 	inc	r0
-      0012DE D0 04            [24] 4133 	pop	ar4
-      0012E0 D0 03            [24] 4134 	pop	ar3
-      0012E2 80 9A            [24] 4135 	sjmp	00108$
-      0012E4                       4136 00105$:
-                                   4137 ;	dump2.c:54: write('\n');
-      0012E4 75 82 0A         [24] 4138 	mov	dpl,#0x0a
-      0012E7 C0 05            [24] 4139 	push	ar5
-      0012E9 C0 04            [24] 4140 	push	ar4
-      0012EB C0 03            [24] 4141 	push	ar3
-      0012ED 12 0C A4         [24] 4142 	lcall	_write
-      0012F0 D0 03            [24] 4143 	pop	ar3
-      0012F2 D0 04            [24] 4144 	pop	ar4
-      0012F4 D0 05            [24] 4145 	pop	ar5
-                                   4146 ;	dump2.c:24: for (i = 0; i < n * type; i += type) {
-      0012F6 90 00 1B         [24] 4147 	mov	dptr,#_dumpPage_i_65537_240
-      0012F9 E0               [24] 4148 	movx	a,@dptr
-      0012FA 2D               [12] 4149 	add	a,r5
-      0012FB F0               [24] 4150 	movx	@dptr,a
-                                   4151 ;	dump2.c:56: }
-      0012FC 02 11 E4         [24] 4152 	ljmp	00111$
-                                   4153 ;------------------------------------------------------------
-                                   4154 ;Allocation info for local variables in function 'dump'
-                                   4155 ;------------------------------------------------------------
-                                   4156 ;type                      Allocated with name '_dump_type_65537_247'
-                                   4157 ;size                      Allocated with name '_dump_size_65537_247'
-                                   4158 ;page                      Allocated with name '_dump_page_65537_247'
-                                   4159 ;input                     Allocated with name '_dump_input_65537_247'
-                                   4160 ;pages                     Allocated with name '_dump_pages_65537_247'
-                                   4161 ;address                   Allocated with name '_dump_address_65537_247'
-                                   4162 ;------------------------------------------------------------
-                                   4163 ;	dump2.c:62: void dump(void) {
-                                   4164 ;	-----------------------------------------
-                                   4165 ;	 function dump
-                                   4166 ;	-----------------------------------------
-      0012FF                       4167 _dump:
-                                   4168 ;	dump2.c:64: fillScreen(GRAY);
-      0012FF 90 D6 BA         [24] 4169 	mov	dptr,#0xd6ba
-      001302 12 09 0B         [24] 4170 	lcall	_fillScreen
-                                   4171 ;	dump2.c:65: setCursor(0, 0);
-      001305 E4               [12] 4172 	clr	a
-      001306 F5 08            [12] 4173 	mov	_setCursor_PARM_2,a
-      001308 F5 09            [12] 4174 	mov	(_setCursor_PARM_2 + 1),a
-      00130A 90 00 00         [24] 4175 	mov	dptr,#0x0000
-      00130D 12 01 7D         [24] 4176 	lcall	_setCursor
-                                   4177 ;	dump2.c:66: setTextSize(2);
-      001310 75 82 02         [24] 4178 	mov	dpl,#0x02
-      001313 12 01 97         [24] 4179 	lcall	_setTextSize
-                                   4180 ;	dump2.c:76: page = 1;
-      001316 90 00 1D         [24] 4181 	mov	dptr,#_dump_page_65537_247
-      001319 74 01            [12] 4182 	mov	a,#0x01
-      00131B F0               [24] 4183 	movx	@dptr,a
-                                   4184 ;	dump2.c:79: LCD_string_write("Enter start address:\n");
-      00131C 90 25 F8         [24] 4185 	mov	dptr,#___str_7
-      00131F 75 F0 80         [24] 4186 	mov	b,#0x80
-      001322 12 0D 12         [24] 4187 	lcall	_LCD_string_write
-                                   4188 ;	dump2.c:80: address = getAddress();
-      001325 12 11 0C         [24] 4189 	lcall	_getAddress
-      001328 AE 82            [24] 4190 	mov	r6,dpl
-      00132A AF 83            [24] 4191 	mov	r7,dph
-      00132C 90 00 1E         [24] 4192 	mov	dptr,#_dump_address_65537_247
-      00132F EE               [12] 4193 	mov	a,r6
-      001330 F0               [24] 4194 	movx	@dptr,a
-      001331 EF               [12] 4195 	mov	a,r7
-      001332 A3               [24] 4196 	inc	dptr
-      001333 F0               [24] 4197 	movx	@dptr,a
-                                   4198 ;	dump2.c:81: write('\n');
-      001334 75 82 0A         [24] 4199 	mov	dpl,#0x0a
-      001337 C0 07            [24] 4200 	push	ar7
-      001339 C0 06            [24] 4201 	push	ar6
-      00133B 12 0C A4         [24] 4202 	lcall	_write
-                                   4203 ;	dump2.c:84: LCD_string_write("Enter data type\n");
-      00133E 90 26 0E         [24] 4204 	mov	dptr,#___str_8
-      001341 75 F0 80         [24] 4205 	mov	b,#0x80
-      001344 12 0D 12         [24] 4206 	lcall	_LCD_string_write
-                                   4207 ;	dump2.c:85: LCD_string_write("B-Byte, A-Word,\n");
-      001347 90 26 1F         [24] 4208 	mov	dptr,#___str_9
-      00134A 75 F0 80         [24] 4209 	mov	b,#0x80
-      00134D 12 0D 12         [24] 4210 	lcall	_LCD_string_write
-                                   4211 ;	dump2.c:86: LCD_string_write("D-Double word\n");
-      001350 90 26 30         [24] 4212 	mov	dptr,#___str_10
-      001353 75 F0 80         [24] 4213 	mov	b,#0x80
-      001356 12 0D 12         [24] 4214 	lcall	_LCD_string_write
-      001359 D0 06            [24] 4215 	pop	ar6
-      00135B D0 07            [24] 4216 	pop	ar7
-                                   4217 ;	dump2.c:89: do {
-      00135D                       4218 00108$:
-                                   4219 ;	dump2.c:90: type = keyDetect();
-      00135D C0 07            [24] 4220 	push	ar7
-      00135F C0 06            [24] 4221 	push	ar6
-      001361 12 0D B1         [24] 4222 	lcall	_keyDetect
-      001364 AD 82            [24] 4223 	mov	r5,dpl
-      001366 D0 06            [24] 4224 	pop	ar6
-      001368 D0 07            [24] 4225 	pop	ar7
-      00136A 90 00 1C         [24] 4226 	mov	dptr,#_dump_type_65537_247
-      00136D ED               [12] 4227 	mov	a,r5
-      00136E F0               [24] 4228 	movx	@dptr,a
-                                   4229 ;	dump2.c:91: switch(type) {
-      00136F BD 41 02         [24] 4230 	cjne	r5,#0x41,00202$
-      001372 80 23            [24] 4231 	sjmp	00102$
-      001374                       4232 00202$:
-      001374 BD 42 02         [24] 4233 	cjne	r5,#0x42,00203$
-      001377 80 05            [24] 4234 	sjmp	00101$
-      001379                       4235 00203$:
-                                   4236 ;	dump2.c:92: case 'B': {
-      001379 BD 44 4B         [24] 4237 	cjne	r5,#0x44,00109$
-      00137C 80 32            [24] 4238 	sjmp	00103$
-      00137E                       4239 00101$:
-                                   4240 ;	dump2.c:93: type = 1;
-      00137E 90 00 1C         [24] 4241 	mov	dptr,#_dump_type_65537_247
-      001381 74 01            [12] 4242 	mov	a,#0x01
-      001383 F0               [24] 4243 	movx	@dptr,a
-                                   4244 ;	dump2.c:94: LCD_string_write("Byte\n");
-      001384 90 26 3F         [24] 4245 	mov	dptr,#___str_11
-      001387 75 F0 80         [24] 4246 	mov	b,#0x80
-      00138A C0 07            [24] 4247 	push	ar7
-      00138C C0 06            [24] 4248 	push	ar6
-      00138E 12 0D 12         [24] 4249 	lcall	_LCD_string_write
-      001391 D0 06            [24] 4250 	pop	ar6
-      001393 D0 07            [24] 4251 	pop	ar7
-                                   4252 ;	dump2.c:95: break;
-                                   4253 ;	dump2.c:97: case 'A': {
-      001395 80 30            [24] 4254 	sjmp	00109$
-      001397                       4255 00102$:
-                                   4256 ;	dump2.c:98: type = 2; 
-      001397 90 00 1C         [24] 4257 	mov	dptr,#_dump_type_65537_247
-      00139A 74 02            [12] 4258 	mov	a,#0x02
-      00139C F0               [24] 4259 	movx	@dptr,a
-                                   4260 ;	dump2.c:99: LCD_string_write("Word\n");
-      00139D 90 26 45         [24] 4261 	mov	dptr,#___str_12
-      0013A0 75 F0 80         [24] 4262 	mov	b,#0x80
-      0013A3 C0 07            [24] 4263 	push	ar7
-      0013A5 C0 06            [24] 4264 	push	ar6
-      0013A7 12 0D 12         [24] 4265 	lcall	_LCD_string_write
-      0013AA D0 06            [24] 4266 	pop	ar6
-      0013AC D0 07            [24] 4267 	pop	ar7
-                                   4268 ;	dump2.c:100: break;
-                                   4269 ;	dump2.c:102: case 'D': {
-      0013AE 80 17            [24] 4270 	sjmp	00109$
-      0013B0                       4271 00103$:
-                                   4272 ;	dump2.c:103: type = 4;
-      0013B0 90 00 1C         [24] 4273 	mov	dptr,#_dump_type_65537_247
-      0013B3 74 04            [12] 4274 	mov	a,#0x04
-      0013B5 F0               [24] 4275 	movx	@dptr,a
-                                   4276 ;	dump2.c:104: LCD_string_write("Double word\n");
-      0013B6 90 26 4B         [24] 4277 	mov	dptr,#___str_13
-      0013B9 75 F0 80         [24] 4278 	mov	b,#0x80
-      0013BC C0 07            [24] 4279 	push	ar7
-      0013BE C0 06            [24] 4280 	push	ar6
-      0013C0 12 0D 12         [24] 4281 	lcall	_LCD_string_write
-      0013C3 D0 06            [24] 4282 	pop	ar6
-      0013C5 D0 07            [24] 4283 	pop	ar7
-                                   4284 ;	dump2.c:108: }
-      0013C7                       4285 00109$:
-                                   4286 ;	dump2.c:109: } while(type != 1 && type != 2 && type != 4);
-      0013C7 90 00 1C         [24] 4287 	mov	dptr,#_dump_type_65537_247
-      0013CA E0               [24] 4288 	movx	a,@dptr
-      0013CB FD               [12] 4289 	mov	r5,a
-      0013CC BD 01 02         [24] 4290 	cjne	r5,#0x01,00205$
-      0013CF 80 0D            [24] 4291 	sjmp	00110$
-      0013D1                       4292 00205$:
-      0013D1 BD 02 02         [24] 4293 	cjne	r5,#0x02,00206$
-      0013D4 80 08            [24] 4294 	sjmp	00110$
-      0013D6                       4295 00206$:
-      0013D6 BD 04 02         [24] 4296 	cjne	r5,#0x04,00207$
-      0013D9 80 03            [24] 4297 	sjmp	00208$
-      0013DB                       4298 00207$:
-      0013DB 02 13 5D         [24] 4299 	ljmp	00108$
-      0013DE                       4300 00208$:
-      0013DE                       4301 00110$:
-                                   4302 ;	dump2.c:112: LCD_string_write("Enter block size:\n");
-      0013DE 90 26 58         [24] 4303 	mov	dptr,#___str_14
-      0013E1 75 F0 80         [24] 4304 	mov	b,#0x80
-      0013E4 C0 07            [24] 4305 	push	ar7
-      0013E6 C0 06            [24] 4306 	push	ar6
-      0013E8 12 0D 12         [24] 4307 	lcall	_LCD_string_write
-                                   4308 ;	dump2.c:113: size = getByte();
-      0013EB 12 11 73         [24] 4309 	lcall	_getByte
-      0013EE AD 82            [24] 4310 	mov	r5,dpl
-                                   4311 ;	dump2.c:114: write('\n');
-      0013F0 75 82 0A         [24] 4312 	mov	dpl,#0x0a
-      0013F3 C0 05            [24] 4313 	push	ar5
-      0013F5 12 0C A4         [24] 4314 	lcall	_write
-      0013F8 D0 05            [24] 4315 	pop	ar5
-      0013FA D0 06            [24] 4316 	pop	ar6
-      0013FC D0 07            [24] 4317 	pop	ar7
-                                   4318 ;	dump2.c:117: if (size < NUM) {
-      0013FE BD 0F 00         [24] 4319 	cjne	r5,#0x0f,00209$
-      001401                       4320 00209$:
-      001401 50 1C            [24] 4321 	jnc	00112$
-                                   4322 ;	dump2.c:118: dumpPage(address, size, type);
-      001403 90 00 1C         [24] 4323 	mov	dptr,#_dump_type_65537_247
-      001406 E0               [24] 4324 	movx	a,@dptr
-      001407 FC               [12] 4325 	mov	r4,a
-      001408 90 00 19         [24] 4326 	mov	dptr,#_dumpPage_PARM_2
-      00140B ED               [12] 4327 	mov	a,r5
-      00140C F0               [24] 4328 	movx	@dptr,a
-      00140D 90 00 1A         [24] 4329 	mov	dptr,#_dumpPage_PARM_3
-      001410 EC               [12] 4330 	mov	a,r4
-      001411 F0               [24] 4331 	movx	@dptr,a
-      001412 8E 82            [24] 4332 	mov	dpl,r6
-      001414 8F 83            [24] 4333 	mov	dph,r7
-      001416 C0 05            [24] 4334 	push	ar5
-      001418 12 11 B2         [24] 4335 	lcall	_dumpPage
-      00141B D0 05            [24] 4336 	pop	ar5
-      00141D 80 1B            [24] 4337 	sjmp	00113$
-      00141F                       4338 00112$:
-                                   4339 ;	dump2.c:120: dumpPage(address, NUM, type);
-      00141F 90 00 1C         [24] 4340 	mov	dptr,#_dump_type_65537_247
-      001422 E0               [24] 4341 	movx	a,@dptr
-      001423 FC               [12] 4342 	mov	r4,a
-      001424 90 00 19         [24] 4343 	mov	dptr,#_dumpPage_PARM_2
-      001427 74 0F            [12] 4344 	mov	a,#0x0f
-      001429 F0               [24] 4345 	movx	@dptr,a
-      00142A 90 00 1A         [24] 4346 	mov	dptr,#_dumpPage_PARM_3
-      00142D EC               [12] 4347 	mov	a,r4
-      00142E F0               [24] 4348 	movx	@dptr,a
-      00142F 8E 82            [24] 4349 	mov	dpl,r6
-      001431 8F 83            [24] 4350 	mov	dph,r7
-      001433 C0 05            [24] 4351 	push	ar5
-      001435 12 11 B2         [24] 4352 	lcall	_dumpPage
-      001438 D0 05            [24] 4353 	pop	ar5
-      00143A                       4354 00113$:
-                                   4355 ;	dump2.c:124: pages = size / NUM;
-      00143A 7F 00            [12] 4356 	mov	r7,#0x00
-      00143C 75 08 0F         [24] 4357 	mov	__divsint_PARM_2,#0x0f
-                                   4358 ;	1-genFromRTrack replaced	mov	(__divsint_PARM_2 + 1),#0x00
-      00143F 8F 09            [24] 4359 	mov	(__divsint_PARM_2 + 1),r7
-      001441 8D 82            [24] 4360 	mov	dpl,r5
-      001443 8F 83            [24] 4361 	mov	dph,r7
-      001445 12 20 6E         [24] 4362 	lcall	__divsint
-      001448 AE 82            [24] 4363 	mov	r6,dpl
-                                   4364 ;	dump2.c:126: do {
-      00144A 90 00 1C         [24] 4365 	mov	dptr,#_dump_type_65537_247
-      00144D E0               [24] 4366 	movx	a,@dptr
-      00144E FF               [12] 4367 	mov	r7,a
-      00144F FD               [12] 4368 	mov	r5,a
-      001450                       4369 00133$:
-                                   4370 ;	dump2.c:128: if (page != 1 && page != pages) {
-      001450 90 00 1D         [24] 4371 	mov	dptr,#_dump_page_65537_247
-      001453 E0               [24] 4372 	movx	a,@dptr
-      001454 FC               [12] 4373 	mov	r4,a
-      001455 BC 01 02         [24] 4374 	cjne	r4,#0x01,00211$
-      001458 80 26            [24] 4375 	sjmp	00120$
-      00145A                       4376 00211$:
-      00145A EC               [12] 4377 	mov	a,r4
-      00145B B5 06 02         [24] 4378 	cjne	a,ar6,00212$
-      00145E 80 20            [24] 4379 	sjmp	00120$
-      001460                       4380 00212$:
-                                   4381 ;	dump2.c:129: LCD_string_write("Press A for previous\n");
-      001460 90 26 6B         [24] 4382 	mov	dptr,#___str_15
-      001463 75 F0 80         [24] 4383 	mov	b,#0x80
-      001466 C0 07            [24] 4384 	push	ar7
-      001468 C0 06            [24] 4385 	push	ar6
-      00146A C0 05            [24] 4386 	push	ar5
-      00146C 12 0D 12         [24] 4387 	lcall	_LCD_string_write
-                                   4388 ;	dump2.c:130: LCD_string_write("Press B for next\n");
-      00146F 90 26 81         [24] 4389 	mov	dptr,#___str_16
-      001472 75 F0 80         [24] 4390 	mov	b,#0x80
-      001475 12 0D 12         [24] 4391 	lcall	_LCD_string_write
-      001478 D0 05            [24] 4392 	pop	ar5
-      00147A D0 06            [24] 4393 	pop	ar6
-      00147C D0 07            [24] 4394 	pop	ar7
-      00147E 80 3B            [24] 4395 	sjmp	00121$
-      001480                       4396 00120$:
-                                   4397 ;	dump2.c:131: } else if (page != pages) {
-      001480 90 00 1D         [24] 4398 	mov	dptr,#_dump_page_65537_247
-      001483 E0               [24] 4399 	movx	a,@dptr
-      001484 FC               [12] 4400 	mov	r4,a
-      001485 B5 06 02         [24] 4401 	cjne	a,ar6,00213$
-      001488 80 17            [24] 4402 	sjmp	00117$
-      00148A                       4403 00213$:
-                                   4404 ;	dump2.c:132: LCD_string_write("Press B for next\n");
-      00148A 90 26 81         [24] 4405 	mov	dptr,#___str_16
-      00148D 75 F0 80         [24] 4406 	mov	b,#0x80
-      001490 C0 07            [24] 4407 	push	ar7
-      001492 C0 06            [24] 4408 	push	ar6
-      001494 C0 05            [24] 4409 	push	ar5
-      001496 12 0D 12         [24] 4410 	lcall	_LCD_string_write
-      001499 D0 05            [24] 4411 	pop	ar5
-      00149B D0 06            [24] 4412 	pop	ar6
-      00149D D0 07            [24] 4413 	pop	ar7
-      00149F 80 1A            [24] 4414 	sjmp	00121$
-      0014A1                       4415 00117$:
-                                   4416 ;	dump2.c:133: } else if (page != 1) {
-      0014A1 BC 01 02         [24] 4417 	cjne	r4,#0x01,00214$
-      0014A4 80 15            [24] 4418 	sjmp	00121$
-      0014A6                       4419 00214$:
-                                   4420 ;	dump2.c:134: LCD_string_write("Press A for previous\n");
-      0014A6 90 26 6B         [24] 4421 	mov	dptr,#___str_15
-      0014A9 75 F0 80         [24] 4422 	mov	b,#0x80
-      0014AC C0 07            [24] 4423 	push	ar7
-      0014AE C0 06            [24] 4424 	push	ar6
-      0014B0 C0 05            [24] 4425 	push	ar5
-      0014B2 12 0D 12         [24] 4426 	lcall	_LCD_string_write
-      0014B5 D0 05            [24] 4427 	pop	ar5
-      0014B7 D0 06            [24] 4428 	pop	ar6
-      0014B9 D0 07            [24] 4429 	pop	ar7
-      0014BB                       4430 00121$:
-                                   4431 ;	dump2.c:137: LCD_string_write("Press 1 for menu\n");
-      0014BB 90 26 93         [24] 4432 	mov	dptr,#___str_17
-      0014BE 75 F0 80         [24] 4433 	mov	b,#0x80
-      0014C1 C0 07            [24] 4434 	push	ar7
-      0014C3 C0 06            [24] 4435 	push	ar6
-      0014C5 C0 05            [24] 4436 	push	ar5
-      0014C7 12 0D 12         [24] 4437 	lcall	_LCD_string_write
-                                   4438 ;	dump2.c:139: input = keyDetect();
-      0014CA 12 0D B1         [24] 4439 	lcall	_keyDetect
-      0014CD AC 82            [24] 4440 	mov	r4,dpl
-      0014CF D0 05            [24] 4441 	pop	ar5
-      0014D1 D0 06            [24] 4442 	pop	ar6
-      0014D3 D0 07            [24] 4443 	pop	ar7
-                                   4444 ;	dump2.c:142: if (input == 'B' && page != pages) {	// next
-      0014D5 BC 42 54         [24] 4445 	cjne	r4,#0x42,00130$
-      0014D8 90 00 1D         [24] 4446 	mov	dptr,#_dump_page_65537_247
-      0014DB E0               [24] 4447 	movx	a,@dptr
-      0014DC FB               [12] 4448 	mov	r3,a
-      0014DD B5 06 02         [24] 4449 	cjne	a,ar6,00217$
-      0014E0 80 4A            [24] 4450 	sjmp	00130$
-      0014E2                       4451 00217$:
-                                   4452 ;	dump2.c:143: address += NUM;
-      0014E2 90 00 1E         [24] 4453 	mov	dptr,#_dump_address_65537_247
-      0014E5 E0               [24] 4454 	movx	a,@dptr
-      0014E6 F9               [12] 4455 	mov	r1,a
-      0014E7 A3               [24] 4456 	inc	dptr
-      0014E8 E0               [24] 4457 	movx	a,@dptr
-      0014E9 FA               [12] 4458 	mov	r2,a
-      0014EA 74 0F            [12] 4459 	mov	a,#0x0f
-      0014EC 29               [12] 4460 	add	a,r1
-      0014ED F9               [12] 4461 	mov	r1,a
-      0014EE E4               [12] 4462 	clr	a
-      0014EF 3A               [12] 4463 	addc	a,r2
-      0014F0 FA               [12] 4464 	mov	r2,a
-      0014F1 90 00 1E         [24] 4465 	mov	dptr,#_dump_address_65537_247
-      0014F4 E9               [12] 4466 	mov	a,r1
-      0014F5 F0               [24] 4467 	movx	@dptr,a
-      0014F6 EA               [12] 4468 	mov	a,r2
-      0014F7 A3               [24] 4469 	inc	dptr
-      0014F8 F0               [24] 4470 	movx	@dptr,a
-                                   4471 ;	dump2.c:144: dumpPage(address, NUM, type);
-      0014F9 90 00 1E         [24] 4472 	mov	dptr,#_dump_address_65537_247
-      0014FC E0               [24] 4473 	movx	a,@dptr
-      0014FD F9               [12] 4474 	mov	r1,a
-      0014FE A3               [24] 4475 	inc	dptr
-      0014FF E0               [24] 4476 	movx	a,@dptr
-      001500 FA               [12] 4477 	mov	r2,a
-      001501 90 00 19         [24] 4478 	mov	dptr,#_dumpPage_PARM_2
-      001504 74 0F            [12] 4479 	mov	a,#0x0f
-      001506 F0               [24] 4480 	movx	@dptr,a
-      001507 90 00 1A         [24] 4481 	mov	dptr,#_dumpPage_PARM_3
-      00150A EF               [12] 4482 	mov	a,r7
-      00150B F0               [24] 4483 	movx	@dptr,a
-      00150C 89 82            [24] 4484 	mov	dpl,r1
-      00150E 8A 83            [24] 4485 	mov	dph,r2
-      001510 C0 07            [24] 4486 	push	ar7
-      001512 C0 06            [24] 4487 	push	ar6
-      001514 C0 05            [24] 4488 	push	ar5
-      001516 C0 03            [24] 4489 	push	ar3
-      001518 12 11 B2         [24] 4490 	lcall	_dumpPage
-      00151B D0 03            [24] 4491 	pop	ar3
-      00151D D0 05            [24] 4492 	pop	ar5
-      00151F D0 06            [24] 4493 	pop	ar6
-      001521 D0 07            [24] 4494 	pop	ar7
-                                   4495 ;	dump2.c:145: page++;
-      001523 90 00 1D         [24] 4496 	mov	dptr,#_dump_page_65537_247
-      001526 EB               [12] 4497 	mov	a,r3
-      001527 04               [12] 4498 	inc	a
-      001528 F0               [24] 4499 	movx	@dptr,a
-      001529 02 14 50         [24] 4500 	ljmp	00133$
-      00152C                       4501 00130$:
-                                   4502 ;	dump2.c:146: } else if (input == 'A' && page != 1) {				// previous
-      00152C BC 41 55         [24] 4503 	cjne	r4,#0x41,00126$
-      00152F 90 00 1D         [24] 4504 	mov	dptr,#_dump_page_65537_247
-      001532 E0               [24] 4505 	movx	a,@dptr
-      001533 FB               [12] 4506 	mov	r3,a
-      001534 BB 01 02         [24] 4507 	cjne	r3,#0x01,00220$
-      001537 80 4B            [24] 4508 	sjmp	00126$
-      001539                       4509 00220$:
-                                   4510 ;	dump2.c:147: address -= NUM;
-      001539 90 00 1E         [24] 4511 	mov	dptr,#_dump_address_65537_247
-      00153C E0               [24] 4512 	movx	a,@dptr
-      00153D F9               [12] 4513 	mov	r1,a
-      00153E A3               [24] 4514 	inc	dptr
-      00153F E0               [24] 4515 	movx	a,@dptr
-      001540 FA               [12] 4516 	mov	r2,a
-      001541 E9               [12] 4517 	mov	a,r1
-      001542 24 F1            [12] 4518 	add	a,#0xf1
-      001544 F9               [12] 4519 	mov	r1,a
-      001545 EA               [12] 4520 	mov	a,r2
-      001546 34 FF            [12] 4521 	addc	a,#0xff
-      001548 FA               [12] 4522 	mov	r2,a
-      001549 90 00 1E         [24] 4523 	mov	dptr,#_dump_address_65537_247
-      00154C E9               [12] 4524 	mov	a,r1
-      00154D F0               [24] 4525 	movx	@dptr,a
-      00154E EA               [12] 4526 	mov	a,r2
-      00154F A3               [24] 4527 	inc	dptr
-      001550 F0               [24] 4528 	movx	@dptr,a
-                                   4529 ;	dump2.c:148: dumpPage(address, NUM, type);
-      001551 90 00 1E         [24] 4530 	mov	dptr,#_dump_address_65537_247
-      001554 E0               [24] 4531 	movx	a,@dptr
-      001555 F9               [12] 4532 	mov	r1,a
-      001556 A3               [24] 4533 	inc	dptr
-      001557 E0               [24] 4534 	movx	a,@dptr
-      001558 FA               [12] 4535 	mov	r2,a
-      001559 90 00 19         [24] 4536 	mov	dptr,#_dumpPage_PARM_2
-      00155C 74 0F            [12] 4537 	mov	a,#0x0f
-      00155E F0               [24] 4538 	movx	@dptr,a
-      00155F 90 00 1A         [24] 4539 	mov	dptr,#_dumpPage_PARM_3
-      001562 ED               [12] 4540 	mov	a,r5
-      001563 F0               [24] 4541 	movx	@dptr,a
-      001564 89 82            [24] 4542 	mov	dpl,r1
-      001566 8A 83            [24] 4543 	mov	dph,r2
-      001568 C0 07            [24] 4544 	push	ar7
-      00156A C0 06            [24] 4545 	push	ar6
-      00156C C0 05            [24] 4546 	push	ar5
-      00156E C0 03            [24] 4547 	push	ar3
-      001570 12 11 B2         [24] 4548 	lcall	_dumpPage
-      001573 D0 03            [24] 4549 	pop	ar3
-      001575 D0 05            [24] 4550 	pop	ar5
-      001577 D0 06            [24] 4551 	pop	ar6
-      001579 D0 07            [24] 4552 	pop	ar7
-                                   4553 ;	dump2.c:149: page--;
-      00157B EB               [12] 4554 	mov	a,r3
-      00157C 14               [12] 4555 	dec	a
-      00157D 90 00 1D         [24] 4556 	mov	dptr,#_dump_page_65537_247
-      001580 F0               [24] 4557 	movx	@dptr,a
-      001581 02 14 50         [24] 4558 	ljmp	00133$
-      001584                       4559 00126$:
-                                   4560 ;	dump2.c:150: } else if (input == '1') {							// main menu
-      001584 BC 31 01         [24] 4561 	cjne	r4,#0x31,00221$
-      001587 22               [24] 4562 	ret
-      001588                       4563 00221$:
-      001588 02 14 50         [24] 4564 	ljmp	00133$
-                                   4565 ;	dump2.c:154: } while (1);
-                                   4566 ;	dump2.c:156: }
-      00158B 22               [24] 4567 	ret
-                                   4568 ;------------------------------------------------------------
-                                   4569 ;Allocation info for local variables in function 'check'
-                                   4570 ;------------------------------------------------------------
-                                   4571 ;checker                   Allocated to registers r7 
-                                   4572 ;fetched                   Allocated to registers r0 
-                                   4573 ;error                     Allocated to registers r7 
-                                   4574 ;ramAddress                Allocated to registers r2 r3 
-                                   4575 ;i                         Allocated with name '_check_i_65537_264'
-                                   4576 ;------------------------------------------------------------
-                                   4577 ;	check.c:6: void check (void) {
-                                   4578 ;	-----------------------------------------
-                                   4579 ;	 function check
-                                   4580 ;	-----------------------------------------
-      00158C                       4581 _check:
-                                   4582 ;	check.c:8: fillScreen(GRAY);
-      00158C 90 D6 BA         [24] 4583 	mov	dptr,#0xd6ba
-      00158F 12 09 0B         [24] 4584 	lcall	_fillScreen
-                                   4585 ;	check.c:9: setCursor(0, 0);
-      001592 E4               [12] 4586 	clr	a
-      001593 F5 08            [12] 4587 	mov	_setCursor_PARM_2,a
-      001595 F5 09            [12] 4588 	mov	(_setCursor_PARM_2 + 1),a
-      001597 90 00 00         [24] 4589 	mov	dptr,#0x0000
-      00159A 12 01 7D         [24] 4590 	lcall	_setCursor
-                                   4591 ;	check.c:10: setTextSize(2);
-      00159D 75 82 02         [24] 4592 	mov	dpl,#0x02
-      0015A0 12 01 97         [24] 4593 	lcall	_setTextSize
-                                   4594 ;	check.c:16: uint8_t error = 0;
-      0015A3 7F 00            [12] 4595 	mov	r7,#0x00
-                                   4596 ;	check.c:20: LCD_string_write("Enter byte to check\n");
-      0015A5 90 26 A5         [24] 4597 	mov	dptr,#___str_18
-      0015A8 75 F0 80         [24] 4598 	mov	b,#0x80
-      0015AB C0 07            [24] 4599 	push	ar7
-      0015AD 12 0D 12         [24] 4600 	lcall	_LCD_string_write
-                                   4601 ;	check.c:21: checker = getByte();
-      0015B0 12 11 73         [24] 4602 	lcall	_getByte
-      0015B3 AE 82            [24] 4603 	mov	r6,dpl
-                                   4604 ;	check.c:22: write('\n');
-      0015B5 75 82 0A         [24] 4605 	mov	dpl,#0x0a
-      0015B8 C0 06            [24] 4606 	push	ar6
-      0015BA 12 0C A4         [24] 4607 	lcall	_write
-                                   4608 ;	check.c:23: LCD_string_write("In progress...\n");
-      0015BD 90 26 BA         [24] 4609 	mov	dptr,#___str_19
-      0015C0 75 F0 80         [24] 4610 	mov	b,#0x80
-      0015C3 12 0D 12         [24] 4611 	lcall	_LCD_string_write
-      0015C6 D0 06            [24] 4612 	pop	ar6
-      0015C8 D0 07            [24] 4613 	pop	ar7
-                                   4614 ;	check.c:28: for (i = __START_RAM__; i < __END_RAM__; i++) {
-      0015CA 7C 00            [12] 4615 	mov	r4,#0x00
-      0015CC 7D 00            [12] 4616 	mov	r5,#0x00
-      0015CE                       4617 00112$:
-                                   4618 ;	check.c:29: IOM = 0;
-                                   4619 ;	assignBit
-      0015CE C2 B4            [12] 4620 	clr	_P3_4
-                                   4621 ;	check.c:30: ramAddress = (uint16_t __xdata*)(i);
-      0015D0 8C 02            [24] 4622 	mov	ar2,r4
-      0015D2 8D 03            [24] 4623 	mov	ar3,r5
-                                   4624 ;	check.c:31: *ramAddress = checker;
-      0015D4 8E 00            [24] 4625 	mov	ar0,r6
-      0015D6 79 00            [12] 4626 	mov	r1,#0x00
-      0015D8 8A 82            [24] 4627 	mov	dpl,r2
-      0015DA 8B 83            [24] 4628 	mov	dph,r3
-      0015DC E8               [12] 4629 	mov	a,r0
-      0015DD F0               [24] 4630 	movx	@dptr,a
-      0015DE E9               [12] 4631 	mov	a,r1
-      0015DF A3               [24] 4632 	inc	dptr
-      0015E0 F0               [24] 4633 	movx	@dptr,a
-                                   4634 ;	check.c:32: fetched = *ramAddress;
-                                   4635 ;	check.c:33: IOM = 1;
-                                   4636 ;	assignBit
-      0015E1 D2 B4            [12] 4637 	setb	_P3_4
-                                   4638 ;	check.c:35: if (fetched != checker) {
-      0015E3 E8               [12] 4639 	mov	a,r0
-      0015E4 B5 06 02         [24] 4640 	cjne	a,ar6,00141$
-      0015E7 80 3F            [24] 4641 	sjmp	00104$
-      0015E9                       4642 00141$:
-                                   4643 ;	check.c:36: asciiToHex(checker);
-      0015E9 8E 82            [24] 4644 	mov	dpl,r6
-      0015EB C0 03            [24] 4645 	push	ar3
-      0015ED C0 02            [24] 4646 	push	ar2
-      0015EF C0 00            [24] 4647 	push	ar0
-      0015F1 12 0F 93         [24] 4648 	lcall	_asciiToHex
-                                   4649 ;	check.c:37: write(' ');
-      0015F4 75 82 20         [24] 4650 	mov	dpl,#0x20
-      0015F7 12 0C A4         [24] 4651 	lcall	_write
-      0015FA D0 00            [24] 4652 	pop	ar0
-                                   4653 ;	check.c:38: asciiToHex(fetched);
-      0015FC 88 82            [24] 4654 	mov	dpl,r0
-      0015FE 12 0F 93         [24] 4655 	lcall	_asciiToHex
-                                   4656 ;	check.c:39: write(' ');
-      001601 75 82 20         [24] 4657 	mov	dpl,#0x20
-      001604 12 0C A4         [24] 4658 	lcall	_write
-      001607 D0 02            [24] 4659 	pop	ar2
-      001609 D0 03            [24] 4660 	pop	ar3
-                                   4661 ;	check.c:40: asciiToHex(*ramAddress);
-      00160B 8A 82            [24] 4662 	mov	dpl,r2
-      00160D 8B 83            [24] 4663 	mov	dph,r3
-      00160F E0               [24] 4664 	movx	a,@dptr
-      001610 F5 82            [12] 4665 	mov	dpl,a
-      001612 12 0F 93         [24] 4666 	lcall	_asciiToHex
-                                   4667 ;	check.c:41: write('\n');
-      001615 75 82 0A         [24] 4668 	mov	dpl,#0x0a
-      001618 12 0C A4         [24] 4669 	lcall	_write
-                                   4670 ;	check.c:42: LCD_string_write("Memory check failed\n");
-      00161B 90 26 CA         [24] 4671 	mov	dptr,#___str_20
-      00161E 75 F0 80         [24] 4672 	mov	b,#0x80
-      001621 12 0D 12         [24] 4673 	lcall	_LCD_string_write
-                                   4674 ;	check.c:43: error = 1;
-      001624 7F 01            [12] 4675 	mov	r7,#0x01
-                                   4676 ;	check.c:44: break;
-      001626 80 6D            [24] 4677 	sjmp	00106$
-      001628                       4678 00104$:
-                                   4679 ;	check.c:46: IOM = 0;
-                                   4680 ;	assignBit
-      001628 C2 B4            [12] 4681 	clr	_P3_4
-                                   4682 ;	check.c:47: checker = ~checker;
-      00162A EE               [12] 4683 	mov	a,r6
-      00162B F4               [12] 4684 	cpl	a
-                                   4685 ;	check.c:48: *ramAddress = checker;
-      00162C FE               [12] 4686 	mov	r6,a
-      00162D F8               [12] 4687 	mov	r0,a
-      00162E 79 00            [12] 4688 	mov	r1,#0x00
-      001630 8A 82            [24] 4689 	mov	dpl,r2
-      001632 8B 83            [24] 4690 	mov	dph,r3
-      001634 E8               [12] 4691 	mov	a,r0
-      001635 F0               [24] 4692 	movx	@dptr,a
-      001636 E9               [12] 4693 	mov	a,r1
-      001637 A3               [24] 4694 	inc	dptr
-      001638 F0               [24] 4695 	movx	@dptr,a
-                                   4696 ;	check.c:49: fetched = *ramAddress;
-                                   4697 ;	check.c:50: IOM = 1;
-                                   4698 ;	assignBit
-      001639 D2 B4            [12] 4699 	setb	_P3_4
-                                   4700 ;	check.c:52: if (fetched != checker) {
-      00163B E8               [12] 4701 	mov	a,r0
-      00163C B5 06 02         [24] 4702 	cjne	a,ar6,00142$
-      00163F 80 3F            [24] 4703 	sjmp	00113$
-      001641                       4704 00142$:
-                                   4705 ;	check.c:53: asciiToHex(checker);
-      001641 8E 82            [24] 4706 	mov	dpl,r6
-      001643 C0 03            [24] 4707 	push	ar3
-      001645 C0 02            [24] 4708 	push	ar2
-      001647 C0 00            [24] 4709 	push	ar0
-      001649 12 0F 93         [24] 4710 	lcall	_asciiToHex
-                                   4711 ;	check.c:54: write(' ');
-      00164C 75 82 20         [24] 4712 	mov	dpl,#0x20
-      00164F 12 0C A4         [24] 4713 	lcall	_write
-      001652 D0 00            [24] 4714 	pop	ar0
-                                   4715 ;	check.c:55: asciiToHex(fetched);
-      001654 88 82            [24] 4716 	mov	dpl,r0
-      001656 12 0F 93         [24] 4717 	lcall	_asciiToHex
-                                   4718 ;	check.c:56: write(' ');
-      001659 75 82 20         [24] 4719 	mov	dpl,#0x20
-      00165C 12 0C A4         [24] 4720 	lcall	_write
-      00165F D0 02            [24] 4721 	pop	ar2
-      001661 D0 03            [24] 4722 	pop	ar3
-                                   4723 ;	check.c:57: asciiToHex(*ramAddress);
-      001663 8A 82            [24] 4724 	mov	dpl,r2
-      001665 8B 83            [24] 4725 	mov	dph,r3
-      001667 E0               [24] 4726 	movx	a,@dptr
-      001668 F5 82            [12] 4727 	mov	dpl,a
-      00166A 12 0F 93         [24] 4728 	lcall	_asciiToHex
-                                   4729 ;	check.c:58: write('\n');
-      00166D 75 82 0A         [24] 4730 	mov	dpl,#0x0a
-      001670 12 0C A4         [24] 4731 	lcall	_write
-                                   4732 ;	check.c:59: LCD_string_write("Memory check failed\n");
-      001673 90 26 CA         [24] 4733 	mov	dptr,#___str_20
-      001676 75 F0 80         [24] 4734 	mov	b,#0x80
-      001679 12 0D 12         [24] 4735 	lcall	_LCD_string_write
-                                   4736 ;	check.c:60: error = 1;
-      00167C 7F 01            [12] 4737 	mov	r7,#0x01
-                                   4738 ;	check.c:61: break;
-      00167E 80 15            [24] 4739 	sjmp	00106$
-      001680                       4740 00113$:
-                                   4741 ;	check.c:28: for (i = __START_RAM__; i < __END_RAM__; i++) {
-      001680 0C               [12] 4742 	inc	r4
-      001681 BC 00 01         [24] 4743 	cjne	r4,#0x00,00143$
-      001684 0D               [12] 4744 	inc	r5
-      001685                       4745 00143$:
-      001685 8C 02            [24] 4746 	mov	ar2,r4
-      001687 8D 03            [24] 4747 	mov	ar3,r5
-      001689 C3               [12] 4748 	clr	c
-      00168A EA               [12] 4749 	mov	a,r2
-      00168B 94 FF            [12] 4750 	subb	a,#0xff
-      00168D EB               [12] 4751 	mov	a,r3
-      00168E 94 FF            [12] 4752 	subb	a,#0xff
-      001690 50 03            [24] 4753 	jnc	00144$
-      001692 02 15 CE         [24] 4754 	ljmp	00112$
-      001695                       4755 00144$:
-      001695                       4756 00106$:
-                                   4757 ;	check.c:69: if (error == 0) {
-      001695 EF               [12] 4758 	mov	a,r7
-      001696 70 09            [24] 4759 	jnz	00108$
-                                   4760 ;	check.c:70: LCD_string_write("Success!\n");
-      001698 90 26 DF         [24] 4761 	mov	dptr,#___str_21
-      00169B 75 F0 80         [24] 4762 	mov	b,#0x80
-      00169E 12 0D 12         [24] 4763 	lcall	_LCD_string_write
-      0016A1                       4764 00108$:
-                                   4765 ;	check.c:74: LCD_string_write("Press 1 for menu\n");
-      0016A1 90 26 93         [24] 4766 	mov	dptr,#___str_17
-      0016A4 75 F0 80         [24] 4767 	mov	b,#0x80
-      0016A7 12 0D 12         [24] 4768 	lcall	_LCD_string_write
-                                   4769 ;	check.c:76: do {
-      0016AA                       4770 00109$:
-                                   4771 ;	check.c:77: checker = keyDetect();
-      0016AA 12 0D B1         [24] 4772 	lcall	_keyDetect
-      0016AD AF 82            [24] 4773 	mov	r7,dpl
-                                   4774 ;	check.c:78: } while (checker != '1');
-      0016AF BF 31 F8         [24] 4775 	cjne	r7,#0x31,00109$
-                                   4776 ;	check.c:79: }
-      0016B2 22               [24] 4777 	ret
-                                   4778 ;------------------------------------------------------------
-                                   4779 ;Allocation info for local variables in function 'basic'
-                                   4780 ;------------------------------------------------------------
-                                   4781 ;ramAddress                Allocated to registers 
-                                   4782 ;val                       Allocated with name '_basic_val_65537_274'
-                                   4783 ;fetched                   Allocated with name '_basic_fetched_65537_274'
-                                   4784 ;add                       Allocated with name '_basic_add_65537_274'
-                                   4785 ;------------------------------------------------------------
-                                   4786 ;	check.c:85: void basic (void) {
-                                   4787 ;	-----------------------------------------
-                                   4788 ;	 function basic
-                                   4789 ;	-----------------------------------------
-      0016B3                       4790 _basic:
-                                   4791 ;	check.c:87: fillScreen(GRAY);
-      0016B3 90 D6 BA         [24] 4792 	mov	dptr,#0xd6ba
-      0016B6 12 09 0B         [24] 4793 	lcall	_fillScreen
-                                   4794 ;	check.c:88: setCursor(0, 0);
-      0016B9 E4               [12] 4795 	clr	a
-      0016BA F5 08            [12] 4796 	mov	_setCursor_PARM_2,a
-      0016BC F5 09            [12] 4797 	mov	(_setCursor_PARM_2 + 1),a
-      0016BE 90 00 00         [24] 4798 	mov	dptr,#0x0000
-      0016C1 12 01 7D         [24] 4799 	lcall	_setCursor
-                                   4800 ;	check.c:89: setTextSize(2);
-      0016C4 75 82 02         [24] 4801 	mov	dpl,#0x02
-      0016C7 12 01 97         [24] 4802 	lcall	_setTextSize
-                                   4803 ;	check.c:98: LCD_string_write("Enter byte\n");
-      0016CA 90 26 E9         [24] 4804 	mov	dptr,#___str_22
-      0016CD 75 F0 80         [24] 4805 	mov	b,#0x80
-      0016D0 12 0D 12         [24] 4806 	lcall	_LCD_string_write
-                                   4807 ;	check.c:99: val = getByte();
-      0016D3 12 11 73         [24] 4808 	lcall	_getByte
-      0016D6 AF 82            [24] 4809 	mov	r7,dpl
-                                   4810 ;	check.c:100: write('\n');
-      0016D8 75 82 0A         [24] 4811 	mov	dpl,#0x0a
-      0016DB C0 07            [24] 4812 	push	ar7
-      0016DD 12 0C A4         [24] 4813 	lcall	_write
-                                   4814 ;	check.c:103: LCD_string_write("Enter address\n");
-      0016E0 90 26 F5         [24] 4815 	mov	dptr,#___str_23
-      0016E3 75 F0 80         [24] 4816 	mov	b,#0x80
-      0016E6 12 0D 12         [24] 4817 	lcall	_LCD_string_write
-                                   4818 ;	check.c:104: add = getAddress();
-      0016E9 12 11 0C         [24] 4819 	lcall	_getAddress
-      0016EC AD 82            [24] 4820 	mov	r5,dpl
-      0016EE AE 83            [24] 4821 	mov	r6,dph
-                                   4822 ;	check.c:105: write('\n');
-      0016F0 75 82 0A         [24] 4823 	mov	dpl,#0x0a
-      0016F3 C0 06            [24] 4824 	push	ar6
-      0016F5 C0 05            [24] 4825 	push	ar5
-      0016F7 12 0C A4         [24] 4826 	lcall	_write
-                                   4827 ;	check.c:106: LCD_string_write("In progress\n");
-      0016FA 90 27 04         [24] 4828 	mov	dptr,#___str_24
-      0016FD 75 F0 80         [24] 4829 	mov	b,#0x80
-      001700 12 0D 12         [24] 4830 	lcall	_LCD_string_write
-      001703 D0 05            [24] 4831 	pop	ar5
-      001705 D0 06            [24] 4832 	pop	ar6
-      001707 D0 07            [24] 4833 	pop	ar7
-                                   4834 ;	check.c:108: IOM = 0;
-                                   4835 ;	assignBit
-      001709 C2 B4            [12] 4836 	clr	_P3_4
-                                   4837 ;	check.c:111: ramAddress = (uint16_t __xdata*)(add);
-      00170B 8D 82            [24] 4838 	mov	dpl,r5
-      00170D 8E 83            [24] 4839 	mov	dph,r6
-                                   4840 ;	check.c:112: *ramAddress = val;
-      00170F 8F 05            [24] 4841 	mov	ar5,r7
-      001711 7E 00            [12] 4842 	mov	r6,#0x00
-      001713 ED               [12] 4843 	mov	a,r5
-      001714 F0               [24] 4844 	movx	@dptr,a
-      001715 EE               [12] 4845 	mov	a,r6
-      001716 A3               [24] 4846 	inc	dptr
-      001717 F0               [24] 4847 	movx	@dptr,a
-                                   4848 ;	check.c:115: fetched = *ramAddress;
-                                   4849 ;	check.c:117: IOM = 1;
-                                   4850 ;	assignBit
-      001718 D2 B4            [12] 4851 	setb	_P3_4
-                                   4852 ;	check.c:120: if (fetched == val) {
-      00171A ED               [12] 4853 	mov	a,r5
-      00171B B5 07 10         [24] 4854 	cjne	a,ar7,00102$
-                                   4855 ;	check.c:121: asciiToHex(fetched);
-      00171E 8D 82            [24] 4856 	mov	dpl,r5
-      001720 12 0F 93         [24] 4857 	lcall	_asciiToHex
-                                   4858 ;	check.c:122: LCD_string_write(" fetched!\nSuccess!\n");
-      001723 90 27 11         [24] 4859 	mov	dptr,#___str_25
-      001726 75 F0 80         [24] 4860 	mov	b,#0x80
-      001729 12 0D 12         [24] 4861 	lcall	_LCD_string_write
-      00172C 80 09            [24] 4862 	sjmp	00103$
-      00172E                       4863 00102$:
-                                   4864 ;	check.c:124: LCD_string_write("Check failed\n");
-      00172E 90 27 25         [24] 4865 	mov	dptr,#___str_26
-      001731 75 F0 80         [24] 4866 	mov	b,#0x80
-      001734 12 0D 12         [24] 4867 	lcall	_LCD_string_write
-      001737                       4868 00103$:
-                                   4869 ;	check.c:127: LCD_string_write("Press 1 for menu\n");
-      001737 90 26 93         [24] 4870 	mov	dptr,#___str_17
-      00173A 75 F0 80         [24] 4871 	mov	b,#0x80
-      00173D 12 0D 12         [24] 4872 	lcall	_LCD_string_write
-                                   4873 ;	check.c:129: do {
-      001740                       4874 00104$:
-                                   4875 ;	check.c:130: fetched = keyDetect();
-      001740 12 0D B1         [24] 4876 	lcall	_keyDetect
-      001743 AF 82            [24] 4877 	mov	r7,dpl
-                                   4878 ;	check.c:131: } while (fetched != '1');
-      001745 BF 31 F8         [24] 4879 	cjne	r7,#0x31,00104$
-                                   4880 ;	check.c:132: }
-      001748 22               [24] 4881 	ret
-                                   4882 ;------------------------------------------------------------
-                                   4883 ;Allocation info for local variables in function 'move'
+      000FF9                       3532 _writeSomeLines:
+                                   3533 ;	ecen4330_lcd_v3.c:634: fillScreen(RED);
+      000FF9 90 F8 00         [24] 3534 	mov	dptr,#0xf800
+      000FFC 12 08 E4         [24] 3535 	lcall	_fillScreen
+                                   3536 ;	ecen4330_lcd_v3.c:636: delay(20);
+      000FFF 90 00 14         [24] 3537 	mov	dptr,#0x0014
+      001002 12 00 C1         [24] 3538 	lcall	_delay
+                                   3539 ;	ecen4330_lcd_v3.c:637: fillScreen(GREEN);
+      001005 90 07 E0         [24] 3540 	mov	dptr,#0x07e0
+      001008 12 08 E4         [24] 3541 	lcall	_fillScreen
+                                   3542 ;	ecen4330_lcd_v3.c:639: delay(20);
+      00100B 90 00 14         [24] 3543 	mov	dptr,#0x0014
+      00100E 12 00 C1         [24] 3544 	lcall	_delay
+                                   3545 ;	ecen4330_lcd_v3.c:641: setRotation(0);
+      001011 75 82 00         [24] 3546 	mov	dpl,#0x00
+      001014 12 01 88         [24] 3547 	lcall	_setRotation
+                                   3548 ;	ecen4330_lcd_v3.c:642: fillScreen(BLACK);
+      001017 90 00 00         [24] 3549 	mov	dptr,#0x0000
+      00101A 12 08 E4         [24] 3550 	lcall	_fillScreen
+                                   3551 ;	ecen4330_lcd_v3.c:643: testCircles(20, RED);
+      00101D 75 4D 00         [24] 3552 	mov	_testCircles_PARM_2,#0x00
+      001020 75 4E F8         [24] 3553 	mov	(_testCircles_PARM_2 + 1),#0xf8
+      001023 75 82 14         [24] 3554 	mov	dpl,#0x14
+      001026 12 07 3D         [24] 3555 	lcall	_testCircles
+                                   3556 ;	ecen4330_lcd_v3.c:644: delay(100);
+      001029 90 00 64         [24] 3557 	mov	dptr,#0x0064
+      00102C 12 00 C1         [24] 3558 	lcall	_delay
+                                   3559 ;	ecen4330_lcd_v3.c:645: fillScreen(BLACK);
+      00102F 90 00 00         [24] 3560 	mov	dptr,#0x0000
+      001032 12 08 E4         [24] 3561 	lcall	_fillScreen
+                                   3562 ;	ecen4330_lcd_v3.c:646: setTextSize(5);
+      001035 75 82 05         [24] 3563 	mov	dpl,#0x05
+      001038 12 01 70         [24] 3564 	lcall	_setTextSize
+                                   3565 ;	ecen4330_lcd_v3.c:647: setTextColor(CYAN, BLACK);
+      00103B E4               [12] 3566 	clr	a
+      00103C F5 08            [12] 3567 	mov	_setTextColor_PARM_2,a
+      00103E F5 09            [12] 3568 	mov	(_setTextColor_PARM_2 + 1),a
+      001040 90 07 FF         [24] 3569 	mov	dptr,#0x07ff
+      001043 12 01 63         [24] 3570 	lcall	_setTextColor
+                                   3571 ;	ecen4330_lcd_v3.c:648: LCD_string_write("Welcome\n");
+      001046 90 1F C2         [24] 3572 	mov	dptr,#___str_0
+      001049 75 F0 80         [24] 3573 	mov	b,#0x80
+      00104C 12 0C EB         [24] 3574 	lcall	_LCD_string_write
+                                   3575 ;	ecen4330_lcd_v3.c:649: setTextSize(3);
+      00104F 75 82 03         [24] 3576 	mov	dpl,#0x03
+      001052 12 01 70         [24] 3577 	lcall	_setTextSize
+                                   3578 ;	ecen4330_lcd_v3.c:650: LCD_string_write("ECEN-4330\n");
+      001055 90 1F CB         [24] 3579 	mov	dptr,#___str_1
+      001058 75 F0 80         [24] 3580 	mov	b,#0x80
+      00105B 12 0C EB         [24] 3581 	lcall	_LCD_string_write
+                                   3582 ;	ecen4330_lcd_v3.c:651: LCD_string_write("Rotation 0");
+      00105E 90 1F D6         [24] 3583 	mov	dptr,#___str_2
+      001061 75 F0 80         [24] 3584 	mov	b,#0x80
+      001064 12 0C EB         [24] 3585 	lcall	_LCD_string_write
+                                   3586 ;	ecen4330_lcd_v3.c:652: delay(200);
+      001067 90 00 C8         [24] 3587 	mov	dptr,#0x00c8
+      00106A 12 00 C1         [24] 3588 	lcall	_delay
+                                   3589 ;	ecen4330_lcd_v3.c:653: fillScreen(BLACK);
+      00106D 90 00 00         [24] 3590 	mov	dptr,#0x0000
+      001070 12 08 E4         [24] 3591 	lcall	_fillScreen
+                                   3592 ;	ecen4330_lcd_v3.c:654: setRotation(1);
+      001073 75 82 01         [24] 3593 	mov	dpl,#0x01
+      001076 12 01 88         [24] 3594 	lcall	_setRotation
+                                   3595 ;	ecen4330_lcd_v3.c:655: setCursor(0,0);
+      001079 E4               [12] 3596 	clr	a
+      00107A F5 08            [12] 3597 	mov	_setCursor_PARM_2,a
+      00107C F5 09            [12] 3598 	mov	(_setCursor_PARM_2 + 1),a
+      00107E 90 00 00         [24] 3599 	mov	dptr,#0x0000
+      001081 12 01 56         [24] 3600 	lcall	_setCursor
+                                   3601 ;	ecen4330_lcd_v3.c:656: LCD_string_write("Rotation 1");
+      001084 90 1F E1         [24] 3602 	mov	dptr,#___str_3
+      001087 75 F0 80         [24] 3603 	mov	b,#0x80
+      00108A 12 0C EB         [24] 3604 	lcall	_LCD_string_write
+                                   3605 ;	ecen4330_lcd_v3.c:657: delay(500);
+      00108D 90 01 F4         [24] 3606 	mov	dptr,#0x01f4
+      001090 12 00 C1         [24] 3607 	lcall	_delay
+                                   3608 ;	ecen4330_lcd_v3.c:658: fillScreen(BLACK);
+      001093 90 00 00         [24] 3609 	mov	dptr,#0x0000
+      001096 12 08 E4         [24] 3610 	lcall	_fillScreen
+                                   3611 ;	ecen4330_lcd_v3.c:659: setRotation(2);
+      001099 75 82 02         [24] 3612 	mov	dpl,#0x02
+      00109C 12 01 88         [24] 3613 	lcall	_setRotation
+                                   3614 ;	ecen4330_lcd_v3.c:660: setCursor(0,0);
+      00109F E4               [12] 3615 	clr	a
+      0010A0 F5 08            [12] 3616 	mov	_setCursor_PARM_2,a
+      0010A2 F5 09            [12] 3617 	mov	(_setCursor_PARM_2 + 1),a
+      0010A4 90 00 00         [24] 3618 	mov	dptr,#0x0000
+      0010A7 12 01 56         [24] 3619 	lcall	_setCursor
+                                   3620 ;	ecen4330_lcd_v3.c:661: LCD_string_write("Rotation 2");
+      0010AA 90 1F EC         [24] 3621 	mov	dptr,#___str_4
+      0010AD 75 F0 80         [24] 3622 	mov	b,#0x80
+      0010B0 12 0C EB         [24] 3623 	lcall	_LCD_string_write
+                                   3624 ;	ecen4330_lcd_v3.c:662: delay(500);
+      0010B3 90 01 F4         [24] 3625 	mov	dptr,#0x01f4
+      0010B6 12 00 C1         [24] 3626 	lcall	_delay
+                                   3627 ;	ecen4330_lcd_v3.c:663: fillScreen(BLACK);
+      0010B9 90 00 00         [24] 3628 	mov	dptr,#0x0000
+      0010BC 12 08 E4         [24] 3629 	lcall	_fillScreen
+                                   3630 ;	ecen4330_lcd_v3.c:664: setRotation(3);
+      0010BF 75 82 03         [24] 3631 	mov	dpl,#0x03
+      0010C2 12 01 88         [24] 3632 	lcall	_setRotation
+                                   3633 ;	ecen4330_lcd_v3.c:665: setCursor(0,0);
+      0010C5 E4               [12] 3634 	clr	a
+      0010C6 F5 08            [12] 3635 	mov	_setCursor_PARM_2,a
+      0010C8 F5 09            [12] 3636 	mov	(_setCursor_PARM_2 + 1),a
+      0010CA 90 00 00         [24] 3637 	mov	dptr,#0x0000
+      0010CD 12 01 56         [24] 3638 	lcall	_setCursor
+                                   3639 ;	ecen4330_lcd_v3.c:666: delay(200);
+      0010D0 90 00 C8         [24] 3640 	mov	dptr,#0x00c8
+      0010D3 12 00 C1         [24] 3641 	lcall	_delay
+                                   3642 ;	ecen4330_lcd_v3.c:667: LCD_string_write("Rotation 3");
+      0010D6 90 1F F7         [24] 3643 	mov	dptr,#___str_5
+      0010D9 75 F0 80         [24] 3644 	mov	b,#0x80
+      0010DC 12 0C EB         [24] 3645 	lcall	_LCD_string_write
+                                   3646 ;	ecen4330_lcd_v3.c:668: delay(200);
+      0010DF 90 00 C8         [24] 3647 	mov	dptr,#0x00c8
+                                   3648 ;	ecen4330_lcd_v3.c:669: }
+      0010E2 02 00 C1         [24] 3649 	ljmp	_delay
+                                   3650 ;------------------------------------------------------------
+                                   3651 ;Allocation info for local variables in function 'ISR_receive'
+                                   3652 ;------------------------------------------------------------
+                                   3653 ;	USART.c:9: void ISR_receive() __interrupt (4) {
+                                   3654 ;	-----------------------------------------
+                                   3655 ;	 function ISR_receive
+                                   3656 ;	-----------------------------------------
+      0010E5                       3657 _ISR_receive:
+                                   3658 ;	USART.c:11: if (RI == 1) {
+      0010E5 30 98 08         [24] 3659 	jnb	_RI,00103$
+                                   3660 ;	USART.c:12: received_byte = SBUF;	// pull data from the serial buffer
+      0010E8 85 99 6B         [24] 3661 	mov	_received_byte,_SBUF
+                                   3662 ;	USART.c:13: RI = 0;					// clear interrupt flag
+                                   3663 ;	assignBit
+      0010EB C2 98            [12] 3664 	clr	_RI
+                                   3665 ;	USART.c:14: received_flag = 1;		// set received flag
+      0010ED 75 6C 01         [24] 3666 	mov	_received_flag,#0x01
+      0010F0                       3667 00103$:
+                                   3668 ;	USART.c:16: }
+      0010F0 32               [24] 3669 	reti
+                                   3670 ;	eliminated unneeded mov psw,# (no regs used in bank)
+                                   3671 ;	eliminated unneeded push/pop not_psw
+                                   3672 ;	eliminated unneeded push/pop dpl
+                                   3673 ;	eliminated unneeded push/pop dph
+                                   3674 ;	eliminated unneeded push/pop b
+                                   3675 ;	eliminated unneeded push/pop acc
+                                   3676 ;------------------------------------------------------------
+                                   3677 ;Allocation info for local variables in function 'UART_init'
+                                   3678 ;------------------------------------------------------------
+                                   3679 ;	USART.c:18: void UART_init () {
+                                   3680 ;	-----------------------------------------
+                                   3681 ;	 function UART_init
+                                   3682 ;	-----------------------------------------
+      0010F1                       3683 _UART_init:
+                                   3684 ;	USART.c:19: SCON = 0x50;	// Asynchronous mode, 8-bit data and 1-stop bit		0101 0000
+      0010F1 75 98 50         [24] 3685 	mov	_SCON,#0x50
+                                   3686 ;	USART.c:20: TMOD = 0x20;	// Timer1 in Mode2. in 8 bit auto reload			0010 0000
+      0010F4 75 89 20         [24] 3687 	mov	_TMOD,#0x20
+                                   3688 ;	USART.c:21: TH1 =  0xFD;	// Load timer value for 9600 baudrate
+      0010F7 75 8D FD         [24] 3689 	mov	_TH1,#0xfd
+                                   3690 ;	USART.c:22: TR1 = 1;		// Turn ON the timer for Baud rate generation
+                                   3691 ;	assignBit
+      0010FA D2 8E            [12] 3692 	setb	_TR1
+                                   3693 ;	USART.c:23: ES  = 1;		// Enable Serial Interrupt
+                                   3694 ;	assignBit
+      0010FC D2 AC            [12] 3695 	setb	_ES
+                                   3696 ;	USART.c:24: EA  = 1;		// Enable Global Interrupt bit
+                                   3697 ;	assignBit
+      0010FE D2 AF            [12] 3698 	setb	_EA
+                                   3699 ;	USART.c:25: }
+      001100 22               [24] 3700 	ret
+                                   3701 ;------------------------------------------------------------
+                                   3702 ;Allocation info for local variables in function 'UART_config'
+                                   3703 ;------------------------------------------------------------
+                                   3704 ;input                     Allocated with name '_UART_config_input_65536_212'
+                                   3705 ;------------------------------------------------------------
+                                   3706 ;	USART.c:31: void UART_config() {
+                                   3707 ;	-----------------------------------------
+                                   3708 ;	 function UART_config
+                                   3709 ;	-----------------------------------------
+      001101                       3710 _UART_config:
+                                   3711 ;	USART.c:36: LCD_string_write("Select baud rate:\n");
+      001101 90 20 02         [24] 3712 	mov	dptr,#___str_6
+      001104 75 F0 80         [24] 3713 	mov	b,#0x80
+      001107 12 0C EB         [24] 3714 	lcall	_LCD_string_write
+                                   3715 ;	USART.c:37: LCD_string_write("1: 1200\n2: 2400\n3: 4800\n4: 9600\n5: 19200\n");
+      00110A 90 20 15         [24] 3716 	mov	dptr,#___str_7
+      00110D 75 F0 80         [24] 3717 	mov	b,#0x80
+      001110 12 0C EB         [24] 3718 	lcall	_LCD_string_write
+                                   3719 ;	USART.c:40: do {
+      001113                       3720 00107$:
+                                   3721 ;	USART.c:41: input = keyDetect();
+      001113 12 0D 8A         [24] 3722 	lcall	_keyDetect
+      001116 AF 82            [24] 3723 	mov	r7,dpl
+                                   3724 ;	USART.c:43: if (input == '1' || input == '2' || input == '3' || input == '4' || input == '5') {
+      001118 BF 31 02         [24] 3725 	cjne	r7,#0x31,00221$
+      00111B 80 12            [24] 3726 	sjmp	00101$
+      00111D                       3727 00221$:
+      00111D BF 32 02         [24] 3728 	cjne	r7,#0x32,00222$
+      001120 80 0D            [24] 3729 	sjmp	00101$
+      001122                       3730 00222$:
+      001122 BF 33 02         [24] 3731 	cjne	r7,#0x33,00223$
+      001125 80 08            [24] 3732 	sjmp	00101$
+      001127                       3733 00223$:
+      001127 BF 34 02         [24] 3734 	cjne	r7,#0x34,00224$
+      00112A 80 03            [24] 3735 	sjmp	00101$
+      00112C                       3736 00224$:
+      00112C BF 35 E4         [24] 3737 	cjne	r7,#0x35,00107$
+      00112F                       3738 00101$:
+                                   3739 ;	USART.c:44: baud = input;
+      00112F 8F 6F            [24] 3740 	mov	_baud,r7
+                                   3741 ;	USART.c:50: LCD_string_write("How many data bits?\n");
+      001131 90 20 3F         [24] 3742 	mov	dptr,#___str_8
+      001134 75 F0 80         [24] 3743 	mov	b,#0x80
+      001137 12 0C EB         [24] 3744 	lcall	_LCD_string_write
+                                   3745 ;	USART.c:51: LCD_string_write("1: 8\n2: 9\n");
+      00113A 90 20 54         [24] 3746 	mov	dptr,#___str_9
+      00113D 75 F0 80         [24] 3747 	mov	b,#0x80
+      001140 12 0C EB         [24] 3748 	lcall	_LCD_string_write
+                                   3749 ;	USART.c:54: do {
+      001143                       3750 00115$:
+                                   3751 ;	USART.c:55: input = keyDetect();
+      001143 12 0D 8A         [24] 3752 	lcall	_keyDetect
+      001146 AF 82            [24] 3753 	mov	r7,dpl
+                                   3754 ;	USART.c:58: if (input == '1') {
+      001148 BF 31 08         [24] 3755 	cjne	r7,#0x31,00113$
+                                   3756 ;	USART.c:59: bit = 8;
+      00114B 75 6D 08         [24] 3757 	mov	_bit,#0x08
+                                   3758 ;	USART.c:60: SCON = 0x50;		// 0101 0000, mode 1
+      00114E 75 98 50         [24] 3759 	mov	_SCON,#0x50
+                                   3760 ;	USART.c:61: break;
+      001151 80 09            [24] 3761 	sjmp	00117$
+      001153                       3762 00113$:
+                                   3763 ;	USART.c:62: } else if (input == '2') {
+      001153 BF 32 ED         [24] 3764 	cjne	r7,#0x32,00115$
+                                   3765 ;	USART.c:63: bit = 9;
+      001156 75 6D 09         [24] 3766 	mov	_bit,#0x09
+                                   3767 ;	USART.c:64: SCON = 0xD0;		// 1101 0000, mode 3
+      001159 75 98 D0         [24] 3768 	mov	_SCON,#0xd0
+                                   3769 ;	USART.c:67: } while (1);
+      00115C                       3770 00117$:
+                                   3771 ;	USART.c:70: LCD_string_write("Select parity?\n");
+      00115C 90 20 5F         [24] 3772 	mov	dptr,#___str_10
+      00115F 75 F0 80         [24] 3773 	mov	b,#0x80
+      001162 12 0C EB         [24] 3774 	lcall	_LCD_string_write
+                                   3775 ;	USART.c:71: if (bit == 8)
+      001165 74 08            [12] 3776 	mov	a,#0x08
+      001167 B5 6D 0B         [24] 3777 	cjne	a,_bit,00121$
+                                   3778 ;	USART.c:72: LCD_string_write("0: None\n1: Odd\n2: Even\n");
+      00116A 90 20 6F         [24] 3779 	mov	dptr,#___str_11
+      00116D 75 F0 80         [24] 3780 	mov	b,#0x80
+      001170 12 0C EB         [24] 3781 	lcall	_LCD_string_write
+      001173 80 0E            [24] 3782 	sjmp	00133$
+      001175                       3783 00121$:
+                                   3784 ;	USART.c:73: else if (bit == 9)
+      001175 74 09            [12] 3785 	mov	a,#0x09
+      001177 B5 6D 09         [24] 3786 	cjne	a,_bit,00133$
+                                   3787 ;	USART.c:74: LCD_string_write("1: Odd\n2: Even\n");
+      00117A 90 20 87         [24] 3788 	mov	dptr,#___str_12
+      00117D 75 F0 80         [24] 3789 	mov	b,#0x80
+      001180 12 0C EB         [24] 3790 	lcall	_LCD_string_write
+                                   3791 ;	USART.c:77: do {
+      001183                       3792 00133$:
+                                   3793 ;	USART.c:78: input = keyDetect();
+      001183 12 0D 8A         [24] 3794 	lcall	_keyDetect
+      001186 AF 82            [24] 3795 	mov	r7,dpl
+                                   3796 ;	USART.c:80: if (bit == 8 && input == '0' || input == '1' || input == '2') {
+      001188 74 08            [12] 3797 	mov	a,#0x08
+      00118A B5 6D 05         [24] 3798 	cjne	a,_bit,00131$
+      00118D BF 30 02         [24] 3799 	cjne	r7,#0x30,00237$
+      001190 80 0F            [24] 3800 	sjmp	00127$
+      001192                       3801 00237$:
+      001192                       3802 00131$:
+      001192 E4               [12] 3803 	clr	a
+      001193 BF 31 01         [24] 3804 	cjne	r7,#0x31,00238$
+      001196 04               [12] 3805 	inc	a
+      001197                       3806 00238$:
+      001197 FE               [12] 3807 	mov	r6,a
+      001198 70 07            [24] 3808 	jnz	00127$
+      00119A BF 32 01         [24] 3809 	cjne	r7,#0x32,00241$
+      00119D 04               [12] 3810 	inc	a
+      00119E                       3811 00241$:
+      00119E FD               [12] 3812 	mov	r5,a
+      00119F 60 0A            [24] 3813 	jz	00128$
+      0011A1                       3814 00127$:
+                                   3815 ;	USART.c:81: parity = convertAsciiHex(input);
+      0011A1 8F 82            [24] 3816 	mov	dpl,r7
+      0011A3 12 0F E1         [24] 3817 	lcall	_convertAsciiHex
+      0011A6 85 82 6E         [24] 3818 	mov	_parity,dpl
+                                   3819 ;	USART.c:82: break;
+      0011A9 80 13            [24] 3820 	sjmp	00135$
+      0011AB                       3821 00128$:
+                                   3822 ;	USART.c:83: } else if (bit == 9 && input == '1' || input == '2') {
+      0011AB 74 09            [12] 3823 	mov	a,#0x09
+      0011AD B5 6D 03         [24] 3824 	cjne	a,_bit,00126$
+      0011B0 EE               [12] 3825 	mov	a,r6
+      0011B1 70 03            [24] 3826 	jnz	00123$
+      0011B3                       3827 00126$:
+      0011B3 ED               [12] 3828 	mov	a,r5
+      0011B4 60 CD            [24] 3829 	jz	00133$
+      0011B6                       3830 00123$:
+                                   3831 ;	USART.c:84: parity = convertAsciiHex(input);
+      0011B6 8F 82            [24] 3832 	mov	dpl,r7
+      0011B8 12 0F E1         [24] 3833 	lcall	_convertAsciiHex
+      0011BB 85 82 6E         [24] 3834 	mov	_parity,dpl
+                                   3835 ;	USART.c:87: } while (1);
+      0011BE                       3836 00135$:
+                                   3837 ;	USART.c:90: PCON |= 0x80;
+      0011BE 43 87 80         [24] 3838 	orl	_PCON,#0x80
+                                   3839 ;	USART.c:93: switch (baud) {
+      0011C1 AF 6F            [24] 3840 	mov	r7,_baud
+      0011C3 BF 31 02         [24] 3841 	cjne	r7,#0x31,00248$
+      0011C6 80 14            [24] 3842 	sjmp	00136$
+      0011C8                       3843 00248$:
+      0011C8 BF 32 02         [24] 3844 	cjne	r7,#0x32,00249$
+      0011CB 80 14            [24] 3845 	sjmp	00137$
+      0011CD                       3846 00249$:
+      0011CD BF 33 02         [24] 3847 	cjne	r7,#0x33,00250$
+      0011D0 80 14            [24] 3848 	sjmp	00138$
+      0011D2                       3849 00250$:
+      0011D2 BF 34 02         [24] 3850 	cjne	r7,#0x34,00251$
+      0011D5 80 14            [24] 3851 	sjmp	00139$
+      0011D7                       3852 00251$:
+                                   3853 ;	USART.c:94: case '1': TH1 = 0xA9; break;		// 1200
+      0011D7 BF 35 19         [24] 3854 	cjne	r7,#0x35,00142$
+      0011DA 80 14            [24] 3855 	sjmp	00140$
+      0011DC                       3856 00136$:
+      0011DC 75 8D A9         [24] 3857 	mov	_TH1,#0xa9
+                                   3858 ;	USART.c:95: case '2': TH1 = 0xD5; break;		// 2400
+      0011DF 80 12            [24] 3859 	sjmp	00142$
+      0011E1                       3860 00137$:
+      0011E1 75 8D D5         [24] 3861 	mov	_TH1,#0xd5
+                                   3862 ;	USART.c:96: case '3': TH1 = 0xEA; break;		// 4800
+      0011E4 80 0D            [24] 3863 	sjmp	00142$
+      0011E6                       3864 00138$:
+      0011E6 75 8D EA         [24] 3865 	mov	_TH1,#0xea
+                                   3866 ;	USART.c:97: case '4': TH1 = 0xF5; break;		// 9600
+      0011E9 80 08            [24] 3867 	sjmp	00142$
+      0011EB                       3868 00139$:
+      0011EB 75 8D F5         [24] 3869 	mov	_TH1,#0xf5
+                                   3870 ;	USART.c:98: case '5': TH1 = 0xFB; break;		// 19200
+      0011EE 80 03            [24] 3871 	sjmp	00142$
+      0011F0                       3872 00140$:
+      0011F0 75 8D FB         [24] 3873 	mov	_TH1,#0xfb
+                                   3874 ;	USART.c:100: }
+      0011F3                       3875 00142$:
+                                   3876 ;	USART.c:102: write(baud);
+      0011F3 85 6F 82         [24] 3877 	mov	dpl,_baud
+      0011F6 12 0C 7D         [24] 3878 	lcall	_write
+                                   3879 ;	USART.c:103: asciiToHex(TH1);
+      0011F9 85 8D 82         [24] 3880 	mov	dpl,_TH1
+      0011FC 12 0F 6C         [24] 3881 	lcall	_asciiToHex
+                                   3882 ;	USART.c:105: keyDetect();
+      0011FF 12 0D 8A         [24] 3883 	lcall	_keyDetect
+                                   3884 ;	USART.c:108: TMOD = 0x20;	// Timer1 in Mode2. in 8 bit auto reload			0010 0000
+      001202 75 89 20         [24] 3885 	mov	_TMOD,#0x20
+                                   3886 ;	USART.c:109: TR1 = 1;		// turn on timer 1
+                                   3887 ;	assignBit
+      001205 D2 8E            [12] 3888 	setb	_TR1
+                                   3889 ;	USART.c:110: EA  = 1;		// Enable Global Interrupt bit
+                                   3890 ;	assignBit
+      001207 D2 AF            [12] 3891 	setb	_EA
+                                   3892 ;	USART.c:111: ES  = 1;		// Enable Serial Interrupt
+                                   3893 ;	assignBit
+      001209 D2 AC            [12] 3894 	setb	_ES
+                                   3895 ;	USART.c:112: }
+      00120B 22               [24] 3896 	ret
+                                   3897 ;------------------------------------------------------------
+                                   3898 ;Allocation info for local variables in function 'parity_check'
+                                   3899 ;------------------------------------------------------------
+                                   3900 ;d                         Allocated to registers r6 r7 
+                                   3901 ;par                       Allocated to registers r5 
+                                   3902 ;------------------------------------------------------------
+                                   3903 ;	USART.c:120: uint16_t parity_check(uint16_t d) {
+                                   3904 ;	-----------------------------------------
+                                   3905 ;	 function parity_check
+                                   3906 ;	-----------------------------------------
+      00120C                       3907 _parity_check:
+      00120C AE 82            [24] 3908 	mov	r6,dpl
+      00120E AF 83            [24] 3909 	mov	r7,dph
+                                   3910 ;	USART.c:121: uint8_t par = 0;
+      001210 7D 00            [12] 3911 	mov	r5,#0x00
+                                   3912 ;	USART.c:124: while (d) {
+      001212                       3913 00101$:
+      001212 EE               [12] 3914 	mov	a,r6
+      001213 4F               [12] 3915 	orl	a,r7
+      001214 60 21            [24] 3916 	jz	00103$
+                                   3917 ;	USART.c:125: par = !par;
+      001216 ED               [12] 3918 	mov	a,r5
+      001217 B4 01 00         [24] 3919 	cjne	a,#0x01,00115$
+      00121A                       3920 00115$:
+      00121A 92 02            [24] 3921 	mov  _parity_check_sloc0_1_0,c
+      00121C E4               [12] 3922 	clr	a
+      00121D 33               [12] 3923 	rlc	a
+      00121E FD               [12] 3924 	mov	r5,a
+                                   3925 ;	USART.c:126: d = d & (d - 1);
+      00121F 8E 03            [24] 3926 	mov	ar3,r6
+      001221 8F 04            [24] 3927 	mov	ar4,r7
+      001223 EB               [12] 3928 	mov	a,r3
+      001224 24 FF            [12] 3929 	add	a,#0xff
+      001226 F9               [12] 3930 	mov	r1,a
+      001227 EC               [12] 3931 	mov	a,r4
+      001228 34 FF            [12] 3932 	addc	a,#0xff
+      00122A FA               [12] 3933 	mov	r2,a
+      00122B E9               [12] 3934 	mov	a,r1
+      00122C 52 03            [12] 3935 	anl	ar3,a
+      00122E EA               [12] 3936 	mov	a,r2
+      00122F 52 04            [12] 3937 	anl	ar4,a
+      001231 8B 06            [24] 3938 	mov	ar6,r3
+      001233 8C 07            [24] 3939 	mov	ar7,r4
+      001235 80 DB            [24] 3940 	sjmp	00101$
+      001237                       3941 00103$:
+                                   3942 ;	USART.c:128: return par;
+      001237 7F 00            [12] 3943 	mov	r7,#0x00
+      001239 8D 82            [24] 3944 	mov	dpl,r5
+      00123B 8F 83            [24] 3945 	mov	dph,r7
+                                   3946 ;	USART.c:129: }
+      00123D 22               [24] 3947 	ret
+                                   3948 ;------------------------------------------------------------
+                                   3949 ;Allocation info for local variables in function 'receive_parity'
+                                   3950 ;------------------------------------------------------------
+                                   3951 ;	USART.c:135: void receive_parity() {
+                                   3952 ;	-----------------------------------------
+                                   3953 ;	 function receive_parity
+                                   3954 ;	-----------------------------------------
+      00123E                       3955 _receive_parity:
+                                   3956 ;	USART.c:137: if (parity != 0) {
+      00123E E5 6E            [12] 3957 	mov	a,_parity
+      001240 70 01            [24] 3958 	jnz	00143$
+      001242 22               [24] 3959 	ret
+      001243                       3960 00143$:
+                                   3961 ;	USART.c:152: switch (bit) {
+      001243 AF 6D            [24] 3962 	mov	r7,_bit
+      001245 BF 08 02         [24] 3963 	cjne	r7,#0x08,00144$
+      001248 80 08            [24] 3964 	sjmp	00101$
+      00124A                       3965 00144$:
+      00124A BF 09 02         [24] 3966 	cjne	r7,#0x09,00145$
+      00124D 80 6E            [24] 3967 	sjmp	00107$
+      00124F                       3968 00145$:
+      00124F 02 13 15         [24] 3969 	ljmp	00113$
+                                   3970 ;	USART.c:153: case 8: {
+      001252                       3971 00101$:
+                                   3972 ;	USART.c:155: if ((parity_check(received_byte) == 0 && parity == 0x2) || (parity_check(received_byte) == parity)) {
+      001252 AE 6B            [24] 3973 	mov	r6,_received_byte
+      001254 7F 00            [12] 3974 	mov	r7,#0x00
+      001256 8E 82            [24] 3975 	mov	dpl,r6
+      001258 8F 83            [24] 3976 	mov	dph,r7
+      00125A 12 12 0C         [24] 3977 	lcall	_parity_check
+      00125D E5 82            [12] 3978 	mov	a,dpl
+      00125F 85 83 F0         [24] 3979 	mov	b,dph
+      001262 45 F0            [12] 3980 	orl	a,b
+      001264 70 07            [24] 3981 	jnz	00106$
+      001266 74 02            [12] 3982 	mov	a,#0x02
+      001268 B5 6E 02         [24] 3983 	cjne	a,_parity,00147$
+      00126B 80 1B            [24] 3984 	sjmp	00102$
+      00126D                       3985 00147$:
+      00126D                       3986 00106$:
+      00126D AE 6B            [24] 3987 	mov	r6,_received_byte
+      00126F 7F 00            [12] 3988 	mov	r7,#0x00
+      001271 8E 82            [24] 3989 	mov	dpl,r6
+      001273 8F 83            [24] 3990 	mov	dph,r7
+      001275 12 12 0C         [24] 3991 	lcall	_parity_check
+      001278 AE 82            [24] 3992 	mov	r6,dpl
+      00127A AF 83            [24] 3993 	mov	r7,dph
+      00127C AC 6E            [24] 3994 	mov	r4,_parity
+      00127E 7D 00            [12] 3995 	mov	r5,#0x00
+      001280 EE               [12] 3996 	mov	a,r6
+      001281 B5 04 30         [24] 3997 	cjne	a,ar4,00103$
+      001284 EF               [12] 3998 	mov	a,r7
+      001285 B5 05 2C         [24] 3999 	cjne	a,ar5,00103$
+      001288                       4000 00102$:
+                                   4001 ;	USART.c:156: received_byte &= 0x7F;								// mask MSB (parity bit) if there's no error to convert d to ASCII
+      001288 53 6B 7F         [24] 4002 	anl	_received_byte,#0x7f
+                                   4003 ;	USART.c:157: LCD_string_write("par. comp. ");
+      00128B 90 20 97         [24] 4004 	mov	dptr,#___str_13
+      00128E 75 F0 80         [24] 4005 	mov	b,#0x80
+      001291 12 0C EB         [24] 4006 	lcall	_LCD_string_write
+                                   4007 ;	USART.c:158: write(received_byte);
+      001294 85 6B 82         [24] 4008 	mov	dpl,_received_byte
+      001297 12 0C 7D         [24] 4009 	lcall	_write
+                                   4010 ;	USART.c:159: write('\n');
+      00129A 75 82 0A         [24] 4011 	mov	dpl,#0x0a
+      00129D 12 0C 7D         [24] 4012 	lcall	_write
+                                   4013 ;	USART.c:160: asciiToHex(parity);
+      0012A0 85 6E 82         [24] 4014 	mov	dpl,_parity
+      0012A3 12 0F 6C         [24] 4015 	lcall	_asciiToHex
+                                   4016 ;	USART.c:161: asciiToHex(parity_check(received_byte));
+      0012A6 AE 6B            [24] 4017 	mov	r6,_received_byte
+      0012A8 7F 00            [12] 4018 	mov	r7,#0x00
+      0012AA 8E 82            [24] 4019 	mov	dpl,r6
+      0012AC 8F 83            [24] 4020 	mov	dph,r7
+      0012AE 12 12 0C         [24] 4021 	lcall	_parity_check
+      0012B1 02 0F 6C         [24] 4022 	ljmp	_asciiToHex
+      0012B4                       4023 00103$:
+                                   4024 ;	USART.c:164: LCD_string_write("Rx parity error\n");
+      0012B4 90 20 A3         [24] 4025 	mov	dptr,#___str_14
+      0012B7 75 F0 80         [24] 4026 	mov	b,#0x80
+                                   4027 ;	USART.c:166: break;
+      0012BA 02 0C EB         [24] 4028 	ljmp	_LCD_string_write
+                                   4029 ;	USART.c:168: case 9: {
+      0012BD                       4030 00107$:
+                                   4031 ;	USART.c:170: if ((parity_check((RB8 << 8) | received_byte) == 0 && parity == 2) || (parity_check((RB8 << 8) | received_byte) == 1 && parity == 1))
+      0012BD A2 9A            [12] 4032 	mov	c,_RB8
+      0012BF E4               [12] 4033 	clr	a
+      0012C0 33               [12] 4034 	rlc	a
+      0012C1 FF               [12] 4035 	mov	r7,a
+      0012C2 7E 00            [12] 4036 	mov	r6,#0x00
+      0012C4 AC 6B            [24] 4037 	mov	r4,_received_byte
+      0012C6 7D 00            [12] 4038 	mov	r5,#0x00
+      0012C8 EC               [12] 4039 	mov	a,r4
+      0012C9 42 06            [12] 4040 	orl	ar6,a
+      0012CB ED               [12] 4041 	mov	a,r5
+      0012CC 42 07            [12] 4042 	orl	ar7,a
+      0012CE 8E 82            [24] 4043 	mov	dpl,r6
+      0012D0 8F 83            [24] 4044 	mov	dph,r7
+      0012D2 12 12 0C         [24] 4045 	lcall	_parity_check
+      0012D5 E5 82            [12] 4046 	mov	a,dpl
+      0012D7 85 83 F0         [24] 4047 	mov	b,dph
+      0012DA 45 F0            [12] 4048 	orl	a,b
+      0012DC 70 07            [24] 4049 	jnz	00112$
+      0012DE 74 02            [12] 4050 	mov	a,#0x02
+      0012E0 B5 6E 02         [24] 4051 	cjne	a,_parity,00151$
+      0012E3 80 27            [24] 4052 	sjmp	00108$
+      0012E5                       4053 00151$:
+      0012E5                       4054 00112$:
+      0012E5 A2 9A            [12] 4055 	mov	c,_RB8
+      0012E7 E4               [12] 4056 	clr	a
+      0012E8 33               [12] 4057 	rlc	a
+      0012E9 FF               [12] 4058 	mov	r7,a
+      0012EA 7E 00            [12] 4059 	mov	r6,#0x00
+      0012EC AC 6B            [24] 4060 	mov	r4,_received_byte
+      0012EE 7D 00            [12] 4061 	mov	r5,#0x00
+      0012F0 EC               [12] 4062 	mov	a,r4
+      0012F1 42 06            [12] 4063 	orl	ar6,a
+      0012F3 ED               [12] 4064 	mov	a,r5
+      0012F4 42 07            [12] 4065 	orl	ar7,a
+      0012F6 8E 82            [24] 4066 	mov	dpl,r6
+      0012F8 8F 83            [24] 4067 	mov	dph,r7
+      0012FA 12 12 0C         [24] 4068 	lcall	_parity_check
+      0012FD AE 82            [24] 4069 	mov	r6,dpl
+      0012FF AF 83            [24] 4070 	mov	r7,dph
+      001301 BE 01 1A         [24] 4071 	cjne	r6,#0x01,00117$
+      001304 BF 00 17         [24] 4072 	cjne	r7,#0x00,00117$
+      001307 74 01            [12] 4073 	mov	a,#0x01
+      001309 B5 6E 12         [24] 4074 	cjne	a,_parity,00117$
+      00130C                       4075 00108$:
+                                   4076 ;	USART.c:172: LCD_string_write("Rx parity error\n");
+      00130C 90 20 A3         [24] 4077 	mov	dptr,#___str_14
+      00130F 75 F0 80         [24] 4078 	mov	b,#0x80
+                                   4079 ;	USART.c:173: break;
+                                   4080 ;	USART.c:175: default : LCD_string_write("Config. error\n"); break;
+      001312 02 0C EB         [24] 4081 	ljmp	_LCD_string_write
+      001315                       4082 00113$:
+      001315 90 20 B4         [24] 4083 	mov	dptr,#___str_15
+      001318 75 F0 80         [24] 4084 	mov	b,#0x80
+                                   4085 ;	USART.c:176: }
+                                   4086 ;	USART.c:178: }
+      00131B 02 0C EB         [24] 4087 	ljmp	_LCD_string_write
+      00131E                       4088 00117$:
+      00131E 22               [24] 4089 	ret
+                                   4090 ;------------------------------------------------------------
+                                   4091 ;Allocation info for local variables in function 'UART_transmit'
+                                   4092 ;------------------------------------------------------------
+                                   4093 ;d                         Allocated to registers r7 
+                                   4094 ;------------------------------------------------------------
+                                   4095 ;	USART.c:186: uint8_t UART_transmit (unsigned char d) {
+                                   4096 ;	-----------------------------------------
+                                   4097 ;	 function UART_transmit
+                                   4098 ;	-----------------------------------------
+      00131F                       4099 _UART_transmit:
+      00131F AF 82            [24] 4100 	mov	r7,dpl
+                                   4101 ;	USART.c:188: if (parity == 2) {
+      001321 74 02            [12] 4102 	mov	a,#0x02
+      001323 B5 6E 02         [24] 4103 	cjne	a,_parity,00223$
+      001326 80 03            [24] 4104 	sjmp	00224$
+      001328                       4105 00223$:
+      001328 02 13 D3         [24] 4106 	ljmp	00136$
+      00132B                       4107 00224$:
+                                   4108 ;	USART.c:189: if (parity_check(d) == 0 && bit == 8) {
+      00132B 8F 05            [24] 4109 	mov	ar5,r7
+      00132D 7E 00            [12] 4110 	mov	r6,#0x00
+      00132F 8D 82            [24] 4111 	mov	dpl,r5
+      001331 8E 83            [24] 4112 	mov	dph,r6
+      001333 C0 07            [24] 4113 	push	ar7
+      001335 C0 06            [24] 4114 	push	ar6
+      001337 C0 05            [24] 4115 	push	ar5
+      001339 12 12 0C         [24] 4116 	lcall	_parity_check
+      00133C E5 82            [12] 4117 	mov	a,dpl
+      00133E 85 83 F0         [24] 4118 	mov	b,dph
+      001341 D0 05            [24] 4119 	pop	ar5
+      001343 D0 06            [24] 4120 	pop	ar6
+      001345 D0 07            [24] 4121 	pop	ar7
+      001347 45 F0            [12] 4122 	orl	a,b
+      001349 70 0B            [24] 4123 	jnz	00114$
+      00134B 74 08            [12] 4124 	mov	a,#0x08
+      00134D B5 6D 06         [24] 4125 	cjne	a,_bit,00114$
+                                   4126 ;	USART.c:190: d &= 0x7F;
+      001350 53 07 7F         [24] 4127 	anl	ar7,#0x7f
+      001353 02 14 7F         [24] 4128 	ljmp	00137$
+      001356                       4129 00114$:
+                                   4130 ;	USART.c:191: } else if (parity_check(d) == 1 && bit == 9) {
+      001356 8D 82            [24] 4131 	mov	dpl,r5
+      001358 8E 83            [24] 4132 	mov	dph,r6
+      00135A C0 07            [24] 4133 	push	ar7
+      00135C C0 06            [24] 4134 	push	ar6
+      00135E C0 05            [24] 4135 	push	ar5
+      001360 12 12 0C         [24] 4136 	lcall	_parity_check
+      001363 AB 82            [24] 4137 	mov	r3,dpl
+      001365 AC 83            [24] 4138 	mov	r4,dph
+      001367 D0 05            [24] 4139 	pop	ar5
+      001369 D0 06            [24] 4140 	pop	ar6
+      00136B D0 07            [24] 4141 	pop	ar7
+      00136D BB 01 0D         [24] 4142 	cjne	r3,#0x01,00110$
+      001370 BC 00 0A         [24] 4143 	cjne	r4,#0x00,00110$
+      001373 74 09            [12] 4144 	mov	a,#0x09
+      001375 B5 6D 05         [24] 4145 	cjne	a,_bit,00110$
+                                   4146 ;	USART.c:192: TB8 = 1;
+                                   4147 ;	assignBit
+      001378 D2 9B            [12] 4148 	setb	_TB8
+      00137A 02 14 7F         [24] 4149 	ljmp	00137$
+      00137D                       4150 00110$:
+                                   4151 ;	USART.c:193: } else if (parity_check(d) == 1 && bit == 8) {
+      00137D 8D 82            [24] 4152 	mov	dpl,r5
+      00137F 8E 83            [24] 4153 	mov	dph,r6
+      001381 C0 07            [24] 4154 	push	ar7
+      001383 C0 06            [24] 4155 	push	ar6
+      001385 C0 05            [24] 4156 	push	ar5
+      001387 12 12 0C         [24] 4157 	lcall	_parity_check
+      00138A AB 82            [24] 4158 	mov	r3,dpl
+      00138C AC 83            [24] 4159 	mov	r4,dph
+      00138E D0 05            [24] 4160 	pop	ar5
+      001390 D0 06            [24] 4161 	pop	ar6
+      001392 D0 07            [24] 4162 	pop	ar7
+      001394 BB 01 0E         [24] 4163 	cjne	r3,#0x01,00106$
+      001397 BC 00 0B         [24] 4164 	cjne	r4,#0x00,00106$
+      00139A 74 08            [12] 4165 	mov	a,#0x08
+      00139C B5 6D 06         [24] 4166 	cjne	a,_bit,00106$
+                                   4167 ;	USART.c:194: d |= 0x80;
+      00139F 43 07 80         [24] 4168 	orl	ar7,#0x80
+      0013A2 02 14 7F         [24] 4169 	ljmp	00137$
+      0013A5                       4170 00106$:
+                                   4171 ;	USART.c:195: } else if (parity_check(d) == 0 && bit == 9) {
+      0013A5 8D 82            [24] 4172 	mov	dpl,r5
+      0013A7 8E 83            [24] 4173 	mov	dph,r6
+      0013A9 C0 07            [24] 4174 	push	ar7
+      0013AB 12 12 0C         [24] 4175 	lcall	_parity_check
+      0013AE E5 82            [12] 4176 	mov	a,dpl
+      0013B0 85 83 F0         [24] 4177 	mov	b,dph
+      0013B3 D0 07            [24] 4178 	pop	ar7
+      0013B5 45 F0            [12] 4179 	orl	a,b
+      0013B7 70 0A            [24] 4180 	jnz	00102$
+      0013B9 74 09            [12] 4181 	mov	a,#0x09
+      0013BB B5 6D 05         [24] 4182 	cjne	a,_bit,00102$
+                                   4183 ;	USART.c:196: TB8 = 0;
+                                   4184 ;	assignBit
+      0013BE C2 9B            [12] 4185 	clr	_TB8
+      0013C0 02 14 7F         [24] 4186 	ljmp	00137$
+      0013C3                       4187 00102$:
+                                   4188 ;	USART.c:198: LCD_string_write("Tx parity error\n");
+      0013C3 90 20 C3         [24] 4189 	mov	dptr,#___str_16
+      0013C6 75 F0 80         [24] 4190 	mov	b,#0x80
+      0013C9 C0 07            [24] 4191 	push	ar7
+      0013CB 12 0C EB         [24] 4192 	lcall	_LCD_string_write
+      0013CE D0 07            [24] 4193 	pop	ar7
+      0013D0 02 14 7F         [24] 4194 	ljmp	00137$
+      0013D3                       4195 00136$:
+                                   4196 ;	USART.c:200: } else if (parity == 1) {
+      0013D3 74 01            [12] 4197 	mov	a,#0x01
+      0013D5 B5 6E 02         [24] 4198 	cjne	a,_parity,00239$
+      0013D8 80 03            [24] 4199 	sjmp	00240$
+      0013DA                       4200 00239$:
+      0013DA 02 14 7F         [24] 4201 	ljmp	00137$
+      0013DD                       4202 00240$:
+                                   4203 ;	USART.c:201: if (parity_check(d) == 1 && bit == 8) {
+      0013DD 8F 05            [24] 4204 	mov	ar5,r7
+      0013DF 7E 00            [12] 4205 	mov	r6,#0x00
+      0013E1 8D 82            [24] 4206 	mov	dpl,r5
+      0013E3 8E 83            [24] 4207 	mov	dph,r6
+      0013E5 C0 07            [24] 4208 	push	ar7
+      0013E7 C0 06            [24] 4209 	push	ar6
+      0013E9 C0 05            [24] 4210 	push	ar5
+      0013EB 12 12 0C         [24] 4211 	lcall	_parity_check
+      0013EE AB 82            [24] 4212 	mov	r3,dpl
+      0013F0 AC 83            [24] 4213 	mov	r4,dph
+      0013F2 D0 05            [24] 4214 	pop	ar5
+      0013F4 D0 06            [24] 4215 	pop	ar6
+      0013F6 D0 07            [24] 4216 	pop	ar7
+      0013F8 BB 01 0E         [24] 4217 	cjne	r3,#0x01,00130$
+      0013FB BC 00 0B         [24] 4218 	cjne	r4,#0x00,00130$
+      0013FE 74 08            [12] 4219 	mov	a,#0x08
+      001400 B5 6D 06         [24] 4220 	cjne	a,_bit,00130$
+                                   4221 ;	USART.c:202: d &= 0x7F;
+      001403 53 07 7F         [24] 4222 	anl	ar7,#0x7f
+      001406 02 14 7F         [24] 4223 	ljmp	00137$
+      001409                       4224 00130$:
+                                   4225 ;	USART.c:203: } else if (parity_check(d) == 1 && bit == 9) {
+      001409 8D 82            [24] 4226 	mov	dpl,r5
+      00140B 8E 83            [24] 4227 	mov	dph,r6
+      00140D C0 07            [24] 4228 	push	ar7
+      00140F C0 06            [24] 4229 	push	ar6
+      001411 C0 05            [24] 4230 	push	ar5
+      001413 12 12 0C         [24] 4231 	lcall	_parity_check
+      001416 AB 82            [24] 4232 	mov	r3,dpl
+      001418 AC 83            [24] 4233 	mov	r4,dph
+      00141A D0 05            [24] 4234 	pop	ar5
+      00141C D0 06            [24] 4235 	pop	ar6
+      00141E D0 07            [24] 4236 	pop	ar7
+      001420 BB 01 0C         [24] 4237 	cjne	r3,#0x01,00126$
+      001423 BC 00 09         [24] 4238 	cjne	r4,#0x00,00126$
+      001426 74 09            [12] 4239 	mov	a,#0x09
+      001428 B5 6D 04         [24] 4240 	cjne	a,_bit,00126$
+                                   4241 ;	USART.c:204: TB8 = 0;
+                                   4242 ;	assignBit
+      00142B C2 9B            [12] 4243 	clr	_TB8
+      00142D 80 50            [24] 4244 	sjmp	00137$
+      00142F                       4245 00126$:
+                                   4246 ;	USART.c:205: } else if (parity_check(d) == 0 && bit == 8) {
+      00142F 8D 82            [24] 4247 	mov	dpl,r5
+      001431 8E 83            [24] 4248 	mov	dph,r6
+      001433 C0 07            [24] 4249 	push	ar7
+      001435 C0 06            [24] 4250 	push	ar6
+      001437 C0 05            [24] 4251 	push	ar5
+      001439 12 12 0C         [24] 4252 	lcall	_parity_check
+      00143C E5 82            [12] 4253 	mov	a,dpl
+      00143E 85 83 F0         [24] 4254 	mov	b,dph
+      001441 D0 05            [24] 4255 	pop	ar5
+      001443 D0 06            [24] 4256 	pop	ar6
+      001445 D0 07            [24] 4257 	pop	ar7
+      001447 45 F0            [12] 4258 	orl	a,b
+      001449 70 0A            [24] 4259 	jnz	00122$
+      00144B 74 08            [12] 4260 	mov	a,#0x08
+      00144D B5 6D 05         [24] 4261 	cjne	a,_bit,00122$
+                                   4262 ;	USART.c:206: d |= 0x80;
+      001450 43 07 80         [24] 4263 	orl	ar7,#0x80
+      001453 80 2A            [24] 4264 	sjmp	00137$
+      001455                       4265 00122$:
+                                   4266 ;	USART.c:207: } else if (parity_check(d) == 0 && bit == 9) {
+      001455 8D 82            [24] 4267 	mov	dpl,r5
+      001457 8E 83            [24] 4268 	mov	dph,r6
+      001459 C0 07            [24] 4269 	push	ar7
+      00145B 12 12 0C         [24] 4270 	lcall	_parity_check
+      00145E E5 82            [12] 4271 	mov	a,dpl
+      001460 85 83 F0         [24] 4272 	mov	b,dph
+      001463 D0 07            [24] 4273 	pop	ar7
+      001465 45 F0            [12] 4274 	orl	a,b
+      001467 70 09            [24] 4275 	jnz	00118$
+      001469 74 09            [12] 4276 	mov	a,#0x09
+      00146B B5 6D 04         [24] 4277 	cjne	a,_bit,00118$
+                                   4278 ;	USART.c:208: TB8 = 1;
+                                   4279 ;	assignBit
+      00146E D2 9B            [12] 4280 	setb	_TB8
+      001470 80 0D            [24] 4281 	sjmp	00137$
+      001472                       4282 00118$:
+                                   4283 ;	USART.c:210: LCD_string_write("Tx parity error\n");
+      001472 90 20 C3         [24] 4284 	mov	dptr,#___str_16
+      001475 75 F0 80         [24] 4285 	mov	b,#0x80
+      001478 C0 07            [24] 4286 	push	ar7
+      00147A 12 0C EB         [24] 4287 	lcall	_LCD_string_write
+      00147D D0 07            [24] 4288 	pop	ar7
+      00147F                       4289 00137$:
+                                   4290 ;	USART.c:215: SBUF = d;
+      00147F 8F 99            [24] 4291 	mov	_SBUF,r7
+                                   4292 ;	USART.c:216: while (TI == 0);
+      001481                       4293 00138$:
+                                   4294 ;	USART.c:217: TI = 0;
+                                   4295 ;	assignBit
+      001481 10 99 02         [24] 4296 	jbc	_TI,00255$
+      001484 80 FB            [24] 4297 	sjmp	00138$
+      001486                       4298 00255$:
+                                   4299 ;	USART.c:218: return d;
+      001486 8F 82            [24] 4300 	mov	dpl,r7
+                                   4301 ;	USART.c:219: }
+      001488 22               [24] 4302 	ret
+                                   4303 ;------------------------------------------------------------
+                                   4304 ;Allocation info for local variables in function 'getAddress'
+                                   4305 ;------------------------------------------------------------
+                                   4306 ;input                     Allocated with name '_getAddress_input_65536_270'
+                                   4307 ;hex                       Allocated with name '_getAddress_hex_65536_270'
+                                   4308 ;i                         Allocated with name '_getAddress_i_65536_270'
+                                   4309 ;address                   Allocated with name '_getAddress_address_65536_270'
+                                   4310 ;------------------------------------------------------------
+                                   4311 ;	getFunctions.c:6: uint16_t getAddress() {
+                                   4312 ;	-----------------------------------------
+                                   4313 ;	 function getAddress
+                                   4314 ;	-----------------------------------------
+      001489                       4315 _getAddress:
+                                   4316 ;	getFunctions.c:16: address = 0;
+      001489 90 00 16         [24] 4317 	mov	dptr,#_getAddress_address_65536_270
+      00148C E4               [12] 4318 	clr	a
+      00148D F0               [24] 4319 	movx	@dptr,a
+      00148E A3               [24] 4320 	inc	dptr
+      00148F F0               [24] 4321 	movx	@dptr,a
+                                   4322 ;	getFunctions.c:19: for (i = 0; i < 4; i++) {
+      001490 7F 00            [12] 4323 	mov	r7,#0x00
+      001492                       4324 00104$:
+                                   4325 ;	getFunctions.c:20: input = keyDetect();				// get the nibble
+      001492 C0 07            [24] 4326 	push	ar7
+      001494 12 0D 8A         [24] 4327 	lcall	_keyDetect
+                                   4328 ;	getFunctions.c:21: write(input);						// display nibble to user
+      001497 AE 82            [24] 4329 	mov  r6,dpl
+      001499 C0 06            [24] 4330 	push	ar6
+      00149B 12 0C 7D         [24] 4331 	lcall	_write
+      00149E D0 06            [24] 4332 	pop	ar6
+                                   4333 ;	getFunctions.c:22: hex = convertAsciiHex(input);		// convert ascii char to hex
+      0014A0 8E 82            [24] 4334 	mov	dpl,r6
+      0014A2 12 0F E1         [24] 4335 	lcall	_convertAsciiHex
+      0014A5 AE 82            [24] 4336 	mov	r6,dpl
+      0014A7 D0 07            [24] 4337 	pop	ar7
+                                   4338 ;	getFunctions.c:25: address = address | hex;
+      0014A9 90 00 16         [24] 4339 	mov	dptr,#_getAddress_address_65536_270
+      0014AC E0               [24] 4340 	movx	a,@dptr
+      0014AD FC               [12] 4341 	mov	r4,a
+      0014AE A3               [24] 4342 	inc	dptr
+      0014AF E0               [24] 4343 	movx	a,@dptr
+      0014B0 FD               [12] 4344 	mov	r5,a
+      0014B1 7B 00            [12] 4345 	mov	r3,#0x00
+      0014B3 90 00 16         [24] 4346 	mov	dptr,#_getAddress_address_65536_270
+      0014B6 EE               [12] 4347 	mov	a,r6
+      0014B7 4C               [12] 4348 	orl	a,r4
+      0014B8 F0               [24] 4349 	movx	@dptr,a
+      0014B9 EB               [12] 4350 	mov	a,r3
+      0014BA 4D               [12] 4351 	orl	a,r5
+      0014BB A3               [24] 4352 	inc	dptr
+      0014BC F0               [24] 4353 	movx	@dptr,a
+                                   4354 ;	getFunctions.c:26: if (i != 3) address = address << 4;
+      0014BD BF 03 02         [24] 4355 	cjne	r7,#0x03,00121$
+      0014C0 80 1C            [24] 4356 	sjmp	00105$
+      0014C2                       4357 00121$:
+      0014C2 90 00 16         [24] 4358 	mov	dptr,#_getAddress_address_65536_270
+      0014C5 E0               [24] 4359 	movx	a,@dptr
+      0014C6 FD               [12] 4360 	mov	r5,a
+      0014C7 A3               [24] 4361 	inc	dptr
+      0014C8 E0               [24] 4362 	movx	a,@dptr
+      0014C9 C4               [12] 4363 	swap	a
+      0014CA 54 F0            [12] 4364 	anl	a,#0xf0
+      0014CC CD               [12] 4365 	xch	a,r5
+      0014CD C4               [12] 4366 	swap	a
+      0014CE CD               [12] 4367 	xch	a,r5
+      0014CF 6D               [12] 4368 	xrl	a,r5
+      0014D0 CD               [12] 4369 	xch	a,r5
+      0014D1 54 F0            [12] 4370 	anl	a,#0xf0
+      0014D3 CD               [12] 4371 	xch	a,r5
+      0014D4 6D               [12] 4372 	xrl	a,r5
+      0014D5 FE               [12] 4373 	mov	r6,a
+      0014D6 90 00 16         [24] 4374 	mov	dptr,#_getAddress_address_65536_270
+      0014D9 ED               [12] 4375 	mov	a,r5
+      0014DA F0               [24] 4376 	movx	@dptr,a
+      0014DB EE               [12] 4377 	mov	a,r6
+      0014DC A3               [24] 4378 	inc	dptr
+      0014DD F0               [24] 4379 	movx	@dptr,a
+      0014DE                       4380 00105$:
+                                   4381 ;	getFunctions.c:19: for (i = 0; i < 4; i++) {
+      0014DE 0F               [12] 4382 	inc	r7
+      0014DF BF 04 00         [24] 4383 	cjne	r7,#0x04,00122$
+      0014E2                       4384 00122$:
+      0014E2 40 AE            [24] 4385 	jc	00104$
+                                   4386 ;	getFunctions.c:28: return address;
+      0014E4 90 00 16         [24] 4387 	mov	dptr,#_getAddress_address_65536_270
+      0014E7 E0               [24] 4388 	movx	a,@dptr
+      0014E8 FE               [12] 4389 	mov	r6,a
+      0014E9 A3               [24] 4390 	inc	dptr
+      0014EA E0               [24] 4391 	movx	a,@dptr
+                                   4392 ;	getFunctions.c:29: }
+      0014EB 8E 82            [24] 4393 	mov	dpl,r6
+      0014ED F5 83            [12] 4394 	mov	dph,a
+      0014EF 22               [24] 4395 	ret
+                                   4396 ;------------------------------------------------------------
+                                   4397 ;Allocation info for local variables in function 'getByte'
+                                   4398 ;------------------------------------------------------------
+                                   4399 ;input                     Allocated with name '_getByte_input_65536_273'
+                                   4400 ;hex                       Allocated with name '_getByte_hex_65536_273'
+                                   4401 ;byte                      Allocated with name '_getByte_byte_65536_273'
+                                   4402 ;i                         Allocated with name '_getByte_i_65536_273'
+                                   4403 ;------------------------------------------------------------
+                                   4404 ;	getFunctions.c:36: uint8_t getByte() {
+                                   4405 ;	-----------------------------------------
+                                   4406 ;	 function getByte
+                                   4407 ;	-----------------------------------------
+      0014F0                       4408 _getByte:
+                                   4409 ;	getFunctions.c:40: byte = 0;
+      0014F0 90 00 18         [24] 4410 	mov	dptr,#_getByte_byte_65536_273
+      0014F3 E4               [12] 4411 	clr	a
+      0014F4 F0               [24] 4412 	movx	@dptr,a
+                                   4413 ;	getFunctions.c:43: for (i = 0; i < 2; i++) {
+      0014F5 7F 00            [12] 4414 	mov	r7,#0x00
+      0014F7                       4415 00104$:
+                                   4416 ;	getFunctions.c:44: input = keyDetect();				// get the nibble
+      0014F7 C0 07            [24] 4417 	push	ar7
+      0014F9 12 0D 8A         [24] 4418 	lcall	_keyDetect
+                                   4419 ;	getFunctions.c:45: write(input);						// display nibble to user
+      0014FC AE 82            [24] 4420 	mov  r6,dpl
+      0014FE C0 06            [24] 4421 	push	ar6
+      001500 12 0C 7D         [24] 4422 	lcall	_write
+      001503 D0 06            [24] 4423 	pop	ar6
+                                   4424 ;	getFunctions.c:46: hex = convertAsciiHex(input);		// convert ascii char to hex
+      001505 8E 82            [24] 4425 	mov	dpl,r6
+      001507 12 0F E1         [24] 4426 	lcall	_convertAsciiHex
+      00150A AE 82            [24] 4427 	mov	r6,dpl
+      00150C D0 07            [24] 4428 	pop	ar7
+                                   4429 ;	getFunctions.c:49: byte = byte | hex;
+      00150E 90 00 18         [24] 4430 	mov	dptr,#_getByte_byte_65536_273
+      001511 E0               [24] 4431 	movx	a,@dptr
+      001512 4E               [12] 4432 	orl	a,r6
+      001513 F0               [24] 4433 	movx	@dptr,a
+                                   4434 ;	getFunctions.c:50: if (i != 1) byte = byte << 4;
+      001514 BF 01 02         [24] 4435 	cjne	r7,#0x01,00121$
+      001517 80 09            [24] 4436 	sjmp	00105$
+      001519                       4437 00121$:
+      001519 90 00 18         [24] 4438 	mov	dptr,#_getByte_byte_65536_273
+      00151C E0               [24] 4439 	movx	a,@dptr
+      00151D C4               [12] 4440 	swap	a
+      00151E 54 F0            [12] 4441 	anl	a,#0xf0
+      001520 FE               [12] 4442 	mov	r6,a
+      001521 F0               [24] 4443 	movx	@dptr,a
+      001522                       4444 00105$:
+                                   4445 ;	getFunctions.c:43: for (i = 0; i < 2; i++) {
+      001522 0F               [12] 4446 	inc	r7
+      001523 BF 02 00         [24] 4447 	cjne	r7,#0x02,00122$
+      001526                       4448 00122$:
+      001526 40 CF            [24] 4449 	jc	00104$
+                                   4450 ;	getFunctions.c:52: return byte;
+      001528 90 00 18         [24] 4451 	mov	dptr,#_getByte_byte_65536_273
+      00152B E0               [24] 4452 	movx	a,@dptr
+                                   4453 ;	getFunctions.c:53: }
+      00152C F5 82            [12] 4454 	mov	dpl,a
+      00152E 22               [24] 4455 	ret
+                                   4456 ;------------------------------------------------------------
+                                   4457 ;Allocation info for local variables in function 'check'
+                                   4458 ;------------------------------------------------------------
+                                   4459 ;checker                   Allocated to registers r7 
+                                   4460 ;fetched                   Allocated to registers r0 
+                                   4461 ;error                     Allocated to registers r7 
+                                   4462 ;ramAddress                Allocated to registers r2 r3 
+                                   4463 ;i                         Allocated with name '_check_i_65537_278'
+                                   4464 ;------------------------------------------------------------
+                                   4465 ;	check.c:6: void check (void) {
+                                   4466 ;	-----------------------------------------
+                                   4467 ;	 function check
+                                   4468 ;	-----------------------------------------
+      00152F                       4469 _check:
+                                   4470 ;	check.c:8: fillScreen(GRAY);
+      00152F 90 D6 BA         [24] 4471 	mov	dptr,#0xd6ba
+      001532 12 08 E4         [24] 4472 	lcall	_fillScreen
+                                   4473 ;	check.c:9: setCursor(0, 0);
+      001535 E4               [12] 4474 	clr	a
+      001536 F5 08            [12] 4475 	mov	_setCursor_PARM_2,a
+      001538 F5 09            [12] 4476 	mov	(_setCursor_PARM_2 + 1),a
+      00153A 90 00 00         [24] 4477 	mov	dptr,#0x0000
+      00153D 12 01 56         [24] 4478 	lcall	_setCursor
+                                   4479 ;	check.c:10: setTextSize(2);
+      001540 75 82 02         [24] 4480 	mov	dpl,#0x02
+      001543 12 01 70         [24] 4481 	lcall	_setTextSize
+                                   4482 ;	check.c:16: uint8_t error = 0;
+      001546 7F 00            [12] 4483 	mov	r7,#0x00
+                                   4484 ;	check.c:20: LCD_string_write("Enter byte to check\n");
+      001548 90 20 D4         [24] 4485 	mov	dptr,#___str_17
+      00154B 75 F0 80         [24] 4486 	mov	b,#0x80
+      00154E C0 07            [24] 4487 	push	ar7
+      001550 12 0C EB         [24] 4488 	lcall	_LCD_string_write
+                                   4489 ;	check.c:21: checker = getByte();
+      001553 12 14 F0         [24] 4490 	lcall	_getByte
+      001556 AE 82            [24] 4491 	mov	r6,dpl
+                                   4492 ;	check.c:22: write('\n');
+      001558 75 82 0A         [24] 4493 	mov	dpl,#0x0a
+      00155B C0 06            [24] 4494 	push	ar6
+      00155D 12 0C 7D         [24] 4495 	lcall	_write
+                                   4496 ;	check.c:23: LCD_string_write("In progress...\n");
+      001560 90 20 E9         [24] 4497 	mov	dptr,#___str_18
+      001563 75 F0 80         [24] 4498 	mov	b,#0x80
+      001566 12 0C EB         [24] 4499 	lcall	_LCD_string_write
+      001569 D0 06            [24] 4500 	pop	ar6
+      00156B D0 07            [24] 4501 	pop	ar7
+                                   4502 ;	check.c:28: for (i = __START_RAM__; i < __END_RAM__; i++) {
+      00156D 7C 00            [12] 4503 	mov	r4,#0x00
+      00156F 7D 00            [12] 4504 	mov	r5,#0x00
+      001571                       4505 00112$:
+                                   4506 ;	check.c:29: IOM = 0;
+                                   4507 ;	assignBit
+      001571 C2 B4            [12] 4508 	clr	_P3_4
+                                   4509 ;	check.c:30: ramAddress = (uint16_t __xdata*)(i);
+      001573 8C 02            [24] 4510 	mov	ar2,r4
+      001575 8D 03            [24] 4511 	mov	ar3,r5
+                                   4512 ;	check.c:31: *ramAddress = checker;
+      001577 8E 00            [24] 4513 	mov	ar0,r6
+      001579 79 00            [12] 4514 	mov	r1,#0x00
+      00157B 8A 82            [24] 4515 	mov	dpl,r2
+      00157D 8B 83            [24] 4516 	mov	dph,r3
+      00157F E8               [12] 4517 	mov	a,r0
+      001580 F0               [24] 4518 	movx	@dptr,a
+      001581 E9               [12] 4519 	mov	a,r1
+      001582 A3               [24] 4520 	inc	dptr
+      001583 F0               [24] 4521 	movx	@dptr,a
+                                   4522 ;	check.c:32: fetched = *ramAddress;
+                                   4523 ;	check.c:33: IOM = 1;
+                                   4524 ;	assignBit
+      001584 D2 B4            [12] 4525 	setb	_P3_4
+                                   4526 ;	check.c:35: if (fetched != checker) {
+      001586 E8               [12] 4527 	mov	a,r0
+      001587 B5 06 02         [24] 4528 	cjne	a,ar6,00141$
+      00158A 80 3F            [24] 4529 	sjmp	00104$
+      00158C                       4530 00141$:
+                                   4531 ;	check.c:36: asciiToHex(checker);
+      00158C 8E 82            [24] 4532 	mov	dpl,r6
+      00158E C0 03            [24] 4533 	push	ar3
+      001590 C0 02            [24] 4534 	push	ar2
+      001592 C0 00            [24] 4535 	push	ar0
+      001594 12 0F 6C         [24] 4536 	lcall	_asciiToHex
+                                   4537 ;	check.c:37: write(' ');
+      001597 75 82 20         [24] 4538 	mov	dpl,#0x20
+      00159A 12 0C 7D         [24] 4539 	lcall	_write
+      00159D D0 00            [24] 4540 	pop	ar0
+                                   4541 ;	check.c:38: asciiToHex(fetched);
+      00159F 88 82            [24] 4542 	mov	dpl,r0
+      0015A1 12 0F 6C         [24] 4543 	lcall	_asciiToHex
+                                   4544 ;	check.c:39: write(' ');
+      0015A4 75 82 20         [24] 4545 	mov	dpl,#0x20
+      0015A7 12 0C 7D         [24] 4546 	lcall	_write
+      0015AA D0 02            [24] 4547 	pop	ar2
+      0015AC D0 03            [24] 4548 	pop	ar3
+                                   4549 ;	check.c:40: asciiToHex(*ramAddress);
+      0015AE 8A 82            [24] 4550 	mov	dpl,r2
+      0015B0 8B 83            [24] 4551 	mov	dph,r3
+      0015B2 E0               [24] 4552 	movx	a,@dptr
+      0015B3 F5 82            [12] 4553 	mov	dpl,a
+      0015B5 12 0F 6C         [24] 4554 	lcall	_asciiToHex
+                                   4555 ;	check.c:41: write('\n');
+      0015B8 75 82 0A         [24] 4556 	mov	dpl,#0x0a
+      0015BB 12 0C 7D         [24] 4557 	lcall	_write
+                                   4558 ;	check.c:42: LCD_string_write("Memory check failed\n");
+      0015BE 90 20 F9         [24] 4559 	mov	dptr,#___str_19
+      0015C1 75 F0 80         [24] 4560 	mov	b,#0x80
+      0015C4 12 0C EB         [24] 4561 	lcall	_LCD_string_write
+                                   4562 ;	check.c:43: error = 1;
+      0015C7 7F 01            [12] 4563 	mov	r7,#0x01
+                                   4564 ;	check.c:44: break;
+      0015C9 80 6D            [24] 4565 	sjmp	00106$
+      0015CB                       4566 00104$:
+                                   4567 ;	check.c:46: IOM = 0;
+                                   4568 ;	assignBit
+      0015CB C2 B4            [12] 4569 	clr	_P3_4
+                                   4570 ;	check.c:47: checker = ~checker;
+      0015CD EE               [12] 4571 	mov	a,r6
+      0015CE F4               [12] 4572 	cpl	a
+                                   4573 ;	check.c:48: *ramAddress = checker;
+      0015CF FE               [12] 4574 	mov	r6,a
+      0015D0 F8               [12] 4575 	mov	r0,a
+      0015D1 79 00            [12] 4576 	mov	r1,#0x00
+      0015D3 8A 82            [24] 4577 	mov	dpl,r2
+      0015D5 8B 83            [24] 4578 	mov	dph,r3
+      0015D7 E8               [12] 4579 	mov	a,r0
+      0015D8 F0               [24] 4580 	movx	@dptr,a
+      0015D9 E9               [12] 4581 	mov	a,r1
+      0015DA A3               [24] 4582 	inc	dptr
+      0015DB F0               [24] 4583 	movx	@dptr,a
+                                   4584 ;	check.c:49: fetched = *ramAddress;
+                                   4585 ;	check.c:50: IOM = 1;
+                                   4586 ;	assignBit
+      0015DC D2 B4            [12] 4587 	setb	_P3_4
+                                   4588 ;	check.c:52: if (fetched != checker) {
+      0015DE E8               [12] 4589 	mov	a,r0
+      0015DF B5 06 02         [24] 4590 	cjne	a,ar6,00142$
+      0015E2 80 3F            [24] 4591 	sjmp	00113$
+      0015E4                       4592 00142$:
+                                   4593 ;	check.c:53: asciiToHex(checker);
+      0015E4 8E 82            [24] 4594 	mov	dpl,r6
+      0015E6 C0 03            [24] 4595 	push	ar3
+      0015E8 C0 02            [24] 4596 	push	ar2
+      0015EA C0 00            [24] 4597 	push	ar0
+      0015EC 12 0F 6C         [24] 4598 	lcall	_asciiToHex
+                                   4599 ;	check.c:54: write(' ');
+      0015EF 75 82 20         [24] 4600 	mov	dpl,#0x20
+      0015F2 12 0C 7D         [24] 4601 	lcall	_write
+      0015F5 D0 00            [24] 4602 	pop	ar0
+                                   4603 ;	check.c:55: asciiToHex(fetched);
+      0015F7 88 82            [24] 4604 	mov	dpl,r0
+      0015F9 12 0F 6C         [24] 4605 	lcall	_asciiToHex
+                                   4606 ;	check.c:56: write(' ');
+      0015FC 75 82 20         [24] 4607 	mov	dpl,#0x20
+      0015FF 12 0C 7D         [24] 4608 	lcall	_write
+      001602 D0 02            [24] 4609 	pop	ar2
+      001604 D0 03            [24] 4610 	pop	ar3
+                                   4611 ;	check.c:57: asciiToHex(*ramAddress);
+      001606 8A 82            [24] 4612 	mov	dpl,r2
+      001608 8B 83            [24] 4613 	mov	dph,r3
+      00160A E0               [24] 4614 	movx	a,@dptr
+      00160B F5 82            [12] 4615 	mov	dpl,a
+      00160D 12 0F 6C         [24] 4616 	lcall	_asciiToHex
+                                   4617 ;	check.c:58: write('\n');
+      001610 75 82 0A         [24] 4618 	mov	dpl,#0x0a
+      001613 12 0C 7D         [24] 4619 	lcall	_write
+                                   4620 ;	check.c:59: LCD_string_write("Memory check failed\n");
+      001616 90 20 F9         [24] 4621 	mov	dptr,#___str_19
+      001619 75 F0 80         [24] 4622 	mov	b,#0x80
+      00161C 12 0C EB         [24] 4623 	lcall	_LCD_string_write
+                                   4624 ;	check.c:60: error = 1;
+      00161F 7F 01            [12] 4625 	mov	r7,#0x01
+                                   4626 ;	check.c:61: break;
+      001621 80 15            [24] 4627 	sjmp	00106$
+      001623                       4628 00113$:
+                                   4629 ;	check.c:28: for (i = __START_RAM__; i < __END_RAM__; i++) {
+      001623 0C               [12] 4630 	inc	r4
+      001624 BC 00 01         [24] 4631 	cjne	r4,#0x00,00143$
+      001627 0D               [12] 4632 	inc	r5
+      001628                       4633 00143$:
+      001628 8C 02            [24] 4634 	mov	ar2,r4
+      00162A 8D 03            [24] 4635 	mov	ar3,r5
+      00162C C3               [12] 4636 	clr	c
+      00162D EA               [12] 4637 	mov	a,r2
+      00162E 94 FF            [12] 4638 	subb	a,#0xff
+      001630 EB               [12] 4639 	mov	a,r3
+      001631 94 FF            [12] 4640 	subb	a,#0xff
+      001633 50 03            [24] 4641 	jnc	00144$
+      001635 02 15 71         [24] 4642 	ljmp	00112$
+      001638                       4643 00144$:
+      001638                       4644 00106$:
+                                   4645 ;	check.c:69: if (error == 0) {
+      001638 EF               [12] 4646 	mov	a,r7
+      001639 70 09            [24] 4647 	jnz	00108$
+                                   4648 ;	check.c:70: LCD_string_write("Success!\n");
+      00163B 90 21 0E         [24] 4649 	mov	dptr,#___str_20
+      00163E 75 F0 80         [24] 4650 	mov	b,#0x80
+      001641 12 0C EB         [24] 4651 	lcall	_LCD_string_write
+      001644                       4652 00108$:
+                                   4653 ;	check.c:74: LCD_string_write("Press 1 for menu\n");
+      001644 90 21 18         [24] 4654 	mov	dptr,#___str_21
+      001647 75 F0 80         [24] 4655 	mov	b,#0x80
+      00164A 12 0C EB         [24] 4656 	lcall	_LCD_string_write
+                                   4657 ;	check.c:76: do {
+      00164D                       4658 00109$:
+                                   4659 ;	check.c:77: checker = keyDetect();
+      00164D 12 0D 8A         [24] 4660 	lcall	_keyDetect
+      001650 AF 82            [24] 4661 	mov	r7,dpl
+                                   4662 ;	check.c:78: } while (checker != '1');
+      001652 BF 31 F8         [24] 4663 	cjne	r7,#0x31,00109$
+                                   4664 ;	check.c:79: }
+      001655 22               [24] 4665 	ret
+                                   4666 ;------------------------------------------------------------
+                                   4667 ;Allocation info for local variables in function 'basic'
+                                   4668 ;------------------------------------------------------------
+                                   4669 ;ramAddress                Allocated to registers 
+                                   4670 ;val                       Allocated with name '_basic_val_65537_288'
+                                   4671 ;fetched                   Allocated with name '_basic_fetched_65537_288'
+                                   4672 ;add                       Allocated with name '_basic_add_65537_288'
+                                   4673 ;------------------------------------------------------------
+                                   4674 ;	check.c:85: void basic (void) {
+                                   4675 ;	-----------------------------------------
+                                   4676 ;	 function basic
+                                   4677 ;	-----------------------------------------
+      001656                       4678 _basic:
+                                   4679 ;	check.c:87: fillScreen(GRAY);
+      001656 90 D6 BA         [24] 4680 	mov	dptr,#0xd6ba
+      001659 12 08 E4         [24] 4681 	lcall	_fillScreen
+                                   4682 ;	check.c:88: setCursor(0, 0);
+      00165C E4               [12] 4683 	clr	a
+      00165D F5 08            [12] 4684 	mov	_setCursor_PARM_2,a
+      00165F F5 09            [12] 4685 	mov	(_setCursor_PARM_2 + 1),a
+      001661 90 00 00         [24] 4686 	mov	dptr,#0x0000
+      001664 12 01 56         [24] 4687 	lcall	_setCursor
+                                   4688 ;	check.c:89: setTextSize(2);
+      001667 75 82 02         [24] 4689 	mov	dpl,#0x02
+      00166A 12 01 70         [24] 4690 	lcall	_setTextSize
+                                   4691 ;	check.c:98: LCD_string_write("Enter byte\n");
+      00166D 90 21 2A         [24] 4692 	mov	dptr,#___str_22
+      001670 75 F0 80         [24] 4693 	mov	b,#0x80
+      001673 12 0C EB         [24] 4694 	lcall	_LCD_string_write
+                                   4695 ;	check.c:99: val = getByte();
+      001676 12 14 F0         [24] 4696 	lcall	_getByte
+      001679 AF 82            [24] 4697 	mov	r7,dpl
+                                   4698 ;	check.c:100: write('\n');
+      00167B 75 82 0A         [24] 4699 	mov	dpl,#0x0a
+      00167E C0 07            [24] 4700 	push	ar7
+      001680 12 0C 7D         [24] 4701 	lcall	_write
+                                   4702 ;	check.c:103: LCD_string_write("Enter address\n");
+      001683 90 21 36         [24] 4703 	mov	dptr,#___str_23
+      001686 75 F0 80         [24] 4704 	mov	b,#0x80
+      001689 12 0C EB         [24] 4705 	lcall	_LCD_string_write
+                                   4706 ;	check.c:104: add = getAddress();
+      00168C 12 14 89         [24] 4707 	lcall	_getAddress
+      00168F AD 82            [24] 4708 	mov	r5,dpl
+      001691 AE 83            [24] 4709 	mov	r6,dph
+                                   4710 ;	check.c:105: write('\n');
+      001693 75 82 0A         [24] 4711 	mov	dpl,#0x0a
+      001696 C0 06            [24] 4712 	push	ar6
+      001698 C0 05            [24] 4713 	push	ar5
+      00169A 12 0C 7D         [24] 4714 	lcall	_write
+                                   4715 ;	check.c:106: LCD_string_write("In progress\n");
+      00169D 90 21 45         [24] 4716 	mov	dptr,#___str_24
+      0016A0 75 F0 80         [24] 4717 	mov	b,#0x80
+      0016A3 12 0C EB         [24] 4718 	lcall	_LCD_string_write
+      0016A6 D0 05            [24] 4719 	pop	ar5
+      0016A8 D0 06            [24] 4720 	pop	ar6
+      0016AA D0 07            [24] 4721 	pop	ar7
+                                   4722 ;	check.c:108: IOM = 0;
+                                   4723 ;	assignBit
+      0016AC C2 B4            [12] 4724 	clr	_P3_4
+                                   4725 ;	check.c:111: ramAddress = (uint16_t __xdata*)(add);
+      0016AE 8D 82            [24] 4726 	mov	dpl,r5
+      0016B0 8E 83            [24] 4727 	mov	dph,r6
+                                   4728 ;	check.c:112: *ramAddress = val;
+      0016B2 8F 05            [24] 4729 	mov	ar5,r7
+      0016B4 7E 00            [12] 4730 	mov	r6,#0x00
+      0016B6 ED               [12] 4731 	mov	a,r5
+      0016B7 F0               [24] 4732 	movx	@dptr,a
+      0016B8 EE               [12] 4733 	mov	a,r6
+      0016B9 A3               [24] 4734 	inc	dptr
+      0016BA F0               [24] 4735 	movx	@dptr,a
+                                   4736 ;	check.c:115: fetched = *ramAddress;
+                                   4737 ;	check.c:117: IOM = 1;
+                                   4738 ;	assignBit
+      0016BB D2 B4            [12] 4739 	setb	_P3_4
+                                   4740 ;	check.c:120: if (fetched == val) {
+      0016BD ED               [12] 4741 	mov	a,r5
+      0016BE B5 07 10         [24] 4742 	cjne	a,ar7,00102$
+                                   4743 ;	check.c:121: asciiToHex(fetched);
+      0016C1 8D 82            [24] 4744 	mov	dpl,r5
+      0016C3 12 0F 6C         [24] 4745 	lcall	_asciiToHex
+                                   4746 ;	check.c:122: LCD_string_write(" fetched!\nSuccess!\n");
+      0016C6 90 21 52         [24] 4747 	mov	dptr,#___str_25
+      0016C9 75 F0 80         [24] 4748 	mov	b,#0x80
+      0016CC 12 0C EB         [24] 4749 	lcall	_LCD_string_write
+      0016CF 80 09            [24] 4750 	sjmp	00103$
+      0016D1                       4751 00102$:
+                                   4752 ;	check.c:124: LCD_string_write("Check failed\n");
+      0016D1 90 21 66         [24] 4753 	mov	dptr,#___str_26
+      0016D4 75 F0 80         [24] 4754 	mov	b,#0x80
+      0016D7 12 0C EB         [24] 4755 	lcall	_LCD_string_write
+      0016DA                       4756 00103$:
+                                   4757 ;	check.c:127: LCD_string_write("Press 1 for menu\n");
+      0016DA 90 21 18         [24] 4758 	mov	dptr,#___str_21
+      0016DD 75 F0 80         [24] 4759 	mov	b,#0x80
+      0016E0 12 0C EB         [24] 4760 	lcall	_LCD_string_write
+                                   4761 ;	check.c:129: do {
+      0016E3                       4762 00104$:
+                                   4763 ;	check.c:130: fetched = keyDetect();
+      0016E3 12 0D 8A         [24] 4764 	lcall	_keyDetect
+      0016E6 AF 82            [24] 4765 	mov	r7,dpl
+                                   4766 ;	check.c:131: } while (fetched != '1');
+      0016E8 BF 31 F8         [24] 4767 	cjne	r7,#0x31,00104$
+                                   4768 ;	check.c:132: }
+      0016EB 22               [24] 4769 	ret
+                                   4770 ;------------------------------------------------------------
+                                   4771 ;Allocation info for local variables in function 'UART_free_type'
+                                   4772 ;------------------------------------------------------------
+                                   4773 ;	UART_freetype.c:1: void UART_free_type() {
+                                   4774 ;	-----------------------------------------
+                                   4775 ;	 function UART_free_type
+                                   4776 ;	-----------------------------------------
+      0016EC                       4777 _UART_free_type:
+                                   4778 ;	UART_freetype.c:3: fillScreen(GRAY);
+      0016EC 90 D6 BA         [24] 4779 	mov	dptr,#0xd6ba
+      0016EF 12 08 E4         [24] 4780 	lcall	_fillScreen
+                                   4781 ;	UART_freetype.c:4: setCursor(0, 0);
+      0016F2 E4               [12] 4782 	clr	a
+      0016F3 F5 08            [12] 4783 	mov	_setCursor_PARM_2,a
+      0016F5 F5 09            [12] 4784 	mov	(_setCursor_PARM_2 + 1),a
+      0016F7 90 00 00         [24] 4785 	mov	dptr,#0x0000
+      0016FA 12 01 56         [24] 4786 	lcall	_setCursor
+                                   4787 ;	UART_freetype.c:5: setTextSize(2);
+      0016FD 75 82 02         [24] 4788 	mov	dpl,#0x02
+      001700 12 01 70         [24] 4789 	lcall	_setTextSize
+                                   4790 ;	UART_freetype.c:7: LCD_string_write("UART Free type, 0 for menu:\n");
+      001703 90 21 74         [24] 4791 	mov	dptr,#___str_27
+      001706 75 F0 80         [24] 4792 	mov	b,#0x80
+      001709 12 0C EB         [24] 4793 	lcall	_LCD_string_write
+                                   4794 ;	UART_freetype.c:9: while (1) {
+      00170C                       4795 00107$:
+                                   4796 ;	UART_freetype.c:10: if (received_flag == 1) {
+      00170C 74 01            [12] 4797 	mov	a,#0x01
+      00170E B5 6C FB         [24] 4798 	cjne	a,_received_flag,00107$
+                                   4799 ;	UART_freetype.c:11: if (received_byte == '0') {
+      001711 74 30            [12] 4800 	mov	a,#0x30
+      001713 B5 6B 04         [24] 4801 	cjne	a,_received_byte,00102$
+                                   4802 ;	UART_freetype.c:12: received_flag = 0;
+      001716 75 6C 00         [24] 4803 	mov	_received_flag,#0x00
+                                   4804 ;	UART_freetype.c:13: break;
+      001719 22               [24] 4805 	ret
+      00171A                       4806 00102$:
+                                   4807 ;	UART_freetype.c:16: write(received_byte);
+      00171A 85 6B 82         [24] 4808 	mov	dpl,_received_byte
+      00171D 12 0C 7D         [24] 4809 	lcall	_write
+                                   4810 ;	UART_freetype.c:17: write('\n');
+      001720 75 82 0A         [24] 4811 	mov	dpl,#0x0a
+      001723 12 0C 7D         [24] 4812 	lcall	_write
+                                   4813 ;	UART_freetype.c:18: received_flag = 0;
+      001726 75 6C 00         [24] 4814 	mov	_received_flag,#0x00
+                                   4815 ;	UART_freetype.c:22: }
+      001729 80 E1            [24] 4816 	sjmp	00107$
+                                   4817 ;------------------------------------------------------------
+                                   4818 ;Allocation info for local variables in function 'UART_menu'
+                                   4819 ;------------------------------------------------------------
+                                   4820 ;input                     Allocated with name '_UART_menu_input_65536_297'
+                                   4821 ;------------------------------------------------------------
+                                   4822 ;	435_UART.c:11: void UART_menu() {
+                                   4823 ;	-----------------------------------------
+                                   4824 ;	 function UART_menu
+                                   4825 ;	-----------------------------------------
+      00172B                       4826 _UART_menu:
+                                   4827 ;	435_UART.c:16: do {
+      00172B                       4828 00106$:
+                                   4829 ;	435_UART.c:18: fillScreen(GRAY);
+      00172B 90 D6 BA         [24] 4830 	mov	dptr,#0xd6ba
+      00172E 12 08 E4         [24] 4831 	lcall	_fillScreen
+                                   4832 ;	435_UART.c:19: setCursor(0, 0);
+      001731 E4               [12] 4833 	clr	a
+      001732 F5 08            [12] 4834 	mov	_setCursor_PARM_2,a
+      001734 F5 09            [12] 4835 	mov	(_setCursor_PARM_2 + 1),a
+      001736 90 00 00         [24] 4836 	mov	dptr,#0x0000
+      001739 12 01 56         [24] 4837 	lcall	_setCursor
+                                   4838 ;	435_UART.c:20: setTextSize(2);
+      00173C 75 82 02         [24] 4839 	mov	dpl,#0x02
+      00173F 12 01 70         [24] 4840 	lcall	_setTextSize
+                                   4841 ;	435_UART.c:23: LCD_string_write("Which mode?\n");
+      001742 90 21 91         [24] 4842 	mov	dptr,#___str_28
+      001745 75 F0 80         [24] 4843 	mov	b,#0x80
+      001748 12 0C EB         [24] 4844 	lcall	_LCD_string_write
+                                   4845 ;	435_UART.c:26: LCD_string_write("1: Loopback\n");
+      00174B 90 21 9E         [24] 4846 	mov	dptr,#___str_29
+      00174E 75 F0 80         [24] 4847 	mov	b,#0x80
+      001751 12 0C EB         [24] 4848 	lcall	_LCD_string_write
+                                   4849 ;	435_UART.c:27: LCD_string_write("2: Interboard\n");
+      001754 90 21 AB         [24] 4850 	mov	dptr,#___str_30
+      001757 75 F0 80         [24] 4851 	mov	b,#0x80
+      00175A 12 0C EB         [24] 4852 	lcall	_LCD_string_write
+                                   4853 ;	435_UART.c:28: LCD_string_write("0: Exit\n");
+      00175D 90 21 BA         [24] 4854 	mov	dptr,#___str_31
+      001760 75 F0 80         [24] 4855 	mov	b,#0x80
+      001763 12 0C EB         [24] 4856 	lcall	_LCD_string_write
+                                   4857 ;	435_UART.c:29: input = keyDetect();
+      001766 12 0D 8A         [24] 4858 	lcall	_keyDetect
+      001769 AF 82            [24] 4859 	mov	r7,dpl
+                                   4860 ;	435_UART.c:32: switch (input) {
+      00176B BF 31 02         [24] 4861 	cjne	r7,#0x31,00123$
+      00176E 80 05            [24] 4862 	sjmp	00101$
+      001770                       4863 00123$:
+                                   4864 ;	435_UART.c:34: case '1': loopback(); break;
+      001770 BF 32 12         [24] 4865 	cjne	r7,#0x32,00103$
+      001773 80 09            [24] 4866 	sjmp	00102$
+      001775                       4867 00101$:
+      001775 C0 07            [24] 4868 	push	ar7
+      001777 12 17 89         [24] 4869 	lcall	_loopback
+      00177A D0 07            [24] 4870 	pop	ar7
+                                   4871 ;	435_UART.c:35: case '2': interboard(); break;
+      00177C 80 07            [24] 4872 	sjmp	00103$
+      00177E                       4873 00102$:
+      00177E C0 07            [24] 4874 	push	ar7
+      001780 12 17 F9         [24] 4875 	lcall	_interboard
+      001783 D0 07            [24] 4876 	pop	ar7
+                                   4877 ;	435_UART.c:36: }
+      001785                       4878 00103$:
+                                   4879 ;	435_UART.c:37: if (input == '0') break;
+      001785 BF 30 A3         [24] 4880 	cjne	r7,#0x30,00106$
+                                   4881 ;	435_UART.c:38: } while (1);
+                                   4882 ;	435_UART.c:39: }
+      001788 22               [24] 4883 	ret
                                    4884 ;------------------------------------------------------------
-                                   4885 ;origin                    Allocated to registers 
-                                   4886 ;target                    Allocated with name '_move_target_65537_280'
-                                   4887 ;sloc0                     Allocated with name '_move_sloc0_1_0'
-                                   4888 ;sloc1                     Allocated with name '_move_sloc1_1_0'
-                                   4889 ;startAdd                  Allocated with name '_move_startAdd_65537_280'
-                                   4890 ;targetAdd                 Allocated with name '_move_targetAdd_65537_280'
-                                   4891 ;i                         Allocated with name '_move_i_65537_280'
-                                   4892 ;size                      Allocated with name '_move_size_65537_280'
-                                   4893 ;o                         Allocated with name '_move_o_65537_280'
-                                   4894 ;------------------------------------------------------------
-                                   4895 ;	move.c:5: void move(void) {
-                                   4896 ;	-----------------------------------------
-                                   4897 ;	 function move
-                                   4898 ;	-----------------------------------------
-      001749                       4899 _move:
-                                   4900 ;	move.c:7: fillScreen(GRAY);
-      001749 90 D6 BA         [24] 4901 	mov	dptr,#0xd6ba
-      00174C 12 09 0B         [24] 4902 	lcall	_fillScreen
-                                   4903 ;	move.c:8: setCursor(0, 0);
-      00174F E4               [12] 4904 	clr	a
-      001750 F5 08            [12] 4905 	mov	_setCursor_PARM_2,a
-      001752 F5 09            [12] 4906 	mov	(_setCursor_PARM_2 + 1),a
-      001754 90 00 00         [24] 4907 	mov	dptr,#0x0000
-      001757 12 01 7D         [24] 4908 	lcall	_setCursor
-                                   4909 ;	move.c:18: setTextSize(2);
-      00175A 75 82 02         [24] 4910 	mov	dpl,#0x02
-      00175D 12 01 97         [24] 4911 	lcall	_setTextSize
-                                   4912 ;	move.c:19: LCD_string_write("Enter start address:\n");
-      001760 90 25 F8         [24] 4913 	mov	dptr,#___str_7
-      001763 75 F0 80         [24] 4914 	mov	b,#0x80
-      001766 12 0D 12         [24] 4915 	lcall	_LCD_string_write
-                                   4916 ;	move.c:20: startAdd = getAddress();
-      001769 12 11 0C         [24] 4917 	lcall	_getAddress
-      00176C AE 82            [24] 4918 	mov	r6,dpl
-      00176E AF 83            [24] 4919 	mov	r7,dph
-                                   4920 ;	move.c:21: write('\n');
-      001770 75 82 0A         [24] 4921 	mov	dpl,#0x0a
-      001773 C0 07            [24] 4922 	push	ar7
-      001775 C0 06            [24] 4923 	push	ar6
-      001777 12 0C A4         [24] 4924 	lcall	_write
-                                   4925 ;	move.c:24: LCD_string_write("Enter target address:\n");
-      00177A 90 27 33         [24] 4926 	mov	dptr,#___str_27
-      00177D 75 F0 80         [24] 4927 	mov	b,#0x80
-      001780 12 0D 12         [24] 4928 	lcall	_LCD_string_write
-                                   4929 ;	move.c:25: targetAdd = getAddress();
-      001783 12 11 0C         [24] 4930 	lcall	_getAddress
-      001786 AC 82            [24] 4931 	mov	r4,dpl
-      001788 AD 83            [24] 4932 	mov	r5,dph
-                                   4933 ;	move.c:26: write('\n');
-      00178A 75 82 0A         [24] 4934 	mov	dpl,#0x0a
-      00178D C0 05            [24] 4935 	push	ar5
-      00178F C0 04            [24] 4936 	push	ar4
-      001791 12 0C A4         [24] 4937 	lcall	_write
-                                   4938 ;	move.c:29: LCD_string_write("Enter size:\n");
-      001794 90 27 4A         [24] 4939 	mov	dptr,#___str_28
-      001797 75 F0 80         [24] 4940 	mov	b,#0x80
-      00179A 12 0D 12         [24] 4941 	lcall	_LCD_string_write
-                                   4942 ;	move.c:30: size = getByte();
-      00179D 12 11 73         [24] 4943 	lcall	_getByte
-      0017A0 AB 82            [24] 4944 	mov	r3,dpl
-                                   4945 ;	move.c:31: write('\n');
-      0017A2 75 82 0A         [24] 4946 	mov	dpl,#0x0a
-      0017A5 C0 03            [24] 4947 	push	ar3
-      0017A7 12 0C A4         [24] 4948 	lcall	_write
-                                   4949 ;	move.c:34: LCD_string_write("Move in progress...\n");
-      0017AA 90 27 57         [24] 4950 	mov	dptr,#___str_29
-      0017AD 75 F0 80         [24] 4951 	mov	b,#0x80
-      0017B0 12 0D 12         [24] 4952 	lcall	_LCD_string_write
-      0017B3 D0 03            [24] 4953 	pop	ar3
-      0017B5 D0 04            [24] 4954 	pop	ar4
-      0017B7 D0 05            [24] 4955 	pop	ar5
-      0017B9 D0 06            [24] 4956 	pop	ar6
-      0017BB D0 07            [24] 4957 	pop	ar7
-                                   4958 ;	move.c:37: for (i = 0; i < size; i++) {
-      0017BD 7A 00            [12] 4959 	mov	r2,#0x00
-      0017BF                       4960 00109$:
-      0017BF C3               [12] 4961 	clr	c
-      0017C0 EA               [12] 4962 	mov	a,r2
-      0017C1 9B               [12] 4963 	subb	a,r3
-      0017C2 50 6D            [24] 4964 	jnc	00104$
-                                   4965 ;	move.c:39: if ((i + startAdd == __END_RAM__) || (i + targetAdd == __END_RAM__)) break;
-      0017C4 C0 03            [24] 4966 	push	ar3
-      0017C6 8A 77            [24] 4967 	mov	_move_sloc1_1_0,r2
-      0017C8 75 78 00         [24] 4968 	mov	(_move_sloc1_1_0 + 1),#0x00
-      0017CB 85 77 75         [24] 4969 	mov	_move_sloc0_1_0,_move_sloc1_1_0
-      0017CE 85 78 76         [24] 4970 	mov	(_move_sloc0_1_0 + 1),(_move_sloc1_1_0 + 1)
-      0017D1 EE               [12] 4971 	mov	a,r6
-      0017D2 25 75            [12] 4972 	add	a,_move_sloc0_1_0
-      0017D4 F9               [12] 4973 	mov	r1,a
-      0017D5 EF               [12] 4974 	mov	a,r7
-      0017D6 35 76            [12] 4975 	addc	a,(_move_sloc0_1_0 + 1)
-      0017D8 FB               [12] 4976 	mov	r3,a
-      0017D9 B9 FF 07         [24] 4977 	cjne	r1,#0xff,00135$
-      0017DC BB FF 04         [24] 4978 	cjne	r3,#0xff,00135$
-      0017DF D0 03            [24] 4979 	pop	ar3
-      0017E1 80 4E            [24] 4980 	sjmp	00104$
-      0017E3                       4981 00135$:
-      0017E3 D0 03            [24] 4982 	pop	ar3
-      0017E5 EC               [12] 4983 	mov	a,r4
-      0017E6 25 75            [12] 4984 	add	a,_move_sloc0_1_0
-      0017E8 F8               [12] 4985 	mov	r0,a
-      0017E9 ED               [12] 4986 	mov	a,r5
-      0017EA 35 76            [12] 4987 	addc	a,(_move_sloc0_1_0 + 1)
-      0017EC F9               [12] 4988 	mov	r1,a
-      0017ED B8 FF 05         [24] 4989 	cjne	r0,#0xff,00136$
-      0017F0 B9 FF 02         [24] 4990 	cjne	r1,#0xff,00136$
-      0017F3 80 3C            [24] 4991 	sjmp	00104$
-      0017F5                       4992 00136$:
-                                   4993 ;	move.c:44: IOM = 0;
-      0017F5 C0 03            [24] 4994 	push	ar3
-                                   4995 ;	assignBit
-      0017F7 C2 B4            [12] 4996 	clr	_P3_4
-                                   4997 ;	move.c:45: origin = (uint16_t __xdata*)(startAdd + i);
-      0017F9 8E 75            [24] 4998 	mov	_move_sloc0_1_0,r6
-      0017FB 8F 76            [24] 4999 	mov	(_move_sloc0_1_0 + 1),r7
-      0017FD E5 77            [12] 5000 	mov	a,_move_sloc1_1_0
-      0017FF 25 75            [12] 5001 	add	a,_move_sloc0_1_0
-      001801 F8               [12] 5002 	mov	r0,a
-      001802 E5 78            [12] 5003 	mov	a,(_move_sloc1_1_0 + 1)
-      001804 35 76            [12] 5004 	addc	a,(_move_sloc0_1_0 + 1)
-      001806 FB               [12] 5005 	mov	r3,a
-      001807 88 82            [24] 5006 	mov	dpl,r0
-      001809 8B 83            [24] 5007 	mov	dph,r3
-                                   5008 ;	move.c:46: target = (uint16_t __xdata*)(targetAdd + i);
-      00180B 8C 01            [24] 5009 	mov	ar1,r4
-      00180D 8D 03            [24] 5010 	mov	ar3,r5
-      00180F E5 77            [12] 5011 	mov	a,_move_sloc1_1_0
-      001811 29               [12] 5012 	add	a,r1
-      001812 F9               [12] 5013 	mov	r1,a
-      001813 E5 78            [12] 5014 	mov	a,(_move_sloc1_1_0 + 1)
-      001815 3B               [12] 5015 	addc	a,r3
-      001816 FB               [12] 5016 	mov	r3,a
-      001817 89 73            [24] 5017 	mov	_move_target_65537_280,r1
-      001819 8B 74            [24] 5018 	mov	(_move_target_65537_280 + 1),r3
-                                   5019 ;	move.c:47: o = *origin;
-      00181B E0               [24] 5020 	movx	a,@dptr
-      00181C F8               [12] 5021 	mov	r0,a
-                                   5022 ;	move.c:48: *target = o;
-      00181D 7B 00            [12] 5023 	mov	r3,#0x00
-      00181F 85 73 82         [24] 5024 	mov	dpl,_move_target_65537_280
-      001822 85 74 83         [24] 5025 	mov	dph,(_move_target_65537_280 + 1)
-      001825 E8               [12] 5026 	mov	a,r0
-      001826 F0               [24] 5027 	movx	@dptr,a
-      001827 EB               [12] 5028 	mov	a,r3
-      001828 A3               [24] 5029 	inc	dptr
-      001829 F0               [24] 5030 	movx	@dptr,a
-                                   5031 ;	move.c:49: IOM = 1;
-                                   5032 ;	assignBit
-      00182A D2 B4            [12] 5033 	setb	_P3_4
-                                   5034 ;	move.c:37: for (i = 0; i < size; i++) {
-      00182C 0A               [12] 5035 	inc	r2
-      00182D D0 03            [24] 5036 	pop	ar3
-      00182F 80 8E            [24] 5037 	sjmp	00109$
-      001831                       5038 00104$:
-                                   5039 ;	move.c:56: LCD_string_write("Done!\n");
-      001831 90 27 6C         [24] 5040 	mov	dptr,#___str_30
-      001834 75 F0 80         [24] 5041 	mov	b,#0x80
-      001837 12 0D 12         [24] 5042 	lcall	_LCD_string_write
-                                   5043 ;	move.c:57: LCD_string_write("Press 1 for menu\n");
-      00183A 90 26 93         [24] 5044 	mov	dptr,#___str_17
-      00183D 75 F0 80         [24] 5045 	mov	b,#0x80
-      001840 12 0D 12         [24] 5046 	lcall	_LCD_string_write
-                                   5047 ;	move.c:59: do {
-      001843                       5048 00105$:
-                                   5049 ;	move.c:60: size = keyDetect();
-      001843 12 0D B1         [24] 5050 	lcall	_keyDetect
-      001846 AF 82            [24] 5051 	mov	r7,dpl
-                                   5052 ;	move.c:61: } while (size != '1');
-      001848 BF 31 F8         [24] 5053 	cjne	r7,#0x31,00105$
-                                   5054 ;	move.c:62: }
-      00184B 22               [24] 5055 	ret
-                                   5056 ;------------------------------------------------------------
-                                   5057 ;Allocation info for local variables in function 'editByte'
-                                   5058 ;------------------------------------------------------------
-                                   5059 ;ramAddress                Allocated to registers r6 r7 
-                                   5060 ;add                       Allocated with name '_editByte_add_65536_284'
-                                   5061 ;val                       Allocated with name '_editByte_val_65536_285'
-                                   5062 ;new                       Allocated with name '_editByte_new_65536_285'
-                                   5063 ;high                      Allocated with name '_editByte_high_65536_285'
-                                   5064 ;low                       Allocated with name '_editByte_low_65536_285'
-                                   5065 ;------------------------------------------------------------
-                                   5066 ;	edit.c:6: void editByte(__xdata uint16_t add) {
-                                   5067 ;	-----------------------------------------
-                                   5068 ;	 function editByte
-                                   5069 ;	-----------------------------------------
-      00184C                       5070 _editByte:
-      00184C AF 83            [24] 5071 	mov	r7,dph
-      00184E E5 82            [12] 5072 	mov	a,dpl
-      001850 90 00 20         [24] 5073 	mov	dptr,#_editByte_add_65536_284
-      001853 F0               [24] 5074 	movx	@dptr,a
-      001854 EF               [12] 5075 	mov	a,r7
-      001855 A3               [24] 5076 	inc	dptr
-      001856 F0               [24] 5077 	movx	@dptr,a
-                                   5078 ;	edit.c:12: __xdata uint8_t high = HIGHBYTE(add);
-      001857 90 00 20         [24] 5079 	mov	dptr,#_editByte_add_65536_284
-      00185A E0               [24] 5080 	movx	a,@dptr
-      00185B FE               [12] 5081 	mov	r6,a
-      00185C A3               [24] 5082 	inc	dptr
-      00185D E0               [24] 5083 	movx	a,@dptr
-      00185E FF               [12] 5084 	mov	r7,a
-      00185F FC               [12] 5085 	mov	r4,a
-                                   5086 ;	edit.c:13: __xdata uint8_t low = LOWBYTE(add);
-      001860 8E 05            [24] 5087 	mov	ar5,r6
-                                   5088 ;	edit.c:16: asciiToHex(high);
-      001862 8C 82            [24] 5089 	mov	dpl,r4
-      001864 C0 07            [24] 5090 	push	ar7
-      001866 C0 06            [24] 5091 	push	ar6
-      001868 C0 05            [24] 5092 	push	ar5
-      00186A C0 04            [24] 5093 	push	ar4
-      00186C 12 0F 93         [24] 5094 	lcall	_asciiToHex
-      00186F D0 04            [24] 5095 	pop	ar4
-      001871 D0 05            [24] 5096 	pop	ar5
-                                   5097 ;	edit.c:17: asciiToHex(low);
-      001873 8D 82            [24] 5098 	mov	dpl,r5
-      001875 C0 05            [24] 5099 	push	ar5
-      001877 C0 04            [24] 5100 	push	ar4
-      001879 12 0F 93         [24] 5101 	lcall	_asciiToHex
-                                   5102 ;	edit.c:19: LCD_string_write(": ");
-      00187C 90 25 F5         [24] 5103 	mov	dptr,#___str_6
-      00187F 75 F0 80         [24] 5104 	mov	b,#0x80
-      001882 12 0D 12         [24] 5105 	lcall	_LCD_string_write
-      001885 D0 04            [24] 5106 	pop	ar4
-      001887 D0 05            [24] 5107 	pop	ar5
-      001889 D0 06            [24] 5108 	pop	ar6
-      00188B D0 07            [24] 5109 	pop	ar7
-                                   5110 ;	edit.c:22: IOM = 0;
-                                   5111 ;	assignBit
-      00188D C2 B4            [12] 5112 	clr	_P3_4
-                                   5113 ;	edit.c:23: ramAddress = (uint16_t __xdata*)(add);
-                                   5114 ;	edit.c:24: val = *ramAddress;
-      00188F 8E 82            [24] 5115 	mov	dpl,r6
-      001891 8F 83            [24] 5116 	mov	dph,r7
-      001893 E0               [24] 5117 	movx	a,@dptr
-      001894 FB               [12] 5118 	mov	r3,a
-                                   5119 ;	edit.c:25: IOM = 1;
-                                   5120 ;	assignBit
-      001895 D2 B4            [12] 5121 	setb	_P3_4
-                                   5122 ;	edit.c:28: asciiToHex(val);
-      001897 8B 82            [24] 5123 	mov	dpl,r3
-      001899 C0 07            [24] 5124 	push	ar7
-      00189B C0 06            [24] 5125 	push	ar6
-      00189D C0 05            [24] 5126 	push	ar5
-      00189F C0 04            [24] 5127 	push	ar4
-      0018A1 12 0F 93         [24] 5128 	lcall	_asciiToHex
-                                   5129 ;	edit.c:31: write('\n');
-      0018A4 75 82 0A         [24] 5130 	mov	dpl,#0x0a
-      0018A7 12 0C A4         [24] 5131 	lcall	_write
-                                   5132 ;	edit.c:32: LCD_string_write("Enter new byte:\n");
-      0018AA 90 27 73         [24] 5133 	mov	dptr,#___str_31
-      0018AD 75 F0 80         [24] 5134 	mov	b,#0x80
-      0018B0 12 0D 12         [24] 5135 	lcall	_LCD_string_write
-                                   5136 ;	edit.c:33: new = getByte();
-      0018B3 12 11 73         [24] 5137 	lcall	_getByte
-      0018B6 AB 82            [24] 5138 	mov	r3,dpl
-                                   5139 ;	edit.c:34: write('\n');
-      0018B8 75 82 0A         [24] 5140 	mov	dpl,#0x0a
-      0018BB C0 03            [24] 5141 	push	ar3
-      0018BD 12 0C A4         [24] 5142 	lcall	_write
-      0018C0 D0 03            [24] 5143 	pop	ar3
-      0018C2 D0 04            [24] 5144 	pop	ar4
-      0018C4 D0 05            [24] 5145 	pop	ar5
-      0018C6 D0 06            [24] 5146 	pop	ar6
-      0018C8 D0 07            [24] 5147 	pop	ar7
-                                   5148 ;	edit.c:37: IOM = 0;
-                                   5149 ;	assignBit
-      0018CA C2 B4            [12] 5150 	clr	_P3_4
-                                   5151 ;	edit.c:38: *ramAddress = new;
-      0018CC 7A 00            [12] 5152 	mov	r2,#0x00
-      0018CE 8E 82            [24] 5153 	mov	dpl,r6
-      0018D0 8F 83            [24] 5154 	mov	dph,r7
-      0018D2 EB               [12] 5155 	mov	a,r3
-      0018D3 F0               [24] 5156 	movx	@dptr,a
-      0018D4 EA               [12] 5157 	mov	a,r2
-      0018D5 A3               [24] 5158 	inc	dptr
-      0018D6 F0               [24] 5159 	movx	@dptr,a
-                                   5160 ;	edit.c:39: val = *ramAddress;
-                                   5161 ;	edit.c:40: IOM = 1;
-                                   5162 ;	assignBit
-      0018D7 D2 B4            [12] 5163 	setb	_P3_4
-                                   5164 ;	edit.c:43: asciiToHex(high);
-      0018D9 8C 82            [24] 5165 	mov	dpl,r4
-      0018DB C0 05            [24] 5166 	push	ar5
-      0018DD C0 03            [24] 5167 	push	ar3
-      0018DF 12 0F 93         [24] 5168 	lcall	_asciiToHex
-      0018E2 D0 03            [24] 5169 	pop	ar3
-      0018E4 D0 05            [24] 5170 	pop	ar5
-                                   5171 ;	edit.c:44: asciiToHex(low);
-      0018E6 8D 82            [24] 5172 	mov	dpl,r5
-      0018E8 C0 03            [24] 5173 	push	ar3
-      0018EA 12 0F 93         [24] 5174 	lcall	_asciiToHex
-                                   5175 ;	edit.c:45: LCD_string_write(": ");
-      0018ED 90 25 F5         [24] 5176 	mov	dptr,#___str_6
-      0018F0 75 F0 80         [24] 5177 	mov	b,#0x80
-      0018F3 12 0D 12         [24] 5178 	lcall	_LCD_string_write
-      0018F6 D0 03            [24] 5179 	pop	ar3
-                                   5180 ;	edit.c:46: asciiToHex(val);
-      0018F8 8B 82            [24] 5181 	mov	dpl,r3
-      0018FA 12 0F 93         [24] 5182 	lcall	_asciiToHex
-                                   5183 ;	edit.c:47: write('\n');
-      0018FD 75 82 0A         [24] 5184 	mov	dpl,#0x0a
-                                   5185 ;	edit.c:49: }
-      001900 02 0C A4         [24] 5186 	ljmp	_write
-                                   5187 ;------------------------------------------------------------
-                                   5188 ;Allocation info for local variables in function 'edit'
-                                   5189 ;------------------------------------------------------------
-                                   5190 ;input                     Allocated with name '_edit_input_65537_288'
-                                   5191 ;add                       Allocated with name '_edit_add_65537_288'
-                                   5192 ;------------------------------------------------------------
-                                   5193 ;	edit.c:55: void edit(void) {
-                                   5194 ;	-----------------------------------------
-                                   5195 ;	 function edit
-                                   5196 ;	-----------------------------------------
-      001903                       5197 _edit:
-                                   5198 ;	edit.c:57: fillScreen(GRAY);
-      001903 90 D6 BA         [24] 5199 	mov	dptr,#0xd6ba
-      001906 12 09 0B         [24] 5200 	lcall	_fillScreen
-                                   5201 ;	edit.c:58: setCursor(0, 0);
-      001909 E4               [12] 5202 	clr	a
-      00190A F5 08            [12] 5203 	mov	_setCursor_PARM_2,a
-      00190C F5 09            [12] 5204 	mov	(_setCursor_PARM_2 + 1),a
-      00190E 90 00 00         [24] 5205 	mov	dptr,#0x0000
-      001911 12 01 7D         [24] 5206 	lcall	_setCursor
-                                   5207 ;	edit.c:59: setTextSize(2);
-      001914 75 82 02         [24] 5208 	mov	dpl,#0x02
-      001917 12 01 97         [24] 5209 	lcall	_setTextSize
-                                   5210 ;	edit.c:66: LCD_string_write("Enter address:\n");
-      00191A 90 27 84         [24] 5211 	mov	dptr,#___str_32
-      00191D 75 F0 80         [24] 5212 	mov	b,#0x80
-      001920 12 0D 12         [24] 5213 	lcall	_LCD_string_write
-                                   5214 ;	edit.c:67: add = getAddress();
-      001923 12 11 0C         [24] 5215 	lcall	_getAddress
-      001926 AE 82            [24] 5216 	mov	r6,dpl
-      001928 AF 83            [24] 5217 	mov	r7,dph
-                                   5218 ;	edit.c:68: write('\n');
-      00192A 75 82 0A         [24] 5219 	mov	dpl,#0x0a
-      00192D C0 07            [24] 5220 	push	ar7
-      00192F C0 06            [24] 5221 	push	ar6
-      001931 12 0C A4         [24] 5222 	lcall	_write
-      001934 D0 06            [24] 5223 	pop	ar6
-      001936 D0 07            [24] 5224 	pop	ar7
-                                   5225 ;	edit.c:71: editByte(add);
-      001938 8E 82            [24] 5226 	mov	dpl,r6
-      00193A 8F 83            [24] 5227 	mov	dph,r7
-      00193C C0 07            [24] 5228 	push	ar7
-      00193E C0 06            [24] 5229 	push	ar6
-      001940 12 18 4C         [24] 5230 	lcall	_editByte
-      001943 D0 06            [24] 5231 	pop	ar6
-      001945 D0 07            [24] 5232 	pop	ar7
-                                   5233 ;	edit.c:74: do {
-      001947                       5234 00111$:
-                                   5235 ;	edit.c:75: LCD_string_write("Press 1 for menu\n");
-      001947 90 26 93         [24] 5236 	mov	dptr,#___str_17
-      00194A 75 F0 80         [24] 5237 	mov	b,#0x80
-      00194D C0 07            [24] 5238 	push	ar7
-      00194F C0 06            [24] 5239 	push	ar6
-      001951 12 0D 12         [24] 5240 	lcall	_LCD_string_write
-                                   5241 ;	edit.c:76: LCD_string_write("Press 2 to edit again\n");
-      001954 90 27 94         [24] 5242 	mov	dptr,#___str_33
-      001957 75 F0 80         [24] 5243 	mov	b,#0x80
-      00195A 12 0D 12         [24] 5244 	lcall	_LCD_string_write
-                                   5245 ;	edit.c:77: LCD_string_write("Press 3 to edit next address\n");
-      00195D 90 27 AB         [24] 5246 	mov	dptr,#___str_34
-      001960 75 F0 80         [24] 5247 	mov	b,#0x80
-      001963 12 0D 12         [24] 5248 	lcall	_LCD_string_write
-                                   5249 ;	edit.c:78: input = keyDetect();
-      001966 12 0D B1         [24] 5250 	lcall	_keyDetect
-      001969 AD 82            [24] 5251 	mov	r5,dpl
-      00196B D0 06            [24] 5252 	pop	ar6
-      00196D D0 07            [24] 5253 	pop	ar7
-      00196F 90 00 22         [24] 5254 	mov	dptr,#_edit_input_65537_288
-      001972 ED               [12] 5255 	mov	a,r5
-      001973 F0               [24] 5256 	movx	@dptr,a
-                                   5257 ;	edit.c:80: if (input == '1') {
-      001974 BD 31 01         [24] 5258 	cjne	r5,#0x31,00141$
-      001977 22               [24] 5259 	ret
-      001978                       5260 00141$:
-                                   5261 ;	edit.c:82: } else if (input =='2') {
-      001978 BD 32 2F         [24] 5262 	cjne	r5,#0x32,00104$
-                                   5263 ;	edit.c:83: fillScreen(GRAY);
-      00197B 90 D6 BA         [24] 5264 	mov	dptr,#0xd6ba
-      00197E C0 07            [24] 5265 	push	ar7
-      001980 C0 06            [24] 5266 	push	ar6
-      001982 12 09 0B         [24] 5267 	lcall	_fillScreen
-                                   5268 ;	edit.c:84: setCursor(0, 0);
-      001985 E4               [12] 5269 	clr	a
-      001986 F5 08            [12] 5270 	mov	_setCursor_PARM_2,a
-      001988 F5 09            [12] 5271 	mov	(_setCursor_PARM_2 + 1),a
-      00198A 90 00 00         [24] 5272 	mov	dptr,#0x0000
-      00198D 12 01 7D         [24] 5273 	lcall	_setCursor
-      001990 D0 06            [24] 5274 	pop	ar6
-      001992 D0 07            [24] 5275 	pop	ar7
-                                   5276 ;	edit.c:86: editByte(add);
-      001994 8E 82            [24] 5277 	mov	dpl,r6
-      001996 8F 83            [24] 5278 	mov	dph,r7
-      001998 C0 07            [24] 5279 	push	ar7
-      00199A C0 06            [24] 5280 	push	ar6
-      00199C 12 18 4C         [24] 5281 	lcall	_editByte
-      00199F D0 06            [24] 5282 	pop	ar6
-      0019A1 D0 07            [24] 5283 	pop	ar7
-                                   5284 ;	edit.c:88: input = 0;
-      0019A3 90 00 22         [24] 5285 	mov	dptr,#_edit_input_65537_288
-      0019A6 E4               [12] 5286 	clr	a
-      0019A7 F0               [24] 5287 	movx	@dptr,a
-      0019A8 80 35            [24] 5288 	sjmp	00112$
-      0019AA                       5289 00104$:
-                                   5290 ;	edit.c:89: } else if (input == '3') {
-      0019AA BD 33 32         [24] 5291 	cjne	r5,#0x33,00112$
-                                   5292 ;	edit.c:90: fillScreen(GRAY);
-      0019AD 90 D6 BA         [24] 5293 	mov	dptr,#0xd6ba
-      0019B0 C0 07            [24] 5294 	push	ar7
-      0019B2 C0 06            [24] 5295 	push	ar6
-      0019B4 12 09 0B         [24] 5296 	lcall	_fillScreen
-                                   5297 ;	edit.c:91: setCursor(0, 0);
-      0019B7 E4               [12] 5298 	clr	a
-      0019B8 F5 08            [12] 5299 	mov	_setCursor_PARM_2,a
-      0019BA F5 09            [12] 5300 	mov	(_setCursor_PARM_2 + 1),a
-      0019BC 90 00 00         [24] 5301 	mov	dptr,#0x0000
-      0019BF 12 01 7D         [24] 5302 	lcall	_setCursor
-      0019C2 D0 06            [24] 5303 	pop	ar6
-      0019C4 D0 07            [24] 5304 	pop	ar7
-                                   5305 ;	edit.c:93: editByte(++add);
-      0019C6 0E               [12] 5306 	inc	r6
-      0019C7 BE 00 01         [24] 5307 	cjne	r6,#0x00,00146$
-      0019CA 0F               [12] 5308 	inc	r7
-      0019CB                       5309 00146$:
-      0019CB 8E 82            [24] 5310 	mov	dpl,r6
-      0019CD 8F 83            [24] 5311 	mov	dph,r7
-      0019CF C0 07            [24] 5312 	push	ar7
-      0019D1 C0 06            [24] 5313 	push	ar6
-      0019D3 12 18 4C         [24] 5314 	lcall	_editByte
-      0019D6 D0 06            [24] 5315 	pop	ar6
-      0019D8 D0 07            [24] 5316 	pop	ar7
-                                   5317 ;	edit.c:95: input = 0;
-      0019DA 90 00 22         [24] 5318 	mov	dptr,#_edit_input_65537_288
-      0019DD E4               [12] 5319 	clr	a
-      0019DE F0               [24] 5320 	movx	@dptr,a
-      0019DF                       5321 00112$:
-                                   5322 ;	edit.c:97: } while (input != '1' && input != '2' && input != '3');
-      0019DF 90 00 22         [24] 5323 	mov	dptr,#_edit_input_65537_288
-      0019E2 E0               [24] 5324 	movx	a,@dptr
-      0019E3 FD               [12] 5325 	mov	r5,a
-      0019E4 BD 31 01         [24] 5326 	cjne	r5,#0x31,00147$
-      0019E7 22               [24] 5327 	ret
-      0019E8                       5328 00147$:
-      0019E8 BD 32 01         [24] 5329 	cjne	r5,#0x32,00148$
-      0019EB 22               [24] 5330 	ret
-      0019EC                       5331 00148$:
-      0019EC BD 33 01         [24] 5332 	cjne	r5,#0x33,00149$
-      0019EF 22               [24] 5333 	ret
-      0019F0                       5334 00149$:
-      0019F0 02 19 47         [24] 5335 	ljmp	00111$
-                                   5336 ;	edit.c:99: }
-      0019F3 22               [24] 5337 	ret
-                                   5338 ;------------------------------------------------------------
-                                   5339 ;Allocation info for local variables in function 'printCount'
-                                   5340 ;------------------------------------------------------------
-                                   5341 ;key                       Allocated with name '_printCount_PARM_2'
-                                   5342 ;index                     Allocated with name '_printCount_PARM_3'
-                                   5343 ;count                     Allocated with name '_printCount_PARM_4'
-                                   5344 ;start                     Allocated to registers r6 r7 
-                                   5345 ;i                         Allocated to registers r4 
-                                   5346 ;found                     Allocated to registers r3 
-                                   5347 ;high                      Allocated to registers r2 
-                                   5348 ;low                       Allocated to registers r1 
-                                   5349 ;ramAddress                Allocated to registers 
-                                   5350 ;------------------------------------------------------------
-                                   5351 ;	count3.c:1: void printCount(uint16_t start, uint8_t key, uint8_t index, uint8_t count) {
-                                   5352 ;	-----------------------------------------
-                                   5353 ;	 function printCount
-                                   5354 ;	-----------------------------------------
-      0019F4                       5355 _printCount:
-      0019F4 AE 82            [24] 5356 	mov	r6,dpl
-      0019F6 AF 83            [24] 5357 	mov	r7,dph
-                                   5358 ;	count3.c:3: fillScreen(GRAY);
-      0019F8 90 D6 BA         [24] 5359 	mov	dptr,#0xd6ba
-      0019FB C0 07            [24] 5360 	push	ar7
-      0019FD C0 06            [24] 5361 	push	ar6
-      0019FF 12 09 0B         [24] 5362 	lcall	_fillScreen
-                                   5363 ;	count3.c:4: setCursor(0, 0);
-      001A02 E4               [12] 5364 	clr	a
-      001A03 F5 08            [12] 5365 	mov	_setCursor_PARM_2,a
-      001A05 F5 09            [12] 5366 	mov	(_setCursor_PARM_2 + 1),a
-      001A07 90 00 00         [24] 5367 	mov	dptr,#0x0000
-      001A0A 12 01 7D         [24] 5368 	lcall	_setCursor
-                                   5369 ;	count3.c:5: setTextSize(2);
-      001A0D 75 82 02         [24] 5370 	mov	dpl,#0x02
-      001A10 12 01 97         [24] 5371 	lcall	_setTextSize
-      001A13 D0 06            [24] 5372 	pop	ar6
-      001A15 D0 07            [24] 5373 	pop	ar7
-                                   5374 ;	count3.c:14: if (count == 0) {
-      001A17 E5 7B            [12] 5375 	mov	a,_printCount_PARM_4
-      001A19 70 13            [24] 5376 	jnz	00102$
-                                   5377 ;	count3.c:15: LCD_string_write("No matches found\n");
-      001A1B 90 27 C9         [24] 5378 	mov	dptr,#___str_35
-      001A1E 75 F0 80         [24] 5379 	mov	b,#0x80
-      001A21 C0 07            [24] 5380 	push	ar7
-      001A23 C0 06            [24] 5381 	push	ar6
-      001A25 12 0D 12         [24] 5382 	lcall	_LCD_string_write
-      001A28 D0 06            [24] 5383 	pop	ar6
-      001A2A D0 07            [24] 5384 	pop	ar7
-      001A2C 80 17            [24] 5385 	sjmp	00113$
-      001A2E                       5386 00102$:
-                                   5387 ;	count3.c:17: asciiToHex(count);
-      001A2E 85 7B 82         [24] 5388 	mov	dpl,_printCount_PARM_4
-      001A31 C0 07            [24] 5389 	push	ar7
-      001A33 C0 06            [24] 5390 	push	ar6
-      001A35 12 0F 93         [24] 5391 	lcall	_asciiToHex
-                                   5392 ;	count3.c:18: LCD_string_write(" matches found\n");
-      001A38 90 27 DB         [24] 5393 	mov	dptr,#___str_36
-      001A3B 75 F0 80         [24] 5394 	mov	b,#0x80
-      001A3E 12 0D 12         [24] 5395 	lcall	_LCD_string_write
-      001A41 D0 06            [24] 5396 	pop	ar6
-      001A43 D0 07            [24] 5397 	pop	ar7
-                                   5398 ;	count3.c:22: for (i = 0; i < NUM; i++) {
-      001A45                       5399 00113$:
-      001A45 AD 7A            [24] 5400 	mov	r5,_printCount_PARM_3
-      001A47 7C 00            [12] 5401 	mov	r4,#0x00
-      001A49                       5402 00107$:
-                                   5403 ;	count3.c:25: IOM = 0;
-                                   5404 ;	assignBit
-      001A49 C2 B4            [12] 5405 	clr	_P3_4
-                                   5406 ;	count3.c:26: ramAddress = (uint16_t __xdata*)(start + i);
-      001A4B 8C 02            [24] 5407 	mov	ar2,r4
-      001A4D 7B 00            [12] 5408 	mov	r3,#0x00
-      001A4F 8E 00            [24] 5409 	mov	ar0,r6
-      001A51 8F 01            [24] 5410 	mov	ar1,r7
-      001A53 EA               [12] 5411 	mov	a,r2
-      001A54 28               [12] 5412 	add	a,r0
-      001A55 F8               [12] 5413 	mov	r0,a
-      001A56 EB               [12] 5414 	mov	a,r3
-      001A57 39               [12] 5415 	addc	a,r1
-      001A58 F9               [12] 5416 	mov	r1,a
-      001A59 88 82            [24] 5417 	mov	dpl,r0
-      001A5B 89 83            [24] 5418 	mov	dph,r1
-                                   5419 ;	count3.c:27: found = *ramAddress;
-      001A5D E0               [24] 5420 	movx	a,@dptr
-      001A5E FB               [12] 5421 	mov	r3,a
-                                   5422 ;	count3.c:30: high = HIGHBYTE(start + i);
-      001A5F 89 02            [24] 5423 	mov	ar2,r1
-                                   5424 ;	count3.c:31: low = LOWBYTE(start + i);
-      001A61 8E 01            [24] 5425 	mov	ar1,r6
-      001A63 EC               [12] 5426 	mov	a,r4
-      001A64 29               [12] 5427 	add	a,r1
-      001A65 F9               [12] 5428 	mov	r1,a
-                                   5429 ;	count3.c:33: if (found == key) {
-      001A66 EB               [12] 5430 	mov	a,r3
-      001A67 B5 79 3B         [24] 5431 	cjne	a,_printCount_PARM_2,00108$
-                                   5432 ;	count3.c:35: asciiToHex(index++);
-      001A6A 8D 82            [24] 5433 	mov	dpl,r5
-      001A6C 0D               [12] 5434 	inc	r5
-      001A6D C0 07            [24] 5435 	push	ar7
-      001A6F C0 06            [24] 5436 	push	ar6
-      001A71 C0 05            [24] 5437 	push	ar5
-      001A73 C0 04            [24] 5438 	push	ar4
-      001A75 C0 02            [24] 5439 	push	ar2
-      001A77 C0 01            [24] 5440 	push	ar1
-      001A79 12 0F 93         [24] 5441 	lcall	_asciiToHex
-                                   5442 ;	count3.c:36: LCD_string_write(": ");
-      001A7C 90 25 F5         [24] 5443 	mov	dptr,#___str_6
-      001A7F 75 F0 80         [24] 5444 	mov	b,#0x80
-      001A82 12 0D 12         [24] 5445 	lcall	_LCD_string_write
-      001A85 D0 01            [24] 5446 	pop	ar1
-      001A87 D0 02            [24] 5447 	pop	ar2
-                                   5448 ;	count3.c:39: asciiToHex(high);
-      001A89 8A 82            [24] 5449 	mov	dpl,r2
-      001A8B C0 01            [24] 5450 	push	ar1
-      001A8D 12 0F 93         [24] 5451 	lcall	_asciiToHex
-      001A90 D0 01            [24] 5452 	pop	ar1
-                                   5453 ;	count3.c:40: asciiToHex(low);
-      001A92 89 82            [24] 5454 	mov	dpl,r1
-      001A94 12 0F 93         [24] 5455 	lcall	_asciiToHex
-                                   5456 ;	count3.c:41: write('\n');
-      001A97 75 82 0A         [24] 5457 	mov	dpl,#0x0a
-      001A9A 12 0C A4         [24] 5458 	lcall	_write
-      001A9D D0 04            [24] 5459 	pop	ar4
-      001A9F D0 05            [24] 5460 	pop	ar5
-      001AA1 D0 06            [24] 5461 	pop	ar6
-      001AA3 D0 07            [24] 5462 	pop	ar7
-      001AA5                       5463 00108$:
-                                   5464 ;	count3.c:22: for (i = 0; i < NUM; i++) {
-      001AA5 0C               [12] 5465 	inc	r4
-      001AA6 BC 0F 00         [24] 5466 	cjne	r4,#0x0f,00127$
-      001AA9                       5467 00127$:
-      001AA9 40 9E            [24] 5468 	jc	00107$
-                                   5469 ;	count3.c:44: }
-      001AAB 22               [24] 5470 	ret
-                                   5471 ;------------------------------------------------------------
-                                   5472 ;Allocation info for local variables in function 'count'
-                                   5473 ;------------------------------------------------------------
-                                   5474 ;key                       Allocated with name '_count_key_65537_302'
-                                   5475 ;found                     Allocated to registers r0 
-                                   5476 ;ramAddress                Allocated to registers 
-                                   5477 ;sloc0                     Allocated with name '_count_sloc0_1_0'
-                                   5478 ;sloc1                     Allocated with name '_count_sloc1_1_0'
-                                   5479 ;sloc2                     Allocated with name '_count_sloc2_1_0'
-                                   5480 ;i                         Allocated with name '_count_i_65537_302'
-                                   5481 ;n                         Allocated with name '_count_n_65537_302'
-                                   5482 ;size                      Allocated with name '_count_size_65537_302'
-                                   5483 ;page                      Allocated with name '_count_page_65537_302'
-                                   5484 ;index                     Allocated with name '_count_index_65537_302'
-                                   5485 ;pages                     Allocated with name '_count_pages_65537_302'
-                                   5486 ;address                   Allocated with name '_count_address_65537_302'
-                                   5487 ;------------------------------------------------------------
-                                   5488 ;	count3.c:46: void count() {
-                                   5489 ;	-----------------------------------------
-                                   5490 ;	 function count
-                                   5491 ;	-----------------------------------------
-      001AAC                       5492 _count:
-                                   5493 ;	count3.c:48: fillScreen(GRAY);
-      001AAC 90 D6 BA         [24] 5494 	mov	dptr,#0xd6ba
-      001AAF 12 09 0B         [24] 5495 	lcall	_fillScreen
-                                   5496 ;	count3.c:49: setCursor(0, 0);
-      001AB2 E4               [12] 5497 	clr	a
-      001AB3 F5 08            [12] 5498 	mov	_setCursor_PARM_2,a
-      001AB5 F5 09            [12] 5499 	mov	(_setCursor_PARM_2 + 1),a
-      001AB7 90 00 00         [24] 5500 	mov	dptr,#0x0000
-      001ABA 12 01 7D         [24] 5501 	lcall	_setCursor
-                                   5502 ;	count3.c:50: setTextSize(2);
-      001ABD 75 82 02         [24] 5503 	mov	dpl,#0x02
-      001AC0 12 01 97         [24] 5504 	lcall	_setTextSize
-                                   5505 ;	count3.c:58: __xdata uint8_t page = 1;
-      001AC3 90 00 23         [24] 5506 	mov	dptr,#_count_page_65537_302
-      001AC6 74 01            [12] 5507 	mov	a,#0x01
-      001AC8 F0               [24] 5508 	movx	@dptr,a
-                                   5509 ;	count3.c:65: LCD_string_write("Enter byte to count:\n");
-      001AC9 90 27 EB         [24] 5510 	mov	dptr,#___str_37
-      001ACC 75 F0 80         [24] 5511 	mov	b,#0x80
-      001ACF 12 0D 12         [24] 5512 	lcall	_LCD_string_write
-                                   5513 ;	count3.c:66: key = getByte();
-      001AD2 12 11 73         [24] 5514 	lcall	_getByte
-      001AD5 85 82 7C         [24] 5515 	mov	_count_key_65537_302,dpl
-                                   5516 ;	count3.c:67: write('\n');
-      001AD8 75 82 0A         [24] 5517 	mov	dpl,#0x0a
-      001ADB 12 0C A4         [24] 5518 	lcall	_write
-                                   5519 ;	count3.c:70: LCD_string_write("Enter start address:\n");
-      001ADE 90 25 F8         [24] 5520 	mov	dptr,#___str_7
-      001AE1 75 F0 80         [24] 5521 	mov	b,#0x80
-      001AE4 12 0D 12         [24] 5522 	lcall	_LCD_string_write
-                                   5523 ;	count3.c:71: address = getAddress();
-      001AE7 12 11 0C         [24] 5524 	lcall	_getAddress
-      001AEA AD 82            [24] 5525 	mov	r5,dpl
-      001AEC AE 83            [24] 5526 	mov	r6,dph
-      001AEE 90 00 25         [24] 5527 	mov	dptr,#_count_address_65537_302
-      001AF1 ED               [12] 5528 	mov	a,r5
-      001AF2 F0               [24] 5529 	movx	@dptr,a
-      001AF3 EE               [12] 5530 	mov	a,r6
-      001AF4 A3               [24] 5531 	inc	dptr
-      001AF5 F0               [24] 5532 	movx	@dptr,a
-                                   5533 ;	count3.c:72: write('\n');
-      001AF6 75 82 0A         [24] 5534 	mov	dpl,#0x0a
-      001AF9 C0 06            [24] 5535 	push	ar6
-      001AFB C0 05            [24] 5536 	push	ar5
-      001AFD 12 0C A4         [24] 5537 	lcall	_write
-                                   5538 ;	count3.c:75: LCD_string_write("Enter block size:\n");
-      001B00 90 26 58         [24] 5539 	mov	dptr,#___str_14
-      001B03 75 F0 80         [24] 5540 	mov	b,#0x80
-      001B06 12 0D 12         [24] 5541 	lcall	_LCD_string_write
-                                   5542 ;	count3.c:76: size = getByte();
-      001B09 12 11 73         [24] 5543 	lcall	_getByte
-      001B0C AC 82            [24] 5544 	mov	r4,dpl
-                                   5545 ;	count3.c:77: write('\n');
-      001B0E 75 82 0A         [24] 5546 	mov	dpl,#0x0a
-      001B11 C0 04            [24] 5547 	push	ar4
-      001B13 12 0C A4         [24] 5548 	lcall	_write
-      001B16 D0 04            [24] 5549 	pop	ar4
-      001B18 D0 05            [24] 5550 	pop	ar5
-      001B1A D0 06            [24] 5551 	pop	ar6
-                                   5552 ;	count3.c:80: for (i = 0; i < size; i++) {
-      001B1C 7B 00            [12] 5553 	mov	r3,#0x00
-      001B1E 7A 00            [12] 5554 	mov	r2,#0x00
-      001B20                       5555 00132$:
-      001B20 C3               [12] 5556 	clr	c
-      001B21 EA               [12] 5557 	mov	a,r2
-      001B22 9C               [12] 5558 	subb	a,r4
-      001B23 50 2A            [24] 5559 	jnc	00103$
-                                   5560 ;	count3.c:81: IOM = 0;
-      001B25 C0 04            [24] 5561 	push	ar4
-                                   5562 ;	assignBit
-      001B27 C2 B4            [12] 5563 	clr	_P3_4
-                                   5564 ;	count3.c:82: ramAddress = (uint16_t __xdata*)(address + i);
-      001B29 8A 00            [24] 5565 	mov	ar0,r2
-      001B2B 79 00            [12] 5566 	mov	r1,#0x00
-      001B2D 8D 04            [24] 5567 	mov	ar4,r5
-      001B2F 8E 07            [24] 5568 	mov	ar7,r6
-      001B31 E8               [12] 5569 	mov	a,r0
-      001B32 2C               [12] 5570 	add	a,r4
-      001B33 FC               [12] 5571 	mov	r4,a
-      001B34 E9               [12] 5572 	mov	a,r1
-      001B35 3F               [12] 5573 	addc	a,r7
-      001B36 FF               [12] 5574 	mov	r7,a
-      001B37 8C 82            [24] 5575 	mov	dpl,r4
-      001B39 8F 83            [24] 5576 	mov	dph,r7
-                                   5577 ;	count3.c:83: found = *ramAddress;
-      001B3B E0               [24] 5578 	movx	a,@dptr
-      001B3C FF               [12] 5579 	mov	r7,a
-                                   5580 ;	count3.c:84: IOM = 1;
-                                   5581 ;	assignBit
-      001B3D D2 B4            [12] 5582 	setb	_P3_4
-                                   5583 ;	count3.c:86: if (found == key) n++;
-      001B3F EF               [12] 5584 	mov	a,r7
-      001B40 B5 7C 02         [24] 5585 	cjne	a,_count_key_65537_302,00228$
-      001B43 80 04            [24] 5586 	sjmp	00229$
-      001B45                       5587 00228$:
-      001B45 D0 04            [24] 5588 	pop	ar4
-      001B47 80 03            [24] 5589 	sjmp	00133$
-      001B49                       5590 00229$:
-      001B49 D0 04            [24] 5591 	pop	ar4
-      001B4B 0B               [12] 5592 	inc	r3
-      001B4C                       5593 00133$:
-                                   5594 ;	count3.c:80: for (i = 0; i < size; i++) {
-      001B4C 0A               [12] 5595 	inc	r2
-      001B4D 80 D1            [24] 5596 	sjmp	00132$
-      001B4F                       5597 00103$:
-                                   5598 ;	count3.c:91: printCount(address, key, index, n);
-      001B4F 85 7C 79         [24] 5599 	mov	_printCount_PARM_2,_count_key_65537_302
-      001B52 75 7A 00         [24] 5600 	mov	_printCount_PARM_3,#0x00
-      001B55 8B 7B            [24] 5601 	mov	_printCount_PARM_4,r3
-      001B57 8D 82            [24] 5602 	mov	dpl,r5
-      001B59 8E 83            [24] 5603 	mov	dph,r6
-      001B5B C0 04            [24] 5604 	push	ar4
-      001B5D C0 03            [24] 5605 	push	ar3
-      001B5F 12 19 F4         [24] 5606 	lcall	_printCount
-      001B62 D0 03            [24] 5607 	pop	ar3
-      001B64 D0 04            [24] 5608 	pop	ar4
-                                   5609 ;	count3.c:92: index += NUM;
-      001B66 90 00 24         [24] 5610 	mov	dptr,#_count_index_65537_302
-      001B69 74 0F            [12] 5611 	mov	a,#0x0f
-      001B6B F0               [24] 5612 	movx	@dptr,a
-                                   5613 ;	count3.c:98: pages = size / NUM;
-      001B6C 7F 00            [12] 5614 	mov	r7,#0x00
-                                   5615 ;	1-genFromRTrack replaced	mov	__divsint_PARM_2,#0x0f
-      001B6E F5 08            [12] 5616 	mov	__divsint_PARM_2,a
-                                   5617 ;	1-genFromRTrack replaced	mov	(__divsint_PARM_2 + 1),#0x00
-      001B70 8F 09            [24] 5618 	mov	(__divsint_PARM_2 + 1),r7
-      001B72 8C 82            [24] 5619 	mov	dpl,r4
-      001B74 8F 83            [24] 5620 	mov	dph,r7
-      001B76 C0 03            [24] 5621 	push	ar3
-      001B78 12 20 6E         [24] 5622 	lcall	__divsint
-      001B7B AE 82            [24] 5623 	mov	r6,dpl
-      001B7D D0 03            [24] 5624 	pop	ar3
-                                   5625 ;	count3.c:101: do {
-      001B7F C3               [12] 5626 	clr	c
-      001B80 74 0F            [12] 5627 	mov	a,#0x0f
-      001B82 9B               [12] 5628 	subb	a,r3
-      001B83 E4               [12] 5629 	clr	a
-      001B84 33               [12] 5630 	rlc	a
-      001B85 FF               [12] 5631 	mov	r7,a
-      001B86 FD               [12] 5632 	mov	r5,a
-      001B87 8F 04            [24] 5633 	mov	ar4,r7
-      001B89 8B 02            [24] 5634 	mov	ar2,r3
-      001B8B 8F 7F            [24] 5635 	mov	_count_sloc2_1_0,r7
-      001B8D 8F 7E            [24] 5636 	mov	_count_sloc1_1_0,r7
-      001B8F                       5637 00128$:
-                                   5638 ;	count3.c:103: if (page != 1 && page != pages && n > NUM) {
-      001B8F 90 00 23         [24] 5639 	mov	dptr,#_count_page_65537_302
-      001B92 E0               [24] 5640 	movx	a,@dptr
-      001B93 F5 7D            [12] 5641 	mov	_count_sloc0_1_0,a
-      001B95 74 01            [12] 5642 	mov	a,#0x01
-      001B97 B5 7D 02         [24] 5643 	cjne	a,_count_sloc0_1_0,00230$
-      001B9A 80 35            [24] 5644 	sjmp	00112$
-      001B9C                       5645 00230$:
-      001B9C EE               [12] 5646 	mov	a,r6
-      001B9D B5 7D 02         [24] 5647 	cjne	a,_count_sloc0_1_0,00231$
-      001BA0 80 2F            [24] 5648 	sjmp	00112$
-      001BA2                       5649 00231$:
-      001BA2 EF               [12] 5650 	mov	a,r7
-      001BA3 60 2C            [24] 5651 	jz	00112$
-                                   5652 ;	count3.c:104: LCD_string_write("Press A for previous\n");
-      001BA5 90 26 6B         [24] 5653 	mov	dptr,#___str_15
-      001BA8 75 F0 80         [24] 5654 	mov	b,#0x80
-      001BAB C0 07            [24] 5655 	push	ar7
-      001BAD C0 06            [24] 5656 	push	ar6
-      001BAF C0 05            [24] 5657 	push	ar5
-      001BB1 C0 04            [24] 5658 	push	ar4
-      001BB3 C0 03            [24] 5659 	push	ar3
-      001BB5 C0 02            [24] 5660 	push	ar2
-      001BB7 12 0D 12         [24] 5661 	lcall	_LCD_string_write
-                                   5662 ;	count3.c:105: LCD_string_write("Press B for next\n");
-      001BBA 90 26 81         [24] 5663 	mov	dptr,#___str_16
-      001BBD 75 F0 80         [24] 5664 	mov	b,#0x80
-      001BC0 12 0D 12         [24] 5665 	lcall	_LCD_string_write
-      001BC3 D0 02            [24] 5666 	pop	ar2
-      001BC5 D0 03            [24] 5667 	pop	ar3
-      001BC7 D0 04            [24] 5668 	pop	ar4
-      001BC9 D0 05            [24] 5669 	pop	ar5
-      001BCB D0 06            [24] 5670 	pop	ar6
-      001BCD D0 07            [24] 5671 	pop	ar7
-      001BCF 80 5D            [24] 5672 	sjmp	00113$
-      001BD1                       5673 00112$:
-                                   5674 ;	count3.c:106: } else if (page != pages && n > NUM) {
-      001BD1 90 00 23         [24] 5675 	mov	dptr,#_count_page_65537_302
-      001BD4 E0               [24] 5676 	movx	a,@dptr
-      001BD5 B5 06 02         [24] 5677 	cjne	a,ar6,00233$
-      001BD8 80 26            [24] 5678 	sjmp	00108$
-      001BDA                       5679 00233$:
-      001BDA ED               [12] 5680 	mov	a,r5
-      001BDB 60 23            [24] 5681 	jz	00108$
-                                   5682 ;	count3.c:107: LCD_string_write("Press B for next\n");
-      001BDD 90 26 81         [24] 5683 	mov	dptr,#___str_16
-      001BE0 75 F0 80         [24] 5684 	mov	b,#0x80
-      001BE3 C0 07            [24] 5685 	push	ar7
-      001BE5 C0 06            [24] 5686 	push	ar6
-      001BE7 C0 05            [24] 5687 	push	ar5
-      001BE9 C0 04            [24] 5688 	push	ar4
-      001BEB C0 03            [24] 5689 	push	ar3
-      001BED C0 02            [24] 5690 	push	ar2
-      001BEF 12 0D 12         [24] 5691 	lcall	_LCD_string_write
-      001BF2 D0 02            [24] 5692 	pop	ar2
-      001BF4 D0 03            [24] 5693 	pop	ar3
-      001BF6 D0 04            [24] 5694 	pop	ar4
-      001BF8 D0 05            [24] 5695 	pop	ar5
-      001BFA D0 06            [24] 5696 	pop	ar6
-      001BFC D0 07            [24] 5697 	pop	ar7
-      001BFE 80 2E            [24] 5698 	sjmp	00113$
-      001C00                       5699 00108$:
-                                   5700 ;	count3.c:108: } else if (page != 1 && n > NUM) {
-      001C00 90 00 23         [24] 5701 	mov	dptr,#_count_page_65537_302
-      001C03 E0               [24] 5702 	movx	a,@dptr
-      001C04 F8               [12] 5703 	mov	r0,a
-      001C05 B8 01 02         [24] 5704 	cjne	r0,#0x01,00235$
-      001C08 80 24            [24] 5705 	sjmp	00113$
-      001C0A                       5706 00235$:
-      001C0A EC               [12] 5707 	mov	a,r4
-      001C0B 60 21            [24] 5708 	jz	00113$
-                                   5709 ;	count3.c:109: LCD_string_write("Press A for previous\n");
-      001C0D 90 26 6B         [24] 5710 	mov	dptr,#___str_15
-      001C10 75 F0 80         [24] 5711 	mov	b,#0x80
-      001C13 C0 07            [24] 5712 	push	ar7
-      001C15 C0 06            [24] 5713 	push	ar6
-      001C17 C0 05            [24] 5714 	push	ar5
-      001C19 C0 04            [24] 5715 	push	ar4
-      001C1B C0 03            [24] 5716 	push	ar3
-      001C1D C0 02            [24] 5717 	push	ar2
-      001C1F 12 0D 12         [24] 5718 	lcall	_LCD_string_write
-      001C22 D0 02            [24] 5719 	pop	ar2
-      001C24 D0 03            [24] 5720 	pop	ar3
-      001C26 D0 04            [24] 5721 	pop	ar4
-      001C28 D0 05            [24] 5722 	pop	ar5
-      001C2A D0 06            [24] 5723 	pop	ar6
-      001C2C D0 07            [24] 5724 	pop	ar7
-      001C2E                       5725 00113$:
-                                   5726 ;	count3.c:113: LCD_string_write("Press 1 for menu\n");
-      001C2E 90 26 93         [24] 5727 	mov	dptr,#___str_17
-      001C31 75 F0 80         [24] 5728 	mov	b,#0x80
-      001C34 C0 07            [24] 5729 	push	ar7
-      001C36 C0 06            [24] 5730 	push	ar6
-      001C38 C0 05            [24] 5731 	push	ar5
-      001C3A C0 04            [24] 5732 	push	ar4
-      001C3C C0 03            [24] 5733 	push	ar3
-      001C3E C0 02            [24] 5734 	push	ar2
-      001C40 12 0D 12         [24] 5735 	lcall	_LCD_string_write
-                                   5736 ;	count3.c:116: found = keyDetect();
-      001C43 12 0D B1         [24] 5737 	lcall	_keyDetect
-      001C46 A8 82            [24] 5738 	mov	r0,dpl
-      001C48 D0 02            [24] 5739 	pop	ar2
-      001C4A D0 03            [24] 5740 	pop	ar3
-      001C4C D0 04            [24] 5741 	pop	ar4
-      001C4E D0 05            [24] 5742 	pop	ar5
-      001C50 D0 06            [24] 5743 	pop	ar6
-      001C52 D0 07            [24] 5744 	pop	ar7
-                                   5745 ;	count3.c:119: if (found == '1') {
-      001C54 B8 31 01         [24] 5746 	cjne	r0,#0x31,00237$
-      001C57 22               [24] 5747 	ret
-      001C58                       5748 00237$:
-                                   5749 ;	count3.c:121: } else if (found == 'B' && page != pages && n > NUM) {
-      001C58 B8 42 6E         [24] 5750 	cjne	r0,#0x42,00121$
-      001C5B 90 00 23         [24] 5751 	mov	dptr,#_count_page_65537_302
-      001C5E E0               [24] 5752 	movx	a,@dptr
-      001C5F F5 7D            [12] 5753 	mov	_count_sloc0_1_0,a
-      001C61 EE               [12] 5754 	mov	a,r6
-      001C62 B5 7D 02         [24] 5755 	cjne	a,_count_sloc0_1_0,00240$
-      001C65 80 62            [24] 5756 	sjmp	00121$
-      001C67                       5757 00240$:
-      001C67 E5 7F            [12] 5758 	mov	a,_count_sloc2_1_0
-      001C69 60 5E            [24] 5759 	jz	00121$
-                                   5760 ;	count3.c:122: index += NUM;
-      001C6B C0 03            [24] 5761 	push	ar3
-      001C6D 90 00 24         [24] 5762 	mov	dptr,#_count_index_65537_302
-      001C70 E0               [24] 5763 	movx	a,@dptr
-      001C71 24 0F            [12] 5764 	add	a,#0x0f
-      001C73 F0               [24] 5765 	movx	@dptr,a
-                                   5766 ;	count3.c:123: address += NUM;
-      001C74 90 00 25         [24] 5767 	mov	dptr,#_count_address_65537_302
-      001C77 E0               [24] 5768 	movx	a,@dptr
-      001C78 F9               [12] 5769 	mov	r1,a
-      001C79 A3               [24] 5770 	inc	dptr
-      001C7A E0               [24] 5771 	movx	a,@dptr
-      001C7B FB               [12] 5772 	mov	r3,a
-      001C7C 74 0F            [12] 5773 	mov	a,#0x0f
-      001C7E 29               [12] 5774 	add	a,r1
-      001C7F F9               [12] 5775 	mov	r1,a
-      001C80 E4               [12] 5776 	clr	a
-      001C81 3B               [12] 5777 	addc	a,r3
-      001C82 FB               [12] 5778 	mov	r3,a
-      001C83 90 00 25         [24] 5779 	mov	dptr,#_count_address_65537_302
-      001C86 E9               [12] 5780 	mov	a,r1
-      001C87 F0               [24] 5781 	movx	@dptr,a
-      001C88 EB               [12] 5782 	mov	a,r3
-      001C89 A3               [24] 5783 	inc	dptr
-      001C8A F0               [24] 5784 	movx	@dptr,a
-                                   5785 ;	count3.c:124: printCount(address, key, index, n);
-      001C8B 90 00 25         [24] 5786 	mov	dptr,#_count_address_65537_302
-      001C8E E0               [24] 5787 	movx	a,@dptr
-      001C8F F9               [12] 5788 	mov	r1,a
-      001C90 A3               [24] 5789 	inc	dptr
-      001C91 E0               [24] 5790 	movx	a,@dptr
-      001C92 FB               [12] 5791 	mov	r3,a
-      001C93 90 00 24         [24] 5792 	mov	dptr,#_count_index_65537_302
-      001C96 E0               [24] 5793 	movx	a,@dptr
-      001C97 F5 7A            [12] 5794 	mov	_printCount_PARM_3,a
-      001C99 85 7C 79         [24] 5795 	mov	_printCount_PARM_2,_count_key_65537_302
-      001C9C 8A 7B            [24] 5796 	mov	_printCount_PARM_4,r2
-      001C9E 89 82            [24] 5797 	mov	dpl,r1
-      001CA0 8B 83            [24] 5798 	mov	dph,r3
-      001CA2 C0 07            [24] 5799 	push	ar7
-      001CA4 C0 06            [24] 5800 	push	ar6
-      001CA6 C0 05            [24] 5801 	push	ar5
-      001CA8 C0 04            [24] 5802 	push	ar4
-      001CAA C0 03            [24] 5803 	push	ar3
-      001CAC C0 02            [24] 5804 	push	ar2
-      001CAE 12 19 F4         [24] 5805 	lcall	_printCount
-      001CB1 D0 02            [24] 5806 	pop	ar2
-      001CB3 D0 03            [24] 5807 	pop	ar3
-      001CB5 D0 04            [24] 5808 	pop	ar4
-      001CB7 D0 05            [24] 5809 	pop	ar5
-      001CB9 D0 06            [24] 5810 	pop	ar6
-      001CBB D0 07            [24] 5811 	pop	ar7
-                                   5812 ;	count3.c:125: page++;
-      001CBD 90 00 23         [24] 5813 	mov	dptr,#_count_page_65537_302
-      001CC0 E5 7D            [12] 5814 	mov	a,_count_sloc0_1_0
-      001CC2 04               [12] 5815 	inc	a
-      001CC3 F0               [24] 5816 	movx	@dptr,a
-      001CC4 D0 03            [24] 5817 	pop	ar3
-      001CC6 02 1B 8F         [24] 5818 	ljmp	00128$
-      001CC9                       5819 00121$:
-                                   5820 ;	count3.c:126: } else if (found == 'A' && page != 1 && n > NUM) {
-      001CC9 B8 41 02         [24] 5821 	cjne	r0,#0x41,00242$
-      001CCC 80 03            [24] 5822 	sjmp	00243$
-      001CCE                       5823 00242$:
-      001CCE 02 1B 8F         [24] 5824 	ljmp	00128$
-      001CD1                       5825 00243$:
-      001CD1 90 00 23         [24] 5826 	mov	dptr,#_count_page_65537_302
-      001CD4 E0               [24] 5827 	movx	a,@dptr
-      001CD5 F9               [12] 5828 	mov	r1,a
-      001CD6 B9 01 03         [24] 5829 	cjne	r1,#0x01,00244$
-      001CD9 02 1B 8F         [24] 5830 	ljmp	00128$
-      001CDC                       5831 00244$:
-      001CDC E5 7E            [12] 5832 	mov	a,_count_sloc1_1_0
-      001CDE 70 03            [24] 5833 	jnz	00245$
-      001CE0 02 1B 8F         [24] 5834 	ljmp	00128$
-      001CE3                       5835 00245$:
-                                   5836 ;	count3.c:127: index -= NUM;
-      001CE3 C0 02            [24] 5837 	push	ar2
-      001CE5 90 00 24         [24] 5838 	mov	dptr,#_count_index_65537_302
-      001CE8 E0               [24] 5839 	movx	a,@dptr
-      001CE9 24 F1            [12] 5840 	add	a,#0xf1
-      001CEB F0               [24] 5841 	movx	@dptr,a
-                                   5842 ;	count3.c:128: address -= NUM;
-      001CEC 90 00 25         [24] 5843 	mov	dptr,#_count_address_65537_302
-      001CEF E0               [24] 5844 	movx	a,@dptr
-      001CF0 F8               [12] 5845 	mov	r0,a
-      001CF1 A3               [24] 5846 	inc	dptr
-      001CF2 E0               [24] 5847 	movx	a,@dptr
-      001CF3 FA               [12] 5848 	mov	r2,a
-      001CF4 E8               [12] 5849 	mov	a,r0
-      001CF5 24 F1            [12] 5850 	add	a,#0xf1
-      001CF7 F8               [12] 5851 	mov	r0,a
-      001CF8 EA               [12] 5852 	mov	a,r2
-      001CF9 34 FF            [12] 5853 	addc	a,#0xff
-      001CFB FA               [12] 5854 	mov	r2,a
-      001CFC 90 00 25         [24] 5855 	mov	dptr,#_count_address_65537_302
-      001CFF E8               [12] 5856 	mov	a,r0
-      001D00 F0               [24] 5857 	movx	@dptr,a
-      001D01 EA               [12] 5858 	mov	a,r2
-      001D02 A3               [24] 5859 	inc	dptr
-      001D03 F0               [24] 5860 	movx	@dptr,a
-                                   5861 ;	count3.c:129: printCount(address, key, index, n);
-      001D04 90 00 25         [24] 5862 	mov	dptr,#_count_address_65537_302
-      001D07 E0               [24] 5863 	movx	a,@dptr
-      001D08 F8               [12] 5864 	mov	r0,a
-      001D09 A3               [24] 5865 	inc	dptr
-      001D0A E0               [24] 5866 	movx	a,@dptr
-      001D0B FA               [12] 5867 	mov	r2,a
-      001D0C 90 00 24         [24] 5868 	mov	dptr,#_count_index_65537_302
-      001D0F E0               [24] 5869 	movx	a,@dptr
-      001D10 F5 7A            [12] 5870 	mov	_printCount_PARM_3,a
-      001D12 85 7C 79         [24] 5871 	mov	_printCount_PARM_2,_count_key_65537_302
-      001D15 8B 7B            [24] 5872 	mov	_printCount_PARM_4,r3
-      001D17 88 82            [24] 5873 	mov	dpl,r0
-      001D19 8A 83            [24] 5874 	mov	dph,r2
-      001D1B C0 07            [24] 5875 	push	ar7
-      001D1D C0 06            [24] 5876 	push	ar6
-      001D1F C0 05            [24] 5877 	push	ar5
-      001D21 C0 04            [24] 5878 	push	ar4
-      001D23 C0 03            [24] 5879 	push	ar3
-      001D25 C0 02            [24] 5880 	push	ar2
-      001D27 C0 01            [24] 5881 	push	ar1
-      001D29 12 19 F4         [24] 5882 	lcall	_printCount
-      001D2C D0 01            [24] 5883 	pop	ar1
-      001D2E D0 02            [24] 5884 	pop	ar2
-      001D30 D0 03            [24] 5885 	pop	ar3
-      001D32 D0 04            [24] 5886 	pop	ar4
-      001D34 D0 05            [24] 5887 	pop	ar5
-      001D36 D0 06            [24] 5888 	pop	ar6
-      001D38 D0 07            [24] 5889 	pop	ar7
-                                   5890 ;	count3.c:130: page--;
-      001D3A E9               [12] 5891 	mov	a,r1
-      001D3B 14               [12] 5892 	dec	a
-      001D3C 90 00 23         [24] 5893 	mov	dptr,#_count_page_65537_302
-      001D3F F0               [24] 5894 	movx	@dptr,a
-                                   5895 ;	count3.c:132: } while (1);
-      001D40 D0 02            [24] 5896 	pop	ar2
-                                   5897 ;	count3.c:133: }
-      001D42 02 1B 8F         [24] 5898 	ljmp	00128$
-                                   5899 ;------------------------------------------------------------
-                                   5900 ;Allocation info for local variables in function 'displayTemp'
-                                   5901 ;------------------------------------------------------------
-                                   5902 ;t                         Allocated to registers r7 
-                                   5903 ;------------------------------------------------------------
-                                   5904 ;	analog.c:6: void displayTemp(uint8_t t) {
-                                   5905 ;	-----------------------------------------
-                                   5906 ;	 function displayTemp
-                                   5907 ;	-----------------------------------------
-      001D45                       5908 _displayTemp:
-      001D45 AF 82            [24] 5909 	mov	r7,dpl
-                                   5910 ;	analog.c:8: fillScreen(GRAY);
-      001D47 90 D6 BA         [24] 5911 	mov	dptr,#0xd6ba
-      001D4A C0 07            [24] 5912 	push	ar7
-      001D4C 12 09 0B         [24] 5913 	lcall	_fillScreen
-                                   5914 ;	analog.c:9: setCursor(0, 0);
-      001D4F E4               [12] 5915 	clr	a
-      001D50 F5 08            [12] 5916 	mov	_setCursor_PARM_2,a
-      001D52 F5 09            [12] 5917 	mov	(_setCursor_PARM_2 + 1),a
-      001D54 90 00 00         [24] 5918 	mov	dptr,#0x0000
-      001D57 12 01 7D         [24] 5919 	lcall	_setCursor
-                                   5920 ;	analog.c:11: LCD_string_write("Temperature: ");
-      001D5A 90 28 01         [24] 5921 	mov	dptr,#___str_38
-      001D5D 75 F0 80         [24] 5922 	mov	b,#0x80
-      001D60 12 0D 12         [24] 5923 	lcall	_LCD_string_write
-      001D63 D0 07            [24] 5924 	pop	ar7
-                                   5925 ;	analog.c:13: asciiToHex(t);
-      001D65 8F 82            [24] 5926 	mov	dpl,r7
-      001D67 12 0F 93         [24] 5927 	lcall	_asciiToHex
-                                   5928 ;	analog.c:15: write('\n');
-      001D6A 75 82 0A         [24] 5929 	mov	dpl,#0x0a
-      001D6D 12 0C A4         [24] 5930 	lcall	_write
-                                   5931 ;	analog.c:16: LCD_string_write("Press 1 for menu\n");
-      001D70 90 26 93         [24] 5932 	mov	dptr,#___str_17
-      001D73 75 F0 80         [24] 5933 	mov	b,#0x80
-      001D76 12 0D 12         [24] 5934 	lcall	_LCD_string_write
-                                   5935 ;	analog.c:17: LCD_string_write("Press key to refresh\n");
-      001D79 90 28 0F         [24] 5936 	mov	dptr,#___str_39
-      001D7C 75 F0 80         [24] 5937 	mov	b,#0x80
-                                   5938 ;	analog.c:18: }
-      001D7F 02 0D 12         [24] 5939 	ljmp	_LCD_string_write
-                                   5940 ;------------------------------------------------------------
-                                   5941 ;Allocation info for local variables in function 'displayLight'
-                                   5942 ;------------------------------------------------------------
-                                   5943 ;l                         Allocated to registers r7 
-                                   5944 ;------------------------------------------------------------
-                                   5945 ;	analog.c:25: void displayLight(uint8_t l) {
-                                   5946 ;	-----------------------------------------
-                                   5947 ;	 function displayLight
-                                   5948 ;	-----------------------------------------
-      001D82                       5949 _displayLight:
-      001D82 AF 82            [24] 5950 	mov	r7,dpl
-                                   5951 ;	analog.c:27: fillScreen(GRAY);
-      001D84 90 D6 BA         [24] 5952 	mov	dptr,#0xd6ba
-      001D87 C0 07            [24] 5953 	push	ar7
-      001D89 12 09 0B         [24] 5954 	lcall	_fillScreen
-                                   5955 ;	analog.c:28: setCursor(0, 0);
-      001D8C E4               [12] 5956 	clr	a
-      001D8D F5 08            [12] 5957 	mov	_setCursor_PARM_2,a
-      001D8F F5 09            [12] 5958 	mov	(_setCursor_PARM_2 + 1),a
-      001D91 90 00 00         [24] 5959 	mov	dptr,#0x0000
-      001D94 12 01 7D         [24] 5960 	lcall	_setCursor
-                                   5961 ;	analog.c:30: LCD_string_write("Light level: ");
-      001D97 90 28 25         [24] 5962 	mov	dptr,#___str_40
-      001D9A 75 F0 80         [24] 5963 	mov	b,#0x80
-      001D9D 12 0D 12         [24] 5964 	lcall	_LCD_string_write
-      001DA0 D0 07            [24] 5965 	pop	ar7
-                                   5966 ;	analog.c:32: asciiToHex(l);
-      001DA2 8F 82            [24] 5967 	mov	dpl,r7
-      001DA4 12 0F 93         [24] 5968 	lcall	_asciiToHex
-                                   5969 ;	analog.c:34: write('\n');
-      001DA7 75 82 0A         [24] 5970 	mov	dpl,#0x0a
-      001DAA 12 0C A4         [24] 5971 	lcall	_write
-                                   5972 ;	analog.c:35: LCD_string_write("Press 1 for menu\n");
-      001DAD 90 26 93         [24] 5973 	mov	dptr,#___str_17
-      001DB0 75 F0 80         [24] 5974 	mov	b,#0x80
-      001DB3 12 0D 12         [24] 5975 	lcall	_LCD_string_write
-                                   5976 ;	analog.c:36: LCD_string_write("Press key to refresh\n");
-      001DB6 90 28 0F         [24] 5977 	mov	dptr,#___str_39
-      001DB9 75 F0 80         [24] 5978 	mov	b,#0x80
-                                   5979 ;	analog.c:37: }
-      001DBC 02 0D 12         [24] 5980 	ljmp	_LCD_string_write
-                                   5981 ;------------------------------------------------------------
-                                   5982 ;Allocation info for local variables in function 'temperature'
-                                   5983 ;------------------------------------------------------------
-                                   5984 ;temp                      Allocated to registers r7 
-                                   5985 ;------------------------------------------------------------
-                                   5986 ;	analog.c:44: void temperature(void) {
-                                   5987 ;	-----------------------------------------
-                                   5988 ;	 function temperature
-                                   5989 ;	-----------------------------------------
-      001DBF                       5990 _temperature:
-                                   5991 ;	analog.c:46: fillScreen(GRAY);
-      001DBF 90 D6 BA         [24] 5992 	mov	dptr,#0xd6ba
-      001DC2 12 09 0B         [24] 5993 	lcall	_fillScreen
-                                   5994 ;	analog.c:47: setCursor(0, 0);
-      001DC5 E4               [12] 5995 	clr	a
-      001DC6 F5 08            [12] 5996 	mov	_setCursor_PARM_2,a
-      001DC8 F5 09            [12] 5997 	mov	(_setCursor_PARM_2 + 1),a
-      001DCA 90 00 00         [24] 5998 	mov	dptr,#0x0000
-      001DCD 12 01 7D         [24] 5999 	lcall	_setCursor
-                                   6000 ;	analog.c:48: setTextSize(2);
-      001DD0 75 82 02         [24] 6001 	mov	dpl,#0x02
-      001DD3 12 01 97         [24] 6002 	lcall	_setTextSize
-                                   6003 ;	analog.c:56: temp = ioread8(temp_address);
-      001DD6 85 29 82         [24] 6004 	mov	dpl,_temp_address
-      001DD9 85 2A 83         [24] 6005 	mov	dph,(_temp_address + 1)
-      001DDC 12 00 D7         [24] 6006 	lcall	_ioread8
-                                   6007 ;	analog.c:58: displayTemp(temp);
-      001DDF 12 1D 45         [24] 6008 	lcall	_displayTemp
-                                   6009 ;	analog.c:61: while (1) {
-      001DE2                       6010 00104$:
-                                   6011 ;	analog.c:62: temp = keyDetect();
-      001DE2 12 0D B1         [24] 6012 	lcall	_keyDetect
-      001DE5 AF 82            [24] 6013 	mov	r7,dpl
-                                   6014 ;	analog.c:64: if (temp == '1') break;
-      001DE7 BF 31 01         [24] 6015 	cjne	r7,#0x31,00118$
-      001DEA 22               [24] 6016 	ret
-      001DEB                       6017 00118$:
-                                   6018 ;	analog.c:68: temp = ioread8(temp_address);
-      001DEB 85 29 82         [24] 6019 	mov	dpl,_temp_address
-      001DEE 85 2A 83         [24] 6020 	mov	dph,(_temp_address + 1)
-      001DF1 12 00 D7         [24] 6021 	lcall	_ioread8
-                                   6022 ;	analog.c:69: displayTemp(temp);
-      001DF4 12 1D 45         [24] 6023 	lcall	_displayTemp
-                                   6024 ;	analog.c:71: }
-      001DF7 80 E9            [24] 6025 	sjmp	00104$
-                                   6026 ;------------------------------------------------------------
-                                   6027 ;Allocation info for local variables in function 'light'
-                                   6028 ;------------------------------------------------------------
-                                   6029 ;light                     Allocated to registers r7 
-                                   6030 ;------------------------------------------------------------
-                                   6031 ;	analog.c:78: void light(void) {
-                                   6032 ;	-----------------------------------------
-                                   6033 ;	 function light
-                                   6034 ;	-----------------------------------------
-      001DF9                       6035 _light:
-                                   6036 ;	analog.c:80: fillScreen(GRAY);
-      001DF9 90 D6 BA         [24] 6037 	mov	dptr,#0xd6ba
-      001DFC 12 09 0B         [24] 6038 	lcall	_fillScreen
-                                   6039 ;	analog.c:81: setCursor(0, 0);
-      001DFF E4               [12] 6040 	clr	a
-      001E00 F5 08            [12] 6041 	mov	_setCursor_PARM_2,a
-      001E02 F5 09            [12] 6042 	mov	(_setCursor_PARM_2 + 1),a
-      001E04 90 00 00         [24] 6043 	mov	dptr,#0x0000
-      001E07 12 01 7D         [24] 6044 	lcall	_setCursor
-                                   6045 ;	analog.c:82: setTextSize(2);
-      001E0A 75 82 02         [24] 6046 	mov	dpl,#0x02
-      001E0D 12 01 97         [24] 6047 	lcall	_setTextSize
-                                   6048 ;	analog.c:90: light = ioread8(light_address);
-      001E10 85 2B 82         [24] 6049 	mov	dpl,_light_address
-      001E13 85 2C 83         [24] 6050 	mov	dph,(_light_address + 1)
-      001E16 12 00 D7         [24] 6051 	lcall	_ioread8
-                                   6052 ;	analog.c:92: displayLight(light);
-      001E19 12 1D 82         [24] 6053 	lcall	_displayLight
-                                   6054 ;	analog.c:95: while (1) {
-      001E1C                       6055 00104$:
-                                   6056 ;	analog.c:96: light = keyDetect();
-      001E1C 12 0D B1         [24] 6057 	lcall	_keyDetect
-      001E1F AF 82            [24] 6058 	mov	r7,dpl
-                                   6059 ;	analog.c:98: if (light == '1') break;
-      001E21 BF 31 01         [24] 6060 	cjne	r7,#0x31,00118$
-      001E24 22               [24] 6061 	ret
-      001E25                       6062 00118$:
-                                   6063 ;	analog.c:102: light = ioread8(light_address);
-      001E25 85 2B 82         [24] 6064 	mov	dpl,_light_address
-      001E28 85 2C 83         [24] 6065 	mov	dph,(_light_address + 1)
-      001E2B 12 00 D7         [24] 6066 	lcall	_ioread8
-                                   6067 ;	analog.c:103: displayLight(light);
-      001E2E 12 1D 82         [24] 6068 	lcall	_displayLight
-                                   6069 ;	analog.c:105: }
-      001E31 80 E9            [24] 6070 	sjmp	00104$
-                                   6071 ;------------------------------------------------------------
-                                   6072 ;Allocation info for local variables in function 'UART_free_type'
-                                   6073 ;------------------------------------------------------------
-                                   6074 ;	UART_freetype.c:1: void UART_free_type() {
-                                   6075 ;	-----------------------------------------
-                                   6076 ;	 function UART_free_type
-                                   6077 ;	-----------------------------------------
-      001E33                       6078 _UART_free_type:
-                                   6079 ;	UART_freetype.c:2: LCD_string_write("UART Free type, 0 for menu:\n");
-      001E33 90 28 33         [24] 6080 	mov	dptr,#___str_41
-      001E36 75 F0 80         [24] 6081 	mov	b,#0x80
-      001E39 12 0D 12         [24] 6082 	lcall	_LCD_string_write
-                                   6083 ;	UART_freetype.c:3: while (1) {
-      001E3C                       6084 00107$:
-                                   6085 ;	UART_freetype.c:4: if (recieved_flag == 1) {
-      001E3C 74 01            [12] 6086 	mov	a,#0x01
-      001E3E B5 22 FB         [24] 6087 	cjne	a,_recieved_flag,00107$
-                                   6088 ;	UART_freetype.c:5: if (received_byte == '0') {
-      001E41 74 30            [12] 6089 	mov	a,#0x30
-      001E43 B5 21 01         [24] 6090 	cjne	a,_received_byte,00125$
-      001E46 22               [24] 6091 	ret
-      001E47                       6092 00125$:
-                                   6093 ;	UART_freetype.c:9: write(received_byte);
-      001E47 85 21 82         [24] 6094 	mov	dpl,_received_byte
-      001E4A 12 0C A4         [24] 6095 	lcall	_write
-                                   6096 ;	UART_freetype.c:10: write('\n');
-      001E4D 75 82 0A         [24] 6097 	mov	dpl,#0x0a
-      001E50 12 0C A4         [24] 6098 	lcall	_write
-                                   6099 ;	UART_freetype.c:11: recieved_flag = 0;
-      001E53 75 22 00         [24] 6100 	mov	_recieved_flag,#0x00
-                                   6101 ;	UART_freetype.c:15: }
-      001E56 80 E4            [24] 6102 	sjmp	00107$
-                                   6103 ;------------------------------------------------------------
-                                   6104 ;Allocation info for local variables in function 'menu'
-                                   6105 ;------------------------------------------------------------
-                                   6106 ;	main.c:33: void menu(void) {
-                                   6107 ;	-----------------------------------------
-                                   6108 ;	 function menu
-                                   6109 ;	-----------------------------------------
-      001E58                       6110 _menu:
-                                   6111 ;	main.c:35: setRotation(2);
-      001E58 75 82 02         [24] 6112 	mov	dpl,#0x02
-      001E5B 12 01 AF         [24] 6113 	lcall	_setRotation
-                                   6114 ;	main.c:36: setTextSize(3);
-      001E5E 75 82 03         [24] 6115 	mov	dpl,#0x03
-      001E61 12 01 97         [24] 6116 	lcall	_setTextSize
-                                   6117 ;	main.c:37: fillScreen(GRAY);
-      001E64 90 D6 BA         [24] 6118 	mov	dptr,#0xd6ba
-      001E67 12 09 0B         [24] 6119 	lcall	_fillScreen
-                                   6120 ;	main.c:38: setTextColor(BLACK, GRAY);
-      001E6A 75 08 BA         [24] 6121 	mov	_setTextColor_PARM_2,#0xba
-      001E6D 75 09 D6         [24] 6122 	mov	(_setTextColor_PARM_2 + 1),#0xd6
-      001E70 90 00 00         [24] 6123 	mov	dptr,#0x0000
-      001E73 12 01 8A         [24] 6124 	lcall	_setTextColor
-                                   6125 ;	main.c:39: setCursor(0, 0);
-      001E76 E4               [12] 6126 	clr	a
-      001E77 F5 08            [12] 6127 	mov	_setCursor_PARM_2,a
-      001E79 F5 09            [12] 6128 	mov	(_setCursor_PARM_2 + 1),a
-      001E7B 90 00 00         [24] 6129 	mov	dptr,#0x0000
-      001E7E 12 01 7D         [24] 6130 	lcall	_setCursor
-                                   6131 ;	main.c:42: LCD_string_write("Brandon Cline\n");
-      001E81 90 28 50         [24] 6132 	mov	dptr,#___str_42
-      001E84 75 F0 80         [24] 6133 	mov	b,#0x80
-      001E87 12 0D 12         [24] 6134 	lcall	_LCD_string_write
-                                   6135 ;	main.c:43: LCD_string_write("ECEN 4330\n");
-      001E8A 90 28 5F         [24] 6136 	mov	dptr,#___str_43
-      001E8D 75 F0 80         [24] 6137 	mov	b,#0x80
-      001E90 12 0D 12         [24] 6138 	lcall	_LCD_string_write
-                                   6139 ;	main.c:45: setTextSize(2);
-      001E93 75 82 02         [24] 6140 	mov	dpl,#0x02
-      001E96 12 01 97         [24] 6141 	lcall	_setTextSize
-                                   6142 ;	main.c:49: LCD_string_write("1: Basic check\n");
-      001E99 90 28 6A         [24] 6143 	mov	dptr,#___str_44
-      001E9C 75 F0 80         [24] 6144 	mov	b,#0x80
-      001E9F 12 0D 12         [24] 6145 	lcall	_LCD_string_write
-                                   6146 ;	main.c:51: LCD_string_write("2: Dump\n");
-      001EA2 90 28 7A         [24] 6147 	mov	dptr,#___str_45
-      001EA5 75 F0 80         [24] 6148 	mov	b,#0x80
-      001EA8 12 0D 12         [24] 6149 	lcall	_LCD_string_write
-                                   6150 ;	main.c:53: LCD_string_write("3: Check\n");
-      001EAB 90 28 83         [24] 6151 	mov	dptr,#___str_46
-      001EAE 75 F0 80         [24] 6152 	mov	b,#0x80
-      001EB1 12 0D 12         [24] 6153 	lcall	_LCD_string_write
-                                   6154 ;	main.c:55: LCD_string_write("A: Move\n");
-      001EB4 90 28 8D         [24] 6155 	mov	dptr,#___str_47
-      001EB7 75 F0 80         [24] 6156 	mov	b,#0x80
-      001EBA 12 0D 12         [24] 6157 	lcall	_LCD_string_write
-                                   6158 ;	main.c:57: LCD_string_write("4: Edit\n");
-      001EBD 90 28 96         [24] 6159 	mov	dptr,#___str_48
-      001EC0 75 F0 80         [24] 6160 	mov	b,#0x80
-      001EC3 12 0D 12         [24] 6161 	lcall	_LCD_string_write
-                                   6162 ;	main.c:59: LCD_string_write("5: Find\n");
-      001EC6 90 28 9F         [24] 6163 	mov	dptr,#___str_49
-      001EC9 75 F0 80         [24] 6164 	mov	b,#0x80
-      001ECC 12 0D 12         [24] 6165 	lcall	_LCD_string_write
-                                   6166 ;	main.c:61: LCD_string_write("6: Count\n");
-      001ECF 90 28 A8         [24] 6167 	mov	dptr,#___str_50
-      001ED2 75 F0 80         [24] 6168 	mov	b,#0x80
-      001ED5 12 0D 12         [24] 6169 	lcall	_LCD_string_write
-                                   6170 ;	main.c:64: LCD_string_write("B: Temperature\n");
-      001ED8 90 28 B2         [24] 6171 	mov	dptr,#___str_51
-      001EDB 75 F0 80         [24] 6172 	mov	b,#0x80
-      001EDE 12 0D 12         [24] 6173 	lcall	_LCD_string_write
-                                   6174 ;	main.c:66: LCD_string_write("7: Light\n");
-      001EE1 90 28 C2         [24] 6175 	mov	dptr,#___str_52
-      001EE4 75 F0 80         [24] 6176 	mov	b,#0x80
-      001EE7 12 0D 12         [24] 6177 	lcall	_LCD_string_write
-                                   6178 ;	main.c:69: LCD_string_write("8: UART free type\n");
-      001EEA 90 28 CC         [24] 6179 	mov	dptr,#___str_53
-      001EED 75 F0 80         [24] 6180 	mov	b,#0x80
-                                   6181 ;	main.c:70: }
-      001EF0 02 0D 12         [24] 6182 	ljmp	_LCD_string_write
-                                   6183 ;------------------------------------------------------------
-                                   6184 ;Allocation info for local variables in function 'main'
-                                   6185 ;------------------------------------------------------------
-                                   6186 ;input                     Allocated with name '_main_input_65536_332'
-                                   6187 ;------------------------------------------------------------
-                                   6188 ;	main.c:72: void main(void) {
-                                   6189 ;	-----------------------------------------
-                                   6190 ;	 function main
-                                   6191 ;	-----------------------------------------
-      001EF3                       6192 _main:
-                                   6193 ;	main.c:77: iowrite8(seg7_address, 0x00);
-      001EF3 75 08 00         [24] 6194 	mov	_iowrite8_PARM_2,#0x00
-      001EF6 85 27 82         [24] 6195 	mov	dpl,_seg7_address
-      001EF9 85 28 83         [24] 6196 	mov	dph,(_seg7_address + 1)
-      001EFC 12 00 C7         [24] 6197 	lcall	_iowrite8
-                                   6198 ;	main.c:80: TFT_LCD_INIT();
-      001EFF 12 02 D8         [24] 6199 	lcall	_TFT_LCD_INIT
-                                   6200 ;	main.c:81: fillScreen(BLACK);
-      001F02 90 00 00         [24] 6201 	mov	dptr,#0x0000
-      001F05 12 09 0B         [24] 6202 	lcall	_fillScreen
-                                   6203 ;	main.c:82: setRotation(0);
-      001F08 75 82 00         [24] 6204 	mov	dpl,#0x00
-      001F0B 12 01 AF         [24] 6205 	lcall	_setRotation
-                                   6206 ;	main.c:83: testCircles(20, BLUE);
-      001F0E 75 4F 1F         [24] 6207 	mov	_testCircles_PARM_2,#0x1f
-      001F11 75 50 00         [24] 6208 	mov	(_testCircles_PARM_2 + 1),#0x00
-      001F14 75 82 14         [24] 6209 	mov	dpl,#0x14
-      001F17 12 07 64         [24] 6210 	lcall	_testCircles
-                                   6211 ;	main.c:84: UART_init();
-      001F1A 12 00 AE         [24] 6212 	lcall	_UART_init
-                                   6213 ;	main.c:86: while (1) {
-      001F1D                       6214 00114$:
-                                   6215 ;	main.c:88: menu();
-      001F1D 12 1E 58         [24] 6216 	lcall	_menu
-                                   6217 ;	main.c:91: input = keyDetect();
-      001F20 12 0D B1         [24] 6218 	lcall	_keyDetect
-      001F23 AF 82            [24] 6219 	mov	r7,dpl
-                                   6220 ;	main.c:95: switch(input) {
-      001F25 BF 31 02         [24] 6221 	cjne	r7,#0x31,00162$
-      001F28 80 2D            [24] 6222 	sjmp	00101$
-      001F2A                       6223 00162$:
-      001F2A BF 32 02         [24] 6224 	cjne	r7,#0x32,00163$
-      001F2D 80 2D            [24] 6225 	sjmp	00102$
-      001F2F                       6226 00163$:
-      001F2F BF 33 02         [24] 6227 	cjne	r7,#0x33,00164$
-      001F32 80 2D            [24] 6228 	sjmp	00103$
-      001F34                       6229 00164$:
-      001F34 BF 34 02         [24] 6230 	cjne	r7,#0x34,00165$
-      001F37 80 32            [24] 6231 	sjmp	00105$
-      001F39                       6232 00165$:
-      001F39 BF 35 02         [24] 6233 	cjne	r7,#0x35,00166$
-      001F3C 80 32            [24] 6234 	sjmp	00106$
-      001F3E                       6235 00166$:
-      001F3E BF 36 02         [24] 6236 	cjne	r7,#0x36,00167$
-      001F41 80 32            [24] 6237 	sjmp	00107$
-      001F43                       6238 00167$:
-      001F43 BF 37 02         [24] 6239 	cjne	r7,#0x37,00168$
-      001F46 80 37            [24] 6240 	sjmp	00109$
-      001F48                       6241 00168$:
-      001F48 BF 38 02         [24] 6242 	cjne	r7,#0x38,00169$
-      001F4B 80 37            [24] 6243 	sjmp	00110$
-      001F4D                       6244 00169$:
-      001F4D BF 41 02         [24] 6245 	cjne	r7,#0x41,00170$
-      001F50 80 14            [24] 6246 	sjmp	00104$
-      001F52                       6247 00170$:
-                                   6248 ;	main.c:96: case '1': basic(); break;
-      001F52 BF 42 C8         [24] 6249 	cjne	r7,#0x42,00114$
-      001F55 80 23            [24] 6250 	sjmp	00108$
-      001F57                       6251 00101$:
-      001F57 12 16 B3         [24] 6252 	lcall	_basic
-                                   6253 ;	main.c:97: case '2': dump(); break;
-      001F5A 80 C1            [24] 6254 	sjmp	00114$
-      001F5C                       6255 00102$:
-      001F5C 12 12 FF         [24] 6256 	lcall	_dump
-                                   6257 ;	main.c:98: case '3': check(); break;
-      001F5F 80 BC            [24] 6258 	sjmp	00114$
-      001F61                       6259 00103$:
-      001F61 12 15 8C         [24] 6260 	lcall	_check
-                                   6261 ;	main.c:99: case 'A': move(); break;
-      001F64 80 B7            [24] 6262 	sjmp	00114$
-      001F66                       6263 00104$:
-      001F66 12 17 49         [24] 6264 	lcall	_move
-                                   6265 ;	main.c:100: case '4': edit(); break;
-      001F69 80 B2            [24] 6266 	sjmp	00114$
-      001F6B                       6267 00105$:
-      001F6B 12 19 03         [24] 6268 	lcall	_edit
-                                   6269 ;	main.c:101: case '5': count(); break;
-      001F6E 80 AD            [24] 6270 	sjmp	00114$
-      001F70                       6271 00106$:
-      001F70 12 1A AC         [24] 6272 	lcall	_count
-                                   6273 ;	main.c:102: case '6': count(); break;
-      001F73 80 A8            [24] 6274 	sjmp	00114$
-      001F75                       6275 00107$:
-      001F75 12 1A AC         [24] 6276 	lcall	_count
-                                   6277 ;	main.c:103: case 'B': temperature(); break;
-      001F78 80 A3            [24] 6278 	sjmp	00114$
-      001F7A                       6279 00108$:
-      001F7A 12 1D BF         [24] 6280 	lcall	_temperature
-                                   6281 ;	main.c:104: case '7': light(); break;
-      001F7D 80 9E            [24] 6282 	sjmp	00114$
-      001F7F                       6283 00109$:
-      001F7F 12 1D F9         [24] 6284 	lcall	_light
-                                   6285 ;	main.c:105: case '8': UART_free_type(); break;
-      001F82 80 99            [24] 6286 	sjmp	00114$
-      001F84                       6287 00110$:
-      001F84 12 1E 33         [24] 6288 	lcall	_UART_free_type
-                                   6289 ;	main.c:107: }
-                                   6290 ;	main.c:109: }
-      001F87 80 94            [24] 6291 	sjmp	00114$
-                                   6292 	.area CSEG    (CODE)
-                                   6293 	.area CONST   (CODE)
-      0020AA                       6294 _font:
-      0020AA 00                    6295 	.db #0x00	; 0
-      0020AB 00                    6296 	.db #0x00	; 0
-      0020AC 00                    6297 	.db #0x00	; 0
-      0020AD 00                    6298 	.db #0x00	; 0
-      0020AE 00                    6299 	.db #0x00	; 0
-      0020AF 3E                    6300 	.db #0x3e	; 62
-      0020B0 5B                    6301 	.db #0x5b	; 91
-      0020B1 4F                    6302 	.db #0x4f	; 79	'O'
-      0020B2 5B                    6303 	.db #0x5b	; 91
-      0020B3 3E                    6304 	.db #0x3e	; 62
-      0020B4 3E                    6305 	.db #0x3e	; 62
-      0020B5 6B                    6306 	.db #0x6b	; 107	'k'
-      0020B6 4F                    6307 	.db #0x4f	; 79	'O'
-      0020B7 6B                    6308 	.db #0x6b	; 107	'k'
-      0020B8 3E                    6309 	.db #0x3e	; 62
-      0020B9 1C                    6310 	.db #0x1c	; 28
-      0020BA 3E                    6311 	.db #0x3e	; 62
-      0020BB 7C                    6312 	.db #0x7c	; 124
-      0020BC 3E                    6313 	.db #0x3e	; 62
-      0020BD 1C                    6314 	.db #0x1c	; 28
-      0020BE 18                    6315 	.db #0x18	; 24
-      0020BF 3C                    6316 	.db #0x3c	; 60
-      0020C0 7E                    6317 	.db #0x7e	; 126
-      0020C1 3C                    6318 	.db #0x3c	; 60
-      0020C2 18                    6319 	.db #0x18	; 24
-      0020C3 1C                    6320 	.db #0x1c	; 28
-      0020C4 57                    6321 	.db #0x57	; 87	'W'
-      0020C5 7D                    6322 	.db #0x7d	; 125
-      0020C6 57                    6323 	.db #0x57	; 87	'W'
-      0020C7 1C                    6324 	.db #0x1c	; 28
-      0020C8 1C                    6325 	.db #0x1c	; 28
-      0020C9 5E                    6326 	.db #0x5e	; 94
-      0020CA 7F                    6327 	.db #0x7f	; 127
-      0020CB 5E                    6328 	.db #0x5e	; 94
-      0020CC 1C                    6329 	.db #0x1c	; 28
-      0020CD 00                    6330 	.db #0x00	; 0
-      0020CE 18                    6331 	.db #0x18	; 24
-      0020CF 3C                    6332 	.db #0x3c	; 60
-      0020D0 18                    6333 	.db #0x18	; 24
-      0020D1 00                    6334 	.db #0x00	; 0
-      0020D2 FF                    6335 	.db #0xff	; 255
-      0020D3 E7                    6336 	.db #0xe7	; 231
-      0020D4 C3                    6337 	.db #0xc3	; 195
-      0020D5 E7                    6338 	.db #0xe7	; 231
-      0020D6 FF                    6339 	.db #0xff	; 255
-      0020D7 00                    6340 	.db #0x00	; 0
-      0020D8 18                    6341 	.db #0x18	; 24
-      0020D9 24                    6342 	.db #0x24	; 36
-      0020DA 18                    6343 	.db #0x18	; 24
-      0020DB 00                    6344 	.db #0x00	; 0
-      0020DC FF                    6345 	.db #0xff	; 255
-      0020DD E7                    6346 	.db #0xe7	; 231
-      0020DE DB                    6347 	.db #0xdb	; 219
-      0020DF E7                    6348 	.db #0xe7	; 231
-      0020E0 FF                    6349 	.db #0xff	; 255
-      0020E1 30                    6350 	.db #0x30	; 48	'0'
-      0020E2 48                    6351 	.db #0x48	; 72	'H'
-      0020E3 3A                    6352 	.db #0x3a	; 58
-      0020E4 06                    6353 	.db #0x06	; 6
-      0020E5 0E                    6354 	.db #0x0e	; 14
-      0020E6 26                    6355 	.db #0x26	; 38
-      0020E7 29                    6356 	.db #0x29	; 41
-      0020E8 79                    6357 	.db #0x79	; 121	'y'
-      0020E9 29                    6358 	.db #0x29	; 41
-      0020EA 26                    6359 	.db #0x26	; 38
-      0020EB 40                    6360 	.db #0x40	; 64
-      0020EC 7F                    6361 	.db #0x7f	; 127
-      0020ED 05                    6362 	.db #0x05	; 5
-      0020EE 05                    6363 	.db #0x05	; 5
-      0020EF 07                    6364 	.db #0x07	; 7
-      0020F0 40                    6365 	.db #0x40	; 64
-      0020F1 7F                    6366 	.db #0x7f	; 127
-      0020F2 05                    6367 	.db #0x05	; 5
-      0020F3 25                    6368 	.db #0x25	; 37
-      0020F4 3F                    6369 	.db #0x3f	; 63
-      0020F5 5A                    6370 	.db #0x5a	; 90	'Z'
-      0020F6 3C                    6371 	.db #0x3c	; 60
-      0020F7 E7                    6372 	.db #0xe7	; 231
-      0020F8 3C                    6373 	.db #0x3c	; 60
-      0020F9 5A                    6374 	.db #0x5a	; 90	'Z'
-      0020FA 7F                    6375 	.db #0x7f	; 127
-      0020FB 3E                    6376 	.db #0x3e	; 62
-      0020FC 1C                    6377 	.db #0x1c	; 28
-      0020FD 1C                    6378 	.db #0x1c	; 28
-      0020FE 08                    6379 	.db #0x08	; 8
-      0020FF 08                    6380 	.db #0x08	; 8
-      002100 1C                    6381 	.db #0x1c	; 28
-      002101 1C                    6382 	.db #0x1c	; 28
-      002102 3E                    6383 	.db #0x3e	; 62
-      002103 7F                    6384 	.db #0x7f	; 127
-      002104 14                    6385 	.db #0x14	; 20
-      002105 22                    6386 	.db #0x22	; 34
-      002106 7F                    6387 	.db #0x7f	; 127
-      002107 22                    6388 	.db #0x22	; 34
-      002108 14                    6389 	.db #0x14	; 20
-      002109 5F                    6390 	.db #0x5f	; 95
-      00210A 5F                    6391 	.db #0x5f	; 95
-      00210B 00                    6392 	.db #0x00	; 0
-      00210C 5F                    6393 	.db #0x5f	; 95
-      00210D 5F                    6394 	.db #0x5f	; 95
-      00210E 06                    6395 	.db #0x06	; 6
-      00210F 09                    6396 	.db #0x09	; 9
-      002110 7F                    6397 	.db #0x7f	; 127
-      002111 01                    6398 	.db #0x01	; 1
-      002112 7F                    6399 	.db #0x7f	; 127
-      002113 00                    6400 	.db #0x00	; 0
-      002114 66                    6401 	.db #0x66	; 102	'f'
-      002115 89                    6402 	.db #0x89	; 137
-      002116 95                    6403 	.db #0x95	; 149
-      002117 6A                    6404 	.db #0x6a	; 106	'j'
-      002118 60                    6405 	.db #0x60	; 96
-      002119 60                    6406 	.db #0x60	; 96
-      00211A 60                    6407 	.db #0x60	; 96
-      00211B 60                    6408 	.db #0x60	; 96
-      00211C 60                    6409 	.db #0x60	; 96
-      00211D 94                    6410 	.db #0x94	; 148
-      00211E A2                    6411 	.db #0xa2	; 162
-      00211F FF                    6412 	.db #0xff	; 255
-      002120 A2                    6413 	.db #0xa2	; 162
-      002121 94                    6414 	.db #0x94	; 148
-      002122 08                    6415 	.db #0x08	; 8
-      002123 04                    6416 	.db #0x04	; 4
-      002124 7E                    6417 	.db #0x7e	; 126
-      002125 04                    6418 	.db #0x04	; 4
-      002126 08                    6419 	.db #0x08	; 8
-      002127 10                    6420 	.db #0x10	; 16
-      002128 20                    6421 	.db #0x20	; 32
-      002129 7E                    6422 	.db #0x7e	; 126
-      00212A 20                    6423 	.db #0x20	; 32
-      00212B 10                    6424 	.db #0x10	; 16
-      00212C 08                    6425 	.db #0x08	; 8
-      00212D 08                    6426 	.db #0x08	; 8
-      00212E 2A                    6427 	.db #0x2a	; 42
-      00212F 1C                    6428 	.db #0x1c	; 28
-      002130 08                    6429 	.db #0x08	; 8
-      002131 08                    6430 	.db #0x08	; 8
-      002132 1C                    6431 	.db #0x1c	; 28
-      002133 2A                    6432 	.db #0x2a	; 42
-      002134 08                    6433 	.db #0x08	; 8
-      002135 08                    6434 	.db #0x08	; 8
-      002136 1E                    6435 	.db #0x1e	; 30
-      002137 10                    6436 	.db #0x10	; 16
-      002138 10                    6437 	.db #0x10	; 16
-      002139 10                    6438 	.db #0x10	; 16
-      00213A 10                    6439 	.db #0x10	; 16
-      00213B 0C                    6440 	.db #0x0c	; 12
-      00213C 1E                    6441 	.db #0x1e	; 30
-      00213D 0C                    6442 	.db #0x0c	; 12
-      00213E 1E                    6443 	.db #0x1e	; 30
-      00213F 0C                    6444 	.db #0x0c	; 12
-      002140 30                    6445 	.db #0x30	; 48	'0'
-      002141 38                    6446 	.db #0x38	; 56	'8'
-      002142 3E                    6447 	.db #0x3e	; 62
-      002143 38                    6448 	.db #0x38	; 56	'8'
-      002144 30                    6449 	.db #0x30	; 48	'0'
-      002145 06                    6450 	.db #0x06	; 6
-      002146 0E                    6451 	.db #0x0e	; 14
-      002147 3E                    6452 	.db #0x3e	; 62
-      002148 0E                    6453 	.db #0x0e	; 14
-      002149 06                    6454 	.db #0x06	; 6
-      00214A 00                    6455 	.db #0x00	; 0
-      00214B 00                    6456 	.db #0x00	; 0
-      00214C 00                    6457 	.db #0x00	; 0
-      00214D 00                    6458 	.db #0x00	; 0
-      00214E 00                    6459 	.db #0x00	; 0
-      00214F 00                    6460 	.db #0x00	; 0
-      002150 00                    6461 	.db #0x00	; 0
-      002151 5F                    6462 	.db #0x5f	; 95
-      002152 00                    6463 	.db #0x00	; 0
-      002153 00                    6464 	.db #0x00	; 0
-      002154 00                    6465 	.db #0x00	; 0
-      002155 07                    6466 	.db #0x07	; 7
-      002156 00                    6467 	.db #0x00	; 0
-      002157 07                    6468 	.db #0x07	; 7
-      002158 00                    6469 	.db #0x00	; 0
-      002159 14                    6470 	.db #0x14	; 20
-      00215A 7F                    6471 	.db #0x7f	; 127
-      00215B 14                    6472 	.db #0x14	; 20
-      00215C 7F                    6473 	.db #0x7f	; 127
-      00215D 14                    6474 	.db #0x14	; 20
-      00215E 24                    6475 	.db #0x24	; 36
-      00215F 2A                    6476 	.db #0x2a	; 42
-      002160 7F                    6477 	.db #0x7f	; 127
-      002161 2A                    6478 	.db #0x2a	; 42
-      002162 12                    6479 	.db #0x12	; 18
-      002163 23                    6480 	.db #0x23	; 35
-      002164 13                    6481 	.db #0x13	; 19
-      002165 08                    6482 	.db #0x08	; 8
-      002166 64                    6483 	.db #0x64	; 100	'd'
-      002167 62                    6484 	.db #0x62	; 98	'b'
-      002168 36                    6485 	.db #0x36	; 54	'6'
-      002169 49                    6486 	.db #0x49	; 73	'I'
-      00216A 56                    6487 	.db #0x56	; 86	'V'
-      00216B 20                    6488 	.db #0x20	; 32
-      00216C 50                    6489 	.db #0x50	; 80	'P'
-      00216D 00                    6490 	.db #0x00	; 0
-      00216E 08                    6491 	.db #0x08	; 8
-      00216F 07                    6492 	.db #0x07	; 7
-      002170 03                    6493 	.db #0x03	; 3
-      002171 00                    6494 	.db #0x00	; 0
-      002172 00                    6495 	.db #0x00	; 0
-      002173 1C                    6496 	.db #0x1c	; 28
-      002174 22                    6497 	.db #0x22	; 34
-      002175 41                    6498 	.db #0x41	; 65	'A'
-      002176 00                    6499 	.db #0x00	; 0
-      002177 00                    6500 	.db #0x00	; 0
-      002178 41                    6501 	.db #0x41	; 65	'A'
-      002179 22                    6502 	.db #0x22	; 34
-      00217A 1C                    6503 	.db #0x1c	; 28
-      00217B 00                    6504 	.db #0x00	; 0
-      00217C 2A                    6505 	.db #0x2a	; 42
-      00217D 1C                    6506 	.db #0x1c	; 28
-      00217E 7F                    6507 	.db #0x7f	; 127
-      00217F 1C                    6508 	.db #0x1c	; 28
-      002180 2A                    6509 	.db #0x2a	; 42
-      002181 08                    6510 	.db #0x08	; 8
-      002182 08                    6511 	.db #0x08	; 8
-      002183 3E                    6512 	.db #0x3e	; 62
-      002184 08                    6513 	.db #0x08	; 8
-      002185 08                    6514 	.db #0x08	; 8
-      002186 00                    6515 	.db #0x00	; 0
-      002187 80                    6516 	.db #0x80	; 128
-      002188 70                    6517 	.db #0x70	; 112	'p'
-      002189 30                    6518 	.db #0x30	; 48	'0'
-      00218A 00                    6519 	.db #0x00	; 0
-      00218B 08                    6520 	.db #0x08	; 8
-      00218C 08                    6521 	.db #0x08	; 8
-      00218D 08                    6522 	.db #0x08	; 8
-      00218E 08                    6523 	.db #0x08	; 8
-      00218F 08                    6524 	.db #0x08	; 8
-      002190 00                    6525 	.db #0x00	; 0
-      002191 00                    6526 	.db #0x00	; 0
-      002192 60                    6527 	.db #0x60	; 96
-      002193 60                    6528 	.db #0x60	; 96
-      002194 00                    6529 	.db #0x00	; 0
-      002195 20                    6530 	.db #0x20	; 32
-      002196 10                    6531 	.db #0x10	; 16
-      002197 08                    6532 	.db #0x08	; 8
-      002198 04                    6533 	.db #0x04	; 4
-      002199 02                    6534 	.db #0x02	; 2
-      00219A 3E                    6535 	.db #0x3e	; 62
-      00219B 51                    6536 	.db #0x51	; 81	'Q'
-      00219C 49                    6537 	.db #0x49	; 73	'I'
-      00219D 45                    6538 	.db #0x45	; 69	'E'
-      00219E 3E                    6539 	.db #0x3e	; 62
-      00219F 00                    6540 	.db #0x00	; 0
-      0021A0 42                    6541 	.db #0x42	; 66	'B'
-      0021A1 7F                    6542 	.db #0x7f	; 127
-      0021A2 40                    6543 	.db #0x40	; 64
-      0021A3 00                    6544 	.db #0x00	; 0
-      0021A4 72                    6545 	.db #0x72	; 114	'r'
-      0021A5 49                    6546 	.db #0x49	; 73	'I'
-      0021A6 49                    6547 	.db #0x49	; 73	'I'
-      0021A7 49                    6548 	.db #0x49	; 73	'I'
-      0021A8 46                    6549 	.db #0x46	; 70	'F'
-      0021A9 21                    6550 	.db #0x21	; 33
-      0021AA 41                    6551 	.db #0x41	; 65	'A'
-      0021AB 49                    6552 	.db #0x49	; 73	'I'
-      0021AC 4D                    6553 	.db #0x4d	; 77	'M'
-      0021AD 33                    6554 	.db #0x33	; 51	'3'
-      0021AE 18                    6555 	.db #0x18	; 24
-      0021AF 14                    6556 	.db #0x14	; 20
-      0021B0 12                    6557 	.db #0x12	; 18
-      0021B1 7F                    6558 	.db #0x7f	; 127
-      0021B2 10                    6559 	.db #0x10	; 16
-      0021B3 27                    6560 	.db #0x27	; 39
-      0021B4 45                    6561 	.db #0x45	; 69	'E'
-      0021B5 45                    6562 	.db #0x45	; 69	'E'
-      0021B6 45                    6563 	.db #0x45	; 69	'E'
-      0021B7 39                    6564 	.db #0x39	; 57	'9'
-      0021B8 3C                    6565 	.db #0x3c	; 60
-      0021B9 4A                    6566 	.db #0x4a	; 74	'J'
-      0021BA 49                    6567 	.db #0x49	; 73	'I'
-      0021BB 49                    6568 	.db #0x49	; 73	'I'
-      0021BC 31                    6569 	.db #0x31	; 49	'1'
-      0021BD 41                    6570 	.db #0x41	; 65	'A'
-      0021BE 21                    6571 	.db #0x21	; 33
-      0021BF 11                    6572 	.db #0x11	; 17
-      0021C0 09                    6573 	.db #0x09	; 9
-      0021C1 07                    6574 	.db #0x07	; 7
-      0021C2 36                    6575 	.db #0x36	; 54	'6'
-      0021C3 49                    6576 	.db #0x49	; 73	'I'
-      0021C4 49                    6577 	.db #0x49	; 73	'I'
-      0021C5 49                    6578 	.db #0x49	; 73	'I'
-      0021C6 36                    6579 	.db #0x36	; 54	'6'
-      0021C7 46                    6580 	.db #0x46	; 70	'F'
-      0021C8 49                    6581 	.db #0x49	; 73	'I'
-      0021C9 49                    6582 	.db #0x49	; 73	'I'
-      0021CA 29                    6583 	.db #0x29	; 41
-      0021CB 1E                    6584 	.db #0x1e	; 30
-      0021CC 00                    6585 	.db #0x00	; 0
-      0021CD 00                    6586 	.db #0x00	; 0
-      0021CE 14                    6587 	.db #0x14	; 20
-      0021CF 00                    6588 	.db #0x00	; 0
-      0021D0 00                    6589 	.db #0x00	; 0
-      0021D1 00                    6590 	.db #0x00	; 0
-      0021D2 40                    6591 	.db #0x40	; 64
-      0021D3 34                    6592 	.db #0x34	; 52	'4'
-      0021D4 00                    6593 	.db #0x00	; 0
-      0021D5 00                    6594 	.db #0x00	; 0
-      0021D6 00                    6595 	.db #0x00	; 0
-      0021D7 08                    6596 	.db #0x08	; 8
-      0021D8 14                    6597 	.db #0x14	; 20
-      0021D9 22                    6598 	.db #0x22	; 34
-      0021DA 41                    6599 	.db #0x41	; 65	'A'
-      0021DB 14                    6600 	.db #0x14	; 20
-      0021DC 14                    6601 	.db #0x14	; 20
-      0021DD 14                    6602 	.db #0x14	; 20
-      0021DE 14                    6603 	.db #0x14	; 20
-      0021DF 14                    6604 	.db #0x14	; 20
-      0021E0 00                    6605 	.db #0x00	; 0
-      0021E1 41                    6606 	.db #0x41	; 65	'A'
-      0021E2 22                    6607 	.db #0x22	; 34
-      0021E3 14                    6608 	.db #0x14	; 20
-      0021E4 08                    6609 	.db #0x08	; 8
-      0021E5 02                    6610 	.db #0x02	; 2
-      0021E6 01                    6611 	.db #0x01	; 1
-      0021E7 59                    6612 	.db #0x59	; 89	'Y'
-      0021E8 09                    6613 	.db #0x09	; 9
-      0021E9 06                    6614 	.db #0x06	; 6
-      0021EA 3E                    6615 	.db #0x3e	; 62
-      0021EB 41                    6616 	.db #0x41	; 65	'A'
-      0021EC 5D                    6617 	.db #0x5d	; 93
-      0021ED 59                    6618 	.db #0x59	; 89	'Y'
-      0021EE 4E                    6619 	.db #0x4e	; 78	'N'
-      0021EF 7C                    6620 	.db #0x7c	; 124
-      0021F0 12                    6621 	.db #0x12	; 18
-      0021F1 11                    6622 	.db #0x11	; 17
-      0021F2 12                    6623 	.db #0x12	; 18
-      0021F3 7C                    6624 	.db #0x7c	; 124
-      0021F4 7F                    6625 	.db #0x7f	; 127
-      0021F5 49                    6626 	.db #0x49	; 73	'I'
-      0021F6 49                    6627 	.db #0x49	; 73	'I'
-      0021F7 49                    6628 	.db #0x49	; 73	'I'
-      0021F8 36                    6629 	.db #0x36	; 54	'6'
-      0021F9 3E                    6630 	.db #0x3e	; 62
-      0021FA 41                    6631 	.db #0x41	; 65	'A'
-      0021FB 41                    6632 	.db #0x41	; 65	'A'
-      0021FC 41                    6633 	.db #0x41	; 65	'A'
-      0021FD 22                    6634 	.db #0x22	; 34
-      0021FE 7F                    6635 	.db #0x7f	; 127
-      0021FF 41                    6636 	.db #0x41	; 65	'A'
-      002200 41                    6637 	.db #0x41	; 65	'A'
-      002201 41                    6638 	.db #0x41	; 65	'A'
-      002202 3E                    6639 	.db #0x3e	; 62
-      002203 7F                    6640 	.db #0x7f	; 127
-      002204 49                    6641 	.db #0x49	; 73	'I'
-      002205 49                    6642 	.db #0x49	; 73	'I'
-      002206 49                    6643 	.db #0x49	; 73	'I'
-      002207 41                    6644 	.db #0x41	; 65	'A'
-      002208 7F                    6645 	.db #0x7f	; 127
-      002209 09                    6646 	.db #0x09	; 9
-      00220A 09                    6647 	.db #0x09	; 9
-      00220B 09                    6648 	.db #0x09	; 9
-      00220C 01                    6649 	.db #0x01	; 1
-      00220D 3E                    6650 	.db #0x3e	; 62
-      00220E 41                    6651 	.db #0x41	; 65	'A'
-      00220F 41                    6652 	.db #0x41	; 65	'A'
-      002210 51                    6653 	.db #0x51	; 81	'Q'
-      002211 73                    6654 	.db #0x73	; 115	's'
-      002212 7F                    6655 	.db #0x7f	; 127
-      002213 08                    6656 	.db #0x08	; 8
-      002214 08                    6657 	.db #0x08	; 8
-      002215 08                    6658 	.db #0x08	; 8
-      002216 7F                    6659 	.db #0x7f	; 127
-      002217 00                    6660 	.db #0x00	; 0
-      002218 41                    6661 	.db #0x41	; 65	'A'
-      002219 7F                    6662 	.db #0x7f	; 127
-      00221A 41                    6663 	.db #0x41	; 65	'A'
-      00221B 00                    6664 	.db #0x00	; 0
-      00221C 20                    6665 	.db #0x20	; 32
-      00221D 40                    6666 	.db #0x40	; 64
-      00221E 41                    6667 	.db #0x41	; 65	'A'
-      00221F 3F                    6668 	.db #0x3f	; 63
-      002220 01                    6669 	.db #0x01	; 1
-      002221 7F                    6670 	.db #0x7f	; 127
-      002222 08                    6671 	.db #0x08	; 8
-      002223 14                    6672 	.db #0x14	; 20
-      002224 22                    6673 	.db #0x22	; 34
-      002225 41                    6674 	.db #0x41	; 65	'A'
-      002226 7F                    6675 	.db #0x7f	; 127
-      002227 40                    6676 	.db #0x40	; 64
-      002228 40                    6677 	.db #0x40	; 64
-      002229 40                    6678 	.db #0x40	; 64
-      00222A 40                    6679 	.db #0x40	; 64
-      00222B 7F                    6680 	.db #0x7f	; 127
-      00222C 02                    6681 	.db #0x02	; 2
-      00222D 1C                    6682 	.db #0x1c	; 28
-      00222E 02                    6683 	.db #0x02	; 2
-      00222F 7F                    6684 	.db #0x7f	; 127
-      002230 7F                    6685 	.db #0x7f	; 127
-      002231 04                    6686 	.db #0x04	; 4
-      002232 08                    6687 	.db #0x08	; 8
-      002233 10                    6688 	.db #0x10	; 16
-      002234 7F                    6689 	.db #0x7f	; 127
-      002235 3E                    6690 	.db #0x3e	; 62
-      002236 41                    6691 	.db #0x41	; 65	'A'
-      002237 41                    6692 	.db #0x41	; 65	'A'
-      002238 41                    6693 	.db #0x41	; 65	'A'
-      002239 3E                    6694 	.db #0x3e	; 62
-      00223A 7F                    6695 	.db #0x7f	; 127
-      00223B 09                    6696 	.db #0x09	; 9
-      00223C 09                    6697 	.db #0x09	; 9
-      00223D 09                    6698 	.db #0x09	; 9
-      00223E 06                    6699 	.db #0x06	; 6
-      00223F 3E                    6700 	.db #0x3e	; 62
-      002240 41                    6701 	.db #0x41	; 65	'A'
-      002241 51                    6702 	.db #0x51	; 81	'Q'
-      002242 21                    6703 	.db #0x21	; 33
-      002243 5E                    6704 	.db #0x5e	; 94
-      002244 7F                    6705 	.db #0x7f	; 127
-      002245 09                    6706 	.db #0x09	; 9
-      002246 19                    6707 	.db #0x19	; 25
-      002247 29                    6708 	.db #0x29	; 41
-      002248 46                    6709 	.db #0x46	; 70	'F'
-      002249 26                    6710 	.db #0x26	; 38
-      00224A 49                    6711 	.db #0x49	; 73	'I'
-      00224B 49                    6712 	.db #0x49	; 73	'I'
-      00224C 49                    6713 	.db #0x49	; 73	'I'
-      00224D 32                    6714 	.db #0x32	; 50	'2'
-      00224E 03                    6715 	.db #0x03	; 3
-      00224F 01                    6716 	.db #0x01	; 1
-      002250 7F                    6717 	.db #0x7f	; 127
-      002251 01                    6718 	.db #0x01	; 1
-      002252 03                    6719 	.db #0x03	; 3
-      002253 3F                    6720 	.db #0x3f	; 63
-      002254 40                    6721 	.db #0x40	; 64
-      002255 40                    6722 	.db #0x40	; 64
-      002256 40                    6723 	.db #0x40	; 64
-      002257 3F                    6724 	.db #0x3f	; 63
-      002258 1F                    6725 	.db #0x1f	; 31
-      002259 20                    6726 	.db #0x20	; 32
-      00225A 40                    6727 	.db #0x40	; 64
-      00225B 20                    6728 	.db #0x20	; 32
-      00225C 1F                    6729 	.db #0x1f	; 31
-      00225D 3F                    6730 	.db #0x3f	; 63
-      00225E 40                    6731 	.db #0x40	; 64
-      00225F 38                    6732 	.db #0x38	; 56	'8'
-      002260 40                    6733 	.db #0x40	; 64
-      002261 3F                    6734 	.db #0x3f	; 63
-      002262 63                    6735 	.db #0x63	; 99	'c'
-      002263 14                    6736 	.db #0x14	; 20
-      002264 08                    6737 	.db #0x08	; 8
-      002265 14                    6738 	.db #0x14	; 20
-      002266 63                    6739 	.db #0x63	; 99	'c'
-      002267 03                    6740 	.db #0x03	; 3
-      002268 04                    6741 	.db #0x04	; 4
-      002269 78                    6742 	.db #0x78	; 120	'x'
-      00226A 04                    6743 	.db #0x04	; 4
-      00226B 03                    6744 	.db #0x03	; 3
-      00226C 61                    6745 	.db #0x61	; 97	'a'
-      00226D 59                    6746 	.db #0x59	; 89	'Y'
-      00226E 49                    6747 	.db #0x49	; 73	'I'
-      00226F 4D                    6748 	.db #0x4d	; 77	'M'
-      002270 43                    6749 	.db #0x43	; 67	'C'
-      002271 00                    6750 	.db #0x00	; 0
-      002272 7F                    6751 	.db #0x7f	; 127
-      002273 41                    6752 	.db #0x41	; 65	'A'
-      002274 41                    6753 	.db #0x41	; 65	'A'
-      002275 41                    6754 	.db #0x41	; 65	'A'
-      002276 02                    6755 	.db #0x02	; 2
-      002277 04                    6756 	.db #0x04	; 4
-      002278 08                    6757 	.db #0x08	; 8
-      002279 10                    6758 	.db #0x10	; 16
-      00227A 20                    6759 	.db #0x20	; 32
-      00227B 00                    6760 	.db #0x00	; 0
-      00227C 41                    6761 	.db #0x41	; 65	'A'
-      00227D 41                    6762 	.db #0x41	; 65	'A'
-      00227E 41                    6763 	.db #0x41	; 65	'A'
-      00227F 7F                    6764 	.db #0x7f	; 127
-      002280 04                    6765 	.db #0x04	; 4
-      002281 02                    6766 	.db #0x02	; 2
-      002282 01                    6767 	.db #0x01	; 1
-      002283 02                    6768 	.db #0x02	; 2
-      002284 04                    6769 	.db #0x04	; 4
-      002285 40                    6770 	.db #0x40	; 64
-      002286 40                    6771 	.db #0x40	; 64
-      002287 40                    6772 	.db #0x40	; 64
-      002288 40                    6773 	.db #0x40	; 64
-      002289 40                    6774 	.db #0x40	; 64
-      00228A 00                    6775 	.db #0x00	; 0
-      00228B 03                    6776 	.db #0x03	; 3
-      00228C 07                    6777 	.db #0x07	; 7
-      00228D 08                    6778 	.db #0x08	; 8
-      00228E 00                    6779 	.db #0x00	; 0
-      00228F 20                    6780 	.db #0x20	; 32
-      002290 54                    6781 	.db #0x54	; 84	'T'
-      002291 54                    6782 	.db #0x54	; 84	'T'
-      002292 78                    6783 	.db #0x78	; 120	'x'
-      002293 40                    6784 	.db #0x40	; 64
-      002294 7F                    6785 	.db #0x7f	; 127
-      002295 28                    6786 	.db #0x28	; 40
-      002296 44                    6787 	.db #0x44	; 68	'D'
-      002297 44                    6788 	.db #0x44	; 68	'D'
-      002298 38                    6789 	.db #0x38	; 56	'8'
-      002299 38                    6790 	.db #0x38	; 56	'8'
-      00229A 44                    6791 	.db #0x44	; 68	'D'
-      00229B 44                    6792 	.db #0x44	; 68	'D'
-      00229C 44                    6793 	.db #0x44	; 68	'D'
-      00229D 28                    6794 	.db #0x28	; 40
-      00229E 38                    6795 	.db #0x38	; 56	'8'
-      00229F 44                    6796 	.db #0x44	; 68	'D'
-      0022A0 44                    6797 	.db #0x44	; 68	'D'
-      0022A1 28                    6798 	.db #0x28	; 40
-      0022A2 7F                    6799 	.db #0x7f	; 127
-      0022A3 38                    6800 	.db #0x38	; 56	'8'
-      0022A4 54                    6801 	.db #0x54	; 84	'T'
-      0022A5 54                    6802 	.db #0x54	; 84	'T'
-      0022A6 54                    6803 	.db #0x54	; 84	'T'
-      0022A7 18                    6804 	.db #0x18	; 24
-      0022A8 00                    6805 	.db #0x00	; 0
-      0022A9 08                    6806 	.db #0x08	; 8
-      0022AA 7E                    6807 	.db #0x7e	; 126
-      0022AB 09                    6808 	.db #0x09	; 9
-      0022AC 02                    6809 	.db #0x02	; 2
-      0022AD 18                    6810 	.db #0x18	; 24
-      0022AE A4                    6811 	.db #0xa4	; 164
-      0022AF A4                    6812 	.db #0xa4	; 164
-      0022B0 9C                    6813 	.db #0x9c	; 156
-      0022B1 78                    6814 	.db #0x78	; 120	'x'
-      0022B2 7F                    6815 	.db #0x7f	; 127
-      0022B3 08                    6816 	.db #0x08	; 8
-      0022B4 04                    6817 	.db #0x04	; 4
-      0022B5 04                    6818 	.db #0x04	; 4
-      0022B6 78                    6819 	.db #0x78	; 120	'x'
-      0022B7 00                    6820 	.db #0x00	; 0
-      0022B8 44                    6821 	.db #0x44	; 68	'D'
-      0022B9 7D                    6822 	.db #0x7d	; 125
-      0022BA 40                    6823 	.db #0x40	; 64
-      0022BB 00                    6824 	.db #0x00	; 0
-      0022BC 20                    6825 	.db #0x20	; 32
-      0022BD 40                    6826 	.db #0x40	; 64
-      0022BE 40                    6827 	.db #0x40	; 64
-      0022BF 3D                    6828 	.db #0x3d	; 61
-      0022C0 00                    6829 	.db #0x00	; 0
-      0022C1 7F                    6830 	.db #0x7f	; 127
-      0022C2 10                    6831 	.db #0x10	; 16
-      0022C3 28                    6832 	.db #0x28	; 40
-      0022C4 44                    6833 	.db #0x44	; 68	'D'
-      0022C5 00                    6834 	.db #0x00	; 0
-      0022C6 00                    6835 	.db #0x00	; 0
-      0022C7 41                    6836 	.db #0x41	; 65	'A'
-      0022C8 7F                    6837 	.db #0x7f	; 127
-      0022C9 40                    6838 	.db #0x40	; 64
-      0022CA 00                    6839 	.db #0x00	; 0
-      0022CB 7C                    6840 	.db #0x7c	; 124
-      0022CC 04                    6841 	.db #0x04	; 4
-      0022CD 78                    6842 	.db #0x78	; 120	'x'
-      0022CE 04                    6843 	.db #0x04	; 4
-      0022CF 78                    6844 	.db #0x78	; 120	'x'
-      0022D0 7C                    6845 	.db #0x7c	; 124
-      0022D1 08                    6846 	.db #0x08	; 8
-      0022D2 04                    6847 	.db #0x04	; 4
-      0022D3 04                    6848 	.db #0x04	; 4
-      0022D4 78                    6849 	.db #0x78	; 120	'x'
-      0022D5 38                    6850 	.db #0x38	; 56	'8'
-      0022D6 44                    6851 	.db #0x44	; 68	'D'
-      0022D7 44                    6852 	.db #0x44	; 68	'D'
-      0022D8 44                    6853 	.db #0x44	; 68	'D'
-      0022D9 38                    6854 	.db #0x38	; 56	'8'
-      0022DA FC                    6855 	.db #0xfc	; 252
-      0022DB 18                    6856 	.db #0x18	; 24
-      0022DC 24                    6857 	.db #0x24	; 36
-      0022DD 24                    6858 	.db #0x24	; 36
-      0022DE 18                    6859 	.db #0x18	; 24
-      0022DF 18                    6860 	.db #0x18	; 24
-      0022E0 24                    6861 	.db #0x24	; 36
-      0022E1 24                    6862 	.db #0x24	; 36
-      0022E2 18                    6863 	.db #0x18	; 24
-      0022E3 FC                    6864 	.db #0xfc	; 252
-      0022E4 7C                    6865 	.db #0x7c	; 124
-      0022E5 08                    6866 	.db #0x08	; 8
-      0022E6 04                    6867 	.db #0x04	; 4
-      0022E7 04                    6868 	.db #0x04	; 4
-      0022E8 08                    6869 	.db #0x08	; 8
-      0022E9 48                    6870 	.db #0x48	; 72	'H'
-      0022EA 54                    6871 	.db #0x54	; 84	'T'
-      0022EB 54                    6872 	.db #0x54	; 84	'T'
-      0022EC 54                    6873 	.db #0x54	; 84	'T'
-      0022ED 24                    6874 	.db #0x24	; 36
-      0022EE 04                    6875 	.db #0x04	; 4
-      0022EF 04                    6876 	.db #0x04	; 4
-      0022F0 3F                    6877 	.db #0x3f	; 63
-      0022F1 44                    6878 	.db #0x44	; 68	'D'
-      0022F2 24                    6879 	.db #0x24	; 36
-      0022F3 3C                    6880 	.db #0x3c	; 60
-      0022F4 40                    6881 	.db #0x40	; 64
-      0022F5 40                    6882 	.db #0x40	; 64
-      0022F6 20                    6883 	.db #0x20	; 32
-      0022F7 7C                    6884 	.db #0x7c	; 124
-      0022F8 1C                    6885 	.db #0x1c	; 28
-      0022F9 20                    6886 	.db #0x20	; 32
-      0022FA 40                    6887 	.db #0x40	; 64
-      0022FB 20                    6888 	.db #0x20	; 32
-      0022FC 1C                    6889 	.db #0x1c	; 28
-      0022FD 3C                    6890 	.db #0x3c	; 60
-      0022FE 40                    6891 	.db #0x40	; 64
-      0022FF 30                    6892 	.db #0x30	; 48	'0'
-      002300 40                    6893 	.db #0x40	; 64
-      002301 3C                    6894 	.db #0x3c	; 60
-      002302 44                    6895 	.db #0x44	; 68	'D'
-      002303 28                    6896 	.db #0x28	; 40
-      002304 10                    6897 	.db #0x10	; 16
-      002305 28                    6898 	.db #0x28	; 40
-      002306 44                    6899 	.db #0x44	; 68	'D'
-      002307 4C                    6900 	.db #0x4c	; 76	'L'
-      002308 90                    6901 	.db #0x90	; 144
-      002309 90                    6902 	.db #0x90	; 144
-      00230A 90                    6903 	.db #0x90	; 144
-      00230B 7C                    6904 	.db #0x7c	; 124
-      00230C 44                    6905 	.db #0x44	; 68	'D'
-      00230D 64                    6906 	.db #0x64	; 100	'd'
-      00230E 54                    6907 	.db #0x54	; 84	'T'
-      00230F 4C                    6908 	.db #0x4c	; 76	'L'
-      002310 44                    6909 	.db #0x44	; 68	'D'
-      002311 00                    6910 	.db #0x00	; 0
-      002312 08                    6911 	.db #0x08	; 8
-      002313 36                    6912 	.db #0x36	; 54	'6'
-      002314 41                    6913 	.db #0x41	; 65	'A'
-      002315 00                    6914 	.db #0x00	; 0
-      002316 00                    6915 	.db #0x00	; 0
-      002317 00                    6916 	.db #0x00	; 0
-      002318 77                    6917 	.db #0x77	; 119	'w'
-      002319 00                    6918 	.db #0x00	; 0
-      00231A 00                    6919 	.db #0x00	; 0
-      00231B 00                    6920 	.db #0x00	; 0
-      00231C 41                    6921 	.db #0x41	; 65	'A'
-      00231D 36                    6922 	.db #0x36	; 54	'6'
-      00231E 08                    6923 	.db #0x08	; 8
-      00231F 00                    6924 	.db #0x00	; 0
-      002320 02                    6925 	.db #0x02	; 2
-      002321 01                    6926 	.db #0x01	; 1
-      002322 02                    6927 	.db #0x02	; 2
-      002323 04                    6928 	.db #0x04	; 4
-      002324 02                    6929 	.db #0x02	; 2
-      002325 3C                    6930 	.db #0x3c	; 60
-      002326 26                    6931 	.db #0x26	; 38
-      002327 23                    6932 	.db #0x23	; 35
-      002328 26                    6933 	.db #0x26	; 38
-      002329 3C                    6934 	.db #0x3c	; 60
-      00232A 1E                    6935 	.db #0x1e	; 30
-      00232B A1                    6936 	.db #0xa1	; 161
-      00232C A1                    6937 	.db #0xa1	; 161
-      00232D 61                    6938 	.db #0x61	; 97	'a'
-      00232E 12                    6939 	.db #0x12	; 18
-      00232F 3A                    6940 	.db #0x3a	; 58
-      002330 40                    6941 	.db #0x40	; 64
-      002331 40                    6942 	.db #0x40	; 64
-      002332 20                    6943 	.db #0x20	; 32
-      002333 7A                    6944 	.db #0x7a	; 122	'z'
-      002334 38                    6945 	.db #0x38	; 56	'8'
-      002335 54                    6946 	.db #0x54	; 84	'T'
-      002336 54                    6947 	.db #0x54	; 84	'T'
-      002337 55                    6948 	.db #0x55	; 85	'U'
-      002338 59                    6949 	.db #0x59	; 89	'Y'
-      002339 21                    6950 	.db #0x21	; 33
-      00233A 55                    6951 	.db #0x55	; 85	'U'
-      00233B 55                    6952 	.db #0x55	; 85	'U'
-      00233C 79                    6953 	.db #0x79	; 121	'y'
-      00233D 41                    6954 	.db #0x41	; 65	'A'
-      00233E 22                    6955 	.db #0x22	; 34
-      00233F 54                    6956 	.db #0x54	; 84	'T'
-      002340 54                    6957 	.db #0x54	; 84	'T'
-      002341 78                    6958 	.db #0x78	; 120	'x'
-      002342 42                    6959 	.db #0x42	; 66	'B'
-      002343 21                    6960 	.db #0x21	; 33
-      002344 55                    6961 	.db #0x55	; 85	'U'
-      002345 54                    6962 	.db #0x54	; 84	'T'
-      002346 78                    6963 	.db #0x78	; 120	'x'
-      002347 40                    6964 	.db #0x40	; 64
-      002348 20                    6965 	.db #0x20	; 32
-      002349 54                    6966 	.db #0x54	; 84	'T'
-      00234A 55                    6967 	.db #0x55	; 85	'U'
-      00234B 79                    6968 	.db #0x79	; 121	'y'
-      00234C 40                    6969 	.db #0x40	; 64
-      00234D 0C                    6970 	.db #0x0c	; 12
-      00234E 1E                    6971 	.db #0x1e	; 30
-      00234F 52                    6972 	.db #0x52	; 82	'R'
-      002350 72                    6973 	.db #0x72	; 114	'r'
-      002351 12                    6974 	.db #0x12	; 18
-      002352 39                    6975 	.db #0x39	; 57	'9'
-      002353 55                    6976 	.db #0x55	; 85	'U'
-      002354 55                    6977 	.db #0x55	; 85	'U'
-      002355 55                    6978 	.db #0x55	; 85	'U'
-      002356 59                    6979 	.db #0x59	; 89	'Y'
-      002357 39                    6980 	.db #0x39	; 57	'9'
-      002358 54                    6981 	.db #0x54	; 84	'T'
-      002359 54                    6982 	.db #0x54	; 84	'T'
-      00235A 54                    6983 	.db #0x54	; 84	'T'
-      00235B 59                    6984 	.db #0x59	; 89	'Y'
-      00235C 39                    6985 	.db #0x39	; 57	'9'
-      00235D 55                    6986 	.db #0x55	; 85	'U'
-      00235E 54                    6987 	.db #0x54	; 84	'T'
-      00235F 54                    6988 	.db #0x54	; 84	'T'
-      002360 58                    6989 	.db #0x58	; 88	'X'
-      002361 00                    6990 	.db #0x00	; 0
-      002362 00                    6991 	.db #0x00	; 0
-      002363 45                    6992 	.db #0x45	; 69	'E'
-      002364 7C                    6993 	.db #0x7c	; 124
-      002365 41                    6994 	.db #0x41	; 65	'A'
-      002366 00                    6995 	.db #0x00	; 0
-      002367 02                    6996 	.db #0x02	; 2
-      002368 45                    6997 	.db #0x45	; 69	'E'
-      002369 7D                    6998 	.db #0x7d	; 125
-      00236A 42                    6999 	.db #0x42	; 66	'B'
-      00236B 00                    7000 	.db #0x00	; 0
-      00236C 01                    7001 	.db #0x01	; 1
-      00236D 45                    7002 	.db #0x45	; 69	'E'
-      00236E 7C                    7003 	.db #0x7c	; 124
-      00236F 40                    7004 	.db #0x40	; 64
-      002370 7D                    7005 	.db #0x7d	; 125
-      002371 12                    7006 	.db #0x12	; 18
-      002372 11                    7007 	.db #0x11	; 17
-      002373 12                    7008 	.db #0x12	; 18
-      002374 7D                    7009 	.db #0x7d	; 125
-      002375 F0                    7010 	.db #0xf0	; 240
-      002376 28                    7011 	.db #0x28	; 40
-      002377 25                    7012 	.db #0x25	; 37
-      002378 28                    7013 	.db #0x28	; 40
-      002379 F0                    7014 	.db #0xf0	; 240
-      00237A 7C                    7015 	.db #0x7c	; 124
-      00237B 54                    7016 	.db #0x54	; 84	'T'
-      00237C 55                    7017 	.db #0x55	; 85	'U'
-      00237D 45                    7018 	.db #0x45	; 69	'E'
-      00237E 00                    7019 	.db #0x00	; 0
-      00237F 20                    7020 	.db #0x20	; 32
-      002380 54                    7021 	.db #0x54	; 84	'T'
-      002381 54                    7022 	.db #0x54	; 84	'T'
-      002382 7C                    7023 	.db #0x7c	; 124
-      002383 54                    7024 	.db #0x54	; 84	'T'
-      002384 7C                    7025 	.db #0x7c	; 124
-      002385 0A                    7026 	.db #0x0a	; 10
-      002386 09                    7027 	.db #0x09	; 9
-      002387 7F                    7028 	.db #0x7f	; 127
-      002388 49                    7029 	.db #0x49	; 73	'I'
-      002389 32                    7030 	.db #0x32	; 50	'2'
-      00238A 49                    7031 	.db #0x49	; 73	'I'
-      00238B 49                    7032 	.db #0x49	; 73	'I'
-      00238C 49                    7033 	.db #0x49	; 73	'I'
-      00238D 32                    7034 	.db #0x32	; 50	'2'
-      00238E 3A                    7035 	.db #0x3a	; 58
-      00238F 44                    7036 	.db #0x44	; 68	'D'
-      002390 44                    7037 	.db #0x44	; 68	'D'
-      002391 44                    7038 	.db #0x44	; 68	'D'
-      002392 3A                    7039 	.db #0x3a	; 58
-      002393 32                    7040 	.db #0x32	; 50	'2'
-      002394 4A                    7041 	.db #0x4a	; 74	'J'
-      002395 48                    7042 	.db #0x48	; 72	'H'
-      002396 48                    7043 	.db #0x48	; 72	'H'
-      002397 30                    7044 	.db #0x30	; 48	'0'
-      002398 3A                    7045 	.db #0x3a	; 58
-      002399 41                    7046 	.db #0x41	; 65	'A'
-      00239A 41                    7047 	.db #0x41	; 65	'A'
-      00239B 21                    7048 	.db #0x21	; 33
-      00239C 7A                    7049 	.db #0x7a	; 122	'z'
-      00239D 3A                    7050 	.db #0x3a	; 58
-      00239E 42                    7051 	.db #0x42	; 66	'B'
-      00239F 40                    7052 	.db #0x40	; 64
-      0023A0 20                    7053 	.db #0x20	; 32
-      0023A1 78                    7054 	.db #0x78	; 120	'x'
-      0023A2 00                    7055 	.db #0x00	; 0
-      0023A3 9D                    7056 	.db #0x9d	; 157
-      0023A4 A0                    7057 	.db #0xa0	; 160
-      0023A5 A0                    7058 	.db #0xa0	; 160
-      0023A6 7D                    7059 	.db #0x7d	; 125
-      0023A7 3D                    7060 	.db #0x3d	; 61
-      0023A8 42                    7061 	.db #0x42	; 66	'B'
-      0023A9 42                    7062 	.db #0x42	; 66	'B'
-      0023AA 42                    7063 	.db #0x42	; 66	'B'
-      0023AB 3D                    7064 	.db #0x3d	; 61
-      0023AC 3D                    7065 	.db #0x3d	; 61
-      0023AD 40                    7066 	.db #0x40	; 64
-      0023AE 40                    7067 	.db #0x40	; 64
-      0023AF 40                    7068 	.db #0x40	; 64
-      0023B0 3D                    7069 	.db #0x3d	; 61
-      0023B1 3C                    7070 	.db #0x3c	; 60
-      0023B2 24                    7071 	.db #0x24	; 36
-      0023B3 FF                    7072 	.db #0xff	; 255
-      0023B4 24                    7073 	.db #0x24	; 36
-      0023B5 24                    7074 	.db #0x24	; 36
-      0023B6 48                    7075 	.db #0x48	; 72	'H'
-      0023B7 7E                    7076 	.db #0x7e	; 126
-      0023B8 49                    7077 	.db #0x49	; 73	'I'
-      0023B9 43                    7078 	.db #0x43	; 67	'C'
-      0023BA 66                    7079 	.db #0x66	; 102	'f'
-      0023BB 2B                    7080 	.db #0x2b	; 43
-      0023BC 2F                    7081 	.db #0x2f	; 47
-      0023BD FC                    7082 	.db #0xfc	; 252
-      0023BE 2F                    7083 	.db #0x2f	; 47
-      0023BF 2B                    7084 	.db #0x2b	; 43
-      0023C0 FF                    7085 	.db #0xff	; 255
-      0023C1 09                    7086 	.db #0x09	; 9
-      0023C2 29                    7087 	.db #0x29	; 41
-      0023C3 F6                    7088 	.db #0xf6	; 246
-      0023C4 20                    7089 	.db #0x20	; 32
-      0023C5 C0                    7090 	.db #0xc0	; 192
-      0023C6 88                    7091 	.db #0x88	; 136
-      0023C7 7E                    7092 	.db #0x7e	; 126
-      0023C8 09                    7093 	.db #0x09	; 9
-      0023C9 03                    7094 	.db #0x03	; 3
-      0023CA 20                    7095 	.db #0x20	; 32
-      0023CB 54                    7096 	.db #0x54	; 84	'T'
-      0023CC 54                    7097 	.db #0x54	; 84	'T'
-      0023CD 79                    7098 	.db #0x79	; 121	'y'
-      0023CE 41                    7099 	.db #0x41	; 65	'A'
-      0023CF 00                    7100 	.db #0x00	; 0
-      0023D0 00                    7101 	.db #0x00	; 0
-      0023D1 44                    7102 	.db #0x44	; 68	'D'
-      0023D2 7D                    7103 	.db #0x7d	; 125
-      0023D3 41                    7104 	.db #0x41	; 65	'A'
-      0023D4 30                    7105 	.db #0x30	; 48	'0'
-      0023D5 48                    7106 	.db #0x48	; 72	'H'
-      0023D6 48                    7107 	.db #0x48	; 72	'H'
-      0023D7 4A                    7108 	.db #0x4a	; 74	'J'
-      0023D8 32                    7109 	.db #0x32	; 50	'2'
-      0023D9 38                    7110 	.db #0x38	; 56	'8'
-      0023DA 40                    7111 	.db #0x40	; 64
-      0023DB 40                    7112 	.db #0x40	; 64
-      0023DC 22                    7113 	.db #0x22	; 34
-      0023DD 7A                    7114 	.db #0x7a	; 122	'z'
-      0023DE 00                    7115 	.db #0x00	; 0
-      0023DF 7A                    7116 	.db #0x7a	; 122	'z'
-      0023E0 0A                    7117 	.db #0x0a	; 10
-      0023E1 0A                    7118 	.db #0x0a	; 10
-      0023E2 72                    7119 	.db #0x72	; 114	'r'
-      0023E3 7D                    7120 	.db #0x7d	; 125
-      0023E4 0D                    7121 	.db #0x0d	; 13
-      0023E5 19                    7122 	.db #0x19	; 25
-      0023E6 31                    7123 	.db #0x31	; 49	'1'
-      0023E7 7D                    7124 	.db #0x7d	; 125
-      0023E8 26                    7125 	.db #0x26	; 38
-      0023E9 29                    7126 	.db #0x29	; 41
-      0023EA 29                    7127 	.db #0x29	; 41
-      0023EB 2F                    7128 	.db #0x2f	; 47
-      0023EC 28                    7129 	.db #0x28	; 40
-      0023ED 26                    7130 	.db #0x26	; 38
-      0023EE 29                    7131 	.db #0x29	; 41
-      0023EF 29                    7132 	.db #0x29	; 41
-      0023F0 29                    7133 	.db #0x29	; 41
-      0023F1 26                    7134 	.db #0x26	; 38
-      0023F2 30                    7135 	.db #0x30	; 48	'0'
-      0023F3 48                    7136 	.db #0x48	; 72	'H'
-      0023F4 4D                    7137 	.db #0x4d	; 77	'M'
-      0023F5 40                    7138 	.db #0x40	; 64
-      0023F6 20                    7139 	.db #0x20	; 32
-      0023F7 38                    7140 	.db #0x38	; 56	'8'
-      0023F8 08                    7141 	.db #0x08	; 8
-      0023F9 08                    7142 	.db #0x08	; 8
-      0023FA 08                    7143 	.db #0x08	; 8
-      0023FB 08                    7144 	.db #0x08	; 8
-      0023FC 08                    7145 	.db #0x08	; 8
-      0023FD 08                    7146 	.db #0x08	; 8
-      0023FE 08                    7147 	.db #0x08	; 8
-      0023FF 08                    7148 	.db #0x08	; 8
-      002400 38                    7149 	.db #0x38	; 56	'8'
-      002401 2F                    7150 	.db #0x2f	; 47
-      002402 10                    7151 	.db #0x10	; 16
-      002403 C8                    7152 	.db #0xc8	; 200
-      002404 AC                    7153 	.db #0xac	; 172
-      002405 BA                    7154 	.db #0xba	; 186
-      002406 2F                    7155 	.db #0x2f	; 47
-      002407 10                    7156 	.db #0x10	; 16
-      002408 28                    7157 	.db #0x28	; 40
-      002409 34                    7158 	.db #0x34	; 52	'4'
-      00240A FA                    7159 	.db #0xfa	; 250
-      00240B 00                    7160 	.db #0x00	; 0
-      00240C 00                    7161 	.db #0x00	; 0
-      00240D 7B                    7162 	.db #0x7b	; 123
-      00240E 00                    7163 	.db #0x00	; 0
-      00240F 00                    7164 	.db #0x00	; 0
-      002410 08                    7165 	.db #0x08	; 8
-      002411 14                    7166 	.db #0x14	; 20
-      002412 2A                    7167 	.db #0x2a	; 42
-      002413 14                    7168 	.db #0x14	; 20
-      002414 22                    7169 	.db #0x22	; 34
-      002415 22                    7170 	.db #0x22	; 34
-      002416 14                    7171 	.db #0x14	; 20
-      002417 2A                    7172 	.db #0x2a	; 42
-      002418 14                    7173 	.db #0x14	; 20
-      002419 08                    7174 	.db #0x08	; 8
-      00241A AA                    7175 	.db #0xaa	; 170
-      00241B 00                    7176 	.db #0x00	; 0
-      00241C 55                    7177 	.db #0x55	; 85	'U'
-      00241D 00                    7178 	.db #0x00	; 0
-      00241E AA                    7179 	.db #0xaa	; 170
-      00241F AA                    7180 	.db #0xaa	; 170
-      002420 55                    7181 	.db #0x55	; 85	'U'
-      002421 AA                    7182 	.db #0xaa	; 170
-      002422 55                    7183 	.db #0x55	; 85	'U'
-      002423 AA                    7184 	.db #0xaa	; 170
-      002424 00                    7185 	.db #0x00	; 0
-      002425 00                    7186 	.db #0x00	; 0
-      002426 00                    7187 	.db #0x00	; 0
-      002427 FF                    7188 	.db #0xff	; 255
-      002428 00                    7189 	.db #0x00	; 0
-      002429 10                    7190 	.db #0x10	; 16
-      00242A 10                    7191 	.db #0x10	; 16
-      00242B 10                    7192 	.db #0x10	; 16
-      00242C FF                    7193 	.db #0xff	; 255
-      00242D 00                    7194 	.db #0x00	; 0
-      00242E 14                    7195 	.db #0x14	; 20
-      00242F 14                    7196 	.db #0x14	; 20
-      002430 14                    7197 	.db #0x14	; 20
-      002431 FF                    7198 	.db #0xff	; 255
-      002432 00                    7199 	.db #0x00	; 0
-      002433 10                    7200 	.db #0x10	; 16
-      002434 10                    7201 	.db #0x10	; 16
-      002435 FF                    7202 	.db #0xff	; 255
-      002436 00                    7203 	.db #0x00	; 0
-      002437 FF                    7204 	.db #0xff	; 255
-      002438 10                    7205 	.db #0x10	; 16
-      002439 10                    7206 	.db #0x10	; 16
-      00243A F0                    7207 	.db #0xf0	; 240
-      00243B 10                    7208 	.db #0x10	; 16
-      00243C F0                    7209 	.db #0xf0	; 240
-      00243D 14                    7210 	.db #0x14	; 20
-      00243E 14                    7211 	.db #0x14	; 20
-      00243F 14                    7212 	.db #0x14	; 20
-      002440 FC                    7213 	.db #0xfc	; 252
-      002441 00                    7214 	.db #0x00	; 0
-      002442 14                    7215 	.db #0x14	; 20
-      002443 14                    7216 	.db #0x14	; 20
-      002444 F7                    7217 	.db #0xf7	; 247
-      002445 00                    7218 	.db #0x00	; 0
-      002446 FF                    7219 	.db #0xff	; 255
-      002447 00                    7220 	.db #0x00	; 0
-      002448 00                    7221 	.db #0x00	; 0
-      002449 FF                    7222 	.db #0xff	; 255
-      00244A 00                    7223 	.db #0x00	; 0
-      00244B FF                    7224 	.db #0xff	; 255
-      00244C 14                    7225 	.db #0x14	; 20
-      00244D 14                    7226 	.db #0x14	; 20
-      00244E F4                    7227 	.db #0xf4	; 244
-      00244F 04                    7228 	.db #0x04	; 4
-      002450 FC                    7229 	.db #0xfc	; 252
-      002451 14                    7230 	.db #0x14	; 20
-      002452 14                    7231 	.db #0x14	; 20
-      002453 17                    7232 	.db #0x17	; 23
-      002454 10                    7233 	.db #0x10	; 16
-      002455 1F                    7234 	.db #0x1f	; 31
-      002456 10                    7235 	.db #0x10	; 16
-      002457 10                    7236 	.db #0x10	; 16
-      002458 1F                    7237 	.db #0x1f	; 31
-      002459 10                    7238 	.db #0x10	; 16
-      00245A 1F                    7239 	.db #0x1f	; 31
-      00245B 14                    7240 	.db #0x14	; 20
-      00245C 14                    7241 	.db #0x14	; 20
-      00245D 14                    7242 	.db #0x14	; 20
-      00245E 1F                    7243 	.db #0x1f	; 31
-      00245F 00                    7244 	.db #0x00	; 0
-      002460 10                    7245 	.db #0x10	; 16
-      002461 10                    7246 	.db #0x10	; 16
-      002462 10                    7247 	.db #0x10	; 16
-      002463 F0                    7248 	.db #0xf0	; 240
-      002464 00                    7249 	.db #0x00	; 0
-      002465 00                    7250 	.db #0x00	; 0
-      002466 00                    7251 	.db #0x00	; 0
-      002467 00                    7252 	.db #0x00	; 0
-      002468 1F                    7253 	.db #0x1f	; 31
-      002469 10                    7254 	.db #0x10	; 16
-      00246A 10                    7255 	.db #0x10	; 16
-      00246B 10                    7256 	.db #0x10	; 16
-      00246C 10                    7257 	.db #0x10	; 16
-      00246D 1F                    7258 	.db #0x1f	; 31
-      00246E 10                    7259 	.db #0x10	; 16
-      00246F 10                    7260 	.db #0x10	; 16
-      002470 10                    7261 	.db #0x10	; 16
-      002471 10                    7262 	.db #0x10	; 16
-      002472 F0                    7263 	.db #0xf0	; 240
-      002473 10                    7264 	.db #0x10	; 16
-      002474 00                    7265 	.db #0x00	; 0
-      002475 00                    7266 	.db #0x00	; 0
-      002476 00                    7267 	.db #0x00	; 0
-      002477 FF                    7268 	.db #0xff	; 255
-      002478 10                    7269 	.db #0x10	; 16
-      002479 10                    7270 	.db #0x10	; 16
-      00247A 10                    7271 	.db #0x10	; 16
-      00247B 10                    7272 	.db #0x10	; 16
-      00247C 10                    7273 	.db #0x10	; 16
-      00247D 10                    7274 	.db #0x10	; 16
-      00247E 10                    7275 	.db #0x10	; 16
-      00247F 10                    7276 	.db #0x10	; 16
-      002480 10                    7277 	.db #0x10	; 16
-      002481 FF                    7278 	.db #0xff	; 255
-      002482 10                    7279 	.db #0x10	; 16
-      002483 00                    7280 	.db #0x00	; 0
-      002484 00                    7281 	.db #0x00	; 0
-      002485 00                    7282 	.db #0x00	; 0
-      002486 FF                    7283 	.db #0xff	; 255
-      002487 14                    7284 	.db #0x14	; 20
-      002488 00                    7285 	.db #0x00	; 0
-      002489 00                    7286 	.db #0x00	; 0
-      00248A FF                    7287 	.db #0xff	; 255
-      00248B 00                    7288 	.db #0x00	; 0
-      00248C FF                    7289 	.db #0xff	; 255
-      00248D 00                    7290 	.db #0x00	; 0
-      00248E 00                    7291 	.db #0x00	; 0
-      00248F 1F                    7292 	.db #0x1f	; 31
-      002490 10                    7293 	.db #0x10	; 16
-      002491 17                    7294 	.db #0x17	; 23
-      002492 00                    7295 	.db #0x00	; 0
-      002493 00                    7296 	.db #0x00	; 0
-      002494 FC                    7297 	.db #0xfc	; 252
-      002495 04                    7298 	.db #0x04	; 4
-      002496 F4                    7299 	.db #0xf4	; 244
-      002497 14                    7300 	.db #0x14	; 20
-      002498 14                    7301 	.db #0x14	; 20
-      002499 17                    7302 	.db #0x17	; 23
-      00249A 10                    7303 	.db #0x10	; 16
-      00249B 17                    7304 	.db #0x17	; 23
-      00249C 14                    7305 	.db #0x14	; 20
-      00249D 14                    7306 	.db #0x14	; 20
-      00249E F4                    7307 	.db #0xf4	; 244
-      00249F 04                    7308 	.db #0x04	; 4
-      0024A0 F4                    7309 	.db #0xf4	; 244
-      0024A1 00                    7310 	.db #0x00	; 0
-      0024A2 00                    7311 	.db #0x00	; 0
-      0024A3 FF                    7312 	.db #0xff	; 255
-      0024A4 00                    7313 	.db #0x00	; 0
-      0024A5 F7                    7314 	.db #0xf7	; 247
-      0024A6 14                    7315 	.db #0x14	; 20
-      0024A7 14                    7316 	.db #0x14	; 20
-      0024A8 14                    7317 	.db #0x14	; 20
-      0024A9 14                    7318 	.db #0x14	; 20
-      0024AA 14                    7319 	.db #0x14	; 20
-      0024AB 14                    7320 	.db #0x14	; 20
-      0024AC 14                    7321 	.db #0x14	; 20
-      0024AD F7                    7322 	.db #0xf7	; 247
-      0024AE 00                    7323 	.db #0x00	; 0
-      0024AF F7                    7324 	.db #0xf7	; 247
-      0024B0 14                    7325 	.db #0x14	; 20
-      0024B1 14                    7326 	.db #0x14	; 20
-      0024B2 14                    7327 	.db #0x14	; 20
-      0024B3 17                    7328 	.db #0x17	; 23
-      0024B4 14                    7329 	.db #0x14	; 20
-      0024B5 10                    7330 	.db #0x10	; 16
-      0024B6 10                    7331 	.db #0x10	; 16
-      0024B7 1F                    7332 	.db #0x1f	; 31
-      0024B8 10                    7333 	.db #0x10	; 16
-      0024B9 1F                    7334 	.db #0x1f	; 31
-      0024BA 14                    7335 	.db #0x14	; 20
-      0024BB 14                    7336 	.db #0x14	; 20
-      0024BC 14                    7337 	.db #0x14	; 20
-      0024BD F4                    7338 	.db #0xf4	; 244
-      0024BE 14                    7339 	.db #0x14	; 20
-      0024BF 10                    7340 	.db #0x10	; 16
-      0024C0 10                    7341 	.db #0x10	; 16
-      0024C1 F0                    7342 	.db #0xf0	; 240
-      0024C2 10                    7343 	.db #0x10	; 16
-      0024C3 F0                    7344 	.db #0xf0	; 240
-      0024C4 00                    7345 	.db #0x00	; 0
-      0024C5 00                    7346 	.db #0x00	; 0
-      0024C6 1F                    7347 	.db #0x1f	; 31
-      0024C7 10                    7348 	.db #0x10	; 16
-      0024C8 1F                    7349 	.db #0x1f	; 31
-      0024C9 00                    7350 	.db #0x00	; 0
-      0024CA 00                    7351 	.db #0x00	; 0
-      0024CB 00                    7352 	.db #0x00	; 0
-      0024CC 1F                    7353 	.db #0x1f	; 31
-      0024CD 14                    7354 	.db #0x14	; 20
-      0024CE 00                    7355 	.db #0x00	; 0
-      0024CF 00                    7356 	.db #0x00	; 0
-      0024D0 00                    7357 	.db #0x00	; 0
-      0024D1 FC                    7358 	.db #0xfc	; 252
-      0024D2 14                    7359 	.db #0x14	; 20
-      0024D3 00                    7360 	.db #0x00	; 0
-      0024D4 00                    7361 	.db #0x00	; 0
-      0024D5 F0                    7362 	.db #0xf0	; 240
-      0024D6 10                    7363 	.db #0x10	; 16
-      0024D7 F0                    7364 	.db #0xf0	; 240
-      0024D8 10                    7365 	.db #0x10	; 16
-      0024D9 10                    7366 	.db #0x10	; 16
-      0024DA FF                    7367 	.db #0xff	; 255
-      0024DB 10                    7368 	.db #0x10	; 16
-      0024DC FF                    7369 	.db #0xff	; 255
-      0024DD 14                    7370 	.db #0x14	; 20
-      0024DE 14                    7371 	.db #0x14	; 20
-      0024DF 14                    7372 	.db #0x14	; 20
-      0024E0 FF                    7373 	.db #0xff	; 255
-      0024E1 14                    7374 	.db #0x14	; 20
-      0024E2 10                    7375 	.db #0x10	; 16
-      0024E3 10                    7376 	.db #0x10	; 16
-      0024E4 10                    7377 	.db #0x10	; 16
-      0024E5 1F                    7378 	.db #0x1f	; 31
-      0024E6 00                    7379 	.db #0x00	; 0
-      0024E7 00                    7380 	.db #0x00	; 0
-      0024E8 00                    7381 	.db #0x00	; 0
-      0024E9 00                    7382 	.db #0x00	; 0
-      0024EA F0                    7383 	.db #0xf0	; 240
-      0024EB 10                    7384 	.db #0x10	; 16
-      0024EC FF                    7385 	.db #0xff	; 255
-      0024ED FF                    7386 	.db #0xff	; 255
-      0024EE FF                    7387 	.db #0xff	; 255
-      0024EF FF                    7388 	.db #0xff	; 255
-      0024F0 FF                    7389 	.db #0xff	; 255
-      0024F1 F0                    7390 	.db #0xf0	; 240
-      0024F2 F0                    7391 	.db #0xf0	; 240
-      0024F3 F0                    7392 	.db #0xf0	; 240
-      0024F4 F0                    7393 	.db #0xf0	; 240
-      0024F5 F0                    7394 	.db #0xf0	; 240
-      0024F6 FF                    7395 	.db #0xff	; 255
-      0024F7 FF                    7396 	.db #0xff	; 255
-      0024F8 FF                    7397 	.db #0xff	; 255
-      0024F9 00                    7398 	.db #0x00	; 0
-      0024FA 00                    7399 	.db #0x00	; 0
-      0024FB 00                    7400 	.db #0x00	; 0
-      0024FC 00                    7401 	.db #0x00	; 0
-      0024FD 00                    7402 	.db #0x00	; 0
-      0024FE FF                    7403 	.db #0xff	; 255
-      0024FF FF                    7404 	.db #0xff	; 255
-      002500 0F                    7405 	.db #0x0f	; 15
-      002501 0F                    7406 	.db #0x0f	; 15
-      002502 0F                    7407 	.db #0x0f	; 15
-      002503 0F                    7408 	.db #0x0f	; 15
-      002504 0F                    7409 	.db #0x0f	; 15
-      002505 38                    7410 	.db #0x38	; 56	'8'
-      002506 44                    7411 	.db #0x44	; 68	'D'
-      002507 44                    7412 	.db #0x44	; 68	'D'
-      002508 38                    7413 	.db #0x38	; 56	'8'
-      002509 44                    7414 	.db #0x44	; 68	'D'
-      00250A FC                    7415 	.db #0xfc	; 252
-      00250B 4A                    7416 	.db #0x4a	; 74	'J'
-      00250C 4A                    7417 	.db #0x4a	; 74	'J'
-      00250D 4A                    7418 	.db #0x4a	; 74	'J'
-      00250E 34                    7419 	.db #0x34	; 52	'4'
-      00250F 7E                    7420 	.db #0x7e	; 126
-      002510 02                    7421 	.db #0x02	; 2
-      002511 02                    7422 	.db #0x02	; 2
-      002512 06                    7423 	.db #0x06	; 6
-      002513 06                    7424 	.db #0x06	; 6
-      002514 02                    7425 	.db #0x02	; 2
-      002515 7E                    7426 	.db #0x7e	; 126
-      002516 02                    7427 	.db #0x02	; 2
-      002517 7E                    7428 	.db #0x7e	; 126
-      002518 02                    7429 	.db #0x02	; 2
-      002519 63                    7430 	.db #0x63	; 99	'c'
-      00251A 55                    7431 	.db #0x55	; 85	'U'
-      00251B 49                    7432 	.db #0x49	; 73	'I'
-      00251C 41                    7433 	.db #0x41	; 65	'A'
-      00251D 63                    7434 	.db #0x63	; 99	'c'
-      00251E 38                    7435 	.db #0x38	; 56	'8'
-      00251F 44                    7436 	.db #0x44	; 68	'D'
-      002520 44                    7437 	.db #0x44	; 68	'D'
-      002521 3C                    7438 	.db #0x3c	; 60
-      002522 04                    7439 	.db #0x04	; 4
-      002523 40                    7440 	.db #0x40	; 64
-      002524 7E                    7441 	.db #0x7e	; 126
-      002525 20                    7442 	.db #0x20	; 32
-      002526 1E                    7443 	.db #0x1e	; 30
-      002527 20                    7444 	.db #0x20	; 32
-      002528 06                    7445 	.db #0x06	; 6
-      002529 02                    7446 	.db #0x02	; 2
-      00252A 7E                    7447 	.db #0x7e	; 126
-      00252B 02                    7448 	.db #0x02	; 2
-      00252C 02                    7449 	.db #0x02	; 2
-      00252D 99                    7450 	.db #0x99	; 153
-      00252E A5                    7451 	.db #0xa5	; 165
-      00252F E7                    7452 	.db #0xe7	; 231
-      002530 A5                    7453 	.db #0xa5	; 165
-      002531 99                    7454 	.db #0x99	; 153
-      002532 1C                    7455 	.db #0x1c	; 28
-      002533 2A                    7456 	.db #0x2a	; 42
-      002534 49                    7457 	.db #0x49	; 73	'I'
-      002535 2A                    7458 	.db #0x2a	; 42
-      002536 1C                    7459 	.db #0x1c	; 28
-      002537 4C                    7460 	.db #0x4c	; 76	'L'
-      002538 72                    7461 	.db #0x72	; 114	'r'
-      002539 01                    7462 	.db #0x01	; 1
-      00253A 72                    7463 	.db #0x72	; 114	'r'
-      00253B 4C                    7464 	.db #0x4c	; 76	'L'
-      00253C 30                    7465 	.db #0x30	; 48	'0'
-      00253D 4A                    7466 	.db #0x4a	; 74	'J'
-      00253E 4D                    7467 	.db #0x4d	; 77	'M'
-      00253F 4D                    7468 	.db #0x4d	; 77	'M'
-      002540 30                    7469 	.db #0x30	; 48	'0'
-      002541 30                    7470 	.db #0x30	; 48	'0'
-      002542 48                    7471 	.db #0x48	; 72	'H'
-      002543 78                    7472 	.db #0x78	; 120	'x'
-      002544 48                    7473 	.db #0x48	; 72	'H'
-      002545 30                    7474 	.db #0x30	; 48	'0'
-      002546 BC                    7475 	.db #0xbc	; 188
-      002547 62                    7476 	.db #0x62	; 98	'b'
-      002548 5A                    7477 	.db #0x5a	; 90	'Z'
-      002549 46                    7478 	.db #0x46	; 70	'F'
-      00254A 3D                    7479 	.db #0x3d	; 61
-      00254B 3E                    7480 	.db #0x3e	; 62
-      00254C 49                    7481 	.db #0x49	; 73	'I'
-      00254D 49                    7482 	.db #0x49	; 73	'I'
-      00254E 49                    7483 	.db #0x49	; 73	'I'
-      00254F 00                    7484 	.db #0x00	; 0
-      002550 7E                    7485 	.db #0x7e	; 126
-      002551 01                    7486 	.db #0x01	; 1
-      002552 01                    7487 	.db #0x01	; 1
-      002553 01                    7488 	.db #0x01	; 1
-      002554 7E                    7489 	.db #0x7e	; 126
-      002555 2A                    7490 	.db #0x2a	; 42
-      002556 2A                    7491 	.db #0x2a	; 42
-      002557 2A                    7492 	.db #0x2a	; 42
-      002558 2A                    7493 	.db #0x2a	; 42
-      002559 2A                    7494 	.db #0x2a	; 42
-      00255A 44                    7495 	.db #0x44	; 68	'D'
-      00255B 44                    7496 	.db #0x44	; 68	'D'
-      00255C 5F                    7497 	.db #0x5f	; 95
-      00255D 44                    7498 	.db #0x44	; 68	'D'
-      00255E 44                    7499 	.db #0x44	; 68	'D'
-      00255F 40                    7500 	.db #0x40	; 64
-      002560 51                    7501 	.db #0x51	; 81	'Q'
-      002561 4A                    7502 	.db #0x4a	; 74	'J'
-      002562 44                    7503 	.db #0x44	; 68	'D'
-      002563 40                    7504 	.db #0x40	; 64
-      002564 40                    7505 	.db #0x40	; 64
-      002565 44                    7506 	.db #0x44	; 68	'D'
-      002566 4A                    7507 	.db #0x4a	; 74	'J'
-      002567 51                    7508 	.db #0x51	; 81	'Q'
-      002568 40                    7509 	.db #0x40	; 64
-      002569 00                    7510 	.db #0x00	; 0
-      00256A 00                    7511 	.db #0x00	; 0
-      00256B FF                    7512 	.db #0xff	; 255
-      00256C 01                    7513 	.db #0x01	; 1
-      00256D 03                    7514 	.db #0x03	; 3
-      00256E E0                    7515 	.db #0xe0	; 224
-      00256F 80                    7516 	.db #0x80	; 128
-      002570 FF                    7517 	.db #0xff	; 255
-      002571 00                    7518 	.db #0x00	; 0
-      002572 00                    7519 	.db #0x00	; 0
-      002573 08                    7520 	.db #0x08	; 8
-      002574 08                    7521 	.db #0x08	; 8
-      002575 6B                    7522 	.db #0x6b	; 107	'k'
-      002576 6B                    7523 	.db #0x6b	; 107	'k'
-      002577 08                    7524 	.db #0x08	; 8
-      002578 36                    7525 	.db #0x36	; 54	'6'
-      002579 12                    7526 	.db #0x12	; 18
-      00257A 36                    7527 	.db #0x36	; 54	'6'
-      00257B 24                    7528 	.db #0x24	; 36
-      00257C 36                    7529 	.db #0x36	; 54	'6'
-      00257D 06                    7530 	.db #0x06	; 6
-      00257E 0F                    7531 	.db #0x0f	; 15
-      00257F 09                    7532 	.db #0x09	; 9
-      002580 0F                    7533 	.db #0x0f	; 15
-      002581 06                    7534 	.db #0x06	; 6
-      002582 00                    7535 	.db #0x00	; 0
-      002583 00                    7536 	.db #0x00	; 0
-      002584 18                    7537 	.db #0x18	; 24
-      002585 18                    7538 	.db #0x18	; 24
-      002586 00                    7539 	.db #0x00	; 0
-      002587 00                    7540 	.db #0x00	; 0
-      002588 00                    7541 	.db #0x00	; 0
-      002589 10                    7542 	.db #0x10	; 16
-      00258A 10                    7543 	.db #0x10	; 16
-      00258B 00                    7544 	.db #0x00	; 0
-      00258C 30                    7545 	.db #0x30	; 48	'0'
-      00258D 40                    7546 	.db #0x40	; 64
-      00258E FF                    7547 	.db #0xff	; 255
-      00258F 01                    7548 	.db #0x01	; 1
-      002590 01                    7549 	.db #0x01	; 1
-      002591 00                    7550 	.db #0x00	; 0
-      002592 1F                    7551 	.db #0x1f	; 31
-      002593 01                    7552 	.db #0x01	; 1
-      002594 01                    7553 	.db #0x01	; 1
-      002595 1E                    7554 	.db #0x1e	; 30
-      002596 00                    7555 	.db #0x00	; 0
-      002597 19                    7556 	.db #0x19	; 25
-      002598 1D                    7557 	.db #0x1d	; 29
-      002599 17                    7558 	.db #0x17	; 23
-      00259A 12                    7559 	.db #0x12	; 18
-      00259B 00                    7560 	.db #0x00	; 0
-      00259C 3C                    7561 	.db #0x3c	; 60
-      00259D 3C                    7562 	.db #0x3c	; 60
-      00259E 3C                    7563 	.db #0x3c	; 60
-      00259F 3C                    7564 	.db #0x3c	; 60
-      0025A0 00                    7565 	.db #0x00	; 0
-      0025A1 00                    7566 	.db #0x00	; 0
-      0025A2 00                    7567 	.db #0x00	; 0
-      0025A3 00                    7568 	.db #0x00	; 0
-      0025A4 00                    7569 	.db #0x00	; 0
-      0025A5                       7570 _keypad:
-      0025A5 31                    7571 	.db #0x31	; 49	'1'
-      0025A6 34                    7572 	.db #0x34	; 52	'4'
-      0025A7 37                    7573 	.db #0x37	; 55	'7'
-      0025A8 46                    7574 	.db #0x46	; 70	'F'
-      0025A9 32                    7575 	.db #0x32	; 50	'2'
-      0025AA 35                    7576 	.db #0x35	; 53	'5'
-      0025AB 38                    7577 	.db #0x38	; 56	'8'
-      0025AC 30                    7578 	.db #0x30	; 48	'0'
-      0025AD 33                    7579 	.db #0x33	; 51	'3'
-      0025AE 36                    7580 	.db #0x36	; 54	'6'
-      0025AF 39                    7581 	.db #0x39	; 57	'9'
-      0025B0 45                    7582 	.db #0x45	; 69	'E'
-      0025B1 41                    7583 	.db #0x41	; 65	'A'
-      0025B2 42                    7584 	.db #0x42	; 66	'B'
-      0025B3 43                    7585 	.db #0x43	; 67	'C'
-      0025B4 44                    7586 	.db #0x44	; 68	'D'
-                                   7587 	.area CONST   (CODE)
-      0025B5                       7588 ___str_0:
-      0025B5 57 65 6C 63 6F 6D 65  7589 	.ascii "Welcome"
-      0025BC 0A                    7590 	.db 0x0a
-      0025BD 00                    7591 	.db 0x00
-                                   7592 	.area CSEG    (CODE)
-                                   7593 	.area CONST   (CODE)
-      0025BE                       7594 ___str_1:
-      0025BE 45 43 45 4E 2D 34 33  7595 	.ascii "ECEN-4330"
+                                   4885 ;Allocation info for local variables in function 'loopback'
+                                   4886 ;------------------------------------------------------------
+                                   4887 ;input                     Allocated to registers 
+                                   4888 ;------------------------------------------------------------
+                                   4889 ;	435_UART.c:46: void loopback() {
+                                   4890 ;	-----------------------------------------
+                                   4891 ;	 function loopback
+                                   4892 ;	-----------------------------------------
+      001789                       4893 _loopback:
+                                   4894 ;	435_UART.c:48: fillScreen(GRAY);
+      001789 90 D6 BA         [24] 4895 	mov	dptr,#0xd6ba
+      00178C 12 08 E4         [24] 4896 	lcall	_fillScreen
+                                   4897 ;	435_UART.c:49: setCursor(0, 0);
+      00178F E4               [12] 4898 	clr	a
+      001790 F5 08            [12] 4899 	mov	_setCursor_PARM_2,a
+      001792 F5 09            [12] 4900 	mov	(_setCursor_PARM_2 + 1),a
+      001794 90 00 00         [24] 4901 	mov	dptr,#0x0000
+      001797 12 01 56         [24] 4902 	lcall	_setCursor
+                                   4903 ;	435_UART.c:50: setTextSize(2);
+      00179A 75 82 02         [24] 4904 	mov	dpl,#0x02
+      00179D 12 01 70         [24] 4905 	lcall	_setTextSize
+                                   4906 ;	435_UART.c:56: UART_config();
+      0017A0 12 11 01         [24] 4907 	lcall	_UART_config
+                                   4908 ;	435_UART.c:59: fillScreen(GRAY);
+      0017A3 90 D6 BA         [24] 4909 	mov	dptr,#0xd6ba
+      0017A6 12 08 E4         [24] 4910 	lcall	_fillScreen
+                                   4911 ;	435_UART.c:60: setCursor(0, 0);
+      0017A9 E4               [12] 4912 	clr	a
+      0017AA F5 08            [12] 4913 	mov	_setCursor_PARM_2,a
+      0017AC F5 09            [12] 4914 	mov	(_setCursor_PARM_2 + 1),a
+      0017AE 90 00 00         [24] 4915 	mov	dptr,#0x0000
+      0017B1 12 01 56         [24] 4916 	lcall	_setCursor
+                                   4917 ;	435_UART.c:61: setTextSize(2);
+      0017B4 75 82 02         [24] 4918 	mov	dpl,#0x02
+      0017B7 12 01 70         [24] 4919 	lcall	_setTextSize
+                                   4920 ;	435_UART.c:63: LCD_string_write("Press 0 for menu\n");
+      0017BA 90 21 C3         [24] 4921 	mov	dptr,#___str_32
+      0017BD 75 F0 80         [24] 4922 	mov	b,#0x80
+      0017C0 12 0C EB         [24] 4923 	lcall	_LCD_string_write
+                                   4924 ;	435_UART.c:65: do {
+      0017C3                       4925 00108$:
+                                   4926 ;	435_UART.c:67: input = keyDetect();
+      0017C3 12 0D 8A         [24] 4927 	lcall	_keyDetect
+                                   4928 ;	435_UART.c:68: input = UART_transmit(input);
+      0017C6 12 13 1F         [24] 4929 	lcall	_UART_transmit
+                                   4930 ;	435_UART.c:69: write(input);
+      0017C9 12 0C 7D         [24] 4931 	lcall	_write
+                                   4932 ;	435_UART.c:73: if (received_flag == 1) {
+      0017CC 74 01            [12] 4933 	mov	a,#0x01
+      0017CE B5 6C 1F         [24] 4934 	cjne	a,_received_flag,00107$
+                                   4935 ;	435_UART.c:75: if (received_byte == '0') {
+      0017D1 74 30            [12] 4936 	mov	a,#0x30
+      0017D3 B5 6B 04         [24] 4937 	cjne	a,_received_byte,00104$
+                                   4938 ;	435_UART.c:76: received_flag = 0;
+      0017D6 75 6C 00         [24] 4939 	mov	_received_flag,#0x00
+                                   4940 ;	435_UART.c:77: break;
+      0017D9 22               [24] 4941 	ret
+      0017DA                       4942 00104$:
+                                   4943 ;	435_UART.c:80: if (parity != 0) receive_parity();
+      0017DA E5 6E            [12] 4944 	mov	a,_parity
+      0017DC 60 03            [24] 4945 	jz	00105$
+      0017DE 12 12 3E         [24] 4946 	lcall	_receive_parity
+      0017E1                       4947 00105$:
+                                   4948 ;	435_UART.c:82: write(received_byte);
+      0017E1 85 6B 82         [24] 4949 	mov	dpl,_received_byte
+      0017E4 12 0C 7D         [24] 4950 	lcall	_write
+                                   4951 ;	435_UART.c:83: write('\n');
+      0017E7 75 82 0A         [24] 4952 	mov	dpl,#0x0a
+      0017EA 12 0C 7D         [24] 4953 	lcall	_write
+                                   4954 ;	435_UART.c:84: received_flag = 0;
+      0017ED 75 6C 00         [24] 4955 	mov	_received_flag,#0x00
+      0017F0                       4956 00107$:
+                                   4957 ;	435_UART.c:88: received_flag = 0;
+      0017F0 75 6C 00         [24] 4958 	mov	_received_flag,#0x00
+                                   4959 ;	435_UART.c:89: } while (received_byte != '0');
+      0017F3 74 30            [12] 4960 	mov	a,#0x30
+      0017F5 B5 6B CB         [24] 4961 	cjne	a,_received_byte,00108$
+                                   4962 ;	435_UART.c:90: }
+      0017F8 22               [24] 4963 	ret
+                                   4964 ;------------------------------------------------------------
+                                   4965 ;Allocation info for local variables in function 'interboard'
+                                   4966 ;------------------------------------------------------------
+                                   4967 ;data                      Allocated to registers r7 
+                                   4968 ;input                     Allocated with name '_interboard_input_65537_307'
+                                   4969 ;------------------------------------------------------------
+                                   4970 ;	435_UART.c:97: void interboard() {
+                                   4971 ;	-----------------------------------------
+                                   4972 ;	 function interboard
+                                   4973 ;	-----------------------------------------
+      0017F9                       4974 _interboard:
+                                   4975 ;	435_UART.c:99: fillScreen(GRAY);
+      0017F9 90 D6 BA         [24] 4976 	mov	dptr,#0xd6ba
+      0017FC 12 08 E4         [24] 4977 	lcall	_fillScreen
+                                   4978 ;	435_UART.c:100: setCursor(0, 0);
+      0017FF E4               [12] 4979 	clr	a
+      001800 F5 08            [12] 4980 	mov	_setCursor_PARM_2,a
+      001802 F5 09            [12] 4981 	mov	(_setCursor_PARM_2 + 1),a
+      001804 90 00 00         [24] 4982 	mov	dptr,#0x0000
+      001807 12 01 56         [24] 4983 	lcall	_setCursor
+                                   4984 ;	435_UART.c:101: setTextSize(2);
+      00180A 75 82 02         [24] 4985 	mov	dpl,#0x02
+      00180D 12 01 70         [24] 4986 	lcall	_setTextSize
+                                   4987 ;	435_UART.c:105: uint8_t data = 0;
+      001810 7F 00            [12] 4988 	mov	r7,#0x00
+                                   4989 ;	435_UART.c:108: UART_config();
+      001812 C0 07            [24] 4990 	push	ar7
+      001814 12 11 01         [24] 4991 	lcall	_UART_config
+                                   4992 ;	435_UART.c:111: LCD_string_write("1: Transmit\n2: Receive\n0: Exit\n");
+      001817 90 21 D5         [24] 4993 	mov	dptr,#___str_33
+      00181A 75 F0 80         [24] 4994 	mov	b,#0x80
+      00181D 12 0C EB         [24] 4995 	lcall	_LCD_string_write
+      001820 D0 07            [24] 4996 	pop	ar7
+                                   4997 ;	435_UART.c:114: do {
+      001822                       4998 00124$:
+                                   4999 ;	435_UART.c:115: input = keyDetect();
+      001822 C0 07            [24] 5000 	push	ar7
+      001824 12 0D 8A         [24] 5001 	lcall	_keyDetect
+      001827 AE 82            [24] 5002 	mov	r6,dpl
+      001829 D0 07            [24] 5003 	pop	ar7
+                                   5004 ;	435_UART.c:118: if (input == '1') {
+      00182B BE 31 37         [24] 5005 	cjne	r6,#0x31,00118$
+                                   5006 ;	435_UART.c:120: fillScreen(GRAY);
+      00182E 90 D6 BA         [24] 5007 	mov	dptr,#0xd6ba
+      001831 C0 06            [24] 5008 	push	ar6
+      001833 12 08 E4         [24] 5009 	lcall	_fillScreen
+                                   5010 ;	435_UART.c:121: setCursor(0, 0);
+      001836 E4               [12] 5011 	clr	a
+      001837 F5 08            [12] 5012 	mov	_setCursor_PARM_2,a
+      001839 F5 09            [12] 5013 	mov	(_setCursor_PARM_2 + 1),a
+      00183B 90 00 00         [24] 5014 	mov	dptr,#0x0000
+      00183E 12 01 56         [24] 5015 	lcall	_setCursor
+                                   5016 ;	435_UART.c:123: LCD_string_write("Tx Mode, 0 for menu:\n");
+      001841 90 21 F5         [24] 5017 	mov	dptr,#___str_34
+      001844 75 F0 80         [24] 5018 	mov	b,#0x80
+      001847 12 0C EB         [24] 5019 	lcall	_LCD_string_write
+      00184A D0 06            [24] 5020 	pop	ar6
+                                   5021 ;	435_UART.c:126: do {
+      00184C                       5022 00104$:
+                                   5023 ;	435_UART.c:127: data = keyDetect();
+      00184C C0 06            [24] 5024 	push	ar6
+      00184E 12 0D 8A         [24] 5025 	lcall	_keyDetect
+      001851 AF 82            [24] 5026 	mov	r7,dpl
+      001853 D0 06            [24] 5027 	pop	ar6
+                                   5028 ;	435_UART.c:130: if (data != '0') UART_transmit(data);
+      001855 BF 30 02         [24] 5029 	cjne	r7,#0x30,00167$
+      001858 80 36            [24] 5030 	sjmp	00119$
+      00185A                       5031 00167$:
+      00185A 8F 82            [24] 5032 	mov	dpl,r7
+      00185C C0 06            [24] 5033 	push	ar6
+      00185E 12 13 1F         [24] 5034 	lcall	_UART_transmit
+      001861 D0 06            [24] 5035 	pop	ar6
+                                   5036 ;	435_UART.c:133: } while (1);
+      001863 80 E7            [24] 5037 	sjmp	00104$
+      001865                       5038 00118$:
+                                   5039 ;	435_UART.c:137: else if (input == '2') {
+      001865 BE 32 28         [24] 5040 	cjne	r6,#0x32,00119$
+                                   5041 ;	435_UART.c:138: do {
+      001868                       5042 00112$:
+                                   5043 ;	435_UART.c:139: if (received_flag == 1) {
+      001868 74 01            [12] 5044 	mov	a,#0x01
+      00186A B5 6C FB         [24] 5045 	cjne	a,_received_flag,00112$
+                                   5046 ;	435_UART.c:141: if (received_byte == '0') {
+      00186D 74 30            [12] 5047 	mov	a,#0x30
+      00186F B5 6B 05         [24] 5048 	cjne	a,_received_byte,00108$
+                                   5049 ;	435_UART.c:142: received_flag = 0;
+      001872 75 6C 00         [24] 5050 	mov	_received_flag,#0x00
+                                   5051 ;	435_UART.c:143: break;
+      001875 80 19            [24] 5052 	sjmp	00119$
+      001877                       5053 00108$:
+                                   5054 ;	435_UART.c:146: write(received_byte);
+      001877 85 6B 82         [24] 5055 	mov	dpl,_received_byte
+      00187A C0 07            [24] 5056 	push	ar7
+      00187C C0 06            [24] 5057 	push	ar6
+      00187E 12 0C 7D         [24] 5058 	lcall	_write
+                                   5059 ;	435_UART.c:147: write('\n');
+      001881 75 82 0A         [24] 5060 	mov	dpl,#0x0a
+      001884 12 0C 7D         [24] 5061 	lcall	_write
+      001887 D0 06            [24] 5062 	pop	ar6
+      001889 D0 07            [24] 5063 	pop	ar7
+                                   5064 ;	435_UART.c:148: received_flag = 0;
+      00188B 75 6C 00         [24] 5065 	mov	_received_flag,#0x00
+                                   5066 ;	435_UART.c:151: } while (1);
+      00188E 80 D8            [24] 5067 	sjmp	00112$
+      001890                       5068 00119$:
+                                   5069 ;	435_UART.c:155: if (input == '0' || received_byte == '0' || data == '0') break;
+      001890 BE 30 01         [24] 5070 	cjne	r6,#0x30,00174$
+      001893 22               [24] 5071 	ret
+      001894                       5072 00174$:
+      001894 74 30            [12] 5073 	mov	a,#0x30
+      001896 B5 6B 01         [24] 5074 	cjne	a,_received_byte,00175$
+      001899 22               [24] 5075 	ret
+      00189A                       5076 00175$:
+      00189A BF 30 01         [24] 5077 	cjne	r7,#0x30,00176$
+      00189D 22               [24] 5078 	ret
+      00189E                       5079 00176$:
+      00189E 02 18 22         [24] 5080 	ljmp	00124$
+                                   5081 ;	435_UART.c:156: } while (1);
+                                   5082 ;	435_UART.c:157: }
+      0018A1 22               [24] 5083 	ret
+                                   5084 ;------------------------------------------------------------
+                                   5085 ;Allocation info for local variables in function 'menu'
+                                   5086 ;------------------------------------------------------------
+                                   5087 ;	main.c:33: void menu(void) {
+                                   5088 ;	-----------------------------------------
+                                   5089 ;	 function menu
+                                   5090 ;	-----------------------------------------
+      0018A2                       5091 _menu:
+                                   5092 ;	main.c:35: setRotation(2);
+      0018A2 75 82 02         [24] 5093 	mov	dpl,#0x02
+      0018A5 12 01 88         [24] 5094 	lcall	_setRotation
+                                   5095 ;	main.c:36: setTextSize(3);
+      0018A8 75 82 03         [24] 5096 	mov	dpl,#0x03
+      0018AB 12 01 70         [24] 5097 	lcall	_setTextSize
+                                   5098 ;	main.c:37: fillScreen(GRAY);
+      0018AE 90 D6 BA         [24] 5099 	mov	dptr,#0xd6ba
+      0018B1 12 08 E4         [24] 5100 	lcall	_fillScreen
+                                   5101 ;	main.c:38: setTextColor(BLACK, GRAY);
+      0018B4 75 08 BA         [24] 5102 	mov	_setTextColor_PARM_2,#0xba
+      0018B7 75 09 D6         [24] 5103 	mov	(_setTextColor_PARM_2 + 1),#0xd6
+      0018BA 90 00 00         [24] 5104 	mov	dptr,#0x0000
+      0018BD 12 01 63         [24] 5105 	lcall	_setTextColor
+                                   5106 ;	main.c:39: setCursor(0, 0);
+      0018C0 E4               [12] 5107 	clr	a
+      0018C1 F5 08            [12] 5108 	mov	_setCursor_PARM_2,a
+      0018C3 F5 09            [12] 5109 	mov	(_setCursor_PARM_2 + 1),a
+      0018C5 90 00 00         [24] 5110 	mov	dptr,#0x0000
+      0018C8 12 01 56         [24] 5111 	lcall	_setCursor
+                                   5112 ;	main.c:42: LCD_string_write("Brandon Cline\n");
+      0018CB 90 22 0B         [24] 5113 	mov	dptr,#___str_35
+      0018CE 75 F0 80         [24] 5114 	mov	b,#0x80
+      0018D1 12 0C EB         [24] 5115 	lcall	_LCD_string_write
+                                   5116 ;	main.c:43: LCD_string_write("ECEN 4330\n");
+      0018D4 90 22 1A         [24] 5117 	mov	dptr,#___str_36
+      0018D7 75 F0 80         [24] 5118 	mov	b,#0x80
+      0018DA 12 0C EB         [24] 5119 	lcall	_LCD_string_write
+                                   5120 ;	main.c:45: setTextSize(2);
+      0018DD 75 82 02         [24] 5121 	mov	dpl,#0x02
+      0018E0 12 01 70         [24] 5122 	lcall	_setTextSize
+                                   5123 ;	main.c:49: LCD_string_write("1: Basic check\n");
+      0018E3 90 22 25         [24] 5124 	mov	dptr,#___str_37
+      0018E6 75 F0 80         [24] 5125 	mov	b,#0x80
+      0018E9 12 0C EB         [24] 5126 	lcall	_LCD_string_write
+                                   5127 ;	main.c:51: LCD_string_write("2: Dump\n");
+      0018EC 90 22 35         [24] 5128 	mov	dptr,#___str_38
+      0018EF 75 F0 80         [24] 5129 	mov	b,#0x80
+      0018F2 12 0C EB         [24] 5130 	lcall	_LCD_string_write
+                                   5131 ;	main.c:53: LCD_string_write("3: Check\n");
+      0018F5 90 22 3E         [24] 5132 	mov	dptr,#___str_39
+      0018F8 75 F0 80         [24] 5133 	mov	b,#0x80
+      0018FB 12 0C EB         [24] 5134 	lcall	_LCD_string_write
+                                   5135 ;	main.c:55: LCD_string_write("A: Move\n");
+      0018FE 90 22 48         [24] 5136 	mov	dptr,#___str_40
+      001901 75 F0 80         [24] 5137 	mov	b,#0x80
+      001904 12 0C EB         [24] 5138 	lcall	_LCD_string_write
+                                   5139 ;	main.c:57: LCD_string_write("4: Edit\n");
+      001907 90 22 51         [24] 5140 	mov	dptr,#___str_41
+      00190A 75 F0 80         [24] 5141 	mov	b,#0x80
+      00190D 12 0C EB         [24] 5142 	lcall	_LCD_string_write
+                                   5143 ;	main.c:59: LCD_string_write("5: Find\n");
+      001910 90 22 5A         [24] 5144 	mov	dptr,#___str_42
+      001913 75 F0 80         [24] 5145 	mov	b,#0x80
+      001916 12 0C EB         [24] 5146 	lcall	_LCD_string_write
+                                   5147 ;	main.c:61: LCD_string_write("6: Count\n");
+      001919 90 22 63         [24] 5148 	mov	dptr,#___str_43
+      00191C 75 F0 80         [24] 5149 	mov	b,#0x80
+      00191F 12 0C EB         [24] 5150 	lcall	_LCD_string_write
+                                   5151 ;	main.c:64: LCD_string_write("B: Temperature\n");
+      001922 90 22 6D         [24] 5152 	mov	dptr,#___str_44
+      001925 75 F0 80         [24] 5153 	mov	b,#0x80
+      001928 12 0C EB         [24] 5154 	lcall	_LCD_string_write
+                                   5155 ;	main.c:66: LCD_string_write("7: Light\n");
+      00192B 90 22 7D         [24] 5156 	mov	dptr,#___str_45
+      00192E 75 F0 80         [24] 5157 	mov	b,#0x80
+      001931 12 0C EB         [24] 5158 	lcall	_LCD_string_write
+                                   5159 ;	main.c:69: LCD_string_write("8: UART free type\n");
+      001934 90 22 87         [24] 5160 	mov	dptr,#___str_46
+      001937 75 F0 80         [24] 5161 	mov	b,#0x80
+      00193A 12 0C EB         [24] 5162 	lcall	_LCD_string_write
+                                   5163 ;	main.c:72: LCD_string_write("9: ECEN 435 UART\n");
+      00193D 90 22 9A         [24] 5164 	mov	dptr,#___str_47
+      001940 75 F0 80         [24] 5165 	mov	b,#0x80
+                                   5166 ;	main.c:73: }
+      001943 02 0C EB         [24] 5167 	ljmp	_LCD_string_write
+                                   5168 ;------------------------------------------------------------
+                                   5169 ;Allocation info for local variables in function 'main'
+                                   5170 ;------------------------------------------------------------
+                                   5171 ;input                     Allocated with name '_main_input_65536_319'
+                                   5172 ;------------------------------------------------------------
+                                   5173 ;	main.c:75: void main(void) {
+                                   5174 ;	-----------------------------------------
+                                   5175 ;	 function main
+                                   5176 ;	-----------------------------------------
+      001946                       5177 _main:
+                                   5178 ;	main.c:80: iowrite8(seg7_address, 0x00);
+      001946 75 08 00         [24] 5179 	mov	_iowrite8_PARM_2,#0x00
+      001949 85 25 82         [24] 5180 	mov	dpl,_seg7_address
+      00194C 85 26 83         [24] 5181 	mov	dph,(_seg7_address + 1)
+      00194F 12 00 A0         [24] 5182 	lcall	_iowrite8
+                                   5183 ;	main.c:83: TFT_LCD_INIT();
+      001952 12 02 B1         [24] 5184 	lcall	_TFT_LCD_INIT
+                                   5185 ;	main.c:84: fillScreen(BLACK);
+      001955 90 00 00         [24] 5186 	mov	dptr,#0x0000
+      001958 12 08 E4         [24] 5187 	lcall	_fillScreen
+                                   5188 ;	main.c:85: setRotation(0);
+      00195B 75 82 00         [24] 5189 	mov	dpl,#0x00
+      00195E 12 01 88         [24] 5190 	lcall	_setRotation
+                                   5191 ;	main.c:86: testCircles(20, BLUE);
+      001961 75 4D 1F         [24] 5192 	mov	_testCircles_PARM_2,#0x1f
+      001964 75 4E 00         [24] 5193 	mov	(_testCircles_PARM_2 + 1),#0x00
+      001967 75 82 14         [24] 5194 	mov	dpl,#0x14
+      00196A 12 07 3D         [24] 5195 	lcall	_testCircles
+                                   5196 ;	main.c:87: UART_init();
+      00196D 12 10 F1         [24] 5197 	lcall	_UART_init
+                                   5198 ;	main.c:89: while (1) {
+      001970                       5199 00107$:
+                                   5200 ;	main.c:91: menu();
+      001970 12 18 A2         [24] 5201 	lcall	_menu
+                                   5202 ;	main.c:94: input = keyDetect();
+      001973 12 0D 8A         [24] 5203 	lcall	_keyDetect
+      001976 AF 82            [24] 5204 	mov	r7,dpl
+                                   5205 ;	main.c:98: switch(input) {
+      001978 BF 33 02         [24] 5206 	cjne	r7,#0x33,00127$
+      00197B 80 0A            [24] 5207 	sjmp	00101$
+      00197D                       5208 00127$:
+      00197D BF 38 02         [24] 5209 	cjne	r7,#0x38,00128$
+      001980 80 0A            [24] 5210 	sjmp	00102$
+      001982                       5211 00128$:
+                                   5212 ;	main.c:101: case '3': check(); break;
+      001982 BF 39 EB         [24] 5213 	cjne	r7,#0x39,00107$
+      001985 80 0A            [24] 5214 	sjmp	00103$
+      001987                       5215 00101$:
+      001987 12 15 2F         [24] 5216 	lcall	_check
+                                   5217 ;	main.c:108: case '8': UART_free_type(); break;
+      00198A 80 E4            [24] 5218 	sjmp	00107$
+      00198C                       5219 00102$:
+      00198C 12 16 EC         [24] 5220 	lcall	_UART_free_type
+                                   5221 ;	main.c:111: case '9': UART_menu(); break;
+      00198F 80 DF            [24] 5222 	sjmp	00107$
+      001991                       5223 00103$:
+      001991 12 17 2B         [24] 5224 	lcall	_UART_menu
+                                   5225 ;	main.c:113: }
+                                   5226 ;	main.c:115: }
+      001994 80 DA            [24] 5227 	sjmp	00107$
+                                   5228 	.area CSEG    (CODE)
+                                   5229 	.area CONST   (CODE)
+      001AB7                       5230 _font:
+      001AB7 00                    5231 	.db #0x00	; 0
+      001AB8 00                    5232 	.db #0x00	; 0
+      001AB9 00                    5233 	.db #0x00	; 0
+      001ABA 00                    5234 	.db #0x00	; 0
+      001ABB 00                    5235 	.db #0x00	; 0
+      001ABC 3E                    5236 	.db #0x3e	; 62
+      001ABD 5B                    5237 	.db #0x5b	; 91
+      001ABE 4F                    5238 	.db #0x4f	; 79	'O'
+      001ABF 5B                    5239 	.db #0x5b	; 91
+      001AC0 3E                    5240 	.db #0x3e	; 62
+      001AC1 3E                    5241 	.db #0x3e	; 62
+      001AC2 6B                    5242 	.db #0x6b	; 107	'k'
+      001AC3 4F                    5243 	.db #0x4f	; 79	'O'
+      001AC4 6B                    5244 	.db #0x6b	; 107	'k'
+      001AC5 3E                    5245 	.db #0x3e	; 62
+      001AC6 1C                    5246 	.db #0x1c	; 28
+      001AC7 3E                    5247 	.db #0x3e	; 62
+      001AC8 7C                    5248 	.db #0x7c	; 124
+      001AC9 3E                    5249 	.db #0x3e	; 62
+      001ACA 1C                    5250 	.db #0x1c	; 28
+      001ACB 18                    5251 	.db #0x18	; 24
+      001ACC 3C                    5252 	.db #0x3c	; 60
+      001ACD 7E                    5253 	.db #0x7e	; 126
+      001ACE 3C                    5254 	.db #0x3c	; 60
+      001ACF 18                    5255 	.db #0x18	; 24
+      001AD0 1C                    5256 	.db #0x1c	; 28
+      001AD1 57                    5257 	.db #0x57	; 87	'W'
+      001AD2 7D                    5258 	.db #0x7d	; 125
+      001AD3 57                    5259 	.db #0x57	; 87	'W'
+      001AD4 1C                    5260 	.db #0x1c	; 28
+      001AD5 1C                    5261 	.db #0x1c	; 28
+      001AD6 5E                    5262 	.db #0x5e	; 94
+      001AD7 7F                    5263 	.db #0x7f	; 127
+      001AD8 5E                    5264 	.db #0x5e	; 94
+      001AD9 1C                    5265 	.db #0x1c	; 28
+      001ADA 00                    5266 	.db #0x00	; 0
+      001ADB 18                    5267 	.db #0x18	; 24
+      001ADC 3C                    5268 	.db #0x3c	; 60
+      001ADD 18                    5269 	.db #0x18	; 24
+      001ADE 00                    5270 	.db #0x00	; 0
+      001ADF FF                    5271 	.db #0xff	; 255
+      001AE0 E7                    5272 	.db #0xe7	; 231
+      001AE1 C3                    5273 	.db #0xc3	; 195
+      001AE2 E7                    5274 	.db #0xe7	; 231
+      001AE3 FF                    5275 	.db #0xff	; 255
+      001AE4 00                    5276 	.db #0x00	; 0
+      001AE5 18                    5277 	.db #0x18	; 24
+      001AE6 24                    5278 	.db #0x24	; 36
+      001AE7 18                    5279 	.db #0x18	; 24
+      001AE8 00                    5280 	.db #0x00	; 0
+      001AE9 FF                    5281 	.db #0xff	; 255
+      001AEA E7                    5282 	.db #0xe7	; 231
+      001AEB DB                    5283 	.db #0xdb	; 219
+      001AEC E7                    5284 	.db #0xe7	; 231
+      001AED FF                    5285 	.db #0xff	; 255
+      001AEE 30                    5286 	.db #0x30	; 48	'0'
+      001AEF 48                    5287 	.db #0x48	; 72	'H'
+      001AF0 3A                    5288 	.db #0x3a	; 58
+      001AF1 06                    5289 	.db #0x06	; 6
+      001AF2 0E                    5290 	.db #0x0e	; 14
+      001AF3 26                    5291 	.db #0x26	; 38
+      001AF4 29                    5292 	.db #0x29	; 41
+      001AF5 79                    5293 	.db #0x79	; 121	'y'
+      001AF6 29                    5294 	.db #0x29	; 41
+      001AF7 26                    5295 	.db #0x26	; 38
+      001AF8 40                    5296 	.db #0x40	; 64
+      001AF9 7F                    5297 	.db #0x7f	; 127
+      001AFA 05                    5298 	.db #0x05	; 5
+      001AFB 05                    5299 	.db #0x05	; 5
+      001AFC 07                    5300 	.db #0x07	; 7
+      001AFD 40                    5301 	.db #0x40	; 64
+      001AFE 7F                    5302 	.db #0x7f	; 127
+      001AFF 05                    5303 	.db #0x05	; 5
+      001B00 25                    5304 	.db #0x25	; 37
+      001B01 3F                    5305 	.db #0x3f	; 63
+      001B02 5A                    5306 	.db #0x5a	; 90	'Z'
+      001B03 3C                    5307 	.db #0x3c	; 60
+      001B04 E7                    5308 	.db #0xe7	; 231
+      001B05 3C                    5309 	.db #0x3c	; 60
+      001B06 5A                    5310 	.db #0x5a	; 90	'Z'
+      001B07 7F                    5311 	.db #0x7f	; 127
+      001B08 3E                    5312 	.db #0x3e	; 62
+      001B09 1C                    5313 	.db #0x1c	; 28
+      001B0A 1C                    5314 	.db #0x1c	; 28
+      001B0B 08                    5315 	.db #0x08	; 8
+      001B0C 08                    5316 	.db #0x08	; 8
+      001B0D 1C                    5317 	.db #0x1c	; 28
+      001B0E 1C                    5318 	.db #0x1c	; 28
+      001B0F 3E                    5319 	.db #0x3e	; 62
+      001B10 7F                    5320 	.db #0x7f	; 127
+      001B11 14                    5321 	.db #0x14	; 20
+      001B12 22                    5322 	.db #0x22	; 34
+      001B13 7F                    5323 	.db #0x7f	; 127
+      001B14 22                    5324 	.db #0x22	; 34
+      001B15 14                    5325 	.db #0x14	; 20
+      001B16 5F                    5326 	.db #0x5f	; 95
+      001B17 5F                    5327 	.db #0x5f	; 95
+      001B18 00                    5328 	.db #0x00	; 0
+      001B19 5F                    5329 	.db #0x5f	; 95
+      001B1A 5F                    5330 	.db #0x5f	; 95
+      001B1B 06                    5331 	.db #0x06	; 6
+      001B1C 09                    5332 	.db #0x09	; 9
+      001B1D 7F                    5333 	.db #0x7f	; 127
+      001B1E 01                    5334 	.db #0x01	; 1
+      001B1F 7F                    5335 	.db #0x7f	; 127
+      001B20 00                    5336 	.db #0x00	; 0
+      001B21 66                    5337 	.db #0x66	; 102	'f'
+      001B22 89                    5338 	.db #0x89	; 137
+      001B23 95                    5339 	.db #0x95	; 149
+      001B24 6A                    5340 	.db #0x6a	; 106	'j'
+      001B25 60                    5341 	.db #0x60	; 96
+      001B26 60                    5342 	.db #0x60	; 96
+      001B27 60                    5343 	.db #0x60	; 96
+      001B28 60                    5344 	.db #0x60	; 96
+      001B29 60                    5345 	.db #0x60	; 96
+      001B2A 94                    5346 	.db #0x94	; 148
+      001B2B A2                    5347 	.db #0xa2	; 162
+      001B2C FF                    5348 	.db #0xff	; 255
+      001B2D A2                    5349 	.db #0xa2	; 162
+      001B2E 94                    5350 	.db #0x94	; 148
+      001B2F 08                    5351 	.db #0x08	; 8
+      001B30 04                    5352 	.db #0x04	; 4
+      001B31 7E                    5353 	.db #0x7e	; 126
+      001B32 04                    5354 	.db #0x04	; 4
+      001B33 08                    5355 	.db #0x08	; 8
+      001B34 10                    5356 	.db #0x10	; 16
+      001B35 20                    5357 	.db #0x20	; 32
+      001B36 7E                    5358 	.db #0x7e	; 126
+      001B37 20                    5359 	.db #0x20	; 32
+      001B38 10                    5360 	.db #0x10	; 16
+      001B39 08                    5361 	.db #0x08	; 8
+      001B3A 08                    5362 	.db #0x08	; 8
+      001B3B 2A                    5363 	.db #0x2a	; 42
+      001B3C 1C                    5364 	.db #0x1c	; 28
+      001B3D 08                    5365 	.db #0x08	; 8
+      001B3E 08                    5366 	.db #0x08	; 8
+      001B3F 1C                    5367 	.db #0x1c	; 28
+      001B40 2A                    5368 	.db #0x2a	; 42
+      001B41 08                    5369 	.db #0x08	; 8
+      001B42 08                    5370 	.db #0x08	; 8
+      001B43 1E                    5371 	.db #0x1e	; 30
+      001B44 10                    5372 	.db #0x10	; 16
+      001B45 10                    5373 	.db #0x10	; 16
+      001B46 10                    5374 	.db #0x10	; 16
+      001B47 10                    5375 	.db #0x10	; 16
+      001B48 0C                    5376 	.db #0x0c	; 12
+      001B49 1E                    5377 	.db #0x1e	; 30
+      001B4A 0C                    5378 	.db #0x0c	; 12
+      001B4B 1E                    5379 	.db #0x1e	; 30
+      001B4C 0C                    5380 	.db #0x0c	; 12
+      001B4D 30                    5381 	.db #0x30	; 48	'0'
+      001B4E 38                    5382 	.db #0x38	; 56	'8'
+      001B4F 3E                    5383 	.db #0x3e	; 62
+      001B50 38                    5384 	.db #0x38	; 56	'8'
+      001B51 30                    5385 	.db #0x30	; 48	'0'
+      001B52 06                    5386 	.db #0x06	; 6
+      001B53 0E                    5387 	.db #0x0e	; 14
+      001B54 3E                    5388 	.db #0x3e	; 62
+      001B55 0E                    5389 	.db #0x0e	; 14
+      001B56 06                    5390 	.db #0x06	; 6
+      001B57 00                    5391 	.db #0x00	; 0
+      001B58 00                    5392 	.db #0x00	; 0
+      001B59 00                    5393 	.db #0x00	; 0
+      001B5A 00                    5394 	.db #0x00	; 0
+      001B5B 00                    5395 	.db #0x00	; 0
+      001B5C 00                    5396 	.db #0x00	; 0
+      001B5D 00                    5397 	.db #0x00	; 0
+      001B5E 5F                    5398 	.db #0x5f	; 95
+      001B5F 00                    5399 	.db #0x00	; 0
+      001B60 00                    5400 	.db #0x00	; 0
+      001B61 00                    5401 	.db #0x00	; 0
+      001B62 07                    5402 	.db #0x07	; 7
+      001B63 00                    5403 	.db #0x00	; 0
+      001B64 07                    5404 	.db #0x07	; 7
+      001B65 00                    5405 	.db #0x00	; 0
+      001B66 14                    5406 	.db #0x14	; 20
+      001B67 7F                    5407 	.db #0x7f	; 127
+      001B68 14                    5408 	.db #0x14	; 20
+      001B69 7F                    5409 	.db #0x7f	; 127
+      001B6A 14                    5410 	.db #0x14	; 20
+      001B6B 24                    5411 	.db #0x24	; 36
+      001B6C 2A                    5412 	.db #0x2a	; 42
+      001B6D 7F                    5413 	.db #0x7f	; 127
+      001B6E 2A                    5414 	.db #0x2a	; 42
+      001B6F 12                    5415 	.db #0x12	; 18
+      001B70 23                    5416 	.db #0x23	; 35
+      001B71 13                    5417 	.db #0x13	; 19
+      001B72 08                    5418 	.db #0x08	; 8
+      001B73 64                    5419 	.db #0x64	; 100	'd'
+      001B74 62                    5420 	.db #0x62	; 98	'b'
+      001B75 36                    5421 	.db #0x36	; 54	'6'
+      001B76 49                    5422 	.db #0x49	; 73	'I'
+      001B77 56                    5423 	.db #0x56	; 86	'V'
+      001B78 20                    5424 	.db #0x20	; 32
+      001B79 50                    5425 	.db #0x50	; 80	'P'
+      001B7A 00                    5426 	.db #0x00	; 0
+      001B7B 08                    5427 	.db #0x08	; 8
+      001B7C 07                    5428 	.db #0x07	; 7
+      001B7D 03                    5429 	.db #0x03	; 3
+      001B7E 00                    5430 	.db #0x00	; 0
+      001B7F 00                    5431 	.db #0x00	; 0
+      001B80 1C                    5432 	.db #0x1c	; 28
+      001B81 22                    5433 	.db #0x22	; 34
+      001B82 41                    5434 	.db #0x41	; 65	'A'
+      001B83 00                    5435 	.db #0x00	; 0
+      001B84 00                    5436 	.db #0x00	; 0
+      001B85 41                    5437 	.db #0x41	; 65	'A'
+      001B86 22                    5438 	.db #0x22	; 34
+      001B87 1C                    5439 	.db #0x1c	; 28
+      001B88 00                    5440 	.db #0x00	; 0
+      001B89 2A                    5441 	.db #0x2a	; 42
+      001B8A 1C                    5442 	.db #0x1c	; 28
+      001B8B 7F                    5443 	.db #0x7f	; 127
+      001B8C 1C                    5444 	.db #0x1c	; 28
+      001B8D 2A                    5445 	.db #0x2a	; 42
+      001B8E 08                    5446 	.db #0x08	; 8
+      001B8F 08                    5447 	.db #0x08	; 8
+      001B90 3E                    5448 	.db #0x3e	; 62
+      001B91 08                    5449 	.db #0x08	; 8
+      001B92 08                    5450 	.db #0x08	; 8
+      001B93 00                    5451 	.db #0x00	; 0
+      001B94 80                    5452 	.db #0x80	; 128
+      001B95 70                    5453 	.db #0x70	; 112	'p'
+      001B96 30                    5454 	.db #0x30	; 48	'0'
+      001B97 00                    5455 	.db #0x00	; 0
+      001B98 08                    5456 	.db #0x08	; 8
+      001B99 08                    5457 	.db #0x08	; 8
+      001B9A 08                    5458 	.db #0x08	; 8
+      001B9B 08                    5459 	.db #0x08	; 8
+      001B9C 08                    5460 	.db #0x08	; 8
+      001B9D 00                    5461 	.db #0x00	; 0
+      001B9E 00                    5462 	.db #0x00	; 0
+      001B9F 60                    5463 	.db #0x60	; 96
+      001BA0 60                    5464 	.db #0x60	; 96
+      001BA1 00                    5465 	.db #0x00	; 0
+      001BA2 20                    5466 	.db #0x20	; 32
+      001BA3 10                    5467 	.db #0x10	; 16
+      001BA4 08                    5468 	.db #0x08	; 8
+      001BA5 04                    5469 	.db #0x04	; 4
+      001BA6 02                    5470 	.db #0x02	; 2
+      001BA7 3E                    5471 	.db #0x3e	; 62
+      001BA8 51                    5472 	.db #0x51	; 81	'Q'
+      001BA9 49                    5473 	.db #0x49	; 73	'I'
+      001BAA 45                    5474 	.db #0x45	; 69	'E'
+      001BAB 3E                    5475 	.db #0x3e	; 62
+      001BAC 00                    5476 	.db #0x00	; 0
+      001BAD 42                    5477 	.db #0x42	; 66	'B'
+      001BAE 7F                    5478 	.db #0x7f	; 127
+      001BAF 40                    5479 	.db #0x40	; 64
+      001BB0 00                    5480 	.db #0x00	; 0
+      001BB1 72                    5481 	.db #0x72	; 114	'r'
+      001BB2 49                    5482 	.db #0x49	; 73	'I'
+      001BB3 49                    5483 	.db #0x49	; 73	'I'
+      001BB4 49                    5484 	.db #0x49	; 73	'I'
+      001BB5 46                    5485 	.db #0x46	; 70	'F'
+      001BB6 21                    5486 	.db #0x21	; 33
+      001BB7 41                    5487 	.db #0x41	; 65	'A'
+      001BB8 49                    5488 	.db #0x49	; 73	'I'
+      001BB9 4D                    5489 	.db #0x4d	; 77	'M'
+      001BBA 33                    5490 	.db #0x33	; 51	'3'
+      001BBB 18                    5491 	.db #0x18	; 24
+      001BBC 14                    5492 	.db #0x14	; 20
+      001BBD 12                    5493 	.db #0x12	; 18
+      001BBE 7F                    5494 	.db #0x7f	; 127
+      001BBF 10                    5495 	.db #0x10	; 16
+      001BC0 27                    5496 	.db #0x27	; 39
+      001BC1 45                    5497 	.db #0x45	; 69	'E'
+      001BC2 45                    5498 	.db #0x45	; 69	'E'
+      001BC3 45                    5499 	.db #0x45	; 69	'E'
+      001BC4 39                    5500 	.db #0x39	; 57	'9'
+      001BC5 3C                    5501 	.db #0x3c	; 60
+      001BC6 4A                    5502 	.db #0x4a	; 74	'J'
+      001BC7 49                    5503 	.db #0x49	; 73	'I'
+      001BC8 49                    5504 	.db #0x49	; 73	'I'
+      001BC9 31                    5505 	.db #0x31	; 49	'1'
+      001BCA 41                    5506 	.db #0x41	; 65	'A'
+      001BCB 21                    5507 	.db #0x21	; 33
+      001BCC 11                    5508 	.db #0x11	; 17
+      001BCD 09                    5509 	.db #0x09	; 9
+      001BCE 07                    5510 	.db #0x07	; 7
+      001BCF 36                    5511 	.db #0x36	; 54	'6'
+      001BD0 49                    5512 	.db #0x49	; 73	'I'
+      001BD1 49                    5513 	.db #0x49	; 73	'I'
+      001BD2 49                    5514 	.db #0x49	; 73	'I'
+      001BD3 36                    5515 	.db #0x36	; 54	'6'
+      001BD4 46                    5516 	.db #0x46	; 70	'F'
+      001BD5 49                    5517 	.db #0x49	; 73	'I'
+      001BD6 49                    5518 	.db #0x49	; 73	'I'
+      001BD7 29                    5519 	.db #0x29	; 41
+      001BD8 1E                    5520 	.db #0x1e	; 30
+      001BD9 00                    5521 	.db #0x00	; 0
+      001BDA 00                    5522 	.db #0x00	; 0
+      001BDB 14                    5523 	.db #0x14	; 20
+      001BDC 00                    5524 	.db #0x00	; 0
+      001BDD 00                    5525 	.db #0x00	; 0
+      001BDE 00                    5526 	.db #0x00	; 0
+      001BDF 40                    5527 	.db #0x40	; 64
+      001BE0 34                    5528 	.db #0x34	; 52	'4'
+      001BE1 00                    5529 	.db #0x00	; 0
+      001BE2 00                    5530 	.db #0x00	; 0
+      001BE3 00                    5531 	.db #0x00	; 0
+      001BE4 08                    5532 	.db #0x08	; 8
+      001BE5 14                    5533 	.db #0x14	; 20
+      001BE6 22                    5534 	.db #0x22	; 34
+      001BE7 41                    5535 	.db #0x41	; 65	'A'
+      001BE8 14                    5536 	.db #0x14	; 20
+      001BE9 14                    5537 	.db #0x14	; 20
+      001BEA 14                    5538 	.db #0x14	; 20
+      001BEB 14                    5539 	.db #0x14	; 20
+      001BEC 14                    5540 	.db #0x14	; 20
+      001BED 00                    5541 	.db #0x00	; 0
+      001BEE 41                    5542 	.db #0x41	; 65	'A'
+      001BEF 22                    5543 	.db #0x22	; 34
+      001BF0 14                    5544 	.db #0x14	; 20
+      001BF1 08                    5545 	.db #0x08	; 8
+      001BF2 02                    5546 	.db #0x02	; 2
+      001BF3 01                    5547 	.db #0x01	; 1
+      001BF4 59                    5548 	.db #0x59	; 89	'Y'
+      001BF5 09                    5549 	.db #0x09	; 9
+      001BF6 06                    5550 	.db #0x06	; 6
+      001BF7 3E                    5551 	.db #0x3e	; 62
+      001BF8 41                    5552 	.db #0x41	; 65	'A'
+      001BF9 5D                    5553 	.db #0x5d	; 93
+      001BFA 59                    5554 	.db #0x59	; 89	'Y'
+      001BFB 4E                    5555 	.db #0x4e	; 78	'N'
+      001BFC 7C                    5556 	.db #0x7c	; 124
+      001BFD 12                    5557 	.db #0x12	; 18
+      001BFE 11                    5558 	.db #0x11	; 17
+      001BFF 12                    5559 	.db #0x12	; 18
+      001C00 7C                    5560 	.db #0x7c	; 124
+      001C01 7F                    5561 	.db #0x7f	; 127
+      001C02 49                    5562 	.db #0x49	; 73	'I'
+      001C03 49                    5563 	.db #0x49	; 73	'I'
+      001C04 49                    5564 	.db #0x49	; 73	'I'
+      001C05 36                    5565 	.db #0x36	; 54	'6'
+      001C06 3E                    5566 	.db #0x3e	; 62
+      001C07 41                    5567 	.db #0x41	; 65	'A'
+      001C08 41                    5568 	.db #0x41	; 65	'A'
+      001C09 41                    5569 	.db #0x41	; 65	'A'
+      001C0A 22                    5570 	.db #0x22	; 34
+      001C0B 7F                    5571 	.db #0x7f	; 127
+      001C0C 41                    5572 	.db #0x41	; 65	'A'
+      001C0D 41                    5573 	.db #0x41	; 65	'A'
+      001C0E 41                    5574 	.db #0x41	; 65	'A'
+      001C0F 3E                    5575 	.db #0x3e	; 62
+      001C10 7F                    5576 	.db #0x7f	; 127
+      001C11 49                    5577 	.db #0x49	; 73	'I'
+      001C12 49                    5578 	.db #0x49	; 73	'I'
+      001C13 49                    5579 	.db #0x49	; 73	'I'
+      001C14 41                    5580 	.db #0x41	; 65	'A'
+      001C15 7F                    5581 	.db #0x7f	; 127
+      001C16 09                    5582 	.db #0x09	; 9
+      001C17 09                    5583 	.db #0x09	; 9
+      001C18 09                    5584 	.db #0x09	; 9
+      001C19 01                    5585 	.db #0x01	; 1
+      001C1A 3E                    5586 	.db #0x3e	; 62
+      001C1B 41                    5587 	.db #0x41	; 65	'A'
+      001C1C 41                    5588 	.db #0x41	; 65	'A'
+      001C1D 51                    5589 	.db #0x51	; 81	'Q'
+      001C1E 73                    5590 	.db #0x73	; 115	's'
+      001C1F 7F                    5591 	.db #0x7f	; 127
+      001C20 08                    5592 	.db #0x08	; 8
+      001C21 08                    5593 	.db #0x08	; 8
+      001C22 08                    5594 	.db #0x08	; 8
+      001C23 7F                    5595 	.db #0x7f	; 127
+      001C24 00                    5596 	.db #0x00	; 0
+      001C25 41                    5597 	.db #0x41	; 65	'A'
+      001C26 7F                    5598 	.db #0x7f	; 127
+      001C27 41                    5599 	.db #0x41	; 65	'A'
+      001C28 00                    5600 	.db #0x00	; 0
+      001C29 20                    5601 	.db #0x20	; 32
+      001C2A 40                    5602 	.db #0x40	; 64
+      001C2B 41                    5603 	.db #0x41	; 65	'A'
+      001C2C 3F                    5604 	.db #0x3f	; 63
+      001C2D 01                    5605 	.db #0x01	; 1
+      001C2E 7F                    5606 	.db #0x7f	; 127
+      001C2F 08                    5607 	.db #0x08	; 8
+      001C30 14                    5608 	.db #0x14	; 20
+      001C31 22                    5609 	.db #0x22	; 34
+      001C32 41                    5610 	.db #0x41	; 65	'A'
+      001C33 7F                    5611 	.db #0x7f	; 127
+      001C34 40                    5612 	.db #0x40	; 64
+      001C35 40                    5613 	.db #0x40	; 64
+      001C36 40                    5614 	.db #0x40	; 64
+      001C37 40                    5615 	.db #0x40	; 64
+      001C38 7F                    5616 	.db #0x7f	; 127
+      001C39 02                    5617 	.db #0x02	; 2
+      001C3A 1C                    5618 	.db #0x1c	; 28
+      001C3B 02                    5619 	.db #0x02	; 2
+      001C3C 7F                    5620 	.db #0x7f	; 127
+      001C3D 7F                    5621 	.db #0x7f	; 127
+      001C3E 04                    5622 	.db #0x04	; 4
+      001C3F 08                    5623 	.db #0x08	; 8
+      001C40 10                    5624 	.db #0x10	; 16
+      001C41 7F                    5625 	.db #0x7f	; 127
+      001C42 3E                    5626 	.db #0x3e	; 62
+      001C43 41                    5627 	.db #0x41	; 65	'A'
+      001C44 41                    5628 	.db #0x41	; 65	'A'
+      001C45 41                    5629 	.db #0x41	; 65	'A'
+      001C46 3E                    5630 	.db #0x3e	; 62
+      001C47 7F                    5631 	.db #0x7f	; 127
+      001C48 09                    5632 	.db #0x09	; 9
+      001C49 09                    5633 	.db #0x09	; 9
+      001C4A 09                    5634 	.db #0x09	; 9
+      001C4B 06                    5635 	.db #0x06	; 6
+      001C4C 3E                    5636 	.db #0x3e	; 62
+      001C4D 41                    5637 	.db #0x41	; 65	'A'
+      001C4E 51                    5638 	.db #0x51	; 81	'Q'
+      001C4F 21                    5639 	.db #0x21	; 33
+      001C50 5E                    5640 	.db #0x5e	; 94
+      001C51 7F                    5641 	.db #0x7f	; 127
+      001C52 09                    5642 	.db #0x09	; 9
+      001C53 19                    5643 	.db #0x19	; 25
+      001C54 29                    5644 	.db #0x29	; 41
+      001C55 46                    5645 	.db #0x46	; 70	'F'
+      001C56 26                    5646 	.db #0x26	; 38
+      001C57 49                    5647 	.db #0x49	; 73	'I'
+      001C58 49                    5648 	.db #0x49	; 73	'I'
+      001C59 49                    5649 	.db #0x49	; 73	'I'
+      001C5A 32                    5650 	.db #0x32	; 50	'2'
+      001C5B 03                    5651 	.db #0x03	; 3
+      001C5C 01                    5652 	.db #0x01	; 1
+      001C5D 7F                    5653 	.db #0x7f	; 127
+      001C5E 01                    5654 	.db #0x01	; 1
+      001C5F 03                    5655 	.db #0x03	; 3
+      001C60 3F                    5656 	.db #0x3f	; 63
+      001C61 40                    5657 	.db #0x40	; 64
+      001C62 40                    5658 	.db #0x40	; 64
+      001C63 40                    5659 	.db #0x40	; 64
+      001C64 3F                    5660 	.db #0x3f	; 63
+      001C65 1F                    5661 	.db #0x1f	; 31
+      001C66 20                    5662 	.db #0x20	; 32
+      001C67 40                    5663 	.db #0x40	; 64
+      001C68 20                    5664 	.db #0x20	; 32
+      001C69 1F                    5665 	.db #0x1f	; 31
+      001C6A 3F                    5666 	.db #0x3f	; 63
+      001C6B 40                    5667 	.db #0x40	; 64
+      001C6C 38                    5668 	.db #0x38	; 56	'8'
+      001C6D 40                    5669 	.db #0x40	; 64
+      001C6E 3F                    5670 	.db #0x3f	; 63
+      001C6F 63                    5671 	.db #0x63	; 99	'c'
+      001C70 14                    5672 	.db #0x14	; 20
+      001C71 08                    5673 	.db #0x08	; 8
+      001C72 14                    5674 	.db #0x14	; 20
+      001C73 63                    5675 	.db #0x63	; 99	'c'
+      001C74 03                    5676 	.db #0x03	; 3
+      001C75 04                    5677 	.db #0x04	; 4
+      001C76 78                    5678 	.db #0x78	; 120	'x'
+      001C77 04                    5679 	.db #0x04	; 4
+      001C78 03                    5680 	.db #0x03	; 3
+      001C79 61                    5681 	.db #0x61	; 97	'a'
+      001C7A 59                    5682 	.db #0x59	; 89	'Y'
+      001C7B 49                    5683 	.db #0x49	; 73	'I'
+      001C7C 4D                    5684 	.db #0x4d	; 77	'M'
+      001C7D 43                    5685 	.db #0x43	; 67	'C'
+      001C7E 00                    5686 	.db #0x00	; 0
+      001C7F 7F                    5687 	.db #0x7f	; 127
+      001C80 41                    5688 	.db #0x41	; 65	'A'
+      001C81 41                    5689 	.db #0x41	; 65	'A'
+      001C82 41                    5690 	.db #0x41	; 65	'A'
+      001C83 02                    5691 	.db #0x02	; 2
+      001C84 04                    5692 	.db #0x04	; 4
+      001C85 08                    5693 	.db #0x08	; 8
+      001C86 10                    5694 	.db #0x10	; 16
+      001C87 20                    5695 	.db #0x20	; 32
+      001C88 00                    5696 	.db #0x00	; 0
+      001C89 41                    5697 	.db #0x41	; 65	'A'
+      001C8A 41                    5698 	.db #0x41	; 65	'A'
+      001C8B 41                    5699 	.db #0x41	; 65	'A'
+      001C8C 7F                    5700 	.db #0x7f	; 127
+      001C8D 04                    5701 	.db #0x04	; 4
+      001C8E 02                    5702 	.db #0x02	; 2
+      001C8F 01                    5703 	.db #0x01	; 1
+      001C90 02                    5704 	.db #0x02	; 2
+      001C91 04                    5705 	.db #0x04	; 4
+      001C92 40                    5706 	.db #0x40	; 64
+      001C93 40                    5707 	.db #0x40	; 64
+      001C94 40                    5708 	.db #0x40	; 64
+      001C95 40                    5709 	.db #0x40	; 64
+      001C96 40                    5710 	.db #0x40	; 64
+      001C97 00                    5711 	.db #0x00	; 0
+      001C98 03                    5712 	.db #0x03	; 3
+      001C99 07                    5713 	.db #0x07	; 7
+      001C9A 08                    5714 	.db #0x08	; 8
+      001C9B 00                    5715 	.db #0x00	; 0
+      001C9C 20                    5716 	.db #0x20	; 32
+      001C9D 54                    5717 	.db #0x54	; 84	'T'
+      001C9E 54                    5718 	.db #0x54	; 84	'T'
+      001C9F 78                    5719 	.db #0x78	; 120	'x'
+      001CA0 40                    5720 	.db #0x40	; 64
+      001CA1 7F                    5721 	.db #0x7f	; 127
+      001CA2 28                    5722 	.db #0x28	; 40
+      001CA3 44                    5723 	.db #0x44	; 68	'D'
+      001CA4 44                    5724 	.db #0x44	; 68	'D'
+      001CA5 38                    5725 	.db #0x38	; 56	'8'
+      001CA6 38                    5726 	.db #0x38	; 56	'8'
+      001CA7 44                    5727 	.db #0x44	; 68	'D'
+      001CA8 44                    5728 	.db #0x44	; 68	'D'
+      001CA9 44                    5729 	.db #0x44	; 68	'D'
+      001CAA 28                    5730 	.db #0x28	; 40
+      001CAB 38                    5731 	.db #0x38	; 56	'8'
+      001CAC 44                    5732 	.db #0x44	; 68	'D'
+      001CAD 44                    5733 	.db #0x44	; 68	'D'
+      001CAE 28                    5734 	.db #0x28	; 40
+      001CAF 7F                    5735 	.db #0x7f	; 127
+      001CB0 38                    5736 	.db #0x38	; 56	'8'
+      001CB1 54                    5737 	.db #0x54	; 84	'T'
+      001CB2 54                    5738 	.db #0x54	; 84	'T'
+      001CB3 54                    5739 	.db #0x54	; 84	'T'
+      001CB4 18                    5740 	.db #0x18	; 24
+      001CB5 00                    5741 	.db #0x00	; 0
+      001CB6 08                    5742 	.db #0x08	; 8
+      001CB7 7E                    5743 	.db #0x7e	; 126
+      001CB8 09                    5744 	.db #0x09	; 9
+      001CB9 02                    5745 	.db #0x02	; 2
+      001CBA 18                    5746 	.db #0x18	; 24
+      001CBB A4                    5747 	.db #0xa4	; 164
+      001CBC A4                    5748 	.db #0xa4	; 164
+      001CBD 9C                    5749 	.db #0x9c	; 156
+      001CBE 78                    5750 	.db #0x78	; 120	'x'
+      001CBF 7F                    5751 	.db #0x7f	; 127
+      001CC0 08                    5752 	.db #0x08	; 8
+      001CC1 04                    5753 	.db #0x04	; 4
+      001CC2 04                    5754 	.db #0x04	; 4
+      001CC3 78                    5755 	.db #0x78	; 120	'x'
+      001CC4 00                    5756 	.db #0x00	; 0
+      001CC5 44                    5757 	.db #0x44	; 68	'D'
+      001CC6 7D                    5758 	.db #0x7d	; 125
+      001CC7 40                    5759 	.db #0x40	; 64
+      001CC8 00                    5760 	.db #0x00	; 0
+      001CC9 20                    5761 	.db #0x20	; 32
+      001CCA 40                    5762 	.db #0x40	; 64
+      001CCB 40                    5763 	.db #0x40	; 64
+      001CCC 3D                    5764 	.db #0x3d	; 61
+      001CCD 00                    5765 	.db #0x00	; 0
+      001CCE 7F                    5766 	.db #0x7f	; 127
+      001CCF 10                    5767 	.db #0x10	; 16
+      001CD0 28                    5768 	.db #0x28	; 40
+      001CD1 44                    5769 	.db #0x44	; 68	'D'
+      001CD2 00                    5770 	.db #0x00	; 0
+      001CD3 00                    5771 	.db #0x00	; 0
+      001CD4 41                    5772 	.db #0x41	; 65	'A'
+      001CD5 7F                    5773 	.db #0x7f	; 127
+      001CD6 40                    5774 	.db #0x40	; 64
+      001CD7 00                    5775 	.db #0x00	; 0
+      001CD8 7C                    5776 	.db #0x7c	; 124
+      001CD9 04                    5777 	.db #0x04	; 4
+      001CDA 78                    5778 	.db #0x78	; 120	'x'
+      001CDB 04                    5779 	.db #0x04	; 4
+      001CDC 78                    5780 	.db #0x78	; 120	'x'
+      001CDD 7C                    5781 	.db #0x7c	; 124
+      001CDE 08                    5782 	.db #0x08	; 8
+      001CDF 04                    5783 	.db #0x04	; 4
+      001CE0 04                    5784 	.db #0x04	; 4
+      001CE1 78                    5785 	.db #0x78	; 120	'x'
+      001CE2 38                    5786 	.db #0x38	; 56	'8'
+      001CE3 44                    5787 	.db #0x44	; 68	'D'
+      001CE4 44                    5788 	.db #0x44	; 68	'D'
+      001CE5 44                    5789 	.db #0x44	; 68	'D'
+      001CE6 38                    5790 	.db #0x38	; 56	'8'
+      001CE7 FC                    5791 	.db #0xfc	; 252
+      001CE8 18                    5792 	.db #0x18	; 24
+      001CE9 24                    5793 	.db #0x24	; 36
+      001CEA 24                    5794 	.db #0x24	; 36
+      001CEB 18                    5795 	.db #0x18	; 24
+      001CEC 18                    5796 	.db #0x18	; 24
+      001CED 24                    5797 	.db #0x24	; 36
+      001CEE 24                    5798 	.db #0x24	; 36
+      001CEF 18                    5799 	.db #0x18	; 24
+      001CF0 FC                    5800 	.db #0xfc	; 252
+      001CF1 7C                    5801 	.db #0x7c	; 124
+      001CF2 08                    5802 	.db #0x08	; 8
+      001CF3 04                    5803 	.db #0x04	; 4
+      001CF4 04                    5804 	.db #0x04	; 4
+      001CF5 08                    5805 	.db #0x08	; 8
+      001CF6 48                    5806 	.db #0x48	; 72	'H'
+      001CF7 54                    5807 	.db #0x54	; 84	'T'
+      001CF8 54                    5808 	.db #0x54	; 84	'T'
+      001CF9 54                    5809 	.db #0x54	; 84	'T'
+      001CFA 24                    5810 	.db #0x24	; 36
+      001CFB 04                    5811 	.db #0x04	; 4
+      001CFC 04                    5812 	.db #0x04	; 4
+      001CFD 3F                    5813 	.db #0x3f	; 63
+      001CFE 44                    5814 	.db #0x44	; 68	'D'
+      001CFF 24                    5815 	.db #0x24	; 36
+      001D00 3C                    5816 	.db #0x3c	; 60
+      001D01 40                    5817 	.db #0x40	; 64
+      001D02 40                    5818 	.db #0x40	; 64
+      001D03 20                    5819 	.db #0x20	; 32
+      001D04 7C                    5820 	.db #0x7c	; 124
+      001D05 1C                    5821 	.db #0x1c	; 28
+      001D06 20                    5822 	.db #0x20	; 32
+      001D07 40                    5823 	.db #0x40	; 64
+      001D08 20                    5824 	.db #0x20	; 32
+      001D09 1C                    5825 	.db #0x1c	; 28
+      001D0A 3C                    5826 	.db #0x3c	; 60
+      001D0B 40                    5827 	.db #0x40	; 64
+      001D0C 30                    5828 	.db #0x30	; 48	'0'
+      001D0D 40                    5829 	.db #0x40	; 64
+      001D0E 3C                    5830 	.db #0x3c	; 60
+      001D0F 44                    5831 	.db #0x44	; 68	'D'
+      001D10 28                    5832 	.db #0x28	; 40
+      001D11 10                    5833 	.db #0x10	; 16
+      001D12 28                    5834 	.db #0x28	; 40
+      001D13 44                    5835 	.db #0x44	; 68	'D'
+      001D14 4C                    5836 	.db #0x4c	; 76	'L'
+      001D15 90                    5837 	.db #0x90	; 144
+      001D16 90                    5838 	.db #0x90	; 144
+      001D17 90                    5839 	.db #0x90	; 144
+      001D18 7C                    5840 	.db #0x7c	; 124
+      001D19 44                    5841 	.db #0x44	; 68	'D'
+      001D1A 64                    5842 	.db #0x64	; 100	'd'
+      001D1B 54                    5843 	.db #0x54	; 84	'T'
+      001D1C 4C                    5844 	.db #0x4c	; 76	'L'
+      001D1D 44                    5845 	.db #0x44	; 68	'D'
+      001D1E 00                    5846 	.db #0x00	; 0
+      001D1F 08                    5847 	.db #0x08	; 8
+      001D20 36                    5848 	.db #0x36	; 54	'6'
+      001D21 41                    5849 	.db #0x41	; 65	'A'
+      001D22 00                    5850 	.db #0x00	; 0
+      001D23 00                    5851 	.db #0x00	; 0
+      001D24 00                    5852 	.db #0x00	; 0
+      001D25 77                    5853 	.db #0x77	; 119	'w'
+      001D26 00                    5854 	.db #0x00	; 0
+      001D27 00                    5855 	.db #0x00	; 0
+      001D28 00                    5856 	.db #0x00	; 0
+      001D29 41                    5857 	.db #0x41	; 65	'A'
+      001D2A 36                    5858 	.db #0x36	; 54	'6'
+      001D2B 08                    5859 	.db #0x08	; 8
+      001D2C 00                    5860 	.db #0x00	; 0
+      001D2D 02                    5861 	.db #0x02	; 2
+      001D2E 01                    5862 	.db #0x01	; 1
+      001D2F 02                    5863 	.db #0x02	; 2
+      001D30 04                    5864 	.db #0x04	; 4
+      001D31 02                    5865 	.db #0x02	; 2
+      001D32 3C                    5866 	.db #0x3c	; 60
+      001D33 26                    5867 	.db #0x26	; 38
+      001D34 23                    5868 	.db #0x23	; 35
+      001D35 26                    5869 	.db #0x26	; 38
+      001D36 3C                    5870 	.db #0x3c	; 60
+      001D37 1E                    5871 	.db #0x1e	; 30
+      001D38 A1                    5872 	.db #0xa1	; 161
+      001D39 A1                    5873 	.db #0xa1	; 161
+      001D3A 61                    5874 	.db #0x61	; 97	'a'
+      001D3B 12                    5875 	.db #0x12	; 18
+      001D3C 3A                    5876 	.db #0x3a	; 58
+      001D3D 40                    5877 	.db #0x40	; 64
+      001D3E 40                    5878 	.db #0x40	; 64
+      001D3F 20                    5879 	.db #0x20	; 32
+      001D40 7A                    5880 	.db #0x7a	; 122	'z'
+      001D41 38                    5881 	.db #0x38	; 56	'8'
+      001D42 54                    5882 	.db #0x54	; 84	'T'
+      001D43 54                    5883 	.db #0x54	; 84	'T'
+      001D44 55                    5884 	.db #0x55	; 85	'U'
+      001D45 59                    5885 	.db #0x59	; 89	'Y'
+      001D46 21                    5886 	.db #0x21	; 33
+      001D47 55                    5887 	.db #0x55	; 85	'U'
+      001D48 55                    5888 	.db #0x55	; 85	'U'
+      001D49 79                    5889 	.db #0x79	; 121	'y'
+      001D4A 41                    5890 	.db #0x41	; 65	'A'
+      001D4B 22                    5891 	.db #0x22	; 34
+      001D4C 54                    5892 	.db #0x54	; 84	'T'
+      001D4D 54                    5893 	.db #0x54	; 84	'T'
+      001D4E 78                    5894 	.db #0x78	; 120	'x'
+      001D4F 42                    5895 	.db #0x42	; 66	'B'
+      001D50 21                    5896 	.db #0x21	; 33
+      001D51 55                    5897 	.db #0x55	; 85	'U'
+      001D52 54                    5898 	.db #0x54	; 84	'T'
+      001D53 78                    5899 	.db #0x78	; 120	'x'
+      001D54 40                    5900 	.db #0x40	; 64
+      001D55 20                    5901 	.db #0x20	; 32
+      001D56 54                    5902 	.db #0x54	; 84	'T'
+      001D57 55                    5903 	.db #0x55	; 85	'U'
+      001D58 79                    5904 	.db #0x79	; 121	'y'
+      001D59 40                    5905 	.db #0x40	; 64
+      001D5A 0C                    5906 	.db #0x0c	; 12
+      001D5B 1E                    5907 	.db #0x1e	; 30
+      001D5C 52                    5908 	.db #0x52	; 82	'R'
+      001D5D 72                    5909 	.db #0x72	; 114	'r'
+      001D5E 12                    5910 	.db #0x12	; 18
+      001D5F 39                    5911 	.db #0x39	; 57	'9'
+      001D60 55                    5912 	.db #0x55	; 85	'U'
+      001D61 55                    5913 	.db #0x55	; 85	'U'
+      001D62 55                    5914 	.db #0x55	; 85	'U'
+      001D63 59                    5915 	.db #0x59	; 89	'Y'
+      001D64 39                    5916 	.db #0x39	; 57	'9'
+      001D65 54                    5917 	.db #0x54	; 84	'T'
+      001D66 54                    5918 	.db #0x54	; 84	'T'
+      001D67 54                    5919 	.db #0x54	; 84	'T'
+      001D68 59                    5920 	.db #0x59	; 89	'Y'
+      001D69 39                    5921 	.db #0x39	; 57	'9'
+      001D6A 55                    5922 	.db #0x55	; 85	'U'
+      001D6B 54                    5923 	.db #0x54	; 84	'T'
+      001D6C 54                    5924 	.db #0x54	; 84	'T'
+      001D6D 58                    5925 	.db #0x58	; 88	'X'
+      001D6E 00                    5926 	.db #0x00	; 0
+      001D6F 00                    5927 	.db #0x00	; 0
+      001D70 45                    5928 	.db #0x45	; 69	'E'
+      001D71 7C                    5929 	.db #0x7c	; 124
+      001D72 41                    5930 	.db #0x41	; 65	'A'
+      001D73 00                    5931 	.db #0x00	; 0
+      001D74 02                    5932 	.db #0x02	; 2
+      001D75 45                    5933 	.db #0x45	; 69	'E'
+      001D76 7D                    5934 	.db #0x7d	; 125
+      001D77 42                    5935 	.db #0x42	; 66	'B'
+      001D78 00                    5936 	.db #0x00	; 0
+      001D79 01                    5937 	.db #0x01	; 1
+      001D7A 45                    5938 	.db #0x45	; 69	'E'
+      001D7B 7C                    5939 	.db #0x7c	; 124
+      001D7C 40                    5940 	.db #0x40	; 64
+      001D7D 7D                    5941 	.db #0x7d	; 125
+      001D7E 12                    5942 	.db #0x12	; 18
+      001D7F 11                    5943 	.db #0x11	; 17
+      001D80 12                    5944 	.db #0x12	; 18
+      001D81 7D                    5945 	.db #0x7d	; 125
+      001D82 F0                    5946 	.db #0xf0	; 240
+      001D83 28                    5947 	.db #0x28	; 40
+      001D84 25                    5948 	.db #0x25	; 37
+      001D85 28                    5949 	.db #0x28	; 40
+      001D86 F0                    5950 	.db #0xf0	; 240
+      001D87 7C                    5951 	.db #0x7c	; 124
+      001D88 54                    5952 	.db #0x54	; 84	'T'
+      001D89 55                    5953 	.db #0x55	; 85	'U'
+      001D8A 45                    5954 	.db #0x45	; 69	'E'
+      001D8B 00                    5955 	.db #0x00	; 0
+      001D8C 20                    5956 	.db #0x20	; 32
+      001D8D 54                    5957 	.db #0x54	; 84	'T'
+      001D8E 54                    5958 	.db #0x54	; 84	'T'
+      001D8F 7C                    5959 	.db #0x7c	; 124
+      001D90 54                    5960 	.db #0x54	; 84	'T'
+      001D91 7C                    5961 	.db #0x7c	; 124
+      001D92 0A                    5962 	.db #0x0a	; 10
+      001D93 09                    5963 	.db #0x09	; 9
+      001D94 7F                    5964 	.db #0x7f	; 127
+      001D95 49                    5965 	.db #0x49	; 73	'I'
+      001D96 32                    5966 	.db #0x32	; 50	'2'
+      001D97 49                    5967 	.db #0x49	; 73	'I'
+      001D98 49                    5968 	.db #0x49	; 73	'I'
+      001D99 49                    5969 	.db #0x49	; 73	'I'
+      001D9A 32                    5970 	.db #0x32	; 50	'2'
+      001D9B 3A                    5971 	.db #0x3a	; 58
+      001D9C 44                    5972 	.db #0x44	; 68	'D'
+      001D9D 44                    5973 	.db #0x44	; 68	'D'
+      001D9E 44                    5974 	.db #0x44	; 68	'D'
+      001D9F 3A                    5975 	.db #0x3a	; 58
+      001DA0 32                    5976 	.db #0x32	; 50	'2'
+      001DA1 4A                    5977 	.db #0x4a	; 74	'J'
+      001DA2 48                    5978 	.db #0x48	; 72	'H'
+      001DA3 48                    5979 	.db #0x48	; 72	'H'
+      001DA4 30                    5980 	.db #0x30	; 48	'0'
+      001DA5 3A                    5981 	.db #0x3a	; 58
+      001DA6 41                    5982 	.db #0x41	; 65	'A'
+      001DA7 41                    5983 	.db #0x41	; 65	'A'
+      001DA8 21                    5984 	.db #0x21	; 33
+      001DA9 7A                    5985 	.db #0x7a	; 122	'z'
+      001DAA 3A                    5986 	.db #0x3a	; 58
+      001DAB 42                    5987 	.db #0x42	; 66	'B'
+      001DAC 40                    5988 	.db #0x40	; 64
+      001DAD 20                    5989 	.db #0x20	; 32
+      001DAE 78                    5990 	.db #0x78	; 120	'x'
+      001DAF 00                    5991 	.db #0x00	; 0
+      001DB0 9D                    5992 	.db #0x9d	; 157
+      001DB1 A0                    5993 	.db #0xa0	; 160
+      001DB2 A0                    5994 	.db #0xa0	; 160
+      001DB3 7D                    5995 	.db #0x7d	; 125
+      001DB4 3D                    5996 	.db #0x3d	; 61
+      001DB5 42                    5997 	.db #0x42	; 66	'B'
+      001DB6 42                    5998 	.db #0x42	; 66	'B'
+      001DB7 42                    5999 	.db #0x42	; 66	'B'
+      001DB8 3D                    6000 	.db #0x3d	; 61
+      001DB9 3D                    6001 	.db #0x3d	; 61
+      001DBA 40                    6002 	.db #0x40	; 64
+      001DBB 40                    6003 	.db #0x40	; 64
+      001DBC 40                    6004 	.db #0x40	; 64
+      001DBD 3D                    6005 	.db #0x3d	; 61
+      001DBE 3C                    6006 	.db #0x3c	; 60
+      001DBF 24                    6007 	.db #0x24	; 36
+      001DC0 FF                    6008 	.db #0xff	; 255
+      001DC1 24                    6009 	.db #0x24	; 36
+      001DC2 24                    6010 	.db #0x24	; 36
+      001DC3 48                    6011 	.db #0x48	; 72	'H'
+      001DC4 7E                    6012 	.db #0x7e	; 126
+      001DC5 49                    6013 	.db #0x49	; 73	'I'
+      001DC6 43                    6014 	.db #0x43	; 67	'C'
+      001DC7 66                    6015 	.db #0x66	; 102	'f'
+      001DC8 2B                    6016 	.db #0x2b	; 43
+      001DC9 2F                    6017 	.db #0x2f	; 47
+      001DCA FC                    6018 	.db #0xfc	; 252
+      001DCB 2F                    6019 	.db #0x2f	; 47
+      001DCC 2B                    6020 	.db #0x2b	; 43
+      001DCD FF                    6021 	.db #0xff	; 255
+      001DCE 09                    6022 	.db #0x09	; 9
+      001DCF 29                    6023 	.db #0x29	; 41
+      001DD0 F6                    6024 	.db #0xf6	; 246
+      001DD1 20                    6025 	.db #0x20	; 32
+      001DD2 C0                    6026 	.db #0xc0	; 192
+      001DD3 88                    6027 	.db #0x88	; 136
+      001DD4 7E                    6028 	.db #0x7e	; 126
+      001DD5 09                    6029 	.db #0x09	; 9
+      001DD6 03                    6030 	.db #0x03	; 3
+      001DD7 20                    6031 	.db #0x20	; 32
+      001DD8 54                    6032 	.db #0x54	; 84	'T'
+      001DD9 54                    6033 	.db #0x54	; 84	'T'
+      001DDA 79                    6034 	.db #0x79	; 121	'y'
+      001DDB 41                    6035 	.db #0x41	; 65	'A'
+      001DDC 00                    6036 	.db #0x00	; 0
+      001DDD 00                    6037 	.db #0x00	; 0
+      001DDE 44                    6038 	.db #0x44	; 68	'D'
+      001DDF 7D                    6039 	.db #0x7d	; 125
+      001DE0 41                    6040 	.db #0x41	; 65	'A'
+      001DE1 30                    6041 	.db #0x30	; 48	'0'
+      001DE2 48                    6042 	.db #0x48	; 72	'H'
+      001DE3 48                    6043 	.db #0x48	; 72	'H'
+      001DE4 4A                    6044 	.db #0x4a	; 74	'J'
+      001DE5 32                    6045 	.db #0x32	; 50	'2'
+      001DE6 38                    6046 	.db #0x38	; 56	'8'
+      001DE7 40                    6047 	.db #0x40	; 64
+      001DE8 40                    6048 	.db #0x40	; 64
+      001DE9 22                    6049 	.db #0x22	; 34
+      001DEA 7A                    6050 	.db #0x7a	; 122	'z'
+      001DEB 00                    6051 	.db #0x00	; 0
+      001DEC 7A                    6052 	.db #0x7a	; 122	'z'
+      001DED 0A                    6053 	.db #0x0a	; 10
+      001DEE 0A                    6054 	.db #0x0a	; 10
+      001DEF 72                    6055 	.db #0x72	; 114	'r'
+      001DF0 7D                    6056 	.db #0x7d	; 125
+      001DF1 0D                    6057 	.db #0x0d	; 13
+      001DF2 19                    6058 	.db #0x19	; 25
+      001DF3 31                    6059 	.db #0x31	; 49	'1'
+      001DF4 7D                    6060 	.db #0x7d	; 125
+      001DF5 26                    6061 	.db #0x26	; 38
+      001DF6 29                    6062 	.db #0x29	; 41
+      001DF7 29                    6063 	.db #0x29	; 41
+      001DF8 2F                    6064 	.db #0x2f	; 47
+      001DF9 28                    6065 	.db #0x28	; 40
+      001DFA 26                    6066 	.db #0x26	; 38
+      001DFB 29                    6067 	.db #0x29	; 41
+      001DFC 29                    6068 	.db #0x29	; 41
+      001DFD 29                    6069 	.db #0x29	; 41
+      001DFE 26                    6070 	.db #0x26	; 38
+      001DFF 30                    6071 	.db #0x30	; 48	'0'
+      001E00 48                    6072 	.db #0x48	; 72	'H'
+      001E01 4D                    6073 	.db #0x4d	; 77	'M'
+      001E02 40                    6074 	.db #0x40	; 64
+      001E03 20                    6075 	.db #0x20	; 32
+      001E04 38                    6076 	.db #0x38	; 56	'8'
+      001E05 08                    6077 	.db #0x08	; 8
+      001E06 08                    6078 	.db #0x08	; 8
+      001E07 08                    6079 	.db #0x08	; 8
+      001E08 08                    6080 	.db #0x08	; 8
+      001E09 08                    6081 	.db #0x08	; 8
+      001E0A 08                    6082 	.db #0x08	; 8
+      001E0B 08                    6083 	.db #0x08	; 8
+      001E0C 08                    6084 	.db #0x08	; 8
+      001E0D 38                    6085 	.db #0x38	; 56	'8'
+      001E0E 2F                    6086 	.db #0x2f	; 47
+      001E0F 10                    6087 	.db #0x10	; 16
+      001E10 C8                    6088 	.db #0xc8	; 200
+      001E11 AC                    6089 	.db #0xac	; 172
+      001E12 BA                    6090 	.db #0xba	; 186
+      001E13 2F                    6091 	.db #0x2f	; 47
+      001E14 10                    6092 	.db #0x10	; 16
+      001E15 28                    6093 	.db #0x28	; 40
+      001E16 34                    6094 	.db #0x34	; 52	'4'
+      001E17 FA                    6095 	.db #0xfa	; 250
+      001E18 00                    6096 	.db #0x00	; 0
+      001E19 00                    6097 	.db #0x00	; 0
+      001E1A 7B                    6098 	.db #0x7b	; 123
+      001E1B 00                    6099 	.db #0x00	; 0
+      001E1C 00                    6100 	.db #0x00	; 0
+      001E1D 08                    6101 	.db #0x08	; 8
+      001E1E 14                    6102 	.db #0x14	; 20
+      001E1F 2A                    6103 	.db #0x2a	; 42
+      001E20 14                    6104 	.db #0x14	; 20
+      001E21 22                    6105 	.db #0x22	; 34
+      001E22 22                    6106 	.db #0x22	; 34
+      001E23 14                    6107 	.db #0x14	; 20
+      001E24 2A                    6108 	.db #0x2a	; 42
+      001E25 14                    6109 	.db #0x14	; 20
+      001E26 08                    6110 	.db #0x08	; 8
+      001E27 AA                    6111 	.db #0xaa	; 170
+      001E28 00                    6112 	.db #0x00	; 0
+      001E29 55                    6113 	.db #0x55	; 85	'U'
+      001E2A 00                    6114 	.db #0x00	; 0
+      001E2B AA                    6115 	.db #0xaa	; 170
+      001E2C AA                    6116 	.db #0xaa	; 170
+      001E2D 55                    6117 	.db #0x55	; 85	'U'
+      001E2E AA                    6118 	.db #0xaa	; 170
+      001E2F 55                    6119 	.db #0x55	; 85	'U'
+      001E30 AA                    6120 	.db #0xaa	; 170
+      001E31 00                    6121 	.db #0x00	; 0
+      001E32 00                    6122 	.db #0x00	; 0
+      001E33 00                    6123 	.db #0x00	; 0
+      001E34 FF                    6124 	.db #0xff	; 255
+      001E35 00                    6125 	.db #0x00	; 0
+      001E36 10                    6126 	.db #0x10	; 16
+      001E37 10                    6127 	.db #0x10	; 16
+      001E38 10                    6128 	.db #0x10	; 16
+      001E39 FF                    6129 	.db #0xff	; 255
+      001E3A 00                    6130 	.db #0x00	; 0
+      001E3B 14                    6131 	.db #0x14	; 20
+      001E3C 14                    6132 	.db #0x14	; 20
+      001E3D 14                    6133 	.db #0x14	; 20
+      001E3E FF                    6134 	.db #0xff	; 255
+      001E3F 00                    6135 	.db #0x00	; 0
+      001E40 10                    6136 	.db #0x10	; 16
+      001E41 10                    6137 	.db #0x10	; 16
+      001E42 FF                    6138 	.db #0xff	; 255
+      001E43 00                    6139 	.db #0x00	; 0
+      001E44 FF                    6140 	.db #0xff	; 255
+      001E45 10                    6141 	.db #0x10	; 16
+      001E46 10                    6142 	.db #0x10	; 16
+      001E47 F0                    6143 	.db #0xf0	; 240
+      001E48 10                    6144 	.db #0x10	; 16
+      001E49 F0                    6145 	.db #0xf0	; 240
+      001E4A 14                    6146 	.db #0x14	; 20
+      001E4B 14                    6147 	.db #0x14	; 20
+      001E4C 14                    6148 	.db #0x14	; 20
+      001E4D FC                    6149 	.db #0xfc	; 252
+      001E4E 00                    6150 	.db #0x00	; 0
+      001E4F 14                    6151 	.db #0x14	; 20
+      001E50 14                    6152 	.db #0x14	; 20
+      001E51 F7                    6153 	.db #0xf7	; 247
+      001E52 00                    6154 	.db #0x00	; 0
+      001E53 FF                    6155 	.db #0xff	; 255
+      001E54 00                    6156 	.db #0x00	; 0
+      001E55 00                    6157 	.db #0x00	; 0
+      001E56 FF                    6158 	.db #0xff	; 255
+      001E57 00                    6159 	.db #0x00	; 0
+      001E58 FF                    6160 	.db #0xff	; 255
+      001E59 14                    6161 	.db #0x14	; 20
+      001E5A 14                    6162 	.db #0x14	; 20
+      001E5B F4                    6163 	.db #0xf4	; 244
+      001E5C 04                    6164 	.db #0x04	; 4
+      001E5D FC                    6165 	.db #0xfc	; 252
+      001E5E 14                    6166 	.db #0x14	; 20
+      001E5F 14                    6167 	.db #0x14	; 20
+      001E60 17                    6168 	.db #0x17	; 23
+      001E61 10                    6169 	.db #0x10	; 16
+      001E62 1F                    6170 	.db #0x1f	; 31
+      001E63 10                    6171 	.db #0x10	; 16
+      001E64 10                    6172 	.db #0x10	; 16
+      001E65 1F                    6173 	.db #0x1f	; 31
+      001E66 10                    6174 	.db #0x10	; 16
+      001E67 1F                    6175 	.db #0x1f	; 31
+      001E68 14                    6176 	.db #0x14	; 20
+      001E69 14                    6177 	.db #0x14	; 20
+      001E6A 14                    6178 	.db #0x14	; 20
+      001E6B 1F                    6179 	.db #0x1f	; 31
+      001E6C 00                    6180 	.db #0x00	; 0
+      001E6D 10                    6181 	.db #0x10	; 16
+      001E6E 10                    6182 	.db #0x10	; 16
+      001E6F 10                    6183 	.db #0x10	; 16
+      001E70 F0                    6184 	.db #0xf0	; 240
+      001E71 00                    6185 	.db #0x00	; 0
+      001E72 00                    6186 	.db #0x00	; 0
+      001E73 00                    6187 	.db #0x00	; 0
+      001E74 00                    6188 	.db #0x00	; 0
+      001E75 1F                    6189 	.db #0x1f	; 31
+      001E76 10                    6190 	.db #0x10	; 16
+      001E77 10                    6191 	.db #0x10	; 16
+      001E78 10                    6192 	.db #0x10	; 16
+      001E79 10                    6193 	.db #0x10	; 16
+      001E7A 1F                    6194 	.db #0x1f	; 31
+      001E7B 10                    6195 	.db #0x10	; 16
+      001E7C 10                    6196 	.db #0x10	; 16
+      001E7D 10                    6197 	.db #0x10	; 16
+      001E7E 10                    6198 	.db #0x10	; 16
+      001E7F F0                    6199 	.db #0xf0	; 240
+      001E80 10                    6200 	.db #0x10	; 16
+      001E81 00                    6201 	.db #0x00	; 0
+      001E82 00                    6202 	.db #0x00	; 0
+      001E83 00                    6203 	.db #0x00	; 0
+      001E84 FF                    6204 	.db #0xff	; 255
+      001E85 10                    6205 	.db #0x10	; 16
+      001E86 10                    6206 	.db #0x10	; 16
+      001E87 10                    6207 	.db #0x10	; 16
+      001E88 10                    6208 	.db #0x10	; 16
+      001E89 10                    6209 	.db #0x10	; 16
+      001E8A 10                    6210 	.db #0x10	; 16
+      001E8B 10                    6211 	.db #0x10	; 16
+      001E8C 10                    6212 	.db #0x10	; 16
+      001E8D 10                    6213 	.db #0x10	; 16
+      001E8E FF                    6214 	.db #0xff	; 255
+      001E8F 10                    6215 	.db #0x10	; 16
+      001E90 00                    6216 	.db #0x00	; 0
+      001E91 00                    6217 	.db #0x00	; 0
+      001E92 00                    6218 	.db #0x00	; 0
+      001E93 FF                    6219 	.db #0xff	; 255
+      001E94 14                    6220 	.db #0x14	; 20
+      001E95 00                    6221 	.db #0x00	; 0
+      001E96 00                    6222 	.db #0x00	; 0
+      001E97 FF                    6223 	.db #0xff	; 255
+      001E98 00                    6224 	.db #0x00	; 0
+      001E99 FF                    6225 	.db #0xff	; 255
+      001E9A 00                    6226 	.db #0x00	; 0
+      001E9B 00                    6227 	.db #0x00	; 0
+      001E9C 1F                    6228 	.db #0x1f	; 31
+      001E9D 10                    6229 	.db #0x10	; 16
+      001E9E 17                    6230 	.db #0x17	; 23
+      001E9F 00                    6231 	.db #0x00	; 0
+      001EA0 00                    6232 	.db #0x00	; 0
+      001EA1 FC                    6233 	.db #0xfc	; 252
+      001EA2 04                    6234 	.db #0x04	; 4
+      001EA3 F4                    6235 	.db #0xf4	; 244
+      001EA4 14                    6236 	.db #0x14	; 20
+      001EA5 14                    6237 	.db #0x14	; 20
+      001EA6 17                    6238 	.db #0x17	; 23
+      001EA7 10                    6239 	.db #0x10	; 16
+      001EA8 17                    6240 	.db #0x17	; 23
+      001EA9 14                    6241 	.db #0x14	; 20
+      001EAA 14                    6242 	.db #0x14	; 20
+      001EAB F4                    6243 	.db #0xf4	; 244
+      001EAC 04                    6244 	.db #0x04	; 4
+      001EAD F4                    6245 	.db #0xf4	; 244
+      001EAE 00                    6246 	.db #0x00	; 0
+      001EAF 00                    6247 	.db #0x00	; 0
+      001EB0 FF                    6248 	.db #0xff	; 255
+      001EB1 00                    6249 	.db #0x00	; 0
+      001EB2 F7                    6250 	.db #0xf7	; 247
+      001EB3 14                    6251 	.db #0x14	; 20
+      001EB4 14                    6252 	.db #0x14	; 20
+      001EB5 14                    6253 	.db #0x14	; 20
+      001EB6 14                    6254 	.db #0x14	; 20
+      001EB7 14                    6255 	.db #0x14	; 20
+      001EB8 14                    6256 	.db #0x14	; 20
+      001EB9 14                    6257 	.db #0x14	; 20
+      001EBA F7                    6258 	.db #0xf7	; 247
+      001EBB 00                    6259 	.db #0x00	; 0
+      001EBC F7                    6260 	.db #0xf7	; 247
+      001EBD 14                    6261 	.db #0x14	; 20
+      001EBE 14                    6262 	.db #0x14	; 20
+      001EBF 14                    6263 	.db #0x14	; 20
+      001EC0 17                    6264 	.db #0x17	; 23
+      001EC1 14                    6265 	.db #0x14	; 20
+      001EC2 10                    6266 	.db #0x10	; 16
+      001EC3 10                    6267 	.db #0x10	; 16
+      001EC4 1F                    6268 	.db #0x1f	; 31
+      001EC5 10                    6269 	.db #0x10	; 16
+      001EC6 1F                    6270 	.db #0x1f	; 31
+      001EC7 14                    6271 	.db #0x14	; 20
+      001EC8 14                    6272 	.db #0x14	; 20
+      001EC9 14                    6273 	.db #0x14	; 20
+      001ECA F4                    6274 	.db #0xf4	; 244
+      001ECB 14                    6275 	.db #0x14	; 20
+      001ECC 10                    6276 	.db #0x10	; 16
+      001ECD 10                    6277 	.db #0x10	; 16
+      001ECE F0                    6278 	.db #0xf0	; 240
+      001ECF 10                    6279 	.db #0x10	; 16
+      001ED0 F0                    6280 	.db #0xf0	; 240
+      001ED1 00                    6281 	.db #0x00	; 0
+      001ED2 00                    6282 	.db #0x00	; 0
+      001ED3 1F                    6283 	.db #0x1f	; 31
+      001ED4 10                    6284 	.db #0x10	; 16
+      001ED5 1F                    6285 	.db #0x1f	; 31
+      001ED6 00                    6286 	.db #0x00	; 0
+      001ED7 00                    6287 	.db #0x00	; 0
+      001ED8 00                    6288 	.db #0x00	; 0
+      001ED9 1F                    6289 	.db #0x1f	; 31
+      001EDA 14                    6290 	.db #0x14	; 20
+      001EDB 00                    6291 	.db #0x00	; 0
+      001EDC 00                    6292 	.db #0x00	; 0
+      001EDD 00                    6293 	.db #0x00	; 0
+      001EDE FC                    6294 	.db #0xfc	; 252
+      001EDF 14                    6295 	.db #0x14	; 20
+      001EE0 00                    6296 	.db #0x00	; 0
+      001EE1 00                    6297 	.db #0x00	; 0
+      001EE2 F0                    6298 	.db #0xf0	; 240
+      001EE3 10                    6299 	.db #0x10	; 16
+      001EE4 F0                    6300 	.db #0xf0	; 240
+      001EE5 10                    6301 	.db #0x10	; 16
+      001EE6 10                    6302 	.db #0x10	; 16
+      001EE7 FF                    6303 	.db #0xff	; 255
+      001EE8 10                    6304 	.db #0x10	; 16
+      001EE9 FF                    6305 	.db #0xff	; 255
+      001EEA 14                    6306 	.db #0x14	; 20
+      001EEB 14                    6307 	.db #0x14	; 20
+      001EEC 14                    6308 	.db #0x14	; 20
+      001EED FF                    6309 	.db #0xff	; 255
+      001EEE 14                    6310 	.db #0x14	; 20
+      001EEF 10                    6311 	.db #0x10	; 16
+      001EF0 10                    6312 	.db #0x10	; 16
+      001EF1 10                    6313 	.db #0x10	; 16
+      001EF2 1F                    6314 	.db #0x1f	; 31
+      001EF3 00                    6315 	.db #0x00	; 0
+      001EF4 00                    6316 	.db #0x00	; 0
+      001EF5 00                    6317 	.db #0x00	; 0
+      001EF6 00                    6318 	.db #0x00	; 0
+      001EF7 F0                    6319 	.db #0xf0	; 240
+      001EF8 10                    6320 	.db #0x10	; 16
+      001EF9 FF                    6321 	.db #0xff	; 255
+      001EFA FF                    6322 	.db #0xff	; 255
+      001EFB FF                    6323 	.db #0xff	; 255
+      001EFC FF                    6324 	.db #0xff	; 255
+      001EFD FF                    6325 	.db #0xff	; 255
+      001EFE F0                    6326 	.db #0xf0	; 240
+      001EFF F0                    6327 	.db #0xf0	; 240
+      001F00 F0                    6328 	.db #0xf0	; 240
+      001F01 F0                    6329 	.db #0xf0	; 240
+      001F02 F0                    6330 	.db #0xf0	; 240
+      001F03 FF                    6331 	.db #0xff	; 255
+      001F04 FF                    6332 	.db #0xff	; 255
+      001F05 FF                    6333 	.db #0xff	; 255
+      001F06 00                    6334 	.db #0x00	; 0
+      001F07 00                    6335 	.db #0x00	; 0
+      001F08 00                    6336 	.db #0x00	; 0
+      001F09 00                    6337 	.db #0x00	; 0
+      001F0A 00                    6338 	.db #0x00	; 0
+      001F0B FF                    6339 	.db #0xff	; 255
+      001F0C FF                    6340 	.db #0xff	; 255
+      001F0D 0F                    6341 	.db #0x0f	; 15
+      001F0E 0F                    6342 	.db #0x0f	; 15
+      001F0F 0F                    6343 	.db #0x0f	; 15
+      001F10 0F                    6344 	.db #0x0f	; 15
+      001F11 0F                    6345 	.db #0x0f	; 15
+      001F12 38                    6346 	.db #0x38	; 56	'8'
+      001F13 44                    6347 	.db #0x44	; 68	'D'
+      001F14 44                    6348 	.db #0x44	; 68	'D'
+      001F15 38                    6349 	.db #0x38	; 56	'8'
+      001F16 44                    6350 	.db #0x44	; 68	'D'
+      001F17 FC                    6351 	.db #0xfc	; 252
+      001F18 4A                    6352 	.db #0x4a	; 74	'J'
+      001F19 4A                    6353 	.db #0x4a	; 74	'J'
+      001F1A 4A                    6354 	.db #0x4a	; 74	'J'
+      001F1B 34                    6355 	.db #0x34	; 52	'4'
+      001F1C 7E                    6356 	.db #0x7e	; 126
+      001F1D 02                    6357 	.db #0x02	; 2
+      001F1E 02                    6358 	.db #0x02	; 2
+      001F1F 06                    6359 	.db #0x06	; 6
+      001F20 06                    6360 	.db #0x06	; 6
+      001F21 02                    6361 	.db #0x02	; 2
+      001F22 7E                    6362 	.db #0x7e	; 126
+      001F23 02                    6363 	.db #0x02	; 2
+      001F24 7E                    6364 	.db #0x7e	; 126
+      001F25 02                    6365 	.db #0x02	; 2
+      001F26 63                    6366 	.db #0x63	; 99	'c'
+      001F27 55                    6367 	.db #0x55	; 85	'U'
+      001F28 49                    6368 	.db #0x49	; 73	'I'
+      001F29 41                    6369 	.db #0x41	; 65	'A'
+      001F2A 63                    6370 	.db #0x63	; 99	'c'
+      001F2B 38                    6371 	.db #0x38	; 56	'8'
+      001F2C 44                    6372 	.db #0x44	; 68	'D'
+      001F2D 44                    6373 	.db #0x44	; 68	'D'
+      001F2E 3C                    6374 	.db #0x3c	; 60
+      001F2F 04                    6375 	.db #0x04	; 4
+      001F30 40                    6376 	.db #0x40	; 64
+      001F31 7E                    6377 	.db #0x7e	; 126
+      001F32 20                    6378 	.db #0x20	; 32
+      001F33 1E                    6379 	.db #0x1e	; 30
+      001F34 20                    6380 	.db #0x20	; 32
+      001F35 06                    6381 	.db #0x06	; 6
+      001F36 02                    6382 	.db #0x02	; 2
+      001F37 7E                    6383 	.db #0x7e	; 126
+      001F38 02                    6384 	.db #0x02	; 2
+      001F39 02                    6385 	.db #0x02	; 2
+      001F3A 99                    6386 	.db #0x99	; 153
+      001F3B A5                    6387 	.db #0xa5	; 165
+      001F3C E7                    6388 	.db #0xe7	; 231
+      001F3D A5                    6389 	.db #0xa5	; 165
+      001F3E 99                    6390 	.db #0x99	; 153
+      001F3F 1C                    6391 	.db #0x1c	; 28
+      001F40 2A                    6392 	.db #0x2a	; 42
+      001F41 49                    6393 	.db #0x49	; 73	'I'
+      001F42 2A                    6394 	.db #0x2a	; 42
+      001F43 1C                    6395 	.db #0x1c	; 28
+      001F44 4C                    6396 	.db #0x4c	; 76	'L'
+      001F45 72                    6397 	.db #0x72	; 114	'r'
+      001F46 01                    6398 	.db #0x01	; 1
+      001F47 72                    6399 	.db #0x72	; 114	'r'
+      001F48 4C                    6400 	.db #0x4c	; 76	'L'
+      001F49 30                    6401 	.db #0x30	; 48	'0'
+      001F4A 4A                    6402 	.db #0x4a	; 74	'J'
+      001F4B 4D                    6403 	.db #0x4d	; 77	'M'
+      001F4C 4D                    6404 	.db #0x4d	; 77	'M'
+      001F4D 30                    6405 	.db #0x30	; 48	'0'
+      001F4E 30                    6406 	.db #0x30	; 48	'0'
+      001F4F 48                    6407 	.db #0x48	; 72	'H'
+      001F50 78                    6408 	.db #0x78	; 120	'x'
+      001F51 48                    6409 	.db #0x48	; 72	'H'
+      001F52 30                    6410 	.db #0x30	; 48	'0'
+      001F53 BC                    6411 	.db #0xbc	; 188
+      001F54 62                    6412 	.db #0x62	; 98	'b'
+      001F55 5A                    6413 	.db #0x5a	; 90	'Z'
+      001F56 46                    6414 	.db #0x46	; 70	'F'
+      001F57 3D                    6415 	.db #0x3d	; 61
+      001F58 3E                    6416 	.db #0x3e	; 62
+      001F59 49                    6417 	.db #0x49	; 73	'I'
+      001F5A 49                    6418 	.db #0x49	; 73	'I'
+      001F5B 49                    6419 	.db #0x49	; 73	'I'
+      001F5C 00                    6420 	.db #0x00	; 0
+      001F5D 7E                    6421 	.db #0x7e	; 126
+      001F5E 01                    6422 	.db #0x01	; 1
+      001F5F 01                    6423 	.db #0x01	; 1
+      001F60 01                    6424 	.db #0x01	; 1
+      001F61 7E                    6425 	.db #0x7e	; 126
+      001F62 2A                    6426 	.db #0x2a	; 42
+      001F63 2A                    6427 	.db #0x2a	; 42
+      001F64 2A                    6428 	.db #0x2a	; 42
+      001F65 2A                    6429 	.db #0x2a	; 42
+      001F66 2A                    6430 	.db #0x2a	; 42
+      001F67 44                    6431 	.db #0x44	; 68	'D'
+      001F68 44                    6432 	.db #0x44	; 68	'D'
+      001F69 5F                    6433 	.db #0x5f	; 95
+      001F6A 44                    6434 	.db #0x44	; 68	'D'
+      001F6B 44                    6435 	.db #0x44	; 68	'D'
+      001F6C 40                    6436 	.db #0x40	; 64
+      001F6D 51                    6437 	.db #0x51	; 81	'Q'
+      001F6E 4A                    6438 	.db #0x4a	; 74	'J'
+      001F6F 44                    6439 	.db #0x44	; 68	'D'
+      001F70 40                    6440 	.db #0x40	; 64
+      001F71 40                    6441 	.db #0x40	; 64
+      001F72 44                    6442 	.db #0x44	; 68	'D'
+      001F73 4A                    6443 	.db #0x4a	; 74	'J'
+      001F74 51                    6444 	.db #0x51	; 81	'Q'
+      001F75 40                    6445 	.db #0x40	; 64
+      001F76 00                    6446 	.db #0x00	; 0
+      001F77 00                    6447 	.db #0x00	; 0
+      001F78 FF                    6448 	.db #0xff	; 255
+      001F79 01                    6449 	.db #0x01	; 1
+      001F7A 03                    6450 	.db #0x03	; 3
+      001F7B E0                    6451 	.db #0xe0	; 224
+      001F7C 80                    6452 	.db #0x80	; 128
+      001F7D FF                    6453 	.db #0xff	; 255
+      001F7E 00                    6454 	.db #0x00	; 0
+      001F7F 00                    6455 	.db #0x00	; 0
+      001F80 08                    6456 	.db #0x08	; 8
+      001F81 08                    6457 	.db #0x08	; 8
+      001F82 6B                    6458 	.db #0x6b	; 107	'k'
+      001F83 6B                    6459 	.db #0x6b	; 107	'k'
+      001F84 08                    6460 	.db #0x08	; 8
+      001F85 36                    6461 	.db #0x36	; 54	'6'
+      001F86 12                    6462 	.db #0x12	; 18
+      001F87 36                    6463 	.db #0x36	; 54	'6'
+      001F88 24                    6464 	.db #0x24	; 36
+      001F89 36                    6465 	.db #0x36	; 54	'6'
+      001F8A 06                    6466 	.db #0x06	; 6
+      001F8B 0F                    6467 	.db #0x0f	; 15
+      001F8C 09                    6468 	.db #0x09	; 9
+      001F8D 0F                    6469 	.db #0x0f	; 15
+      001F8E 06                    6470 	.db #0x06	; 6
+      001F8F 00                    6471 	.db #0x00	; 0
+      001F90 00                    6472 	.db #0x00	; 0
+      001F91 18                    6473 	.db #0x18	; 24
+      001F92 18                    6474 	.db #0x18	; 24
+      001F93 00                    6475 	.db #0x00	; 0
+      001F94 00                    6476 	.db #0x00	; 0
+      001F95 00                    6477 	.db #0x00	; 0
+      001F96 10                    6478 	.db #0x10	; 16
+      001F97 10                    6479 	.db #0x10	; 16
+      001F98 00                    6480 	.db #0x00	; 0
+      001F99 30                    6481 	.db #0x30	; 48	'0'
+      001F9A 40                    6482 	.db #0x40	; 64
+      001F9B FF                    6483 	.db #0xff	; 255
+      001F9C 01                    6484 	.db #0x01	; 1
+      001F9D 01                    6485 	.db #0x01	; 1
+      001F9E 00                    6486 	.db #0x00	; 0
+      001F9F 1F                    6487 	.db #0x1f	; 31
+      001FA0 01                    6488 	.db #0x01	; 1
+      001FA1 01                    6489 	.db #0x01	; 1
+      001FA2 1E                    6490 	.db #0x1e	; 30
+      001FA3 00                    6491 	.db #0x00	; 0
+      001FA4 19                    6492 	.db #0x19	; 25
+      001FA5 1D                    6493 	.db #0x1d	; 29
+      001FA6 17                    6494 	.db #0x17	; 23
+      001FA7 12                    6495 	.db #0x12	; 18
+      001FA8 00                    6496 	.db #0x00	; 0
+      001FA9 3C                    6497 	.db #0x3c	; 60
+      001FAA 3C                    6498 	.db #0x3c	; 60
+      001FAB 3C                    6499 	.db #0x3c	; 60
+      001FAC 3C                    6500 	.db #0x3c	; 60
+      001FAD 00                    6501 	.db #0x00	; 0
+      001FAE 00                    6502 	.db #0x00	; 0
+      001FAF 00                    6503 	.db #0x00	; 0
+      001FB0 00                    6504 	.db #0x00	; 0
+      001FB1 00                    6505 	.db #0x00	; 0
+      001FB2                       6506 _keypad:
+      001FB2 31                    6507 	.db #0x31	; 49	'1'
+      001FB3 34                    6508 	.db #0x34	; 52	'4'
+      001FB4 37                    6509 	.db #0x37	; 55	'7'
+      001FB5 46                    6510 	.db #0x46	; 70	'F'
+      001FB6 32                    6511 	.db #0x32	; 50	'2'
+      001FB7 35                    6512 	.db #0x35	; 53	'5'
+      001FB8 38                    6513 	.db #0x38	; 56	'8'
+      001FB9 30                    6514 	.db #0x30	; 48	'0'
+      001FBA 33                    6515 	.db #0x33	; 51	'3'
+      001FBB 36                    6516 	.db #0x36	; 54	'6'
+      001FBC 39                    6517 	.db #0x39	; 57	'9'
+      001FBD 45                    6518 	.db #0x45	; 69	'E'
+      001FBE 41                    6519 	.db #0x41	; 65	'A'
+      001FBF 42                    6520 	.db #0x42	; 66	'B'
+      001FC0 43                    6521 	.db #0x43	; 67	'C'
+      001FC1 44                    6522 	.db #0x44	; 68	'D'
+                                   6523 	.area CONST   (CODE)
+      001FC2                       6524 ___str_0:
+      001FC2 57 65 6C 63 6F 6D 65  6525 	.ascii "Welcome"
+      001FC9 0A                    6526 	.db 0x0a
+      001FCA 00                    6527 	.db 0x00
+                                   6528 	.area CSEG    (CODE)
+                                   6529 	.area CONST   (CODE)
+      001FCB                       6530 ___str_1:
+      001FCB 45 43 45 4E 2D 34 33  6531 	.ascii "ECEN-4330"
              33 30
-      0025C7 0A                    7596 	.db 0x0a
-      0025C8 00                    7597 	.db 0x00
-                                   7598 	.area CSEG    (CODE)
-                                   7599 	.area CONST   (CODE)
-      0025C9                       7600 ___str_2:
-      0025C9 52 6F 74 61 74 69 6F  7601 	.ascii "Rotation 0"
+      001FD4 0A                    6532 	.db 0x0a
+      001FD5 00                    6533 	.db 0x00
+                                   6534 	.area CSEG    (CODE)
+                                   6535 	.area CONST   (CODE)
+      001FD6                       6536 ___str_2:
+      001FD6 52 6F 74 61 74 69 6F  6537 	.ascii "Rotation 0"
              6E 20 30
-      0025D3 00                    7602 	.db 0x00
-                                   7603 	.area CSEG    (CODE)
-                                   7604 	.area CONST   (CODE)
-      0025D4                       7605 ___str_3:
-      0025D4 52 6F 74 61 74 69 6F  7606 	.ascii "Rotation 1"
+      001FE0 00                    6538 	.db 0x00
+                                   6539 	.area CSEG    (CODE)
+                                   6540 	.area CONST   (CODE)
+      001FE1                       6541 ___str_3:
+      001FE1 52 6F 74 61 74 69 6F  6542 	.ascii "Rotation 1"
              6E 20 31
-      0025DE 00                    7607 	.db 0x00
-                                   7608 	.area CSEG    (CODE)
-                                   7609 	.area CONST   (CODE)
-      0025DF                       7610 ___str_4:
-      0025DF 52 6F 74 61 74 69 6F  7611 	.ascii "Rotation 2"
+      001FEB 00                    6543 	.db 0x00
+                                   6544 	.area CSEG    (CODE)
+                                   6545 	.area CONST   (CODE)
+      001FEC                       6546 ___str_4:
+      001FEC 52 6F 74 61 74 69 6F  6547 	.ascii "Rotation 2"
              6E 20 32
-      0025E9 00                    7612 	.db 0x00
-                                   7613 	.area CSEG    (CODE)
-                                   7614 	.area CONST   (CODE)
-      0025EA                       7615 ___str_5:
-      0025EA 52 6F 74 61 74 69 6F  7616 	.ascii "Rotation 3"
+      001FF6 00                    6548 	.db 0x00
+                                   6549 	.area CSEG    (CODE)
+                                   6550 	.area CONST   (CODE)
+      001FF7                       6551 ___str_5:
+      001FF7 52 6F 74 61 74 69 6F  6552 	.ascii "Rotation 3"
              6E 20 33
-      0025F4 00                    7617 	.db 0x00
-                                   7618 	.area CSEG    (CODE)
-                                   7619 	.area CONST   (CODE)
-      0025F5                       7620 ___str_6:
-      0025F5 3A 20                 7621 	.ascii ": "
-      0025F7 00                    7622 	.db 0x00
-                                   7623 	.area CSEG    (CODE)
-                                   7624 	.area CONST   (CODE)
-      0025F8                       7625 ___str_7:
-      0025F8 45 6E 74 65 72 20 73  7626 	.ascii "Enter start address:"
-             74 61 72 74 20 61 64
-             64 72 65 73 73 3A
-      00260C 0A                    7627 	.db 0x0a
-      00260D 00                    7628 	.db 0x00
-                                   7629 	.area CSEG    (CODE)
-                                   7630 	.area CONST   (CODE)
-      00260E                       7631 ___str_8:
-      00260E 45 6E 74 65 72 20 64  7632 	.ascii "Enter data type"
-             61 74 61 20 74 79 70
-             65
-      00261D 0A                    7633 	.db 0x0a
-      00261E 00                    7634 	.db 0x00
-                                   7635 	.area CSEG    (CODE)
-                                   7636 	.area CONST   (CODE)
-      00261F                       7637 ___str_9:
-      00261F 42 2D 42 79 74 65 2C  7638 	.ascii "B-Byte, A-Word,"
-             20 41 2D 57 6F 72 64
-             2C
-      00262E 0A                    7639 	.db 0x0a
-      00262F 00                    7640 	.db 0x00
-                                   7641 	.area CSEG    (CODE)
-                                   7642 	.area CONST   (CODE)
-      002630                       7643 ___str_10:
-      002630 44 2D 44 6F 75 62 6C  7644 	.ascii "D-Double word"
-             65 20 77 6F 72 64
-      00263D 0A                    7645 	.db 0x0a
-      00263E 00                    7646 	.db 0x00
-                                   7647 	.area CSEG    (CODE)
-                                   7648 	.area CONST   (CODE)
-      00263F                       7649 ___str_11:
-      00263F 42 79 74 65           7650 	.ascii "Byte"
-      002643 0A                    7651 	.db 0x0a
-      002644 00                    7652 	.db 0x00
-                                   7653 	.area CSEG    (CODE)
-                                   7654 	.area CONST   (CODE)
-      002645                       7655 ___str_12:
-      002645 57 6F 72 64           7656 	.ascii "Word"
-      002649 0A                    7657 	.db 0x0a
-      00264A 00                    7658 	.db 0x00
-                                   7659 	.area CSEG    (CODE)
-                                   7660 	.area CONST   (CODE)
-      00264B                       7661 ___str_13:
-      00264B 44 6F 75 62 6C 65 20  7662 	.ascii "Double word"
-             77 6F 72 64
-      002656 0A                    7663 	.db 0x0a
-      002657 00                    7664 	.db 0x00
-                                   7665 	.area CSEG    (CODE)
-                                   7666 	.area CONST   (CODE)
-      002658                       7667 ___str_14:
-      002658 45 6E 74 65 72 20 62  7668 	.ascii "Enter block size:"
-             6C 6F 63 6B 20 73 69
-             7A 65 3A
-      002669 0A                    7669 	.db 0x0a
-      00266A 00                    7670 	.db 0x00
-                                   7671 	.area CSEG    (CODE)
-                                   7672 	.area CONST   (CODE)
-      00266B                       7673 ___str_15:
-      00266B 50 72 65 73 73 20 41  7674 	.ascii "Press A for previous"
-             20 66 6F 72 20 70 72
-             65 76 69 6F 75 73
-      00267F 0A                    7675 	.db 0x0a
-      002680 00                    7676 	.db 0x00
-                                   7677 	.area CSEG    (CODE)
-                                   7678 	.area CONST   (CODE)
-      002681                       7679 ___str_16:
-      002681 50 72 65 73 73 20 42  7680 	.ascii "Press B for next"
-             20 66 6F 72 20 6E 65
-             78 74
-      002691 0A                    7681 	.db 0x0a
-      002692 00                    7682 	.db 0x00
-                                   7683 	.area CSEG    (CODE)
-                                   7684 	.area CONST   (CODE)
-      002693                       7685 ___str_17:
-      002693 50 72 65 73 73 20 31  7686 	.ascii "Press 1 for menu"
-             20 66 6F 72 20 6D 65
-             6E 75
-      0026A3 0A                    7687 	.db 0x0a
-      0026A4 00                    7688 	.db 0x00
-                                   7689 	.area CSEG    (CODE)
-                                   7690 	.area CONST   (CODE)
-      0026A5                       7691 ___str_18:
-      0026A5 45 6E 74 65 72 20 62  7692 	.ascii "Enter byte to check"
+      002001 00                    6553 	.db 0x00
+                                   6554 	.area CSEG    (CODE)
+                                   6555 	.area CONST   (CODE)
+      002002                       6556 ___str_6:
+      002002 53 65 6C 65 63 74 20  6557 	.ascii "Select baud rate:"
+             62 61 75 64 20 72 61
+             74 65 3A
+      002013 0A                    6558 	.db 0x0a
+      002014 00                    6559 	.db 0x00
+                                   6560 	.area CSEG    (CODE)
+                                   6561 	.area CONST   (CODE)
+      002015                       6562 ___str_7:
+      002015 31 3A 20 31 32 30 30  6563 	.ascii "1: 1200"
+      00201C 0A                    6564 	.db 0x0a
+      00201D 32 3A 20 32 34 30 30  6565 	.ascii "2: 2400"
+      002024 0A                    6566 	.db 0x0a
+      002025 33 3A 20 34 38 30 30  6567 	.ascii "3: 4800"
+      00202C 0A                    6568 	.db 0x0a
+      00202D 34 3A 20 39 36 30 30  6569 	.ascii "4: 9600"
+      002034 0A                    6570 	.db 0x0a
+      002035 35 3A 20 31 39 32 30  6571 	.ascii "5: 19200"
+             30
+      00203D 0A                    6572 	.db 0x0a
+      00203E 00                    6573 	.db 0x00
+                                   6574 	.area CSEG    (CODE)
+                                   6575 	.area CONST   (CODE)
+      00203F                       6576 ___str_8:
+      00203F 48 6F 77 20 6D 61 6E  6577 	.ascii "How many data bits?"
+             79 20 64 61 74 61 20
+             62 69 74 73 3F
+      002052 0A                    6578 	.db 0x0a
+      002053 00                    6579 	.db 0x00
+                                   6580 	.area CSEG    (CODE)
+                                   6581 	.area CONST   (CODE)
+      002054                       6582 ___str_9:
+      002054 31 3A 20 38           6583 	.ascii "1: 8"
+      002058 0A                    6584 	.db 0x0a
+      002059 32 3A 20 39           6585 	.ascii "2: 9"
+      00205D 0A                    6586 	.db 0x0a
+      00205E 00                    6587 	.db 0x00
+                                   6588 	.area CSEG    (CODE)
+                                   6589 	.area CONST   (CODE)
+      00205F                       6590 ___str_10:
+      00205F 53 65 6C 65 63 74 20  6591 	.ascii "Select parity?"
+             70 61 72 69 74 79 3F
+      00206D 0A                    6592 	.db 0x0a
+      00206E 00                    6593 	.db 0x00
+                                   6594 	.area CSEG    (CODE)
+                                   6595 	.area CONST   (CODE)
+      00206F                       6596 ___str_11:
+      00206F 30 3A 20 4E 6F 6E 65  6597 	.ascii "0: None"
+      002076 0A                    6598 	.db 0x0a
+      002077 31 3A 20 4F 64 64     6599 	.ascii "1: Odd"
+      00207D 0A                    6600 	.db 0x0a
+      00207E 32 3A 20 45 76 65 6E  6601 	.ascii "2: Even"
+      002085 0A                    6602 	.db 0x0a
+      002086 00                    6603 	.db 0x00
+                                   6604 	.area CSEG    (CODE)
+                                   6605 	.area CONST   (CODE)
+      002087                       6606 ___str_12:
+      002087 31 3A 20 4F 64 64     6607 	.ascii "1: Odd"
+      00208D 0A                    6608 	.db 0x0a
+      00208E 32 3A 20 45 76 65 6E  6609 	.ascii "2: Even"
+      002095 0A                    6610 	.db 0x0a
+      002096 00                    6611 	.db 0x00
+                                   6612 	.area CSEG    (CODE)
+                                   6613 	.area CONST   (CODE)
+      002097                       6614 ___str_13:
+      002097 70 61 72 2E 20 63 6F  6615 	.ascii "par. comp. "
+             6D 70 2E 20
+      0020A2 00                    6616 	.db 0x00
+                                   6617 	.area CSEG    (CODE)
+                                   6618 	.area CONST   (CODE)
+      0020A3                       6619 ___str_14:
+      0020A3 52 78 20 70 61 72 69  6620 	.ascii "Rx parity error"
+             74 79 20 65 72 72 6F
+             72
+      0020B2 0A                    6621 	.db 0x0a
+      0020B3 00                    6622 	.db 0x00
+                                   6623 	.area CSEG    (CODE)
+                                   6624 	.area CONST   (CODE)
+      0020B4                       6625 ___str_15:
+      0020B4 43 6F 6E 66 69 67 2E  6626 	.ascii "Config. error"
+             20 65 72 72 6F 72
+      0020C1 0A                    6627 	.db 0x0a
+      0020C2 00                    6628 	.db 0x00
+                                   6629 	.area CSEG    (CODE)
+                                   6630 	.area CONST   (CODE)
+      0020C3                       6631 ___str_16:
+      0020C3 54 78 20 70 61 72 69  6632 	.ascii "Tx parity error"
+             74 79 20 65 72 72 6F
+             72
+      0020D2 0A                    6633 	.db 0x0a
+      0020D3 00                    6634 	.db 0x00
+                                   6635 	.area CSEG    (CODE)
+                                   6636 	.area CONST   (CODE)
+      0020D4                       6637 ___str_17:
+      0020D4 45 6E 74 65 72 20 62  6638 	.ascii "Enter byte to check"
              79 74 65 20 74 6F 20
              63 68 65 63 6B
-      0026B8 0A                    7693 	.db 0x0a
-      0026B9 00                    7694 	.db 0x00
-                                   7695 	.area CSEG    (CODE)
-                                   7696 	.area CONST   (CODE)
-      0026BA                       7697 ___str_19:
-      0026BA 49 6E 20 70 72 6F 67  7698 	.ascii "In progress..."
+      0020E7 0A                    6639 	.db 0x0a
+      0020E8 00                    6640 	.db 0x00
+                                   6641 	.area CSEG    (CODE)
+                                   6642 	.area CONST   (CODE)
+      0020E9                       6643 ___str_18:
+      0020E9 49 6E 20 70 72 6F 67  6644 	.ascii "In progress..."
              72 65 73 73 2E 2E 2E
-      0026C8 0A                    7699 	.db 0x0a
-      0026C9 00                    7700 	.db 0x00
-                                   7701 	.area CSEG    (CODE)
-                                   7702 	.area CONST   (CODE)
-      0026CA                       7703 ___str_20:
-      0026CA 4D 65 6D 6F 72 79 20  7704 	.ascii "Memory check failed"
+      0020F7 0A                    6645 	.db 0x0a
+      0020F8 00                    6646 	.db 0x00
+                                   6647 	.area CSEG    (CODE)
+                                   6648 	.area CONST   (CODE)
+      0020F9                       6649 ___str_19:
+      0020F9 4D 65 6D 6F 72 79 20  6650 	.ascii "Memory check failed"
              63 68 65 63 6B 20 66
              61 69 6C 65 64
-      0026DD 0A                    7705 	.db 0x0a
-      0026DE 00                    7706 	.db 0x00
-                                   7707 	.area CSEG    (CODE)
-                                   7708 	.area CONST   (CODE)
-      0026DF                       7709 ___str_21:
-      0026DF 53 75 63 63 65 73 73  7710 	.ascii "Success!"
+      00210C 0A                    6651 	.db 0x0a
+      00210D 00                    6652 	.db 0x00
+                                   6653 	.area CSEG    (CODE)
+                                   6654 	.area CONST   (CODE)
+      00210E                       6655 ___str_20:
+      00210E 53 75 63 63 65 73 73  6656 	.ascii "Success!"
              21
-      0026E7 0A                    7711 	.db 0x0a
-      0026E8 00                    7712 	.db 0x00
-                                   7713 	.area CSEG    (CODE)
-                                   7714 	.area CONST   (CODE)
-      0026E9                       7715 ___str_22:
-      0026E9 45 6E 74 65 72 20 62  7716 	.ascii "Enter byte"
+      002116 0A                    6657 	.db 0x0a
+      002117 00                    6658 	.db 0x00
+                                   6659 	.area CSEG    (CODE)
+                                   6660 	.area CONST   (CODE)
+      002118                       6661 ___str_21:
+      002118 50 72 65 73 73 20 31  6662 	.ascii "Press 1 for menu"
+             20 66 6F 72 20 6D 65
+             6E 75
+      002128 0A                    6663 	.db 0x0a
+      002129 00                    6664 	.db 0x00
+                                   6665 	.area CSEG    (CODE)
+                                   6666 	.area CONST   (CODE)
+      00212A                       6667 ___str_22:
+      00212A 45 6E 74 65 72 20 62  6668 	.ascii "Enter byte"
              79 74 65
-      0026F3 0A                    7717 	.db 0x0a
-      0026F4 00                    7718 	.db 0x00
-                                   7719 	.area CSEG    (CODE)
-                                   7720 	.area CONST   (CODE)
-      0026F5                       7721 ___str_23:
-      0026F5 45 6E 74 65 72 20 61  7722 	.ascii "Enter address"
+      002134 0A                    6669 	.db 0x0a
+      002135 00                    6670 	.db 0x00
+                                   6671 	.area CSEG    (CODE)
+                                   6672 	.area CONST   (CODE)
+      002136                       6673 ___str_23:
+      002136 45 6E 74 65 72 20 61  6674 	.ascii "Enter address"
              64 64 72 65 73 73
-      002702 0A                    7723 	.db 0x0a
-      002703 00                    7724 	.db 0x00
-                                   7725 	.area CSEG    (CODE)
-                                   7726 	.area CONST   (CODE)
-      002704                       7727 ___str_24:
-      002704 49 6E 20 70 72 6F 67  7728 	.ascii "In progress"
+      002143 0A                    6675 	.db 0x0a
+      002144 00                    6676 	.db 0x00
+                                   6677 	.area CSEG    (CODE)
+                                   6678 	.area CONST   (CODE)
+      002145                       6679 ___str_24:
+      002145 49 6E 20 70 72 6F 67  6680 	.ascii "In progress"
              72 65 73 73
-      00270F 0A                    7729 	.db 0x0a
-      002710 00                    7730 	.db 0x00
-                                   7731 	.area CSEG    (CODE)
-                                   7732 	.area CONST   (CODE)
-      002711                       7733 ___str_25:
-      002711 20 66 65 74 63 68 65  7734 	.ascii " fetched!"
+      002150 0A                    6681 	.db 0x0a
+      002151 00                    6682 	.db 0x00
+                                   6683 	.area CSEG    (CODE)
+                                   6684 	.area CONST   (CODE)
+      002152                       6685 ___str_25:
+      002152 20 66 65 74 63 68 65  6686 	.ascii " fetched!"
              64 21
-      00271A 0A                    7735 	.db 0x0a
-      00271B 53 75 63 63 65 73 73  7736 	.ascii "Success!"
+      00215B 0A                    6687 	.db 0x0a
+      00215C 53 75 63 63 65 73 73  6688 	.ascii "Success!"
              21
-      002723 0A                    7737 	.db 0x0a
-      002724 00                    7738 	.db 0x00
-                                   7739 	.area CSEG    (CODE)
-                                   7740 	.area CONST   (CODE)
-      002725                       7741 ___str_26:
-      002725 43 68 65 63 6B 20 66  7742 	.ascii "Check failed"
+      002164 0A                    6689 	.db 0x0a
+      002165 00                    6690 	.db 0x00
+                                   6691 	.area CSEG    (CODE)
+                                   6692 	.area CONST   (CODE)
+      002166                       6693 ___str_26:
+      002166 43 68 65 63 6B 20 66  6694 	.ascii "Check failed"
              61 69 6C 65 64
-      002731 0A                    7743 	.db 0x0a
-      002732 00                    7744 	.db 0x00
-                                   7745 	.area CSEG    (CODE)
-                                   7746 	.area CONST   (CODE)
-      002733                       7747 ___str_27:
-      002733 45 6E 74 65 72 20 74  7748 	.ascii "Enter target address:"
-             61 72 67 65 74 20 61
-             64 64 72 65 73 73 3A
-      002748 0A                    7749 	.db 0x0a
-      002749 00                    7750 	.db 0x00
-                                   7751 	.area CSEG    (CODE)
-                                   7752 	.area CONST   (CODE)
-      00274A                       7753 ___str_28:
-      00274A 45 6E 74 65 72 20 73  7754 	.ascii "Enter size:"
-             69 7A 65 3A
-      002755 0A                    7755 	.db 0x0a
-      002756 00                    7756 	.db 0x00
-                                   7757 	.area CSEG    (CODE)
-                                   7758 	.area CONST   (CODE)
-      002757                       7759 ___str_29:
-      002757 4D 6F 76 65 20 69 6E  7760 	.ascii "Move in progress..."
-             20 70 72 6F 67 72 65
-             73 73 2E 2E 2E
-      00276A 0A                    7761 	.db 0x0a
-      00276B 00                    7762 	.db 0x00
-                                   7763 	.area CSEG    (CODE)
-                                   7764 	.area CONST   (CODE)
-      00276C                       7765 ___str_30:
-      00276C 44 6F 6E 65 21        7766 	.ascii "Done!"
-      002771 0A                    7767 	.db 0x0a
-      002772 00                    7768 	.db 0x00
-                                   7769 	.area CSEG    (CODE)
-                                   7770 	.area CONST   (CODE)
-      002773                       7771 ___str_31:
-      002773 45 6E 74 65 72 20 6E  7772 	.ascii "Enter new byte:"
-             65 77 20 62 79 74 65
-             3A
-      002782 0A                    7773 	.db 0x0a
-      002783 00                    7774 	.db 0x00
-                                   7775 	.area CSEG    (CODE)
-                                   7776 	.area CONST   (CODE)
-      002784                       7777 ___str_32:
-      002784 45 6E 74 65 72 20 61  7778 	.ascii "Enter address:"
-             64 64 72 65 73 73 3A
-      002792 0A                    7779 	.db 0x0a
-      002793 00                    7780 	.db 0x00
-                                   7781 	.area CSEG    (CODE)
-                                   7782 	.area CONST   (CODE)
-      002794                       7783 ___str_33:
-      002794 50 72 65 73 73 20 32  7784 	.ascii "Press 2 to edit again"
-             20 74 6F 20 65 64 69
-             74 20 61 67 61 69 6E
-      0027A9 0A                    7785 	.db 0x0a
-      0027AA 00                    7786 	.db 0x00
-                                   7787 	.area CSEG    (CODE)
-                                   7788 	.area CONST   (CODE)
-      0027AB                       7789 ___str_34:
-      0027AB 50 72 65 73 73 20 33  7790 	.ascii "Press 3 to edit next address"
-             20 74 6F 20 65 64 69
-             74 20 6E 65 78 74 20
-             61 64 64 72 65 73 73
-      0027C7 0A                    7791 	.db 0x0a
-      0027C8 00                    7792 	.db 0x00
-                                   7793 	.area CSEG    (CODE)
-                                   7794 	.area CONST   (CODE)
-      0027C9                       7795 ___str_35:
-      0027C9 4E 6F 20 6D 61 74 63  7796 	.ascii "No matches found"
-             68 65 73 20 66 6F 75
-             6E 64
-      0027D9 0A                    7797 	.db 0x0a
-      0027DA 00                    7798 	.db 0x00
-                                   7799 	.area CSEG    (CODE)
-                                   7800 	.area CONST   (CODE)
-      0027DB                       7801 ___str_36:
-      0027DB 20 6D 61 74 63 68 65  7802 	.ascii " matches found"
-             73 20 66 6F 75 6E 64
-      0027E9 0A                    7803 	.db 0x0a
-      0027EA 00                    7804 	.db 0x00
-                                   7805 	.area CSEG    (CODE)
-                                   7806 	.area CONST   (CODE)
-      0027EB                       7807 ___str_37:
-      0027EB 45 6E 74 65 72 20 62  7808 	.ascii "Enter byte to count:"
-             79 74 65 20 74 6F 20
-             63 6F 75 6E 74 3A
-      0027FF 0A                    7809 	.db 0x0a
-      002800 00                    7810 	.db 0x00
-                                   7811 	.area CSEG    (CODE)
-                                   7812 	.area CONST   (CODE)
-      002801                       7813 ___str_38:
-      002801 54 65 6D 70 65 72 61  7814 	.ascii "Temperature: "
-             74 75 72 65 3A 20
-      00280E 00                    7815 	.db 0x00
-                                   7816 	.area CSEG    (CODE)
-                                   7817 	.area CONST   (CODE)
-      00280F                       7818 ___str_39:
-      00280F 50 72 65 73 73 20 6B  7819 	.ascii "Press key to refresh"
-             65 79 20 74 6F 20 72
-             65 66 72 65 73 68
-      002823 0A                    7820 	.db 0x0a
-      002824 00                    7821 	.db 0x00
-                                   7822 	.area CSEG    (CODE)
-                                   7823 	.area CONST   (CODE)
-      002825                       7824 ___str_40:
-      002825 4C 69 67 68 74 20 6C  7825 	.ascii "Light level: "
-             65 76 65 6C 3A 20
-      002832 00                    7826 	.db 0x00
-                                   7827 	.area CSEG    (CODE)
-                                   7828 	.area CONST   (CODE)
-      002833                       7829 ___str_41:
-      002833 55 41 52 54 20 46 72  7830 	.ascii "UART Free type, 0 for menu:"
+      002172 0A                    6695 	.db 0x0a
+      002173 00                    6696 	.db 0x00
+                                   6697 	.area CSEG    (CODE)
+                                   6698 	.area CONST   (CODE)
+      002174                       6699 ___str_27:
+      002174 55 41 52 54 20 46 72  6700 	.ascii "UART Free type, 0 for menu:"
              65 65 20 74 79 70 65
              2C 20 30 20 66 6F 72
              20 6D 65 6E 75 3A
-      00284E 0A                    7831 	.db 0x0a
-      00284F 00                    7832 	.db 0x00
-                                   7833 	.area CSEG    (CODE)
-                                   7834 	.area CONST   (CODE)
-      002850                       7835 ___str_42:
-      002850 42 72 61 6E 64 6F 6E  7836 	.ascii "Brandon Cline"
+      00218F 0A                    6701 	.db 0x0a
+      002190 00                    6702 	.db 0x00
+                                   6703 	.area CSEG    (CODE)
+                                   6704 	.area CONST   (CODE)
+      002191                       6705 ___str_28:
+      002191 57 68 69 63 68 20 6D  6706 	.ascii "Which mode?"
+             6F 64 65 3F
+      00219C 0A                    6707 	.db 0x0a
+      00219D 00                    6708 	.db 0x00
+                                   6709 	.area CSEG    (CODE)
+                                   6710 	.area CONST   (CODE)
+      00219E                       6711 ___str_29:
+      00219E 31 3A 20 4C 6F 6F 70  6712 	.ascii "1: Loopback"
+             62 61 63 6B
+      0021A9 0A                    6713 	.db 0x0a
+      0021AA 00                    6714 	.db 0x00
+                                   6715 	.area CSEG    (CODE)
+                                   6716 	.area CONST   (CODE)
+      0021AB                       6717 ___str_30:
+      0021AB 32 3A 20 49 6E 74 65  6718 	.ascii "2: Interboard"
+             72 62 6F 61 72 64
+      0021B8 0A                    6719 	.db 0x0a
+      0021B9 00                    6720 	.db 0x00
+                                   6721 	.area CSEG    (CODE)
+                                   6722 	.area CONST   (CODE)
+      0021BA                       6723 ___str_31:
+      0021BA 30 3A 20 45 78 69 74  6724 	.ascii "0: Exit"
+      0021C1 0A                    6725 	.db 0x0a
+      0021C2 00                    6726 	.db 0x00
+                                   6727 	.area CSEG    (CODE)
+                                   6728 	.area CONST   (CODE)
+      0021C3                       6729 ___str_32:
+      0021C3 50 72 65 73 73 20 30  6730 	.ascii "Press 0 for menu"
+             20 66 6F 72 20 6D 65
+             6E 75
+      0021D3 0A                    6731 	.db 0x0a
+      0021D4 00                    6732 	.db 0x00
+                                   6733 	.area CSEG    (CODE)
+                                   6734 	.area CONST   (CODE)
+      0021D5                       6735 ___str_33:
+      0021D5 31 3A 20 54 72 61 6E  6736 	.ascii "1: Transmit"
+             73 6D 69 74
+      0021E0 0A                    6737 	.db 0x0a
+      0021E1 32 3A 20 52 65 63 65  6738 	.ascii "2: Receive"
+             69 76 65
+      0021EB 0A                    6739 	.db 0x0a
+      0021EC 30 3A 20 45 78 69 74  6740 	.ascii "0: Exit"
+      0021F3 0A                    6741 	.db 0x0a
+      0021F4 00                    6742 	.db 0x00
+                                   6743 	.area CSEG    (CODE)
+                                   6744 	.area CONST   (CODE)
+      0021F5                       6745 ___str_34:
+      0021F5 54 78 20 4D 6F 64 65  6746 	.ascii "Tx Mode, 0 for menu:"
+             2C 20 30 20 66 6F 72
+             20 6D 65 6E 75 3A
+      002209 0A                    6747 	.db 0x0a
+      00220A 00                    6748 	.db 0x00
+                                   6749 	.area CSEG    (CODE)
+                                   6750 	.area CONST   (CODE)
+      00220B                       6751 ___str_35:
+      00220B 42 72 61 6E 64 6F 6E  6752 	.ascii "Brandon Cline"
              20 43 6C 69 6E 65
-      00285D 0A                    7837 	.db 0x0a
-      00285E 00                    7838 	.db 0x00
-                                   7839 	.area CSEG    (CODE)
-                                   7840 	.area CONST   (CODE)
-      00285F                       7841 ___str_43:
-      00285F 45 43 45 4E 20 34 33  7842 	.ascii "ECEN 4330"
+      002218 0A                    6753 	.db 0x0a
+      002219 00                    6754 	.db 0x00
+                                   6755 	.area CSEG    (CODE)
+                                   6756 	.area CONST   (CODE)
+      00221A                       6757 ___str_36:
+      00221A 45 43 45 4E 20 34 33  6758 	.ascii "ECEN 4330"
              33 30
-      002868 0A                    7843 	.db 0x0a
-      002869 00                    7844 	.db 0x00
-                                   7845 	.area CSEG    (CODE)
-                                   7846 	.area CONST   (CODE)
-      00286A                       7847 ___str_44:
-      00286A 31 3A 20 42 61 73 69  7848 	.ascii "1: Basic check"
+      002223 0A                    6759 	.db 0x0a
+      002224 00                    6760 	.db 0x00
+                                   6761 	.area CSEG    (CODE)
+                                   6762 	.area CONST   (CODE)
+      002225                       6763 ___str_37:
+      002225 31 3A 20 42 61 73 69  6764 	.ascii "1: Basic check"
              63 20 63 68 65 63 6B
-      002878 0A                    7849 	.db 0x0a
-      002879 00                    7850 	.db 0x00
-                                   7851 	.area CSEG    (CODE)
-                                   7852 	.area CONST   (CODE)
-      00287A                       7853 ___str_45:
-      00287A 32 3A 20 44 75 6D 70  7854 	.ascii "2: Dump"
-      002881 0A                    7855 	.db 0x0a
-      002882 00                    7856 	.db 0x00
-                                   7857 	.area CSEG    (CODE)
-                                   7858 	.area CONST   (CODE)
-      002883                       7859 ___str_46:
-      002883 33 3A 20 43 68 65 63  7860 	.ascii "3: Check"
+      002233 0A                    6765 	.db 0x0a
+      002234 00                    6766 	.db 0x00
+                                   6767 	.area CSEG    (CODE)
+                                   6768 	.area CONST   (CODE)
+      002235                       6769 ___str_38:
+      002235 32 3A 20 44 75 6D 70  6770 	.ascii "2: Dump"
+      00223C 0A                    6771 	.db 0x0a
+      00223D 00                    6772 	.db 0x00
+                                   6773 	.area CSEG    (CODE)
+                                   6774 	.area CONST   (CODE)
+      00223E                       6775 ___str_39:
+      00223E 33 3A 20 43 68 65 63  6776 	.ascii "3: Check"
              6B
-      00288B 0A                    7861 	.db 0x0a
-      00288C 00                    7862 	.db 0x00
-                                   7863 	.area CSEG    (CODE)
-                                   7864 	.area CONST   (CODE)
-      00288D                       7865 ___str_47:
-      00288D 41 3A 20 4D 6F 76 65  7866 	.ascii "A: Move"
-      002894 0A                    7867 	.db 0x0a
-      002895 00                    7868 	.db 0x00
-                                   7869 	.area CSEG    (CODE)
-                                   7870 	.area CONST   (CODE)
-      002896                       7871 ___str_48:
-      002896 34 3A 20 45 64 69 74  7872 	.ascii "4: Edit"
-      00289D 0A                    7873 	.db 0x0a
-      00289E 00                    7874 	.db 0x00
-                                   7875 	.area CSEG    (CODE)
-                                   7876 	.area CONST   (CODE)
-      00289F                       7877 ___str_49:
-      00289F 35 3A 20 46 69 6E 64  7878 	.ascii "5: Find"
-      0028A6 0A                    7879 	.db 0x0a
-      0028A7 00                    7880 	.db 0x00
-                                   7881 	.area CSEG    (CODE)
-                                   7882 	.area CONST   (CODE)
-      0028A8                       7883 ___str_50:
-      0028A8 36 3A 20 43 6F 75 6E  7884 	.ascii "6: Count"
+      002246 0A                    6777 	.db 0x0a
+      002247 00                    6778 	.db 0x00
+                                   6779 	.area CSEG    (CODE)
+                                   6780 	.area CONST   (CODE)
+      002248                       6781 ___str_40:
+      002248 41 3A 20 4D 6F 76 65  6782 	.ascii "A: Move"
+      00224F 0A                    6783 	.db 0x0a
+      002250 00                    6784 	.db 0x00
+                                   6785 	.area CSEG    (CODE)
+                                   6786 	.area CONST   (CODE)
+      002251                       6787 ___str_41:
+      002251 34 3A 20 45 64 69 74  6788 	.ascii "4: Edit"
+      002258 0A                    6789 	.db 0x0a
+      002259 00                    6790 	.db 0x00
+                                   6791 	.area CSEG    (CODE)
+                                   6792 	.area CONST   (CODE)
+      00225A                       6793 ___str_42:
+      00225A 35 3A 20 46 69 6E 64  6794 	.ascii "5: Find"
+      002261 0A                    6795 	.db 0x0a
+      002262 00                    6796 	.db 0x00
+                                   6797 	.area CSEG    (CODE)
+                                   6798 	.area CONST   (CODE)
+      002263                       6799 ___str_43:
+      002263 36 3A 20 43 6F 75 6E  6800 	.ascii "6: Count"
              74
-      0028B0 0A                    7885 	.db 0x0a
-      0028B1 00                    7886 	.db 0x00
-                                   7887 	.area CSEG    (CODE)
-                                   7888 	.area CONST   (CODE)
-      0028B2                       7889 ___str_51:
-      0028B2 42 3A 20 54 65 6D 70  7890 	.ascii "B: Temperature"
+      00226B 0A                    6801 	.db 0x0a
+      00226C 00                    6802 	.db 0x00
+                                   6803 	.area CSEG    (CODE)
+                                   6804 	.area CONST   (CODE)
+      00226D                       6805 ___str_44:
+      00226D 42 3A 20 54 65 6D 70  6806 	.ascii "B: Temperature"
              65 72 61 74 75 72 65
-      0028C0 0A                    7891 	.db 0x0a
-      0028C1 00                    7892 	.db 0x00
-                                   7893 	.area CSEG    (CODE)
-                                   7894 	.area CONST   (CODE)
-      0028C2                       7895 ___str_52:
-      0028C2 37 3A 20 4C 69 67 68  7896 	.ascii "7: Light"
+      00227B 0A                    6807 	.db 0x0a
+      00227C 00                    6808 	.db 0x00
+                                   6809 	.area CSEG    (CODE)
+                                   6810 	.area CONST   (CODE)
+      00227D                       6811 ___str_45:
+      00227D 37 3A 20 4C 69 67 68  6812 	.ascii "7: Light"
              74
-      0028CA 0A                    7897 	.db 0x0a
-      0028CB 00                    7898 	.db 0x00
-                                   7899 	.area CSEG    (CODE)
-                                   7900 	.area CONST   (CODE)
-      0028CC                       7901 ___str_53:
-      0028CC 38 3A 20 55 41 52 54  7902 	.ascii "8: UART free type"
+      002285 0A                    6813 	.db 0x0a
+      002286 00                    6814 	.db 0x00
+                                   6815 	.area CSEG    (CODE)
+                                   6816 	.area CONST   (CODE)
+      002287                       6817 ___str_46:
+      002287 38 3A 20 55 41 52 54  6818 	.ascii "8: UART free type"
              20 66 72 65 65 20 74
              79 70 65
-      0028DD 0A                    7903 	.db 0x0a
-      0028DE 00                    7904 	.db 0x00
-                                   7905 	.area CSEG    (CODE)
-                                   7906 	.area XINIT   (CODE)
-                                   7907 	.area CABS    (ABS,CODE)
+      002298 0A                    6819 	.db 0x0a
+      002299 00                    6820 	.db 0x00
+                                   6821 	.area CSEG    (CODE)
+                                   6822 	.area CONST   (CODE)
+      00229A                       6823 ___str_47:
+      00229A 39 3A 20 45 43 45 4E  6824 	.ascii "9: ECEN 435 UART"
+             20 34 33 35 20 55 41
+             52 54
+      0022AA 0A                    6825 	.db 0x0a
+      0022AB 00                    6826 	.db 0x00
+                                   6827 	.area CSEG    (CODE)
+                                   6828 	.area XINIT   (CODE)
+                                   6829 	.area CABS    (ABS,CODE)

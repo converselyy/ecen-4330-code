@@ -2,6 +2,14 @@
 uint16_t getAddress(void);
 uint8_t getByte(void);
 
+// ECEN 435 prototypes for Lab 1
+void UART_config(void);
+void UART_menu(void);
+uint16_t parity_check(uint8_t d);
+void receive_parity(void);
+void loopback(void);
+void interboard(void);
+
 // system functions
 void dumpPage(uint16_t start, __xdata uint8_t n, __xdata uint8_t type);
 void dump(void);

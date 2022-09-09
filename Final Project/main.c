@@ -1,22 +1,22 @@
 #include <8051.h>
-#include "USART.c"
 #include "ecen4330_lcd_v3.c"
+#include "USART.c"
 
 #include "prototypes.h"
 #include "getFunctions.c"
 
 // function includes
-#include "dump2.c"
+// #include "dump2.c"
 #include "check.c"
-#include "move.c"
-#include "edit.c"
-// #include "find.c"
-// #include "find2.c"
+// #include "move.c"
+// #include "edit.c"
 // #include "find3.c"
-// #include "count.c"
-#include "count3.c"
-#include "analog.c"
+// #include "count3.c"
+// #include "analog.c"
 #include "UART_freetype.c"
+
+// ECEN 435
+#include "435_UART.c"
 
 /**
  * Name		: Brandon Cline
@@ -67,6 +67,9 @@ void menu(void) {
 
 	// 8: UART free type
 	LCD_string_write("8: UART free type\n");
+
+	// ECEN 435: Lab 1 UART
+	LCD_string_write("9: ECEN 435 UART\n");
 }
 
 void main(void) {
@@ -93,16 +96,19 @@ void main(void) {
 
 		// select menu option based on input
 		switch(input) {
-			case '1': basic(); break;
-			case '2': dump(); break;
+			// case '1': basic(); break;
+			// case '2': dump(); break;
 			case '3': check(); break;
-			case 'A': move(); break;
-			case '4': edit(); break;
-			case '5': count(); break;
-			case '6': count(); break;
-			case 'B': temperature(); break;
-			case '7': light(); break;
+			// case 'A': move(); break;
+			// case '4': edit(); break;
+			// case '5': find(); break;
+			// case '6': count(); break;
+			// case 'B': temperature(); break;
+			// case '7': light(); break;
 			case '8': UART_free_type(); break;
+
+			// ECEN 435: Embedded Microcontroller Design
+			case '9': UART_menu(); break;
 			default: break;
 		}
 	}

@@ -443,7 +443,7 @@ void write (uint8_t c)
 }
 
 /**
- * @brief write a string to the LCD where the cursor on the LCD is
+ * @brief write a string to the LCD starting where the cursor on the LCD is
  * 
  * @param str string to be written
  */

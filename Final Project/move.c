@@ -3,7 +3,7 @@
  * 
  */
 void move(void) {
-	// // LCD setup
+	// LCD setup
 	fillScreen(GRAY);
 	setCursor(0, 0);
 	
@@ -39,8 +39,6 @@ void move(void) {
 		if ((i + startAdd == __END_RAM__) || (i + targetAdd == __END_RAM__)) break;
 
 		// move memory from startAdd to targetAdd
-
-		// not sure if this actually works
 		IOM = 0;
 		origin = (uint16_t __xdata*)(startAdd + i);
 		target = (uint16_t __xdata*)(targetAdd + i);
@@ -48,9 +46,6 @@ void move(void) {
 		*target = o;
 		IOM = 1;
 		
-		// increment both startAdd and targetAdd
-		// startAdd++;
-		// targetAdd++;
 	}
 
 	LCD_string_write("Done!\n");

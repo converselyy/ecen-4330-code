@@ -9,6 +9,7 @@ void UART_free_type() {
 	while (1) {
 		if (received_flag == 1) {
 			if (received_byte == '0') {
+				received_flag = 0;
 				break;
 			} else {
 				// do something with received_byte

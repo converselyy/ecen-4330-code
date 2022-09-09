@@ -3,6 +3,7 @@
 		"registers.h": "c",
 		"ecen4330lcdh.h": "c",
 		"stdbool.h": "c",
-		"8051.h": "c"
+		"8051.h": "c",
+		"prototypes.h": "c"
 	}
 }

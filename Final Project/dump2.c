@@ -139,15 +139,15 @@ void dump(void) {
 		input = keyDetect();
 
 		// if statements for input
-		if (input == 'B' && page != pages) {	// next
+		if (input == 'B' && page != pages) {		// next
 			address += NUM;
 			dumpPage(address, NUM, type);
 			page++;
-		} else if (input == 'A' && page != 1) {				// previous
+		} else if (input == 'A' && page != 1) {		// previous
 			address -= NUM;
 			dumpPage(address, NUM, type);
 			page--;
-		} else if (input == '1') {							// main menu
+		} else if (input == '1') {					// main menu
 			break;
 		}
 

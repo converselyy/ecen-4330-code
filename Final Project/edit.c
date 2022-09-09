@@ -15,7 +15,6 @@ void editByte(__xdata uint16_t add) {
 	// display address
 	asciiToHex(high);
 	asciiToHex(low);
-	// asciiToHex(add);
 	LCD_string_write(": ");
 
 	// fetch data at address

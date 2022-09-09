@@ -20,7 +20,7 @@ void printCount(uint16_t start, uint8_t key, uint8_t index, uint8_t count) {
 
 	// loop through results to generate a page
 	for (i = 0; i < NUM; i++) {
-		// if (start + i == __END_RAM__) break;
+		if (start + i == __END_RAM__) break;
 
 		IOM = 0;
 		ramAddress = (uint16_t __xdata*)(start + i);
@@ -86,13 +86,9 @@ void count() {
 		if (found == key) n++;
 	}
 
-	// display first page based on number of matches
-	// if (n > NUM) {
-		printCount(address, key, index, n);
-		index += NUM;
-	// } else {
-	// 	printCount(address, n, key, index, n);
-	// }
+	// display first page
+	printCount(address, key, index, n);
+	index += NUM;
 
 	// determine number of pages
 	pages = size / NUM;
