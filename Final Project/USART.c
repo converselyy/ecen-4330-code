@@ -133,23 +133,10 @@ uint16_t parity_check(uint16_t d) {
  * 
  */
 void receive_parity() {
-	// if there's no parity
+	// make sure there's a parity setting
 	if (parity != 0) {
-		// if it's 8 bit data
-		// if (bit == 8) {
-		// 	if (parity_check(received_byte) == parity) {				// check parity of data vs system parity
-		// 		received_byte &= 0x7F;									// mask MSB (parity bit) if there's no error to convert d to ASCII
-		// 	} else {
-		// 		// error message
-		// 	}
-		// // if it's 9 bit data
-		// } else if (bit == 9) {
-		// 	if (parity_check() != parity) {								// check RB8 along with received_byte for parity error
-		// 		// error message
-		// 	}
-		// }
-
 		switch (bit) {
+			// if it's 8 bit data
 			case 8: {
 				// check parity of data vs system parity
 				if ((parity_check(received_byte) == 0 && parity == 0x2) || (parity_check(received_byte) == parity)) {
@@ -165,6 +152,7 @@ void receive_parity() {
 				}
 				break;
 			}
+			// if it's 9 bit data
 			case 9: {
 				// check RB8 along with received_byte for 9 bit parity check
 				if ((parity_check((RB8 << 8) | received_byte) == 0 && parity == 2) || (parity_check((RB8 << 8) | received_byte) == 1 && parity == 1))
